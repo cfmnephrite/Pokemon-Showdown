@@ -123,13 +123,11 @@ let BattleAbilities = {
 		num: 148,
 	},
 	"angerpoint": {
-		desc: "If this Pokemon, but not its substitute, is struck by a critical hit, its Attack is raised by 12 stages.",
-		shortDesc: "If this Pokemon (not its substitute) takes a critical hit, its Attack is raised 12 stages.",
-		onHit(target, source, move) {
-			if (!target.hp) return;
-			if (move && move.effectType === 'Move' && effect.id !== 'confusion' && this.randomChance(1, 2)) {
-				this.boost({[target.storedStats.spa > target.storedStats.atk ? 'spa' : 'atk'] : 1}, target);
-			}
+		shortDesc: "50% chance to boost higher of Attack/Sp. Atk if hit by a damaging move.",
+		onAfterDamage(damage, target, source, effect) {
+			if (effect && effect.effectType === 'Move' && effect.id !== 'confused') {
+				if (this.randomChance(1, 2)) this.boost({[target.storedStats.spa > target.storedStats.atk ? 'spa' : 'atk']:1}, target);
+				}
 		},
 		id: "angerpoint",
 		name: "Anger Point",
@@ -200,10 +198,7 @@ let BattleAbilities = {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Aura Break');
 		},
-		onAnyTryPrimaryHit(target, source, move) {
-			if (target === source || move.category === 'Status') return;
-			move.hasAuraBreak = true;
-		},
+		isUnbreakable: true,
 		id: "aurabreak",
 		name: "Aura Break",
 		rating: 1,
@@ -339,7 +334,7 @@ let BattleAbilities = {
 		num: 201,
 	},
 	"bigpecks": {
-		shortDesc: "Prevents other Pokemon from lowering this Pokemon's Defense stat stage.",
+		shortDesc: "Prevents Defence drops; boosts Flying-type moves by 50%.",
 		onBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			if (boost.def && boost.def < 0) {
@@ -347,6 +342,12 @@ let BattleAbilities = {
 				if (!(/** @type {ActiveMove} */(effect)).secondaries) {
 					this.add("-fail", target, "unboost", "Defense", "[from] ability: Big Pecks", "[of] " + target);
 				}
+			}
+		},
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Flying') {
+				return this.chainModify(1.5);
 			}
 		},
 		id: "bigpecks",
@@ -357,15 +358,8 @@ let BattleAbilities = {
 	"blaze": {
 		desc: "When this Pokemon has 1/3 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Fire-type attack.",
 		shortDesc: "At 1/3 or less of its max HP, this Pokemon's attacking stat is 1.5x with Fire attacks.",
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
-				this.debug('Blaze boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
 				this.debug('Blaze boost');
 				return this.chainModify(1.5);
@@ -570,7 +564,8 @@ let BattleAbilities = {
 		onAfterDamage(damage, target, source, move) {
 			if (!source || source.volatiles['disable']) return;
 			if (source !== target && move && move.effectType === 'Move' && !move.isFutureMove) {
-				if (this.randomChance(3, 10)) {
+				let r = this.random(10);
+				if (r < 3 || r < 6 && target.hp == 0) {
 					source.addVolatile('disable', this.effectData.target);
 				}
 			}
@@ -596,8 +591,7 @@ let BattleAbilities = {
 		num: 56,
 	},
 	"damp": {
-		desc: "While this Pokemon is active, Explosion, Mind Blown, Self-Destruct, and the Aftermath Ability are prevented from having an effect.",
-		shortDesc: "Prevents Explosion/Mind Blown/Self-Destruct/Aftermath while this Pokemon is active.",
+		shortDesc: "Immune to burn, Explosion, Aftermath; resists Fire-type moves.",
 		id: "damp",
 		onAnyTryMove(target, source, effect) {
 			if (['explosion', 'mindblown', 'selfdestruct'].includes(effect.id)) {
@@ -610,6 +604,18 @@ let BattleAbilities = {
 			if (effect && effect.id === 'aftermath') {
 				return false;
 			}
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (move && move.effectType === 'Move' && move.type === 'Fire' && this.dex.getEffectiveness(move.type, type) > 0){
+				if (type != target.getTypes()[0]) return 0;
+                return -1;
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if (!effect || !effect.status) return false;
+			this.add('-immune', target, '[from] ability: Damp');
+			return false;
 		},
 		name: "Damp",
 		rating: 1,
@@ -630,11 +636,19 @@ let BattleAbilities = {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Dark Aura');
 		},
+		onModifyMovePriority: -1,
+		onModifyMove(move, pokemon) {
+			if (this.field.auraBreak()){
+				if (move.type === 'Dark') move.type = '???';
+			}
+			else if (move.type === 'Normal' && !['hiddenpower', 'judgment', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !move.isZ)
+				move.type = 'Dark';
+		},
 		onAnyBasePower(basePower, source, target, move) {
-			if (target === source || move.category === 'Status' || move.type !== 'Dark') return;
+			if (target === source || move.category === 'Status' || move.type !== 'Dark' || this.field.auraBreak()) return;
 			if (!move.auraBooster) move.auraBooster = this.effectData.target;
 			if (move.auraBooster !== this.effectData.target) return;
-			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
+			return this.chainModify([0x1547, 0x1000]);
 		},
 		isUnbreakable: true,
 		id: "darkaura",
@@ -859,10 +873,12 @@ let BattleAbilities = {
 			}
 		},
 		onWeather(target, source, effect) {
-			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
-				this.heal(target.maxhp / 8);
-			} else if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
-				this.damage(target.maxhp / 8, target, target);
+			if (!target.hasType('Fire')){
+				if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+					this.heal(target.maxhp / 8);
+				} else if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+					this.damage(target.maxhp / 8, target, target);
+				}
 			}
 		},
 		id: "dryskin",
@@ -871,7 +887,7 @@ let BattleAbilities = {
 		num: 87,
 	},
 	"earlybird": {
-		shortDesc: "This Pokemon's sleep counter drops by 2 instead of 1.",
+		shortDesc: "This Pokémon wakes up straight away.",
 		id: "earlybird",
 		name: "Early Bird",
 		// Implemented in statuses.js
@@ -942,11 +958,19 @@ let BattleAbilities = {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Fairy Aura');
 		},
+		onModifyMovePriority: -1,
+		onModifyMove(move, pokemon) {
+			if (this.field.auraBreak()){
+				if (move.type === 'Fairy') move.type = '???';
+			}
+			else if (move.type === 'Normal' && !['hiddenpower', 'judgment', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !move.isZ)
+				move.type = 'Fairy';
+		},
 		onAnyBasePower(basePower, source, target, move) {
-			if (target === source || move.category === 'Status' || move.type !== 'Fairy') return;
+			if (target === source || move.category === 'Status' || move.type !== 'Fairy' || this.field.auraBreak()) return;
 			if (!move.auraBooster) move.auraBooster = this.effectData.target;
 			if (move.auraBooster !== this.effectData.target) return;
-			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
+			return this.chainModify([0x1547, 0x1000]);
 		},
 		isUnbreakable: true,
 		id: "fairyaura",
@@ -955,11 +979,14 @@ let BattleAbilities = {
 		num: 187,
 	},
 	"filter": {
-		shortDesc: "This Pokemon receives 3/4 damage from supereffective attacks.",
+		shortDesc: "Reduces super-effective damage taken by 25%; 50% if 2x super-effective.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
+				let chainMod = 0.75;
+				if (this.dex.getEffectiveness(move.type, target.getTypes()[0]) > 0 && this.dex.getEffectiveness(move.type, target.getTypes()[1]) > 0)
+					chainMod = 0.5;
 				this.debug('Filter neutralize');
-				return this.chainModify(0.75);
+				return this.chainModify(chainMod);
 			}
 		},
 		id: "filter",
@@ -982,12 +1009,16 @@ let BattleAbilities = {
 		num: 49,
 	},
 	"flareboost": {
-		desc: "While this Pokemon is burned, the power of its special attacks is multiplied by 1.5.",
-		shortDesc: "While this Pokemon is burned, its special attacks have 1.5x power.",
+		shortDesc: "If this Pokémon is burned: Sp. Attack boosted by 50%; burn damage 1/16th.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
 			if (attacker.status === 'brn' && move.category === 'Special') {
 				return this.chainModify(1.5);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'brn') {
+				return target.maxhp / 16;
 			}
 		},
 		id: "flareboost",
@@ -996,42 +1027,14 @@ let BattleAbilities = {
 		num: 138,
 	},
 	"flashfire": {
-		desc: "This Pokemon is immune to Fire-type moves. The first time it is hit by a Fire-type move, its attacking stat is multiplied by 1.5 while using a Fire-type attack as long as it remains active and has this Ability. If this Pokemon is frozen, it cannot be defrosted by Fire-type attacks.",
-		shortDesc: "This Pokemon's Fire attacks do 1.5x damage if hit by one Fire move; Fire immunity.",
+		shortDesc: "If hit by a Fire-type attack; grants immunity, boosts higher offensive stat.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
-				move.accuracy = true;
-				if (!target.addVolatile('flashfire')) {
+				if (!this.boost({[target.storedStats.atk > target.storedStats.spa ? 'atk' : 'spa']: 1})) {
 					this.add('-immune', target, '[from] ability: Flash Fire');
 				}
 				return null;
 			}
-		},
-		onEnd(pokemon) {
-			pokemon.removeVolatile('flashfire');
-		},
-		effect: {
-			noCopy: true, // doesn't get copied by Baton Pass
-			onStart(target) {
-				this.add('-start', target, 'ability: Flash Fire');
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, attacker, defender, move) {
-				if (move.type === 'Fire') {
-					this.debug('Flash Fire boost');
-					return this.chainModify(1.5);
-				}
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(atk, attacker, defender, move) {
-				if (move.type === 'Fire') {
-					this.debug('Flash Fire boost');
-					return this.chainModify(1.5);
-				}
-			},
-			onEnd(target) {
-				this.add('-end', target, 'ability: Flash Fire', '[silent]');
-			},
 		},
 		id: "flashfire",
 		name: "Flash Fire",
@@ -1039,10 +1042,11 @@ let BattleAbilities = {
 		num: 18,
 	},
 	"flowergift": {
-		desc: "If this Pokemon is a Cherrim and Sunny Day is active, it changes to Sunshine Form and the Attack and Special Defense of it and its allies are multiplied by 1.5.",
-		shortDesc: "If user is Cherrim and Sunny Day is active, it and allies' Attack and Sp. Def are 1.5x.",
+		shortDesc: "Cherrim: auto-summons Sunny Day if in slot 1; transforms into Cherrim-Sunshine.",
 		onStart(pokemon) {
 			delete this.effectData.forme;
+			if (this.field.isWeather(['desolateland', 'primordialsea', 'deltastream', 'sunnyday'])) return;
+			if (this.dex.getMove(pokemon.moveSlots[0].move.id == 'sunnyday')) this.field.setWeather('sunnyday');
 		},
 		onUpdate(pokemon) {
 			if (!pokemon.isActive || pokemon.baseTemplate.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
@@ -1056,19 +1060,17 @@ let BattleAbilities = {
 				}
 			}
 		},
-		onAllyModifyAtkPriority: 3,
-		onAllyModifyAtk(atk) {
-			if (this.effectData.target.baseTemplate.baseSpecies !== 'Cherrim') return;
-			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
-				return this.chainModify(1.5);
+		onEnd(pokemon) {
+			if (this.field.weatherData.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				let move = this.dex.getMove(target.moveSlots[0].move);
+				if (target && target.hp && ((target.hasAbility('flowergift') || target.hasAbility('forecast')) && move.id === 'sunnyday')) {
+					this.field.weatherData.source = target;
+					return;
+				}
 			}
-		},
-		onModifySpDPriority: 4,
-		onAllyModifySpD(spd) {
-			if (this.effectData.target.baseTemplate.baseSpecies !== 'Cherrim') return;
-			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
-				return this.chainModify(1.5);
-			}
+			this.field.clearWeather();
 		},
 		id: "flowergift",
 		name: "Flower Gift",
