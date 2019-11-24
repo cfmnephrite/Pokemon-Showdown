@@ -755,6 +755,30 @@ let BattleStatuses = {
 			this.add('-heal', pokemon, pokemon.getHealth, '[from] Dynamax');
 		},
 	},
+	
+	// CFM Gooey + Hyper Cutter
+	gooey: {
+		name: 'Gooey',
+		id: 'gooey',
+		num: 0,
+		noCopy: true,
+		duration: 1,
+		onStart(target, source) {
+			this.add('-ability', source, 'Gooey');
+			this.boost({spe: -1}, target);
+		},
+	},
+	hypercutter: {
+		name: 'Hyper Cutter',
+		id: 'hypercutter',
+		num: 0,
+		noCopy: true,
+		duration: 1,
+		onStart(target, source) {
+			this.add('-ability', source, 'Hyper Cutter');
+			this.boost({atk: 1}, target);
+		},
+	},
 
 	// Arceus and Silvally's actual typing is implemented here.
 	// Their true typing for all their formes is Normal, and it's only
@@ -778,6 +802,21 @@ let BattleStatuses = {
 				}
 			}
 			return [type];
+		},
+	},
+	solgaleo: {
+		name: 'Solgaleo',
+		id: 'solgaleo',
+		num: 791,
+		onTypePriority: 1,
+		onType(types, pokemon) {
+			if (pokemon.transformed) return types;
+			/** @type {string | undefined} */
+			let typesArr = this.dex.getTemplate(pokemon.species).types;
+			if (pokemon.ability === 'fullmetalbody' && !pokemon.types.includes('Steel')) {
+				typesArr.push('Steel');
+			}
+			return [typesArr];
 		},
 	},
 	silvally: {

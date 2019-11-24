@@ -56,11 +56,11 @@ let BattleAbilities = {
 		num: 91,
 	},
 	"aerilate": {
-		desc: "This Pokemon's Normal-type moves become Flying-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
 		shortDesc: "Normal-type moves become Flying; all Flying moves boosted by 20%.",
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
-			if ((move.type === 'Normal' && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !(move.isZ && move.category !== 'Status')) || move.type === 'Flying') {
+			if (move.category === 'Status') return;
+			if ((move.type === 'Normal' && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !move.isZ) || move.type === 'Flying') {
 				move.type = 'Flying';
 				move.aerilateBoosted = true;
 			}
@@ -1078,10 +1078,9 @@ let BattleAbilities = {
 		num: 122,
 	},
 	"flowerveil": {
-		desc: "Grass-type Pokemon on this Pokemon's side cannot have their stat stages lowered by other Pokemon or have a major status condition inflicted on them by other Pokemon.",
-		shortDesc: "This side's Grass types can't have stats lowered or status inflicted by other Pokemon.",
+		shortDesc: "Grass-type allies immune to status and stat drops under Grassy Terrain.",
 		onAllyBoost(boost, target, source, effect) {
-			if ((source && target === source) || !target.hasType('Grass')) return;
+			if ((source && target === source) || !target.hasType('Grass') || !this.field.isTerrain('grassyterrain')) return;
 			let showMsg = false;
 			for (let i in boost) {
 				// @ts-ignore
@@ -1096,7 +1095,7 @@ let BattleAbilities = {
 			}
 		},
 		onAllySetStatus(status, target, source, effect) {
-			if (target.hasType('Grass') && source && target !== source && effect && effect.id !== 'yawn') {
+			if (target.hasType('Grass') && source && target !== source && effect && effect.id !== 'yawn' && this.field.isTerrain('grassyterrain')) {
 				this.debug('interrupting setStatus with Flower Veil');
 				if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
 					this.add('-activate', this.effectData.target, 'ability: Flower Veil', '[of] ' + target);
@@ -1105,7 +1104,7 @@ let BattleAbilities = {
 			}
 		},
 		onAllyTryAddVolatile(status, target) {
-			if (target.hasType('Grass') && status.id === 'yawn') {
+			if (target.hasType('Grass') && status.id === 'yawn' && this.field.isTerrain('grassyterrain')) {
 				this.debug('Flower Veil blocking yawn');
 				this.add('-activate', this.effectData.target, 'ability: Flower Veil', '[of] ' + target);
 				return null;
@@ -1223,10 +1222,8 @@ let BattleAbilities = {
 		num: 119,
 	},
 	"fullmetalbody": {
-		desc: "Prevents other Pokemon from lowering this Pokemon's stat stages. Moongeist Beam, Sunsteel Strike, and the Mold Breaker, Teravolt, and Turboblaze Abilities cannot ignore this Ability.",
-		shortDesc: "Prevents other Pokemon from lowering this Pokemon's stat stages.",
+		shortDesc: "Solgaleo: gains Steel-typing, immune to all stat drops.",
 		onBoost(boost, target, source, effect) {
-			if (source && target === source) return;
 			let showMsg = false;
 			for (let i in boost) {
 				// @ts-ignore
@@ -1258,9 +1255,9 @@ let BattleAbilities = {
 		num: 169,
 	},
 	"galewings": {
-		shortDesc: "If this Pokemon is at full HP, its Flying-type moves have their priority increased by 1.",
+		shortDesc: "If this Pokémon is at over 50% HP, its Flying-type moves have their priority increased by 1.",
 		onModifyPriority(priority, pokemon, target, move) {
-			if (move && move.type === 'Flying' && pokemon.hp === pokemon.maxhp) return priority + 1;
+			if (move && move.type === 'Flying' && pokemon.hp > pokemon.maxhp / 2) return priority + 1;
 		},
 		id: "galewings",
 		name: "Gale Wings",
@@ -1268,11 +1265,11 @@ let BattleAbilities = {
 		num: 177,
 	},
 	"galvanize": {
-		desc: "This Pokemon's Normal-type moves become Electric-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
-		shortDesc: "This Pokemon's Normal-type moves become Electric type and have 1.2x power.",
+		shortDesc: "Normal-type moves become Electric; all Electric moves boosted by 20%.",
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
-			if ((move.type === 'Normal' && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !(move.isZ && move.category !== 'Status')) || move.type === 'Electric') {
+			if (move.category === 'Status') return;
+			if ((move.type === 'Normal' && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !move.isZ) || move.type === 'Electric') {
 				move.type = 'Electric';
 				move.galvanizeBoosted = true;
 			}
@@ -1294,12 +1291,16 @@ let BattleAbilities = {
 		num: 82,
 	},
 	"gooey": {
-		shortDesc: "Pokemon making contact with this Pokemon have their Speed lowered by 1 stage.",
-		onAfterDamage(damage, target, source, effect) {
-			if (effect && effect.flags['contact']) {
-				this.add('-ability', target, 'Gooey');
-				this.boost({spe: -1}, source, target, null, true);
+		shortDesc: "Contact moves: 50% chance to reduce the target's speed.",
+		onModifyMove(move) {
+			if (!move || !move.flags['contact'] || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
 			}
+			move.secondaries.push({
+				chance: 50,
+				volatileStatus: 'gooey',
+			});
 		},
 		id: "gooey",
 		name: "Gooey",
@@ -1346,7 +1347,11 @@ let BattleAbilities = {
 		num: 255,
 	},
 	"grasspelt": {
-		shortDesc: "If Grassy Terrain is active, this Pokemon's Defense is multiplied by 1.5.",
+		shortDesc: "In Grassy Terrain, this Pokémon's Attack and Defense are multiplied by 1.5.",
+		onModifyAtkPriority: 1,
+		onModifyAtk(pokemon) {
+			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
+		},
 		onModifyDefPriority: 6,
 		onModifyDef(pokemon) {
 			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
@@ -1430,18 +1435,24 @@ let BattleAbilities = {
 		num: 131,
 	},
 	"heatproof": {
-		desc: "The power of Fire-type attacks against this Pokemon is halved, and burn damage taken is halved.",
-		shortDesc: "The power of Fire-type attacks against this Pokemon is halved; burn damage halved.",
+		shortDesc: "The power of Fire-type attacks against this Pokémon is halved; prevents burns.",
 		onSourceBasePowerPriority: 7,
 		onSourceBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Fire') {
 				return this.chainModify(0.5);
 			}
 		},
-		onDamage(damage, target, source, effect) {
-			if (effect && effect.id === 'brn') {
-				return damage / 2;
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Heatproof');
+				pokemon.cureStatus();
 			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if (!effect || !effect.status) return false;
+			this.add('-immune', target, '[from] ability: Heatproof');
+			return false;
 		},
 		id: "heatproof",
 		name: "Heatproof",
@@ -1460,7 +1471,17 @@ let BattleAbilities = {
 		num: 134,
 	},
 	"honeygather": {
-		shortDesc: "No competitive use.",
+		shortDesc: "At the end of each turn, restore 1/16 of this Pokémon's health.",
+		onResidualOrder: 5,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (this.field.isTerrain('grassyterrain')) return;
+			this.heal(pokemon.maxhp / 16);
+		},
+		onTerrain(pokemon) {
+			if (!this.field.isTerrain('grassyterrain')) return;
+			this.heal(pokemon.maxhp / 16);
+		},
 		id: "honeygather",
 		name: "Honey Gather",
 		rating: 0,
@@ -1527,7 +1548,7 @@ let BattleAbilities = {
 		num: 93,
 	},
 	"hypercutter": {
-		shortDesc: "Prevents other Pokemon from lowering this Pokemon's Attack stat stage.",
+		shortDesc: "No Attack drops; contact moves: 20% chance to boost Attack.",
 		onBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			if (boost.atk && boost.atk < 0) {
@@ -1537,6 +1558,18 @@ let BattleAbilities = {
 				}
 			}
 		},
+		onModifyMove(move) {
+			if (!move || !move.flags['contact'] || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 20,
+				self: {
+					volatileStatus: 'hypercutter',
+				},
+			});
+		},
 		id: "hypercutter",
 		name: "Hyper Cutter",
 		rating: 1.5,
@@ -1544,14 +1577,21 @@ let BattleAbilities = {
 	},
 	"icebody": {
 		desc: "If Hail is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This Pokemon takes no damage from Hail.",
-		shortDesc: "If Hail is active, this Pokemon heals 1/16 of its max HP each turn; immunity to Hail.",
+		shortDesc: "Restores 1/6 HP per turn in Hail; 10% chance to freeze contact attackers.",
 		onWeather(target, source, effect) {
 			if (effect.id === 'hail') {
-				this.heal(target.maxhp / 16);
+				this.heal(target.maxhp / 6);
 			}
 		},
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
+		},
+		onAfterDamage(damage, target, source, move) {
+			if (move && move.flags['contact']) {
+				if (this.randomChance(1, 10)) {
+					source.trySetStatus('frz', target);
+				}
+			}
 		},
 		id: "icebody",
 		name: "Ice Body",
@@ -1622,7 +1662,14 @@ let BattleAbilities = {
 		num: 246,
 	},
 	"illuminate": {
-		shortDesc: "No competitive use.",
+		shortDesc: "Reduces the accuracy of incoming super-effective moves by 33%.",
+		onModifyAccuracyPriority: 10,
+		onModifyAccuracy(accuracy, target, source, move) {
+			if (this.dex.getEffectiveness(move.type, target) > 0 && typeof accuracy === 'number'){
+				this.debug('Illuminate - decreasing accuracy');
+				return accuracy * 0.67;
+			}
+		},
 		id: "illuminate",
 		name: "Illuminate",
 		rating: 0,
@@ -2713,11 +2760,11 @@ let BattleAbilities = {
 		num: 53,
 	},
 	"pixilate": {
-		desc: "This Pokemon's Normal-type moves become Fairy-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
-		shortDesc: "This Pokemon's Normal-type moves become Fairy type and have 1.2x power.",
+		shortDesc: "Normal-type moves become Fairy; all Fairy moves boosted by 20%.",
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
-			if ((move.type === 'Normal' && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !(move.isZ && move.category !== 'Status')) || move.type === 'Fairy') {
+			if (move.category === 'Status') return;
+			if ((move.type === 'Normal' && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !move.isZ) || move.type === 'Fairy') {
 				move.type = 'Fairy';
 				move.pixilateBoosted = true;
 			}
@@ -3082,11 +3129,11 @@ let BattleAbilities = {
 		num: 120,
 	},
 	"refrigerate": {
-		desc: "This Pokemon's Normal-type moves become Ice-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
-		shortDesc: "This Pokemon's Normal-type moves become Ice type and have 1.2x power.",
+		shortDesc: "Normal-type moves become Ice; all Ice moves boosted by 20%.",
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
-			if ((move.type === 'Normal' && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !(move.isZ && move.category !== 'Status')) || move.type === 'Ice') {
+			if (move.category === 'Status') return;
+			if ((move.type === 'Normal' && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !move.isZ) || move.type === 'Ice') {
 				move.type = 'Ice';
 				move.refrigerateBoosted = true;
 			}
