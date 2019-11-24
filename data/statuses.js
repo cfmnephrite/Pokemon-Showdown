@@ -764,7 +764,7 @@ let BattleStatuses = {
 		noCopy: true,
 		duration: 1,
 		onStart(target, source) {
-			this.add('-ability', source, 'Gooey');
+			this.add('-activate', source, 'ability: Gooey');
 			this.boost({spe: -1}, target);
 		},
 	},
@@ -775,7 +775,7 @@ let BattleStatuses = {
 		noCopy: true,
 		duration: 1,
 		onStart(target, source) {
-			this.add('-ability', source, 'Hyper Cutter');
+			this.add('-activate', source, 'ability: Hyper Cutter');
 			this.boost({atk: 1}, target);
 		},
 	},

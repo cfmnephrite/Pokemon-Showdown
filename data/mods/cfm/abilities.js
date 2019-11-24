@@ -1713,7 +1713,7 @@ let BattleAbilities = {
 		num: 149,
 	},
 	"immunity": {
-		shortDesc: "This Pokemon cannot be poisoned. Gaining this Ability while poisoned cures it.",
+		shortDesc: "Cannot be poisoned; any attempt to poison this Pokémon raises Atk/SpA.",
 		onUpdate(pokemon) {
 			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
 				this.add('-activate', pokemon, 'ability: Immunity');
@@ -1721,9 +1721,9 @@ let BattleAbilities = {
 			}
 		},
 		onSetStatus(status, target, source, effect) {
-			if (status.id !== 'psn' && status.id !== 'tox') return;
-			if (!effect || !effect.status) return false;
-			this.add('-immune', target, '[from] ability: Immunity');
+			if (!effect || status.id !== 'psn' && status.id !== 'tox') return;
+			if (effect.status) this.add('-immune', target, '[msg]');
+			this.boost({[target.storedStats.spa > target.storedStats.atk ? 'spa' : 'atk']:1}, target);
 			return false;
 		},
 		id: "immunity",
@@ -1772,7 +1772,14 @@ let BattleAbilities = {
 		num: 215,
 	},
 	"innerfocus": {
-		shortDesc: "This Pokemon cannot be made to flinch.",
+		shortDesc: "Boosts the power of Psychic moves by 50%; prevents flinching and Intimidate.",
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				this.debug('Inner Focus boost');
+				return this.chainModify(1.5);
+			}
+		},
 		onFlinch: false,
 		id: "innerfocus",
 		name: "Inner Focus",
@@ -1850,12 +1857,12 @@ let BattleAbilities = {
 	},
 	"ironfist": {
 		desc: "This Pokemon's punch-based attacks have their power multiplied by 1.2.",
-		shortDesc: "This Pokemon's punch-based attacks have 1.2x power. Sucker Punch is not boosted.",
+		shortDesc: "Boosts the power of punch moves by 30%; does not include Sucker Punch.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['punch']) {
 				this.debug('Iron Fist boost');
-				return this.chainModify([0x1333, 0x1000]);
+				return this.chainModify(1.3);
 			}
 		},
 		id: "ironfist",
@@ -1864,10 +1871,16 @@ let BattleAbilities = {
 		num: 89,
 	},
 	"justified": {
-		shortDesc: "This Pokemon's Attack is raised by 1 stage after it is damaged by a Dark-type move.",
+		shortDesc: "If hit by a Dark move; reduces damage taken by 50%, boosts Atk/Sp. Atk.",
+		onSourceBasePowerPriority: 7,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				return this.chainModify(0.5);
+			}
+		},
 		onAfterDamage(damage, target, source, effect) {
 			if (effect && effect.type === 'Dark') {
-				this.boost({atk: 1});
+				this.boost({[target.storedStats.spa > target.storedStats.atk ? 'spa' : 'atk']: 1});
 			}
 		},
 		id: "justified",
@@ -1876,8 +1889,12 @@ let BattleAbilities = {
 		num: 154,
 	},
 	"keeneye": {
-		desc: "Prevents other Pokemon from lowering this Pokemon's accuracy stat stage. This Pokemon ignores a target's evasiveness stat stage.",
-		shortDesc: "This Pokemon's accuracy can't be lowered by others; ignores their evasiveness stat.",
+		shortDesc: "This Pokémon's Accuracy is boosted by 20%. Accuracy cannot be lowered.",
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			this.debug('Keen Eye - enhancing accuracy');
+			return accuracy * 1.2;
+		},
 		onBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			if (boost.accuracy && boost.accuracy < 0) {
@@ -1905,18 +1922,22 @@ let BattleAbilities = {
 		num: 103,
 	},
 	"leafguard": {
-		desc: "If Sunny Day is active, this Pokemon cannot gain a major status condition and Rest will fail for it.",
-		shortDesc: "If Sunny Day is active, this Pokemon cannot be statused and Rest will fail for it.",
-		onSetStatus(status, target, source, effect) {
-			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
-				if (effect && effect.status) this.add('-immune', target, '[from] ability: Leaf Guard');
-				return false;
+		shortDesc: "In Sun: cures status at the end of the turn; reduces damage from Fire attacks by 75%.",
+		onSourceBasePowerPriority: 7,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fire' && this.field.isWeather(['sunnyday', 'desolateland'])) {
+				this.add('-ability', defender, '[from] ability: Leaf Guard');
+				this.add('-message', defender.name + "'s Leaf Guard weakened the attack!")
+				return this.chainModify(0.25);
 			}
 		},
-		onTryAddVolatile(status, target) {
-			if (status.id === 'yawn' && this.field.isWeather(['sunnyday', 'desolateland'])) {
-				this.add('-immune', target, '[from] ability: Leaf Guard');
-				return null;
+		onResidualOrder: 5,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.status && this.field.isWeather(['sunnyday', 'desolateland'])) {
+				this.debug('leafguard');
+				this.add('-activate', pokemon, 'ability: Leaf Guard');
+				pokemon.cureStatus();
 			}
 		},
 		id: "leafguard",
@@ -1959,11 +1980,10 @@ let BattleAbilities = {
 		num: 135,
 	},
 	"lightningrod": {
-		desc: "This Pokemon is immune to Electric-type moves and raises its Special Attack by 1 stage when hit by an Electric-type move. If this Pokemon is not the target of a single-target Electric-type move used by another Pokemon, this Pokemon redirects that move to itself if it is within the range of that move.",
-		shortDesc: "This Pokemon draws Electric moves to itself to raise Sp. Atk by 1; Electric immunity.",
+		shortDesc: "If hit by an Electric-type attack; grants immunity, boosts higher offensive stat.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Electric') {
-				if (!this.boost({spa: 1})) {
+				if (!this.boost({[target.storedStats.atk > target.storedStats.spa ? 'atk' : 'spa']: 1})) {
 					this.add('-immune', target, '[from] ability: Lightning Rod');
 				}
 				return null;
@@ -1984,7 +2004,16 @@ let BattleAbilities = {
 		num: 32,
 	},
 	"limber": {
-		shortDesc: "This Pokemon cannot be paralyzed. Gaining this Ability while paralyzed cures it.",
+		shortDesc: "This Pokémon cannot be paralysed or have its Speed reduced.",
+		onBoost(boost, target, source, effect) {
+			if (boost.spe && boost.spe < 0) {
+				delete boost.spe;
+				if (source && target === source) return;
+				if (!(/** @type {ActiveMove} */(effect)).secondaries) {
+					this.add("-fail", target, "unboost", "Speed", "[from] ability: Limber", "[of] " + target);
+				}
+			}
+		},
 		onUpdate(pokemon) {
 			if (pokemon.status === 'par') {
 				this.add('-activate', pokemon, 'ability: Limber');
@@ -2019,12 +2048,17 @@ let BattleAbilities = {
 		num: 64,
 	},
 	"liquidvoice": {
-		desc: "This Pokemon's sound-based moves become Water-type moves. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
-		shortDesc: "This Pokemon's sound-based moves become Water type.",
+		shortDesc: "Sound moves become Water-type; all sound moves boosted by 20%",
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
 			if (move.flags['sound']) {
 				move.type = 'Water';
+			}
+		},
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['sound']) {
+				return this.chainModify(1.2);
 			}
 		},
 		id: "liquidvoice",
@@ -2110,15 +2144,12 @@ let BattleAbilities = {
 		num: 170,
 	},
 	"magmaarmor": {
-		shortDesc: "This Pokemon cannot be frozen. Gaining this Ability while frozen cures it.",
-		onUpdate(pokemon) {
-			if (pokemon.status === 'frz') {
-				this.add('-activate', pokemon, 'ability: Magma Armor');
-				pokemon.cureStatus();
-			}
-		},
-		onImmunity(type, pokemon) {
-			if (type === 'frz') return false;
+		shortDesc: "This Pokemon takes 1/2 damage from contact moves, 2x damage from Water moves.",
+		onSourceModifyDamage(damage, source, target, move) {
+			let mod = 1;
+			if (move.type === 'Water') mod *= 2;
+			if (move.flags['contact']) mod /= 2;
+			return this.chainModify(mod);
 		},
 		id: "magmaarmor",
 		name: "Magma Armor",
