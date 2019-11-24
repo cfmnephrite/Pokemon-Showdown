@@ -258,17 +258,23 @@ let BattleMovedex = {
 	"aeroblast": {
 		num: 177,
 		accuracy: 95,
-		basePower: 100,
+		basePower: 90,
 		category: "Special",
-		desc: "Has a higher chance for a critical hit.",
-		shortDesc: "High critical hit ratio.",
+		desc: "Is 100 base power if used by Lugia",
+		shortDesc: "100 base power if used by Lugia",
 		id: "aeroblast",
 		isViable: true,
 		name: "Aeroblast",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1},
-		critRatio: 2,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.template.baseSpecies === 'Lugia'|| move.hasBounced) {
+				this.debug("Power increased by Lugia");
+				return move.basePower + 10;
+			}
+			return move.basePower;
+		},
 		secondary: null,
 		target: "any",
 		type: "Flying",
