@@ -2205,9 +2205,9 @@ let BattleAbilities = {
 		num: 178,
 	},
 	"merciless": {
-		shortDesc: "This Pokemon's attacks are critical hits if the target is poisoned.",
+		shortDesc: "This Pokémon's attacks are critical hits if the target has a status condition.",
 		onModifyCritRatio(critRatio, source, target) {
-			if (target && ['psn', 'tox'].includes(target.status)) return 5;
+			if (target && target.status) return 5;
 		},
 		id: "merciless",
 		name: "Merciless",
@@ -2248,18 +2248,19 @@ let BattleAbilities = {
 		num: 250,
 	},
 	"minus": {
-		desc: "If an active ally has this Ability or the Plus Ability, this Pokemon's Special Attack is multiplied by 1.5.",
-		shortDesc: "If an active ally has this Ability or the Plus Ability, this Pokemon's Sp. Atk is 1.5x.",
-		onModifySpAPriority: 5,
-		onModifySpA(spa, pokemon) {
-			if (pokemon.side.active.length === 1) {
-				return;
-			}
-			for (const allyActive of pokemon.side.active) {
-				if (allyActive && allyActive.position !== pokemon.position && !allyActive.fainted && allyActive.hasAbility(['minus', 'plus'])) {
-					return this.chainModify(1.5);
+		shortDesc: "Electric moves: 33% chance to boost Atk/Sp. Atk; 66% if partner has Plus.",
+		onSourceHit(target, source, move) {
+			if (!move || !target || move.type !== 'Electric') return;
+			let chance = 1;
+			if (source.side.active.length > 1){
+				for (const allyActive of source.side.active) {
+					if (allyActive && allyActive.position !== source.position && !allyActive.fainted && allyActive.hasAbility(['plus'])) {
+						chance = 2;
+					}
 				}
 			}
+			if (this.randomChance(chance, 3))
+				this.boost({[target.storedStats.atk > target.storedStats.spa ? 'atk' : 'spa']:1}, source);
 		},
 		id: "minus",
 		name: "Minus",
@@ -2352,14 +2353,15 @@ let BattleAbilities = {
 		num: 141,
 	},
 	"motordrive": {
-		desc: "This Pokemon is immune to Electric-type moves and raises its Speed by 1 stage when hit by an Electric-type move.",
-		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by an Electric move; Electric immunity.",
+		shortDesc: "If hit by an Electric move; grants immunity, raises Speed, sets Charge modifier.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Electric') {
 				if (!this.boost({spe: 1})) {
 					this.add('-immune', target, '[from] ability: Motor Drive');
 				}
-				return null;
+				target.addVolatile('charge');
+				this.add('-activate', target, 'move: Charge');
+			return null;
 			}
 		},
 		id: "motordrive",
@@ -2368,11 +2370,14 @@ let BattleAbilities = {
 		num: 78,
 	},
 	"moxie": {
-		desc: "This Pokemon's Attack is raised by 1 stage if it attacks and knocks out another Pokemon.",
-		shortDesc: "This Pokemon's Attack is raised by 1 stage if it attacks and KOes another Pokemon.",
+		shortDesc: "May raise Atk/SpA by up to 2 upon attacking and knocking out a target.",
 		onSourceFaint(target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.boost({atk: 1}, source);
+				if (effect.totalDamage <= 0.25 * target.maxhp) return;
+				let boost = 1;
+				if (effect.totalDamage > 0.75 * target.maxhp)
+					boost = 2;
+				this.boost({[source.storedStats.spa > source.storedStats.atk ? 'spa' : 'atk']: boost}, source);
 			}
 		},
 		id: "moxie",
@@ -2629,17 +2634,10 @@ let BattleAbilities = {
 	"overgrow": {
 		desc: "When this Pokemon has 1/3 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Grass-type attack.",
 		shortDesc: "At 1/3 or less of its max HP, this Pokemon's attacking stat is 1.5x with Grass attacks.",
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 3) {
-				this.debug('Overgrow boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 3) {
-				this.debug('Overgrow boost');
+				this.debug('OVergrow boost');
 				return this.chainModify(1.5);
 			}
 		},
@@ -2649,7 +2647,7 @@ let BattleAbilities = {
 		num: 65,
 	},
 	"owntempo": {
-		shortDesc: "This Pokemon cannot be confused. Gaining this Ability while confused cures it.",
+		shortDesc: "Boosts the power of sound-based moves by 30%; prevents confusion.",
 		onUpdate(pokemon) {
 			if (pokemon.volatiles['confusion']) {
 				this.add('-activate', pokemon, 'ability: Own Tempo');
@@ -2662,6 +2660,12 @@ let BattleAbilities = {
 		onHit(target, source, move) {
 			if (move && move.volatileStatus === 'confusion') {
 				this.add('-immune', target, 'confusion', '[from] ability: Own Tempo');
+			}
+		},
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['sound']) {
+				return this.chainModify(1.3);
 			}
 		},
 		id: "owntempo",
@@ -2810,18 +2814,19 @@ let BattleAbilities = {
 		num: 182,
 	},
 	"plus": {
-		desc: "If an active ally has this Ability or the Minus Ability, this Pokemon's Special Attack is multiplied by 1.5.",
-		shortDesc: "If an active ally has this Ability or the Minus Ability, this Pokemon's Sp. Atk is 1.5x.",
-		onModifySpAPriority: 5,
-		onModifySpA(spa, pokemon) {
-			if (pokemon.side.active.length === 1) {
-				return;
-			}
-			for (const allyActive of pokemon.side.active) {
-				if (allyActive && allyActive.position !== pokemon.position && !allyActive.fainted && allyActive.hasAbility(['minus', 'plus'])) {
-					return this.chainModify(1.5);
+		shortDesc: "Electric moves: 33% chance to boost Atk/Sp. Atk; 66% if partner has Minus.",
+		onSourceHit(target, source, move) {
+			if (!move || !target || move.type !== 'Electric') return;
+			let chance = 1;
+			if (source.side.active.length > 1){
+				for (const allyActive of source.side.active) {
+					if (allyActive && allyActive.position !== source.position && !allyActive.fainted && allyActive.hasAbility(['minus'])) {
+						chance = 2;
+					}
 				}
 			}
+			if (this.randomChance(chance, 3))
+				this.boost({[target.storedStats.atk > target.storedStats.spa ? 'atk' : 'spa']:1}, source);
 		},
 		id: "plus",
 		name: "Plus",
@@ -2858,7 +2863,7 @@ let BattleAbilities = {
 		num: 38,
 	},
 	"poisontouch": {
-		shortDesc: "This Pokemon's contact moves have a 30% chance of poisoning.",
+		shortDesc: "Contact moves: 30% poison chance; prevents poisoning; Poison for non-Poison-types +50%.",
 		// upokecenter says this is implemented as an added secondary effect
 		onModifyMove(move) {
 			if (!move || !move.flags['contact'] || move.target === 'self') return;
@@ -2870,6 +2875,19 @@ let BattleAbilities = {
 				status: 'psn',
 				ability: this.dex.getAbility('poisontouch'),
 			});
+		},
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Poison' && !attacker.hasType('Poison')) {
+				this.debug('Poison Touch boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'psn' && status.id !== 'tox') return;
+			if (!effect || !effect.status) return false;
+			this.add('-immune', target, '[from] ability: Poison Touch');
+			return false;
 		},
 		id: "poisontouch",
 		name: "Poison Touch",
@@ -2896,15 +2914,18 @@ let BattleAbilities = {
 		num: 211,
 	},
 	"powerofalchemy": {
-		desc: "This Pokemon copies the Ability of an ally that faints. Abilities that cannot be copied are Flower Gift, Forecast, Illusion, Imposter, Multitype, Stance Change, Trace, Wonder Guard, and Zen Mode.",
-		shortDesc: "This Pokemon copies the Ability of an ally that faints.",
-		onAllyFaint(target) {
-			if (!this.effectData.target.hp) return;
-			let ability = this.dex.getAbility(target.ability);
-			let bannedAbilities = ['battlebond', 'comatose', 'disguise', 'flowergift', 'forecast', 'illusion', 'imposter', 'multitype', 'powerconstruct', 'powerofalchemy', 'receiver', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'trace', 'wonderguard', 'zenmode'];
-			if (bannedAbilities.includes(target.ability)) return;
-			this.add('-ability', this.effectData.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
-			this.effectData.target.setAbility(ability);
+		shortDesc: "Move in slot 1 changes to user's primary type; boosted by 20%.",
+		onModifyMovePriority: -1,
+		onModifyMove(move, pokemon) {
+			if (move.category === 'Status') return;
+			if (move.id === this.dex.getMove(pokemon.moveSlots[0].move).id && !['hiddenpower', 'judgment', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !move.isZ) {
+				move.type = pokemon.getTypes()[0];
+				move.poaBoosted = true;
+			}
+		},
+		onBasePowerPriority: 8,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.poaBoosted) return this.chainModify([0x1333, 0x1000]);
 		},
 		id: "powerofalchemy",
 		name: "Power of Alchemy",
@@ -2974,11 +2995,11 @@ let BattleAbilities = {
 	},
 	"prismarmor": {
 		desc: "This Pokemon receives 3/4 damage from supereffective attacks. Moongeist Beam, Sunsteel Strike, and the Mold Breaker, Teravolt, and Turboblaze Abilities cannot ignore this Ability.",
-		shortDesc: "This Pokemon receives 3/4 damage from supereffective attacks.",
+		shortDesc: "This Pokemon receives 33% reduced damage from supereffective attacks.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Prism Armor neutralize');
-				return this.chainModify(0.75);
+				return this.chainModify(0.67);
 			}
 		},
 		isUnbreakable: true,
@@ -3064,10 +3085,12 @@ let BattleAbilities = {
 		num: 244,
 	},
 	"purepower": {
-		shortDesc: "This Pokemon's Attack is doubled.",
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk) {
-			return this.chainModify(2);
+		shortDesc: "The higher of this Pokemon's Attack/Sp. Attack is doubled.",
+		onModifyMove(move, pokemon) {
+			let category = (pokemon.storedStats.spa > pokemon.storedStats.atk ? 'Special' : 'Physical');
+			if (move.category === category || move.flags['magic']) {
+				move.basePower *=2;
+			}
 		},
 		id: "purepower",
 		name: "Pure Power",
@@ -4084,15 +4107,8 @@ let BattleAbilities = {
 	"swarm": {
 		desc: "When this Pokemon has 1/3 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Bug-type attack.",
 		shortDesc: "At 1/3 or less of its max HP, this Pokemon's attacking stat is 1.5x with Bug attacks.",
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp / 3) {
-				this.debug('Swarm boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp / 3) {
 				this.debug('Swarm boost');
 				return this.chainModify(1.5);
@@ -4279,15 +4295,8 @@ let BattleAbilities = {
 	"torrent": {
 		desc: "When this Pokemon has 1/3 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Water-type attack.",
 		shortDesc: "At 1/3 or less of its max HP, this Pokemon's attacking stat is 1.5x with Water attacks.",
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Water' && attacker.hp <= attacker.maxhp / 3) {
-				this.debug('Torrent boost');
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Water' && attacker.hp <= attacker.maxhp / 3) {
 				this.debug('Torrent boost');
 				return this.chainModify(1.5);

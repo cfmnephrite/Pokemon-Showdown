@@ -762,10 +762,10 @@ let BattleStatuses = {
 		id: 'gooey',
 		num: 0,
 		noCopy: true,
-		duration: 1,
 		onStart(target, source) {
 			this.add('-activate', source, 'ability: Gooey');
 			this.boost({spe: -1}, target);
+			target.removeVolatile('gooey');
 		},
 	},
 	hypercutter: {
@@ -773,10 +773,31 @@ let BattleStatuses = {
 		id: 'hypercutter',
 		num: 0,
 		noCopy: true,
-		duration: 1,
 		onStart(target, source) {
 			this.add('-activate', source, 'ability: Hyper Cutter');
 			this.boost({atk: 1}, target);
+			target.removeVolatile('hypercutter');			
+		},
+	},
+	
+	charge: {
+		name: 'Charge',
+		id: 'charge',
+		num: 0,
+		noCopy: true,
+		duration: 2,
+		onRestart(pokemon) {
+			this.effectData.duration = 2;
+		},
+		onBasePowerPriority: 3,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('charge boost');
+				return this.chainModify(2);
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'move: Charge', '[silent]');
 		},
 	},
 
