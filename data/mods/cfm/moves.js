@@ -1110,17 +1110,17 @@ let BattleMovedex = {
 	},
 	"barrage": {
 		num: 140,
-		accuracy: 85,
-		basePower: 15,
+		accuracy: 90,
+		basePower: 25,
 		category: "Physical",
-		desc: "Hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times.",
-		shortDesc: "Hits 2-5 times in one turn.",
+		desc: "Hits five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits.",
+		shortDesc: "Hits 5 times in one turn.",
 		id: "barrage",
 		name: "Barrage",
 		pp: 20,
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
-		multihit: [2, 5],
+		multihit: [5],
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -1491,16 +1491,14 @@ let BattleMovedex = {
 		accuracy: 90,
 		basePower: 150,
 		category: "Special",
-		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move.",
-		shortDesc: "User cannot move next turn.",
+		desc: "If the target lost HP, the user takes recoil damage equal to 1/2 the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 1/2 recoil.",
 		id: "blastburn",
 		name: "Blast Burn",
 		pp: 5,
 		priority: 0,
-		flags: {recharge: 1, protect: 1, mirror: 1},
-		self: {
-			volatileStatus: 'mustrecharge',
-		},
+		flags: {protect: 1, mirror: 1},
+		recoil: [1, 2],
 		secondary: null,
 		target: "normal",
 		type: "Fire",
@@ -1509,31 +1507,30 @@ let BattleMovedex = {
 	},
 	"blazekick": {
 		num: 299,
-		accuracy: 90,
-		basePower: 85,
+		accuracy: 100,
+		basePower: 95,
 		category: "Physical",
-		desc: "Has a 10% chance to burn the target and a higher chance for a critical hit.",
-		shortDesc: "High critical hit ratio. 10% chance to burn.",
+		desc: "Has a 10% chance to burn the target.",
+		shortDesc: "10% chance to burn.",
 		id: "blazekick",
 		isViable: true,
 		name: "Blaze Kick",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		critRatio: 2,
 		secondary: {
 			chance: 10,
 			status: 'brn',
 		},
 		target: "normal",
 		type: "Fire",
-		zMovePower: 160,
+		zMovePower: 180,
 		contestType: "Cool",
 	},
 	"blizzard": {
 		num: 59,
 		accuracy: 70,
-		basePower: 110,
+		basePower: 120,
 		category: "Special",
 		desc: "Has a 10% chance to freeze the target. If the weather is Hail, this move does not check accuracy.",
 		shortDesc: "10% chance to freeze foe(s). Can't miss in hail.",
@@ -1785,11 +1782,11 @@ let BattleMovedex = {
 	},
 	"bounce": {
 		num: 340,
-		accuracy: 85,
+		accuracy: 95,
 		basePower: 85,
 		category: "Physical",
-		desc: "Has a 30% chance to paralyze the target. This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Gust, Hurricane, Sky Uppercut, Smack Down, Thousand Arrows, Thunder, and Twister, and Gust and Twister have doubled power when used against it. If the user is holding a Power Herb, the move completes in one turn.",
-		shortDesc: "Bounces turn 1. Hits turn 2. 30% paralyze.",
+		desc: "Has a 20% chance to paralyze the target. Has no charge turn if the user is a flying type. This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Gust, Hurricane, Sky Uppercut, Smack Down, Thousand Arrows, Thunder, and Twister, and Gust and Twister have doubled power when used against it. If the user is holding a Power Herb, the move completes in one turn.",
+		shortDesc: "Bounces turn 1. Hits turn 2. Hits turn 2 if user is flying type. 20% paralyze.",
 		id: "bounce",
 		name: "Bounce",
 		pp: 5,
@@ -1800,6 +1797,11 @@ let BattleMovedex = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name, defender);
+			if (attacker.hasType('Flying')) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
 				return;
 			}
@@ -1821,12 +1823,12 @@ let BattleMovedex = {
 			},
 		},
 		secondary: {
-			chance: 30,
+			chance: 20,
 			status: 'par',
 		},
 		target: "any",
 		type: "Flying",
-		zMovePower: 160,
+		zMovePower: 180,
 		contestType: "Cute",
 	},
 	"bouncybubble": {
