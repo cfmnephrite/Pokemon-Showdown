@@ -16398,35 +16398,51 @@ let BattleMovedex = {
 	},
 	"shelltrap": {
 		num: 704,
-		accuracy: 100,
-		basePower: 150,
+		accuracy: true,
+		basePower: 0,
 		category: "Special",
-		desc: "Fails unless the user is hit by a physical attack from an opponent this turn before it can execute the move. If the user was hit and has not fainted, it attacks immediately after being hit, and the effect ends. If the opponent's physical attack had a secondary effect removed by the Sheer Force Ability, it does not count for the purposes of this effect.",
-		shortDesc: "User must take physical damage before moving.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user become burned. Water type moves ignore this move. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		shortDesc: "Protects from moves. Fails against Water type moves. Contact: burn.",
 		id: "shelltrap",
 		name: "Shell Trap",
-		pp: 5,
-		priority: -3,
-		flags: {protect: 1},
-		beforeTurnCallback(pokemon) {
-			pokemon.addVolatile('shelltrap');
+		pp: 10,
+		priority: 4,
+		flags: {},
+		stallingMove: true,
+		volatileStatus: 'shelltrap',
+		onTryHit(target, source, move) {
+			return !!this.willAct() && this.runEvent('StallMove', target);
 		},
-		// TODO: In order to correct PP usage, after spread move order has been reworked,
-		// switch this to `onTry` + add `this.attrLastMove('[still]');`.
-		beforeMoveCallback(pokemon) {
-			if (!pokemon.volatiles['shelltrap'] || !pokemon.volatiles['shelltrap'].gotHit) {
-				this.add('cant', pokemon, 'Shell Trap', 'Shell Trap');
-				return true;
-			}
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
 		},
 		effect: {
 			duration: 1,
-			onStart(pokemon) {
-				this.add('-singleturn', pokemon, 'move: Shell Trap');
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
 			},
-			onHit(pokemon, source, move) {
-				if (pokemon.side !== source.side && move.category === 'Physical') {
-					pokemon.volatiles['shelltrap'].gotHit = true;
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect'] || move.type === 'Water') {
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				this.add('-activate', target, 'move: Protect');
+				let lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.flags['contact']) {
+					source.trySetStatus('brn', target);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZPowered && move.flags['contact']) {
+					source.trySetStatus('brn', target);
 				}
 			},
 		},
@@ -17736,7 +17752,7 @@ let BattleMovedex = {
 		basePower: 0,
 		category: "Status",
 		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user lose 1/8 of their maximum HP, rounded down. If this move is hit with a Fire type move the move fails. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
-		shortDesc: "Protects from moves. Contact: loses 1/8 max HP. Vulnerable to Fire",
+		shortDesc: "Protects from moves. Fails against Fire type moves. Contact: loses 1/8 max HP.",
 		id: "spikyshield",
 		isViable: true,
 		name: "Spiky Shield",
