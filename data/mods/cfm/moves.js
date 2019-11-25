@@ -6014,25 +6014,63 @@ let BattleMovedex = {
 		id: "flowershield",
 		name: "Flower Shield",
 		pp: 10,
-		priority: 0,
-		flags: {distance: 1},
-		onHitField(target, source, move) {
-			let targets = [];
-			for (const pokemon of this.getAllActive()) {
-				if (pokemon.hasType('Grass')) {
-					// This move affects every Grass-type Pokemon in play.
-					targets.push(pokemon);
+		priority: 4,
+		flags: {},
+		stallingMove: true,
+		volatileStatus: 'flowershield',
+		onTryHit(target, source, move) {
+			return !!this.willAct() && this.runEvent('StallMove', target);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		effect: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect'] || move.type === 'Poison') {
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
 				}
+				this.add('-activate', target, 'move: Protect');
+				let lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.flags['contact'] && !source.status && source.runStatusImmunity('powder')) {
+				let r = this.random(100);
+				if (r < 11) {
+					source.setStatus('slp', target);
+				} else if (r < 21) {
+					source.setStatus('par', target);
+				} else if (r < 30) {
+					source.setStatus('psn', target);
+				}
+				return this.NOT_FAIL;
 			}
-			let success = false;
-			for (const target of targets) {
-				success = this.boost({def: 1}, target, source, move) || success;
-			}
-			return success;
+			},
+			onHit(target, source, move) {
+				if (move.isZPowered && move.flags['contact'] && !source.status && source.runStatusImmunity('powder')) {
+				let r = this.random(100);
+				if (r < 11) {
+					source.setStatus('slp', target);
+				} else if (r < 21) {
+					source.setStatus('par', target);
+				} else if (r < 30) {
+					source.setStatus('psn', target);
+				}
+				}
+			},
 		},
 		secondary: null,
-		target: "all",
-		type: "Fairy",
+		target: "self",
+		type: "Grass",
 		zMoveBoost: {def: 1},
 		contestType: "Beautiful",
 	},
