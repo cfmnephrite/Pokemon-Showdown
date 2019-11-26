@@ -2396,18 +2396,18 @@ let BattleMovedex = {
 	},
 	"chargebeam": {
 		num: 451,
-		accuracy: 90,
-		basePower: 50,
+		accuracy: 100,
+		basePower: 40,
 		category: "Special",
-		desc: "Has a 70% chance to raise the user's Special Attack by 1 stage.",
-		shortDesc: "70% chance to raise the user's Sp. Atk by 1.",
+		desc: "Raises the user's Special Attack by 1 stage.",
+		shortDesc: "Raises the user's Sp. Atk by 1.",
 		id: "chargebeam",
 		name: "Charge Beam",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
-			chance: 70,
+			chance: 100,
 			self: {
 				boosts: {
 					spa: 1,
@@ -2443,24 +2443,24 @@ let BattleMovedex = {
 	"chatter": {
 		num: 448,
 		accuracy: 100,
-		basePower: 65,
+		basePower: 90,
 		category: "Special",
-		desc: "Has a 100% chance to confuse the target.",
-		shortDesc: "100% chance to confuse the target.",
+		desc: "Has a 10% chance to confuse the target.",
+		shortDesc: "10% chance to confuse the target.",
 		id: "chatter",
 		isViable: true,
 		name: "Chatter",
-		pp: 20,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, distance: 1, authentic: 1},
 		noSketch: true,
 		secondary: {
-			chance: 100,
+			chance: 10,
 			volatileStatus: 'confusion',
 		},
 		target: "any",
 		type: "Flying",
-		zMovePower: 120,
+		zMovePower: 180,
 		contestType: "Cute",
 	},
 	"chipaway": {
@@ -2524,7 +2524,7 @@ let BattleMovedex = {
 	"clangingscales": {
 		num: 691,
 		accuracy: 100,
-		basePower: 110,
+		basePower: 120,
 		category: "Special",
 		desc: "Lowers the user's Defense by 1 stage.",
 		shortDesc: "Lowers the user's Defense by 1.",
@@ -2752,9 +2752,9 @@ let BattleMovedex = {
 	"constrict": {
 		num: 132,
 		accuracy: 100,
-		basePower: 10,
-		category: "Physical",
-		desc: "Has a 10% chance to lower the target's Speed by 1 stage.",
+		basePower: 80,
+		category: "Special",
+		desc: "Traps the target. Has a 20% chance to lower speed.",
 		shortDesc: "10% chance to lower the target's Speed by 1.",
 		id: "constrict",
 		name: "Constrict",
@@ -2762,13 +2762,13 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		secondary: {
-			chance: 10,
+			chance: 20,
 			boosts: {
 				spe: -1,
 			},
 		},
 		target: "normal",
-		type: "Normal",
+		type: "Poison",
 		zMovePower: 100,
 		contestType: "Tough",
 	},
@@ -2865,7 +2865,7 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {},
 		onHit(pokemon) {
-			let noCopycat = ['assist', 'banefulbunker', 'bestow', 'celebrate', 'chatter', 'circlethrow', 'copycat', 'counter', 'covet', 'destinybond', 'detect', 'dragontail', 'endure', 'feint', 'focuspunch', 'followme', 'helpinghand', 'mefirst', 'metronome', 'mimic', 'mirrorcoat', 'mirrormove', 'naturepower', 'protect', 'ragepowder', 'roar', 'sketch', 'sleeptalk', 'snatch', 'struggle', 'switcheroo', 'thief', 'transform', 'trick', 'whirlwind'];
+			let noCopycat = ['banefulbunker', 'bestow', 'celebrate', 'chatter', 'circlethrow', 'copycat', 'counter', 'covet', 'destinybond', 'detect', 'dragontail', 'endure', 'feint', 'focuspunch', 'followme', 'helpinghand', 'mefirst', 'mimic', 'mirrorcoat', 'mirrormove', 'protect', 'ragepowder', 'roar', 'sketch', 'sleeptalk', 'snatch', 'struggle', 'thief', 'whirlwind'];
 			if (!this.lastMove || noCopycat.includes(this.lastMove.id) || this.lastMove.isZ) {
 				return false;
 			}
@@ -2903,7 +2903,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Dragon",
-		zMovePower: 140,
+		zMovePower: 180,
 		contestType: "Tough",
 	},
 	"corkscrewcrash": {
@@ -3113,19 +3113,25 @@ let BattleMovedex = {
 	},
 	"crabhammer": {
 		num: 152,
-		accuracy: 90,
-		basePower: 100,
+		accuracy: 100,
+		basePower: 90,
 		category: "Physical",
-		desc: "Has a higher chance for a critical hit.",
-		shortDesc: "High critical hit ratio.",
+		desc: "Has a 20% chance to raise attack.",
+		shortDesc: "20% chance to raise attack.",
 		id: "crabhammer",
 		isViable: true,
 		name: "Crabhammer",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		critRatio: 2,
-		secondary: null,
+		secondary: {
+			chance: 20,
+			self: {
+				boosts: {
+					atk: 1,
+				},
+			},
+		},
 		target: "normal",
 		type: "Water",
 		zMovePower: 180,
