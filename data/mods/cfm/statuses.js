@@ -169,6 +169,8 @@ let BattleStatuses = {
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.id === 'lockedmove') {
 				this.add('-start', target, 'confusion', '[fatigue]');
+			} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-status', target, 'confusion', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
 			} else {
 				this.add('-start', target, 'confusion');
 			}
@@ -240,8 +242,11 @@ let BattleStatuses = {
 			if (source && source.hasItem('gripclaw')) return 8;
 			return this.random(5, 7);
 		},
-		onStart(pokemon, source) {
-			this.add('-activate', pokemon, 'move: ' + this.effectData.sourceEffect, '[of] ' + source);
+		onStart(pokemon, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-start', pokemon, 'partiallytrapped');
+			} else
+				this.add('-activate', pokemon, 'move: ' + this.effectData.sourceEffect, '[of] ' + source);
 		},
 		onResidualOrder: 11,
 		onResidual(pokemon) {
@@ -755,6 +760,51 @@ let BattleStatuses = {
 			this.add('-heal', pokemon, pokemon.getHealth, '[from] Dynamax');
 		},
 	},
+	
+	// CFM Gooey + Hyper Cutter
+	gooey: {
+		name: 'Gooey',
+		id: 'gooey',
+		num: 0,
+		noCopy: true,
+		onStart(target, source) {
+			this.add('-activate', source, 'ability: Gooey');
+			this.boost({spe: -1}, target);
+			target.removeVolatile('gooey');
+		},
+	},
+	hypercutter: {
+		name: 'Hyper Cutter',
+		id: 'hypercutter',
+		num: 0,
+		noCopy: true,
+		onStart(target, source) {
+			this.add('-activate', source, 'ability: Hyper Cutter');
+			this.boost({atk: 1}, target);
+			target.removeVolatile('hypercutter');			
+		},
+	},
+	
+	charge: {
+		name: 'Charge',
+		id: 'charge',
+		num: 0,
+		noCopy: true,
+		duration: 2,
+		onRestart(pokemon) {
+			this.effectData.duration = 2;
+		},
+		onBasePowerPriority: 3,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('charge boost');
+				return this.chainModify(2);
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'move: Charge', '[silent]');
+		},
+	},
 
 	// Arceus and Silvally's actual typing is implemented here.
 	// Their true typing for all their formes is Normal, and it's only
@@ -796,6 +846,36 @@ let BattleStatuses = {
 				}
 			}
 			return [type];
+		},
+	},
+	solgaleo: {
+		name: 'Solgaleo',
+		id: 'solgaleo',
+		num: 791,
+		onTypePriority: 1,
+		onType(types, pokemon) {
+			if (pokemon.transformed) return types;
+			/** @type {string | undefined} */
+			let typesArr = this.dex.getTemplate(pokemon.species).types;
+			if (pokemon.ability === 'fullmetalbody' && !pokemon.types.includes('Steel')) {
+				typesArr.push('Steel');
+			}
+			return [typesArr];
+		},
+	},
+	lunala: {
+		name: 'Lunala',
+		id: 'lunala',
+		num: 791,
+		onTypePriority: 1,
+		onType(types, pokemon) {
+			if (pokemon.transformed) return types;
+			/** @type {string | undefined} */
+			let typesArr = this.dex.getTemplate(pokemon.species).types;
+			if (pokemon.ability === 'shadowshield' && !pokemon.types.includes('Ghost')) {
+				typesArr.push('Ghost');
+			}
+			return [typesArr];
 		},
 	},
 };

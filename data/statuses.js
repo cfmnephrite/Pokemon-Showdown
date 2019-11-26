@@ -245,12 +245,13 @@ let BattleStatuses = {
 		},
 		onResidualOrder: 11,
 		onResidual(pokemon) {
-			if (this.effectData.source && (!this.effectData.source.isActive || this.effectData.source.hp <= 0 || !this.effectData.source.activeTurns)) {
+			const source = this.effectData.source;
+			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
 				delete pokemon.volatiles['partiallytrapped'];
 				this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]', '[silent]');
 				return;
 			}
-			if (this.effectData.source.hasItem('bindingband')) {
+			if (source.hasItem('bindingband')) {
 				this.damage(pokemon.maxhp / 6);
 			} else {
 				this.damage(pokemon.maxhp / 8);
@@ -290,6 +291,7 @@ let BattleStatuses = {
 			target.addVolatile('confusion');
 		},
 		onLockMove(pokemon) {
+			if (pokemon.volatiles['dynamax']) return;
 			return this.effectData.move;
 		},
 	},
@@ -333,6 +335,7 @@ let BattleStatuses = {
 				// Fails unless the Choice item is being ignored, and no PP is lost
 				this.addMove('move', pokemon, move.name);
 				this.attrLastMove('[still]');
+				this.debug("Disabled by Choice item lock");
 				this.add('-fail', pokemon);
 				return false;
 			}
@@ -715,89 +718,40 @@ let BattleStatuses = {
 		num: 0,
 		duration: 3,
 		onStart(pokemon) {
-			//this.add('-dynamax', pokemon);
-			this.add('-start', pokemon, "Dynamax");
+			this.add('-start', pokemon, 'Dynamax');
 			if (pokemon.canGigantamax) pokemon.formeChange(pokemon.canGigantamax);
 			if (pokemon.species === 'Shedinja') return;
-			let ratio = (1 / 2); // Changes based on dynamax level, static (LVL 10) until we know the levels
+			let ratio = (1 / 2); // Changes based on dynamax level, max (LVL 10)
 			pokemon.maxhp = Math.floor(pokemon.maxhp / ratio);
 			pokemon.hp = Math.floor(pokemon.hp / ratio);
-			// TODO work on display for healing
-			this.add('-heal', pokemon, pokemon.getHealth, '[from] Dynamax');
+			// TODO work on display for HP
+			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 		},
 		onFlinch: false,
 		onBeforeSwitchOut(pokemon) {
-			// Run the end event
-			// pokemon.volatiles.dynamax.onEnd(pokemon);
-			//this.add('-undynamax', pokemon);
-			this.add('-end', pokemon, "Dynamax");
+			if (pokemon.canGigantamax) pokemon.formeChange(pokemon.baseTemplate.species);
+			if (pokemon.species === 'Shedinja') return;
+			let ratio = (1 / 2); // Changes based on dynamax level, max (LVL 10)
+			pokemon.maxhp = Math.floor(pokemon.maxhp * ratio); // TODO prevent maxhp loss
+			pokemon.hp = Math.floor(pokemon.hp * ratio);
+			if (pokemon.hp <= 0) pokemon.hp = 1;
+			this.hint("Dynamax ended.");
+		},
+		onDragOutPriority: 2,
+		onDragOut(pokemon) {
+			this.add('-fail', pokemon, 'Dynamax');
+			return null;
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Dynamax');
 			if (pokemon.canGigantamax) pokemon.formeChange(pokemon.baseTemplate.species);
 			if (pokemon.species === 'Shedinja') return;
 			let ratio = (1 / 2); // Changes based on dynamax level, static (LVL 10) until we know the levels
 			pokemon.maxhp = Math.floor(pokemon.maxhp * ratio); // TODO prevent maxhp loss
 			pokemon.hp = Math.floor(pokemon.hp * ratio);
 			if (pokemon.hp <= 0) pokemon.hp = 1;
-			// TODO work on display for healing
-			this.add('-heal', pokemon, pokemon.getHealth, '[from] Dynamax');
-		},
-		onEnd(pokemon) {
-			// Play animation
-			// Modify HP - Work with LVL 0 for now
-			//this.add('-undynamax', pokemon);
-			this.add('-end', pokemon, "Dynamax");
-			if (pokemon.canGigantamax) pokemon.formeChange(pokemon.baseTemplate.species);
-			if (pokemon.species === 'Shedinja') return;
-			let ratio = (1 / 2); // Changes based on dynamax level, static (LVL 10) until we know the levels
-			pokemon.maxhp = Math.floor(pokemon.maxhp * ratio); // TODO prevent maxhp loss
-			pokemon.hp = Math.floor(pokemon.hp * ratio);
-			if (pokemon.hp <= 0) pokemon.hp = 1;
-			// TODO work on display for healing
-			this.add('-heal', pokemon, pokemon.getHealth, '[from] Dynamax');
-		},
-	},
-	
-	// CFM Gooey + Hyper Cutter
-	gooey: {
-		name: 'Gooey',
-		id: 'gooey',
-		num: 0,
-		noCopy: true,
-		onStart(target, source) {
-			this.add('-activate', source, 'ability: Gooey');
-			this.boost({spe: -1}, target);
-			target.removeVolatile('gooey');
-		},
-	},
-	hypercutter: {
-		name: 'Hyper Cutter',
-		id: 'hypercutter',
-		num: 0,
-		noCopy: true,
-		onStart(target, source) {
-			this.add('-activate', source, 'ability: Hyper Cutter');
-			this.boost({atk: 1}, target);
-			target.removeVolatile('hypercutter');			
-		},
-	},
-	
-	charge: {
-		name: 'Charge',
-		id: 'charge',
-		num: 0,
-		noCopy: true,
-		duration: 2,
-		onRestart(pokemon) {
-			this.effectData.duration = 2;
-		},
-		onBasePowerPriority: 3,
-		onBasePower(basePower, attacker, defender, move) {
-			if (move.type === 'Electric') {
-				this.debug('charge boost');
-				return this.chainModify(2);
-			}
-		},
-		onEnd(pokemon) {
-			this.add('-end', pokemon, 'move: Charge', '[silent]');
+			// TODO work on display for HP
+			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 		},
 	},
 
@@ -823,21 +777,6 @@ let BattleStatuses = {
 				}
 			}
 			return [type];
-		},
-	},
-	solgaleo: {
-		name: 'Solgaleo',
-		id: 'solgaleo',
-		num: 791,
-		onTypePriority: 1,
-		onType(types, pokemon) {
-			if (pokemon.transformed) return types;
-			/** @type {string | undefined} */
-			let typesArr = this.dex.getTemplate(pokemon.species).types;
-			if (pokemon.ability === 'fullmetalbody' && !pokemon.types.includes('Steel')) {
-				typesArr.push('Steel');
-			}
-			return [typesArr];
 		},
 	},
 	silvally: {
