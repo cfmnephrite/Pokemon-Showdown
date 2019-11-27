@@ -217,6 +217,7 @@ let BattleMovedex = {
 			let stats = [];
 			for (let stat in target.boosts) {
 				// @ts-ignore
+				if (stat === 'evasion') continue;
 				if (target.boosts[stat] < 6) {
 					stats.push(stat);
 				}
@@ -3142,38 +3143,60 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "The user and its party members are protected from non-damaging attacks made by other Pokemon, including allies, during this turn. Fails if the user moves last this turn or if this move is already in effect for the user's side.",
-		shortDesc: "Protects allies from Status moves this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon using a status move on it become taunted. Poison type moves ignore this move. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		shortDesc: "Protects from moves. Fails against Poison type moves. Status moves inflict taunt on opponent.",
 		id: "craftyshield",
 		name: "Crafty Shield",
 		pp: 10,
-		priority: 3,
+		priority: 4,
 		flags: {},
-		sideCondition: 'craftyshield',
-		onTryHitSide(side, source) {
-			return !!this.willAct();
+		stallingMove: true,
+		volatileStatus: 'craftyshield',
+		onTryHit(target, source, move) {
+			return !!this.willAct() && this.runEvent('StallMove', target);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
 		},
 		effect: {
 			duration: 1,
-			onStart(target, source) {
-				this.add('-singleturn', source, 'Crafty Shield');
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
 			},
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
-				if (move && (move.target === 'self' || move.category !== 'Status')) return;
-				this.add('-activate', target, 'move: Crafty Shield');
+				if (!move.flags['protect'] || move.type === 'Poison') {
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				this.add('-activate', target, 'move: Protect');
+				let lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.flags['reflectable']) {
+					source.addVolatile('taunt', target);
+				}
 				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZPowered && move.flags['reflectable']) {
+					source.addVolatile('taunt', target);
+				}
 			},
 		},
 		secondary: null,
-		target: "allySide",
+		target: "self",
 		type: "Fairy",
 		zMoveBoost: {spd: 1},
 		contestType: "Clever",
 	},
 	"crosschop": {
 		num: 238,
-		accuracy: 80,
+		accuracy: 85,
 		basePower: 100,
 		category: "Physical",
 		desc: "Has a higher chance for a critical hit.",
@@ -3181,7 +3204,7 @@ let BattleMovedex = {
 		id: "crosschop",
 		isViable: true,
 		name: "Cross Chop",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		critRatio: 2,
@@ -3193,14 +3216,14 @@ let BattleMovedex = {
 	},
 	"crosspoison": {
 		num: 440,
-		accuracy: 100,
-		basePower: 70,
+		accuracy: 95,
+		basePower: 100,
 		category: "Physical",
 		desc: "Has a 10% chance to poison the target and a higher chance for a critical hit.",
 		shortDesc: "High critical hit ratio. 10% chance to poison.",
 		id: "crosspoison",
 		name: "Cross Poison",
-		pp: 20,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		secondary: {
@@ -3210,7 +3233,7 @@ let BattleMovedex = {
 		critRatio: 2,
 		target: "normal",
 		type: "Poison",
-		zMovePower: 140,
+		zMovePower: 180,
 		contestType: "Cool",
 	},
 	"crunch": {
@@ -3227,7 +3250,7 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
 		secondary: {
-			chance: 20,
+			chance: 30,
 			boosts: {
 				def: -1,
 			},
@@ -3262,22 +3285,24 @@ let BattleMovedex = {
 	},
 	"crushgrip": {
 		num: 462,
-		accuracy: 100,
-		basePower: 0,
-		basePowerCallback(pokemon, target) {
-			return Math.floor(Math.floor((120 * (100 * Math.floor(target.hp * 4096 / target.maxhp)) + 2048 - 1) / 4096) / 100) || 1;
-		},
+		accuracy: 95,
+		basePower: 100,
 		category: "Physical",
-		desc: "Power is equal to 120 * (target's current HP / target's maximum HP), rounded half down, but not less than 1.",
-		shortDesc: "More power the more HP the target has left.",
+		desc: "has a 30% chance to lower foe's defense.",
+		shortDesc: "30% chance to lower defense.",
 		id: "crushgrip",
 		name: "Crush Grip",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		secondary: null,
+		secondary: {
+			chance: 30,
+			boosts: {
+				def: -1,
+			},
+		},
 		target: "normal",
-		type: "Normal",
+		type: "Fighting",
 		zMovePower: 190,
 		gmaxPower: 140,
 		contestType: "Tough",
@@ -3370,7 +3395,7 @@ let BattleMovedex = {
 	"darkpulse": {
 		num: 399,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 90,
 		category: "Special",
 		desc: "Has a 20% chance to flinch the target.",
 		shortDesc: "20% chance to flinch the target.",
@@ -3391,7 +3416,7 @@ let BattleMovedex = {
 	},
 	"darkvoid": {
 		num: 464,
-		accuracy: 50,
+		accuracy: 80,
 		basePower: 0,
 		category: "Status",
 		desc: "Causes the target to fall asleep. This move cannot be used successfully unless the user's current form, while considering Transform, is Darkrai.",
@@ -3404,11 +3429,11 @@ let BattleMovedex = {
 		flags: {protect: 1, reflectable: 1, mirror: 1},
 		status: 'slp',
 		onTryMove(pokemon, target, move) {
-			if (pokemon.template.species === 'Darkrai' || move.hasBounced) {
+			if (pokemon.hasType('Dark')|| move.hasBounced) {
 				return;
 			}
 			this.add('-fail', pokemon, 'move: Dark Void');
-			this.hint("Only a Pokemon whose form is Darkrai can use this move.");
+			this.hint("Only a Dark type pokemon can use this move");
 			return null;
 		},
 		secondary: null,
@@ -3893,7 +3918,7 @@ let BattleMovedex = {
 		num: 353,
 		accuracy: 100,
 		basePower: 140,
-		category: "Special",
+		category: "Physical",
 		desc: "Deals damage two turns after this move is used. At the end of that turn, the damage is calculated at that time and dealt to the Pokemon at the position the target had when the move was used. If the user is no longer active at the time, damage is calculated based on the user's natural Special Attack stat, types, and level, with no boosts from its held item or Ability. Fails if this move or Future Sight is already in effect for the target's position.",
 		shortDesc: "Hits two turns after being used.",
 		id: "doomdesire",
@@ -3951,11 +3976,11 @@ let BattleMovedex = {
 	},
 	"doublehit": {
 		num: 458,
-		accuracy: 90,
-		basePower: 35,
+		accuracy: true,
+		basePower: 40,
 		category: "Physical",
-		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
-		shortDesc: "Hits 2 times in one turn.",
+		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit. Never misses.",
+		shortDesc: "Hits 2 times in one turn. Never misses.",
 		id: "doublehit",
 		name: "Double Hit",
 		pp: 10,
@@ -3996,14 +4021,14 @@ let BattleMovedex = {
 	},
 	"doublekick": {
 		num: 24,
-		accuracy: 100,
-		basePower: 30,
+		accuracy: true,
+		basePower: 40,
 		category: "Physical",
-		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
-		shortDesc: "Hits 2 times in one turn.",
+		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit. Never misses.",
+		shortDesc: "Hits 2 times in one turn. Never misses.",
 		id: "doublekick",
 		name: "Double Kick",
-		pp: 30,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		multihit: 2,
@@ -4016,17 +4041,17 @@ let BattleMovedex = {
 	},
 	"doubleslap": {
 		num: 3,
-		accuracy: 85,
-		basePower: 15,
+		accuracy: true,
+		basePower: 40,
 		category: "Physical",
-		desc: "Hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times.",
-		shortDesc: "Hits 2-5 times in one turn.",
+		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit. Never misses.",
+		shortDesc: "Hits 2 times in one turn. Never misses.",
 		id: "doubleslap",
 		name: "Double Slap",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		multihit: [2, 5],
+		multihit: 2,
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -4057,7 +4082,7 @@ let BattleMovedex = {
 	"dracometeor": {
 		num: 434,
 		accuracy: 90,
-		basePower: 130,
+		basePower: 140,
 		category: "Special",
 		desc: "Lowers the user's Special Attack by 2 stages.",
 		shortDesc: "Lowers the user's Sp. Atk by 2.",
@@ -4128,14 +4153,19 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
-		shortDesc: "No additional effect.",
+		shortDesc: "30% chance to lower attack.",
 		id: "dragonclaw",
 		isViable: true,
 		name: "Dragon Claw",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		secondary: null,
+		secondary: {
+			chance: 30,
+				boosts: {
+				atk: -1,
+			},
+		},
 		target: "normal",
 		type: "Dragon",
 		zMovePower: 160,
@@ -4191,25 +4221,26 @@ let BattleMovedex = {
 	"dragonhammer": {
 		num: 692,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Physical",
-		shortDesc: "No additional effect.",
+		shortDesc: "33% recoil",
 		id: "dragonhammer",
 		isViable: true,
 		name: "Dragon Hammer",
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [33, 100],
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
-		zMovePower: 175,
+		zMovePower: 200,
 		contestType: "Tough",
 	},
 	"dragonpulse": {
 		num: 406,
 		accuracy: 100,
-		basePower: 85,
+		basePower: 90,
 		category: "Special",
 		shortDesc: "No additional effect.",
 		id: "dragonpulse",
@@ -4218,10 +4249,15 @@ let BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, pulse: 1, mirror: 1, distance: 1},
-		secondary: null,
+		secondary: {
+			chance: 30,
+				boosts: {
+				spd: -1,
+			},
+		},
 		target: "any",
 		type: "Dragon",
-		zMovePower: 160,
+		zMovePower: 175,
 		contestType: "Beautiful",
 	},
 	"dragonrage": {
@@ -4245,7 +4281,7 @@ let BattleMovedex = {
 	"dragonrush": {
 		num: 407,
 		accuracy: 75,
-		basePower: 100,
+		basePower: 120,
 		category: "Physical",
 		desc: "Has a 20% chance to flinch the target. Damage doubles and no accuracy check is done if the target has used Minimize while active.",
 		shortDesc: "20% chance to flinch the target.",
@@ -4324,7 +4360,11 @@ let BattleMovedex = {
 	"dreameater": {
 		num: 138,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 75,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status === 'slp' || target.hasAbility('comatose')) return move.basePower * 1.5;
+			return move.basePower;
+		},
 		category: "Special",
 		desc: "The target is unaffected by this move unless it is asleep. The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
 		shortDesc: "User gains 1/2 HP inflicted. Sleeping target only.",
@@ -4334,19 +4374,16 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, heal: 1},
 		drain: [1, 2],
-		onTryImmunity(target) {
-			return target.status === 'slp' || target.hasAbility('comatose');
-		},
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
-		zMovePower: 180,
+		zMovePower: 160,
 		contestType: "Clever",
 	},
 	"drillpeck": {
 		num: 65,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 85,
 		category: "Physical",
 		shortDesc: "No additional effect.",
 		id: "drillpeck",
@@ -4355,7 +4392,12 @@ let BattleMovedex = {
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, distance: 1},
-		secondary: null,
+		secondary: {
+			chance: 20,
+			boosts: {
+				def: -1,
+			},
+		},
 		target: "any",
 		type: "Flying",
 		zMovePower: 160,
@@ -4404,14 +4446,14 @@ let BattleMovedex = {
 	},
 	"dualchop": {
 		num: 530,
-		accuracy: 90,
+		accuracy: true,
 		basePower: 40,
 		category: "Physical",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
 		shortDesc: "Hits 2 times in one turn.",
 		id: "dualchop",
 		name: "Dual Chop",
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		multihit: 2,
@@ -4492,7 +4534,7 @@ let BattleMovedex = {
 	},
 	"earthquake": {
 		num: 89,
-		accuracy: 100,
+		accuracy: true,
 		basePower: 100,
 		category: "Physical",
 		desc: "Damage doubles if the target is using Dig.",
@@ -4573,15 +4615,22 @@ let BattleMovedex = {
 	},
 	"eggbomb": {
 		num: 121,
-		accuracy: 75,
-		basePower: 100,
+		accuracy: 90,
+		basePower: 0,
+		damage: 'level',
 		category: "Physical",
-		shortDesc: "No additional effect.",
+		shortDesc: "Damage equal to level. If targets ally, restores 50% of health instead.",
 		id: "eggbomb",
 		name: "Egg Bomb",
 		pp: 10,
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
+		onTryHit(target, source, move) {
+			if (source.side === target.side) {
+				move.damage = 0;
+				move.heal = [1, 2];
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
