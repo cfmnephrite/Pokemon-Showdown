@@ -9030,17 +9030,19 @@ let BattleMovedex = {
 	"hydrocannon": {
 		num: 308,
 		accuracy: 90,
-		basePower: 150,
+		basePower: 140,
 		category: "Special",
-		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move.",
-		shortDesc: "User cannot move next turn.",
+		desc: "Lowers the user's special attack by 2 stages",
+		shortDesc: "Lowers special attack by 2.",
 		id: "hydrocannon",
 		name: "Hydro Cannon",
 		pp: 5,
 		priority: 0,
 		flags: {recharge: 1, protect: 1, mirror: 1},
 		self: {
-			volatileStatus: 'mustrecharge',
+			boosts: {
+				spa: -2,
+			},
 		},
 		secondary: null,
 		target: "normal",
@@ -9050,8 +9052,8 @@ let BattleMovedex = {
 	},
 	"hydropump": {
 		num: 56,
-		accuracy: 80,
-		basePower: 110,
+		accuracy: 85,
+		basePower: 120,
 		category: "Special",
 		shortDesc: "No additional effect.",
 		id: "hydropump",
@@ -9292,29 +9294,18 @@ let BattleMovedex = {
 	},
 	"iceburn": {
 		num: 554,
-		accuracy: 90,
-		basePower: 140,
+		accuracy: 100,
+		basePower: 100,
 		category: "Special",
-		desc: "Has a 30% chance to burn the target. This attack charges on the first turn and executes on the second. If the user is holding a Power Herb, the move completes in one turn.",
-		shortDesc: "Charges turn 1. Hits turn 2. 30% burn.",
+		desc: "Has a 20% chance to burn the target.",
+		shortDesc: "20% burn.",
 		id: "iceburn",
 		name: "Ice Burn",
 		pp: 5,
 		priority: 0,
 		flags: {charge: 1, protect: 1, mirror: 1},
-		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
-				return;
-			}
-			this.add('-prepare', attacker, move.name, defender);
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
-		},
 		secondary: {
-			chance: 30,
+			chance: 20,
 			status: 'brn',
 		},
 		target: "normal",
@@ -9324,8 +9315,8 @@ let BattleMovedex = {
 	},
 	"icefang": {
 		num: 423,
-		accuracy: 95,
-		basePower: 65,
+		accuracy: 100,
+		basePower: 70,
 		category: "Physical",
 		desc: "Has a 10% chance to freeze the target and a 10% chance to flinch it.",
 		shortDesc: "10% chance to freeze. 10% chance to flinch.",
@@ -9346,7 +9337,7 @@ let BattleMovedex = {
 		],
 		target: "normal",
 		type: "Ice",
-		zMovePower: 120,
+		zMovePower: 140,
 		contestType: "Cool",
 	},
 	"icehammer": {
@@ -9354,8 +9345,8 @@ let BattleMovedex = {
 		accuracy: 90,
 		basePower: 100,
 		category: "Physical",
-		desc: "Lowers the user's Speed by 1 stage.",
-		shortDesc: "Lowers the user's Speed by 1.",
+		desc: "Lowers the user's Speed by 1 stage. Has a 10% chance to freeze the target.",
+		shortDesc: "Lowers the user's Speed by 1. 10% chance to freeze the target.",
 		id: "icehammer",
 		isViable: true,
 		name: "Ice Hammer",
@@ -9367,7 +9358,10 @@ let BattleMovedex = {
 				spe: -1,
 			},
 		},
-		secondary: null,
+		secondary: {
+			chance: 10,
+				status: 'frz',
+		},
 		target: "normal",
 		type: "Ice",
 		zMovePower: 180,
@@ -9376,7 +9370,7 @@ let BattleMovedex = {
 	"icepunch": {
 		num: 8,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 80,
 		category: "Physical",
 		desc: "Has a 10% chance to freeze the target.",
 		shortDesc: "10% chance to freeze the target.",
@@ -9392,7 +9386,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Ice",
-		zMovePower: 140,
+		zMovePower: 160,
 		contestType: "Beautiful",
 	},
 	"iceshard": {
@@ -9416,11 +9410,11 @@ let BattleMovedex = {
 	},
 	"iciclecrash": {
 		num: 556,
-		accuracy: 90,
-		basePower: 85,
+		accuracy: 100,
+		basePower: 90,
 		category: "Physical",
-		desc: "Has a 30% chance to flinch the target.",
-		shortDesc: "30% chance to flinch the target.",
+		desc: "Has a 20% chance to flinch the target.",
+		shortDesc: "20% chance to flinch the target.",
 		id: "iciclecrash",
 		isViable: true,
 		name: "Icicle Crash",
@@ -9428,12 +9422,12 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
-			chance: 30,
+			chance: 20,
 			volatileStatus: 'flinch',
 		},
 		target: "normal",
 		type: "Ice",
-		zMovePower: 160,
+		zMovePower: 180,
 		contestType: "Beautiful",
 	},
 	"iciclespear": {
@@ -9523,41 +9517,38 @@ let BattleMovedex = {
 	"incinerate": {
 		num: 510,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 20,
 		category: "Special",
-		desc: "The target loses its held item if it is a Berry or a Gem. This move cannot cause Pokemon with the Sticky Hold Ability to lose their held item. Items lost to this move cannot be regained with Recycle or the Harvest Ability.",
-		shortDesc: "Destroys the foe(s) Berry/Gem.",
+		desc: "Has a 100 % chance to burn.",
+		shortDesc: "100% burn",
 		id: "incinerate",
 		name: "Incinerate",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onHit(pokemon, source) {
-			let item = pokemon.getItem();
-			if ((item.isBerry || item.isGem) && pokemon.takeItem(source)) {
-				this.add('-enditem', pokemon, item.name, '[from] move: Incinerate');
-			}
+		secondary: {
+			chance: 100,
+			status: 'brn',
 		},
-		secondary: null,
-		target: "allAdjacentFoes",
+		target: "normal",
 		type: "Fire",
-		zMovePower: 120,
+		zMovePower: 100,
 		contestType: "Tough",
 	},
 	"inferno": {
 		num: 517,
-		accuracy: 50,
-		basePower: 100,
-		category: "Special",
-		desc: "Has a 100% chance to burn the target.",
-		shortDesc: "100% chance to burn the target.",
+		accuracy: 80,
+		basePower: 120,
+		category: "Physical",
+		desc: "Has a 20% chance to burn the target.",
+		shortDesc: "20% chance to burn the target.",
 		id: "inferno",
 		name: "Inferno",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
-			chance: 100,
+			chance: 20,
 			status: 'brn',
 		},
 		target: "normal",
@@ -9727,7 +9718,7 @@ let BattleMovedex = {
 	"ironhead": {
 		num: 442,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 90,
 		category: "Physical",
 		desc: "Has a 30% chance to flinch the target.",
 		shortDesc: "30% chance to flinch the target.",
@@ -9738,7 +9729,7 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		secondary: {
-			chance: 30,
+			chance: 20,
 			volatileStatus: 'flinch',
 		},
 		target: "normal",
