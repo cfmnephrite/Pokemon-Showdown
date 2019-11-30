@@ -5444,7 +5444,7 @@ let BattleMovedex = {
 	"fireblast": {
 		num: 126,
 		accuracy: 85,
-		basePower: 110,
+		basePower: 120,
 		category: "Special",
 		desc: "Has a 10% chance to burn the target.",
 		shortDesc: "10% chance to burn the target.",
@@ -5465,8 +5465,8 @@ let BattleMovedex = {
 	},
 	"firefang": {
 		num: 424,
-		accuracy: 95,
-		basePower: 65,
+		accuracy: 100,
+		basePower: 70,
 		category: "Physical",
 		desc: "Has a 10% chance to burn the target and a 10% chance to flinch it.",
 		shortDesc: "10% chance to burn. 10% chance to flinch.",
@@ -5487,13 +5487,13 @@ let BattleMovedex = {
 		],
 		target: "normal",
 		type: "Fire",
-		zMovePower: 120,
+		zMovePower: 140,
 		contestType: "Cool",
 	},
 	"firelash": {
 		num: 680,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 100,
 		category: "Physical",
 		desc: "Has a 100% chance to lower the target's Defense by 1 stage.",
 		shortDesc: "100% chance to lower the target's Defense by 1.",
@@ -5504,7 +5504,7 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		secondary: {
-			chance: 100,
+			chance: 50,
 			boosts: {
 				def: -1,
 			},
@@ -5589,7 +5589,7 @@ let BattleMovedex = {
 	"firepunch": {
 		num: 7,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 80,
 		category: "Physical",
 		desc: "Has a 10% chance to burn the target.",
 		shortDesc: "10% chance to burn the target.",
@@ -5605,7 +5605,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Fire",
-		zMovePower: 140,
+		zMovePower: 160,
 		contestType: "Tough",
 	},
 	"firespin": {
@@ -5681,18 +5681,27 @@ let BattleMovedex = {
 	},
 	"fissure": {
 		num: 90,
-		accuracy: 30,
-		basePower: 0,
+		accuracy: 90,
+		basePower: 140,
 		category: "Physical",
-		desc: "Deals damage to the target equal to the target's maximum HP. Ignores accuracy and evasiveness modifiers. This attack's accuracy is equal to (user's level - target's level + 30)%, and fails if the target is at a higher level. Pokemon with the Sturdy Ability are immune.",
+		desc: "Lowers the user's special attack by 2 stages. has a 10% chance to trap the target."
 		shortDesc: "OHKOs the target. Fails if user is a lower level.",
 		id: "fissure",
 		name: "Fissure",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, nonsky: 1},
-		ohko: true,
-		secondary: null,
+		self: {
+			boosts: {
+				atk: -2,
+			},
+		},
+		secondary: {
+			chance: 10,
+			onHit(target, source, move) {
+				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+			},
+		},
 		target: "normal",
 		type: "Ground",
 		zMovePower: 180,
@@ -5891,18 +5900,18 @@ let BattleMovedex = {
 	"flashcannon": {
 		num: 430,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 90,
 		category: "Special",
 		desc: "Has a 10% chance to lower the target's Special Defense by 1 stage.",
 		shortDesc: "10% chance to lower the target's Sp. Def by 1.",
 		id: "flashcannon",
 		isViable: true,
 		name: "Flash Cannon",
-		pp: 10,
+		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, pulse: 1},
 		secondary: {
-			chance: 10,
+			chance: 20,
 			boosts: {
 				spd: -1,
 			},
@@ -5937,7 +5946,7 @@ let BattleMovedex = {
 	"fleurcannon": {
 		num: 705,
 		accuracy: 90,
-		basePower: 130,
+		basePower: 140,
 		category: "Special",
 		desc: "Lowers the user's Special Attack by 2 stages.",
 		shortDesc: "Lowers the user's Sp. Atk by 2.",
@@ -6195,7 +6204,7 @@ let BattleMovedex = {
 	},
 	"focusblast": {
 		num: 411,
-		accuracy: 70,
+		accuracy: 80,
 		basePower: 120,
 		category: "Special",
 		desc: "Has a 10% chance to lower the target's Special Defense by 1 stage.",
@@ -6455,29 +6464,18 @@ let BattleMovedex = {
 	},
 	"freezeshock": {
 		num: 553,
-		accuracy: 90,
-		basePower: 140,
+		accuracy: 100,
+		basePower: 100,
 		category: "Physical",
-		desc: "Has a 30% chance to paralyze the target. This attack charges on the first turn and executes on the second. If the user is holding a Power Herb, the move completes in one turn.",
-		shortDesc: "Charges turn 1. Hits turn 2. 30% paralyze.",
+		desc: "Has a 20% chance to paralyze the target.",
+		shortDesc: "20% paralyze.",
 		id: "freezeshock",
 		name: "Freeze Shock",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {charge: 1, protect: 1, mirror: 1},
-		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
-				return;
-			}
-			this.add('-prepare', attacker, move.name, defender);
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
-		},
 		secondary: {
-			chance: 30,
+			chance: 20,
 			status: 'par',
 		},
 		target: "normal",
@@ -6516,16 +6514,14 @@ let BattleMovedex = {
 		accuracy: 90,
 		basePower: 150,
 		category: "Special",
-		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move.",
-		shortDesc: "User cannot move next turn.",
+		desc: "If the target lost HP, the user takes recoil damage equal to 1/2 the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "50% recoil.",
 		id: "frenzyplant",
 		name: "Frenzy Plant",
 		pp: 5,
 		priority: 0,
 		flags: {recharge: 1, protect: 1, mirror: 1, nonsky: 1},
-		self: {
-			volatileStatus: 'mustrecharge',
-		},
+		recoil: [1, 2],
 		secondary: null,
 		target: "normal",
 		type: "Grass",
@@ -6776,8 +6772,8 @@ let BattleMovedex = {
 	},
 	"geargrind": {
 		num: 544,
-		accuracy: 85,
-		basePower: 50,
+		accuracy: true,
+		basePower: 40,
 		category: "Physical",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
 		shortDesc: "Hits 2 times in one turn.",
@@ -6857,29 +6853,20 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "Raises the user's Special Attack, Special Defense, and Speed by 2 stages. This attack charges on the first turn and executes on the second. If the user is holding a Power Herb, the move completes in one turn.",
-		shortDesc: "Charges, then raises SpA, SpD, Spe by 2 turn 2.",
+		desc: "Raises the user's Special Attack by 12 stages in exchange for the user losing 1/2 of its maximum HP, rounded down. Fails if the user would faint or if its Special Attack stat stage is 6.",
+		shortDesc: "User loses 50% max HP. Maximizes Special Attack.",
 		id: "geomancy",
 		isViable: true,
 		name: "Geomancy",
 		pp: 10,
 		priority: 0,
 		flags: {charge: 1, nonsky: 1},
-		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
-				return;
+		onHit(target) {
+			if (target.hp <= target.maxhp / 2 || target.boosts.atk >= 6 || target.maxhp === 1) { // Shedinja clause
+				return false;
 			}
-			this.add('-prepare', attacker, move.name, defender);
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
-		},
-		boosts: {
-			spa: 2,
-			spd: 2,
-			spe: 2,
+			this.directDamage(target.maxhp / 2);
+			this.boost({spa: 12}, target);
 		},
 		secondary: null,
 		target: "self",
@@ -6912,16 +6899,14 @@ let BattleMovedex = {
 		accuracy: 90,
 		basePower: 150,
 		category: "Physical",
-		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move.",
-		shortDesc: "User cannot move next turn.",
+		desc: "If the target lost HP, the user takes recoil damage equal to 1/2 the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 1/2 recoil.",
 		id: "gigaimpact",
 		name: "Giga Impact",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, recharge: 1, protect: 1, mirror: 1},
-		self: {
-			volatileStatus: 'mustrecharge',
-		},
+		recoil: [1, 2],
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -7438,7 +7423,7 @@ let BattleMovedex = {
 		name: "Grass Knot",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1},
+		flags: {protect: 1, mirror: 1, nonsky: 1},
 		onTryHit(pokemon, target, move) {
 			if (!pokemon.volatiles['dynamax']) return;
 			this.add('-fail', pokemon);
@@ -7522,17 +7507,19 @@ let BattleMovedex = {
 	},
 	"grasswhistle": {
 		num: 320,
-		accuracy: 55,
-		basePower: 0,
-		category: "Status",
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
 		shortDesc: "Causes the target to fall asleep.",
 		id: "grasswhistle",
 		name: "Grass Whistle",
-		pp: 15,
+		pp: 20,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, authentic: 1},
-		status: 'slp',
-		secondary: null,
+		secondary: {
+			chance: 10,
+			status: 'slp',
+		},
 		target: "normal",
 		type: "Grass",
 		zMoveBoost: {spe: 1},
@@ -7639,6 +7626,9 @@ let BattleMovedex = {
 				if (source && source.hasAbility('persistent')) {
 					this.add('-activate', source, 'ability: Persistent', effect);
 					return 7;
+				}
+				if (source && source.hasItem('lightclay')) {
+					return 8;
 				}
 				return 5;
 			},
@@ -7876,18 +7866,27 @@ let BattleMovedex = {
 	},
 	"guillotine": {
 		num: 12,
-		accuracy: 30,
-		basePower: 0,
+		accuracy: 90,
+		basePower: 140,
 		category: "Physical",
-		desc: "Deals damage to the target equal to the target's maximum HP. Ignores accuracy and evasiveness modifiers. This attack's accuracy is equal to (user's level - target's level + 30)%, and fails if the target is at a higher level. Pokemon with the Sturdy Ability are immune.",
-		shortDesc: "OHKOs the target. Fails if user is a lower level.",
+		desc: "Lowers the user's attack by 2 stages. Has a 10% chance to harshly lower the foe's defense."
+		shortDesc: "Lowers attack by 2 stages, 10% chance to harshly lower defense.",
 		id: "guillotine",
 		name: "Guillotine",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		ohko: true,
-		secondary: null,
+		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1},
+		self: {
+			boosts: {
+				atk: -2,
+			},
+		},
+		secondary: {
+			chance: 10,
+			boosts: {
+				def: -2,
+			},
+		},
 		target: "normal",
 		type: "Normal",
 		zMovePower: 180,
@@ -7926,7 +7925,7 @@ let BattleMovedex = {
 		id: "gust",
 		name: "Gust",
 		pp: 35,
-		priority: 0,
+		priority: 1,
 		flags: {protect: 1, mirror: 1, distance: 1},
 		secondary: null,
 		target: "any",
@@ -8940,17 +8939,17 @@ let BattleMovedex = {
 	},
 	"horndrill": {
 		num: 32,
-		accuracy: 30,
-		basePower: 0,
+		accuracy: 90,
+		basePower: 140,
 		category: "Physical",
-		desc: "Deals damage to the target equal to the target's maximum HP. Ignores accuracy and evasiveness modifiers. This attack's accuracy is equal to (user's level - target's level + 30)%, and fails if the target is at a higher level. Pokemon with the Sturdy Ability are immune.",
-		shortDesc: "OHKOs the target. Fails if user is a lower level.",
+		desc: "Lowers the user's attack by 2 stages. Has a higher chance for a critical hit."
+		shortDesc: "Lowers attack by 2 stages, High critical hit rate.",
 		id: "horndrill",
 		name: "Horn Drill",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		ohko: true,
+		critRatio: 2,
 		secondary: null,
 		target: "normal",
 		type: "Normal",
