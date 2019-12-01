@@ -483,7 +483,7 @@ let BattleStatuses = {
 		onWeatherModifyDamage(damage, attacker, defender, move) {
 			if (move.type === 'Water') {
 				this.debug('rain water boost');
-				return this.chainModify(1.5);
+				return this.chainModify(1.25);
 			}
 			if (move.type === 'Fire' && move.id !== 'sacredfire' && !move.ignoreWeather) {
 				this.debug('rain fire suppress');
@@ -492,7 +492,7 @@ let BattleStatuses = {
 		},
 		onStart(battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5 || effect.id === 'forecast') this.effectData.duration = 0;
 				this.add('-weather', 'RainDance', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'RainDance');
@@ -563,7 +563,7 @@ let BattleStatuses = {
 		onWeatherModifyDamage(damage, attacker, defender, move) {
 			if (move.type === 'Fire') {
 				this.debug('Sunny Day fire boost');
-				return this.chainModify(1.5);
+				return this.chainModify(1.25);
 			}
 			if (move.type === 'Water' && move.id !== 'originpulse' && !move.ignoreWeather) {
 				this.debug('Sunny Day water suppress');
@@ -686,9 +686,19 @@ let BattleStatuses = {
 			}
 			return 5;
 		},
+		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (move.type === 'Ice') {
+				this.debug('Hail boost');
+				return this.chainModify(1.25);
+			}
+			if (!attacker.hasType('Ice') && (move.type === 'Water' || move.type === 'Fire') && move.id !== 'originpulse' && move.id !== 'sacredfire' && !move.ignoreWeather) {
+				this.debug('Hail fire/water suppress');
+				return this.chainModify(0.5);
+			}
+		},
 		onStart(battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5 || effect.id === 'forecast') this.effectData.duration = 0;
 				this.add('-weather', 'Hail', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'Hail');

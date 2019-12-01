@@ -1121,8 +1121,12 @@ let BattleAbilities = {
 		num: 218,
 	},
 	"forecast": {
-		desc: "If this Pokemon is a Castform, its type changes to the current weather condition's type, except Sandstorm.",
-		shortDesc: "Castform's type changes to the current weather condition's type, except Sandstorm.",
+		shortDesc: "Castform changes the weather with move in slot 1 and transforms.",
+		onStart(pokemon) {
+			if (['desolateland', 'primordialsea', 'deltastream'].includes(this.field.getWeather().id)) return;
+			let move = this.dex.getMove(pokemon.moveSlots[0].move)
+			if(['hail', 'raindance', 'sunnyday'].includes(move.id)) this.field.setWeather(move.id);
+		},
 		onUpdate(pokemon) {
 			if (pokemon.baseTemplate.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
@@ -1145,6 +1149,21 @@ let BattleAbilities = {
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherData.source !== pokemon) return;
+			for (const side of this.sides) {
+				for (const target of side.active) {
+					if (target === pokemon) continue;
+					let moveSource = this.dex.getMove(pokemon.moveSlots[0].move)
+					let moveTarget = this.dex.getMove(target.moveSlots[0].move)
+					if (target && target.hp && ((target.hasAbility('flowergift') && moveTarget.id === 'sunnyday') || target.hasAbility('forecast')) && moveSource.id === moveTarget.id) {
+						this.field.weatherData.source = target;
+						return;
+					}
+				}
+			}
+			this.field.clearWeather();
 		},
 		id: "forecast",
 		name: "Forecast",
