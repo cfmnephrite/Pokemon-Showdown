@@ -48,7 +48,7 @@ let BattleAbilities = {
 		desc: "This Pokemon's moves that match one of its types have a same-type attack bonus (STAB) of 2 instead of 1.5.",
 		shortDesc: "This Pokemon's same-type attack bonus (STAB) is 2 instead of 1.5.",
 		onModifyMove(move) {
-			move.stab = 2;
+			if (!this.field.auraBreak()) move.stab = 2;
 		},
 		id: "adaptability",
 		name: "Adaptability",
@@ -59,7 +59,7 @@ let BattleAbilities = {
 		shortDesc: "Normal-type moves become Flying; all Flying moves boosted by 20%.",
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
-			if (move.category === 'Status') return;
+			if (move.category === 'Status' || this.field.auraBreak()) return;
 			if ((move.type === 'Normal' && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !move.isZ) || move.type === 'Flying') {
 				move.type = 'Flying';
 				move.aerilateBoosted = true;
@@ -361,7 +361,7 @@ let BattleAbilities = {
 		shortDesc: "At 1/3 or less of its max HP, this Pokemon's attacking stat is 1.5x with Fire attacks.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3 && !this.field.auraBreak()) {
 				this.debug('Blaze boost');
 				return this.chainModify(1.5);
 			}
@@ -1003,7 +1003,7 @@ let BattleAbilities = {
 		shortDesc: "If this Pokémon is burned: Sp. Attack boosted by 50%; burn damage 1/16th.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (attacker.status === 'brn' && move.category === 'Special') {
+			if (attacker.status === 'brn' && move.category === 'Special' && !this.field.auraBreak()) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -1259,7 +1259,7 @@ let BattleAbilities = {
 		shortDesc: "Normal-type moves become Electric; all Electric moves boosted by 20%.",
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
-			if (move.category === 'Status') return;
+			if (move.category === 'Status' || this.field.auraBreak()) return;
 			if ((move.type === 'Normal' && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !move.isZ) || move.type === 'Electric') {
 				move.type = 'Electric';
 				move.galvanizeBoosted = true;
@@ -1376,7 +1376,7 @@ let BattleAbilities = {
 		shortDesc: "If this Pokemon is statused, its Attack is 1.5x; ignores burn halving physical damage.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.status) {
+			if (pokemon.status && !this.field.auraBreak()) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -1482,7 +1482,7 @@ let BattleAbilities = {
 		shortDesc: "This Pokemon's Attack is doubled.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk) {
-			return this.chainModify(2);
+			if (!this.field.auraBreak()) return this.chainModify(2);
 		},
 		id: "hugepower",
 		name: "Huge Power",
@@ -1857,7 +1857,7 @@ let BattleAbilities = {
 		shortDesc: "Boosts the power of punch moves by 30%; does not include Sucker Punch.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['punch']) {
+			if (move.flags['punch'] && !this.field.auraBreak()) {
 				this.debug('Iron Fist boost');
 				return this.chainModify(1.3);
 			}
@@ -2192,7 +2192,7 @@ let BattleAbilities = {
 		shortDesc: "This Pokemon's pulse moves have 1.5x power. Heal Pulse heals 3/4 target's max HP.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['pulse']) {
+			if (move.flags['pulse'] && !this.field.auraBreak()) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -2633,7 +2633,7 @@ let BattleAbilities = {
 		shortDesc: "At 1/3 or less of its max HP, this Pokemon's attacking stat is 1.5x with Grass attacks.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 3) {
+			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 3 && !this.field.auraBreak()) {
 				this.debug('OVergrow boost');
 				return this.chainModify(1.5);
 			}
@@ -2795,7 +2795,7 @@ let BattleAbilities = {
 		shortDesc: "Normal-type moves become Fairy; all Fairy moves boosted by 20%.",
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
-			if (move.category === 'Status') return;
+			if (move.category === 'Status' || this.field.auraBreak()) return;
 			if ((move.type === 'Normal' && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !move.isZ) || move.type === 'Fairy') {
 				move.type = 'Fairy';
 				move.pixilateBoosted = true;
@@ -2875,7 +2875,7 @@ let BattleAbilities = {
 		},
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.type === 'Poison' && !attacker.hasType('Poison')) {
+			if (move.type === 'Poison' && !attacker.hasType('Poison') && !this.field.auraBreak()) {
 				this.debug('Poison Touch boost');
 				return this.chainModify(1.5);
 			}
@@ -2914,7 +2914,7 @@ let BattleAbilities = {
 		shortDesc: "Move in slot 1 changes to user's primary type; boosted by 20%.",
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
-			if (move.category === 'Status') return;
+			if (move.category === 'Status' || this.field.auraBreak()) return;
 			if (move.id === this.dex.getMove(pokemon.moveSlots[0].move).id && !['hiddenpower', 'judgment', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !move.isZ) {
 				move.type = pokemon.getTypes()[0];
 				move.poaBoosted = true;
@@ -3091,6 +3091,7 @@ let BattleAbilities = {
 	"purepower": {
 		shortDesc: "The higher of this Pokemon's Attack/Sp. Attack is doubled.",
 		onModifyMove(move, pokemon) {
+			if (this.field.auraBreak()) return;
 			let category = (pokemon.storedStats.spa > pokemon.storedStats.atk ? 'Special' : 'Physical');
 			if (move.category === category || move.flags['magic']) {
 				move.basePower *=2;
@@ -3180,7 +3181,7 @@ let BattleAbilities = {
 		shortDesc: "Boosts the power of attacks with recoil/crash damage (except Struggle) by 30%.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.recoil || move.hasCustomRecoil) {
+			if ((move.recoil || move.hasCustomRecoil) && !this.field.auraBreak()) {
 				this.debug('Reckless boost');
 				return this.chainModify(1.3);
 			}
@@ -3194,7 +3195,7 @@ let BattleAbilities = {
 		shortDesc: "Normal-type moves become Ice; all Ice moves boosted by 20%.",
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
-			if (move.category === 'Status') return;
+			if (move.category === 'Status' || this.field.auraBreak()) return;
 			if ((move.type === 'Normal' && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !move.isZ) || move.type === 'Ice') {
 				move.type = 'Ice';
 				move.refrigerateBoosted = true;
@@ -3329,7 +3330,7 @@ let BattleAbilities = {
 		shortDesc: "This Pokemon's Ground/Rock/Steel attacks do 1.3x in Sandstorm; immunity to it.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (this.field.isWeather('sandstorm')) {
+			if (this.field.isWeather('sandstorm') && !this.field.auraBreak()) {
 				if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
 					this.debug('Sand Force boost');
 					return this.chainModify([0x14CD, 0x1000]);
@@ -3565,7 +3566,7 @@ let BattleAbilities = {
 		desc: "This Pokemon's attacks with secondary effects have their power multiplied by 1.3, but the secondary effects are removed.",
 		shortDesc: "This Pokemon's attacks with secondary effects have 1.3x power; nullifies the effects.",
 		onModifyMove(move, pokemon) {
-			if (move.secondaries) {
+			if (move.secondaries && !this.field.auraBreak()) {
 				delete move.secondaries;
 				// Technically not a secondary effect, but it is negated
 				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
@@ -3764,7 +3765,7 @@ let BattleAbilities = {
 		shortDesc: "In the Sun: boosts higher of Sp. Atk/Atk by 50%; loses 12% HP on each attack.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.category === 'Status') return;
+			if (move.category === 'Status' || this.field.auraBreak()) return;
 			let category = (attacker.getStat('atk') > attacker.getStat('spa') ? 'Physical' : 'Special');
 			if (this.field.isWeather(['sunnyday', 'desolateland']) && (move.category === category || move.flags['magic'])) {
 				this.debug('Solar Power boost');
@@ -3792,7 +3793,7 @@ let BattleAbilities = {
 		},
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.type === 'Rock') {
+			if (move.type === 'Rock' && !this.field.auraBreak()) {
 				this.debug('Solid Rock boost');
 				return this.chainModify(1.2);
 			}
@@ -3980,7 +3981,7 @@ let BattleAbilities = {
 		shortDesc: "This Pokemon's attacking stat is multiplied by 1.5 while using a Steel-type attack.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.type === 'Steel') {
+			if (move.type === 'Steel' && !this.field.auraBreak()) {
 				this.debug('Steelworker boost');
 				return this.chainModify(1.5);
 			}
@@ -4076,7 +4077,7 @@ let BattleAbilities = {
 		shortDesc: "This Pokemon's bite-based attacks have 1.5x power. Bug Bite is not boosted.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['bite']) {
+			if (move.flags['bite'] && !this.field.auraBreak()) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -4153,7 +4154,7 @@ let BattleAbilities = {
 		shortDesc: "At 1/3 or less of its max HP, this Pokemon's attacking stat is 1.5x with Bug attacks.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp / 3) {
+			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp / 3 && !this.field.auraBreak()) {
 				this.debug('Swarm boost');
 				return this.chainModify(1.5);
 			}
@@ -4270,7 +4271,7 @@ let BattleAbilities = {
 		shortDesc: "This Pokemon's moves of 60 power or less have 1.5x power. Includes Struggle.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (basePower <= 60) {
+			if (basePower <= 60 && !this.field.auraBreak()) {
 				this.debug('Technician boost');
 				return this.chainModify(1.5);
 			}
@@ -4346,7 +4347,7 @@ let BattleAbilities = {
 		shortDesc: "At 1/3 or less of its max HP, this Pokemon's attacking stat is 1.5x with Water attacks.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.type === 'Water' && attacker.hp <= attacker.maxhp / 3) {
+			if (move.type === 'Water' && attacker.hp <= attacker.maxhp / 3 && !this.field.auraBreak()) {
 				this.debug('Torrent boost');
 				return this.chainModify(1.5);
 			}
@@ -4360,7 +4361,7 @@ let BattleAbilities = {
 		shortDesc: "This Pokemon's contact moves have their power multiplied by 1.2.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['contact']) {
+			if (move.flags['contact'] && !this.field.auraBreak()) {
 				return this.chainModify(1.2);
 			}
 		},
@@ -4373,7 +4374,7 @@ let BattleAbilities = {
 		shortDesc: "Boosts Attack by 50% when poisoned; reduces poison damage to 1/16 HP.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if ((attacker.status === 'psn' || attacker.status === 'tox') && move.category === 'Physical') {
+			if ((attacker.status === 'psn' || attacker.status === 'tox') && move.category === 'Physical' && !this.field.auraBreak()) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -4664,7 +4665,7 @@ let BattleAbilities = {
 		},
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.type === 'Water') {
+			if (move.type === 'Water' && !this.field.auraBreak()) {
 				return this.chainModify(2);
 			}
 		},
