@@ -231,7 +231,7 @@ let BattleAbilities = {
 		num: 237,
 	},
 	"battery": {
-		shortDesc: "Ally Sp. Atk +30%; boosts higher of Def/SpD when hit by an Electric move.",
+		shortDesc: "Ally Sp. Atk +30%; boosts higher of SpD/Def when hit by an Electric move.",
 		onAllyBasePowerPriority: 8,
 		onAllyBasePower(basePower, attacker, defender, move) {
 			if (attacker !== this.effectData.target && move.category === 'Special') {
@@ -4578,8 +4578,13 @@ let BattleAbilities = {
 		num: 72,
 	},
 	"voltabsorb": {
-		desc: "This Pokemon is immune to Electric-type moves and restores 1/4 of its maximum HP, rounded down, when hit by an Electric-type move.",
-		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Electric moves; Electric immunity.",
+		shortDesc: "Restores 1/4 HP when hit by an Electric move; restores 1/16 HP per turn in E. Terrain.",
+		onResidualOrder: 5,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (this.field.isTerrain('electricterrain'))
+				this.heal(pokemon.maxhp / 16);
+		},
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Electric') {
 				if (!this.heal(target.maxhp / 4)) {
@@ -4626,7 +4631,12 @@ let BattleAbilities = {
 	},
 	"waterabsorb": {
 		desc: "This Pokemon is immune to Water-type moves and restores 1/4 of its maximum HP, rounded down, when hit by a Water-type move.",
-		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Water moves; Water immunity.",
+		shortDesc: "Restores 1/4 HP when hit by a Water move; restores 1/16 HP per turn in rain.",
+		onWeather(target, source, effect) {
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.heal(target.maxhp / 16);
+			}
+		},
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
 				if (!this.heal(target.maxhp / 4)) {
@@ -4643,24 +4653,14 @@ let BattleAbilities = {
 	"waterbubble": {
 		desc: "This Pokemon's attacking stat is doubled while using a Water-type attack. If a Pokemon uses a Fire-type attack against this Pokemon, that Pokemon's attacking stat is halved when calculating the damage to this Pokemon. This Pokemon cannot be burned. Gaining this Ability while burned cures it.",
 		shortDesc: "This Pokemon's Water power is 2x; it can't be burned; Fire power against it is halved.",
-		onModifyAtkPriority: 5,
-		onSourceModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Fire') {
-				return this.chainModify(0.5);
-			}
+		onSourceModifyDamage(damage, source, target, move) {
+			let mod = 1;
+			if (move.type === 'Fire') mod *= 2;
+			if (move.flags['contact']) mod /= 2;
+			return this.chainModify(mod);
 		},
-		onModifySpAPriority: 5,
-		onSourceModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Fire') {
-				return this.chainModify(0.5);
-			}
-		},
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Water') {
-				return this.chainModify(2);
-			}
-		},
-		onModifySpA(atk, attacker, defender, move) {
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Water') {
 				return this.chainModify(2);
 			}
@@ -4683,10 +4683,13 @@ let BattleAbilities = {
 		num: 199,
 	},
 	"watercompaction": {
-		shortDesc: "This Pokemon's Defense is raised 2 stages after it is damaged by a Water-type move.",
-		onAfterDamage(damage, target, source, effect) {
-			if (effect && effect.type === 'Water') {
-				this.boost({def: 2});
+		shortDesc: "Boosts higher of Def and Sp. Def when hit by a Water attack",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.boost({[target.storedStats.spd > target.storedStats.def ? 'spd' : 'def']: 1})) {
+					this.add('-immune', target, '[from] ability: Water Compaction');
+				}
+				return null;
 			}
 		},
 		id: "watercompaction",
@@ -4695,17 +4698,17 @@ let BattleAbilities = {
 		num: 195,
 	},
 	"waterveil": {
-		shortDesc: "This Pokemon cannot be burned. Gaining this Ability while burned cures it.",
+		shortDesc: "Cannot be poisoned; any attempt to poison this Pokémon raises SpD/Def.",
 		onUpdate(pokemon) {
-			if (pokemon.status === 'brn') {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
 				this.add('-activate', pokemon, 'ability: Water Veil');
 				pokemon.cureStatus();
 			}
 		},
 		onSetStatus(status, target, source, effect) {
-			if (status.id !== 'brn') return;
-			if (!effect || !effect.status) return false;
-			this.add('-immune', target, '[from] ability: Water Veil');
+			if (!effect || status.id !== 'psn' && status.id !== 'tox') return;
+			if (effect.status) this.add('-immune', target, '[msg]');
+			this.boost({[target.storedStats.def > target.storedStats.spd ? 'def' : 'spd']:1}, target);
 			return false;
 		},
 		id: "waterveil",
@@ -4727,9 +4730,8 @@ let BattleAbilities = {
 		num: 133,
 	},
 	"whitesmoke": {
-		shortDesc: "Prevents other Pokemon from lowering this Pokemon's stat stages.",
+		shortDesc: "Prevents any and all stat drops.",
 		onBoost(boost, target, source, effect) {
-			if (source && target === source) return;
 			let showMsg = false;
 			for (let i in boost) {
 				// @ts-ignore
@@ -4739,6 +4741,7 @@ let BattleAbilities = {
 					showMsg = true;
 				}
 			}
+			if (source && target === source) showMsg = false;
 			if (showMsg && !(/** @type {ActiveMove} */(effect)).secondaries) {
 				this.add("-fail", target, "unboost", "[from] ability: White Smoke", "[of] " + target);
 			}
@@ -4777,7 +4780,12 @@ let BattleAbilities = {
 		num: 193,
 	},
 	"wonderguard": {
-		shortDesc: "This Pokemon can only be damaged by supereffective moves and indirect damage.",
+		shortDesc: "This Pokemon can only be damaged by supereffective moves and status effects.",
+		onDamage(damage, target, source, effect) {
+			if (effect && ['stealthrock', 'spikes', 'hail', 'sandstorm', 'lifeorb'].includes(effect.id)) {
+				return false;
+			}
+		},
 		onTryHit(target, source, move) {
 			if (target === source || move.category === 'Status' || move.type === '???' || move.id === 'struggle') return;
 			this.debug('Wonder Guard immunity: ' + move.id);
