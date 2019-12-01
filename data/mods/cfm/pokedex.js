@@ -13517,7 +13517,7 @@ let BattlePokedex = {
 	solgaleo: {
 		num: 791,
 		species: "Solgaleo",
-		types: ["Psychic", "Steel"],
+		types: ["Psychic", "Fire"],
 		gender: "N",
 		baseStats: {hp: 137, atk: 137, def: 107, spa: 113, spd: 89, spe: 97},
 		abilities: {0: "Full Metal Body"},
@@ -13531,7 +13531,7 @@ let BattlePokedex = {
 	lunala: {
 		num: 792,
 		species: "Lunala",
-		types: ["Psychic", "Ghost"],
+		types: ["Psychic", "Fairy"],
 		gender: "N",
 		baseStats: {hp: 137, atk: 113, def: 89, spa: 137, spd: 107, spe: 97},
 		abilities: {0: "Shadow Shield"},

@@ -442,24 +442,7 @@ let BattleAbilities = {
 		num: 13,
 	},
 	"colorchange": {
-		desc: "This Pokemon's type changes to match the type of the last move that hit it, unless that type is already one of its types. This effect applies after all hits from a multi-hit move; Sheer Force prevents it from activating if the move has a secondary effect.",
-		shortDesc: "This Pokemon's type changes to the type of a move it's hit by, unless it has the type.",
-		onAfterMoveSecondary(target, source, move) {
-			if (!target.hp) return;
-			let type = move.type;
-			if (target.isActive && move.effectType === 'Move' && move.category !== 'Status' && type !== '???' && !target.hasType(type)) {
-				if (!target.setType(type)) return false;
-				this.add('-start', target, 'typechange', type, '[from] ability: Color Change');
-
-				if (target.side.active.length === 2 && target.position === 1) {
-					// Curse Glitch
-					const action = this.willMove(target);
-					if (action && action.move.id === 'curse') {
-						action.targetLoc = -1;
-					}
-				}
-			}
-		},
+		shortDesc: "Kecleon: type changes to match first two moves in its movepool.",
 		id: "colorchange",
 		name: "Color Change",
 		rating: 0,

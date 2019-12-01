@@ -848,34 +848,39 @@ let BattleStatuses = {
 			return [type];
 		},
 	},
+	
+	// CFM type changing mons
+	
+	
+	kecleon: {
+		onStart(pokemon) {
+			if (pokemon.ability === 'colorchange') {
+				let types = [];
+				types.push(this.dex.getMove(pokemon.moveSlots[0].move).type);
+				if (pokemon.moveSlots[1] && this.dex.getMove(pokemon.moveSlots[0].move).type !== this.dex.getMove(pokemon.moveSlots[1].move).type)
+					types.push(this.dex.getMove(pokemon.moveSlots[1].move).type);
+				pokemon.setType(types);
+			}
+		},	
+	},
 	solgaleo: {
 		name: 'Solgaleo',
 		id: 'solgaleo',
 		num: 791,
-		onTypePriority: 1,
-		onType(types, pokemon) {
-			if (pokemon.transformed) return types;
-			/** @type {string | undefined} */
-			let typesArr = this.dex.getTemplate(pokemon.species).types;
-			if (pokemon.ability === 'fullmetalbody' && !pokemon.types.includes('Steel')) {
-				typesArr.push('Steel');
+		onStart(pokemon) {
+			if (pokemon.ability === 'fullmetalbody') {
+				pokemon.setType(['Psychic', 'Fire', 'Steel']);
 			}
-			return [typesArr];
 		},
 	},
 	lunala: {
 		name: 'Lunala',
 		id: 'lunala',
 		num: 791,
-		onTypePriority: 1,
-		onType(types, pokemon) {
-			if (pokemon.transformed) return types;
-			/** @type {string | undefined} */
-			let typesArr = this.dex.getTemplate(pokemon.species).types;
-			if (pokemon.ability === 'shadowshield' && !pokemon.types.includes('Ghost')) {
-				typesArr.push('Ghost');
+		onStart(pokemon) {
+			if (pokemon.ability === 'shadowshield') {
+				pokemon.setType(['Psychic', 'Fairy', 'Ghost']);
 			}
-			return [typesArr];
 		},
 	},
 };
