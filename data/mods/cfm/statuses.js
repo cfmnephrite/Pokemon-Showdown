@@ -484,7 +484,7 @@ let BattleStatuses = {
 				this.debug('rain water boost');
 				return this.chainModify(1.5);
 			}
-			if (move.type === 'Fire') {
+			if (move.type === 'Fire' && move.id !== 'sacredfire' && !move.ignoreWeather) {
 				this.debug('rain fire suppress');
 				return this.chainModify(0.5);
 			}
@@ -514,7 +514,7 @@ let BattleStatuses = {
 		duration: 0,
 		onTryMovePriority: 1,
 		onTryMove(attacker, defender, move) {
-			if (move.type === 'Fire' && move.category !== 'Status') {
+			if (move.type === 'Fire' && move.category !== 'Status' && move.id !== 'sacredfire' && !move.ignoreWeather) {
 				this.debug('Primordial Sea fire suppress');
 				this.add('-fail', attacker, move, '[from] Primordial Sea');
 				this.attrLastMove('[still]');
@@ -527,6 +527,11 @@ let BattleStatuses = {
 				return this.chainModify(1.5);
 			}
 		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (move && move.effectType === 'Move' && move.type === 'Fire' && !move.ignoreWeather && typeMod > 0){
+				return 0;
+			}
+		},
 		onStart(battle, source, effect) {
 			this.add('-weather', 'PrimordialSea', '[from] ability: ' + effect, '[of] ' + source);
 		},
@@ -536,7 +541,10 @@ let BattleStatuses = {
 			this.eachEvent('Weather');
 		},
 		onEnd() {
-			this.add('-weather', 'none');
+			this.add('-activate', this.field.weatherData.source, 'ability: Primordial Sea');
+			this.add('-message', "The intense deluge became lighter!");
+			this.add('-weather', 'none', '[silent]');
+			this.add('-weather', 'raindance', '[silent]');
 		},
 	},
 	sunnyday: {
@@ -556,7 +564,7 @@ let BattleStatuses = {
 				this.debug('Sunny Day fire boost');
 				return this.chainModify(1.5);
 			}
-			if (move.type === 'Water') {
+			if (move.type === 'Water' && move.id !== 'originpulse' && !move.ignoreWeather) {
 				this.debug('Sunny Day water suppress');
 				return this.chainModify(0.5);
 			}
@@ -589,7 +597,7 @@ let BattleStatuses = {
 		duration: 0,
 		onTryMovePriority: 1,
 		onTryMove(attacker, defender, move) {
-			if (move.type === 'Water' && move.category !== 'Status') {
+			if (move.type === 'Water' && move.category !== 'Status' && move.id !== 'originpulse' && !move.ignoreWeather) {
 				this.debug('Desolate Land water suppress');
 				this.add('-fail', attacker, move, '[from] Desolate Land');
 				this.attrLastMove('[still]');
@@ -600,6 +608,11 @@ let BattleStatuses = {
 			if (move.type === 'Fire') {
 				this.debug('Sunny Day fire boost');
 				return this.chainModify(1.5);
+			}
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (move && move.effectType === 'Move' && move.type === 'Water' && !move.ignoreWeather && typeMod > 0){
+				return 0;
 			}
 		},
 		onStart(battle, source, effect) {
@@ -614,7 +627,10 @@ let BattleStatuses = {
 			this.eachEvent('Weather');
 		},
 		onEnd() {
-			this.add('-weather', 'none');
+			this.add('-ability', this.field.weatherData.source, 'ability: Desolate Land');
+			this.add('-message', "The harsh sunlight became milder!");
+			this.add('-weather', 'none', '[silent]');
+			this.add('-weather', 'sunnyday', '[silent]');
 		},
 	},
 	sandstorm: {

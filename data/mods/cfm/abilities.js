@@ -590,7 +590,7 @@ let BattleAbilities = {
 			}
 		},
 		onEffectiveness(typeMod, target, type, move) {
-			if (move && move.effectType === 'Move' && move.type === 'Fire' && this.dex.getEffectiveness(move.type, type) > 0){
+			if (move && move.effectType === 'Move' && move.type === 'Fire' && typeMod > 0){
 				if (type != target.getTypes()[0]) return 0;
                 return -1;
 			}
@@ -743,6 +743,13 @@ let BattleAbilities = {
 		},
 		onAnySetWeather(target, source, weather) {
 			if (this.field.getWeather().id === 'desolateland' && !['desolateland', 'primordialsea', 'deltastream'].includes(weather.id)) return false;
+		},
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if ((this.field.getWeather().id === 'primordialsea' && this.randomChance(1, 2)) || !['desolateland', 'deltastream'].includes(this.field.getWeather().id)) {
+				this.field.setWeather('desolateland');
+			}
 		},
 		onEnd(pokemon) {
 			if (this.field.weatherData.source !== pokemon) return;
@@ -2960,6 +2967,13 @@ let BattleAbilities = {
 		},
 		onAnySetWeather(target, source, weather) {
 			if (this.field.getWeather().id === 'primordialsea' && !['desolateland', 'primordialsea', 'deltastream'].includes(weather.id)) return false;
+		},
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if ((this.field.getWeather().id === 'desolateland' && this.randomChance(1, 2)) || !['primordialsea', 'deltastream'].includes(this.field.getWeather().id)) {
+				this.field.setWeather('primordialsea');
+			}
 		},
 		onEnd(pokemon) {
 			if (this.field.weatherData.source !== pokemon) return;
