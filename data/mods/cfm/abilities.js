@@ -127,7 +127,7 @@ let BattleAbilities = {
 		onAfterDamage(damage, target, source, effect) {
 			if (effect && effect.effectType === 'Move' && effect.id !== 'confused') {
 				if (this.randomChance(1, 2)) this.boost({[target.storedStats.spa > target.storedStats.atk ? 'spa' : 'atk']:1}, target);
-				}
+			}
 		},
 		id: "angerpoint",
 		name: "Anger Point",
@@ -847,7 +847,7 @@ let BattleAbilities = {
 	},
 	"dryskin": {
 		desc: "This Pokemon is immune to Water-type moves and restores 1/4 of its maximum HP, rounded down, when hit by a Water-type move. The power of Fire-type moves is multiplied by 1.25 when used on this Pokemon. At the end of each turn, this Pokemon restores 1/8 of its maximum HP, rounded down, if the weather is Rain Dance, and loses 1/8 of its maximum HP, rounded down, if the weather is Sunny Day.",
-		shortDesc: "This Pokemon is healed 1/4 by Water, 1/8 by Rain; is hurt 1.25x by Fire, 1/8 by Sun.",
+		shortDesc: "Healed 1/4 by Water, hurt 1.25x by Fire; non-Fire: healed 1/8 by Rain, hurt 1/8 by Sun.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
 				if (!this.heal(target.maxhp / 4)) {
@@ -878,7 +878,7 @@ let BattleAbilities = {
 		num: 87,
 	},
 	"earlybird": {
-		shortDesc: "This Pokémon wakes up straight away.",
+		shortDesc: "This Pokémon will always wake up on the next turn.",
 		id: "earlybird",
 		name: "Early Bird",
 		// Implemented in statuses.js
@@ -1522,8 +1522,7 @@ let BattleAbilities = {
 		num: 55,
 	},
 	"hydration": {
-		desc: "This Pokemon has its major status condition cured at the end of each turn if Rain Dance is active.",
-		shortDesc: "This Pokemon has its status cured at the end of each turn if Rain Dance is active.",
+		shortDesc: "Cures status in Rain or when hit by a Water-type attack.",
 		onResidualOrder: 5,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
@@ -1531,6 +1530,13 @@ let BattleAbilities = {
 				this.debug('hydration');
 				this.add('-activate', pokemon, 'ability: Hydration');
 				pokemon.cureStatus();
+			}
+		},
+		onAfterDamage(damage, target, source, effect) {
+			if (effect && effect.effectType === 'Move' && effect.type === 'Water') {
+				this.debug('hydration');
+				this.add('-activate', target, 'ability: Hydration');
+				target.cureStatus();
 			}
 		},
 		id: "hydration",
@@ -2932,7 +2938,7 @@ let BattleAbilities = {
 		num: 249,
 	},
 	"prankster": {
-		shortDesc: "This Pokemon's Status moves have priority raised by 1, but Dark types are immune.",
+		shortDesc: "Status move priority +1; Dark types immune, unless it becomes an attacking move.",
 		onModifyPriority(priority, pokemon, target, move) {
 			if (move && move.category === 'Status') {
 				move.pranksterBoosted = true;

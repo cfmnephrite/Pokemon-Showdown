@@ -61,16 +61,17 @@ let BattleStatuses = {
 				this.add('-status', target, 'slp');
 			}
 			// 1-3 turns
-			this.effectData.startTime = this.random(2, 5);
-			this.effectData.time = this.effectData.startTime;
+			if (target.hasAbility('earlybird')) {
+				this.effectData.time = 1;
+				if (this.willMove(target)) this.effectData.time++;
+			}
+			else this.effectData.time = this.random(2, 5);
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
-			if (pokemon.hasAbility('earlybird')) {
-				pokemon.statusData.time--;
-			}
 			pokemon.statusData.time--;
-			if (pokemon.statusData.time <= 0) {
+			if (!pokemon.statusData.time) {
+				if (pokemon.hasAbility('earlybird')) this.add('-activate', pokemon, 'ability: Early Bird');
 				pokemon.cureStatus();
 				return;
 			}
