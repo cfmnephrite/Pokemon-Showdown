@@ -101,9 +101,6 @@ let BattleMovedex = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onEffectiveness(typeMod, target, type) {
-			if (type === 'Steel') return 1;
-		},
 		secondary: {
 			chance: 30,
 			status: 'psn',
@@ -9734,8 +9731,8 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-		desc: "Has a 30% chance to flinch the target.",
-		shortDesc: "30% chance to flinch the target.",
+		desc: "Has a 20% chance to flinch the target.",
+		shortDesc: "20% chance to flinch the target.",
 		id: "ironhead",
 		isViable: true,
 		name: "Iron Head",
@@ -9753,18 +9750,18 @@ let BattleMovedex = {
 	},
 	"irontail": {
 		num: 231,
-		accuracy: 75,
-		basePower: 100,
+		accuracy: 100,
+		basePower: 85,
 		category: "Physical",
-		desc: "Has a 30% chance to lower the target's Defense by 1 stage.",
-		shortDesc: "30% chance to lower the target's Defense by 1.",
+		desc: "Has a 20% chance to lower the target's Defense by 1 stage.",
+		shortDesc: "20% chance to lower the target's Defense by 1.",
 		id: "irontail",
 		name: "Iron Tail",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		secondary: {
-			chance: 30,
+			chance: 20,
 			boosts: {
 				def: -1,
 			},
@@ -10092,7 +10089,7 @@ let BattleMovedex = {
 		id: "leafage",
 		name: "Leafage",
 		pp: 40,
-		priority: 0,
+		priority: 1,
 		flags: {protect: 1, mirror: 1},
 		secondary: null,
 		target: "normal",
@@ -10102,8 +10099,8 @@ let BattleMovedex = {
 	},
 	"leafblade": {
 		num: 348,
-		accuracy: 100,
-		basePower: 90,
+		accuracy: 95,
+		basePower: 100,
 		category: "Physical",
 		desc: "Has a higher chance for a critical hit.",
 		shortDesc: "High critical hit ratio.",
@@ -10123,7 +10120,7 @@ let BattleMovedex = {
 	"leafstorm": {
 		num: 437,
 		accuracy: 90,
-		basePower: 130,
+		basePower: 140,
 		category: "Special",
 		desc: "Lowers the user's Special Attack by 2 stages.",
 		shortDesc: "Lowers the user's Sp. Atk by 2.",
@@ -10170,7 +10167,7 @@ let BattleMovedex = {
 	"leechlife": {
 		num: 141,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 75,
 		category: "Physical",
 		desc: "The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
 		shortDesc: "User recovers 50% of the damage dealt.",
@@ -10277,12 +10274,39 @@ let BattleMovedex = {
 		pp: 30,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.template.baseSpecies === 'Lickilicky', 'Lickitung'|| move.hasBounced) {
+				this.debug("Power increased by the tongue");
+				move.secondaries.push({
+					chance: 100,
+			onHit(target, source) {
+				for (let pokemon of target.side.active) {
+					let result = this.random(2);
+					if (result === 0) {
+						pokemon.addVolatile('confusion', source);
+					} else {
+						pokemon.trySetStatus('par', source);
+					} 
+				}
+			}
+		});
+		}
+		},
 		secondary: {
 			chance: 30,
-			status: 'par',
+			onHit(target, source) {
+				for (let pokemon of target.side.active) {
+					let result = this.random(2);
+					if (result === 0) {
+						pokemon.addVolatile('confusion', source);
+					} else {
+						pokemon.trySetStatus('par', source);
+					} 
+				}
+			},
 		},
 		target: "normal",
-		type: "Ghost",
+		type: "Normal",
 		zMovePower: 100,
 		contestType: "Cute",
 	},
@@ -10561,7 +10585,7 @@ let BattleMovedex = {
 		flags: {snatch: 1},
 		sideCondition: 'luckychant',
 		effect: {
-			duration: 5,
+			duration: 7,
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Lucky Chant'); // "The Lucky Chant shielded [side.name]'s team from critical hits!"
 			},
@@ -11829,14 +11853,14 @@ let BattleMovedex = {
 	},
 	"metalsound": {
 		num: 319,
-		accuracy: 85,
+		accuracy: 100,
 		basePower: 0,
 		category: "Status",
 		desc: "Lowers the target's Special Defense by 2 stages.",
 		shortDesc: "Lowers the target's Sp. Def by 2.",
 		id: "metalsound",
 		name: "Metal Sound",
-		pp: 40,
+		pp: 15,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, authentic: 1, mystery: 1},
 		boosts: {
@@ -11869,7 +11893,7 @@ let BattleMovedex = {
 	},
 	"meteormash": {
 		num: 309,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
 		desc: "Has a 20% chance to raise the user's Attack by 1 stage.",
@@ -11905,7 +11929,7 @@ let BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		flags: {},
-		noMetronome: ['afteryou', 'assist', 'banefulbunker', 'beakblast', 'belch', 'bestow', 'celebrate', 'chatter', 'copycat', 'counter', 'covet', 'craftyshield', 'destinybond', 'detect', 'diamondstorm', 'dragonascent', 'endure', 'feint', 'fleurcannon', 'focuspunch', 'followme', 'freezeshock', 'helpinghand', 'holdhands', 'hyperspacefury', 'hyperspacehole', 'iceburn', 'instruct', 'kingsshield', 'lightofruin', 'matblock', 'mefirst', 'metronome', 'mimic', 'mindblown', 'mirrorcoat', 'mirrormove', 'naturepower', 'originpulse', 'photongeyser', 'plasmafists', 'precipiceblades', 'protect', 'quash', 'quickguard', 'ragepowder', 'relicsong', 'secretsword', 'shelltrap', 'sketch', 'sleeptalk', 'snarl', 'snatch', 'snore', 'spectralthief', 'spikyshield', 'spotlight', 'steameruption', 'struggle', 'switcheroo', 'technoblast', 'thief', 'thousandarrows', 'thousandwaves', 'transform', 'trick', 'vcreate', 'wideguard'],
+		noMetronome: ['afteryou', 'banefulbunker', 'beakblast', 'belch', 'bestow', 'celebrate', 'copycat', 'counter', 'covet', 'craftyshield', 'detect', 'endure', 'feint', 'focuspunch', 'followme', 'helpinghand', 'holdhands', 'hyperspacefury', 'hyperspacehole', 'instruct', 'judgement', 'kingsshield', 'matblock', 'mefirst', 'mimic', 'mindblown', 'mirrorcoat', 'mirrormove', 'plasmafists', 'protect', 'psycho boost', 'quash', 'quickguard', 'ragepowder', 'roar of time', 'shelltrap', 'sketch', 'sleeptalk', 'snatch', 'snore', 'spatial rend', 'spikyshield', 'spotlight', 'struggle', 'wideguard'],
 		onHit(target, source, effect) {
 			let moves = [];
 			for (let i in exports.BattleMovedex) {
