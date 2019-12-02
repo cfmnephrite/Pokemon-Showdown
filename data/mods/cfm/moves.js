@@ -12025,11 +12025,10 @@ let BattleMovedex = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		mindBlownRecoil: true,
-		onAfterMove(pokemon, target, move) {
-			if (move.mindBlownRecoil && !move.multihit) {
-				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Mind Blown'), true);
-			}
+		drain: [1, 2],
+		hasCustomRecoil: true,
+		onPrepareHit(target, source, move) {
+			this.damage(source.maxhp / 4, source, source, 'Mind Blown');
 		},
 		secondary: null,
 		target: "allAdjacent",
