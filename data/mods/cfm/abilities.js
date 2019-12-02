@@ -2139,8 +2139,13 @@ let BattleAbilities = {
 		num: 98,
 	},
 	"magician": {
-		desc: "If this Pokemon has no item, it steals the item off a Pokemon it hits with an attack. Does not affect Doom Desire and Future Sight.",
-		shortDesc: "If this Pokemon has no item, it steals the item off a Pokemon it hits with an attack.",
+		shortDesc: "If itemless: steals the target's item; else: avoids Knock Off, Trick etc.",
+		onTryHit(target, source, move) {
+			if (move.target !== 'self' && move.flags['magician']) {
+				this.add('-immune', target, '[from] ability: Magician');
+				return null;
+			}
+		},
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (target !== source && move.category !== 'Status') {
@@ -2690,18 +2695,21 @@ let BattleAbilities = {
 		num: 20,
 	},
 	"parentalbond": {
-		desc: "This Pokemon's damaging moves become multi-hit moves that hit twice. The second hit has its damage quartered. Does not affect multi-hit moves or moves that have multiple targets.",
-		shortDesc: "This Pokemon's damaging moves hit twice. The second hit has its damage quartered.",
+		shortDesc: "Damaging moves hit twice (or four times, if double hit); second hit at 50% power.",
 		onPrepareHit(source, target, move) {
 			if (['iceball', 'rollout'].includes(move.id)) return;
-			if (move.category !== 'Status' && !move.selfdestruct && !move.multihit && !move.flags['charge'] && !move.spreadHit && !move.isZ) {
-				move.multihit = 2;
+			if (move.multihit && !move.multihit === 2) return;
+			if (move.category !== 'Status' && !move.selfdestruct && !move.flags['charge'] && !move.spreadHit && !move.isZ) {
+				if (move.multihit === 2)
+					move.multihit = 4;
+				else
+					move.multihit = 2;
 				move.multihitType = 'parentalbond';
 			}
 		},
 		onBasePowerPriority: 8,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.multihitType === 'parentalbond' && move.hit > 1) return this.chainModify(0.25);
+			if (move.multihitType === 'parentalbond' && move.hit % 2 === 0) return this.chainModify(0.5);
 		},
 		onSourceModifySecondaries(secondaries, target, source, move) {
 			if (move.multihitType === 'parentalbond' && move.id === 'secretpower' && move.hit < 2) {
@@ -3443,32 +3451,18 @@ let BattleAbilities = {
 		num: 157,
 	},
 	"schooling": {
-		desc: "On switch-in, if this Pokemon is a Wishiwashi that is level 20 or above and has more than 1/4 of its maximum HP left, it changes to School Form. If it is in School Form and its HP drops to 1/4 of its maximum HP or less, it changes to Solo Form at the end of the turn. If it is in Solo Form and its HP is greater than 1/4 its maximum HP at the end of the turn, it changes to School Form.",
-		shortDesc: "If user is Wishiwashi, changes to School Form if it has > 1/4 max HP, else Solo Form.",
-		onStart(pokemon) {
-			if (pokemon.baseTemplate.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 || pokemon.transformed) return;
-			if (pokemon.hp > pokemon.maxhp / 4) {
-				if (pokemon.template.speciesid === 'wishiwashi') {
-					pokemon.formeChange('Wishiwashi-School');
-				}
-			} else {
-				if (pokemon.template.speciesid === 'wishiwashischool') {
-					pokemon.formeChange('Wishiwashi');
-				}
-			}
-		},
-		onResidualOrder: 27,
-		onResidual(pokemon) {
-			if (pokemon.baseTemplate.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 || pokemon.transformed || !pokemon.hp) return;
-			if (pokemon.hp > pokemon.maxhp / 4) {
-				if (pokemon.template.speciesid === 'wishiwashi') {
-					pokemon.formeChange('Wishiwashi-School');
-				}
-			} else {
-				if (pokemon.template.speciesid === 'wishiwashischool') {
-					pokemon.formeChange('Wishiwashi');
-				}
-			}
+		shortDesc: "If Wishiwashi-Solo, changes to School Forme if below 50% max HP and recovers HP.",
+		onUpdate(pokemon) {
+			if (pokemon.baseTemplate.baseSpecies !== 'Wishiwashi' || pokemon.transformed || !pokemon.hp) return;
+			if (pokemon.template.speciesid === 'wishiwashischool' || pokemon.hp > pokemon.maxhp / 2) return;
+			this.add('-message', pokemon.name + " called out for assistance!");	
+			this.add('-activate', pokemon, 'ability: Schooling');
+			pokemon.formeChange('Wishiwashi-School', this.effect, true);
+			this.add('-message', pokemon.name + " transformed into its School Forme!");		
+			let newHP = Math.floor(Math.floor(2 * pokemon.template.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100) * pokemon.level / 100 + 10);
+			pokemon.hp = newHP - (pokemon.maxhp - pokemon.hp);
+			pokemon.maxhp = newHP;
+			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 		},
 		id: "schooling",
 		name: "Schooling",
