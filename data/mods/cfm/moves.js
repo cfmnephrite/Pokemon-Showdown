@@ -8262,14 +8262,7 @@ let BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
-		onHit(pokemon) {
-			let factor = 0.5;
-			if (pokemon.status && pokemon.status !== 'slp') {
-			factor = 0.25;
-			pokemon.cureStatus();
-			}
-			return !!this.heal(this.modify(pokemon.maxhp, factor));
-		},	
+		heal: [1, 2],
 		secondary: null,
 		target: "self",
 		type: "Bug",
