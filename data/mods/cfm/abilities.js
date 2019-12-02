@@ -3693,28 +3693,34 @@ let BattleAbilities = {
 		num: 92,
 	},
 	"slowstart": {
-		shortDesc: "On switch-in, this Pokemon's Attack and Speed are halved for 5 turns.",
+		shortDesc: "Crippled for three turns; then heals, cures status, +1 Atk/SpA/Spe.",
 		onStart(pokemon) {
 			pokemon.addVolatile('slowstart');
 		},
 		onEnd(pokemon) {
 			delete pokemon.volatiles['slowstart'];
-			this.add('-end', pokemon, 'Slow Start', '[silent]');
 		},
 		effect: {
-			duration: 5,
+			duration: 3,
 			onStart(target) {
 				this.add('-start', target, 'ability: Slow Start');
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, pokemon) {
-				return this.chainModify(0.5);
+				return this.chainModify(0.25);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(atk, pokemon) {
+				return this.chainModify(0.25);
 			},
 			onModifySpe(spe, pokemon) {
-				return this.chainModify(0.5);
+				return this.chainModify(0.25);
 			},
 			onEnd(target) {
 				this.add('-end', target, 'Slow Start');
+				this.boost({atk: 1, spa: 1, spe: 1}, target, target);
+				this.heal(target.maxhp / 2, target);
+				target.cureStatus();
 			},
 		},
 		id: "slowstart",

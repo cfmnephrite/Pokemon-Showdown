@@ -794,10 +794,10 @@ let BattleStatuses = {
 		id: 'gooey',
 		num: 0,
 		noCopy: true,
+		duration: 1,
 		onStart(target, source) {
 			this.add('-activate', source, 'ability: Gooey');
 			this.boost({spe: -1}, target);
-			target.removeVolatile('gooey');
 		},
 	},
 	hypercutter: {
@@ -805,10 +805,10 @@ let BattleStatuses = {
 		id: 'hypercutter',
 		num: 0,
 		noCopy: true,
+		duration: 1,
 		onStart(target, source) {
 			this.add('-activate', source, 'ability: Hyper Cutter');
-			this.boost({atk: 1}, target);
-			target.removeVolatile('hypercutter');			
+			this.boost({atk: 1}, source);		
 		},
 	},
 	
