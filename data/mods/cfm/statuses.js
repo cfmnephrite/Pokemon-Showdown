@@ -723,8 +723,8 @@ let BattleStatuses = {
 		effectType: 'Weather',
 		duration: 0,
 		onEffectiveness(typeMod, target, type, move) {
-			if (move && move.effectType === 'Move' && move.category !== 'Status' && type === 'Flying' && typeMod > 0) {
-				this.add('-activate', '', 'deltastream');
+			if (move && move.effectType === 'Move' && move.category !== 'Status' && target.hasType('Flying') && ['Electric', 'Ice', 'Rock'].includes(move.type) && typeMod > 0 && !move.ignoreWeather) {
+				if (type === 'Flying') this.add('-activate', '', 'deltastream');
 				return 0;
 			}
 		},

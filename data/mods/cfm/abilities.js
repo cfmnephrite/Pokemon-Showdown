@@ -2325,12 +2325,13 @@ let BattleAbilities = {
 		num: 228,
 	},
 	"moldbreaker": {
-		shortDesc: "This Pokemon's moves and their effects ignore the Abilities of other Pokemon.",
+		shortDesc: "This Pokémon's moves ignore hindering weather, terrain and target Abilities.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Mold Breaker');
 		},
 		onModifyMove(move) {
 			move.ignoreAbility = true;
+			move.ignoreWeather = true;
 		},
 		id: "moldbreaker",
 		name: "Mold Breaker",
@@ -4308,12 +4309,13 @@ let BattleAbilities = {
 		num: 140,
 	},
 	"teravolt": {
-		shortDesc: "This Pokemon's moves and their effects ignore the Abilities of other Pokemon.",
+		shortDesc: "This Pokémon's moves ignore hindering weather, terrain and target Abilities.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Teravolt');
 		},
 		onModifyMove(move) {
 			move.ignoreAbility = true;
+			move.ignoreWeather = true;
 		},
 		id: "teravolt",
 		name: "Teravolt",
@@ -4465,12 +4467,13 @@ let BattleAbilities = {
 		num: 54,
 	},
 	"turboblaze": {
-		shortDesc: "This Pokemon's moves and their effects ignore the Abilities of other Pokemon.",
+		shortDesc: "This Pokémon's moves ignore hindering weather, terrain and target Abilities.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Turboblaze');
 		},
 		onModifyMove(move) {
 			move.ignoreAbility = true;
+			move.ignoreWeather = true;
 		},
 		id: "turboblaze",
 		name: "Turboblaze",
