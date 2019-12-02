@@ -101,6 +101,10 @@ let BattleMovedex = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		ignoreImmunity: {'Poison': true},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Steel') return 1;
+		},	
 		secondary: {
 			chance: 30,
 			status: 'psn',
@@ -10688,7 +10692,7 @@ let BattleMovedex = {
 	"lusterpurge": {
 		num: 295,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 90,
 		category: "Special",
 		desc: "Has a 50% chance to lower the target's Special Defense by 1 stage.",
 		shortDesc: "50% chance to lower the target's Sp. Def by 1.",
@@ -10697,15 +10701,19 @@ let BattleMovedex = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		ignoreImmunity: {'Psychic': true},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Dark') return 1;
+		},	
 		secondary: {
-			chance: 50,
+			chance: 30,
 			boosts: {
 				spd: -1,
 			},
 		},
 		target: "normal",
 		type: "Psychic",
-		zMovePower: 140,
+		zMovePower: 180,
 		contestType: "Clever",
 	},
 	"machpunch": {
@@ -12279,7 +12287,7 @@ let BattleMovedex = {
 	"mistball": {
 		num: 296,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 90,
 		category: "Special",
 		desc: "Has a 50% chance to lower the target's Special Attack by 1 stage.",
 		shortDesc: "50% chance to lower the target's Sp. Atk by 1.",
@@ -12288,15 +12296,19 @@ let BattleMovedex = {
 		pp: 5,
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
+		ignoreImmunity: {'Dragon': true},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Fairy') return 1;
+		},	
 		secondary: {
-			chance: 50,
+			chance: 30,
 			boosts: {
 				spa: -1,
 			},
 		},
 		target: "normal",
-		type: "Psychic",
-		zMovePower: 140,
+		type: "Dragon",
+		zMovePower: 180,
 		contestType: "Clever",
 	},
 	"mistyterrain": {
