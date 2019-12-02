@@ -691,6 +691,13 @@ let Formats = [
 		// no restrictions, for serious (other than team preview)
 		ruleset: ['Team Preview', 'Cancel Mod'],
 	},
+	{
+		name: "[Gen 8] CFM Testing",
+		mod: 'cfm',
+		ruleset: ['Evasion Moves Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
+	},
+
+	
 
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////

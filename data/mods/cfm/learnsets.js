@@ -2107,7 +2107,7 @@ exports.BattleLearnsets = {
 		zapcannon: ["8V", "7V"],
 	}},
 	pikachu: {learnset: {
-		10000000voltthunderbolt: ["8T", "7T"],
+		"10000000voltthunderbolt": ["8T", "7T"],
 		agility: ["8M", "8L24", "7L45", "7V", "6L37", "6S41", "5L37", "4L34", "3L33", "3S8", "3S0"],
 		attract: ["8M", "7M", "7V", "6M", "5M", "4M", "3M"],
 		bestow: ["7S44", "6S42"],
