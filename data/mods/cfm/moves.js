@@ -8534,13 +8534,20 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
-		desc: "This move's type depends on the user's individual values (IVs), and can be any type but Fairy and Normal.",
-		shortDesc: "Varies in type based on the user's IVs.",
+		desc: "This move's type depends on the user's individual values (IVs), and can be any type but Fairy and Normal. This move is 100 basr power when used by Unown and changes Unown's type.",
+		shortDesc: "Varies in type based on the user's IVs. 100 base power when used by Unown and changes Unown's type.",
 		id: "hiddenpower",
 		name: "Hidden Power",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.template.baseSpecies === 'Unown'|| move.hasBounced) {
+				this.debug("Power increased by the Unown");
+				return move.basePower + 40;
+			}
+			return move.basePower;
+		},
 		onModifyMove(move, pokemon) {
 			move.type = pokemon.hpType || 'Dark';
 		},
