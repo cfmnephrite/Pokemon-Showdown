@@ -671,7 +671,7 @@ let BattleMovedex = {
 				for (const moveSlot of pokemon.moveSlots) {
 					let move = moveSlot.id;
 					let noAssist = [
-						'assist', 'banefulbunker', 'beakblast', 'belch', 'bestow', 'bounce', 'celebrate', 'circlethrow', 'counter', 'covet', 'detect', 'dig', 'dive', 'dragontail', 'endure', 'feint', 'fly', 'focuspunch', 'followme', 'helpin	ghand', 'holdhands', 'kingsshield', 'matblock', 'mefirst', 'mimic', 'mirrorcoat', 'mirrormove', 'protect', 'ragepowder', 'roar', 'shadowforce', 'shelltrap', 'sketch', 'skydrop', 'sleeptalk', 'snatch', 'spikyshield', 'spotlight', 'struggle', 'switcheroo', 'thief', 'trick', 'whirlwind',
+						'assist', 'banefulbunker', 'beakblast', 'belch', 'bestow', 'bounce', 'celebrate', 'circlethrow', 'counter', 'covet', 'craftyshield', 'detect', 'dig', 'dive', 'dragontail', 'endure', 'feint', 'flowershield', 'fly', 'focuspunch', 'followme', 'helpin	ghand', 'holdhands', 'kingsshield', 'matblock', 'mefirst', 'mimic', 'mirrorcoat', 'mirrormove', 'protect', 'ragepowder', 'roar', 'shadowforce', 'shelltrap', 'sketch', 'skydrop', 'sleeptalk', 'snatch', 'spikyshield', 'spotlight', 'struggle', 'switcheroo', 'thief', 'trick', 'whirlwind',
 					];
 					if (!noAssist.includes(move) && !this.dex.getMove(move).isZ) {
 						moves.push(move);
@@ -1085,8 +1085,12 @@ let BattleMovedex = {
 			},
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
-				if (!move.flags['protect'] || move.type === 'Psychic') {
+				if (!move.flags['protect']) {
 					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.type === 'Psychic' && move.category != 'Status') {
+					move.breaksProtect = true;
 					return;
 				}
 				this.add('-activate', target, 'move: Protect');
@@ -2865,7 +2869,7 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {},
 		onHit(pokemon) {
-			let noCopycat = ['banefulbunker', 'bestow', 'celebrate', 'chatter', 'circlethrow', 'copycat', 'counter', 'covet', 'destinybond', 'detect', 'dragontail', 'endure', 'feint', 'focuspunch', 'followme', 'helpinghand', 'mefirst', 'mimic', 'mirrorcoat', 'mirrormove', 'protect', 'ragepowder', 'roar', 'sketch', 'sleeptalk', 'snatch', 'struggle', 'thief', 'whirlwind'];
+			let noCopycat = ['banefulbunker', 'bestow', 'celebrate', 'chatter', 'circlethrow', 'copycat', 'counter', 'covet', 'craftyshield', 'destinybond', 'detect', 'dragontail', 'endure', 'feint', 'flowershield', 'focuspunch', 'followme', 'helpinghand', 'mefirst', 'mimic', 'mirrorcoat', 'mirrormove', 'protect', 'ragepowder', 'roar', 'shelltrap', 'sketch', 'sleeptalk', 'snatch', 'struggle', 'thief', 'whirlwind'];
 			if (!this.lastMove || noCopycat.includes(this.lastMove.id) || this.lastMove.isZ) {
 				return false;
 			}
@@ -3164,8 +3168,12 @@ let BattleMovedex = {
 			},
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
-				if (!move.flags['protect'] || move.type === 'Steel') {
+				if (!move.flags['protect']) {
 					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.type === 'Steel' && move.category != 'Status') {
+					move.breaksProtect = true;
 					return;
 				}
 				this.add('-activate', target, 'move: Protect');
@@ -3615,8 +3623,7 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
-		shortDesc: "Prevents moves from affecting the user this turn.",
+		shortDesc: "The user dodges all incoming attacks for one turn.",
 		id: "detect",
 		isViable: true,
 		name: "Detect",
@@ -3624,12 +3631,23 @@ let BattleMovedex = {
 		priority: 4,
 		flags: {},
 		stallingMove: true,
-		volatileStatus: 'protect',
+		volatileStatus: 'detect',
 		onPrepareHit(pokemon) {
 			return !!this.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
 			pokemon.addVolatile('stall');
+		},
+		effect: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Detect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (move.accuracy === true || source.hasAbility('No Guard')) return;
+				move.accuracy = 0;
+			},
 		},
 		secondary: null,
 		target: "self",
@@ -6089,8 +6107,12 @@ let BattleMovedex = {
 			},
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
-				if (!move.flags['protect'] || move.type === 'Poison') {
+				if (!move.flags['protect']) {
 					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.type === 'Poison' && move.category != 'Status') {
+					move.breaksProtect = true;
 					return;
 				}
 				this.add('-activate', target, 'move: Protect');
@@ -7777,7 +7799,7 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		damageCallback(pokemon, target) {
-			if (target.volatiles['banefulbunker'] || target.volatiles['kingsshield'] || target.side.getSideCondition('matblock') || target.volatiles['protect'] || target.volatiles['spikyshield']) {
+			if (target.volatiles['banefulbunker'] || target.volatiles['craftyshield'] || target.volatiles['flowershield'] || target.volatiles['kingsshield'] || target.side.getSideCondition('matblock') || target.volatiles['protect'] || target.volatiles['shelltrap'] || target.volatiles['spikyshield']) {
 				this.add('-zbroken', target);
 				return this.dex.clampIntRange(Math.ceil(Math.floor(target.hp * 3 / 4) / 4 - 0.5), 1);
 			}
@@ -11892,7 +11914,7 @@ let BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		flags: {},
-		noMetronome: ['afteryou', 'assist', 'banefulbunker', 'beakblast', 'belch', 'bestow', 'celebrate', 'chatter', 'copycat', 'counter', 'covet', 'craftyshield', 'destinybond', 'detect', 'diamondstorm', 'dragonascent', 'endure', 'feint', 'fleurcannon', 'focuspunch', 'followme', 'freezeshock', 'helpinghand', 'holdhands', 'hyperspacefury', 'hyperspacehole', 'iceburn', 'instruct', 'kingsshield', 'lightofruin', 'matblock', 'mefirst', 'metronome', 'mimic', 'mindblown', 'mirrorcoat', 'mirrormove', 'naturepower', 'originpulse', 'photongeyser', 'plasmafists', 'precipiceblades', 'protect', 'quash', 'quickguard', 'ragepowder', 'relicsong', 'secretsword', 'shelltrap', 'sketch', 'sleeptalk', 'snarl', 'snatch', 'snore', 'spectralthief', 'spikyshield', 'spotlight', 'steameruption', 'struggle', 'switcheroo', 'technoblast', 'thief', 'thousandarrows', 'thousandwaves', 'transform', 'trick', 'vcreate', 'wideguard'],
+		noMetronome: ['afteryou', 'assist', 'banefulbunker', 'beakblast', 'belch', 'bestow', 'celebrate', 'chatter', 'copycat', 'counter', 'covet', 'craftyshield', 'destinybond', 'detect', 'diamondstorm', 'dragonascent', 'endure', 'feint', 'fleurcannon', 'flowershield', 'focuspunch', 'followme', 'freezeshock', 'helpinghand', 'holdhands', 'hyperspacefury', 'hyperspacehole', 'iceburn', 'instruct', 'kingsshield', 'lightofruin', 'matblock', 'mefirst', 'metronome', 'mimic', 'mindblown', 'mirrorcoat', 'mirrormove', 'naturepower', 'originpulse', 'photongeyser', 'plasmafists', 'precipiceblades', 'protect', 'quash', 'quickguard', 'ragepowder', 'relicsong', 'secretsword', 'shelltrap', 'sketch', 'sleeptalk', 'snarl', 'snatch', 'snore', 'spectralthief', 'spikyshield', 'spotlight', 'steameruption', 'struggle', 'switcheroo', 'technoblast', 'thief', 'thousandarrows', 'thousandwaves', 'transform', 'trick', 'vcreate', 'wideguard'],
 		onHit(target, source, effect) {
 			let moves = [];
 			for (let i in exports.BattleMovedex) {
@@ -16415,7 +16437,7 @@ let BattleMovedex = {
 		},
 		secondary: {
 			chance: 10,
-			status: 'brn',
+			status: 'frz',
 		},
 		target: "normal",
 		type: "Ice",
@@ -16476,8 +16498,12 @@ let BattleMovedex = {
 			},
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
-				if (!move.flags['protect'] || move.type === 'Water') {
+				if (!move.flags['protect']) {
 					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.type === 'Water' && move.category != 'Status') {
+					move.breaksProtect = true;
 					return;
 				}
 				this.add('-activate', target, 'move: Protect');
@@ -16500,7 +16526,7 @@ let BattleMovedex = {
 			},
 		},
 		secondary: null,
-		target: "allAdjacentFoes",
+		target: "self",
 		type: "Fire",
 		zMovePower: 200,
 		contestType: "Tough",
@@ -17826,8 +17852,12 @@ let BattleMovedex = {
 			},
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
-				if (!move.flags['protect'] || move.type === 'Fire') {
+				if (!move.flags['protect']) {
 					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.type === 'Fire' && move.category != 'Status') {
+					move.breaksProtect = true;
 					return;
 				}
 				this.add('-activate', target, 'move: Protect');
