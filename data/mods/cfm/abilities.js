@@ -2421,8 +2421,24 @@ let BattleAbilities = {
 		num: 136,
 	},
 	"multitype": {
-		shortDesc: "If this Pokemon is an Arceus, its type changes to match its held Plate or Z-Crystal.",
+		shortDesc: "Arceus: type changes to match Plate or Z-Crystal; changes Ability.",
 		// Multitype's type-changing itself is implemented in statuses.js
+		onUpdate(pokemon) {
+			let type = pokemon.getItem().onPlate;
+			if (!type || pokemon.baseTemplate.baseSpecies !== 'Arceus') return;
+			let multiTypes = {'Bug': 'tintedlens', 'Dark': 'intimidate', 'Dragon': 'multiscale', 'Electric': 'lightningrod',
+			'Fairy': 'wonderskin', 'Fire': 'moldbreaker', 'Fighting': 'scrappy', 'Flying': 'keeneye', 'Ghost': 'cursedbody', 'Grass': 'regenerator',
+			'Ground': 'sandstream', 'Ice': 'snowwarning', 'Poison': 'poisonpoint', 'Psychic': 'innerfocus', 'Rock': 'solidrock',
+			'Steel': 'bulletproof', 'Water': 'waterabsorb'};
+			
+			let multiAbility = this.dex.getAbility(multiTypes[type]);
+			this.add('-activate', pokemon, 'ability: Multitype');
+			pokemon.ability = multiAbility;
+			pokemon.baseAbility = multiAbility;
+			this.add('-ability', pokemon, multiAbility.name);
+			this.add('-message', pokemon.name + "'s ability changed to " + this.dex.getAbility(pokemon.baseAbility).name + " to suit its type!");
+			return;
+		},
 		id: "multitype",
 		name: "Multitype",
 		rating: 4,

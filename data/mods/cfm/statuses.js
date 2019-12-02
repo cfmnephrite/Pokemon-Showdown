@@ -847,12 +847,9 @@ let BattleStatuses = {
 		onType(types, pokemon) {
 			if (pokemon.transformed) return types;
 			/** @type {string | undefined} */
-			let type = 'Normal';
-			if (pokemon.ability === 'multitype') {
-				type = pokemon.getItem().onPlate;
-				if (!type) {
-					type = 'Normal';
-				}
+			let type = pokemon.getItem().onPlate;
+			if (!type) {
+				type = 'Normal';
 			}
 			return [type];
 		},
@@ -865,12 +862,9 @@ let BattleStatuses = {
 		onType(types, pokemon) {
 			if (pokemon.transformed) return types;
 			/** @type {string | undefined} */
-			let type = 'Normal';
-			if (pokemon.ability === 'rkssystem') {
-				type = pokemon.getItem().onMemory;
-				if (!type) {
-					type = 'Normal';
-				}
+			let type = pokemon.getItem().onMemory;
+			if (!type) {
+				type = 'Normal';
 			}
 			return [type];
 		},
