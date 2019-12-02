@@ -9208,17 +9208,12 @@ let BattleMovedex = {
 		accuracy: 60,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Causes the target to fall asleep. Never misses if used by Hypno or Drowzee.",
+		shortDesc: "Causes the target to fall asleep.",
 		id: "hypnosis",
 		name: "Hypnosis",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
-		onModifyMove(move, pokemon) {
-			if (pokemon.template.baseSpecies === 'Hypno', 'Drowzee' || move.hasBounced) {
-				move.accuracy = true;
-			}
-		},
 		status: 'slp',
 		secondary: null,
 		target: "normal",
