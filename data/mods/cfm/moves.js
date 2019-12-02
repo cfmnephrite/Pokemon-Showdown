@@ -12015,10 +12015,10 @@ let BattleMovedex = {
 	"mindblown": {
 		num: 720,
 		accuracy: 100,
-		basePower: 150,
+		basePower: 100,
 		category: "Special",
-		desc: "Whether or not this move is successful and even if it would cause fainting, the user loses 1/2 of its maximum HP, rounded up, unless the user has the Magic Guard Ability. This move is prevented from executing and the user does not lose HP if any active Pokemon has the Damp Ability, or if this move is Fire type and the user is affected by Powder or the weather is Primordial Sea.",
-		shortDesc: "User loses 50% max HP. Hits adjacent Pokemon.",
+		desc: "User takes 25% recoil, then restores 50% of hp drained.",
+		shortDesc: "User takes 25% recoil, then restores hp equal to 50% of damage dealt.",
 		id: "mindblown",
 		isViable: true,
 		name: "Mind Blown",
