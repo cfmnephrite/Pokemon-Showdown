@@ -1063,8 +1063,7 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user become poisoned. Psychic type moves ignore this move. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
-		shortDesc: "Protects from moves. Fails against Psychic type moves. Contact: poison.",
+		shortDesc: "Protects against non-Psychic attacks; poisons users of contact moves.",
 		id: "banefulbunker",
 		isViable: true,
 		name: "Baneful Bunker",
@@ -3143,9 +3142,9 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon using a status move on it become taunted. Poison type moves ignore this move. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
-		shortDesc: "Protects from moves. Fails against Poison type moves. Status moves inflict taunt on opponent.",
+		shortDesc: "Protects against non-Steel attacks; Taunts users of status moves.",
 		id: "craftyshield",
+		isViable: true,
 		name: "Crafty Shield",
 		pp: 10,
 		priority: 4,
@@ -3165,7 +3164,7 @@ let BattleMovedex = {
 			},
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
-				if (!move.flags['protect'] || move.type === 'Poison') {
+				if (!move.flags['protect'] || move.type === 'Steel') {
 					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
 					return;
 				}
@@ -3177,15 +3176,10 @@ let BattleMovedex = {
 						delete source.volatiles['lockedmove'];
 					}
 				}
-				if (move.flags['reflectable']) {
-					source.addVolatile('taunt', target);
+				if (move.category === 'Status') {
+					source.addVolatile('taunt');
 				}
 				return this.NOT_FAIL;
-			},
-			onHit(target, source, move) {
-				if (move.isZPowered && move.flags['reflectable']) {
-					source.addVolatile('taunt', target);
-				}
 			},
 		},
 		secondary: null,
@@ -5684,9 +5678,9 @@ let BattleMovedex = {
 		accuracy: 90,
 		basePower: 140,
 		category: "Physical",
-		desc: "Lowers the user's special attack by 2 stages. has a 10% chance to trap the target."
-		shortDesc: "OHKOs the target. Fails if user is a lower level.",
+		shortDesc: "Lowers the user's Attack by 2. 10% chance to trap.",
 		id: "fissure",
+		isViable: true,
 		name: "Fissure",
 		pp: 5,
 		priority: 0,
@@ -6073,9 +6067,9 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "Raises the Defense of all active Grass-type Pokemon by 1 stage. Fails if there are no active Grass-type Pokemon.",
-		shortDesc: "Raises Defense by 1 of all active Grass types.",
+		shortDesc: "Protects against non-Poison attacks; 30% to inflict status on contact move user.",
 		id: "flowershield",
+		isViable: true,
 		name: "Flower Shield",
 		pp: 10,
 		priority: 4,
@@ -6108,27 +6102,27 @@ let BattleMovedex = {
 					}
 				}
 				if (move.flags['contact'] && !source.status && source.runStatusImmunity('powder')) {
-				let r = this.random(100);
-				if (r < 11) {
-					source.setStatus('slp', target);
-				} else if (r < 21) {
-					source.setStatus('par', target);
-				} else if (r < 30) {
-					source.setStatus('psn', target);
+					let r = this.random(100);
+					if (r < 11) {
+						source.setStatus('slp', target);
+					} else if (r < 21) {
+						source.setStatus('par', target);
+					} else if (r < 30) {
+						source.setStatus('psn', target);
+					}
 				}
 				return this.NOT_FAIL;
-			}
 			},
 			onHit(target, source, move) {
 				if (move.isZPowered && move.flags['contact'] && !source.status && source.runStatusImmunity('powder')) {
-				let r = this.random(100);
-				if (r < 11) {
-					source.setStatus('slp', target);
-				} else if (r < 21) {
-					source.setStatus('par', target);
-				} else if (r < 30) {
-					source.setStatus('psn', target);
-				}
+					let r = this.random(100);
+					if (r < 11) {
+						source.setStatus('slp', target);
+					} else if (r < 21) {
+						source.setStatus('par', target);
+					} else if (r < 30) {
+						source.setStatus('psn', target);
+					}
 				}
 			},
 		},
@@ -7869,9 +7863,9 @@ let BattleMovedex = {
 		accuracy: 90,
 		basePower: 140,
 		category: "Physical",
-		desc: "Lowers the user's attack by 2 stages. Has a 10% chance to harshly lower the foe's defense."
-		shortDesc: "Lowers attack by 2 stages, 10% chance to harshly lower defense.",
+		shortDesc: "Lowers user's Atk x2. 10% chance to lower Def x2.",
 		id: "guillotine",
+		isViable: true,
 		name: "Guillotine",
 		pp: 5,
 		priority: 0,
@@ -8949,9 +8943,9 @@ let BattleMovedex = {
 		accuracy: 90,
 		basePower: 140,
 		category: "Physical",
-		desc: "Lowers the user's attack by 2 stages. Has a higher chance for a critical hit."
-		shortDesc: "Lowers attack by 2 stages, High critical hit rate.",
+		shortDesc: "Lowers the user's Attack by 2. High crit chance.",
 		id: "horndrill",
+		isViable: true,
 		name: "Horn Drill",
 		pp: 5,
 		priority: 0,
@@ -16404,21 +16398,28 @@ let BattleMovedex = {
 	},
 	"sheercold": {
 		num: 329,
-		accuracy: 30,
-		basePower: 0,
+		accuracy: 90,
+		basePower: 140,
 		category: "Special",
-		desc: "Deals damage to the target equal to the target's maximum HP. Ignores accuracy and evasiveness modifiers. This attack's accuracy is equal to (user's level - target's level + X)%, where X is 30 if the user is an Ice type and 20 otherwise, and fails if the target is at a higher level. Ice-type Pokemon and Pokemon with the Sturdy Ability are immune.",
-		shortDesc: "OHKOs non-Ice targets. Fails if user's lower level.",
+		shortDesc: "Lowers the user's Sp. Atk by 2. 10% chance to freeze the target.",
 		id: "sheercold",
+		isViable: true,
 		name: "Sheer Cold",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		secondary: null,
-		ohko: 'Ice',
+		self: {
+			boosts: {
+				spa: -2,
+			},
+		},
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
 		target: "normal",
 		type: "Ice",
-		zMovePower: 180,
+		zMovePower: 200,
 		gmaxPower: 130,
 		contestType: "Beautiful",
 	},
@@ -16453,9 +16454,9 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Special",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user become burned. Water type moves ignore this move. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
-		shortDesc: "Protects from moves. Fails against Water type moves. Contact: burn.",
+		shortDesc: "Protects against non-Water attacks; burns users of contacts moves.",
 		id: "shelltrap",
+		isViable: true,
 		name: "Shell Trap",
 		pp: 10,
 		priority: 4,
@@ -17803,8 +17804,7 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user lose 1/8 of their maximum HP, rounded down. If this move is hit with a Fire type move the move fails. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
-		shortDesc: "Protects from moves. Fails against Fire type moves. Contact: loses 1/8 max HP.",
+		shortDesc: "Protects against non-Fire attacks; contact move users lose 1/8 HP.",
 		id: "spikyshield",
 		isViable: true,
 		name: "Spiky Shield",
