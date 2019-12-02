@@ -3318,8 +3318,130 @@ let BattleAbilities = {
 		num: 79,
 	},
 	"rkssystem": {
-		shortDesc: "If this Pokemon is a Silvally, its type changes to match its held Memory.",
+		shortDesc: "Boosts Type: Null in exchange for HP; boosts Silvally according to held Memory.",
 		// RKS System's type-changing itself is implemented in statuses.js
+		onStart(pokemon) {
+			let type = pokemon.getItem().onMemory;
+			if (pokemon.baseTemplate.baseSpecies !== 'Silvally') return;
+			let maIndex = 4;
+			for (let j = 0; j < pokemon.moveSlots.length; j++) {
+				if (pokemon.moveSlots[j].id === 'multiattack') {
+					maIndex = j;
+				}
+			}
+			
+			// Define the move slot
+			let move = this.dex.getMove('multiattack');
+			
+			// For Memories that change effect depending on higher stat
+			let oStat = 'atk';
+			if (pokemon.storedStats.spa > pokemon.storedStats.atk) oStat = 'spa';
+			
+			switch(type){
+			case 'Bug':
+				this.boost({atk:1, def:-2, spa:1});
+				move = this.dex.getMove('tailglow');
+				break;
+			case 'Dark':
+				this.boost({atk:1, spa:1, spd:-2});
+				move = this.dex.getMove('suckerpunch');
+				break;
+			case 'Dragon':
+				this.boost({atk:1, def:-1, spa:1, spd:-1});
+				move = this.dex.getMove('dragondance');
+				break;
+			case 'Electric':
+				this.boost({atk:-1, def:-1, spe:2});
+				move = this.dex.getMove('voltswitch');
+				break;
+			case 'Fairy':
+				this.boost({atk:-2, spd:2});
+				move = this.dex.getMove('wish');
+				break;
+			case 'Fighting':
+				this.boost({atk:2, spd:-2});
+				move = this.dex.getMove('sacredsword');
+				break;
+			case 'Fire':
+				let fireMoves = {'atk': 'blazekick', 'spa': 'firespin'};
+				this.boost({atk:1, def:-2, spa:1});
+				move = this.dex.getMove(fireMoves[oStat])
+				break;
+			case 'Flying':
+				let flyingMoves = {'atk': 'drillpeck', 'spa': 'gust'};
+				this.boost({[oStat]:1, def:-2, spe:1});
+				move = this.dex.getMove(flyingMoves[oStat])
+				break;
+			case 'Ghost':
+				this.boost({[oStat]:1, def:-2, spd:1});
+				move = this.dex.getMove('destinybond');
+				break;
+			case 'Grass':
+				this.boost({atk:-3, def:1, spa:1, spd:1});
+				move = this.dex.getMove('spore');
+				break;
+			case 'Ground':
+				this.boost({atk:1, def:1, spa:-1, spd:-1});
+				move = this.dex.getMove('drillrun');
+				break;
+			case 'Ice':
+				let iceMoves = {'atk': 'iciclecrash', 'spa': 'freezedry'};
+				this.boost({def:-1, [oStat]:2, spd:-1});
+				move = this.dex.getMove(iceMoves[oStat]);
+				break;
+			case 'Poison':
+				this.boost({def:1, spa:-1, spd:1, spe:-1});
+				move = this.dex.getMove('toxic');
+				break;
+			case 'Psychic':
+				this.boost({def:-2, spa:2});
+				move = this.dex.getMove('synchronoise');
+				break;
+			case 'Rock':
+				this.boost({atk:1, def:2, spa:-3});
+				move = this.dex.getMove('stealthrock');
+				break;
+			case 'Steel':
+				this.boost({def:3, spe:-3});
+				move = this.dex.getMove('metalburst');
+				break;
+			case 'Water':
+				this.boost({atk:-1, def:1, spa:1, spe:-1});
+				move = this.dex.getMove('scald');
+				break;
+			}
+			// Change Multi-Attack to be whatever move we want it to be			
+			if (maIndex === 4) return;
+			if (move.id !== 'multiattack') {
+				let multiAttack = {
+					move: move.name,
+					id: move.id,
+					pp: move.pp,
+					maxpp: move.pp,
+					target: move.target,
+					disabled: false,
+					used: false,
+				};
+				pokemon.moveSlots[maIndex] = multiAttack;
+				pokemon.baseMoveSlots[maIndex] = multiAttack;
+			}
+			
+		},
+		//Type: Null part
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.template.species !== 'Type: Null') return;
+			let category = (attacker.getStat('atk') > attacker.getStat('spa') ? 'Physical' : 'Special');
+			if (move && (move.category === category || move.flags['magic'])) {
+				move.rksBoost = true;
+				return this.chainModify(1.5);
+			}
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (move.rksBoost) {
+				this.damage(source.maxhp / 6, source, source);
+			}
+		},
 		id: "rkssystem",
 		name: "RKS System",
 		rating: 4,
