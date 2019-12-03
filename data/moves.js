@@ -12747,19 +12747,24 @@ let BattleMovedex = {
 		zMovePower: 160,
 		contestType: "Cool",
 	},
-	"nightmare": {
+		"nightmare": {
 		num: 171,
 		accuracy: 100,
-		basePower: 0,
-		category: "Status",
-		desc: "Causes the target to lose 1/4 of its maximum HP, rounded down, at the end of each turn as long as it is asleep. This move does not affect the target unless it is asleep. The effect ends when the target wakes up, even if it falls asleep again in the same turn.",
-		shortDesc: "A sleeping target is hurt by 1/4 max HP per turn.",
+		basePower: 95,
+		category: "Special",
+		shortDesc: "Any target put to sleep by the user will suffer a nightmare, losing 1/8 max HP per turn.",
 		id: "nightmare",
-		isNonstandard: "Past",
+		isViable: true,
 		name: "Nightmare",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onBasePowerPriority: 4,
+		onBasePower(basePower, pokemon) {
+			if (pokemon.hasAbility('Bad Dreams')) {
+				return this.chainModify(1.5);
+			}
+		},
 		volatileStatus: 'nightmare',
 		effect: {
 			noCopy: true,
@@ -12771,13 +12776,24 @@ let BattleMovedex = {
 			},
 			onResidualOrder: 9,
 			onResidual(pokemon) {
-				this.damage(pokemon.maxhp / 4);
+				this.damage(pokemon.maxhp / 8);
 			},
+			onUpdate(pokemon) {
+				if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose')) {
+					pokemon.removeVolatile('nightmare');
+					this.add('-end', pokemon, 'Nightmare', '[silent]');
+				}
+				if (pokemon.status === 'slp' || pokemon.hasAbility('comatose')) {
+					pokemon.addVolatile('nightmare');
+					this.add('-start', pokemon, 'Nightmare');
+				}
+			},
+		
 		},
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
-		zMoveBoost: {spa: 1},
+		zMovePower: 180,
 		contestType: "Clever",
 	},
 	"nightshade": {
