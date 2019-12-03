@@ -12787,22 +12787,28 @@ let BattleMovedex = {
 	"needlearm": {
 		num: 302,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 85,
 		category: "Physical",
-		desc: "Has a 30% chance to flinch the target.",
-		shortDesc: "30% chance to flinch the target.",
+		desc: "This move leaves needle-sharp barbs in its target, causing it to lose 1/8 HP per turn.",
+		shortDesc: "The target is caused to lose 1/8 HP per turn.",
 		id: "needlearm",
 		name: "Needle Arm",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		secondary: {
-			chance: 30,
-			volatileStatus: 'flinch',
+		volatileStatus: 'needlearm',
+		effect: {
+			onStart(pokemon, source) {
+				this.add('-start', pokemon, 'Needle Arm', '[of] ' + source);
+			},
+			onResidualOrder: 10,
+			onResidual(pokemon) {
+				this.damage(pokemon.maxhp / 8);
+			},
 		},
 		target: "normal",
 		type: "Grass",
-		zMovePower: 120,
+		zMovePower: 160,
 		contestType: "Clever",
 	},
 	"neverendingnightmare": {
@@ -12825,10 +12831,10 @@ let BattleMovedex = {
 	},
 	"nightdaze": {
 		num: 539,
-		accuracy: 95,
-		basePower: 85,
+		accuracy: 100,
+		basePower: 100,
 		category: "Special",
-		desc: "Has a 40% chance to lower the target's accuracy by 1 stage.",
+		desc: "Has a 30% chance to lower the target's accuracy by 1 stage.",
 		shortDesc: "40% chance to lower the target's accuracy by 1.",
 		id: "nightdaze",
 		name: "Night Daze",
@@ -12836,14 +12842,14 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
-			chance: 40,
+			chance: 30,
 			boosts: {
 				accuracy: -1,
 			},
 		},
 		target: "normal",
 		type: "Dark",
-		zMovePower: 160,
+		zMovePower: 180,
 		contestType: "Cool",
 	},
 	"nightmare": {
