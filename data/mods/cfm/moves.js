@@ -208,7 +208,7 @@ let BattleMovedex = {
 		basePower: 0,
 		category: "Status",
 		desc: "Raises a random stat by 2 stages as long as the stat is not already at stage 6. The user can choose to use this move on itself or an adjacent ally. Fails if no stat stage can be raised or if used on an ally with a substitute.",
-		shortDesc: "Raises a random stat of the user or an ally by 2.",
+		shortDesc: "Raises a random stat (except Evasion) of user or ally by 2.",
 		id: "acupressure",
 		name: "Acupressure",
 		pp: 30,
@@ -259,23 +259,21 @@ let BattleMovedex = {
 	},
 	"aeroblast": {
 		num: 177,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 90,
 		category: "Special",
-		desc: "Is 100 base power if used by Lugia",
-		shortDesc: "100 base power if used by Lugia",
+		shortDesc: "Lugia: 100BP; very high critical hit ratio.",
 		id: "aeroblast",
 		isViable: true,
 		name: "Aeroblast",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1},
-		basePowerCallback(pokemon, target, move) {
-			if (pokemon.template.baseSpecies === 'Lugia'|| move.hasBounced) {
-				this.debug("Power increased by Lugia");
-				return move.basePower + 10;
+		onModifyMove(move, source) {
+			if (source.template.speciesid === 'lugia') {
+				move.basePower = 100;
+				move.critRatio = 3;
 			}
-			return move.basePower;
 		},
 		secondary: null,
 		target: "any",
@@ -455,12 +453,10 @@ let BattleMovedex = {
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		secondary: {
-			chance: 100,
-			onHit(target, source, move) {
-				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
-			},
+		onHit(target, source, move) {
+			if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
 		},
+		secondary: null,
 		target: "normal",
 		type: "Steel",
 		zMovePower: 160,
@@ -742,8 +738,8 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
-		desc: "Has a 50% chance to lower attack.",
-		shortDesc: "50% chance to lower attack.",
+		desc: "Has a 50% chance to lower the target's Attack by 1 stage.",
+		shortDesc: "50% chance to lower the target's Attack by 1.",
 		id: "attackorder",
 		isViable: true,
 		name: "Attack Order",
@@ -1136,7 +1132,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Grass",
-		zMovePower: 100,
+		zMovePower: 190,
 		contestType: "Cute",
 	},
 	"barrier": {
@@ -1503,15 +1499,19 @@ let BattleMovedex = {
 		accuracy: 90,
 		basePower: 150,
 		category: "Special",
-		desc: "If the target lost HP, the user takes recoil damage equal to 1/2 the HP lost by the target, rounded half up, but not less than 1 HP.",
-		shortDesc: "Has 1/2 recoil.",
+		desc: "The user takes recoil damage equal to 1/2 the HP lost by the target; 10% chance to burn.",
+		shortDesc: "Has 1/2 recoil, 10% burn chance.",
 		id: "blastburn",
+		isViable: true,
 		name: "Blast Burn",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		recoil: [1, 2],
-		secondary: null,
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
 		target: "normal",
 		type: "Fire",
 		zMovePower: 200,
@@ -1797,23 +1797,19 @@ let BattleMovedex = {
 		accuracy: 95,
 		basePower: 85,
 		category: "Physical",
-		desc: "Has a 20% chance to paralyze the target. Has no charge turn if the user is a flying type. This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Gust, Hurricane, Sky Uppercut, Smack Down, Thousand Arrows, Thunder, and Twister, and Gust and Twister have doubled power when used against it. If the user is holding a Power Herb, the move completes in one turn.",
-		shortDesc: "Bounces turn 1. Hits turn 2. Hits turn 2 if user is flying type. 20% paralyze.",
+		shortDesc: "Two-turn move, unless the user is Flying. 20% chance to paralyse.",
 		id: "bounce",
+		isViable: true,
 		name: "Bounce",
-		pp: 5,
+		pp: 15,
 		priority: 0,
 		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, gravity: 1, distance: 1},
 		onTryMove(attacker, defender, move) {
+			if (attacker.hasType('Flying')) return;
 			if (attacker.removeVolatile(move.id)) {
 				return;
 			}
 			this.add('-prepare', attacker, move.name, defender);
-			if (attacker.hasType('Flying')) {
-				this.attrLastMove('[still]');
-				this.addMove('-anim', attacker, move.name, defender);
-				return;
-			}
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
 				return;
 			}
@@ -1840,7 +1836,7 @@ let BattleMovedex = {
 		},
 		target: "any",
 		type: "Flying",
-		zMovePower: 180,
+		zMovePower: 160,
 		contestType: "Cute",
 	},
 	"bouncybubble": {
@@ -2137,6 +2133,7 @@ let BattleMovedex = {
 		desc: "Has a 50% chance to lower the target's Speed by 1 stage.",
 		shortDesc: "50% chance lower adjacent Pkmn Speed by 1.",
 		id: "bulldoze",
+		isViable: true,
 		name: "Bulldoze",
 		pp: 20,
 		priority: 0,
@@ -2149,7 +2146,7 @@ let BattleMovedex = {
 		},
 		target: "allAdjacent",
 		type: "Ground",
-		zMovePower: 120,
+		zMovePower: 160,
 		contestType: "Tough",
 	},
 	"bulletpunch": {
@@ -2327,19 +2324,24 @@ let BattleMovedex = {
 	},
 	"catastropika": {
 		num: 658,
-		accuracy: true,
+		accuracy: 85,
 		basePower: 120,
 		category: "Physical",
-		shortDesc: "No additional effect.",
+		desc: "Has a 20% chance to paralyse the target.",
+		shortDesc: "20% chance to paralyse the target.",
 		id: "catastropika",
+		isViable: true,
 		name: "Catastropika",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1},
-		secondary: null,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 20,
+			status: 'par',
+		},
 		target: "normal",
 		type: "Electric",
-		zMovePower: 190,
+		zMovePower: 200,
 		contestType: "Cool",
 	},
 	"celebrate": {
@@ -2510,17 +2512,20 @@ let BattleMovedex = {
 	},
 	"clamp": {
 		num: 128,
-		accuracy: 85,
-		basePower: 35,
+		accuracy: 100,
+		basePower: 80,
 		category: "Physical",
-		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Parting Shot, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
-		shortDesc: "Traps and damages the target for 4-5 turns.",
+		desc: "Prevents the target from switching out.",
+		shortDesc: "Prevents the target from switching out.",
 		id: "clamp",
+		isViable: true,
 		name: "Clamp",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		volatileStatus: 'partiallytrapped',
+		onHit(target, source, move) {
+			if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+		},
 		secondary: null,
 		target: "normal",
 		type: "Water",
@@ -2763,10 +2768,14 @@ let BattleMovedex = {
 		desc: "Traps the target. Has a 20% chance to lower speed.",
 		shortDesc: "10% chance to lower the target's Speed by 1.",
 		id: "constrict",
+		isViable: true,
 		name: "Constrict",
-		pp: 35,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		onHit(target, source, move) {
+			if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+		},
 		secondary: {
 			chance: 20,
 			boosts: {
@@ -2775,7 +2784,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Poison",
-		zMovePower: 100,
+		zMovePower: 160,
 		contestType: "Tough",
 	},
 	"continentalcrush": {
@@ -2887,7 +2896,7 @@ let BattleMovedex = {
 		num: 687,
 		accuracy: 100,
 		basePower: 100,
-		category: "Special",
+		category: "Physical",
 		desc: "If the user moves after the target, the target's Ability is rendered ineffective as long as it remains active. If the target uses Baton Pass, the replacement will remain under this effect. If the target's Ability is Battle Bond, Comatose, Disguise, Multitype, Power Construct, RKS System, Schooling, Shields Down, Stance Change, or Zen Mode, this effect does not happen, and receiving the effect through Baton Pass ends the effect immediately.",
 		shortDesc: "Nullifies the foe(s) Ability if the foe(s) move first.",
 		id: "coreenforcer",
@@ -3122,8 +3131,8 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-		desc: "Has a 20% chance to raise attack.",
-		shortDesc: "20% chance to raise attack.",
+		desc: "Has a 20% chance to raise the user's Attack by 1 stage.",
+		shortDesc: "20% chance to raise the user's Attack by 1.",
 		id: "crabhammer",
 		isViable: true,
 		name: "Crabhammer",
@@ -3148,9 +3157,10 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon using a status move on it become taunted. Poison type moves ignore this move. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
-		shortDesc: "Protects from moves. Fails against Poison type moves. Status moves inflict taunt on opponent.",
+		desc: "Protects from non-Steel attacks; taunts users of status moves.",
+		shortDesc: "Protects from non-Steel attacks; taunts users of status moves.",
 		id: "craftyshield",
+		isViable: true,
 		name: "Crafty Shield",
 		pp: 10,
 		priority: 4,
@@ -3170,11 +3180,7 @@ let BattleMovedex = {
 			},
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
-<<<<<<< HEAD
-				if (!move.flags['protect'] || move.type === 'Poison') {
-=======
 				if (!move.flags['protect']) {
->>>>>>> ef3263971f776fc171c5653016380f55824cafd1
 					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
 					return;
 				}
@@ -3235,6 +3241,7 @@ let BattleMovedex = {
 		desc: "Has a 10% chance to poison the target and a higher chance for a critical hit.",
 		shortDesc: "High critical hit ratio. 10% chance to poison.",
 		id: "crosspoison",
+		isViable: true,
 		name: "Cross Poison",
 		pp: 10,
 		priority: 0,
@@ -3252,7 +3259,7 @@ let BattleMovedex = {
 	"crunch": {
 		num: 242,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 85,
 		category: "Physical",
 		desc: "Has a 20% chance to lower the target's Defense by 1 stage.",
 		shortDesc: "20% chance to lower the target's Defense by 1.",
@@ -3263,7 +3270,7 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
 		secondary: {
-			chance: 30,
+			chance: 20,
 			boosts: {
 				def: -1,
 			},
@@ -3301,9 +3308,10 @@ let BattleMovedex = {
 		accuracy: 95,
 		basePower: 100,
 		category: "Physical",
-		desc: "has a 30% chance to lower foe's defense.",
-		shortDesc: "30% chance to lower defense.",
+		desc: "Has a 30% chance to lower the target's Defence by 1 stage.",
+		shortDesc: "30% chance to lower the target's Defence by 1.",
 		id: "crushgrip",
+		isViable: true,
 		name: "Crush Grip",
 		pp: 10,
 		priority: 0,
@@ -3316,7 +3324,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Fighting",
-		zMovePower: 190,
+		zMovePower: 180,
 		gmaxPower: 140,
 		contestType: "Tough",
 	},
@@ -3918,23 +3926,25 @@ let BattleMovedex = {
 	},
 	"dizzypunch": {
 		num: 146,
-		accuracy: 100,
-		basePower: 70,
+		accuracy: 95,
+		basePower: 50,
 		category: "Physical",
-		desc: "Has a 20% chance to confuse the target.",
-		shortDesc: "20% chance to confuse the target.",
+		desc: "Hits twice, with each hit having a 10% chance to confuse the target. If the first hit breaks the target's substitute, it will take damage for the second hit.",
+		shortDesc: "Hits 2 times. Each hit has 10% chance to confuse.",
 		id: "dizzypunch",
+		isViable: true,
 		name: "Dizzy Punch",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
 		secondary: {
-			chance: 20,
+			chance: 10,
 			volatileStatus: 'confusion',
 		},
+		multihit: 2,
 		target: "normal",
 		type: "Normal",
-		zMovePower: 140,
+		zMovePower: 180,
 		contestType: "Cute",
 	},
 	"doomdesire": {
@@ -4002,8 +4012,8 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 40,
 		category: "Physical",
-		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit. Never misses.",
-		shortDesc: "Hits 2 times in one turn. Never misses.",
+		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
+		shortDesc: "Hits twice in one turn; never misses.",
 		id: "doublehit",
 		name: "Double Hit",
 		pp: 10,
@@ -4013,7 +4023,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Normal",
-		zMovePower: 140,
+		zMovePower: 160,
 		gmaxPower: 120,
 		contestType: "Cool",
 	},
@@ -4047,9 +4057,10 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 40,
 		category: "Physical",
-		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit. Never misses.",
-		shortDesc: "Hits 2 times in one turn. Never misses.",
+		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
+		shortDesc: "Hits twice in one turn; never misses.",
 		id: "doublekick",
+		isViable: true,
 		name: "Double Kick",
 		pp: 10,
 		priority: 0,
@@ -4058,7 +4069,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Fighting",
-		zMovePower: 100,
+		zMovePower: 160,
 		gmaxPower: 80,
 		contestType: "Cool",
 	},
@@ -4067,9 +4078,10 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 40,
 		category: "Physical",
-		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit. Never misses.",
-		shortDesc: "Hits 2 times in one turn. Never misses.",
+		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
+		shortDesc: "Hits twice in one turn; never misses.",
 		id: "doubleslap",
+		isViable: true,
 		name: "Double Slap",
 		pp: 10,
 		priority: 0,
@@ -4077,8 +4089,8 @@ let BattleMovedex = {
 		multihit: 2,
 		secondary: null,
 		target: "normal",
-		type: "Normal",
-		zMovePower: 100,
+		type: "Fairy",
+		zMovePower: 160,
 		contestType: "Cute",
 	},
 	"doubleteam": {
@@ -4265,7 +4277,8 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
-		shortDesc: "No additional effect.",
+		desc: "Has a 10% chance to lower the target's Special Defence by 1 stage.",
+		shortDesc: "10% chance to lower the target's Sp. Def by 1.",	
 		id: "dragonpulse",
 		isViable: true,
 		name: "Dragon Pulse",
@@ -4324,7 +4337,7 @@ let BattleMovedex = {
 	},
 	"dragontail": {
 		num: 525,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
 		desc: "If both the user and the target have not fainted, the target is forced to switch out and be replaced with a random unfainted ally. This effect fails if the target used Ingrain previously, has the Suction Cups Ability, or this move hit a substitute.",
@@ -4392,6 +4405,7 @@ let BattleMovedex = {
 		desc: "The target is unaffected by this move unless it is asleep. The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
 		shortDesc: "User gains 1/2 HP inflicted. Sleeping target only.",
 		id: "dreameater",
+		isViable: true,
 		name: "Dream Eater",
 		pp: 15,
 		priority: 0,
@@ -4400,7 +4414,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
-		zMovePower: 160,
+		zMovePower: 140,
 		contestType: "Clever",
 	},
 	"drillpeck": {
@@ -4408,7 +4422,8 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 85,
 		category: "Physical",
-		shortDesc: "No additional effect.",
+		desc: "Has a 20% chance to lower the target's Defence by 1 stage.",
+		shortDesc: "20% chance to lower the target's Defence by 1.",
 		id: "drillpeck",
 		isViable: true,
 		name: "Drill Peck",
@@ -4428,19 +4443,23 @@ let BattleMovedex = {
 	},
 	"drillrun": {
 		num: 529,
-		accuracy: 95,
-		basePower: 80,
+		accuracy: 100,
+		basePower: 85,
 		category: "Physical",
-		desc: "Has a higher chance for a critical hit.",
-		shortDesc: "High critical hit ratio.",
+		desc: "Has a 10% chance to lower the target's Defence by 1 stage.",
+		shortDesc: "10% chance to lower the target's Defence by 1.",
 		id: "drillrun",
 		isViable: true,
 		name: "Drill Run",
 		pp: 10,
 		priority: 0,
 		flags: {antiair: 1, contact: 1, protect: 1, mirror: 1},
-		critRatio: 2,
-		secondary: null,
+		secondary: {
+			chance: 10,
+			boosts: {
+				def: -1,
+			},
+		},
 		target: "normal",
 		type: "Ground",
 		zMovePower: 160,
@@ -4473,8 +4492,9 @@ let BattleMovedex = {
 		basePower: 40,
 		category: "Physical",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
-		shortDesc: "Hits 2 times in one turn.",
+		shortDesc: "Hits twice in one turn; never misses.",
 		id: "dualchop",
+		isViable: true,
 		name: "Dual Chop",
 		pp: 10,
 		priority: 0,
@@ -4483,7 +4503,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
-		zMovePower: 100,
+		zMovePower: 160,
 		gmaxPower: 130,
 		contestType: "Tough",
 	},
@@ -4642,16 +4662,24 @@ let BattleMovedex = {
 		basePower: 0,
 		damage: 'level',
 		category: "Physical",
-		shortDesc: "Damage equal to level. If targets ally, restores 50% of health instead.",
+		shortDesc: "Damage equals user's level, clears stats; heals allies by 50%.",
 		id: "eggbomb",
+		isViable: true,
 		name: "Egg Bomb",
-		pp: 10,
+		pp: 20,
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
 		onTryHit(target, source, move) {
 			if (source.side === target.side) {
+				move.accuracy = true;
 				move.damage = 0;
 				move.heal = [1, 2];
+			}
+		},
+		onHit(target, source) {
+			if (source.side != target.side) {
+				target.clearBoosts();
+				this.add('-clearboost', target);
 			}
 		},
 		secondary: null,
@@ -18012,12 +18040,10 @@ let BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		secondary: {
-			chance: 100,
-			onHit(target, source, move) {
-				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
-			},
+		onHit(target, source, move) {
+			if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
 		},
+		secondary: null,
 		target: "normal",
 		type: "Ghost",
 		zMovePower: 160,
