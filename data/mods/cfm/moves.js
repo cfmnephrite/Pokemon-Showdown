@@ -14440,23 +14440,96 @@ let BattleMovedex = {
 	},
 	"psychoboost": {
 		num: 354,
-		accuracy: 90,
-		basePower: 140,
+		accuracy: 100,
+		basePower: 0,
 		category: "Special",
-		desc: "Lowers the user's Special Attack by 2 stages.",
-		shortDesc: "Lowers the user's Sp. Atk by 2.",
+		shortDesc: "Only usable by Deoxys; effect depends on forme.",
 		id: "psychoboost",
 		isViable: true,
 		name: "Psycho Boost",
-		pp: 5,
+		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		self: {
-			boosts: {
-				spa: -2,
-			},
+		flags: {protect: 1, mirror: 1, magic: 1},
+		onTry(pokemon, target, move) {
+			if (pokemon.baseTemplate.baseSpecies === 'Deoxys') {
+				return;
+			}
+			this.add('-fail', pokemon, 'move: Psycho Boost');
+			this.add('-hint', "Only Deoxys can use this move!");
+			return null;
 		},
-		secondary: null,
+		onModifyMove(move, pokemon, target) {
+			move.secondaries = []
+			let boostedStat = 'spa';
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+				move.category = 'Physical';
+				boostedStat = 'atk';
+			}
+			if (pokemon.species === 'Deoxys'){
+				move.basePower = 75;
+				move.secondaries.push({
+					chance: 10,
+					self: {
+						boosts: {
+							atk: 1,
+							def: 1,
+							spa: 1,
+							spd: 1,
+							spe: 1,
+						},
+					},
+				});
+			}
+			else if (pokemon.species === 'Deoxys-Attack'){
+				move.basePower = 100;
+				move.secondaries.push({
+					chance: 20,
+					self: {
+						boosts: {
+							[boostedStat]: 1,
+						},
+					},
+				});
+			}
+			else if (pokemon.species === 'Deoxys-Defense'){
+				move.damage = pokemon.level;
+				boostedStat = pokemon.getStat('def') > pokemon.getStat('spd') ? 'def' : 'spd';
+				move.secondaries.push({
+					chance: 20,
+					self: {
+						boosts: {
+							[boostedStat]: 1,
+						},
+					},
+				});
+			}
+			else if (pokemon.species === 'Deoxys-Speed')　{
+                let ratio = (pokemon.getStat('spe') / target.getStat('spe'));
+                this.debug([1, 50, 100, 150, 200][(Math.floor(ratio) > 4 ? 4 : Math.floor(ratio))] + ' bp');
+                if (ratio >= 4) {
+                    move.basePower = 200;
+                }
+                else if (ratio >= 3) {
+                    move.basePower = 150;
+                }
+                else if (ratio >= 2) {
+                    move.basePower = 100;
+                }
+                else if (ratio >= 1) {
+                    move.basePower = 50;
+                }
+                else move.basePower = 1;
+				move.secondaries.push({
+					chance: 20,
+					self: {
+						boosts: {
+							spe: 1,
+						},
+					},
+				});
+			}
+		},
+		secondary: {},
 		target: "normal",
 		type: "Psychic",
 		zMovePower: 200,
@@ -14464,15 +14537,15 @@ let BattleMovedex = {
 	},
 	"psychocut": {
 		num: 427,
-		accuracy: 100,
-		basePower: 70,
+		accuracy: 95,
+		basePower: 100,
 		category: "Physical",
 		desc: "Has a higher chance for a critical hit.",
 		shortDesc: "High critical hit ratio.",
 		id: "psychocut",
 		isViable: true,
 		name: "Psycho Cut",
-		pp: 20,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		critRatio: 2,
@@ -14523,7 +14596,12 @@ let BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		secondary: null,
+		secondary: {
+			chance: 10,
+			boosts: {
+				def: -1,
+			},
+		},
 		target: "normal",
 		type: "Psychic",
 		zMovePower: 160,
@@ -15006,20 +15084,16 @@ let BattleMovedex = {
 		accuracy: 95,
 		basePower: 75,
 		category: "Physical",
-		desc: "Has a 50% chance to lower the target's Defense by 1 stage.",
-		shortDesc: "50% chance to lower the target's Defense by 1.",
+		desc: "Ignores target's defense and evasion modifiers",
+		shortDesc: "Ignores defense and evasion buffs.",
 		id: "razorshell",
 		isViable: true,
 		name: "Razor Shell",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		secondary: {
-			chance: 50,
-			boosts: {
-				def: -1,
-			},
-		},
+		ignoreEvasion: true,
+		ignoreDefensive: true,
 		target: "normal",
 		type: "Water",
 		zMovePower: 140,
@@ -15030,28 +15104,22 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		desc: "Has a higher chance for a critical hit. This attack charges on the first turn and executes on the second. If the user is holding a Power Herb, the move completes in one turn.",
-		shortDesc: "Charges, then hits foe(s) turn 2. High crit ratio.",
+		defensiveCategory: "Physical",
+		desc: "Target's foe's defense instead of special defense. 10% chance to lower foe's defense.",
+		shortDesc: "Targets defense instead of special defense, 10% chance to lower defense.",
 		id: "razorwind",
 		name: "Razor Wind",
 		pp: 10,
 		priority: 0,
 		flags: {charge: 1, protect: 1, mirror: 1},
-		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
-				return;
-			}
-			this.add('-prepare', attacker, move.name, defender);
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
+		secondary: {
+			chance: 10,
+			boosts: {
+				def: -1,
+			},
 		},
-		critRatio: 2,
-		secondary: null,
-		target: "allAdjacentFoes",
-		type: "Normal",
+		target: "normal",	
+		type: "Flying",
 		zMovePower: 160,
 		contestType: "Cool",
 	},
