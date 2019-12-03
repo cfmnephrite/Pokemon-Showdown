@@ -484,11 +484,11 @@ let BattleScripts = {
 		if (move.breaksProtect) {
 			for (const target of targets) {
 				let broke = false;
-				for (const effectid of ['banefulbunker', 'kingsshield', 'protect', 'spikyshield']) {
+				for (const effectid of ['banefulbunker', 'craftyshield', 'flowershield', 'kingsshield', 'protect', 'shelltrap', 'spikyshield']) {
 					if (target.removeVolatile(effectid)) broke = true;
 				}
 				if (this.gen >= 6 || target.side !== pokemon.side) {
-					for (const effectid of ['craftyshield', 'matblock', 'quickguard', 'wideguard']) {
+					for (const effectid of ['matblock', 'quickguard', 'wideguard']) {
 						if (target.side.removeSideCondition(effectid)) broke = true;
 					}
 				}
@@ -496,7 +496,7 @@ let BattleScripts = {
 					if (move.id === 'feint') {
 						this.add('-activate', target, 'move: Feint');
 					} else {
-						this.add('-activate', target, 'move: ' + move.name, '[broken]');
+						this.add('-activate', target, 'move: Hyperspace Fury', '[broken]'); //CFM: using Hyperspace Fury's code is a bit janky, but it works great!
 					}
 					if (this.gen >= 6) delete target.volatiles['stall'];
 				}
