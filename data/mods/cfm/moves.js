@@ -13558,7 +13558,7 @@ let BattleMovedex = {
 	"phantomforce": {
 		num: 566,
 		accuracy: true,
-		basePower: 75,
+		basePower: 90,
 		category: "Physical",
 		desc: "If this move is successful, it breaks through the target's Baneful Bunker, Detect, King's Shield, Protect, or Spiky Shield for this turn, allowing other Pokemon to attack the target normally. If the target's side is protected by Crafty Shield, Mat Block, Quick Guard, or Wide Guard, that protection is also broken for this turn and other Pokemon may attack the target's side normally. This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks. If the user is holding a Power Herb, the move completes in one turn.",
 		shortDesc: "Disappears turn 1. Hits turn 2. Breaks protection.",
@@ -13566,23 +13566,7 @@ let BattleMovedex = {
 		name: "Phantom Force",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, charge: 1, mirror: 1},
-		breaksProtect: true,
-		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
-				return;
-			}
-			this.add('-prepare', attacker, move.name, defender);
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
-		},
-		effect: {
-			duration: 2,
-			onInvulnerability: false,
-		},
+		flags: {contact: 1, mirror: 1, authentic: 1},
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
@@ -13698,7 +13682,7 @@ let BattleMovedex = {
 	},
 	"playrough": {
 		num: 583,
-		accuracy: 90,
+		accuracy:100,
 		basePower: 90,
 		category: "Physical",
 		desc: "Has a 10% chance to lower the target's Attack by 1 stage.",
@@ -13752,7 +13736,7 @@ let BattleMovedex = {
 	"poisonfang": {
 		num: 305,
 		accuracy: 100,
-		basePower: 50,
+		basePower: 70,
 		category: "Physical",
 		desc: "Has a 50% chance to badly poison the target.",
 		shortDesc: "50% chance to badly poison the target.",
@@ -13761,13 +13745,18 @@ let BattleMovedex = {
 		pp: 15,
 		priority: 0,
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
-		secondary: {
-			chance: 50,
-			status: 'tox',
-		},
+		secondaries: [
+			{
+				chance: 10,
+				status: 'tox',
+			}, {
+				chance: 10,
+				volatileStatus: 'flinch',
+			},
+		],
 		target: "normal",
 		type: "Poison",
-		zMovePower: 100,
+		zMovePower: 140,
 		contestType: "Clever",
 	},
 	"poisongas": {
@@ -13801,7 +13790,7 @@ let BattleMovedex = {
 		name: "Poison Jab",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
 		secondary: {
 			chance: 30,
 			status: 'psn',
@@ -13813,7 +13802,7 @@ let BattleMovedex = {
 	},
 	"poisonpowder": {
 		num: 77,
-		accuracy: 75,
+		accuracy: 90,
 		basePower: 0,
 		category: "Status",
 		desc: "Poisons the target.",
@@ -13853,20 +13842,19 @@ let BattleMovedex = {
 	},
 	"poisontail": {
 		num: 342,
-		accuracy: 100,
-		basePower: 50,
+		accuracy: 95,
+		basePower: 100,
 		category: "Physical",
-		desc: "Has a 10% chance to poison the target and a higher chance for a critical hit.",
-		shortDesc: "High critical hit ratio. 10% chance to poison.",
+		desc: "Has a 30% chance to badly poison the target.",
+		shortDesc: "30% chance to badly poison.",
 		id: "poisontail",
 		name: "Poison Tail",
-		pp: 25,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		critRatio: 2,
 		secondary: {
-			chance: 10,
-			status: 'psn',
+			chance: 30,
+			status: 'tox',
 		},
 		target: "normal",
 		type: "Poison",
@@ -13876,7 +13864,7 @@ let BattleMovedex = {
 	"pollenpuff": {
 		num: 676,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 100,
 		category: "Special",
 		desc: "If the target is an ally, this move restores 1/2 of its maximum HP, rounded down, instead of dealing damage.",
 		shortDesc: "If the target is an ally, heals 50% of its max HP.",
@@ -13971,16 +13959,21 @@ let BattleMovedex = {
 	"powergem": {
 		num: 408,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 90,
 		category: "Special",
 		shortDesc: "No additional effect.",
 		id: "powergem",
 		isViable: true,
 		name: "Power Gem",
-		pp: 20,
+		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		secondary: null,
+		secondary: {
+			chance: 10,
+			boosts: {
+				spd: -1,
+			},
+		},
 		target: "normal",
 		type: "Rock",
 		zMovePower: 160,
@@ -14151,7 +14144,18 @@ let BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		secondary: null,
+		onModifyMove(move, attacker, target) {
+			if (attacker.hasType('Poison')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'psn',
+				});
+				}
+			},
+		secondary: {
+			chance: 0,
+			status: 'psn',
+		},
 		target: "normal",
 		type: "Grass",
 		zMovePower: 190,
@@ -14159,7 +14163,7 @@ let BattleMovedex = {
 	},
 	"precipiceblades": {
 		num: 619,
-		accuracy: 85,
+		accuracy: 90,
 		basePower: 120,
 		category: "Physical",
 		desc: "No additional effect.",
@@ -14188,15 +14192,13 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onModifyMove(move, pokemon, target) {
-			let rand = this.random(10);
-			if (rand < 2) {
-				move.heal = [1, 4];
-			} else if (rand < 6) {
-				move.basePower = 40;
-			} else if (rand < 9) {
-				move.basePower = 80;
-			} else {
+			let rand = this.random(100);
+			if (rand < 80) {
+				move.basePower = 90;
+			} else if (rand < 95) {
 				move.basePower = 120;
+			} else {
+				move.basePower = 150;
 			}
 		},
 		secondary: null,
