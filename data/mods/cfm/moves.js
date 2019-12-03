@@ -12374,18 +12374,18 @@ let BattleMovedex = {
 	"moonblast": {
 		num: 585,
 		accuracy: 100,
-		basePower: 95,
+		basePower: 90,
 		category: "Special",
 		desc: "Has a 30% chance to lower the target's Special Attack by 1 stage.",
 		shortDesc: "30% chance to lower the target's Sp. Atk by 1.",
 		id: "moonblast",
 		isViable: true,
 		name: "Moonblast",
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
-			chance: 30,
+			chance: 20,
 			boosts: {
 				spa: -1,
 			},
@@ -12473,8 +12473,8 @@ let BattleMovedex = {
 	},
 	"mudbomb": {
 		num: 426,
-		accuracy: 85,
-		basePower: 65,
+		accuracy: 100,
+		basePower: 75,
 		category: "Special",
 		desc: "Has a 30% chance to lower the target's accuracy by 1 stage.",
 		shortDesc: "30% chance to lower the target's accuracy by 1.",
@@ -12483,15 +12483,21 @@ let BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (this.field.isWeather(['raindance', 'primordialsea'])) {
+				this.debug('Strengthened by rain.');
+				return this.chainModify(1.5);
+			}
+		},
 		secondary: {
-			chance: 30,
+			chance: 10,
 			boosts: {
 				accuracy: -1,
 			},
 		},
 		target: "normal",
 		type: "Ground",
-		zMovePower: 120,
+		zMovePower: 140,
 		contestType: "Cute",
 	},
 	"mudshot": {
@@ -12578,8 +12584,8 @@ let BattleMovedex = {
 	},
 	"muddywater": {
 		num: 330,
-		accuracy: 85,
-		basePower: 90,
+		accuracy: 100,
+		basePower: 80,
 		category: "Special",
 		desc: "Has a 30% chance to lower the target's accuracy by 1 stage.",
 		shortDesc: "30% chance to lower the foe(s) accuracy by 1.",
@@ -12589,10 +12595,8 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, nonsky: 1},
 		secondary: {
-			chance: 30,
-			boosts: {
-				accuracy: -1,
-			},
+			chance: 10,
+			status: 'psn',
 		},
 		target: "allAdjacentFoes",
 		type: "Water",
@@ -12625,7 +12629,7 @@ let BattleMovedex = {
 	"mysticalfire": {
 		num: 595,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 100,
 		category: "Special",
 		desc: "Has a 100% chance to lower the target's Special Attack by 1 stage.",
 		shortDesc: "100% chance to lower the target's Sp. Atk by 1.",
@@ -12635,7 +12639,7 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
-			chance: 100,
+			chance: 50,
 			boosts: {
 				spa: -1,
 			},
