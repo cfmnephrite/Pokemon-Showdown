@@ -4693,8 +4693,7 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "For 5 turns, the terrain becomes Electric Terrain. During the effect, the power of Electric-type attacks made by grounded Pokemon is multiplied by 1.5 and grounded Pokemon cannot fall asleep; Pokemon already asleep do not wake up. Camouflage transforms the user into an Electric type, Nature Power becomes Thunderbolt, and Secret Power has a 30% chance to cause paralysis. Fails if the current terrain is Electric Terrain.",
-		shortDesc: "5 turns. Grounded: +Electric power, can't sleep.",
+		shortDesc: "5 turns. Electric boosted by 25%; Ground-types not immune; can't use Rest.",
 		id: "electricterrain",
 		name: "Electric Terrain",
 		pp: 10,
@@ -4709,27 +4708,25 @@ let BattleMovedex = {
 				}
 				return 5;
 			},
-			onSetStatus(status, target, source, effect) {
-				if (status.id === 'slp' && target.isGrounded() && !target.isSemiInvulnerable()) {
-					if (effect.effectType === 'Move' && !effect.secondaries) {
-						this.add('-activate', target, 'move: Electric Terrain');
-					}
-					return false;
-				}
-			},
-			onTryAddVolatile(status, target) {
-				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
-				if (status.id === 'yawn') {
-					this.add('-activate', target, 'move: Electric Terrain');
-					return null;
-				}
+			onTryHit(pokemon, target, move) {
+				// @ts-ignore
+				if (pokemon.speciesid === 'komala' || move.id !== 'rest' || move.ignoreWeather) return;
+				this.add('-activate', target, 'move: Electric Terrain');
+				return null;
 			},
 			onBasePower(basePower, attacker, defender, move) {
-				if (move.type === 'Electric' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+				if (move.type === 'Electric') {
 					this.debug('electric terrain boost');
-					return this.chainModify(1.5);
+					return this.chainModify(1.25);
 				}
 			},
+			onNegateImmunity(pokemon, type) {
+				if (pokemon.hasType('Ground') && type === 'Electric')
+					return false;
+			},
+			onEffectiveness(typeMod, target, type, move) {
+				if (move && move.type === 'Electric' && type === 'Ground') return -1;
+			},	
 			onStart(battle, source, effect) {
 				if (effect && effect.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Electric Terrain', '[from] ability: ' + effect, '[of] ' + source);
@@ -5735,9 +5732,9 @@ let BattleMovedex = {
 		accuracy: 90,
 		basePower: 140,
 		category: "Physical",
-		desc: "Lowers the user's special attack by 2 stages. has a 10% chance to trap the target."
-		shortDesc: "OHKOs the target. Fails if user is a lower level.",
+		shortDesc: "Lowers the user's Attack by 2. 10% chance to trap.",
 		id: "fissure",
+		isViable: true,
 		name: "Fissure",
 		pp: 5,
 		priority: 0,
@@ -5755,7 +5752,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Ground",
-		zMovePower: 180,
+		zMovePower: 200,
 		gmaxPower: 130,
 		contestType: "Tough",
 	},
@@ -7585,8 +7582,7 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "For 5 turns, the terrain becomes Grassy Terrain. During the effect, the power of Grass-type attacks used by grounded Pokemon is multiplied by 1.5, the power of Bulldoze, Earthquake, and Magnitude used against grounded Pokemon is multiplied by 0.5, and grounded Pokemon have 1/16 of their maximum HP, rounded down, restored at the end of each turn, including the last turn. Camouflage transforms the user into a Grass type, Nature Power becomes Energy Ball, and Secret Power has a 30% chance to cause sleep. Fails if the current terrain is Grassy Terrain.",
-		shortDesc: "5 turns. Grounded: +Grass power, +1/16 max HP.",
+		shortDesc: "5 turns. Grass boosted by 25%; grounded Pokémon recover HP; Grass-types cannot be poisoned.",
 		id: "grassyterrain",
 		name: "Grassy Terrain",
 		pp: 10,
@@ -7602,15 +7598,17 @@ let BattleMovedex = {
 				return 5;
 			},
 			onBasePower(basePower, attacker, defender, move) {
-				let weakenedMoves = ['earthquake', 'bulldoze', 'magnitude'];
-				if (weakenedMoves.includes(move.id)) {
-					this.debug('move weakened by grassy terrain');
-					return this.chainModify(0.5);
-				}
-				if (move.type === 'Grass' && attacker.isGrounded()) {
+				if (move.type === 'Grass') {
 					this.debug('grassy terrain boost');
-					return this.chainModify(1.5);
+					return this.chainModify(1.25);
 				}
+			},
+			onSetStatus(status, target, source, effect) {
+				if (status.id !== 'psn' && status.id !== 'tox' && !target.hasType('Grass')) return;
+				if ((!target.isGrounded() && !target.hasAbility('grassysurge')) || target.isSemiInvulnerable()) return;
+				if (!effect || !effect.status) return false;
+				this.add('-message', target.name + " was protected by Grassy Terrain!");
+				return false;
 			},
 			onStart(battle, source, effect) {
 				if (effect && effect.effectType === 'Ability') {
@@ -7625,9 +7623,10 @@ let BattleMovedex = {
 				this.eachEvent('Terrain');
 			},
 			onTerrain(pokemon) {
-				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable()) {
+				if ((pokemon.isGrounded() || pokemon.hasAbility('grassysurge')) && !pokemon.isSemiInvulnerable()) {
+					let healfrac = pokemon.hasType('Grass') ? 8 : 16;
 					this.debug('Pokemon is grounded, healing through Grassy Terrain.');
-					this.heal(pokemon.maxhp / 16, pokemon, pokemon);
+					this.heal(pokemon.maxhp / healfrac, pokemon, pokemon);
 				}
 			},
 			onEnd() {
@@ -7924,9 +7923,9 @@ let BattleMovedex = {
 		accuracy: 90,
 		basePower: 140,
 		category: "Physical",
-		desc: "Lowers the user's attack by 2 stages. Has a 10% chance to harshly lower the foe's defense."
-		shortDesc: "Lowers attack by 2 stages, 10% chance to harshly lower defense.",
+		shortDesc: "Lowers user's Atk x2. 10% chance to lower Def x2.",
 		id: "guillotine",
+		isViable: true,
 		name: "Guillotine",
 		pp: 5,
 		priority: 0,
@@ -7943,8 +7942,8 @@ let BattleMovedex = {
 			},
 		},
 		target: "normal",
-		type: "Normal",
-		zMovePower: 180,
+		type: "Dark",
+		zMovePower: 200,
 		gmaxPower: 130,
 		contestType: "Cool",
 	},
@@ -9011,9 +9010,9 @@ let BattleMovedex = {
 		accuracy: 90,
 		basePower: 140,
 		category: "Physical",
-		desc: "Lowers the user's attack by 2 stages. Has a higher chance for a critical hit."
-		shortDesc: "Lowers attack by 2 stages, High critical hit rate.",
+		shortDesc: "Lowers the user's Attack by 2. High crit chance.",
 		id: "horndrill",
+		isViable: true,
 		name: "Horn Drill",
 		pp: 5,
 		priority: 0,
@@ -9022,7 +9021,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Normal",
-		zMovePower: 180,
+		zMovePower: 200,
 		gmaxPower: 130,
 		contestType: "Cool",
 	},
@@ -11995,11 +11994,7 @@ let BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		flags: {},
-<<<<<<< HEAD
-		noMetronome: ['afteryou', 'banefulbunker', 'beakblast', 'belch', 'bestow', 'celebrate', 'copycat', 'counter', 'covet', 'craftyshield', 'detect', 'endure', 'feint', 'focuspunch', 'followme', 'helpinghand', 'holdhands', 'hyperspacefury', 'hyperspacehole', 'instruct', 'judgement', 'kingsshield', 'matblock', 'mefirst', 'mimic', 'mindblown', 'mirrorcoat', 'mirrormove', 'plasmafists', 'protect', 'psycho boost', 'quash', 'quickguard', 'ragepowder', 'roar of time', 'shelltrap', 'sketch', 'sleeptalk', 'snatch', 'snore', 'spatial rend', 'spikyshield', 'spotlight', 'struggle', 'wideguard'],
-=======
 		noMetronome: ['afteryou', 'assist', 'banefulbunker', 'beakblast', 'belch', 'bestow', 'celebrate', 'chatter', 'copycat', 'counter', 'covet', 'craftyshield', 'destinybond', 'detect', 'diamondstorm', 'dragonascent', 'endure', 'feint', 'fleurcannon', 'flowershield', 'focuspunch', 'followme', 'freezeshock', 'helpinghand', 'holdhands', 'hyperspacefury', 'hyperspacehole', 'iceburn', 'instruct', 'kingsshield', 'lightofruin', 'matblock', 'mefirst', 'metronome', 'mimic', 'mindblown', 'mirrorcoat', 'mirrormove', 'naturepower', 'originpulse', 'photongeyser', 'plasmafists', 'precipiceblades', 'protect', 'quash', 'quickguard', 'ragepowder', 'relicsong', 'secretsword', 'shelltrap', 'sketch', 'sleeptalk', 'snarl', 'snatch', 'snore', 'spectralthief', 'spikyshield', 'spotlight', 'steameruption', 'struggle', 'switcheroo', 'technoblast', 'thief', 'thousandarrows', 'thousandwaves', 'transform', 'trick', 'vcreate', 'wideguard'],
->>>>>>> ef3263971f776fc171c5653016380f55824cafd1
 		onHit(target, source, effect) {
 			let moves = [];
 			for (let i in exports.BattleMovedex) {
@@ -12378,8 +12373,7 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "For 5 turns, the terrain becomes Misty Terrain. During the effect, the power of Dragon-type attacks used against grounded Pokemon is multiplied by 0.5 and grounded Pokemon cannot be inflicted with a major status condition nor confusion. Camouflage transforms the user into a Fairy type, Nature Power becomes Moonblast, and Secret Power has a 30% chance to lower Special Attack by 1 stage. Fails if the current terrain is Misty Terrain.",
-		shortDesc: "5 turns. Can't status,-Dragon power vs grounded.",
+		shortDesc: "5 turns. +Fairy power; grounded Pokémon cannot be statused.",
 		id: "mistyterrain",
 		name: "Misty Terrain",
 		pp: 10,
@@ -12395,23 +12389,23 @@ let BattleMovedex = {
 				return 5;
 			},
 			onSetStatus(status, target, source, effect) {
-				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
+				if (!(target.isGrounded() || target.hasAbility('mistysurge')) || target.isSemiInvulnerable()) return;
 				if (effect && effect.status) {
 					this.add('-activate', target, 'move: Misty Terrain');
 				}
 				return false;
 			},
 			onTryAddVolatile(status, target, source, effect) {
-				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
+				if ((!target.isGrounded() || target.isSemiInvulnerable()) && !target.hasAbility('mistysurge')) return;
 				if (status.id === 'confusion') {
 					if (effect.effectType === 'Move' && !effect.secondaries) this.add('-activate', target, 'move: Misty Terrain');
 					return null;
 				}
 			},
 			onBasePower(basePower, attacker, defender, move) {
-				if (move.type === 'Dragon' && defender.isGrounded() && !defender.isSemiInvulnerable()) {
-					this.debug('misty terrain weaken');
-					return this.chainModify(0.5);
+				if (move.type === 'Fairy') {
+					this.debug('misty terrain boost');
+					return this.chainModify(1.25);
 				}
 			},
 			onStart(battle, source, effect) {
@@ -12884,7 +12878,9 @@ let BattleMovedex = {
 		zMovePower: 180,
 		contestType: "Cool",
 	},
-	accuracy: 100,
+	"nightmare": {
+		num: 171,
+		accuracy: 100,
 		basePower: 95,
 		category: "Special",
 		shortDesc: "Any target put to sleep by the user will suffer a nightmare, losing 1/8 max HP per turn.",
@@ -12894,6 +12890,7 @@ let BattleMovedex = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		// @ts-ignore
 		onBasePowerPriority: 4,
 		onBasePower(basePower, pokemon) {
 			if (pokemon.hasAbility('Bad Dreams')) {
@@ -14416,8 +14413,7 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "For 5 turns, the terrain becomes Psychic Terrain. During the effect, the power of Psychic-type attacks made by grounded Pokemon is multiplied by 1.5 and grounded Pokemon cannot be hit by moves with priority greater than 0, unless the target is an ally. Camouflage transforms the user into a Psychic type, Nature Power becomes Psychic, and Secret Power has a 30% chance to lower the target's Speed by 1 stage. Fails if the current terrain is Psychic Terrain.",
-		shortDesc: "5 turns. Grounded: +Psychic power, priority-safe.",
+		shortDesc: "5 turns. Grounded: Psychic power boosted by 25%, priority-safe.",
 		id: "psychicterrain",
 		name: "Psychic Terrain",
 		pp: 10,
@@ -14434,7 +14430,7 @@ let BattleMovedex = {
 			},
 			onTryHitPriority: 4,
 			onTryHit(target, source, effect) {
-				if (!target.isGrounded() || target.isSemiInvulnerable() || target.side === source.side) return;
+				if (!(target.isGrounded() || target.hasAbility('psychicsurge')) || target.isSemiInvulnerable() || target.side === source.side) return;
 				if (effect && (effect.priority <= 0.1 || effect.target === 'self')) {
 					return;
 				}
@@ -14442,9 +14438,9 @@ let BattleMovedex = {
 				return null;
 			},
 			onBasePower(basePower, attacker, defender, move) {
-				if (move.type === 'Psychic' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+				if (move.type === 'Psychic') {
 					this.debug('psychic terrain boost');
-					return this.chainModify(1.5);
+					return this.chainModify(1.25);
 				}
 			},
 			onStart(battle, source, effect) {
@@ -16534,20 +16530,16 @@ let BattleMovedex = {
 	},
 	"sheercold": {
 		num: 329,
-		accuracy: 30,
-		basePower: 0,
+		accuracy: 90,
+		basePower: 140,
 		category: "Special",
-		desc: "Deals damage to the target equal to the target's maximum HP. Ignores accuracy and evasiveness modifiers. This attack's accuracy is equal to (user's level - target's level + X)%, where X is 30 if the user is an Ice type and 20 otherwise, and fails if the target is at a higher level. Ice-type Pokemon and Pokemon with the Sturdy Ability are immune.",
-		shortDesc: "OHKOs non-Ice targets. Fails if user's lower level.",
+		shortDesc: "Lowers the user's Sp. Atk by 2. 10% chance to freeze the target.",
 		id: "sheercold",
+		isViable: true,
 		name: "Sheer Cold",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-<<<<<<< HEAD
-		secondary: null,
-		ohko: 'Ice',
-=======
 		self: {
 			boosts: {
 				spa: -2,
@@ -16557,10 +16549,9 @@ let BattleMovedex = {
 			chance: 10,
 			status: 'frz',
 		},
->>>>>>> ef3263971f776fc171c5653016380f55824cafd1
 		target: "normal",
 		type: "Ice",
-		zMovePower: 180,
+		zMovePower: 200,
 		gmaxPower: 130,
 		contestType: "Beautiful",
 	},
@@ -17159,7 +17150,7 @@ let BattleMovedex = {
 		name: "Slam",
 		pp: 20,
 		priority: 0,
-		flags: {antiair: 1, contact: 1, protect: 1, mirror: 1, nonsky: 1 omnitype: 1},
+		flags: {antiair: 1, contact: 1, protect: 1, mirror: 1, nonsky: 1, omnitype: 1},
 		recoil: [33, 100],
 		secondary: null,
 		target: "normal",
