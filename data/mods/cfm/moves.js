@@ -219,6 +219,7 @@ let BattleMovedex = {
 			for (let stat in target.boosts) {
 				// @ts-ignore
 				if (stat === 'evasion') continue;
+				// @ts-ignore
 				if (target.boosts[stat] < 6) {
 					stats.push(stat);
 				}
@@ -10321,44 +10322,29 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 30,
 		category: "Physical",
-		desc: "Has a 30% chance to paralyze the target.",
-		shortDesc: "30% chance to paralyze the target.",
+		shortDesc: "30% (Lickitung family: 100%) chance to paralyse/confuse.",
 		id: "lick",
 		name: "Lick",
 		pp: 30,
 		priority: 0,
 		flags: {antiair: 1, contact: 1, protect: 1, mirror: 1, omnitype: 1},
 		onModifyMove(move, pokemon, target) {
-			if (pokemon.template.baseSpecies === 'Lickilicky', 'Lickitung'|| move.hasBounced) {
-				this.debug("Power increased by the tongue");
+			move.secondaries = [];
+			let statChance = ['Lickitung', 'Lickilicky'].includes(pokemon.template.species) ? 100 : 30;
+			if (this.randomChance(1, 2)){
 				move.secondaries.push({
-					chance: 100,
-			onHit(target, source) {
-				for (let pokemon of target.side.active) {
-					let result = this.random(2);
-					if (result === 0) {
-						pokemon.addVolatile('confusion', source);
-					} else {
-						pokemon.trySetStatus('par', source);
-					} 
-				}
+					chance: statChance,
+					status: 'par',
+				});
 			}
-		});
-		}
+			else {
+				move.secondaries.push({
+					chance: statChance,
+					volatileStatus: 'confusion',
+				});
+			}
 		},
-		secondary: {
-			chance: 30,
-			onHit(target, source) {
-				for (let pokemon of target.side.active) {
-					let result = this.random(2);
-					if (result === 0) {
-						pokemon.addVolatile('confusion', source);
-					} else {
-						pokemon.trySetStatus('par', source);
-					} 
-				}
-			},
-		},
+		secondary: {},
 		target: "normal",
 		type: "Normal",
 		zMovePower: 100,
@@ -12082,23 +12068,22 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
-		desc: "User takes 25% recoil, then restores 50% of hp drained.",
-		shortDesc: "User takes 25% recoil, then restores hp equal to 50% of damage dealt.",
+		shortDesc: "User takes 25% recoil, then restores HP equal to 50% of damage dealt.",
 		id: "mindblown",
 		isViable: true,
 		name: "Mind Blown",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		drain: [1, 2],
 		hasCustomRecoil: true,
 		onPrepareHit(target, source, move) {
-			this.damage(source.maxhp / 4, source, source, 'Mind Blown');
+			this.damage(source.maxhp / 4, source, source, this.dex.getEffect('Mind Blown'));
 		},
 		secondary: null,
 		target: "allAdjacent",
 		type: "Fire",
-		zMovePower: 200,
+		zMovePower: 180,
 		contestType: "Cool",
 	},
 	"mindreader": {
@@ -14166,7 +14151,7 @@ let BattleMovedex = {
 		accuracy: 85,
 		basePower: 120,
 		category: "Physical",
-		shortDesc: "No additional effect.",
+		shortDesc: "If Poison-type: 30% chance to poison.",
 		id: "powerwhip",
 		isViable: true,
 		name: "Power Whip",
@@ -14175,16 +14160,14 @@ let BattleMovedex = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onModifyMove(move, attacker, target) {
 			if (attacker.hasType('Poison')) {
+				move.secondaries = [];
 				move.secondaries.push({
 					chance: 30,
 					status: 'psn',
 				});
-				}
-			},
-		secondary: {
-			chance: 0,
-			status: 'psn',
+			}
 		},
+		secondary: null,
 		target: "normal",
 		type: "Grass",
 		zMovePower: 190,
