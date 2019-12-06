@@ -15132,24 +15132,27 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
 		onTryMove(pokemon) {
-			if (pokemon.hp === pokemon.maxhp) {
-				this.add('-fail', pokemon, 'heal');
-				return null;
-			}
-			if (pokemon.status === 'slp' || pokemon.hasAbility('comatose')) {
-				this.add('-fail', pokemon);
-				return null;
-			}
+			if (pokemon.hp < pokemon.maxhp && pokemon.status !== 'slp') return;
+			if (pokemon.hasAbility('comatose')) return;
+			this.add('-fail', pokemon);
+			return null;
 		},
-		onHit(target, source, move) {
-			if (!target.setStatus('slp', source, move)) return false;
-			target.statusData.time = 3;
-			target.statusData.startTime = 3;
-			this.heal(target.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
+		onTryHit(target, source, move) {
+			if (target.hasAbility('Comatose'))　move.heal = [1, 2];
+		},
+		onHit(target) {
+			if (target.hasAbility('Comatose')) return;
+			if (!target.setStatus('slp')) return false;
+			if (!target.hasAbility('earlybird')){
+				target.statusData.time = 3;
+				target.statusData.startTime = 3;
+			}
+			this.heal(target.maxhp); //Aeshetic only as the healing happens after you fall asleep in-game
+			this.add('-status', target, 'slp', '[from] move: Rest');
 		},
 		secondary: null,
 		target: "self",
-		type: "Psychic",
+		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cute",
 	},
@@ -15205,7 +15208,7 @@ let BattleMovedex = {
 		num: 686,
 		accuracy: 100,
 		basePower: 90,
-		category: "Special",
+		category: "Status",
 		desc: "This move's type depends on the user's primary type. If the user's primary type is typeless, this move's type is the user's secondary type if it has one, otherwise the added type from Forest's Curse or Trick-or-Treat. This move is typeless if the user's type is typeless alone.",
 		shortDesc: "Type varies based on the user's primary type.",
 		id: "revelationdance",
@@ -15213,14 +15216,15 @@ let BattleMovedex = {
 		name: "Revelation Dance",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, dance: 1},
+		flags: {snatch: 1, dance: 1},
 		onModifyMove(move, pokemon) {
-			let type = pokemon.types[0];
-			if (type === "Bird") type = "???";
-			move.type = type;
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true));
+			move.self = {boosts: {spe: 1, atk: 1, def: 1}};
+			if (pokemon.getStat('atk', false, true) < pokemon.getStat('spa', false, true));
+			move.self = {boosts: {spe: 1, spa: 1, spd: 1}};
 		},
 		secondary: null,
-		target: "normal",
+		target: "self",
 		type: "Normal",
 		zMovePower: 175,
 		contestType: "Beautiful",
