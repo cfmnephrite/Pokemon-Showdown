@@ -15344,26 +15344,31 @@ let BattleMovedex = {
 	},
 	"revelationdance": {
 		num: 686,
-		accuracy: 100,
-		basePower: 90,
-		category: "Special",
-		desc: "This move's type depends on the user's primary type. If the user's primary type is typeless, this move's type is the user's secondary type if it has one, otherwise the added type from Forest's Curse or Trick-or-Treat. This move is typeless if the user's type is typeless alone.",
-		shortDesc: "Type varies based on the user's primary type.",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Boosts SpA/SpD/Spe or Atk/Def/Spe.",
 		id: "revelationdance",
 		isViable: true,
 		name: "Revelation Dance",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, dance: 1},
-		onModifyMove(move, pokemon) {
-			let type = pokemon.types[0];
-			if (type === "Bird") type = "???";
-			move.type = type;
+		flags: {},
+		onTryHit(target, source) {
+			this.add('-anim', source, 'Quiver Dance', target);
+			this.attrLastMove('[still]');
+		},
+		self: {
+			onHit(source) {
+				let physical = source.storedStats.atk > source.storedStats.spa ? true : false;
+				if (physical) this.boost({atk:1, def:1, spe:1});
+				else this.boost({spa:1, spd:1, spe:1});
+			},
 		},
 		secondary: null,
-		target: "normal",
+		target: "self",
 		type: "Normal",
-		zMovePower: 175,
+		zMoveBoost: {spe: 1},
 		contestType: "Beautiful",
 	},
 	"revenge": {
