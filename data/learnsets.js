@@ -62877,6 +62877,7 @@ let BattleLearnsets = {
 		quash: ["7M"],
 		rapidspin: ["7L11"],
 		return: ["7M"],
+		rest: ["8M"],
 		rockslide: ["7M"],
 		rollout: ["7L1"],
 		round: ["7M"],
