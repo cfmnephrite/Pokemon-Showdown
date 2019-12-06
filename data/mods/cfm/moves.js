@@ -15262,33 +15262,36 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "The user falls asleep for the next two turns and restores all of its HP, curing itself of any major status condition in the process. Fails if the user has full HP, is already asleep, or if another effect is preventing sleep.",
-		shortDesc: "User sleeps 2 turns and restores HP and status.",
+		shortDesc: "Sleeps for 2 turns to recover HP; Comatose: heal 50%.",
 		id: "rest",
 		isViable: true,
 		name: "Rest",
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
-		onTryMove(pokemon) {
+		onTryMove(pokemon, target, move) {
 			if (pokemon.hp === pokemon.maxhp) {
 				this.add('-fail', pokemon, 'heal');
 				return null;
 			}
-			if (pokemon.status === 'slp' || pokemon.hasAbility('comatose')) {
+			if (pokemon.status === 'slp') {
 				this.add('-fail', pokemon);
 				return null;
 			}
+			if (pokemon.hasAbility('comatose'))
+				move.heal = [1, 2];
 		},
 		onHit(target, source, move) {
-			if (!target.setStatus('slp', source, move)) return false;
-			target.statusData.time = 3;
-			target.statusData.startTime = 3;
-			this.heal(target.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
+			if (!target.hasAbility('comatose')) {
+				if (!target.setStatus('slp', source, move)) return false;
+				let timer = target.hasAbility('earlybird') ? 1 : 3;
+ 				target.statusData.time = timer;
+				this.heal(target.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
+			}
 		},
 		secondary: null,
 		target: "self",
-		type: "Psychic",
+		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cute",
 	},
