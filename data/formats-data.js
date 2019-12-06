@@ -6646,7 +6646,7 @@ let BattleFormatsData = {
 		tier: "Illegal",
 	},
 	oricorio: {
-
+		isNonstandard: "Past",
 		tier: "Illegal",
 	},
 	oricoriopompom: {
@@ -6995,6 +6995,7 @@ let BattleFormatsData = {
 		battleOnly: true,
 	},
 	komala: {
+		isNonstandard: "Past",
 		tier: "Illegal",
 	},
 	turtonator: {
