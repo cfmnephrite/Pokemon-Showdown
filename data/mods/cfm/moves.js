@@ -100,7 +100,7 @@ let BattleMovedex = {
 		name: "Acid",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, specialTypeMod: "Steel"},
 		ignoreImmunity: {'Poison': true},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Steel') return 1;
@@ -6122,9 +6122,9 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "Raises the Defense of all active Grass-type Pokemon by 1 stage. Fails if there are no active Grass-type Pokemon.",
-		shortDesc: "Raises Defense by 1 of all active Grass types.",
+		shortDesc: "Protects from non-Poison attacks; contact: Effect Spore",
 		id: "flowershield",
+		isViable: true,
 		name: "Flower Shield",
 		pp: 10,
 		priority: 4,
@@ -6502,7 +6502,7 @@ let BattleMovedex = {
 		name: "Freeze-Dry",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, specialTypeMod: "Water"},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Water') return 1;
 		},
@@ -10730,13 +10730,13 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
-		desc: "Has a 50% chance to lower the target's Special Defense by 1 stage.",
-		shortDesc: "50% chance to lower the target's Sp. Def by 1.",
+		shortDesc: "Super-effective on Dark. 30% chance to lower Sp. Def.",
 		id: "lusterpurge",
+		isViable: true,
 		name: "Luster Purge",
-		pp: 5,
+		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, specialTypeMod: "Dark"},
 		ignoreImmunity: {'Psychic': true},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Dark') return 1;
@@ -10749,7 +10749,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Psychic",
-		zMovePower: 180,
+		zMovePower: 175,
 		contestType: "Clever",
 	},
 	"machpunch": {
@@ -12331,13 +12331,13 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
-		desc: "Has a 50% chance to lower the target's Special Attack by 1 stage.",
-		shortDesc: "50% chance to lower the target's Sp. Atk by 1.",
+		shortDesc: "Super-effective on Fairy. 30% chance to lower Sp. Atk.",
 		id: "mistball",
+		isViable: true,
 		name: "Mist Ball",
-		pp: 5,
+		pp: 10,
 		priority: 0,
-		flags: {bullet: 1, protect: 1, mirror: 1},
+		flags: {bullet: 1, protect: 1, mirror: 1, specialTypeMod: "Dragon"},
 		ignoreImmunity: {'Dragon': true},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Fairy') return 1;
@@ -12350,7 +12350,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Dragon",
-		zMovePower: 180,
+		zMovePower: 175,
 		contestType: "Clever",
 	},
 	"mistyterrain": {
@@ -16253,26 +16253,28 @@ let BattleMovedex = {
 	},
 	"seedflare": {
 		num: 465,
-		accuracy: 85,
-		basePower: 120,
+		accuracy: 100,
+		basePower: 100,
 		category: "Special",
-		desc: "Has a 40% chance to lower the target's Special Defense by 2 stages.",
-		shortDesc: "40% chance to lower the target's Sp. Def by 2.",
+		shortDesc: "30% chance to lower the target's Sp. Def by 1.",
 		id: "seedflare",
 		isViable: true,
 		name: "Seed Flare",
-		pp: 5,
+		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, specialTypeMod: "Poison"},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Poison') return 1;
+		},
 		secondary: {
-			chance: 40,
+			chance: 30,
 			boosts: {
-				spd: -2,
+				spd: -1,
 			},
 		},
 		target: "normal",
 		type: "Grass",
-		zMovePower: 190,
+		zMovePower: 180,
 		contestType: "Beautiful",
 	},
 	"seismictoss": {
@@ -19177,22 +19179,34 @@ let BattleMovedex = {
 	"synchronoise": {
 		num: 485,
 		accuracy: 100,
-		basePower: 120,
+		basePower: 90,
 		category: "Special",
-		desc: "The target is immune if it does not share a type with the user.",
-		shortDesc: "Hits adjacent Pokemon sharing the user's type.",
+		shortDesc: "Super-effective on targets of the user's primary typing.",
 		id: "synchronoise",
+		isViable: true,
 		name: "Synchronoise",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onTryImmunity(target, source) {
-			return target.hasType(source.getTypes());
+		// @ts-ignore
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1, specialTypeMod: 1},
+		onTryHit(target, source) {
+			this.add('-anim', source, 'Hyper Voice', target);
+			if (target.getTypes().includes(source.getTypes()[0])) this.add('-anim', source, 'Psychic', target);
+			this.attrLastMove('[still]');
+		},
+		onModifyMove(move, source, target) {
+			if (source.getTypes()[0] === 'Dark') {
+				move.ignoreImmunity = {'Psychic': true};
+			}
+		},
+		onEffectiveness(typeMod, target, type) {
+			// @ts-ignore
+			if (type === this.activePokemon.getTypes()[0]) return 1;
 		},
 		secondary: null,
 		target: "allAdjacent",
 		type: "Psychic",
-		zMovePower: 190,
+		zMovePower: 175,
 		contestType: "Clever",
 	},
 	"synthesis": {
