@@ -14467,12 +14467,7 @@ let BattleMovedex = {
 		onModifyMove(move, pokemon, target) {
 			move.secondaries = []
 			let boostedStat = 'spa';
-<<<<<<< HEAD
-			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
-				move.category = 'Physical';
-=======
 			if (pokemon.getStat('atk') > pokemon.getStat('spa')) {
->>>>>>> be03b046fb03012dbaf42603a2d0268ac2f5a44a
 				boostedStat = 'atk';
 			}
 			if (pokemon.species === 'Deoxys'){
@@ -15091,11 +15086,11 @@ let BattleMovedex = {
 	},
 	"razorshell": {
 		num: 534,
-		accuracy: 95,
-		basePower: 75,
+		accuracy: 100,
+		basePower: 90,
 		category: "Physical",
-		desc: "Ignores target's defense and evasion modifiers",
-		shortDesc: "Ignores defense and evasion buffs.",
+		desc: "Ignores the target's stat stage changes, including evasiveness.",
+		shortDesc: "Ignores the target's stat stage changes.",
 		id: "razorshell",
 		isViable: true,
 		name: "Razor Shell",
@@ -15106,7 +15101,7 @@ let BattleMovedex = {
 		ignoreDefensive: true,
 		target: "normal",
 		type: "Water",
-		zMovePower: 140,
+		zMovePower: 175,
 		contestType: "Cool",
 	},
 	"razorwind": {
@@ -15116,8 +15111,9 @@ let BattleMovedex = {
 		category: "Special",
 		defensiveCategory: "Physical",
 		desc: "Target's foe's defense instead of special defense. 10% chance to lower foe's defense.",
-		shortDesc: "Targets defense instead of special defense, 10% chance to lower defense.",
+		shortDesc: "Targets Def instead of Sp. Def; 10% chance to lower Def.",
 		id: "razorwind",
+		isViable: true,
 		name: "Razor Wind",
 		pp: 10,
 		priority: 0,
@@ -15323,26 +15319,6 @@ let BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
-<<<<<<< HEAD
-		onTryMove(pokemon) {
-			if (pokemon.hp < pokemon.maxhp && pokemon.status !== 'slp') return;
-			if (pokemon.hasAbility('comatose')) return;
-			this.add('-fail', pokemon);
-			return null;
-		},
-		onTryHit(target, source, move) {
-			if (target.hasAbility('Comatose'))　move.heal = [1, 2];
-		},
-		onHit(target) {
-			if (target.hasAbility('Comatose')) return;
-			if (!target.setStatus('slp')) return false;
-			if (!target.hasAbility('earlybird')){
-				target.statusData.time = 3;
-				target.statusData.startTime = 3;
-			}
-			this.heal(target.maxhp); //Aeshetic only as the healing happens after you fall asleep in-game
-			this.add('-status', target, 'slp', '[from] move: Rest');
-=======
 		onTryMove(pokemon, target, move) {
 			if (pokemon.hp === pokemon.maxhp) {
 				this.add('-fail', pokemon, 'heal');
@@ -15362,7 +15338,6 @@ let BattleMovedex = {
  				target.statusData.time = timer;
 				this.heal(target.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
 			}
->>>>>>> be03b046fb03012dbaf42603a2d0268ac2f5a44a
 		},
 		secondary: null,
 		target: "self",
@@ -15422,11 +15397,7 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-<<<<<<< HEAD
-		shortDesc: "Boosts Atk/Def/Spe or SpA/SpD/Spe.",
-=======
 		shortDesc: "Boosts SpA/SpD/Spe or Atk/Def/Spe.",
->>>>>>> be03b046fb03012dbaf42603a2d0268ac2f5a44a
 		id: "revelationdance",
 		isViable: true,
 		name: "Revelation Dance",
@@ -15467,10 +15438,12 @@ let BattleMovedex = {
 		category: "Physical",
 		desc: "Power doubles if the user was hit by the target this turn.",
 		shortDesc: "Power doubles if user is damaged by the target.",
+		// @ts-ignore
+		cfmDesc: "No longer has negative priority.",
 		id: "revenge",
 		name: "Revenge",
 		pp: 10,
-		priority: -4,
+		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		secondary: null,
 		target: "normal",
@@ -15537,62 +15510,23 @@ let BattleMovedex = {
 	},
 	"roaroftime": {
 		num: 459,
-		accuracy: 100,
-		basePower: 100,
+		accuracy: 90,
+		basePower: 150,
 		category: "Special",
-		shortDesc: "20% chance to lower Attack or Sp. Atk. Dialga: Temporal Storm",
+		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move.",
+		shortDesc: "User cannot move next turn.",
 		id: "roaroftime",
-		isViable: true,
 		name: "Roar of Time",
-		pp: 10,
+		pp: 5,
 		priority: 0,
-<<<<<<< HEAD
-		flags: {protect: 1, mirror: 1, magic: 1, sound: 1, authentic: 1},
-		onModifyMove(move, pokemon) {
-			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';			
-			move.secondaries = [];
-			let statBoost = pokemon.getStat('def') < pokemon.getStat('spa') ? 'atk' : 'spa';
-			move.secondaries.push({
-				chance: 20,
-				boosts: {
-					[statBoost]: -1,
-				},
-			});				
-=======
 		flags: {recharge: 1, protect: 1, mirror: 1, magic: 1},
 		self: {
 			volatileStatus: 'mustrecharge',
->>>>>>> be03b046fb03012dbaf42603a2d0268ac2f5a44a
 		},
-		beforeMoveCallback(pokemon) {
-			if (pokemon.species !== 'Dialga' || this.getMove(pokemon.moveSlots[0].move).id !== 'roaroftime') return;
-			if (this.pseudoWeather['wonderroom']) {
-				this.removePseudoWeather('wonderroom');
-			}
-			if (this.pseudoWeather['trickroom']) {
-				this.removePseudoWeather('trickroom');
-			}
-			if (this.pseudoWeather['spacialrend']) {
-				this.removePseudoWeather('spacialrend');
-			}
-			this.addPseudoWeather('roaroftime');
-		},
-		effect: {
-			duration: 5,
-			onStart(target, source) {
-				this.add('-fieldstart', 'move: Temporal Storm', '[of] ' + source);
-				this.add('-message', "Dialga's Roar of Time created a temporal upheaval!")
-			},
-			// Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
-			onResidualOrder: 23,
-			onEnd() {
-				this.add('-fieldend', 'move: Temporal Storm');
-			},
-		},
-		secondary: {},
+		secondary: null,
 		target: "normal",
-		type: "Steel",
-		zMovePower: 180,
+		type: "Dragon",
+		zMovePower: 200,
 		contestType: "Beautiful",
 	},
 	"rockblast": {
@@ -15621,16 +15555,13 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
-		desc: "Super effective on Rock types. Has a 10% chance to confuse the target.",
-		shortDesc: "Super effective ok Rock. 10% chance to confuse the target.",
+		shortDesc: "10% chance to confuse the target. Super-effective on Rock.",
 		id: "rockclimb",
+		isViable: true,
 		name: "Rock Climb",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		onEffectiveness(typeMod, target, type) {
-			if (type === 'Rock') return 1;
-		},
+		flags: {contact: 1, protect: 1, mirror: 1, specialTypeMod: "Rock"},
 		secondary: {
 			chance: 10,
 			volatileStatus: 'confusion',
@@ -15664,11 +15595,11 @@ let BattleMovedex = {
 	},
 	"rockslide": {
 		num: 157,
-		accuracy: 90,
-		basePower: 75,
+		accuracy: 100,
+		basePower: 80,
 		category: "Physical",
-		desc: "Has a 30% chance to flinch the target.",
-		shortDesc: "30% chance to flinch the foe(s).",
+		desc: "Has a 20% chance to flinch the target.",
+		shortDesc: "20% chance to flinch the foe(s).",
 		id: "rockslide",
 		isViable: true,
 		name: "Rock Slide",
@@ -15676,18 +15607,18 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
-			chance: 30,
+			chance: 20,
 			volatileStatus: 'flinch',
 		},
 		target: "allAdjacentFoes",
 		type: "Rock",
-		zMovePower: 140,
+		zMovePower: 160,
 		contestType: "Tough",
 	},
 	"rocksmash": {
 		num: 249,
 		accuracy: 100,
-		basePower: 40,
+		basePower: 60,
 		category: "Physical",
 		desc: "Has a 50% chance to lower the target's Defense by 1 stage.",
 		shortDesc: "50% chance to lower the target's Defense by 1.",
@@ -15704,7 +15635,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Fighting",
-		zMovePower: 100,
+		zMovePower: 120,
 		contestType: "Tough",
 	},
 	"rockthrow": {
@@ -15752,15 +15683,18 @@ let BattleMovedex = {
 		accuracy: 90,
 		basePower: 150,
 		category: "Physical",
-		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move.",
-		shortDesc: "User cannot move next turn.",
+		desc: "Lowers the user's Attack by 3 stages.",
+		shortDesc: "Lowers the user's Attack by 3.",
 		id: "rockwrecker",
+		isViable: true,
 		name: "Rock Wrecker",
 		pp: 5,
 		priority: 0,
 		flags: {bullet: 1, recharge: 1, protect: 1, mirror: 1},
 		self: {
-			volatileStatus: 'mustrecharge',
+			boosts: {
+				atk: -3,
+			},
 		},
 		secondary: null,
 		target: "normal",
@@ -15803,19 +15737,24 @@ let BattleMovedex = {
 	},
 	"rollingkick": {
 		num: 27,
-		accuracy: 85,
+		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
-		desc: "Has a 30% chance to flinch the target.",
-		shortDesc: "30% chance to flinch the target.",
+		desc: "Has a 100% chance to raise the user's Speed by 1 stage.",
+		shortDesc: "100% chance to raise the user's Speed by 1.",
 		id: "rollingkick",
+		isViable: true,
 		name: "Rolling Kick",
-		pp: 15,
+		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		secondary: {
-			chance: 30,
-			volatileStatus: 'flinch',
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
 		},
 		target: "normal",
 		type: "Fighting",
