@@ -15526,23 +15526,56 @@ let BattleMovedex = {
 	},
 	"roaroftime": {
 		num: 459,
-		accuracy: 90,
-		basePower: 150,
+		accuracy: 100,
+		basePower: 100,
 		category: "Special",
-		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move.",
-		shortDesc: "User cannot move next turn.",
+		shortDesc: "20% chance to lower Attack or Sp. Atk. Dialga: Temporal Storm",
 		id: "roaroftime",
+		isViable: true,
 		name: "Roar of Time",
-		pp: 5,
+		pp: 10,
 		priority: 0,
-		flags: {recharge: 1, protect: 1, mirror: 1},
-		self: {
-			volatileStatus: 'mustrecharge',
+		flags: {protect: 1, mirror: 1, magic: 1, sound: 1, authentic: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';			
+			move.secondaries = [];
+			let statBoost = pokemon.getStat('def') < pokemon.getStat('spa') ? 'atk' : 'spa';
+			move.secondaries.push({
+				chance: 20,
+				boosts: {
+					[statBoost]: -1,
+				},
+			});				
 		},
-		secondary: null,
+		beforeMoveCallback(pokemon) {
+			if (pokemon.species !== 'Dialga' || this.getMove(pokemon.moveSlots[0].move).id !== 'roaroftime') return;
+			if (this.pseudoWeather['wonderroom']) {
+				this.removePseudoWeather('wonderroom');
+			}
+			if (this.pseudoWeather['trickroom']) {
+				this.removePseudoWeather('trickroom');
+			}
+			if (this.pseudoWeather['spacialrend']) {
+				this.removePseudoWeather('spacialrend');
+			}
+			this.addPseudoWeather('roaroftime');
+		},
+		effect: {
+			duration: 5,
+			onStart(target, source) {
+				this.add('-fieldstart', 'move: Temporal Storm', '[of] ' + source);
+				this.add('-message', "Dialga's Roar of Time created a temporal upheaval!")
+			},
+			// Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
+			onResidualOrder: 23,
+			onEnd() {
+				this.add('-fieldend', 'move: Temporal Storm');
+			},
+		},
+		secondary: {},
 		target: "normal",
-		type: "Dragon",
-		zMovePower: 200,
+		type: "Steel",
+		zMovePower: 180,
 		contestType: "Beautiful",
 	},
 	"rockblast": {
@@ -15568,23 +15601,26 @@ let BattleMovedex = {
 	},
 	"rockclimb": {
 		num: 431,
-		accuracy: 85,
-		basePower: 90,
+		accuracy: 100,
+		basePower: 70,
 		category: "Physical",
-		desc: "Has a 20% chance to confuse the target.",
-		shortDesc: "20% chance to confuse the target.",
+		desc: "Super effective on Rock types. Has a 10% chance to confuse the target.",
+		shortDesc: "Super effective ok Rock. 10% chance to confuse the target.",
 		id: "rockclimb",
 		name: "Rock Climb",
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Rock') return 1;
+		},
 		secondary: {
-			chance: 20,
+			chance: 10,
 			volatileStatus: 'confusion',
 		},
 		target: "normal",
 		type: "Normal",
-		zMovePower: 175,
+		zMovePower: 140,
 		contestType: "Tough",
 	},
 	"rockpolish": {
