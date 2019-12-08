@@ -102,9 +102,6 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, specialTypeMod: "Steel"},
 		ignoreImmunity: {'Poison': true},
-		onEffectiveness(typeMod, target, type) {
-			if (type === 'Steel') return 1;
-		},	
 		secondary: {
 			chance: 30,
 			status: 'psn',
@@ -588,6 +585,7 @@ let BattleMovedex = {
 		desc: "Hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times.",
 		shortDesc: "Hits 2-5 times in one turn.",
 		id: "armthrust",
+		isViable: true,
 		name: "Arm Thrust",
 		pp: 20,
 		priority: 0,
@@ -1000,12 +998,14 @@ let BattleMovedex = {
 		category: "Physical",
 		desc: "Power doubles if the user was hit by the target this turn.",
 		shortDesc: "Power doubles if user is damaged by the target.",
+		// @ts-ignore
+		cfmDesc: "No longer has negative priority; no longer a contact move.",
 		id: "avalanche",
 		isViable: true,
 		name: "Avalanche",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1},
 		secondary: null,
 		target: "normal",
 		type: "Ice",
@@ -1061,8 +1061,7 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user become poisoned. Psychic type moves ignore this move. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
-		shortDesc: "Protects from moves. Fails against Psychic type moves. Contact: poison.",
+		shortDesc: "Protects from non-Psychic attacks; contact: Poison.",
 		id: "banefulbunker",
 		isViable: true,
 		name: "Baneful Bunker",
@@ -1125,8 +1124,9 @@ let BattleMovedex = {
 		desc: "Hits five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits.",
 		shortDesc: "Hits 5 times in one turn.",
 		id: "barrage",
+		isViable: true,
 		name: "Barrage",
-		pp: 20,
+		pp: 10,
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
 		multihit: 5,
@@ -1333,31 +1333,19 @@ let BattleMovedex = {
 	"bestow": {
 		num: 516,
 		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		desc: "The target receives the user's held item. Fails if the user has no item or is holding a Mail or Z-Crystal, if the target is already holding an item, if the user is a Kyogre holding a Blue Orb, a Groudon holding a Red Orb, a Giratina holding a Griseous Orb, an Arceus holding a Plate, a Genesect holding a Drive, a Silvally holding a Memory, a Pokemon that can Mega Evolve holding the Mega Stone for its species, or if the target is one of those Pokemon and the user is holding the respective item.",
-		shortDesc: "User passes its held item to the target.",
+		basePower: 60,
+		category: "Physical",
+		shortDesc: "User forces its held item onto the target.",
 		id: "bestow",
 		name: "Bestow",
-		pp: 15,
+		pp: 5,
 		priority: 0,
-		flags: {mirror: 1, authentic: 1, mystery: 1},
-		onHit(target, source, move) {
-			if (target.item) {
-				return false;
-			}
-			let myItem = source.takeItem();
-			if (!myItem) return false;
-			if (!this.singleEvent('TakeItem', myItem, source.itemData, target, source, move, myItem) || !target.setItem(myItem)) {
-				source.item = myItem.id;
-				return false;
-			}
-			this.add('-item', target, myItem.name, '[from] move: Bestow', '[of] ' + source);
-		},
+		flags: {protect: 1, magician: 1},
+		//To-do
 		secondary: null,
 		target: "normal",
 		type: "Normal",
-		zMoveBoost: {spe: 2},
+		zMovePower: 100,
 		contestType: "Cute",
 	},
 	"bide": {
@@ -2682,17 +2670,34 @@ let BattleMovedex = {
 	},
 	"cometpunch": {
 		num: 4,
-		accuracy: 85,
-		basePower: 18,
+		accuracy: 100,
+		basePower: 40,
+		basePowerCallback(pokemon, target, move) {
+			if (!pokemon.volatiles.cometpunch || move.hit === 1) {
+				pokemon.addVolatile('cometpunch');
+			}
+			return this.dex.clampIntRange(move.basePower * pokemon.volatiles.cometpunch.multiplier, 1, 160);
+		},
 		category: "Physical",
-		desc: "Hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times.",
-		shortDesc: "Hits 2-5 times in one turn.",
+		desc: "Power doubles with each successful hit, up to a maximum of 160 power. The power is reset if this move misses or another move is used.",
+		shortDesc: "Power doubles with each hit, up to 160.",
 		id: "cometpunch",
 		name: "Comet Punch",
-		pp: 15,
+		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
-		multihit: [2, 5],
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, omnitype: 1},
+		effect: {
+			duration: 2,
+			onStart() {
+				this.effectData.multiplier = 1;
+			},
+			onRestart() {
+				if (this.effectData.multiplier < 4) {
+					this.effectData.multiplier <<= 1;
+				}
+				this.effectData.duration = 2;
+			},
+		},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -2767,7 +2772,7 @@ let BattleMovedex = {
 		basePower: 80,
 		category: "Special",
 		desc: "Traps the target. Has a 20% chance to lower speed.",
-		shortDesc: "10% chance to lower the target's Speed by 1.",
+		shortDesc: "20% chance to lower the target's Speed by 1.",
 		id: "constrict",
 		isViable: true,
 		name: "Constrict",
@@ -3106,7 +3111,7 @@ let BattleMovedex = {
 		name: "Covet",
 		pp: 25,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, magician: 1},
 		onAfterHit(target, source, move) {
 			if (source.item || source.volatiles['gem']) {
 				return;
@@ -3150,7 +3155,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Water",
-		zMovePower: 180,
+		zMovePower: 175,
 		contestType: "Tough",
 	},
 	"craftyshield": {
@@ -3201,11 +3206,6 @@ let BattleMovedex = {
 					source.addVolatile('taunt', target);
 				}
 				return this.NOT_FAIL;
-			},
-			onHit(target, source, move) {
-				if (move.isZPowered && move.flags['reflectable']) {
-					source.addVolatile('taunt', target);
-				}
 			},
 		},
 		secondary: null,
@@ -3396,7 +3396,7 @@ let BattleMovedex = {
 	"darkestlariat": {
 		num: 663,
 		accuracy: 100,
-		basePower: 85,
+		basePower: 90,
 		category: "Physical",
 		desc: "Ignores the target's stat stage changes, including evasiveness.",
 		shortDesc: "Ignores the target's stat stage changes.",
@@ -3411,7 +3411,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Dark",
-		zMovePower: 160,
+		zMovePower: 175,
 		contestType: "Cool",
 	},
 	"darkpulse": {
@@ -6125,7 +6125,7 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Protects from non-Poison attacks; contact: Effect Spore",
+		shortDesc: "Protects from non-Poison attacks; contact: Effect Spore.",
 		id: "flowershield",
 		isViable: true,
 		name: "Flower Shield",
@@ -16353,8 +16353,8 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 85,
 		category: "Physical",
-		desc: "Has a 20% chance to lower the target's defense."
-		shortDesc: "20% chance to lower foe's defense.",
+		desc: "Has a 20% chance to lower the target's Defence by 1 stage.",
+		shortDesc: "20% chance to lower the target's Defence by 1.",
 		id: "seedbomb",
 		isViable: true,
 		name: "Seed Bomb",
@@ -16694,9 +16694,9 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Special",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user become burned. Water type moves ignore this move. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
-		shortDesc: "Protects from moves. Fails against Water type moves. Contact: burn.",
+		shortDesc: "Protects from non-Water attacks; contact: burn.",
 		id: "shelltrap",
+		isViable: true,
 		name: "Shell Trap",
 		pp: 10,
 		priority: 4,
@@ -18067,8 +18067,7 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user lose 1/8 of their maximum HP, rounded down. If this move is hit with a Fire type move the move fails. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
-		shortDesc: "Protects from moves. Fails against Fire type moves. Contact: loses 1/8 max HP.",
+		shortDesc: "Protects from non-Poison attacks; contact: lose 1/8 max HP.",
 		id: "spikyshield",
 		isViable: true,
 		name: "Spiky Shield",
