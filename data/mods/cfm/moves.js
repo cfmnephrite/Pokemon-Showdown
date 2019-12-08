@@ -19265,8 +19265,7 @@ let BattleMovedex = {
 		name: "Synchronoise",
 		pp: 10,
 		priority: 0,
-		// @ts-ignore
-		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1, specialTypeMod: 1},
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
 		onTryHit(target, source) {
 			this.add('-anim', source, 'Hyper Voice', target);
 			if (target.getTypes().includes(source.getTypes()[0])) this.add('-anim', source, 'Psychic', target);
@@ -19278,7 +19277,6 @@ let BattleMovedex = {
 			}
 		},
 		onEffectiveness(typeMod, target, type) {
-			// @ts-ignore
 			if (type === this.activePokemon.getTypes()[0]) return 1;
 		},
 		secondary: null,
