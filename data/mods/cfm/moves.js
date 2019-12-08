@@ -17684,31 +17684,16 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 120,
 		category: "Special",
-		desc: "This attack charges on the first turn and executes on the second. Power is halved if the weather is Hail, Primordial Sea, Rain Dance, or Sandstorm. If the user is holding a Power Herb or the weather is Desolate Land or Sunny Day, the move completes in one turn.",
-		shortDesc: "Charges turn 1. Hits turn 2. No charge in sunlight.",
+		desc: "This attack is weaker outside of sunlight and desolate land.",
+		shortDesc: "Weaker outside of sunny day.",
 		id: "solarbeam",
 		name: "Solar Beam",
 		pp: 10,
 		priority: 0,
 		flags: {charge: 1, protect: 1, mirror: 1},
-		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
-				return;
-			}
-			this.add('-prepare', attacker, move.name, defender);
-			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
-				this.attrLastMove('[still]');
-				this.addMove('-anim', attacker, move.name, defender);
-				return;
-			}
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
-		},
+		onBasePowerPriority: 4,
 		onBasePower(basePower, pokemon, target) {
-			if (this.field.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail'])) {
+			if (!this.field.isWeather(['sunnyday', 'desolateland'])) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
 			}
@@ -17722,41 +17707,26 @@ let BattleMovedex = {
 	"solarblade": {
 		num: 669,
 		accuracy: 100,
-		basePower: 125,
+		basePower: 85,
 		category: "Physical",
-		desc: "This attack charges on the first turn and executes on the second. Power is halved if the weather is Hail, Primordial Sea, Rain Dance, or Sandstorm. If the user is holding a Power Herb or the weather is Desolate Land or Sunny Day, the move completes in one turn.",
-		shortDesc: "Charges turn 1. Hits turn 2. No charge in sunlight.",
+		desc: "This attack's power is multiplied by 1.5 in harsh sunlight or desolate land.",
+		shortDesc: "stronger in sunlight.",
 		id: "solarblade",
 		name: "Solar Blade",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, charge: 1, protect: 1, mirror: 1},
-		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
-				return;
-			}
-			this.add('-prepare', attacker, move.name, defender);
-			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
-				this.attrLastMove('[still]');
-				this.addMove('-anim', attacker, move.name, defender);
-				return;
-			}
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
-		},
+		onBasePowerPriority: 4,
 		onBasePower(basePower, pokemon, target) {
-			if (this.field.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail'])) {
-				this.debug('weakened by weather');
-				return this.chainModify(0.5);
+			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
+				this.debug('strengthened by weather');
+				return this.chainModify(1.5);
 			}
 		},
 		secondary: null,
 		target: "normal",
 		type: "Grass",
-		zMovePower: 190,
+		zMovePower: 160,
 		contestType: "Cool",
 	},
 	"sonicboom": {
@@ -17840,9 +17810,13 @@ let BattleMovedex = {
 		num: 664,
 		accuracy: 100,
 		basePower: 90,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status === 'brn') return move.basePower * 1.5;
+			return move.basePower;
+		},
 		category: "Special",
-		desc: "If the user has not fainted, the target is cured of its burn.",
-		shortDesc: "The target is cured of its burn.",
+		desc: "Deals 1.5 times damage to burned targets. If the user has not fainted, the target is cured of its burn.",
+		shortDesc: "The target is cured of its burn. Deals 1.5 times more to burned targets.",
 		id: "sparklingaria",
 		name: "Sparkling Aria",
 		pp: 10,
@@ -17938,9 +17912,9 @@ let BattleMovedex = {
 	},
 	"spiderweb": {
 		num: 169,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
 		desc: "Prevents the target from switching out. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Parting Shot, U-turn, or Volt Switch. If the target leaves the field using Baton Pass, the replacement will remain trapped. The effect ends if the user leaves the field.",
 		shortDesc: "Prevents the target from switching out.",
 		id: "spiderweb",
@@ -17954,13 +17928,13 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Bug",
-		zMoveBoost: {def: 1},
+		zMovePower: 160,
 		contestType: "Clever",
 	},
 	"spikecannon": {
 		num: 131,
 		accuracy: 100,
-		basePower: 20,
+		basePower: 25,
 		category: "Physical",
 		desc: "Hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times.",
 		shortDesc: "Hits 2-5 times in one turn.",
@@ -17972,7 +17946,7 @@ let BattleMovedex = {
 		multihit: [2, 5],
 		secondary: null,
 		target: "normal",
-		type: "Normal",
+		type: "Steel",
 		zMovePower: 100,
 		gmaxPower: 120,
 		contestType: "Cool",
@@ -18318,7 +18292,7 @@ let BattleMovedex = {
 			onSwitchIn(pokemon) {
 				if (pokemon.hasItem('heavydutyboots')) return;
 				let typeMod = this.dex.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 12);
 			},
 		},
 		secondary: null,
@@ -18329,8 +18303,8 @@ let BattleMovedex = {
 	},
 	"steameruption": {
 		num: 592,
-		accuracy: 95,
-		basePower: 110,
+		accuracy: 90,
+		basePower: 120,
 		category: "Special",
 		desc: "Has a 30% chance to burn the target. The target thaws out if it is frozen.",
 		shortDesc: "30% chance to burn the target.",
@@ -18340,6 +18314,12 @@ let BattleMovedex = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, defrost: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (this.field.isWeather(['sunnyday'])) {
+				this.debug('unnaffected by weather');
+				return this.chainModify(2);
+			}
+		},
 		thawsTarget: true,
 		secondary: {
 			chance: 30,
@@ -18347,28 +18327,26 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Water",
-		zMovePower: 185,
+		zMovePower: 190,
 		contestType: "Beautiful",
 	},
 	"steamroller": {
 		num: 537,
 		accuracy: 100,
-		basePower: 65,
+		basePower: 120,
 		category: "Physical",
-		desc: "Has a 30% chance to flinch the target. Damage doubles and no accuracy check is done if the target has used Minimize while active.",
-		shortDesc: "30% chance to flinch the target.",
+		desc: "If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 33% recoil.",
 		id: "steamroller",
 		name: "Steamroller",
-		pp: 20,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		secondary: {
-			chance: 30,
-			volatileStatus: 'flinch',
-		},
+		recoil: [33, 100],
+		secondary: null,
 		target: "normal",
-		type: "Bug",
-		zMovePower: 120,
+		type: "Steel",
+		zMovePower: 190,
 		contestType: "Tough",
 	},
 	"steelbeam": {
@@ -18396,18 +18374,18 @@ let BattleMovedex = {
 	},
 	"steelwing": {
 		num: 211,
-		accuracy: 90,
-		basePower: 70,
+		accuracy: 100,
+		basePower: 80,
 		category: "Physical",
-		desc: "Has a 10% chance to raise the user's Defense by 1 stage.",
-		shortDesc: "10% chance to raise the user's Defense by 1.",
+		desc: "Has a 30% chance to raise the user's Defense by 1 stage.",
+		shortDesc: "30% chance to raise the user's Defense by 1.",
 		id: "steelwing",
 		name: "Steel Wing",
-		pp: 25,
+		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		secondary: {
-			chance: 10,
+			chance: 30,
 			self: {
 				boosts: {
 					def: 1,
@@ -18416,7 +18394,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Steel",
-		zMovePower: 140,
+		zMovePower: 160,
 		contestType: "Cool",
 	},
 	"stickyweb": {
@@ -18424,7 +18402,7 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "Sets up a hazard on the opposing side of the field, lowering the Speed by 1 stage of each opposing Pokemon that switches in, unless it is a Flying-type Pokemon or has the Levitate Ability. Fails if the effect is already active on the opposing side. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
+		desc: "Sets up a hazard on the opposing side of the field, lowering the Speed by 1 stage of each opposing Pokemon that switches in, unless it is a Flying-type Pokemon or has the Levitate Ability. Fails if the effect is already active on the opposing side or the user is not a Bug type. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
 		shortDesc: "Lowers Speed of grounded foes by 1 on switch-in.",
 		id: "stickyweb",
 		isViable: true,
@@ -18433,6 +18411,14 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {reflectable: 1},
 		sideCondition: 'stickyweb',
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Bug')|| pokemon.template.baseSpecies === 'Masquerain' || move.hasBounced) {
+				return;
+			}
+			this.add('-fail', pokemon, 'move: Sticky Web');
+			this.hint("Only a Bug type pokemon can use this move");
+			return null;
+		},
 		effect: {
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Sticky Web');
