@@ -16151,14 +16151,20 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		desc: "Has a 30% chance to burn the target. The target thaws out if it is frozen.",
-		shortDesc: "30% chance to burn the target. Thaws target.",
+		desc: "Has a 30% chance to burn the target. The target thaws out if it is frozen. Power is not reduced in Harsh sunlight.",
+		shortDesc: "30% chance to burn the target. Thaws target. Power is not reduced in Sunny Day.",
 		id: "scald",
 		isViable: true,
 		name: "Scald",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, defrost: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (this.field.isWeather(['sunnyday'])) {
+				this.debug('unnaffected by weather');
+				return this.chainModify(2);
+			}
+		},
 		thawsTarget: true,
 		secondary: {
 			chance: 30,
@@ -16209,14 +16215,14 @@ let BattleMovedex = {
 	},
 	"screech": {
 		num: 103,
-		accuracy: 85,
+		accuracy: 100,
 		basePower: 0,
 		category: "Status",
 		desc: "Lowers the target's Defense by 2 stages.",
 		shortDesc: "Lowers the target's Defense by 2.",
 		id: "screech",
 		name: "Screech",
-		pp: 40,
+		pp: 15,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, authentic: 1, mystery: 1},
 		boosts: {
@@ -16345,16 +16351,22 @@ let BattleMovedex = {
 	"seedbomb": {
 		num: 402,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 85,
 		category: "Physical",
-		shortDesc: "No additional effect.",
+		desc: "Has a 20% chance to lower the target's defense."
+		shortDesc: "20% chance to lower foe's defense.",
 		id: "seedbomb",
 		isViable: true,
 		name: "Seed Bomb",
 		pp: 15,
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
-		secondary: null,
+		secondary: {
+			chance: 20,
+			boosts: {
+				def: -1,
+			},
+		},
 		target: "normal",
 		type: "Grass",
 		zMovePower: 160,
@@ -16429,14 +16441,14 @@ let BattleMovedex = {
 	"shadowball": {
 		num: 247,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 90,
 		category: "Special",
 		desc: "Has a 20% chance to lower the target's Special Defense by 1 stage.",
 		shortDesc: "20% chance to lower the target's Sp. Def by 1.",
 		id: "shadowball",
 		isViable: true,
 		name: "Shadow Ball",
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
 		secondary: {
@@ -16453,7 +16465,7 @@ let BattleMovedex = {
 	"shadowbone": {
 		num: 708,
 		accuracy: 100,
-		basePower: 85,
+		basePower: 90,
 		category: "Physical",
 		desc: "Has a 20% chance to lower the target's Defense by 1 stage.",
 		shortDesc: "20% chance to lower the target's Defense by 1.",
@@ -16466,7 +16478,7 @@ let BattleMovedex = {
 		secondary: {
 			chance: 20,
 			boosts: {
-				def: -1,
+				atk: -1,
 			},
 		},
 		target: "normal",
@@ -16477,21 +16489,25 @@ let BattleMovedex = {
 	"shadowclaw": {
 		num: 421,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 85,
 		category: "Physical",
-		desc: "Has a higher chance for a critical hit.",
-		shortDesc: "High critical hit ratio.",
+		desc: "Has a 20% chance to lower the target's defense.",
+		shortDesc: "20% chance to lower foe's defense.",
 		id: "shadowclaw",
 		isViable: true,
 		name: "Shadow Claw",
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		critRatio: 2,
-		secondary: null,
+		secondary: {
+			chance: 20,
+			boosts: {
+				def: -1,
+			},
+		},
 		target: "normal",
 		type: "Ghost",
-		zMovePower: 140,
+		zMovePower: 160,
 		contestType: "Cool",
 	},
 	"shadowforce": {
@@ -16518,20 +16534,23 @@ let BattleMovedex = {
 	},
 	"shadowpunch": {
 		num: 325,
-		accuracy: true,
-		basePower: 60,
+		accuracy: 100,
+		basePower: 90,
 		category: "Physical",
-		shortDesc: "This move does not check accuracy.",
+		desc: "Ignores the target's stat stage changes, including evasiveness.",
+		shortDesc: "Ignores the target's stat stage changes.",
 		id: "shadowpunch",
 		isViable: true,
 		name: "Shadow Punch",
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		ignoreEvasion: true,
+		ignoreDefensive: true,
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
-		zMovePower: 120,
+		zMovePower: 175,
 		contestType: "Clever",
 	},
 	"shadowsneak": {
@@ -16755,19 +16774,19 @@ let BattleMovedex = {
 	},
 	"shockwave": {
 		num: 351,
-		accuracy: true,
-		basePower: 60,
+		accuracy: 100,
+		basePower: 40,
 		category: "Special",
-		shortDesc: "This move does not check accuracy.",
+		shortDesc: "Usually goes first.",
 		id: "shockwave",
 		name: "Shock Wave",
 		pp: 20,
-		priority: 0,
+		priority: 1,
 		flags: {protect: 1, mirror: 1},
 		secondary: null,
 		target: "normal",
 		type: "Electric",
-		zMovePower: 120,
+		zMovePower: 100,
 		contestType: "Cool",
 	},
 	"shoreup": {
@@ -17050,32 +17069,37 @@ let BattleMovedex = {
 	},
 	"skyattack": {
 		num: 143,
-		accuracy: 90,
-		basePower: 140,
+		accuracy: 100,
+		basePower: 150,
 		category: "Physical",
-		desc: "Has a 30% chance to flinch the target and a higher chance for a critical hit. This attack charges on the first turn and executes on the second. If the user is holding a Power Herb, the move completes in one turn.",
-		shortDesc: "Charges, then hits turn 2. 30% flinch. High crit.",
+		desc: "The user loses its focus and does nothing if it is hit by a damaging attack this turn before it can execute the move.",
+		shortDesc: "Fails if the user takes damage before it hits.",
 		id: "skyattack",
 		name: "Sky Attack",
-		pp: 5,
-		priority: 0,
+		pp: 15,
+		priority: -3,
 		flags: {charge: 1, protect: 1, mirror: 1, distance: 1},
-		critRatio: 2,
-		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
-				return;
-			}
-			this.add('-prepare', attacker, move.name, defender);
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
+		beforeTurnCallback(pokemon) {
+			pokemon.addVolatile('skyattack');
 		},
-		secondary: {
-			chance: 30,
-			volatileStatus: 'flinch',
+		beforeMoveCallback(pokemon) {
+			if (pokemon.volatiles['skyattack'] && pokemon.volatiles['skyattack'].lostFocus) {
+				this.add('cant', pokemon, 'Sky Attack', 'Sky Attack');
+				return true;
+			}
 		},
+		effect: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Sky Attack');
+			},
+			onHit(pokemon, source, move) {
+				if (move.category !== 'Status') {
+					pokemon.volatiles['skyattack'].lostFocus = true;
+				}
+			},
+		},
+		secondary: null,
 		target: "any",
 		type: "Flying",
 		zMovePower: 200,
@@ -17307,7 +17331,7 @@ let BattleMovedex = {
 			for (const moveSlot of pokemon.moveSlots) {
 				const move = moveSlot.id;
 				const noSleepTalk = [
-					'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
+					'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'rest', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
 				];
 				if (move && !(noSleepTalk.includes(move) || this.dex.getMove(move).flags['charge'] || (this.dex.getMove(move).isZ && this.dex.getMove(move).basePower !== 1))) {
 					moves.push(move);
