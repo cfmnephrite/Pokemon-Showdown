@@ -3705,6 +3705,9 @@ let BattleMovedex = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, magic: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa') > pokemon.getStat('atk')) move.category = 'Special';
+		},
 		secondary: {
 			chance: 50,
 			self: {
@@ -6989,13 +6992,16 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 95,
 		category: "Special",
-		shortDesc: "15% chance to freeze the foe(s). Physical or Special.",
+		shortDesc: "15% chance to freeze the foe(s).",
 		id: "glaciate",
 		isViable: true,
 		name: "Glaciate",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, magic: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk') > pokemon.getStat('spa')) move.category = 'Physical';
+		},
 		secondary: {
 			chance: 15,
 			status: 'frz',
@@ -9165,6 +9171,9 @@ let BattleMovedex = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, magic: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk') > pokemon.getStat('spa')) move.category = 'Physical';
+		},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -9859,6 +9868,7 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {magic: 1, protect: 1, mirror: 1, antiair: 1},
 		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk') > pokemon.getStat('spa')) move.category = 'Physical';
 			if (pokemon.ignoringItem()) return;
 			const item = pokemon.getItem();
 			if (item.id && item.onPlate && !item.zMove) {
@@ -10455,7 +10465,7 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {magic: 1},
 		onModifyMove(move, pokemon) {
-			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+			if (pokemon.getStat('atk') > pokemon.getStat('spa')) move.category = 'Physical';
 		},
 		ignoreAbility: true,
 		isZ: "ultranecroziumz",
@@ -12659,6 +12669,9 @@ let BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, magic: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk') > pokemon.getStat('spa')) move.category = 'Physical';
+		},
 		onTryHit(target, source) {
 			this.add('-anim', source, 'Tri Attack', target);
 			this.attrLastMove('[still]');
@@ -13602,6 +13615,9 @@ let BattleMovedex = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, magic: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk') > pokemon.getStat('spa')) move.category = 'Physical';
+		},
 		ignoreAbility: true,
 		secondary: null,
 		target: "normal",
@@ -14229,6 +14245,9 @@ let BattleMovedex = {
 		pp: 1,
 		priority: 0,
 		flags: {magic: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk') > pokemon.getStat('spa')) move.category = 'Physical';
+		},
 		ignoreAbility: true,
 		isZ: 'ultranecroziumz',
 		secondary: null,
@@ -14468,6 +14487,7 @@ let BattleMovedex = {
 			move.secondaries = []
 			let boostedStat = 'spa';
 			if (pokemon.getStat('atk') > pokemon.getStat('spa')) {
+				move.category = "Physical";
 				boostedStat = 'atk';
 			}
 			if (pokemon.species === 'Deoxys'){
@@ -15510,23 +15530,32 @@ let BattleMovedex = {
 	},
 	"roaroftime": {
 		num: 459,
-		accuracy: 90,
-		basePower: 150,
-		category: "Special",
-		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move.",
-		shortDesc: "User cannot move next turn.",
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "20% chance to lower Sp. Atk or Atk; Dialga: Temporal Storm",
 		id: "roaroftime",
+		isViable: true,
 		name: "Roar of Time",
-		pp: 5,
+		pp: 10,
 		priority: 0,
-		flags: {recharge: 1, protect: 1, mirror: 1, magic: 1},
-		self: {
-			volatileStatus: 'mustrecharge',
+		flags: {recharge: 1, protect: 1, mirror: 1, sound: 1, authentic: 1, magic: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa') > pokemon.getStat('atk')) move.category = 'Special';			
+			move.secondaries = [];
+			let statBoost = pokemon.getStat('def') < pokemon.getStat('spd') ? 'atk' : 'spa';
+			move.secondaries.push({
+				chance: 20,
+				boosts: {
+					[statBoost]: -1,
+				},
+			});			
 		},
+		// Actual Temporal storm stuff is to-do
 		secondary: null,
 		target: "normal",
-		type: "Dragon",
-		zMovePower: 200,
+		type: "Steel",
+		zMovePower: 180,
 		contestType: "Beautiful",
 	},
 	"rockblast": {
@@ -16204,14 +16233,17 @@ let BattleMovedex = {
 		accuracy: 90,
 		basePower: 120,
 		category: "Special",
-		desc: "Has a 20% chance to burn the target.",
-		shortDesc: "20% chance to burn adjacent Pokemon.",
+		desc: "Has a 10% chance to burn the target.",
+		shortDesc: "10% chance to burn the target.",
 		id: "searingshot",
 		isViable: true,
 		name: "Searing Shot",
 		pp: 5,
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1, magic: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk') > pokemon.getStat('spa')) move.category = 'Physical';
+		},
 		secondary: {
 			chance: 20,
 			status: 'brn',
@@ -16464,37 +16496,24 @@ let BattleMovedex = {
 	},
 	"shadowforce": {
 		num: 467,
-		accuracy: 100,
-		basePower: 120,
+		accuracy: true,
+		basePower: 100,
 		category: "Physical",
-		desc: "If this move is successful, it breaks through the target's Baneful Bunker, Detect, King's Shield, Protect, or Spiky Shield for this turn, allowing other Pokemon to attack the target normally. If the target's side is protected by Crafty Shield, Mat Block, Quick Guard, or Wide Guard, that protection is also broken for this turn and other Pokemon may attack the target's side normally. This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks. If the user is holding a Power Herb, the move completes in one turn.",
-		shortDesc: "Disappears turn 1. Hits turn 2. Breaks protection.",
+		shortDesc: "Breaks the target's protection and Substitute.",
 		id: "shadowforce",
 		isViable: true,
 		name: "Shadow Force",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, charge: 1, mirror: 1, magic: 1},
+		flags: {authentic: 1, mirror: 1, magic: 1},
 		breaksProtect: true,
-		onTryMove(attacker, defender, move) {
-			if (attacker.removeVolatile(move.id)) {
-				return;
-			}
-			this.add('-prepare', attacker, move.name, defender);
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
-		},
-		effect: {
-			duration: 2,
-			onInvulnerability: false,
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa') > pokemon.getStat('atk')) move.category = 'Special';
 		},
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
-		zMovePower: 190,
+		zMovePower: 180,
 		contestType: "Cool",
 	},
 	"shadowpunch": {
@@ -17788,21 +17807,34 @@ let BattleMovedex = {
 	},
 	"spacialrend": {
 		num: 460,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 100,
 		category: "Special",
-		desc: "Has a higher chance for a critical hit.",
-		shortDesc: "High critical hit ratio.",
+		shortDesc: "20% chance to lower Sp. Def or Def; Palkia: Spatial Distortion",
 		id: "spacialrend",
 		isViable: true,
 		name: "Spacial Rend",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, magic: 1},
-		critRatio: 2,
-		secondary: null,
+		onModifyMove(move, pokemon) {
+			let statBoost = 'spd';
+			move.secondaries = [];
+			if (pokemon.getStat('atk') > pokemon.getStat('spa')){
+				move.category = 'Physical';
+				statBoost = 'def';
+			}
+			move.secondaries.push({
+				chance: 20,
+				boosts: {
+					[statBoost]: -1,
+				},
+			});
+		},
+		// Actual Spatial Distortion stuff is to-do
+		secondary: {},
 		target: "normal",
-		type: "Dragon",
+		type: "Psychic",
 		zMovePower: 180,
 		contestType: "Beautiful",
 	},
@@ -19277,6 +19309,7 @@ let BattleMovedex = {
 			}
 		},
 		onEffectiveness(typeMod, target, type) {
+			// @ts-ignore
 			if (type === this.activePokemon.getTypes()[0]) return 1;
 		},
 		secondary: null,
@@ -20604,6 +20637,9 @@ let BattleMovedex = {
 		pp: 5,
 		priority: 0,
 		flags: {magic: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk') > pokemon.getStat('spa')) move.category = 'Physical';
+		},
 		self: {
 			boosts: {
 				spe: -1,
