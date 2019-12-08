@@ -16122,14 +16122,20 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		desc: "Has a 30% chance to burn the target. The target thaws out if it is frozen.",
-		shortDesc: "30% chance to burn the target. Thaws target.",
+		desc: "Has a 30% chance to burn the target. The target thaws out if it is frozen. Power is not reduced in Harsh sunlight.",
+		shortDesc: "30% chance to burn the target. Thaws target. Power is not reduced in Sunny Day.",
 		id: "scald",
 		isViable: true,
 		name: "Scald",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, defrost: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (this.field.isWeather(['sunnyday'])) {
+				this.debug('unnaffected by weather');
+				return this.chainModify(2);
+			}
+		},
 		thawsTarget: true,
 		secondary: {
 			chance: 30,
