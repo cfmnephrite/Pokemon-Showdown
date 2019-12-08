@@ -17035,14 +17035,14 @@ let BattleMovedex = {
 	},
 	"skyattack": {
 		num: 143,
-		accuracy: 90,
-		basePower: 140,
+		accuracy: 100,
+		basePower: 150,
 		category: "Physical",
 		desc: "The user loses its focus and does nothing if it is hit by a damaging attack this turn before it can execute the move.",
 		shortDesc: "Fails if the user takes damage before it hits.",
 		id: "skyattack",
 		name: "Sky Attack",
-		pp: 5,
+		pp: 15,
 		priority: -3,
 		flags: {charge: 1, protect: 1, mirror: 1, distance: 1},
 		beforeTurnCallback(pokemon) {
@@ -17297,7 +17297,7 @@ let BattleMovedex = {
 			for (const moveSlot of pokemon.moveSlots) {
 				const move = moveSlot.id;
 				const noSleepTalk = [
-					'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
+					'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'rest', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
 				];
 				if (move && !(noSleepTalk.includes(move) || this.dex.getMove(move).flags['charge'] || (this.dex.getMove(move).isZ && this.dex.getMove(move).basePower !== 1))) {
 					moves.push(move);
