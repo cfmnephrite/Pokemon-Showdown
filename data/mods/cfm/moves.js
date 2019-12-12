@@ -20571,56 +20571,27 @@ let BattleMovedex = {
 	"uproar": {
 		num: 253,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Special",
-		desc: "The user spends three turns locked into this move. This move targets an opponent at random on each turn. On the first of the three turns, all sleeping active Pokemon wake up. During the three turns, no active Pokemon can fall asleep by any means, and Pokemon switched in during the effect do not wake up. If the user is prevented from moving or the attack is not successful against the target during one of the turns, the effect ends.",
-		shortDesc: "Lasts 3 turns. Active Pokemon cannot fall asleep.",
+		desc: "The user spends two or three turns locked into this move and becomes confused immediately after its move on the last turn of the effect if it is not already. This move targets an opposing Pokemon at random on each turn. If the user is prevented from moving, is asleep at the beginning of a turn, or the attack is not successful against the target on the first turn of the effect or the second turn of a three-turn effect, the effect ends without causing confusion. If this move is called by Sleep Talk and the user is asleep, the move is used for one turn and does not confuse the user.",
+		shortDesc: "Lasts 2-3 turns. Confuses the user afterwards.",
 		id: "uproar",
 		name: "Uproar",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
 		self: {
-			volatileStatus: 'uproar',
+			volatileStatus: 'lockedmove',
 		},
-		onTryHit(target) {
-			for (const [i, allyActive] of target.side.active.entries()) {
-				if (allyActive && allyActive.status === 'slp') allyActive.cureStatus();
-				let foeActive = target.side.foe.active[i];
-				if (foeActive && foeActive.status === 'slp') foeActive.cureStatus();
+		onAfterMove(pokemon) {
+			if (pokemon.volatiles['lockedmove'] && pokemon.volatiles['lockedmove'].duration === 1) {
+				pokemon.removeVolatile('lockedmove');
 			}
-		},
-		effect: {
-			duration: 3,
-			onStart(target) {
-				this.add('-start', target, 'Uproar');
-			},
-			onResidual(target) {
-				if (target.lastMove && target.lastMove.id === 'struggle') {
-					// don't lock
-					delete target.volatiles['uproar'];
-				}
-				this.add('-start', target, 'Uproar', '[upkeep]');
-			},
-			onEnd(target) {
-				this.add('-end', target, 'Uproar');
-			},
-			onLockMove: 'uproar',
-			onAnySetStatus(status, pokemon) {
-				if (status.id === 'slp') {
-					if (pokemon === this.effectData.target) {
-						this.add('-fail', pokemon, 'slp', '[from] Uproar', '[msg]');
-					} else {
-						this.add('-fail', pokemon, 'slp', '[from] Uproar');
-					}
-					return null;
-				}
-			},
 		},
 		secondary: null,
 		target: "randomNormal",
 		type: "Normal",
-		zMovePower: 175,
+		zMovePower: 200,
 		contestType: "Cute",
 	},
 	"vacuumwave": {
@@ -20643,23 +20614,19 @@ let BattleMovedex = {
 	},
 	"vcreate": {
 		num: 557,
-		accuracy: 95,
-		basePower: 180,
+		accuracy: 100,
+		basePower: 120,
 		category: "Physical",
-		desc: "Lowers the user's Speed, Defense, and Special Defense by 1 stage.",
-		shortDesc: "Lowers the user's Defense, Sp. Def, Speed by 1.",
+		desc: "Lowers the user's Defense, and Special Defense by 1 stage.",
+		shortDesc: "Lowers the user's Defense, Sp. Def by 1.",
 		id: "vcreate",
 		isViable: true,
 		name: "V-create",
 		pp: 5,
 		priority: 0,
-		flags: {magic: 1},
-		onModifyMove(move, pokemon) {
-			if (pokemon.getStat('atk') > pokemon.getStat('spa')) move.category = 'Physical';
-		},
+		flags: {contact: 1, protect: 1, mirror: 1},
 		self: {
 			boosts: {
-				spe: -1,
 				def: -1,
 				spd: -1,
 			},
@@ -20667,7 +20634,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Fire",
-		zMovePower: 220,
+		zMovePower: 200,
 		contestType: "Cool",
 	},
 	"veeveevolley": {
@@ -20743,18 +20710,20 @@ let BattleMovedex = {
 	"vicegrip": {
 		num: 11,
 		accuracy: 100,
-		basePower: 55,
+		basePower: 120,
 		category: "Physical",
-		shortDesc: "No additional effect.",
+		desc: "If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 33% recoil.",
 		id: "vicegrip",
 		name: "Vice Grip",
-		pp: 30,
+		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [33, 100],
 		secondary: null,
 		target: "normal",
-		type: "Normal",
-		zMovePower: 100,
+		type: "Bug",
+		zMovePower: 200,
 		contestType: "Tough",
 	},
 	"vinewhip": {
@@ -21214,7 +21183,7 @@ let BattleMovedex = {
 		basePower: 90,
 		category: "Physical",
 		desc: "If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.",
-		shortDesc: "Has 1/4 recoil.",
+		shortDesc: "Has 1/4 recoil. 10% chance to paralyze opponent.",
 		id: "wildcharge",
 		isViable: true,
 		name: "Wild Charge",
@@ -21222,7 +21191,10 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		recoil: [1, 4],
-		secondary: null,
+		secondary: {
+			chance: 10,
+			status: 'par',
+		},
 		target: "normal",
 		type: "Electric",
 		zMovePower: 175,
@@ -21251,18 +21223,18 @@ let BattleMovedex = {
 	"wingattack": {
 		num: 17,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 75,
 		category: "Physical",
 		shortDesc: "No additional effect.",
 		id: "wingattack",
 		name: "Wing Attack",
-		pp: 35,
+		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, distance: 1},
 		secondary: null,
 		target: "any",
 		type: "Flying",
-		zMovePower: 120,
+		zMovePower: 140,
 		contestType: "Cool",
 	},
 	"wish": {
@@ -21480,19 +21452,22 @@ let BattleMovedex = {
 	"xscissor": {
 		num: 404,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 90,
 		category: "Physical",
-		shortDesc: "No additional effect.",
+		desc: "Ignores the target's stat stage changes, including evasiveness.",
+		shortDesc: "Ignores the target's stat stage changes.",
 		id: "xscissor",
 		isViable: true,
 		name: "X-Scissor",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		ignoreEvasion: true,
+		ignoreDefensive: true,
 		secondary: null,
 		target: "normal",
 		type: "Bug",
-		zMovePower: 160,
+		zMovePower: 175,
 		contestType: "Cool",
 	},
 	"yawn": {
@@ -21554,8 +21529,8 @@ let BattleMovedex = {
 	},
 	"zenheadbutt": {
 		num: 428,
-		accuracy: 90,
-		basePower: 80,
+		accuracy: 100,
+		basePower: 90,
 		category: "Physical",
 		desc: "Has a 20% chance to flinch the target.",
 		shortDesc: "20% chance to flinch the target.",
@@ -21571,16 +21546,16 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Psychic",
-		zMovePower: 160,
+		zMovePower: 175,
 		contestType: "Clever",
 	},
 	"zingzap": {
 		num: 716,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 90,
 		category: "Physical",
-		desc: "Has a 30% chance to flinch the target.",
-		shortDesc: "30% chance to flinch the target.",
+		desc: "Has a 20% chance to flinch the target.",
+		shortDesc: "20% chance to flinch the target.",
 		id: "zingzap",
 		isViable: true,
 		name: "Zing Zap",
@@ -21588,12 +21563,12 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		secondary: {
-			chance: 30,
+			chance: 20,
 			volatileStatus: 'flinch',
 		},
 		target: "normal",
 		type: "Electric",
-		zMovePower: 160,
+		zMovePower: 175,
 		contestType: "Cool",
 	},
 	"zippyzap": {
