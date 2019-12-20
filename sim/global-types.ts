@@ -920,6 +920,7 @@ interface TemplateData {
 	otherForms?: string[]
 	otherFormes?: string[]
 	prevo?: string
+	levitates?: boolean
 }
 
 interface ModdedTemplateData extends Partial<TemplateData> {
