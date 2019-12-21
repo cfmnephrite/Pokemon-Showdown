@@ -628,6 +628,10 @@ export class Template extends BasicEffect implements Readonly<BasicEffect & Temp
 	readonly exclusiveMoves?: readonly ID[];
 	readonly comboMoves?: readonly ID[];
 	readonly essentialMove?: ID;
+	/*
+		CFM: passive levitation
+	*/
+	readonly levitates?: boolean;
 
 	constructor(data: AnyObject, ...moreData: (AnyObject | null)[]) {
 		super(data, ...moreData);
@@ -678,6 +682,7 @@ export class Template extends BasicEffect implements Readonly<BasicEffect & Temp
 		this.isMega = !!(this.forme && ['Mega', 'Mega-X', 'Mega-Y'].includes(this.forme)) || undefined;
 		this.isGigantamax = data.isGigantamax || undefined;
 		this.battleOnly = !!data.battleOnly || !!this.isMega || !!this.isGigantamax || undefined;
+		this.levitates = !!data.levitates;
 
 		if (!this.gen && this.num >= 1) {
 			if (this.num >= 810 || this.forme === 'Galar' || this.forme === 'Gmax') {
