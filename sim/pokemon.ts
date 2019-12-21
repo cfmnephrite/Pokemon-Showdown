@@ -1642,7 +1642,7 @@ export class Pokemon {
 		const item = (this.ignoringItem() ? '' : this.item);
 		if (item === 'ironball') return true;
 		if (this.battle.dex.currentMod === 'cfm'){
-			if (this.getItem().id === 'floatstone') return false;
+			if (item === 'floatstone') return false;
 			if (!negateImmunity && this.baseTemplate.levitates){
 				if (['frz', 'par', 'slp'].includes(this.getStatus().id) || 'roost' in this.volatiles) return true;
 				else return false;
@@ -1680,7 +1680,7 @@ export class Pokemon {
 			typeMod = this.battle.singleEvent('Effectiveness', move, null, this, type, move, typeMod);
 			totalTypeMod += this.battle.runEvent('Effectiveness', this, type, move, typeMod);
 		}
-		return totalTypeMod;
+		return (this.battle.dex.currentMod === 'cfm' && move.type === 'Ground' && !this.isGrounded() && totalTypeMod > 0 ? 0 : totalTypeMod);
 	}
 
 	runImmunity(type: string, message?: string | boolean) {
@@ -1694,12 +1694,15 @@ export class Pokemon {
 		const negateResult = this.battle.runEvent('NegateImmunity', this, type);
 		let isGrounded;
 		if (type === 'Ground') {
-			isGrounded = this.isGrounded(!negateResult);
-			if (isGrounded === null) {
-				if (message) {
-					this.battle.add('-immune', this, '[from] ability: Levitate');
+			// CFM - anti-air moves are Ground-type moves that can hit levitating mons for at most neutral damage
+			if ((!!this.battle.activeMove ? !this.battle.dex.getMove(this.battle.activeMove.id).flags['antiair'] : 'true')) {
+				isGrounded = this.isGrounded(!negateResult);
+				if (isGrounded === null) {
+					if (message) {
+						this.battle.add('-immune', this, '[from] ability: Levitate');
+					}
+					return false;
 				}
-				return false;
 			}
 		}
 		if (!negateResult) return true;

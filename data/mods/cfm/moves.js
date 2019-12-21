@@ -17135,7 +17135,7 @@ let BattleMovedex = {
 			noCopy: true,
 			onStart(pokemon) {
 				let applies = false;
-				if (pokemon.baseTemplate.levitates) applies = true;
+				if (pokemon.baseTemplate.levitates || pokemon.hasItem('floatstone')) applies = true;
 				if (pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] || this.field.getPseudoWeather('gravity')) applies = false;
 				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
 					applies = true;
