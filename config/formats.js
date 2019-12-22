@@ -697,8 +697,6 @@ let Formats = [
 		ruleset: ['Evasion Moves Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
 	},
 
-	
-
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////
 

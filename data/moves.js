@@ -2371,19 +2371,6 @@ let BattleMovedex = {
 		onHit(pokemon) {
 			this.add('-activate', pokemon, 'move: Charge');
 		},
-		effect: {
-			duration: 2,
-			onRestart(pokemon) {
-				this.effectData.duration = 2;
-			},
-			onBasePowerPriority: 3,
-			onBasePower(basePower, attacker, defender, move) {
-				if (move.type === 'Electric') {
-					this.debug('charge boost');
-					return this.chainModify(2);
-				}
-			},
-		},
 		boosts: {
 			spd: 1,
 		},

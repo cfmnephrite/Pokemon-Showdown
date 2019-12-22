@@ -407,7 +407,7 @@ let BattleScripts = {
 			} else if (!this.singleEvent('TryImmunity', move, {}, target, pokemon, move)) {
 				this.add('-immune', target);
 				hitResults[i] = false;
-			} else if (this.gen >= 7 && move.pranksterBoosted && pokemon.hasAbility('prankster') && targets[i].side !== pokemon.side && !this.dex.getImmunity('prankster', target)) {
+			} else if (this.gen >= 7 && move.pranksterBoosted && move.category === 'Status' && !['mefirst', 'mirrormove'].includes(move.id) && pokemon.hasAbility('prankster') && targets[i].side !== pokemon.side && !this.dex.getImmunity('prankster', target)) {
 				this.debug('natural prankster immunity');
 				if (!target.illusion) this.hint("In gen 7, Dark is immune to Prankster moves.");
 				this.add('-immune', target);
