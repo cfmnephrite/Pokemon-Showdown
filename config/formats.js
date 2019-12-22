@@ -694,6 +694,7 @@ let Formats = [
 	{
 		name: "[Gen 8] CFM Testing",
 		mod: 'cfm',
+		searchShow: false,
 		ruleset: ['Evasion Moves Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
 	},
 
@@ -760,6 +761,57 @@ let Formats = [
 			}
 			return pokemon;
 		},
+	},   
+    {
+		section: "CFM Tiers",
+		column: 2,
+	},
+	{
+		name: "[Gen 8] CFM Ubers",
+
+		mod: 'cfm',
+		//cfacTier: 'Uber',
+		ruleset: ['Obtainable', 'Mega Rayquaza Clause', 'Baton Pass Clause', 'CFM Moves', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Standard'],
+	},
+	{
+		name: "[Gen 8] CFM OU",
+
+		mod: 'cfm',
+		//cfacTier: 'OU',
+		ruleset: ['Obtainable', 'Baton Pass Clause', 'CFM OU', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Standard'],
+		banlist: ['CFUb', 'Power Construct'],
+	},
+	{
+		name: "[Gen 8] CFM UU",
+
+		mod: 'cfm',
+		//cfacTier: 'UU',
+		ruleset: ['[Gen 8] CFM OU', 'CFM UU'],
+		banlist: ['CFOU', 'Mewnium Z', 'Kommonium Z', 'Drought', 'Drizzle', 'Flower Gift'],
+	},
+	{
+		name: "[Gen 8] CFM RU",
+
+		mod: 'cfm',
+		//cfacTier: 'RU',
+		ruleset: ['[Gen 8] CFM UU', 'CFM RU'],
+		banlist: ['CFUU'],
+	},	
+	{
+		name: "[Gen 8] CFM NU",
+
+		mod: 'cfm',
+		//cfacTier: 'NU',
+		ruleset: ['[Gen 8] CFM RU', 'CFM NU'],
+		banlist: ['CFRU', 'Sand Stream', 'Snow Warning'],
+	},	
+	{
+		name: "[Gen 8] CFM PU",
+
+		mod: 'cfm',
+		//cfacTier: 'PU',
+		ruleset: ['[Gen 8] CFM NU', 'CFM PU'],
+		banlist: ['CFNU'],
 	},
 	{
 		section: "Other Metagames",
@@ -989,7 +1041,7 @@ let Formats = [
 
 	{
 		section: "Randomized Metas",
-		column: 2,
+		column: 3,
 	},
 	{
 		name: "[Gen 7] Battle Factory",

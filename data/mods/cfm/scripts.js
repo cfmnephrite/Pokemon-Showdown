@@ -1096,6 +1096,8 @@ let BattleScripts = {
 	},
 
 	canZMove(pokemon) {
+		// No Z Moves in CFM... for now
+		return;
 		if (pokemon.side.zMoveUsed || (pokemon.transformed && (pokemon.template.isMega || pokemon.template.isPrimal || pokemon.template.forme === "Ultra"))) return;
 		let item = pokemon.getItem();
 		if (!item.zMove) return;
@@ -1167,6 +1169,8 @@ let BattleScripts = {
 	},
 
 	canDynamax(pokemon, skipChecks) {
+		// No dynamax in CFM!
+		return;
 		// {gigantamax?: string, maxMoves: {[k: string]: string} | null}[]
 		if (!skipChecks) {
 			if (!pokemon.canDynamax) return;

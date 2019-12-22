@@ -946,6 +946,8 @@ export class ModdedDex {
 					'uber', 'ou', 'uubl', 'uu', 'rubl', 'ru', 'nubl', 'nu', 'publ', 'pu', 'zu', 'nfe', 'lcuber', 'lc', 'cap', 'caplc', 'capnfe', 'ag',
 					// doubles tiers
 					'duber', 'dou', 'dbl', 'duu', 'dnu',
+					// CFM tiers
+					'cfub', 'cfou', 'cfuu', 'cfru', 'cfnu', 'cfpu',
 					// custom tags
 					'mega',
 					// illegal/nonstandard reasons
