@@ -889,6 +889,17 @@ interface ActiveMove extends BasicEffect, MoveData {
 	 * maxPowered. Update/remove this when this is confirmed.
 	 */
 	maxPowered?: boolean
+	// CFM
+	// Power of Alchemy boost
+	poaBoosted?: boolean
+	// RKS boost (Type: Null)
+	rksBoosted?: boolean
+	// Rock head - modified crit rate
+	rockHead?: boolean
+	// Solar Power - boosts moves using higher offensive stat in sunlight
+	solarPowerBoosted?: boolean
+	// Mold Breaker et al make moves also ignore weather
+	ignoreWeather?: boolean
 }
 
 type TemplateAbility = {0: string, 1?: string, H?: string, S?: string}
