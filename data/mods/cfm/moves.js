@@ -922,8 +922,8 @@ let BattleMovedex = {
 			},
 			onAnyModifyDamage(damage, source, target, move) {
 				if (target !== source && target.side === this.effectData.target) {
-					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
-							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
+					if ((target.side.getSideCondition('reflect') && this.getCategory(move, source) === 'Physical') ||
+							(target.side.getSideCondition('lightscreen') && this.getCategory(move, source) === 'Special')) {
 						return;
 					}
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
@@ -2620,6 +2620,11 @@ let BattleMovedex = {
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, omnitype: 1},
+		onModifyMove(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
 		effect: {
 			duration: 2,
 			onStart() {
@@ -2980,7 +2985,7 @@ let BattleMovedex = {
 				return source.side.foe.active[this.effectData.position];
 			},
 			onAfterDamage(damage, target, source, effect) {
-				if (effect && effect.effectType === 'Move' && source.side !== target.side && this.getCategory(effect) === 'Physical') {
+				if (effect && effect.effectType === 'Move' && source.side !== target.side && this.getCategory(effect, source) === 'Physical') {
 					this.effectData.position = source.position;
 					this.effectData.damage = 2 * damage;
 				}
@@ -6523,6 +6528,11 @@ let BattleMovedex = {
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, omnitype: 1, antiair: 1},
+		onModifyMove(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
 		multihit: [2, 5],
 		secondary: null,
 		target: "normal",
@@ -7995,6 +8005,11 @@ let BattleMovedex = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, omnitype: 1, antiair: 1},
+		onModifyMove(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
 		secondary: {
 			chance: 30,
 			volatileStatus: 'flinch',
@@ -9049,6 +9064,11 @@ let BattleMovedex = {
 		pp: 15,
 		priority: 0,
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1, omnitype: 1, antiair: 1},
+		onModifyMove(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
 		secondary: {
 			chance: 20,
 			volatileStatus: 'flinch',
@@ -10195,7 +10215,11 @@ let BattleMovedex = {
 		pp: 30,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, omnitype: 1, antiair: 1},
-		onModifyMove(move, pokemon, target) {
+		onModifyMove(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+			// Secondary effect chance depends on the user
 			move.secondaries = [];
 			let statChance = ['Lickitung', 'Lickilicky'].includes(pokemon.template.species) ? 100 : 30;
 			if (this.randomChance(1, 2)){
@@ -10287,7 +10311,7 @@ let BattleMovedex = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Special') {
+				if (target !== source && target.side === this.effectData.target && this.getCategory(move, source) === 'Special') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Light Screen weaken');
 						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
@@ -11584,6 +11608,11 @@ let BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, omnitype: 1, antiair: 1},
+		onModifyMove(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -11603,6 +11632,11 @@ let BattleMovedex = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, omnitype: 1, antiair: 1},
+		onModifyMove(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
 		secondary: {
 			chance: 10,
 			self: {
@@ -12049,7 +12083,7 @@ let BattleMovedex = {
 				return source.side.foe.active[this.effectData.position];
 			},
 			onAfterDamage(damage, target, source, effect) {
-				if (effect && effect.effectType === 'Move' && source.side !== target.side && this.getCategory(effect) === 'Special') {
+				if (effect && effect.effectType === 'Move' && source.side !== target.side && this.getCategory(effect, source) === 'Special') {
 					this.effectData.position = source.position;
 					this.effectData.damage = 2 * damage;
 				}
@@ -14995,7 +15029,7 @@ let BattleMovedex = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Physical') {
+				if (target !== source && target.side === this.effectData.target && this.getCategory(move, source) === 'Physical') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Reflect weaken');
 						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
@@ -16968,6 +17002,11 @@ let BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1, omnitype: 1, antiair: 1},
+		onModifyMove(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
 		recoil: [33, 100],
 		secondary: null,
 		target: "normal",
@@ -16987,6 +17026,11 @@ let BattleMovedex = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, omnitype: 1, antiair: 1},
+		onModifyMove(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -19142,6 +19186,11 @@ let BattleMovedex = {
 		pp: 20,
 		priority: 0,
 		flags: {antiair: 1, contact: 1, protect: 1, mirror: 1, omnitype: 1},
+		onModifyMove(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
 		recoil: [1, 4],
 		secondary: null,
 		target: "normal",

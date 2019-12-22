@@ -1,5 +1,6 @@
 'use strict';
 
+/**@type {{[k: string]: TemplateData}} */
 let BattlePokedex = {
 	bulbasaur: {
 		num: 1,
@@ -15502,3 +15503,5 @@ let BattlePokedex = {
 		eggGroups: ["Undiscovered"]
 	}
 };
+
+exports.BattlePokedex = BattlePokedex;

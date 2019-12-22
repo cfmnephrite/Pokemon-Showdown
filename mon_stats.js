@@ -26,7 +26,7 @@ for (const i of Object.keys(newDex)){
     let strToReplaceReg = new RegExp(strToReplace, "g");
     outputStr = outputStr.replace(strToReplaceReg, ',\n\t},\n\t' + i + ': {\n\t\t');
 }
-outputStr = outputStr.replace('}}', '\n\t}\n};');
+outputStr = outputStr.replace('}}', '\n\t}\n};\n\nexports.BattlePokedex = BattlePokedex;');
 outputStr = outputStr.replace('{bulbasaur: {', "'use strict';\n\nlet BattlePokedex = {\n\tbulbasaur: {\n\t\t");
 
 fs.writeFile('pokedex.js', outputStr, function(err){

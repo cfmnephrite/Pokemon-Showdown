@@ -266,6 +266,7 @@ let BattleAbilities = {
 				this.add('-ability', target, 'Battle Armour');
 				this.add('-ability', target, 'Weak Armour', '[from] ability: Battle Armor', '[of] ' + target);
 				target.setAbility('weakarmor');
+				// @ts-ignore
 				target.baseAbility = 'weakarmor';
 				this.boost({def:-1, spe:2}, target, source, null, true);
 			}
@@ -2431,9 +2432,12 @@ let BattleAbilities = {
 			'Ground': 'sandstream', 'Ice': 'snowwarning', 'Poison': 'poisonpoint', 'Psychic': 'innerfocus', 'Rock': 'solidrock',
 			'Steel': 'bulletproof', 'Water': 'waterabsorb'};
 			
-			let multiAbility = this.dex.getAbility(multiTypes[type]);
+			// @ts-ignore
+			let multiAbility = multiTypes[type];
 			this.add('-activate', pokemon, 'ability: Multitype');
+			// @ts-ignore
 			pokemon.ability = multiAbility;
+			// @ts-ignore
 			pokemon.baseAbility = multiAbility;
 			this.add('-ability', pokemon, multiAbility.name);
 			this.add('-message', pokemon.name + "'s ability changed to " + this.dex.getAbility(pokemon.baseAbility).name + " to suit its type!");
@@ -3365,11 +3369,13 @@ let BattleAbilities = {
 			case 'Fire':
 				let fireMoves = {'atk': 'blazekick', 'spa': 'firespin'};
 				this.boost({atk:1, def:-2, spa:1});
+				// @ts-ignore
 				move = this.dex.getMove(fireMoves[oStat])
 				break;
 			case 'Flying':
 				let flyingMoves = {'atk': 'drillpeck', 'spa': 'gust'};
 				this.boost({[oStat]:1, def:-2, spe:1});
+				// @ts-ignore
 				move = this.dex.getMove(flyingMoves[oStat])
 				break;
 			case 'Ghost':
@@ -3387,6 +3393,7 @@ let BattleAbilities = {
 			case 'Ice':
 				let iceMoves = {'atk': 'iciclecrash', 'spa': 'freezedry'};
 				this.boost({def:-1, [oStat]:2, spd:-1});
+				// @ts-ignore
 				move = this.dex.getMove(iceMoves[oStat]);
 				break;
 			case 'Poison':

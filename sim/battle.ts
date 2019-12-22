@@ -1895,8 +1895,13 @@ export class Battle {
 		return tr((tr(value * modifier) + 2048 - 1) / 4096);
 	}
 
-	getCategory(move: string | Move) {
-		return this.dex.getMove(move).category || 'Physical';
+	getCategory(move: string | Move, source: Pokemon) {
+		let output = this.dex.getMove(move).category || 'Physical';
+		if (this.dex.getMove(move).flags['magic']) {
+			if (output === 'Physical' && source.getStat('spa') > source.getStat('atk')) output = 'Special';
+			else if (output === 'Special' && source.getStat('atk') > source.getStat('spa')) output = 'Physical';
+		}
+		return output;
 	}
 
 	/**
@@ -1936,7 +1941,7 @@ export class Battle {
 			return move.damage;
 		}
 
-		const category = this.getCategory(move);
+		const category = this.getCategory(move, pokemon);
 		const defensiveCategory = move.defensiveCategory || category;
 
 		let basePower: number | false | null = move.basePower;
