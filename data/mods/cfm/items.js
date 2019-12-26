@@ -9,12 +9,11 @@ let BattleItems = {
 		megaStone: "Abomasnow-Mega",
 		megaEvolves: "Abomasnow",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 674,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by an Abomasnow, this item allows it to Mega Evolve in battle.",
 	},
 	"absolite": {
@@ -24,12 +23,11 @@ let BattleItems = {
 		megaStone: "Absol-Mega",
 		megaEvolves: "Absol",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 677,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by an Absol, this item allows it to Mega Evolve in battle.",
 	},
 	"absorbbulb": {
@@ -88,12 +86,11 @@ let BattleItems = {
 		megaStone: "Aerodactyl-Mega",
 		megaEvolves: "Aerodactyl",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 672,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by an Aerodactyl, this item allows it to Mega Evolve in battle.",
 	},
 	"aggronite": {
@@ -103,12 +100,11 @@ let BattleItems = {
 		megaStone: "Aggron-Mega",
 		megaEvolves: "Aggron",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 667,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by an Aggron, this item allows it to Mega Evolve in battle.",
 	},
 	"aguavberry": {
@@ -180,12 +176,11 @@ let BattleItems = {
 		megaStone: "Alakazam-Mega",
 		megaEvolves: "Alakazam",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 679,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by an Alakazam, this item allows it to Mega Evolve in battle.",
 	},
 	"aloraichiumz": {
@@ -198,7 +193,6 @@ let BattleItems = {
 		zMoveUser: ["Raichu-Alola"],
 		num: 803,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If held by an Alolan Raichu with Thunderbolt, it can use Stoked Sparksurfer.",
 	},
 	"altarianite": {
@@ -208,12 +202,11 @@ let BattleItems = {
 		megaStone: "Altaria-Mega",
 		megaEvolves: "Altaria",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 755,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by an Altaria, this item allows it to Mega Evolve in battle.",
 	},
 	"ampharosite": {
@@ -223,12 +216,11 @@ let BattleItems = {
 		megaStone: "Ampharos-Mega",
 		megaEvolves: "Ampharos",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 658,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by an Ampharos, this item allows it to Mega Evolve in battle.",
 	},
 	"apicotberry": {
@@ -315,12 +307,11 @@ let BattleItems = {
 		megaStone: "Audino-Mega",
 		megaEvolves: "Audino",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 757,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by an Audino, this item allows it to Mega Evolve in battle.",
 	},
 	"babiriberry": {
@@ -353,12 +344,11 @@ let BattleItems = {
 		megaStone: "Banette-Mega",
 		megaEvolves: "Banette",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 668,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Banette, this item allows it to Mega Evolve in battle.",
 	},
 	"beastball": {
@@ -377,18 +367,16 @@ let BattleItems = {
 		megaStone: "Beedrill-Mega",
 		megaEvolves: "Beedrill",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 770,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Beedrill, this item allows it to Mega Evolve in battle.",
 	},
 	"belueberry": {
 		id: "belueberry",
 		name: "Belue Berry",
-		isUnreleased: true,
 		spritenum: 21,
 		isBerry: true,
 		naturalGift: {
@@ -530,12 +518,11 @@ let BattleItems = {
 		megaStone: "Blastoise-Mega",
 		megaEvolves: "Blastoise",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 661,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Blastoise, this item allows it to Mega Evolve in battle.",
 	},
 	"blazikenite": {
@@ -545,12 +532,11 @@ let BattleItems = {
 		megaStone: "Blaziken-Mega",
 		megaEvolves: "Blaziken",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 664,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Blaziken, this item allows it to Mega Evolve in battle.",
 	},
 	"blueorb": {
@@ -629,7 +615,6 @@ let BattleItems = {
 	"buggem": {
 		id: "buggem",
 		name: "Bug Gem",
-		isUnreleased: true,
 		spritenum: 53,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -672,7 +657,6 @@ let BattleItems = {
 		forcedForme: "Arceus-Bug",
 		num: 787,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has a Bug move, this item allows it to use a Bug Z-Move.",
 	},
 	"burndrive": {
@@ -698,12 +682,11 @@ let BattleItems = {
 		megaStone: "Camerupt-Mega",
 		megaEvolves: "Camerupt",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 767,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Camerupt, this item allows it to Mega Evolve in battle.",
 	},
 	"cellbattery": {
@@ -746,12 +729,11 @@ let BattleItems = {
 		megaStone: "Charizard-Mega-X",
 		megaEvolves: "Charizard",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 660,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Charizard, this item allows it to Mega Evolve in battle.",
 	},
 	"charizarditey": {
@@ -761,12 +743,11 @@ let BattleItems = {
 		megaStone: "Charizard-Mega-Y",
 		megaEvolves: "Charizard",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 678,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Charizard, this item allows it to Mega Evolve in battle.",
 	},
 	"chartiberry": {
@@ -1068,7 +1049,6 @@ let BattleItems = {
 	"cornnberry": {
 		id: "cornnberry",
 		name: "Cornn Berry",
-		isUnreleased: true,
 		spritenum: 81,
 		isBerry: true,
 		naturalGift: {
@@ -1140,7 +1120,6 @@ let BattleItems = {
 	"darkgem": {
 		id: "darkgem",
 		name: "Dark Gem",
-		isUnreleased: true,
 		spritenum: 89,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -1183,7 +1162,6 @@ let BattleItems = {
 		forcedForme: "Arceus-Dark",
 		num: 791,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has a Dark move, this item allows it to use a Dark Z-Move.",
 	},
 	"dawnstone": {
@@ -1208,7 +1186,6 @@ let BattleItems = {
 		zMoveUser: ["Decidueye"],
 		num: 798,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If held by a Decidueye with Spirit Shackle, it can use Sinister Arrow Raid.",
 	},
 	"deepseascale": {
@@ -1271,12 +1248,11 @@ let BattleItems = {
 		megaStone: "Diancie-Mega",
 		megaEvolves: "Diancie",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 764,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Diancie, this item allows it to Mega Evolve in battle.",
 	},
 	"diveball": {
@@ -1357,7 +1333,6 @@ let BattleItems = {
 	"dragongem": {
 		id: "dragongem",
 		name: "Dragon Gem",
-		isUnreleased: true,
 		spritenum: 107,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -1411,7 +1386,6 @@ let BattleItems = {
 		forcedForme: "Arceus-Dragon",
 		num: 790,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has a Dragon move, this item allows it to use a Dragon Z-Move.",
 	},
 	"dreadplate": {
@@ -1459,7 +1433,6 @@ let BattleItems = {
 	"durinberry": {
 		id: "durinberry",
 		name: "Durin Berry",
-		isUnreleased: true,
 		spritenum: 114,
 		isBerry: true,
 		naturalGift: {
@@ -1524,7 +1497,6 @@ let BattleItems = {
 		zMoveUser: ["Eevee"],
 		num: 805,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If held by an Eevee with Last Resort, it can use Extreme Evoboost.",
 	},
 	"ejectbutton": {
@@ -1594,7 +1566,6 @@ let BattleItems = {
 	"electricgem": {
 		id: "electricgem",
 		name: "Electric Gem",
-		isUnreleased: true,
 		spritenum: 120,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -1658,7 +1629,6 @@ let BattleItems = {
 		forcedForme: "Arceus-Electric",
 		num: 779,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has an Electric move, this item allows it to use an Electric Z-Move.",
 	},
 	"energypowder": {
@@ -1746,13 +1716,11 @@ let BattleItems = {
 		forcedForme: "Arceus-Fairy",
 		num: 793,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has a Fairy move, this item allows it to use a Fairy Z-Move.",
 	},
 	"fairygem": {
 		id: "fairygem",
 		name: "Fairy Gem",
-		isUnreleased: true,
 		spritenum: 611,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -1796,7 +1764,6 @@ let BattleItems = {
 	"fightinggem": {
 		id: "fightinggem",
 		name: "Fighting Gem",
-		isUnreleased: true,
 		spritenum: 139,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -1839,7 +1806,6 @@ let BattleItems = {
 		forcedForme: "Arceus-Fighting",
 		num: 782,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has a Fighting move, this item allows it to use a Fighting Z-Move.",
 	},
 	"figyberry": {
@@ -1872,7 +1838,6 @@ let BattleItems = {
 	"firegem": {
 		id: "firegem",
 		name: "Fire Gem",
-		isUnreleased: true,
 		spritenum: 141,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -1927,7 +1892,6 @@ let BattleItems = {
 		forcedForme: "Arceus-Fire",
 		num: 777,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has a Fire move, this item allows it to use a Fire Z-Move.",
 	},
 	"fistplate": {
@@ -2019,7 +1983,6 @@ let BattleItems = {
 	"flyinggem": {
 		id: "flyinggem",
 		name: "Flying Gem",
-		isUnreleased: true,
 		spritenum: 149,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -2062,7 +2025,6 @@ let BattleItems = {
 		forcedForme: "Arceus-Flying",
 		num: 785,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has a Flying move, this item allows it to use a Flying Z-Move.",
 	},
 	"focusband": {
@@ -2178,12 +2140,11 @@ let BattleItems = {
 		megaStone: "Gallade-Mega",
 		megaEvolves: "Gallade",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 756,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Gallade, this item allows it to Mega Evolve in battle.",
 	},
 	"ganlonberry": {
@@ -2214,12 +2175,11 @@ let BattleItems = {
 		megaStone: "Garchomp-Mega",
 		megaEvolves: "Garchomp",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 683,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Garchomp, this item allows it to Mega Evolve in battle.",
 	},
 	"gardevoirite": {
@@ -2229,12 +2189,11 @@ let BattleItems = {
 		megaStone: "Gardevoir-Mega",
 		megaEvolves: "Gardevoir",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 657,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Gardevoir, this item allows it to Mega Evolve in battle.",
 	},
 	"gengarite": {
@@ -2244,18 +2203,16 @@ let BattleItems = {
 		megaStone: "Gengar-Mega",
 		megaEvolves: "Gengar",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 656,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Gengar, this item allows it to Mega Evolve in battle.",
 	},
 	"ghostgem": {
 		id: "ghostgem",
 		name: "Ghost Gem",
-		isUnreleased: true,
 		spritenum: 161,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -2298,7 +2255,6 @@ let BattleItems = {
 		forcedForme: "Arceus-Ghost",
 		num: 789,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has a Ghost move, this item allows it to use a Ghost Z-Move.",
 	},
 	"glalitite": {
@@ -2308,12 +2264,11 @@ let BattleItems = {
 		megaStone: "Glalie-Mega",
 		megaEvolves: "Glalie",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 763,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Glalie, this item allows it to Mega Evolve in battle.",
 	},
 	"goldbottlecap": {
@@ -2330,7 +2285,6 @@ let BattleItems = {
 	"grassgem": {
 		id: "grassgem",
 		name: "Grass Gem",
-		isUnreleased: true,
 		spritenum: 172,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -2373,7 +2327,6 @@ let BattleItems = {
 		forcedForme: "Arceus-Grass",
 		num: 780,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has a Grass move, this item allows it to use a Grass Z-Move.",
 	},
 	"grassyseed": {
@@ -2459,7 +2412,6 @@ let BattleItems = {
 	"groundgem": {
 		id: "groundgem",
 		name: "Ground Gem",
-		isUnreleased: true,
 		spritenum: 182,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -2502,7 +2454,6 @@ let BattleItems = {
 		forcedForme: "Arceus-Ground",
 		num: 784,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has a Ground move, this item allows it to use a Ground Z-Move.",
 	},
 	"gyaradosite": {
@@ -2512,12 +2463,11 @@ let BattleItems = {
 		megaStone: "Gyarados-Mega",
 		megaEvolves: "Gyarados",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 676,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Gyarados, this item allows it to Mega Evolve in battle.",
 	},
 	"habanberry": {
@@ -2619,12 +2569,11 @@ let BattleItems = {
 		megaStone: "Heracross-Mega",
 		megaEvolves: "Heracross",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 680,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Heracross, this item allows it to Mega Evolve in battle.",
 	},
 	"hondewberry": {
@@ -2648,12 +2597,11 @@ let BattleItems = {
 		megaStone: "Houndoom-Mega",
 		megaEvolves: "Houndoom",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 666,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Houndoom, this item allows it to Mega Evolve in battle.",
 	},
 	"iapapaberry": {
@@ -2686,7 +2634,6 @@ let BattleItems = {
 	"icegem": {
 		id: "icegem",
 		name: "Ice Gem",
-		isUnreleased: true,
 		spritenum: 218,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -2763,7 +2710,6 @@ let BattleItems = {
 		forcedForme: "Arceus-Ice",
 		num: 781,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has an Ice move, this item allows it to use an Ice Z-Move.",
 	},
 	"icyrock": {
@@ -2787,7 +2733,6 @@ let BattleItems = {
 		zMoveUser: ["Incineroar"],
 		num: 799,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If held by an Incineroar with Darkest Lariat, it can use Malicious Moonsault.",
 	},
 	"insectplate": {
@@ -2974,12 +2919,11 @@ let BattleItems = {
 		megaStone: "Kangaskhan-Mega",
 		megaEvolves: "Kangaskhan",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 675,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Kangaskhan, this item allows it to Mega Evolve in battle.",
 	},
 	"kingsrock": {
@@ -3018,7 +2962,6 @@ let BattleItems = {
 		zMoveUser: ["Kommo-o", "Kommo-o-Totem"],
 		num: 926,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If held by a Kommo-o with Clanging Scales, it can use Clangorous Soulblaze.",
 	},
 	"laggingtail": {
@@ -3063,12 +3006,11 @@ let BattleItems = {
 		megaStone: "Latias-Mega",
 		megaEvolves: "Latias",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 684,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Latias, this item allows it to Mega Evolve in battle.",
 	},
 	"latiosite": {
@@ -3078,12 +3020,11 @@ let BattleItems = {
 		megaStone: "Latios-Mega",
 		megaEvolves: "Latios",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 685,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Latios, this item allows it to Mega Evolve in battle.",
 	},
 	"laxincense": {
@@ -3254,12 +3195,11 @@ let BattleItems = {
 		megaStone: "Lopunny-Mega",
 		megaEvolves: "Lopunny",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 768,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Lopunny, this item allows it to Mega Evolve in battle.",
 	},
 	"loveball": {
@@ -3289,12 +3229,11 @@ let BattleItems = {
 		megaStone: "Lucario-Mega",
 		megaEvolves: "Lucario",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 673,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Lucario, this item allows it to Mega Evolve in battle.",
 	},
 	"luckypunch": {
@@ -3361,7 +3300,6 @@ let BattleItems = {
 		zMoveUser: ["Lunala", "Necrozma-Dawn-Wings"],
 		num: 922,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "Lunala or Dawn Wings Necrozma with Moongeist Beam can use a special Z-Move.",
 	},
 	"lureball": {
@@ -3409,13 +3347,11 @@ let BattleItems = {
 		zMoveUser: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk"],
 		num: 925,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If held by a Lycanroc forme with Stone Edge, it can use Splintered Stormshards.",
 	},
 	"machobrace": {
 		id: "machobrace",
 		name: "Macho Brace",
-		isUnreleased: true,
 		spritenum: 269,
 		ignoreKlutz: true,
 		fling: {
@@ -3486,7 +3422,6 @@ let BattleItems = {
 	"magostberry": {
 		id: "magostberry",
 		name: "Magost Berry",
-		isUnreleased: true,
 		spritenum: 275,
 		isBerry: true,
 		naturalGift: {
@@ -3506,7 +3441,6 @@ let BattleItems = {
 			if (!this.activeMove) return false;
 			if (this.activeMove.id !== 'knockoff' && this.activeMove.id !== 'thief' && this.activeMove.id !== 'covet') return false;
 		},
-		isUnreleased: true,
 		num: 0,
 		gen: 2,
 		desc: "Cannot be given to or taken from a Pokemon, except by Covet/Knock Off/Thief.",
@@ -3518,12 +3452,11 @@ let BattleItems = {
 		megaStone: "Manectric-Mega",
 		megaEvolves: "Manectric",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 682,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Manectric, this item allows it to Mega Evolve in battle.",
 	},
 	"marangaberry": {
@@ -3557,7 +3490,6 @@ let BattleItems = {
 		zMoveUser: ["Marshadow"],
 		num: 802,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If held by Marshadow with Spectral Thief, it can use Soul-Stealing 7-Star Strike.",
 	},
 	"masterball": {
@@ -3576,12 +3508,11 @@ let BattleItems = {
 		megaStone: "Mawile-Mega",
 		megaEvolves: "Mawile",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 681,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Mawile, this item allows it to Mega Evolve in battle.",
 	},
 	"meadowplate": {
@@ -3613,12 +3544,11 @@ let BattleItems = {
 		megaStone: "Medicham-Mega",
 		megaEvolves: "Medicham",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 665,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Medicham, this item allows it to Mega Evolve in battle.",
 	},
 	"mentalherb": {
@@ -3668,12 +3598,11 @@ let BattleItems = {
 		megaStone: "Metagross-Mega",
 		megaEvolves: "Metagross",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 758,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Metagross, this item allows it to Mega Evolve in battle.",
 	},
 	"metalcoat": {
@@ -3759,7 +3688,6 @@ let BattleItems = {
 		zMoveUser: ["Mew"],
 		num: 806,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If held by a Mew with Psychic, it can use Genesis Supernova.",
 	},
 	"mewtwonitex": {
@@ -3769,12 +3697,11 @@ let BattleItems = {
 		megaStone: "Mewtwo-Mega-X",
 		megaEvolves: "Mewtwo",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 662,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Mewtwo, this item allows it to Mega Evolve in battle.",
 	},
 	"mewtwonitey": {
@@ -3784,12 +3711,11 @@ let BattleItems = {
 		megaStone: "Mewtwo-Mega-Y",
 		megaEvolves: "Mewtwo",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 663,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Mewtwo, this item allows it to Mega Evolve in battle.",
 	},
 	"micleberry": {
@@ -3832,7 +3758,6 @@ let BattleItems = {
 		zMoveFrom: "Play Rough",
 		zMoveUser: ["Mimikyu", "Mimikyu-Busted", "Mimikyu-Totem", "Mimikyu-Busted-Totem"],
 		num: 924,
-		isNonstandard: "Past",
 		gen: 7,
 		desc: "If held by a Mimikyu with Play Rough, it can use Let's Snuggle Forever.",
 	},
@@ -3954,7 +3879,6 @@ let BattleItems = {
 	"nanabberry": {
 		id: "nanabberry",
 		name: "Nanab Berry",
-		isUnreleased: true,
 		spritenum: 302,
 		isBerry: true,
 		naturalGift: {
@@ -4004,7 +3928,6 @@ let BattleItems = {
 	"nomelberry": {
 		id: "nomelberry",
 		name: "Nomel Berry",
-		isUnreleased: true,
 		spritenum: 306,
 		isBerry: true,
 		naturalGift: {
@@ -4043,7 +3966,6 @@ let BattleItems = {
 		zMoveType: "Normal",
 		num: 776,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has a Normal move, this item allows it to use a Normal Z-Move.",
 	},
 	"occaberry": {
@@ -4135,7 +4057,6 @@ let BattleItems = {
 	"pamtreberry": {
 		id: "pamtreberry",
 		name: "Pamtre Berry",
-		isUnreleased: true,
 		spritenum: 323,
 		isBerry: true,
 		naturalGift: {
@@ -4274,12 +4195,11 @@ let BattleItems = {
 		megaStone: "Pidgeot-Mega",
 		megaEvolves: "Pidgeot",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 762,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Pidgeot, this item allows it to Mega Evolve in battle.",
 	},
 	"pikaniumz": {
@@ -4292,7 +4212,6 @@ let BattleItems = {
 		zMoveUser: ["Pikachu"],
 		num: 794,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If held by a Pikachu with Volt Tackle, it can use Catastropika.",
 	},
 	"pikashuniumz": {
@@ -4304,7 +4223,6 @@ let BattleItems = {
 		zMoveFrom: "Thunderbolt",
 		zMoveUser: ["Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner"],
 		num: 836,
-		isNonstandard: "Past",
 		gen: 7,
 		desc: "If held by cap Pikachu with Thunderbolt, it can use 10,000,000 Volt Thunderbolt.",
 	},
@@ -4329,12 +4247,11 @@ let BattleItems = {
 		megaStone: "Pinsir-Mega",
 		megaEvolves: "Pinsir",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 671,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Pinsir, this item allows it to Mega Evolve in battle.",
 	},
 	"pixieplate": {
@@ -4391,7 +4308,6 @@ let BattleItems = {
 	"poisongem": {
 		id: "poisongem",
 		name: "Poison Gem",
-		isUnreleased: true,
 		spritenum: 344,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -4434,7 +4350,6 @@ let BattleItems = {
 		forcedForme: "Arceus-Poison",
 		num: 783,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has a Poison move, this item allows it to use a Poison Z-Move.",
 	},
 	"pokeball": {
@@ -4588,7 +4503,6 @@ let BattleItems = {
 		zMoveUser: ["Primarina"],
 		num: 800,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If held by a Primarina with Sparkling Aria, it can use Oceanic Operetta.",
 	},
 	"prismscale": {
@@ -4663,7 +4577,6 @@ let BattleItems = {
 	"psychicgem": {
 		id: "psychicgem",
 		name: "Psychic Gem",
-		isUnreleased: true,
 		spritenum: 369,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -4727,7 +4640,6 @@ let BattleItems = {
 		forcedForme: "Arceus-Psychic",
 		num: 786,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has a Psychic move, this item allows it to use a Psychic Z-Move.",
 	},
 	"qualotberry": {
@@ -4790,7 +4702,6 @@ let BattleItems = {
 	"rabutaberry": {
 		id: "rabutaberry",
 		name: "Rabuta Berry",
-		isUnreleased: true,
 		spritenum: 375,
 		isBerry: true,
 		naturalGift: {
@@ -4880,7 +4791,6 @@ let BattleItems = {
 	"razzberry": {
 		id: "razzberry",
 		name: "Razz Berry",
-		isUnreleased: true,
 		spritenum: 384,
 		isBerry: true,
 		naturalGift: {
@@ -5002,7 +4912,6 @@ let BattleItems = {
 	"rockgem": {
 		id: "rockgem",
 		name: "Rock Gem",
-		isUnreleased: true,
 		spritenum: 415,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -5062,7 +4971,6 @@ let BattleItems = {
 		forcedForme: "Arceus-Rock",
 		num: 788,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has a Rock move, this item allows it to use a Rock Z-Move.",
 	},
 	"rockyhelmet": {
@@ -5207,12 +5115,11 @@ let BattleItems = {
 		megaStone: "Sableye-Mega",
 		megaEvolves: "Sableye",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 754,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Sableye, this item allows it to Mega Evolve in battle.",
 	},
 	"sachet": {
@@ -5294,12 +5201,11 @@ let BattleItems = {
 		megaStone: "Salamence-Mega",
 		megaEvolves: "Salamence",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 769,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Salamence, this item allows it to Mega Evolve in battle.",
 	},
 	"sceptilite": {
@@ -5309,12 +5215,11 @@ let BattleItems = {
 		megaStone: "Sceptile-Mega",
 		megaEvolves: "Sceptile",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 753,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Sceptile, this item allows it to Mega Evolve in battle.",
 	},
 	"scizorite": {
@@ -5324,12 +5229,11 @@ let BattleItems = {
 		megaStone: "Scizor-Mega",
 		megaEvolves: "Scizor",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 670,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Scizor, this item allows it to Mega Evolve in battle.",
 	},
 	"scopelens": {
@@ -5387,12 +5291,11 @@ let BattleItems = {
 		megaStone: "Sharpedo-Mega",
 		megaEvolves: "Sharpedo",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 759,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Sharpedo, this item allows it to Mega Evolve in battle.",
 	},
 	"shedshell": {
@@ -5576,12 +5479,11 @@ let BattleItems = {
 		megaStone: "Slowbro-Mega",
 		megaEvolves: "Slowbro",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 760,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Slowbro, this item allows it to Mega Evolve in battle.",
 	},
 	"smoothrock": {
@@ -5605,7 +5507,6 @@ let BattleItems = {
 		zMoveUser: ["Snorlax"],
 		num: 804,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If held by a Snorlax with Giga Impact, it can use Pulverizing Pancake.",
 	},
 	"snowball": {
@@ -5651,7 +5552,6 @@ let BattleItems = {
 		zMoveUser: ["Solgaleo", "Necrozma-Dusk-Mane"],
 		num: 921,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "Solgaleo or Dusk Mane Necrozma with Sunsteel Strike can use a special Z-Move.",
 	},
 	"souldew": {
@@ -5691,7 +5591,6 @@ let BattleItems = {
 	"spelonberry": {
 		id: "spelonberry",
 		name: "Spelon Berry",
-		isUnreleased: true,
 		spritenum: 462,
 		isBerry: true,
 		naturalGift: {
@@ -5808,18 +5707,16 @@ let BattleItems = {
 		megaStone: "Steelix-Mega",
 		megaEvolves: "Steelix",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 761,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Steelix, this item allows it to Mega Evolve in battle.",
 	},
 	"steelgem": {
 		id: "steelgem",
 		name: "Steel Gem",
-		isUnreleased: true,
 		spritenum: 473,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -5862,7 +5759,6 @@ let BattleItems = {
 		forcedForme: "Arceus-Steel",
 		num: 792,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has a Steel move, this item allows it to use a Steel Z-Move.",
 	},
 	"stick": {
@@ -5957,12 +5853,11 @@ let BattleItems = {
 		megaStone: "Swampert-Mega",
 		megaEvolves: "Swampert",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 752,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Swampert, this item allows it to Mega Evolve in battle.",
 	},
 	"sweetapple": {
@@ -6023,7 +5918,6 @@ let BattleItems = {
 		zMoveUser: ["Tapu Koko", "Tapu Lele", "Tapu Bulu", "Tapu Fini"],
 		num: 801,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If held by a Tapu with Nature's Madness, it can use Guardian of Alola.",
 	},
 	"tartapple": {
@@ -6165,12 +6059,11 @@ let BattleItems = {
 		megaStone: "Tyranitar-Mega",
 		megaEvolves: "Tyranitar",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 669,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Tyranitar, this item allows it to Mega Evolve in battle.",
 	},
 	"ultraball": {
@@ -6192,7 +6085,6 @@ let BattleItems = {
 		zMoveUser: ["Necrozma-Ultra"],
 		num: 923,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "Dusk Mane/Dawn Wings Necrozma: Ultra Burst, then Z-Move w/ Photon Geyser.",
 	},
 	"upgrade": {
@@ -6213,12 +6105,11 @@ let BattleItems = {
 		megaStone: "Venusaur-Mega",
 		megaEvolves: "Venusaur",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: 659,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Venusaur, this item allows it to Mega Evolve in battle.",
 	},
 	"wacanberry": {
@@ -6247,7 +6138,6 @@ let BattleItems = {
 	"watergem": {
 		id: "watergem",
 		name: "Water Gem",
-		isUnreleased: true,
 		spritenum: 528,
 		isGem: true,
 		onSourceTryPrimaryHit(target, source, move) {
@@ -6302,13 +6192,11 @@ let BattleItems = {
 		forcedForme: "Arceus-Water",
 		num: 778,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has a Water move, this item allows it to use a Water Z-Move.",
 	},
 	"watmelberry": {
 		id: "watmelberry",
 		name: "Watmel Berry",
-		isUnreleased: true,
 		spritenum: 530,
 		isBerry: true,
 		naturalGift: {
@@ -6357,7 +6245,6 @@ let BattleItems = {
 	"wepearberry": {
 		id: "wepearberry",
 		name: "Wepear Berry",
-		isUnreleased: true,
 		spritenum: 533,
 		isBerry: true,
 		naturalGift: {
@@ -6559,7 +6446,6 @@ let BattleItems = {
 		},
 		num: 0,
 		gen: 2,
-		isNonstandard: "Past",
 		desc: "(Gen 2) On switch-in, raises holder's Attack by 2 and confuses it. Single use.",
 	},
 	"berry": {
@@ -6585,7 +6471,6 @@ let BattleItems = {
 		},
 		num: 155,
 		gen: 2,
-		isNonstandard: "Past",
 		desc: "(Gen 2) Restores 10 HP when at 1/2 max HP or less. Single use.",
 	},
 	"bitterberry": {
@@ -6607,7 +6492,6 @@ let BattleItems = {
 		},
 		num: 156,
 		gen: 2,
-		isNonstandard: "Past",
 		desc: "(Gen 2) Holder is cured if it is confused. Single use.",
 	},
 	"burntberry": {
@@ -6631,7 +6515,6 @@ let BattleItems = {
 		},
 		num: 153,
 		gen: 2,
-		isNonstandard: "Past",
 		desc: "(Gen 2) Holder is cured if it is frozen. Single use.",
 	},
 	"goldberry": {
@@ -6657,7 +6540,6 @@ let BattleItems = {
 		},
 		num: 158,
 		gen: 2,
-		isNonstandard: "Past",
 		desc: "(Gen 2) Restores 30 HP when at 1/2 max HP or less. Single use.",
 	},
 	"iceberry": {
@@ -6681,7 +6563,6 @@ let BattleItems = {
 		},
 		num: 152,
 		gen: 2,
-		isNonstandard: "Past",
 		desc: "(Gen 2) Holder is cured if it is burned. Single use.",
 	},
 	"mintberry": {
@@ -6705,7 +6586,6 @@ let BattleItems = {
 		},
 		num: 150,
 		gen: 2,
-		isNonstandard: "Past",
 		desc: "(Gen 2) Holder wakes up if it is asleep. Single use.",
 	},
 	"miracleberry": {
@@ -6728,7 +6608,6 @@ let BattleItems = {
 		},
 		num: 157,
 		gen: 2,
-		isNonstandard: "Past",
 		desc: "(Gen 2) Holder cures itself if it is confused or has a status condition. Single use.",
 	},
 	"mysteryberry": {
@@ -6769,7 +6648,6 @@ let BattleItems = {
 		},
 		num: 154,
 		gen: 2,
-		isNonstandard: "Past",
 		desc: "(Gen 2) Restores 5 PP to the first of the holder's moves to reach 0 PP. Single use.",
 	},
 	"pinkbow": {
@@ -6783,7 +6661,6 @@ let BattleItems = {
 		},
 		num: 251,
 		gen: 2,
-		isNonstandard: "Past",
 		desc: "(Gen 2) Holder's Normal-type attacks have 1.1x power.",
 	},
 	"polkadotbow": {
@@ -6797,7 +6674,6 @@ let BattleItems = {
 		},
 		num: 251,
 		gen: 2,
-		isNonstandard: "Past",
 		desc: "(Gen 2) Holder's Normal-type attacks have 1.1x power.",
 	},
 	"przcureberry": {
@@ -6821,7 +6697,6 @@ let BattleItems = {
 		},
 		num: 149,
 		gen: 2,
-		isNonstandard: "Past",
 		desc: "(Gen 2) Holder cures itself if it is paralyzed. Single use.",
 	},
 	"psncureberry": {
@@ -6845,7 +6720,6 @@ let BattleItems = {
 		},
 		num: 151,
 		gen: 2,
-		isNonstandard: "Past",
 		desc: "(Gen 2) Holder is cured if it is poisoned. Single use.",
 	},
 
@@ -6858,7 +6732,7 @@ let BattleItems = {
 		megaStone: "Crucibelle-Mega",
 		megaEvolves: "Crucibelle",
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			if (item.megaEvolves === source.baseTemplate.species) return false;
 			return true;
 		},
 		num: -1,
