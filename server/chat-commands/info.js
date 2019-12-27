@@ -473,6 +473,7 @@ const commands = {
 	stats: 'data',
 	dex: 'data',
 	pokedex: 'data',
+	cfm: 'data',
 	data(target, room, user, connection, cmd) {
 		if (!this.runBroadcast()) return;
 
@@ -495,7 +496,8 @@ const commands = {
 		let dex = Dex;
 		/** @type {Format?} */
 		let format = null;
-		if (sep[1] && toID(sep[1]) in Dex.dexes) {
+		if (cmd === 'cfm') dex = Dex.mod('cfm');
+		else if (sep[1] && toID(sep[1]) in Dex.dexes) {
 			dex = Dex.mod(toID(sep[1]));
 		} else if (sep[1]) {
 			format = Dex.getFormat(sep[1]);
@@ -508,7 +510,7 @@ const commands = {
 			dex = Dex.mod(format.mod);
 		}
 		let newTargets = dex.dataSearch(target);
-		let showDetails = (cmd === 'dt' || cmd === 'details');
+		let showDetails = (cmd === 'dt' || cmd === 'details' || cmd === 'cfm');
 		if (!newTargets || !newTargets.length) {
 			return this.errorReply(`No Pok\u00e9mon, item, move, ability or nature named '${target}' was found${Dex.gen > dex.gen ? ` in Gen ${dex.gen}` : ""}. (Check your spelling?)`);
 		}
@@ -650,13 +652,20 @@ const commands = {
 					if (move.flags['authentic']) details["&#10003; Bypasses Substitutes"] = "";
 					if (move.flags['defrost']) details["&#10003; Thaws user"] = "";
 					if (move.flags['bite']) details["&#10003; Bite"] = "";
-					if (move.flags['punch']) details["&#10003; Punch"] = "";
+					if (move.flags['punch']) details[dex.mod === 'cfm' ? "&#10003; Boosted by Iron Fist" : "&#10003; Punch"] = "";
 					if (move.flags['powder']) details["&#10003; Powder"] = "";
 					if (move.flags['reflectable']) details["&#10003; Bounceable"] = "";
 					if (move.flags['charge']) details["&#10003; Two-turn move"] = "";
 					if (move.flags['recharge']) details["&#10003; Has recharge turn"] = "";
 					if (move.flags['gravity'] && dex.gen >= 4) details["&#10007; Suppressed by Gravity"] = "";
 					if (move.flags['dance'] && dex.gen >= 7) details["&#10003; Dance move"] = "";
+					// CFM flags
+					if (move.flags['magic']) details["&#10003; Physical or special"] = "";
+					if (move.flags['omnitype']) details["&#10003; Matches the user's primary type"] = "";
+					if (move.flags['magician']) details["&#10003; Move is blocked by Magician"] = "";
+					if (move.flags['antiair']) details["&#10003; Can hit airborne Pokémon"] = "";
+					else if (move.type === 'Ground') details["&#10007; CANNOT hit airborne Pokémon"] = "";  
+					
 
 					if (dex.gen >= 7) {
 						if (move.gen >= 8 && move.isMax) {
