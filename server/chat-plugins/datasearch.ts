@@ -73,6 +73,7 @@ export const commands: ChatCommands = {
 	ds8: 'dexsearch',
 	dsearch: 'dexsearch',
 	nds: 'dexsearch',
+	cs: 'dexsearch',
 	dexsearch(target, room, user, connection, cmd, message) {
 		if (!this.canBroadcast()) return;
 		if (!target) return this.parse('/help dexsearch');
@@ -338,6 +339,8 @@ export const commands: ChatCommands = {
 	bw2learn: 'learn',
 	oraslearn: 'learn',
 	usumlearn: 'learn',
+	cfmlearn: 'learn',
+	cl: 'learn',
 	learn(target, room, user, connection, cmd, message) {
 		if (!target) return this.parse('/help learn');
 		if (!this.canBroadcast()) return;
@@ -378,6 +381,12 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 		nfe: 'NFE',
 		lcuber: 'LC Uber', lcubers: 'LC Uber', lc: 'LC',
 		cap: 'CAP', caplc: 'CAP LC', capnfe: 'CAP NFE',
+
+		// CFM Singles
+		cag: 'CAG', cub: 'CUb',
+		cou: 'COU', cuu: 'CUU',
+		cru: 'CRU', cnu: 'CNU',
+		cpu: 'CPU', clc: 'CLC',
 	});
 	const allDoublesTiers: {[k: string]: string} = Object.assign(Object.create(null), {
 		doublesubers: 'DUber', doublesuber: 'DUber', duber: 'DUber', dubers: 'DUber',
@@ -385,6 +394,13 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 		doublesbl: 'DBL', dbl: 'DBL',
 		doublesuu: 'DUU', duu: 'DUU',
 		doublesnu: '(DUU)', dnu: '(DUU)',
+	});
+	const allCFMTiers: {[k: string]: string} = Object.assign(Object.create(null), {
+		// CFM Singles
+		cag: 'CAG', cub: 'CUb',
+		cou: 'COU', cuu: 'CUU',
+		cru: 'CRU', cnu: 'CNU',
+		cpu: 'CPU', clc: 'CLC',
 	});
 	const allTypes = Object.create(null);
 	for (const i in Dex.data.TypeChart) {
@@ -423,6 +439,10 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 	let nationalSearch = null;
 	let randomOutput = 0;
 	let maxGen = 0;
+
+	// CFM search mode
+	let cfmSearch = null;
+	if (message.substr(0, 3).toLowerCase() === '/cs') cfmSearch = true;
 	const validParameter = (cat: string, param: string, isNotSearch: boolean, input: string) => {
 		const uniqueTraits = ['colors', 'gens'];
 		for (const group of searches) {
@@ -475,6 +495,8 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 					capSearch = !isNotSearch;
 				}
 				const invalid = validParameter("tiers", target, isNotSearch, target);
+				if (cfmSearch) target = allCFMTiers[toID(target)];
+				else if (allCFMTiers[target]) cfmSearch = true;
 				if (invalid) return {reply: invalid};
 				tierSearch = tierSearch || !isNotSearch;
 				orGroup.tiers[target] = !isNotSearch;
@@ -754,7 +776,7 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 		};
 	}
 	if (!maxGen) maxGen = 8;
-	const mod = Dex.mod('gen' + maxGen);
+	const mod = cfmSearch ? Dex.mod('cfm') : Dex.mod('gen' + maxGen);
 	const dex: {[k: string]: Species} = {};
 	for (const pokemon in mod.data.Pokedex) {
 		const species = mod.getSpecies(pokemon);
