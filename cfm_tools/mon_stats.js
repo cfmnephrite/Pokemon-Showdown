@@ -1,7 +1,7 @@
 var fs = require('fs');
 
-var newDex = require('./data/mods/cfm/pokedex.js').BattlePokedex;
-var oldDex = require('./pokedex_cfm.js').BattlePokedex;
+var oldDex = require('./../data/mods/cfm/pokedex.js').BattlePokedex;
+var newDex = require('./../data/pokedex.js').BattlePokedex;
 
 var allMons = Object.keys(oldDex);
 

@@ -1,7 +1,7 @@
 var fs = require('fs');
 
-var newDex = require('./data/formats-data.js').BattleFormatsData;
-var oldDex = require('./formats-data_cfm.js').BattleFormatsData;
+var newDex = require('./../data/formats-data.js').BattleFormatsData;
+var oldDex = require('./../formats-data_cfm.js').BattleFormatsData;
 
 for (const i of Object.keys(oldDex)){
     newDex[i].tier = oldDex[i].tier;

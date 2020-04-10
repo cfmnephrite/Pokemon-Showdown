@@ -1,7 +1,7 @@
 var fs = require('fs');
 
-var cfmLearnsets = require('./CFM/data/mods/cfm/learnsets.js').BattleLearnsets;
-var newLearnsets = require('./pokemon-showdown/data/learnsets.js').BattleLearnsets;
+var cfmLearnsets = require('./../data/mods/cfm/learnsets.js').BattleLearnsets;
+var newLearnsets = require('./../data/learnsets.js').BattleLearnsets;
 
 var allMons = Object.keys(newLearnsets);
 
