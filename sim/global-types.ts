@@ -996,15 +996,15 @@ interface MoveData extends EffectData, MoveEventMethods {
 
 	// CFM
 	// Power of Alchemy boost
-	poaBoosted?: boolean
+	poaBoosted?: boolean;
 	// RKS boost (Type: Null)
-	rksBoosted?: boolean
+	rksBoosted?: boolean;
 	// Rock head - modified crit rate
-	rockHead?: boolean
+	rockHead?: boolean;
 	// Solar Power - boosts moves using higher offensive stat in sunlight
-	solarPowerBoosted?: boolean
+	solarPowerBoosted?: boolean;
 	// Mold Breaker et al make moves also ignore weather
-	ignoreWeather?: boolean
+	ignoreWeather?: boolean;
 }
 
 interface ModdedMoveData extends Partial<MoveData>, ModdedEffectData {}

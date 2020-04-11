@@ -14915,8 +14915,8 @@ let BattlePokedex = {
 		heightm: 3,
 		weightkg: 1590.8,
 		color: "Gray",
-		eggGroups: ["Undiscovered"]
-	}
+		eggGroups: ["Undiscovered"],
+	},
 };
 
 exports.BattlePokedex = BattlePokedex;

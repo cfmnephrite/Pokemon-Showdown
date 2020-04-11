@@ -323,8 +323,7 @@ export class ModdedDex {
 		if (!typeData) return 0;
 		// CFM special typemod moves
 		// @ts-ignore
-		if (typeof source !== 'string' && source.flags['specialTypeMod'])
-		{
+		if (typeof source !== 'string' && source.flags['specialTypeMod']) {
 			// @ts-ignore
 			if (targetTyping === source.flags.specialTypeMod)
 				return 1; // super-effective

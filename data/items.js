@@ -10,7 +10,7 @@ let BattleItems = {
 		megaEvolves: "Abomasnow",
 		itemUser: ["Abomasnow"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 674,
@@ -25,7 +25,7 @@ let BattleItems = {
 		megaEvolves: "Absol",
 		itemUser: ["Absol"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 677,
@@ -97,7 +97,7 @@ let BattleItems = {
 		megaEvolves: "Aerodactyl",
 		itemUser: ["Aerodactyl"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 672,
@@ -112,7 +112,7 @@ let BattleItems = {
 		megaEvolves: "Aggron",
 		itemUser: ["Aggron"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 667,
@@ -186,7 +186,7 @@ let BattleItems = {
 		megaEvolves: "Alakazam",
 		itemUser: ["Alakazam"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 679,
@@ -213,7 +213,7 @@ let BattleItems = {
 		megaEvolves: "Altaria",
 		itemUser: ["Altaria"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 755,
@@ -228,7 +228,7 @@ let BattleItems = {
 		megaEvolves: "Ampharos",
 		itemUser: ["Ampharos"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 658,
@@ -321,7 +321,7 @@ let BattleItems = {
 		megaEvolves: "Audino",
 		itemUser: ["Audino"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 757,
@@ -359,7 +359,7 @@ let BattleItems = {
 		megaEvolves: "Banette",
 		itemUser: ["Banette"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 668,
@@ -383,7 +383,7 @@ let BattleItems = {
 		megaEvolves: "Beedrill",
 		itemUser: ["Beedrill"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 770,
@@ -536,7 +536,7 @@ let BattleItems = {
 		megaEvolves: "Blastoise",
 		itemUser: ["Blastoise"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 661,
@@ -551,7 +551,7 @@ let BattleItems = {
 		megaEvolves: "Blaziken",
 		itemUser: ["Blaziken"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 664,
@@ -705,7 +705,7 @@ let BattleItems = {
 		megaEvolves: "Camerupt",
 		itemUser: ["Camerupt"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 767,
@@ -756,7 +756,7 @@ let BattleItems = {
 		megaEvolves: "Charizard",
 		itemUser: ["Charizard"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 660,
@@ -771,7 +771,7 @@ let BattleItems = {
 		megaEvolves: "Charizard",
 		itemUser: ["Charizard"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 678,
@@ -1283,7 +1283,7 @@ let BattleItems = {
 		megaEvolves: "Diancie",
 		itemUser: ["Diancie"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 764,
@@ -2182,7 +2182,7 @@ let BattleItems = {
 		megaEvolves: "Gallade",
 		itemUser: ["Gallade"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 756,
@@ -2218,7 +2218,7 @@ let BattleItems = {
 		megaEvolves: "Garchomp",
 		itemUser: ["Garchomp"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 683,
@@ -2233,7 +2233,7 @@ let BattleItems = {
 		megaEvolves: "Gardevoir",
 		itemUser: ["Gardevoir"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 657,
@@ -2248,7 +2248,7 @@ let BattleItems = {
 		megaEvolves: "Gengar",
 		itemUser: ["Gengar"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 656,
@@ -2309,7 +2309,7 @@ let BattleItems = {
 		megaEvolves: "Glalie",
 		itemUser: ["Glalie"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 763,
@@ -2513,7 +2513,7 @@ let BattleItems = {
 		megaEvolves: "Gyarados",
 		itemUser: ["Gyarados"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 676,
@@ -2621,7 +2621,7 @@ let BattleItems = {
 		megaEvolves: "Heracross",
 		itemUser: ["Heracross"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 680,
@@ -2650,7 +2650,7 @@ let BattleItems = {
 		megaEvolves: "Houndoom",
 		itemUser: ["Houndoom"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 666,
@@ -2978,7 +2978,7 @@ let BattleItems = {
 		megaEvolves: "Kangaskhan",
 		itemUser: ["Kangaskhan"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 675,
@@ -3245,7 +3245,7 @@ let BattleItems = {
 		megaEvolves: "Lopunny",
 		itemUser: ["Lopunny"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 768,
@@ -3280,7 +3280,7 @@ let BattleItems = {
 		megaEvolves: "Lucario",
 		itemUser: ["Lucario"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 673,
@@ -3516,7 +3516,7 @@ let BattleItems = {
 		megaEvolves: "Manectric",
 		itemUser: ["Manectric"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 682,
@@ -3573,7 +3573,7 @@ let BattleItems = {
 		megaEvolves: "Mawile",
 		itemUser: ["Mawile"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 681,
@@ -3611,7 +3611,7 @@ let BattleItems = {
 		megaEvolves: "Medicham",
 		itemUser: ["Medicham"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 665,
@@ -3666,7 +3666,7 @@ let BattleItems = {
 		megaEvolves: "Metagross",
 		itemUser: ["Metagross"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 758,
@@ -4244,7 +4244,7 @@ let BattleItems = {
 		megaEvolves: "Pidgeot",
 		itemUser: ["Pidgeot"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 762,
@@ -4297,7 +4297,7 @@ let BattleItems = {
 		megaEvolves: "Pinsir",
 		itemUser: ["Pinsir"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 671,
@@ -5181,7 +5181,7 @@ let BattleItems = {
 		megaEvolves: "Sableye",
 		itemUser: ["Sableye"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 754,
@@ -5269,7 +5269,7 @@ let BattleItems = {
 		megaEvolves: "Salamence",
 		itemUser: ["Salamence"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 769,
@@ -5284,7 +5284,7 @@ let BattleItems = {
 		megaEvolves: "Sceptile",
 		itemUser: ["Sceptile"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 753,
@@ -5299,7 +5299,7 @@ let BattleItems = {
 		megaEvolves: "Scizor",
 		itemUser: ["Scizor"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 670,
@@ -5362,7 +5362,7 @@ let BattleItems = {
 		megaEvolves: "Sharpedo",
 		itemUser: ["Sharpedo"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 759,
@@ -5555,7 +5555,7 @@ let BattleItems = {
 		megaEvolves: "Slowbro",
 		itemUser: ["Slowbro"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 760,
@@ -5792,7 +5792,7 @@ let BattleItems = {
 		megaEvolves: "Steelix",
 		itemUser: ["Steelix"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 761,
@@ -5941,7 +5941,7 @@ let BattleItems = {
 		megaEvolves: "Swampert",
 		itemUser: ["Swampert"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 752,
@@ -6139,40 +6139,16 @@ let BattleItems = {
 		gen: 8,
 		desc: "Teaches certain Pokemon the move Swords Dance. One use.",
 	},
-	"tyranitarite": {
-		id: "tyranitarite",
-		name: "Tyranitarite",
-		spritenum: 607,
-		megaStone: "Tyranitar-Mega",
-		megaEvolves: "Tyranitar",
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
-			return true;
+	"tr01": {
+		id: "tr01",
+		name: "TR01",
+		fling: {
+			basePower: 85,
 		},
-		num: 669,
-		gen: 6,
-		desc: "If held by a Tyranitar, this item allows it to Mega Evolve in battle.",
-	},
-	"ultraball": {
-		id: "ultraball",
-		name: "Ultra Ball",
-		spritenum: 521,
-		num: 2,
-		gen: 1,
-		isPokeball: true,
-		desc: "An ultra-performance Ball that provides a higher catch rate than a Great Ball.",
-	},
-	"ultranecroziumz": {
-		id: "ultranecroziumz",
-		name: "Ultranecrozium Z",
-		spritenum: 687,
-		onTakeItem: false,
-		zMove: "Light That Burns the Sky",
-		zMoveFrom: "Photon Geyser",
-		zMoveUser: ["Necrozma-Ultra"],
-		num: 923,
-		gen: 7,
-		desc: "Dusk Mane/Dawn Wings Necrozma: Ultra Burst, then Z-Move w/ Photon Geyser.",
+		spritenum: 721,
+		num: 1131,
+		gen: 8,
+		desc: "Teaches certain Pokemon the move Body Slam. One use.",
 	},
 	"tr02": {
 		id: "tr02",
@@ -6185,19 +6161,16 @@ let BattleItems = {
 		gen: 8,
 		desc: "Teaches certain Pokemon the move Flamethrower. One use.",
 	},
-	"venusaurite": {
-		id: "venusaurite",
-		name: "Venusaurite",
-		spritenum: 608,
-		megaStone: "Venusaur-Mega",
-		megaEvolves: "Venusaur",
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
-			return true;
+	"tr03": {
+		id: "tr03",
+		name: "TR03",
+		fling: {
+			basePower: 110,
 		},
-		num: 659,
-		gen: 6,
-		desc: "If held by a Venusaur, this item allows it to Mega Evolve in battle.",
+		spritenum: 731,
+		num: 1133,
+		gen: 8,
+		desc: "Teaches certain Pokemon the move Hydro Pump. One use.",
 	},
 	"tr04": {
 		id: "tr04",
@@ -6221,19 +6194,11 @@ let BattleItems = {
 		gen: 8,
 		desc: "Teaches certain Pokemon the move Ice Beam. One use.",
 	},
-	"watergem": {
-		id: "watergem",
-		name: "Water Gem",
-		spritenum: 528,
-		isGem: true,
-		onSourceTryPrimaryHit(target, source, move) {
-			if (target === source || move.category === 'Status' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
-			if (move.type === 'Water') {
-				if (source.useItem()) {
-					this.add('-enditem', source, 'Water Gem', '[from] gem', '[move] ' + move.name);
-					source.addVolatile('gem');
-				}
-			}
+	"tr06": {
+		id: "tr06",
+		name: "TR06",
+		fling: {
+			basePower: 110,
 		},
 		spritenum: 735,
 		num: 1136,
@@ -7288,1169 +7253,7 @@ let BattleItems = {
 		megaEvolves: "Tyranitar",
 		itemUser: ["Tyranitar"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: 669,
-		gen: 6,
-		isNonstandard: "Past",
-		desc: "If held by a Tyranitar, this item allows it to Mega Evolve in battle.",
-	},
-	"ultraball": {
-		id: "ultraball",
-		name: "Ultra Ball",
-		spritenum: 521,
-		num: 2,
-		gen: 1,
-		isPokeball: true,
-		desc: "An ultra-performance Ball that provides a higher catch rate than a Great Ball.",
-	},
-	"ultranecroziumz": {
-		id: "ultranecroziumz",
-		name: "Ultranecrozium Z",
-		spritenum: 687,
-		onTakeItem: false,
-		zMove: "Light That Burns the Sky",
-		zMoveFrom: "Photon Geyser",
-		itemUser: ["Necrozma-Ultra"],
-		num: 923,
-		gen: 7,
-		isNonstandard: "Past",
-		desc: "Dusk Mane/Dawn Wings Necrozma: Ultra Burst, then Z-Move w/ Photon Geyser.",
-	},
-	"tr02": {
-		id: "tr02",
-		name: "TR02",
-		fling: {
-			basePower: 90,
-		},
-		spritenum: 730,
-		num: 1132,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Flamethrower. One use.",
-	},
-	"utilityumbrella": {
-		id: "utilityumbrella",
-		name: "Utility Umbrella",
-		spritenum: 718,
-		fling: {
-			basePower: 60,
-		},
-		// Implemented in statuses.js, moves.js, and abilities.js
-		num: 1123,
-		gen: 8,
-		desc: "The holder ignores rain- and sun-based effects. Damage and accuracy calculations from attacks used by the holder are affected by rain and sun, but not attacks used against the holder.",
-		shortDesc: "The holder ignores rain- and sun-based effects.",
-	},
-	"venusaurite": {
-		id: "venusaurite",
-		name: "Venusaurite",
-		spritenum: 608,
-		megaStone: "Venusaur-Mega",
-		megaEvolves: "Venusaur",
-		itemUser: ["Venusaur"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		spritenum: 731,
-		num: 1133,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Hydro Pump. One use.",
-	},
-	"tr04": {
-		id: "tr04",
-		name: "TR04",
-		fling: {
-			basePower: 90,
-		},
-		spritenum: 731,
-		num: 1134,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Surf. One use.",
-	},
-	"tr05": {
-		id: "tr05",
-		name: "TR05",
-		fling: {
-			basePower: 90,
-		},
-		spritenum: 735,
-		num: 1135,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Ice Beam. One use.",
-	},
-	"watergem": {
-		id: "watergem",
-		name: "Water Gem",
-		spritenum: 528,
-		isGem: true,
-		onSourceTryPrimaryHit(target, source, move) {
-			if (target === source || move.category === 'Status' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
-			if (move.type === 'Water' && source.useItem()) {
-				source.addVolatile('gem');
-			}
-		},
-		num: 549,
-		gen: 5,
-		isNonstandard: "Past",
-		desc: "Holder's first successful Water-type attack will have 1.3x power. Single use.",
-	},
-	"watermemory": {
-		id: "watermemory",
-		name: "Water Memory",
-		spritenum: 677,
-		onMemory: 'Water',
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Silvally-Water",
-		itemUser: ["Silvally-Water"],
-		num: 913,
-		gen: 7,
-		desc: "Holder's Multi-Attack is Water type.",
-	},
-	"tr08": {
-		id: "tr08",
-		name: "TR08",
-		fling: {
-			basePower: 90,
-		},
-		spritenum: 733,
-		num: 1138,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Thunderbolt. One use.",
-	},
-	"tr09": {
-		id: "tr09",
-		name: "TR09",
-		fling: {
-			basePower: 110,
-		},
-		spritenum: 733,
-		num: 1139,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Thunder. One use.",
-	},
-	"tr10": {
-		id: "tr10",
-		name: "TR10",
-		fling: {
-			basePower: 100,
-		},
-		spritenum: 725,
-		num: 1140,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Earthquake. One use.",
-	},
-	"tr11": {
-		id: "tr11",
-		name: "TR11",
-		fling: {
-			basePower: 90,
-		},
-		spritenum: 734,
-		num: 1141,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Psychic. One use.",
-	},
-	"tr12": {
-		id: "tr12",
-		name: "TR12",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 734,
-		num: 1142,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Agility. One use.",
-	},
-	"tr13": {
-		id: "tr13",
-		name: "TR13",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 721,
-		num: 1143,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Focus Energy. One use.",
-	},
-	"tr14": {
-		id: "tr14",
-		name: "TR14",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 721,
-		num: 1144,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Metronome. One use.",
-	},
-	"tr15": {
-		id: "tr15",
-		name: "TR15",
-		fling: {
-			basePower: 110,
-		},
-		spritenum: 730,
-		num: 1145,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Fire Blast. One use.",
-	},
-	"tr16": {
-		id: "tr16",
-		name: "TR16",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 731,
-		num: 1146,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Waterfall. One use.",
-	},
-	"tr17": {
-		id: "tr17",
-		name: "TR17",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 734,
-		num: 1147,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Amnesia. One use.",
-	},
-	"tr18": {
-		id: "tr18",
-		name: "TR18",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 727,
-		num: 1148,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Leech Life. One use.",
-	},
-	"tr19": {
-		id: "tr19",
-		name: "TR19",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 721,
-		num: 1149,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Tri Attack. One use.",
-	},
-	"tr20": {
-		id: "tr20",
-		name: "TR20",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 721,
-		num: 1150,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Substitute. One use.",
-	},
-	"tr21": {
-		id: "tr21",
-		name: "TR21",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 722,
-		num: 1151,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Reversal. One use.",
-	},
-	"tr22": {
-		id: "tr22",
-		name: "TR22",
-		fling: {
-			basePower: 90,
-		},
-		spritenum: 724,
-		num: 1152,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Sludge Bomb. One use.",
-	},
-	"tr23": {
-		id: "tr23",
-		name: "TR23",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 725,
-		num: 1153,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Spikes. One use.",
-	},
-	"tr24": {
-		id: "tr24",
-		name: "TR24",
-		fling: {
-			basePower: 120,
-		},
-		spritenum: 736,
-		num: 1154,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Outrage. One use.",
-	},
-	"tr25": {
-		id: "tr25",
-		name: "TR25",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 734,
-		num: 1155,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Psyshock. One use.",
-	},
-	"tr26": {
-		id: "tr26",
-		name: "TR26",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 721,
-		num: 1156,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Endure. One use.",
-	},
-	"tr27": {
-		id: "tr27",
-		name: "TR27",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 721,
-		num: 1157,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Sleep Talk. One use.",
-	},
-	"tr28": {
-		id: "tr28",
-		name: "TR28",
-		fling: {
-			basePower: 120,
-		},
-		spritenum: 727,
-		num: 1158,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Megahorn. One use.",
-	},
-	"tr29": {
-		id: "tr29",
-		name: "TR29",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 721,
-		num: 1159,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Baton Pass. One use.",
-	},
-	"tr30": {
-		id: "tr30",
-		name: "TR30",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 721,
-		num: 1160,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Encore. One use.",
-	},
-	"tr31": {
-		id: "tr31",
-		name: "TR31",
-		fling: {
-			basePower: 100,
-		},
-		spritenum: 729,
-		num: 1161,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Iron Tail. One use.",
-	},
-	"tr32": {
-		id: "tr32",
-		name: "TR32",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 737,
-		num: 1162,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Crunch. One use.",
-	},
-	"tr33": {
-		id: "tr33",
-		name: "TR33",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 728,
-		num: 1163,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Shadow Ball. One use.",
-	},
-	"tr34": {
-		id: "tr34",
-		name: "TR34",
-		fling: {
-			basePower: 120,
-		},
-		spritenum: 734,
-		num: 1164,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Future Sight. One use.",
-	},
-	"tr35": {
-		id: "tr35",
-		name: "TR35",
-		fling: {
-			basePower: 90,
-		},
-		spritenum: 721,
-		num: 1165,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Uproar. One use.",
-	},
-	"tr36": {
-		id: "tr36",
-		name: "TR36",
-		fling: {
-			basePower: 95,
-		},
-		spritenum: 730,
-		num: 1166,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Heat Wave. One use.",
-	},
-	"tr37": {
-		id: "tr37",
-		name: "TR37",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 737,
-		num: 1167,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Taunt. One use.",
-	},
-	"tr38": {
-		id: "tr38",
-		name: "TR38",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 734,
-		num: 1168,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Trick. One use.",
-	},
-	"tr39": {
-		id: "tr39",
-		name: "TR39",
-		fling: {
-			basePower: 120,
-		},
-		spritenum: 722,
-		num: 1169,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Superpower. One use.",
-	},
-	"tr40": {
-		id: "tr40",
-		name: "TR40",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 734,
-		num: 1170,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Skill Swap. One use.",
-	},
-	"tr41": {
-		id: "tr41",
-		name: "TR41",
-		fling: {
-			basePower: 85,
-		},
-		spritenum: 730,
-		num: 1171,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Blaze Kick. One use.",
-	},
-	"tr42": {
-		id: "tr42",
-		name: "TR42",
-		fling: {
-			basePower: 90,
-		},
-		spritenum: 721,
-		num: 1172,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Hyper Voice. One use.",
-	},
-	"tr43": {
-		id: "tr43",
-		name: "TR43",
-		fling: {
-			basePower: 130,
-		},
-		spritenum: 730,
-		num: 1173,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Overheat. One use.",
-	},
-	"tr44": {
-		id: "tr44",
-		name: "TR44",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 734,
-		num: 1174,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Cosmic Power. One use.",
-	},
-	"tr45": {
-		id: "tr45",
-		name: "TR45",
-		fling: {
-			basePower: 90,
-		},
-		spritenum: 731,
-		num: 1175,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Muddy Water. One use.",
-	},
-	"tr46": {
-		id: "tr46",
-		name: "TR46",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 729,
-		num: 1176,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Iron Defense. One use.",
-	},
-	"tr47": {
-		id: "tr47",
-		name: "TR47",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 736,
-		num: 1177,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Dragon Claw. One use.",
-	},
-	"tr48": {
-		id: "tr48",
-		name: "TR48",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 722,
-		num: 1178,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Bulk Up. One use.",
-	},
-	"tr49": {
-		id: "tr49",
-		name: "TR49",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 734,
-		num: 1179,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Calm Mind. One use.",
-	},
-	"tr50": {
-		id: "tr50",
-		name: "TR50",
-		fling: {
-			basePower: 90,
-		},
-		spritenum: 732,
-		num: 1180,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Leaf Blade. One use.",
-	},
-	"tr51": {
-		id: "tr51",
-		name: "TR51",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 736,
-		num: 1181,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Dragon Dance. One use.",
-	},
-	"tr52": {
-		id: "tr52",
-		name: "TR52",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 729,
-		num: 1182,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Gyro Ball. One use.",
-	},
-	"tr53": {
-		id: "tr53",
-		name: "TR53",
-		fling: {
-			basePower: 120,
-		},
-		spritenum: 722,
-		num: 1183,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Close Combat. One use.",
-	},
-	"tr54": {
-		id: "tr54",
-		name: "TR54",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 724,
-		num: 1184,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Toxic Spikes. One use.",
-	},
-	"tr55": {
-		id: "tr55",
-		name: "TR55",
-		fling: {
-			basePower: 120,
-		},
-		spritenum: 730,
-		num: 1185,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Flare Blitz. One use.",
-	},
-	"tr56": {
-		id: "tr56",
-		name: "TR56",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 722,
-		num: 1186,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Aura Sphere. One use.",
-	},
-	"tr57": {
-		id: "tr57",
-		name: "TR57",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 724,
-		num: 1187,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Poison Jab. One use.",
-	},
-	"tr58": {
-		id: "tr58",
-		name: "TR58",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 737,
-		num: 1188,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Dark Pulse. One use.",
-	},
-	"tr59": {
-		id: "tr59",
-		name: "TR59",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 732,
-		num: 1189,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Seed Bomb. One use.",
-	},
-	"tr60": {
-		id: "tr60",
-		name: "TR60",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 727,
-		num: 1190,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move X-Scissor. One use.",
-	},
-	"tr61": {
-		id: "tr61",
-		name: "TR61",
-		fling: {
-			basePower: 90,
-		},
-		spritenum: 727,
-		num: 1191,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Bug Buzz. One use.",
-	},
-	"tr62": {
-		id: "tr62",
-		name: "TR62",
-		fling: {
-			basePower: 85,
-		},
-		spritenum: 736,
-		num: 1192,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Dragon Pulse. One use.",
-	},
-	"tr63": {
-		id: "tr63",
-		name: "TR63",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 726,
-		num: 1193,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Power Gem. One use.",
-	},
-	"tr64": {
-		id: "tr64",
-		name: "TR64",
-		fling: {
-			basePower: 120,
-		},
-		spritenum: 722,
-		num: 1194,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Focus Blast. One use.",
-	},
-	"tr65": {
-		id: "tr65",
-		name: "TR65",
-		fling: {
-			basePower: 90,
-		},
-		spritenum: 732,
-		num: 1195,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Energy Ball. One use.",
-	},
-	"tr66": {
-		id: "tr66",
-		name: "TR66",
-		fling: {
-			basePower: 120,
-		},
-		spritenum: 723,
-		num: 1196,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Brave Bird. One use.",
-	},
-	"tr67": {
-		id: "tr67",
-		name: "TR67",
-		fling: {
-			basePower: 90,
-		},
-		spritenum: 725,
-		num: 1197,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Earth Power. One use.",
-	},
-	"tr68": {
-		id: "tr68",
-		name: "TR68",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 737,
-		num: 1198,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Nasty Plot. One use.",
-	},
-	"tr69": {
-		id: "tr69",
-		name: "TR69",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 734,
-		num: 1199,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Zen Headbutt. One use.",
-	},
-	"tr70": {
-		id: "tr70",
-		name: "TR70",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 729,
-		num: 1200,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Flash Cannon. One use.",
-	},
-	"tr71": {
-		id: "tr71",
-		name: "TR71",
-		fling: {
-			basePower: 130,
-		},
-		spritenum: 732,
-		num: 1201,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Leaf Storm. One use.",
-	},
-	"tr72": {
-		id: "tr72",
-		name: "TR72",
-		fling: {
-			basePower: 120,
-		},
-		spritenum: 732,
-		num: 1202,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Power Whip. One use.",
-	},
-	"tr73": {
-		id: "tr73",
-		name: "TR73",
-		fling: {
-			basePower: 120,
-		},
-		spritenum: 724,
-		num: 1203,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Gunk Shot. One use.",
-	},
-	"tr74": {
-		id: "tr74",
-		name: "TR74",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 729,
-		num: 1204,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Iron Head. One use.",
-	},
-	"tr75": {
-		id: "tr75",
-		name: "TR75",
-		fling: {
-			basePower: 100,
-		},
-		spritenum: 726,
-		num: 1205,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Stone Edge. One use.",
-	},
-	"tr76": {
-		id: "tr76",
-		name: "TR76",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 726,
-		num: 1206,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Stealth Rock. One use.",
-	},
-	"tr77": {
-		id: "tr77",
-		name: "TR77",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 732,
-		num: 1207,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Grass Knot. One use.",
-	},
-	"tr78": {
-		id: "tr78",
-		name: "TR78",
-		fling: {
-			basePower: 95,
-		},
-		spritenum: 724,
-		num: 1208,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Sludge Wave. One use.",
-	},
-	"tr79": {
-		id: "tr79",
-		name: "TR79",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 729,
-		num: 1209,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Heavy Slam. One use.",
-	},
-	"tr80": {
-		id: "tr80",
-		name: "TR80",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 733,
-		num: 1210,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Electro Ball. One use.",
-	},
-	"tr81": {
-		id: "tr81",
-		name: "TR81",
-		fling: {
-			basePower: 95,
-		},
-		spritenum: 737,
-		num: 1211,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Foul Play. One use.",
-	},
-	"tr82": {
-		id: "tr82",
-		name: "TR82",
-		fling: {
-			basePower: 20,
-		},
-		spritenum: 734,
-		num: 1212,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Stored Power. One use.",
-	},
-	"tr83": {
-		id: "tr83",
-		name: "TR83",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 734,
-		num: 1213,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Ally Switch. One use.",
-	},
-	"tr84": {
-		id: "tr84",
-		name: "TR84",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 731,
-		num: 1214,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Scald. One use.",
-	},
-	"tr85": {
-		id: "tr85",
-		name: "TR85",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 721,
-		num: 1215,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Work Up. One use.",
-	},
-	"tr86": {
-		id: "tr86",
-		name: "TR86",
-		fling: {
-			basePower: 90,
-		},
-		spritenum: 733,
-		num: 1216,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Wild Charge. One use.",
-	},
-	"tr87": {
-		id: "tr87",
-		name: "TR87",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 725,
-		num: 1217,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Drill Run. One use.",
-	},
-	"tr88": {
-		id: "tr88",
-		name: "TR88",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 730,
-		num: 1218,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Heat Crash. One use.",
-	},
-	"tr89": {
-		id: "tr89",
-		name: "TR89",
-		fling: {
-			basePower: 110,
-		},
-		spritenum: 723,
-		num: 1219,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Hurricane. One use.",
-	},
-	"tr90": {
-		id: "tr90",
-		name: "TR90",
-		fling: {
-			basePower: 90,
-		},
-		spritenum: 738,
-		num: 1220,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Play Rough. One use.",
-	},
-	"tr91": {
-		id: "tr91",
-		name: "TR91",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 724,
-		num: 1221,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Venom Drench. One use.",
-	},
-	"tr92": {
-		id: "tr92",
-		name: "TR92",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 738,
-		num: 1222,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Dazzling Gleam. One use.",
-	},
-	"tr93": {
-		id: "tr93",
-		name: "TR93",
-		fling: {
-			basePower: 85,
-		},
-		spritenum: 737,
-		num: 1223,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Darkest Lariat. One use.",
-	},
-	"tr94": {
-		id: "tr94",
-		name: "TR94",
-		fling: {
-			basePower: 95,
-		},
-		spritenum: 725,
-		num: 1224,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move High Horsepower. One use.",
-	},
-	"tr95": {
-		id: "tr95",
-		name: "TR95",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 737,
-		num: 1225,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Throat Chop. One use.",
-	},
-	"tr96": {
-		id: "tr96",
-		name: "TR96",
-		fling: {
-			basePower: 90,
-		},
-		spritenum: 727,
-		num: 1226,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Pollen Puff. One use.",
-	},
-	"tr97": {
-		id: "tr97",
-		name: "TR97",
-		fling: {
-			basePower: 85,
-		},
-		spritenum: 734,
-		num: 1227,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Psychic Fangs. One use.",
-	},
-	"tr98": {
-		id: "tr98",
-		name: "TR98",
-		fling: {
-			basePower: 85,
-		},
-		spritenum: 731,
-		num: 1228,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Liquidation. One use.",
-	},
-	"tr99": {
-		id: "tr99",
-		name: "TR99",
-		fling: {
-			basePower: 80,
-		},
-		spritenum: 722,
-		num: 1229,
-		gen: 8,
-		desc: "Teaches certain Pokemon the move Body Press. One use.",
-	},
-	"twistedspoon": {
-		id: "twistedspoon",
-		name: "Twisted Spoon",
-		spritenum: 520,
-		fling: {
-			basePower: 30,
-		},
-		onBasePowerPriority: 6,
-		onBasePower(basePower, user, target, move) {
-			if (move.type === 'Psychic') {
-				return this.chainModify([0x1333, 0x1000]);
-			}
-		},
-		num: 248,
-		gen: 2,
-		desc: "Holder's Psychic-type attacks have 1.2x power.",
-	},
-	"tyranitarite": {
-		id: "tyranitarite",
-		name: "Tyranitarite",
-		spritenum: 607,
-		megaStone: "Tyranitar-Mega",
-		megaEvolves: "Tyranitar",
-		itemUser: ["Tyranitar"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 669,
@@ -8512,7 +7315,7 @@ let BattleItems = {
 		megaEvolves: "Venusaur",
 		itemUser: ["Venusaur"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (item.megaStone === source.species.name) return false;
 			return true;
 		},
 		num: 659,
@@ -8599,6 +7402,7 @@ let BattleItems = {
 		forcedForme: "Arceus-Water",
 		num: 778,
 		gen: 7,
+		isNonstandard: "Past",
 		desc: "If holder has a Water move, this item allows it to use a Water Z-Move.",
 	},
 	"watmelberry": {
@@ -8845,315 +7649,6 @@ let BattleItems = {
 		num: 276,
 		gen: 4,
 		desc: "The accuracy of attacks by the holder is 1.2x if it moves after its target.",
-	},
-
-	// Gen 2 items
-
-	"berserkgene": {
-		id: "berserkgene",
-		name: "Berserk Gene",
-		spritenum: 388,
-		onUpdate(pokemon) {
-			this.boost({atk: 2});
-			pokemon.addVolatile('confusion');
-			pokemon.setItem('');
-		},
-		num: 0,
-		gen: 2,
-		desc: "(Gen 2) On switch-in, raises holder's Attack by 2 and confuses it. Single use.",
-	},
-	"berry": {
-		id: "berry",
-		name: "Berry",
-		spritenum: 319,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Poison",
-		},
-		onResidualOrder: 5,
-		onResidual(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 2) {
-				pokemon.eatItem();
-			}
-		},
-		onTryEatItem(item, pokemon) {
-			if (!this.runEvent('TryHeal', pokemon)) return false;
-		},
-		onEat(pokemon) {
-			this.heal(10);
-		},
-		num: 155,
-		gen: 2,
-		desc: "(Gen 2) Restores 10 HP when at 1/2 max HP or less. Single use.",
-	},
-	"bitterberry": {
-		id: "bitterberry",
-		name: "Bitter Berry",
-		spritenum: 334,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Ground",
-		},
-		onUpdate(pokemon) {
-			if (pokemon.volatiles['confusion']) {
-				pokemon.eatItem();
-			}
-		},
-		onEat(pokemon) {
-			pokemon.removeVolatile('confusion');
-		},
-		num: 156,
-		gen: 2,
-		desc: "(Gen 2) Holder is cured if it is confused. Single use.",
-	},
-	"burntberry": {
-		id: "burntberry",
-		name: "Burnt Berry",
-		spritenum: 13,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Ice",
-		},
-		onUpdate(pokemon) {
-			if (pokemon.status === 'frz') {
-				pokemon.eatItem();
-			}
-		},
-		onEat(pokemon) {
-			if (pokemon.status === 'frz') {
-				pokemon.cureStatus();
-			}
-		},
-		num: 153,
-		gen: 2,
-		desc: "(Gen 2) Holder is cured if it is frozen. Single use.",
-	},
-	"goldberry": {
-		id: "goldberry",
-		name: "Gold Berry",
-		spritenum: 448,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Psychic",
-		},
-		onResidualOrder: 5,
-		onResidual(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 2) {
-				pokemon.eatItem();
-			}
-		},
-		onTryEatItem(item, pokemon) {
-			if (!this.runEvent('TryHeal', pokemon)) return false;
-		},
-		onEat(pokemon) {
-			this.heal(30);
-		},
-		num: 158,
-		gen: 2,
-		desc: "(Gen 2) Restores 30 HP when at 1/2 max HP or less. Single use.",
-	},
-	"iceberry": {
-		id: "iceberry",
-		name: "Ice Berry",
-		spritenum: 381,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Grass",
-		},
-		onUpdate(pokemon) {
-			if (pokemon.status === 'brn') {
-				pokemon.eatItem();
-			}
-		},
-		onEat(pokemon) {
-			if (pokemon.status === 'brn') {
-				pokemon.cureStatus();
-			}
-		},
-		num: 152,
-		gen: 2,
-		desc: "(Gen 2) Holder is cured if it is burned. Single use.",
-	},
-	"mintberry": {
-		id: "mintberry",
-		name: "Mint Berry",
-		spritenum: 65,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Water",
-		},
-		onUpdate(pokemon) {
-			if (pokemon.status === 'slp') {
-				pokemon.eatItem();
-			}
-		},
-		onEat(pokemon) {
-			if (pokemon.status === 'slp') {
-				pokemon.cureStatus();
-			}
-		},
-		num: 150,
-		gen: 2,
-		desc: "(Gen 2) Holder wakes up if it is asleep. Single use.",
-	},
-	"miracleberry": {
-		id: "miracleberry",
-		name: "Miracle Berry",
-		spritenum: 262,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Flying",
-		},
-		onUpdate(pokemon) {
-			if (pokemon.status || pokemon.volatiles['confusion']) {
-				pokemon.eatItem();
-			}
-		},
-		onEat(pokemon) {
-			pokemon.cureStatus();
-			pokemon.removeVolatile('confusion');
-		},
-		num: 157,
-		gen: 2,
-		desc: "(Gen 2) Holder cures itself if it is confused or has a status condition. Single use.",
-	},
-	"mysteryberry": {
-		id: "mysteryberry",
-		name: "Mystery Berry",
-		spritenum: 244,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Fighting",
-		},
-		onUpdate(pokemon) {
-			if (!pokemon.hp) return;
-			let moveSlot = pokemon.lastMove && pokemon.getMoveData(pokemon.lastMove.id);
-			if (moveSlot && moveSlot.pp === 0) {
-				pokemon.addVolatile('leppaberry');
-				pokemon.volatiles['leppaberry'].moveSlot = moveSlot;
-				pokemon.eatItem();
-			}
-		},
-		onEat(pokemon) {
-			let moveSlot;
-			if (pokemon.volatiles['leppaberry']) {
-				moveSlot = pokemon.volatiles['leppaberry'].moveSlot;
-				pokemon.removeVolatile('leppaberry');
-			} else {
-				let pp = 99;
-				for (const possibleMoveSlot of pokemon.moveSlots) {
-					if (possibleMoveSlot.pp < pp) {
-						moveSlot = possibleMoveSlot;
-						pp = moveSlot.pp;
-					}
-				}
-			}
-			moveSlot.pp += 5;
-			if (moveSlot.pp > moveSlot.maxpp) moveSlot.pp = moveSlot.maxpp;
-			this.add('-activate', pokemon, 'item: Mystery Berry', moveSlot.move);
-		},
-		num: 154,
-		gen: 2,
-		desc: "(Gen 2) Restores 5 PP to the first of the holder's moves to reach 0 PP. Single use.",
-	},
-	"pinkbow": {
-		id: "pinkbow",
-		name: "Pink Bow",
-		spritenum: 444,
-		onBasePower(basePower, user, target, move) {
-			if (move.type === 'Normal') {
-				return basePower * 1.1;
-			}
-		},
-		num: 251,
-		gen: 2,
-		desc: "(Gen 2) Holder's Normal-type attacks have 1.1x power.",
-	},
-	"polkadotbow": {
-		id: "polkadotbow",
-		name: "Polkadot Bow",
-		spritenum: 444,
-		onBasePower(basePower, user, target, move) {
-			if (move.type === 'Normal') {
-				return basePower * 1.1;
-			}
-		},
-		num: 251,
-		gen: 2,
-		desc: "(Gen 2) Holder's Normal-type attacks have 1.1x power.",
-	},
-	"przcureberry": {
-		id: "przcureberry",
-		name: "PRZ Cure Berry",
-		spritenum: 63,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Fire",
-		},
-		onUpdate(pokemon) {
-			if (pokemon.status === 'par') {
-				pokemon.eatItem();
-			}
-		},
-		onEat(pokemon) {
-			if (pokemon.status === 'par') {
-				pokemon.cureStatus();
-			}
-		},
-		num: 149,
-		gen: 2,
-		desc: "(Gen 2) Holder cures itself if it is paralyzed. Single use.",
-	},
-	"psncureberry": {
-		id: "psncureberry",
-		name: "PSN Cure Berry",
-		spritenum: 333,
-		isBerry: true,
-		naturalGift: {
-			basePower: 80,
-			type: "Electric",
-		},
-		onUpdate(pokemon) {
-			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
-				pokemon.eatItem();
-			}
-		},
-		onEat(pokemon) {
-			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
-				pokemon.cureStatus();
-			}
-		},
-		num: 151,
-		gen: 2,
-		desc: "(Gen 2) Holder is cured if it is poisoned. Single use.",
-	},
-
-	// CAP items
-
-	"crucibellite": {
-		id: "crucibellite",
-		name: "Crucibellite",
-		spritenum: 577,
-		megaStone: "Crucibelle-Mega",
-		megaEvolves: "Crucibelle",
-		itemUser: ["Crucibelle"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
-			return true;
-		},
-		num: -1,
-		gen: 6,
-		isNonstandard: "CAP",
-		desc: "If held by a Crucibelle, this item allows it to Mega Evolve in battle.",
 	},
 };
 

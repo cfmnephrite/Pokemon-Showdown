@@ -63,9 +63,8 @@ let BattleStatuses = {
 			// 1-3 turns
 			if (target.hasAbility('earlybird')) {
 				this.effectData.time = 1;
-				if (this.willMove(target)) this.effectData.time++;
-			}
-			else this.effectData.time = this.random(2, 5);
+				if (this.queue.willMove(target)) this.effectData.time++;
+			} else this.effectData.time = this.random(2, 5);
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
@@ -534,7 +533,7 @@ let BattleStatuses = {
 			}
 		},
 		onEffectiveness(typeMod, target, type, move) {
-			if (move && move.effectType === 'Move' && move.type === 'Fire' && !move.ignoreWeather && typeMod > 0){
+			if (move && move.effectType === 'Move' && move.type === 'Fire' && !move.ignoreWeather && typeMod > 0) {
 				return 0;
 			}
 		},
@@ -620,7 +619,7 @@ let BattleStatuses = {
 			}
 		},
 		onEffectiveness(typeMod, target, type, move) {
-			if (move && move.effectType === 'Move' && move.type === 'Water' && !move.ignoreWeather && typeMod > 0){
+			if (move && move.effectType === 'Move' && move.type === 'Water' && !move.ignoreWeather && typeMod > 0) {
 				return 0;
 			}
 		},
@@ -749,7 +748,7 @@ let BattleStatuses = {
 			this.add('-weather', 'none');
 		},
 	},
-	
+
 	// CFM Gooey + Hyper Cutter
 	gooey: {
 		name: 'Gooey',
@@ -770,10 +769,10 @@ let BattleStatuses = {
 		duration: 1,
 		onStart(target, source) {
 			this.add('-activate', source, 'ability: Hyper Cutter');
-			this.boost({atk: 1}, source);		
+			this.boost({atk: 1}, source);
 		},
 	},
-	
+
 	charge: {
 		name: 'Charge',
 		id: 'charge',
@@ -832,7 +831,7 @@ let BattleStatuses = {
 			return [type];
 		},
 	},
-	
+
 	// CFM type changing mons
 	unown: {
 		name: 'Unown',
@@ -842,7 +841,7 @@ let BattleStatuses = {
 			if (pokemon.hpType) {
 				pokemon.setType(pokemon.hpType);
 			}
-		},	
+		},
 	},
 	kecleon: {
 		name: 'Kecleon',
@@ -856,7 +855,7 @@ let BattleStatuses = {
 					types.push(this.dex.getMove(pokemon.moveSlots[1].move).type);
 				pokemon.setType(types);
 			}
-		},	
+		},
 	},
 	solgaleo: {
 		name: 'Solgaleo',

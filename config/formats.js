@@ -557,8 +557,8 @@ let Formats = [
 			}
 			if (set.level !== 100) return [`${set.species} must be Level 100.`];
 		},
-	},   
-    {
+	},
+	{
 		section: "CFM Tiers",
 		column: 2,
 	},
@@ -592,7 +592,7 @@ let Formats = [
 		//cfacTier: 'RU',
 		ruleset: ['[Gen 8] CFM UU', 'CFM RU'],
 		banlist: ['CFUU'],
-	},	
+	},
 	{
 		name: "[Gen 8] CFM NU",
 
@@ -600,7 +600,7 @@ let Formats = [
 		//cfacTier: 'NU',
 		ruleset: ['[Gen 8] CFM RU', 'CFM NU'],
 		banlist: ['CFRU', 'Sand Stream', 'Snow Warning'],
-	},	
+	},
 	{
 		name: "[Gen 8] CFM PU",
 

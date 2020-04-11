@@ -264,7 +264,7 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1},
 		onModifyMove(move, source) {
-			if (source.template.speciesid === 'lugia') {
+			if (source.speciesid === 'lugia') {
 				move.basePower = 100;
 				move.critRatio = 3;
 			}
@@ -679,7 +679,7 @@ let BattleMovedex = {
 		target: "self",
 		type: "Normal",
 		contestType: "Cute",
-		cfm: true
+		cfm: true,
 	},
 	"assurance": {
 		num: 372,
@@ -846,7 +846,7 @@ let BattleMovedex = {
 			},
 		},
 		onTryMove(pokemon, target, move) {
-			if (pokemon.species.baseSpecies === 'Morpeko') {
+			if (pokemon.baseSpecies.name === 'Morpeko') {
 				return;
 			}
 			this.add('-fail', pokemon, 'move: Aura Wheel');
@@ -1054,7 +1054,7 @@ let BattleMovedex = {
 					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
 					return;
 				}
-				if (move.type === 'Psychic' && move.category != 'Status') {
+				if (move.type === 'Psychic' && move.category !== 'Status') {
 					move.breaksProtect = true;
 					return;
 				}
@@ -1086,7 +1086,7 @@ let BattleMovedex = {
 		type: "Poison",
 		zMoveBoost: {def: 1},
 		contestType: "Tough",
-		cfm: true
+		cfm: true,
 	},
 	"barrage": {
 		num: 140,
@@ -1107,7 +1107,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMovePower: 190,
 		contestType: "Cute",
-		cfm: true
+		cfm: true,
 	},
 	"barrier": {
 		num: 112,
@@ -2223,7 +2223,7 @@ let BattleMovedex = {
 		type: "Electric",
 		zMovePower: 200,
 		contestType: "Cool",
-		cfm: true
+		cfm: true,
 	},
 	"celebrate": {
 		num: 606,
@@ -2692,7 +2692,7 @@ let BattleMovedex = {
 		type: "Poison",
 		zMovePower: 160,
 		contestType: "Tough",
-		cfm: true
+		cfm: true,
 	},
 	"continentalcrush": {
 		num: 632,
@@ -2956,7 +2956,7 @@ let BattleMovedex = {
 				return source.side.foe.active[this.effectData.position];
 			},
 			onDamagingHit(damage, target, source, move) {
-				if (source.side !== target.side && this.getCategory(move) === 'Physical') {
+				if (source.side !== target.side && this.getCategory(move, source) === 'Physical') {
 					this.effectData.position = source.position;
 					this.effectData.damage = 2 * damage;
 				}
@@ -3095,7 +3095,7 @@ let BattleMovedex = {
 		stallingMove: true,
 		volatileStatus: 'craftyshield',
 		onTryHit(target, source, move) {
-			return !!this.willAct() && this.runEvent('StallMove', target);
+			return !!this.queue.willAct() && this.runEvent('StallMove', target);
 		},
 		onHit(pokemon) {
 			pokemon.addVolatile('stall');
@@ -3111,7 +3111,7 @@ let BattleMovedex = {
 					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
 					return;
 				}
-				if (move.type === 'Steel' && move.category != 'Status') {
+				if (move.type === 'Steel' && move.category !== 'Status') {
 					move.breaksProtect = true;
 					return;
 				}
@@ -3176,7 +3176,7 @@ let BattleMovedex = {
 		type: "Poison",
 		zMovePower: 180,
 		contestType: "Cool",
-		cfm: true
+		cfm: true,
 	},
 	"crunch": {
 		num: 242,
@@ -3367,7 +3367,7 @@ let BattleMovedex = {
 		flags: {protect: 1, reflectable: 1, mirror: 1},
 		status: 'slp',
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Dark')|| move.hasBounced) {
+			if (pokemon.hasType('Dark') || move.hasBounced) {
 				return;
 			}
 			this.add('-fail', pokemon, 'move: Dark Void');
@@ -3379,7 +3379,7 @@ let BattleMovedex = {
 		type: "Dark",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Clever",
-		cfm: true
+		cfm: true,
 	},
 	"dazzlinggleam": {
 		num: 605,
@@ -3989,7 +3989,7 @@ let BattleMovedex = {
 		zMovePower: 160,
 		gmaxPower: 80,
 		contestType: "Cool",
-		cfm: true
+		cfm: true,
 	},
 	"doubleslap": {
 		num: 3,
@@ -4010,7 +4010,7 @@ let BattleMovedex = {
 		type: "Fairy",
 		zMovePower: 160,
 		contestType: "Cute",
-		cfm: true
+		cfm: true,
 	},
 	"doubleteam": {
 		num: 104,
@@ -4115,7 +4115,7 @@ let BattleMovedex = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		secondary: {
 			chance: 30,
-				boosts: {
+			boosts: {
 				atk: -1,
 			},
 		},
@@ -4192,7 +4192,7 @@ let BattleMovedex = {
 		basePower: 90,
 		category: "Special",
 		desc: "Has a 10% chance to lower the target's Special Defence by 1 stage.",
-		shortDesc: "10% chance to lower the target's Sp. Def by 1.",	
+		shortDesc: "10% chance to lower the target's Sp. Def by 1.",
 		id: "dragonpulse",
 		isViable: true,
 		name: "Dragon Pulse",
@@ -4201,7 +4201,7 @@ let BattleMovedex = {
 		flags: {protect: 1, pulse: 1, mirror: 1, distance: 1},
 		secondary: {
 			chance: 30,
-				boosts: {
+			boosts: {
 				spd: -1,
 			},
 		},
@@ -4413,7 +4413,7 @@ let BattleMovedex = {
 		zMovePower: 160,
 		gmaxPower: 130,
 		contestType: "Tough",
-		cfm: true
+		cfm: true,
 	},
 	"dynamaxcannon": {
 		num: 744,
@@ -4574,7 +4574,7 @@ let BattleMovedex = {
 			}
 		},
 		onHit(target, source) {
-			if (source.side != target.side) {
+			if (source.side !== target.side) {
 				target.clearBoosts();
 				this.add('-clearboost', target);
 			}
@@ -4622,7 +4622,7 @@ let BattleMovedex = {
 			},
 			onEffectiveness(typeMod, target, type, move) {
 				if (move && move.type === 'Electric' && type === 'Ground') return -1;
-			},	
+			},
 			onStart(battle, source, effect) {
 				if (effect && effect.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Electric Terrain', '[from] ability: ' + effect, '[of] ' + source);
@@ -5974,7 +5974,7 @@ let BattleMovedex = {
 		stallingMove: true,
 		volatileStatus: 'flowershield',
 		onTryHit(target, source, move) {
-			return !!this.willAct() && this.runEvent('StallMove', target);
+			return !!this.queue.willAct() && this.runEvent('StallMove', target);
 		},
 		onHit(pokemon) {
 			pokemon.addVolatile('stall');
@@ -5990,7 +5990,7 @@ let BattleMovedex = {
 					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
 					return;
 				}
-				if (move.type === 'Poison' && move.category != 'Status') {
+				if (move.type === 'Poison' && move.category !== 'Status') {
 					move.breaksProtect = true;
 					return;
 				}
@@ -6003,27 +6003,27 @@ let BattleMovedex = {
 					}
 				}
 				if (move.flags['contact'] && !source.status && source.runStatusImmunity('powder')) {
-				let r = this.random(100);
-				if (r < 11) {
-					source.setStatus('slp', target);
-				} else if (r < 21) {
-					source.setStatus('par', target);
-				} else if (r < 30) {
-					source.setStatus('psn', target);
+					let r = this.random(100);
+					if (r < 11) {
+						source.setStatus('slp', target);
+					} else if (r < 21) {
+						source.setStatus('par', target);
+					} else if (r < 30) {
+						source.setStatus('psn', target);
+					}
+					return this.NOT_FAIL;
 				}
-				return this.NOT_FAIL;
-			}
 			},
 			onHit(target, source, move) {
 				if (move.isZPowered && move.flags['contact'] && !source.status && source.runStatusImmunity('powder')) {
-				let r = this.random(100);
-				if (r < 11) {
-					source.setStatus('slp', target);
-				} else if (r < 21) {
-					source.setStatus('par', target);
-				} else if (r < 30) {
-					source.setStatus('psn', target);
-				}
+					let r = this.random(100);
+					if (r < 11) {
+						source.setStatus('slp', target);
+					} else if (r < 21) {
+						source.setStatus('par', target);
+					} else if (r < 30) {
+						source.setStatus('psn', target);
+					}
 				}
 			},
 		},
@@ -7773,7 +7773,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMoveBoost: {def: 1},
 		contestType: "Beautiful",
-		cfm: true
+		cfm: true,
 	},
 	"gravapple": {
 		num: 788,
@@ -8460,11 +8460,11 @@ let BattleMovedex = {
 		onHit(pokemon) {
 			let factor = 0.5;
 			if (pokemon.status && pokemon.status !== 'slp') {
-			factor = 0.25;
-			pokemon.cureStatus();
+				factor = 0.25;
+				pokemon.cureStatus();
 			}
 			return !!this.heal(this.modify(pokemon.maxhp, factor));
-		},	
+		},
 		secondary: null,
 		target: "self",
 		type: "Bug",
@@ -8730,7 +8730,7 @@ let BattleMovedex = {
 		accuracy: 100,
 		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
-			if (pokemon.template.baseSpecies === 'Unown'|| move.hasBounced) {
+			if (pokemon.speciesid === 'unown' || move.hasBounced) {
 				this.debug("Power increased by the Unown");
 				return move.basePower + 40;
 			}
@@ -9236,7 +9236,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Tough",
-		cfm: true
+		cfm: true,
 	},
 	"hydrocannon": {
 		num: 308,
@@ -9276,7 +9276,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-		cfm: true
+		cfm: true,
 	},
 	"hydrovortex": {
 		num: 642,
@@ -9571,7 +9571,7 @@ let BattleMovedex = {
 		},
 		secondary: {
 			chance: 10,
-				status: 'frz',
+			status: 'frz',
 		},
 		target: "normal",
 		type: "Ice",
@@ -10014,7 +10014,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Beautiful",
-		cfm: true
+		cfm: true,
 	},
 	"jumpkick": {
 		num: 26,
@@ -10478,7 +10478,7 @@ let BattleMovedex = {
 			// Secondary effect chance depends on the user
 			move.secondaries = [];
 			let statChance = ['Lickitung', 'Lickilicky'].includes(pokemon.species.name) ? 100 : 30;
-			if (this.randomChance(1, 2)){
+			if (this.randomChance(1, 2)) {
 				move.secondaries.push({
 					chance: statChance,
 					status: 'par',
@@ -10496,7 +10496,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMovePower: 100,
 		contestType: "Cute",
-		cfm: true
+		cfm: true,
 	},
 	"lifedew": {
 		num: 791,
@@ -12350,7 +12350,7 @@ let BattleMovedex = {
 				return source.side.foe.active[this.effectData.position];
 			},
 			onDamagingHit(damage, target, source, move) {
-				if (source.side !== target.side && this.getCategory(move) === 'Special') {
+				if (source.side !== target.side && this.getCategory(move, source) === 'Special') {
 					this.effectData.position = source.position;
 					this.effectData.damage = 2 * damage;
 				}
@@ -12538,7 +12538,7 @@ let BattleMovedex = {
 		type: "Fairy",
 		zMoveBoost: {spd: 1},
 		contestType: "Beautiful",
-		cfm: true
+		cfm: true,
 	},
 	"moonblast": {
 		num: 585,
@@ -13047,7 +13047,7 @@ let BattleMovedex = {
 					this.add('-start', pokemon, 'Nightmare');
 				}
 			},
-		
+
 		},
 		secondary: null,
 		target: "normal",
@@ -14565,7 +14565,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spa: 1},
 		contestType: "Clever",
-		cfm: true
+		cfm: true,
 	},
 	"psychoboost": {
 		num: 354,
@@ -14581,7 +14581,7 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, magic: 1},
 		onTry(pokemon, target, move) {
-			if (pokemon.baseTemplate.baseSpecies === 'Deoxys') {
+			if (pokemon.baseSpecies.name === 'Deoxys') {
 				return;
 			}
 			this.add('-fail', pokemon, 'move: Psycho Boost');
@@ -14589,13 +14589,13 @@ let BattleMovedex = {
 			return null;
 		},
 		onModifyMove(move, pokemon, target) {
-			move.secondaries = []
+			move.secondaries = [];
 			let boostedStat = 'spa';
 			if (pokemon.getStat('atk') > pokemon.getStat('spa')) {
 				move.category = "Physical";
 				boostedStat = 'atk';
 			}
-			if (pokemon.species === 'Deoxys'){
+			if (pokemon.species.name === 'Deoxys'){
 				move.basePower = 75;
 				move.secondaries.push({
 					chance: 10,
@@ -14610,7 +14610,7 @@ let BattleMovedex = {
 					},
 				});
 			}
-			else if (pokemon.species === 'Deoxys-Attack'){
+			else if (pokemon.species.name === 'Deoxys-Attack'){
 				move.basePower = 100;
 				move.secondaries.push({
 					chance: 20,
@@ -14621,7 +14621,7 @@ let BattleMovedex = {
 					},
 				});
 			}
-			else if (pokemon.species === 'Deoxys-Defense'){
+			else if (pokemon.species.name === 'Deoxys-Defense'){
 				move.damage = pokemon.level;
 				boostedStat = pokemon.getStat('def') > pokemon.getStat('spd') ? 'def' : 'spd';
 				move.secondaries.push({
@@ -14633,22 +14633,22 @@ let BattleMovedex = {
 					},
 				});
 			}
-			else if (pokemon.species === 'Deoxys-Speed')　{
-                let ratio = (pokemon.getStat('spe') / target.getStat('spe'));
-                this.debug([1, 50, 100, 150, 200][(Math.floor(ratio) > 4 ? 4 : Math.floor(ratio))] + ' bp');
-                if (ratio >= 4) {
-                    move.basePower = 200;
-                }
-                else if (ratio >= 3) {
-                    move.basePower = 150;
-                }
-                else if (ratio >= 2) {
-                    move.basePower = 100;
-                }
-                else if (ratio >= 1) {
-                    move.basePower = 50;
-                }
-                else move.basePower = 1;
+			else if (pokemon.species.name === 'Deoxys-Speed') {
+				let ratio = (pokemon.getStat('spe') / target.getStat('spe'));
+				this.debug([1, 50, 100, 150, 200][(Math.floor(ratio) > 4 ? 4 : Math.floor(ratio))] + ' bp');
+				if (ratio >= 4) {
+					move.basePower = 200;
+				}
+				else if (ratio >= 3) {
+					move.basePower = 150;
+				}
+				else if (ratio >= 2) {
+					move.basePower = 100;
+				}
+				else if (ratio >= 1) {
+					move.basePower = 50;
+				}
+				else move.basePower = 1;
 				move.secondaries.push({
 					chance: 20,
 					self: {
@@ -15248,11 +15248,11 @@ let BattleMovedex = {
 				def: -1,
 			},
 		},
-		target: "normal",	
+		target: "normal",
 		type: "Flying",
 		zMovePower: 160,
 		contestType: "Cool",
-		cfm: true
+		cfm: true,
 	},
 	"recover": {
 		num: 105,
@@ -15458,7 +15458,7 @@ let BattleMovedex = {
 			if (!target.hasAbility('comatose')) {
 				if (!target.setStatus('slp', source, move)) return false;
 				let timer = target.hasAbility('earlybird') ? 1 : 3;
- 				target.statusData.time = timer;
+				target.statusData.time = timer;
 				this.heal(target.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
 			}
 		},
@@ -15533,8 +15533,7 @@ let BattleMovedex = {
 		},
 		self: {
 			onHit(source) {
-				let physical = source.storedStats.atk > source.storedStats.spa ? true : false;
-				if (physical) this.boost({atk:1, def:1, spe:1});
+				if (source.storedStats.atk > source.storedStats.spa) this.boost({atk:1, def:1, spe:1});
 				else this.boost({spa:1, spd:1, spe:1});
 			},
 		},
@@ -15643,7 +15642,7 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {recharge: 1, protect: 1, mirror: 1, sound: 1, authentic: 1, magic: 1},
 		onModifyMove(move, pokemon) {
-			if (pokemon.getStat('spa') > pokemon.getStat('atk')) move.category = 'Special';			
+			if (pokemon.getStat('spa') > pokemon.getStat('atk')) move.category = 'Special';
 			move.secondaries = [];
 			let statBoost = pokemon.getStat('def') < pokemon.getStat('spd') ? 'atk' : 'spa';
 			move.secondaries.push({
@@ -15651,7 +15650,7 @@ let BattleMovedex = {
 				boosts: {
 					[statBoost]: -1,
 				},
-			});			
+			});
 		},
 		// Actual Temporal storm stuff is to-do
 		secondary: null,
@@ -16739,7 +16738,7 @@ let BattleMovedex = {
 		stallingMove: true,
 		volatileStatus: 'shelltrap',
 		onTryHit(target, source, move) {
-			return !!this.willAct() && this.runEvent('StallMove', target);
+			return !!this.queue.willAct() && this.runEvent('StallMove', target);
 		},
 		onHit(pokemon) {
 			pokemon.addVolatile('stall');
@@ -16755,7 +16754,7 @@ let BattleMovedex = {
 					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
 					return;
 				}
-				if (move.type === 'Water' && move.category != 'Status') {
+				if (move.type === 'Water' && move.category !== 'Status') {
 					move.breaksProtect = true;
 					return;
 				}
@@ -17449,7 +17448,7 @@ let BattleMovedex = {
 			noCopy: true,
 			onStart(pokemon) {
 				let applies = false;
-				if (pokemon.baseTemplate.levitates || pokemon.hasItem('floatstone')) applies = true;
+				if (pokemon.species.levitates || pokemon.hasItem('floatstone')) applies = true;
 				if (pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] || this.field.getPseudoWeather('gravity')) applies = false;
 				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
 					applies = true;
@@ -18044,7 +18043,7 @@ let BattleMovedex = {
 					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
 					return;
 				}
-				if (move.type === 'Fire' && move.category != 'Status') {
+				if (move.type === 'Fire' && move.category !== 'Status') {
 					move.breaksProtect = true;
 					return;
 				}
@@ -18076,7 +18075,7 @@ let BattleMovedex = {
 		type: "Steel",
 		zMoveBoost: {def: 1},
 		contestType: "Tough",
-		cfm: true
+		cfm: true,
 	},
 	"spiritbreak": {
 		num: 789,
@@ -18416,7 +18415,7 @@ let BattleMovedex = {
 		flags: {reflectable: 1},
 		sideCondition: 'stickyweb',
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Bug')|| pokemon.template.baseSpecies === 'Masquerain' || move.hasBounced) {
+			if (pokemon.hasType('Bug') || pokemon.speciesid === 'masquerain' || move.hasBounced) {
 				return;
 			}
 			this.add('-fail', pokemon, 'move: Sticky Web');
@@ -19284,7 +19283,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMovePower: 175,
 		contestType: "Clever",
-	},	
+	},
 	"synthesis": {
 		num: 235,
 		accuracy: true,
@@ -19904,7 +19903,7 @@ let BattleMovedex = {
 		type: "Electric",
 		zMovePower: 190,
 		contestType: "Cool",
-		cfm: true
+		cfm: true,
 	},
 	"thunderbolt": {
 		num: 85,
@@ -20139,10 +20138,11 @@ let BattleMovedex = {
 		secondaries: [
 			{
 				chance: 100,
-			boosts: {
-				spe: -1,
+				boosts: {
+					spe: -1,
+				},
 			},
-			}, {
+			{
 				chance: 30,
 				status: 'psn',
 			},
@@ -20633,8 +20633,7 @@ let BattleMovedex = {
 		type: "Bug",
 		zMovePower: 200,
 		contestType: "Tough",
-		cfm: true
-	},
+		cfm: true,
 	},
 	"vitalthrow": {
 		num: 233,
@@ -21436,7 +21435,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMovePower: 175,
 		contestType: "Clever",
-		cfm: true
+		cfm: true,
 	},
 	"zingzap": {
 		num: 716,
@@ -21459,7 +21458,7 @@ let BattleMovedex = {
 		type: "Electric",
 		zMovePower: 175,
 		contestType: "Cool",
-		cfm: true
+		cfm: true,
 	},
 };
 
