@@ -182,7 +182,7 @@ let BattleTypeChart = {
 			"Flying": 0,
 			"Ghost": 0,
 			"Grass": 2,
-			"Ground": 3,
+			"Ground": 2,
 			"Ice": 1,
 			"Normal": 0,
 			"Poison": 0,
