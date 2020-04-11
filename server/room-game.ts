@@ -77,7 +77,7 @@ export class RoomGamePlayer {
  */
 export class RoomGame {
 	readonly roomid: RoomID;
-	readonly room: ChatRoom | GameRoom;
+	room: ChatRoom | GameRoom;
 	gameid: ID;
 	title: string;
 	allowRenames: boolean;
@@ -91,6 +91,11 @@ export class RoomGame {
 	playerCount: number;
 	playerCap: number;
 	ended: boolean;
+	/**
+	 * We should really resolve this collision at _some_ point, but it will have
+	 * to be later. The /timer command is written to be resilient to this.
+	 */
+	timer?: {timerRequesters?: Set<ID>, start: (force?: User) => void, stop: (force?: User) => void} | NodeJS.Timer | null;
 	constructor(room: ChatRoom | GameRoom) {
 		this.roomid = room.roomid;
 		this.room = room;
@@ -190,27 +195,37 @@ export class RoomGame {
 
 	// These are all optional to implement:
 
-	// forfeit(user)
-	//   Called when a user uses /forfeit
-	//   Also planned to be used for some force-forfeit situations, such
-	//   as when a user changes their name and .allowRenames === false
-	//   This is strongly recommended to be supported, as the user is
-	//   extremely unlikely to keep playing after this function is
-	//   called.
+	/**
+	 * Called when a user uses /forfeit
+	 * Also planned to be used for some force-forfeit situations, such
+	 * as when a user changes their name and .allowRenames === false
+	 * This is strongly recommended to be supported, as the user is
+	 * extremely unlikely to keep playing after this function is
+	 * called.
+	 */
+	forfeit?(user: User): void;
 
-	// choose(user, text)
-	//   Called when a user uses /choose [text]
-	//   If you have buttons, you are recommended to use this interface
-	//   instead of making your own commands.
+	/**
+	 * Called when a user uses /choose [text]
+	 * If you have buttons, you are recommended to use this interface
+	 * instead of making your own commands.
+	 */
+	choose?(user: User, text: string): void;
 
-	// undo(user, text)
-	//   Called when a user uses /undo [text]
+	/**
+	 * Called when a user uses /undo [text]
+	 */
+	undo?(user: User, text: string): void;
 
-	// joinGame(user, text)
-	//   Called when a user uses /joingame [text]
+	/**
+	 * Called when a user uses /joingame [text]
+	 */
+	joinGame?(user: User, text?: string): void;
 
-	// leaveGame(user, text)
-	//   Called when a user uses /leavegame [text]
+	/**
+	 * Called when a user uses /leavegame [text]
+	 */
+	leaveGame?(user: User, text?: string): void;
 
 	// Events:
 
@@ -234,7 +249,6 @@ export class RoomGame {
 	 * place in.
 	 */
 	removeBannedUser(user: User) {
-		// @ts-ignore
 		if (this.forfeit) this.forfeit(user);
 	}
 

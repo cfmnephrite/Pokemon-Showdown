@@ -101,6 +101,7 @@ let BattleMovedex = {
 			onBeforeMove(pokemon, target, move) {
 				if (this.effectData.duration === 1) {
 					if (!this.effectData.totalDamage) {
+						this.debug("Bide failed due to 0 damage taken");
 						this.add('-fail', pokemon);
 						return false;
 					}
@@ -254,9 +255,10 @@ let BattleMovedex = {
 			// If both are true, counter will deal twice the last damage dealt in battle, no matter what was the move.
 			// That means that, if opponent switches, counter will use last counter damage * 2.
 			let lastUsedMove = target.side.lastMove && this.dex.getMove(target.side.lastMove.id);
-			if (lastUsedMove && lastUsedMove.basePower > 0 && ['Normal', 'Fighting'].includes(lastUsedMove.type) && this.lastDamage > 0 && !this.willMove(target)) {
+			if (lastUsedMove && lastUsedMove.basePower > 0 && ['Normal', 'Fighting'].includes(lastUsedMove.type) && this.lastDamage > 0 && !this.queue.willMove(target)) {
 				return 2 * this.lastDamage;
 			}
+			this.debug("Gen 1 Counter failed due to conditions not met");
 			this.add('-fail', pokemon);
 			return false;
 		},
@@ -279,7 +281,7 @@ let BattleMovedex = {
 			onInvulnerability(target, source, move) {
 				if (move.id === 'swift') return true;
 				this.add('-message', 'The foe ' + target.name + ' can\'t be hit underground!');
-				return null;
+				return false;
 			},
 			onDamage(damage, target, source, move) {
 				if (!move || move.effectType !== 'Move') return;
@@ -302,7 +304,7 @@ let BattleMovedex = {
 				return duration;
 			},
 			onStart(pokemon) {
-				if (!this.willMove(pokemon)) {
+				if (!this.queue.willMove(pokemon)) {
 					this.effectData.duration++;
 				}
 				let moves = pokemon.moves;
@@ -416,7 +418,7 @@ let BattleMovedex = {
 			onInvulnerability(target, source, move) {
 				if (move.id === 'swift') return true;
 				this.add('-message', 'The foe ' + target.name + ' can\'t be hit while flying!');
-				return null;
+				return false;
 			},
 			onDamage(damage, target, source, move) {
 				if (!move || move.effectType !== 'Move') return;
@@ -558,7 +560,7 @@ let BattleMovedex = {
 					residualdmg.counter++;
 					toxicCounter = residualdmg.counter;
 				}
-				let toLeech = this.dex.clampIntRange(Math.floor(pokemon.maxhp / 16), 1) * toxicCounter;
+				let toLeech = this.dex.clampIntRange(Math.floor(pokemon.baseMaxhp / 16), 1) * toxicCounter;
 				let damage = this.damage(toLeech, pokemon, leecher);
 				if (residualdmg) this.hint("In Gen 1, Leech Seed's damage is affected by Toxic's counter.", true);
 				if (!damage || toLeech > damage) {

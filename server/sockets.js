@@ -5,7 +5,7 @@
  * Abstraction layer for multi-process SockJS connections.
  *
  * This file handles all the communications between the users'
- * browsers, the networking processes, and users.js in the
+ * browsers, the networking processes, and users.ts in the
  * main process.
  *
  * @license MIT
@@ -474,6 +474,7 @@ if (cluster.isMaster) {
 
 		switch (data.charAt(0)) {
 		case '$': // $code
+			// eslint-disable-next-line no-eval
 			eval(data.substr(1));
 			break;
 
@@ -694,5 +695,6 @@ if (cluster.isMaster) {
 
 	/** @type {typeof import('../lib/repl').Repl} */
 	const Repl = require(/** @type {any} */('../.lib-dist/repl')).Repl;
+	// eslint-disable-next-line no-eval
 	Repl.start(`sockets-${cluster.worker.id}-${process.pid}`, cmd => eval(cmd));
 }

@@ -1,6 +1,6 @@
 'use strict';
 
-/**@type {{[k: string]: ModdedTemplateData}} */
+/**@type {{[k: string]: ModdedSpeciesData}} */
 let BattlePokedex = {
 	charizard: {
 		inherit: true,
@@ -78,6 +78,30 @@ let BattlePokedex = {
 		inherit: true,
 		otherFormes: undefined,
 	},
+	ralts: {
+		inherit: true,
+		eggGroups: ["Amorphous"],
+	},
+	kirlia: {
+		inherit: true,
+		eggGroups: ["Amorphous"],
+	},
+	gardevoir: {
+		inherit: true,
+		eggGroups: ["Amorphous"],
+	},
+	trapinch: {
+		inherit: true,
+		eggGroups: ["Bug"],
+	},
+	vibrava: {
+		inherit: true,
+		eggGroups: ["Bug"],
+	},
+	flygon: {
+		inherit: true,
+		eggGroups: ["Bug"],
+	},
 	leafeon: {
 		inherit: true,
 		evoType: "levelExtra",
@@ -87,6 +111,10 @@ let BattlePokedex = {
 		inherit: true,
 		evoType: "levelExtra",
 		evoCondition: "near an Ice Rock",
+	},
+	gallade: {
+		inherit: true,
+		eggGroups: ["Amorphous"],
 	},
 	heatran: {
 		inherit: true,
@@ -119,6 +147,26 @@ let BattlePokedex = {
 	gourgeistlarge: {
 		inherit: true,
 		abilities: {0: "Pickup", 1: "Frisk"},
+	},
+	hawlucha: {
+		inherit: true,
+		eggGroups: ["Human-Like"],
+	},
+	bergmite: {
+		inherit: true,
+		eggGroups: ["Monster"],
+	},
+	avalugg: {
+		inherit: true,
+		eggGroups: ["Monster"],
+	},
+	noibat: {
+		inherit: true,
+		eggGroups: ["Flying"],
+	},
+	noivern: {
+		inherit: true,
+		eggGroups: ["Flying"],
 	},
 	vikavolt: {
 		inherit: true,

@@ -558,7 +558,7 @@ let BattleAbilities = {
 		shortDesc: "If this Pokemon is hit by an attack, there is a 30% chance that move gets disabled.",
 		onDamagingHit(damage, target, source, move) {
 			if (!source || source.volatiles['disable']) return;
-			if (source !== target && move && move.effectType === 'Move' && !move.isFutureMove) {
+			if (!move.isFutureMove) {
 				let r = this.random(10);
 				if (r < 3 || r < 6 && target.hp == 0) {
 					source.addVolatile('disable', this.effectData.target);
@@ -1638,7 +1638,7 @@ let BattleAbilities = {
 		shortDesc: "Restores 1/6 HP per turn in Hail; 10% chance to freeze contact attackers.",
 		onWeather(target, source, effect) {
 			if (effect.id === 'hail') {
-				this.heal(target.maxhp / 6);
+				this.heal(target.baseMaxhp / 6);
 			}
 		},
 		onImmunity(type, pokemon) {
@@ -3251,7 +3251,7 @@ let BattleAbilities = {
 		onWeather(target, source, effect) {
 			if (target.hasItem('utilityumbrella')) return;
 			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
-				this.heal(target.maxhp / 6);
+				this.heal(target.baseMaxhp / 6);
 			}
 		},
 		id: "raindish",
