@@ -19,7 +19,7 @@ let BattleStatuses = {
 		// Damage reduction is handled directly in the sim/battle.js damage function
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			this.damage(pokemon.maxhp / 16);
+			this.damage(pokemon.baseMaxhp / 16);
 		},
 	},
 	par: {
@@ -63,9 +63,8 @@ let BattleStatuses = {
 			// 1-3 turns
 			if (target.hasAbility('earlybird')) {
 				this.effectData.time = 1;
-				if (this.willMove(target)) this.effectData.time++;
-			}
-			else this.effectData.time = this.random(2, 5);
+				if (this.queue.willMove(target)) this.effectData.time++;
+			} else this.effectData.time = this.random(2, 5);
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
@@ -93,7 +92,7 @@ let BattleStatuses = {
 			} else {
 				this.add('-status', target, 'frz');
 			}
-			if (target.template.species === 'Shaymin-Sky' && target.baseTemplate.baseSpecies === 'Shaymin') {
+			if (target.species.name === 'Shaymin-Sky' && target.baseSpecies.baseSpecies === 'Shaymin') {
 				target.formeChange('Shaymin', this.effect, true);
 			}
 		},
@@ -133,7 +132,7 @@ let BattleStatuses = {
 		},
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			this.damage(pokemon.maxhp / 8);
+			this.damage(pokemon.baseMaxhp / 8);
 		},
 	},
 	tox: {
@@ -159,7 +158,7 @@ let BattleStatuses = {
 			if (this.effectData.stage < 15) {
 				this.effectData.stage++;
 			}
-			this.damage(this.dex.clampIntRange(pokemon.maxhp / 16, 1) * this.effectData.stage);
+			this.damage(this.dex.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectData.stage);
 		},
 	},
 	confusion: {
@@ -209,10 +208,8 @@ let BattleStatuses = {
 		duration: 1,
 		onBeforeMovePriority: 8,
 		onBeforeMove(pokemon) {
-			if (!this.runEvent('Flinch', pokemon)) {
-				return;
-			}
 			this.add('cant', pokemon, 'flinch');
+			this.runEvent('Flinch', pokemon);
 			return false;
 		},
 	},
@@ -251,15 +248,18 @@ let BattleStatuses = {
 		},
 		onResidualOrder: 11,
 		onResidual(pokemon) {
-			if (this.effectData.source && (!this.effectData.source.isActive || this.effectData.source.hp <= 0 || !this.effectData.source.activeTurns)) {
+			const source = this.effectData.source;
+			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
+				// G-Max Centiferno and G-Max Sandblast continue even after the user leaves the field
+				if (['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectData.sourceEffect.id)) return;
 				delete pokemon.volatiles['partiallytrapped'];
 				this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]', '[silent]');
 				return;
 			}
-			if (this.effectData.source.hasItem('bindingband')) {
-				this.damage(pokemon.maxhp / 6);
+			if (source.hasItem('bindingband')) {
+				this.damage(pokemon.baseMaxhp / 6);
 			} else {
-				this.damage(pokemon.maxhp / 8);
+				this.damage(pokemon.baseMaxhp / 8);
 			}
 		},
 		onEnd(pokemon) {
@@ -296,6 +296,7 @@ let BattleStatuses = {
 			target.addVolatile('confusion');
 		},
 		onLockMove(pokemon) {
+			if (pokemon.volatiles['dynamax']) return;
 			return this.effectData.move;
 		},
 	},
@@ -339,6 +340,7 @@ let BattleStatuses = {
 				// Fails unless the Choice item is being ignored, and no PP is lost
 				this.addMove('move', pokemon, move.name);
 				this.attrLastMove('[still]');
+				this.debug("Disabled by Choice item lock");
 				this.add('-fail', pokemon);
 				return false;
 			}
@@ -481,6 +483,7 @@ let BattleStatuses = {
 			return 5;
 		},
 		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Water') {
 				this.debug('rain water boost');
 				return this.chainModify(1.25);
@@ -523,13 +526,14 @@ let BattleStatuses = {
 			}
 		},
 		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Water') {
 				this.debug('Rain water boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onEffectiveness(typeMod, target, type, move) {
-			if (move && move.effectType === 'Move' && move.type === 'Fire' && !move.ignoreWeather && typeMod > 0){
+			if (move && move.effectType === 'Move' && move.type === 'Fire' && !move.ignoreWeather && typeMod > 0) {
 				return 0;
 			}
 		},
@@ -561,6 +565,7 @@ let BattleStatuses = {
 			return 5;
 		},
 		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Fire') {
 				this.debug('Sunny Day fire boost');
 				return this.chainModify(1.25);
@@ -578,7 +583,8 @@ let BattleStatuses = {
 				this.add('-weather', 'SunnyDay');
 			}
 		},
-		onImmunity(type) {
+		onImmunity(type, pokemon) {
+			if (pokemon.hasItem('utilityumbrella')) return;
 			if (type === 'frz') return false;
 		},
 		onResidualOrder: 1,
@@ -606,20 +612,22 @@ let BattleStatuses = {
 			}
 		},
 		onWeatherModifyDamage(damage, attacker, defender, move) {
+			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Fire') {
 				this.debug('Sunny Day fire boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onEffectiveness(typeMod, target, type, move) {
-			if (move && move.effectType === 'Move' && move.type === 'Water' && !move.ignoreWeather && typeMod > 0){
+			if (move && move.effectType === 'Move' && move.type === 'Water' && !move.ignoreWeather && typeMod > 0) {
 				return 0;
 			}
 		},
 		onStart(battle, source, effect) {
 			this.add('-weather', 'DesolateLand', '[from] ability: ' + effect, '[of] ' + source);
 		},
-		onImmunity(type) {
+		onImmunity(type, pokemon) {
+			if (pokemon.hasItem('utilityumbrella')) return;
 			if (type === 'frz') return false;
 		},
 		onResidualOrder: 1,
@@ -668,7 +676,7 @@ let BattleStatuses = {
 			if (this.field.isWeather('sandstorm')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			this.damage(target.maxhp / 16);
+			this.damage(target.baseMaxhp / 16);
 		},
 		onEnd() {
 			this.add('-weather', 'none');
@@ -710,7 +718,7 @@ let BattleStatuses = {
 			if (this.field.isWeather('hail')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			this.damage(target.maxhp / 16);
+			this.damage(target.baseMaxhp / 16);
 		},
 		onEnd() {
 			this.add('-weather', 'none');
@@ -741,53 +749,6 @@ let BattleStatuses = {
 		},
 	},
 
-	dynamax: {
-		name: 'Dynamax',
-		id: 'dynamax',
-		num: 0,
-		duration: 3,
-		onStart(pokemon) {
-			//this.add('-dynamax', pokemon);
-			this.add('-start', pokemon, "Dynamax");
-			if (pokemon.canGigantamax) pokemon.formeChange(pokemon.canGigantamax);
-			if (pokemon.species === 'Shedinja') return;
-			let ratio = (1 / 2); // Changes based on dynamax level, static (LVL 10) until we know the levels
-			pokemon.maxhp = Math.floor(pokemon.maxhp / ratio);
-			pokemon.hp = Math.floor(pokemon.hp / ratio);
-			// TODO work on display for healing
-			this.add('-heal', pokemon, pokemon.getHealth, '[from] Dynamax');
-		},
-		onFlinch: false,
-		onBeforeSwitchOut(pokemon) {
-			// Run the end event
-			// pokemon.volatiles.dynamax.onEnd(pokemon);
-			//this.add('-undynamax', pokemon);
-			this.add('-end', pokemon, "Dynamax");
-			if (pokemon.canGigantamax) pokemon.formeChange(pokemon.baseTemplate.species);
-			if (pokemon.species === 'Shedinja') return;
-			let ratio = (1 / 2); // Changes based on dynamax level, static (LVL 10) until we know the levels
-			pokemon.maxhp = Math.floor(pokemon.maxhp * ratio); // TODO prevent maxhp loss
-			pokemon.hp = Math.floor(pokemon.hp * ratio);
-			if (pokemon.hp <= 0) pokemon.hp = 1;
-			// TODO work on display for healing
-			this.add('-heal', pokemon, pokemon.getHealth, '[from] Dynamax');
-		},
-		onEnd(pokemon) {
-			// Play animation
-			// Modify HP - Work with LVL 0 for now
-			//this.add('-undynamax', pokemon);
-			this.add('-end', pokemon, "Dynamax");
-			if (pokemon.canGigantamax) pokemon.formeChange(pokemon.baseTemplate.species);
-			if (pokemon.species === 'Shedinja') return;
-			let ratio = (1 / 2); // Changes based on dynamax level, static (LVL 10) until we know the levels
-			pokemon.maxhp = Math.floor(pokemon.maxhp * ratio); // TODO prevent maxhp loss
-			pokemon.hp = Math.floor(pokemon.hp * ratio);
-			if (pokemon.hp <= 0) pokemon.hp = 1;
-			// TODO work on display for healing
-			this.add('-heal', pokemon, pokemon.getHealth, '[from] Dynamax');
-		},
-	},
-	
 	// CFM Gooey + Hyper Cutter
 	gooey: {
 		name: 'Gooey',
@@ -808,10 +769,10 @@ let BattleStatuses = {
 		duration: 1,
 		onStart(target, source) {
 			this.add('-activate', source, 'ability: Hyper Cutter');
-			this.boost({atk: 1}, source);		
+			this.boost({atk: 1}, source);
 		},
 	},
-	
+
 	charge: {
 		name: 'Charge',
 		id: 'charge',
@@ -828,6 +789,7 @@ let BattleStatuses = {
 				return this.chainModify(2);
 			}
 		},
+		onResidualOrder: 30,
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'move: Charge', '[silent]');
 		},
@@ -845,7 +807,7 @@ let BattleStatuses = {
 		num: 493,
 		onTypePriority: 1,
 		onType(types, pokemon) {
-			if (pokemon.transformed) return types;
+			if (pokemon.transformed || pokemon.ability !== 'multitype' && this.gen >= 8) return types;
 			/** @type {string | undefined} */
 			let type = pokemon.getItem().onPlate;
 			if (!type) {
@@ -860,7 +822,7 @@ let BattleStatuses = {
 		num: 773,
 		onTypePriority: 1,
 		onType(types, pokemon) {
-			if (pokemon.transformed) return types;
+			if (pokemon.transformed || pokemon.ability !== 'rkssystem' && this.gen >= 8) return types;
 			/** @type {string | undefined} */
 			let type = pokemon.getItem().onMemory;
 			if (!type) {
@@ -869,7 +831,7 @@ let BattleStatuses = {
 			return [type];
 		},
 	},
-	
+
 	// CFM type changing mons
 	unown: {
 		name: 'Unown',
@@ -879,7 +841,7 @@ let BattleStatuses = {
 			if (pokemon.hpType) {
 				pokemon.setType(pokemon.hpType);
 			}
-		},	
+		},
 	},
 	kecleon: {
 		name: 'Kecleon',
@@ -893,7 +855,7 @@ let BattleStatuses = {
 					types.push(this.dex.getMove(pokemon.moveSlots[1].move).type);
 				pokemon.setType(types);
 			}
-		},	
+		},
 	},
 	solgaleo: {
 		name: 'Solgaleo',

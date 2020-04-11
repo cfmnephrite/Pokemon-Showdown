@@ -844,38 +844,6 @@ let BattleFormats = {
 		desc: "Tells formats with the 'letsgo' mod to take Awakening Values into consideration when calculating stats",
 		// Implemented in mods/letsgo/rulesets.js
 	},
-
-	//CFM Rules -tbd
-	cfmmoves: {
-		effectType: 'Rule',
-		name: 'CFM Moves',
-		desc: "To-do",
-	},
-	cfmou: {
-		effectType: 'Rule',
-		name: 'CFM OU',
-		desc: "To-do",
-	},
-	cfmuu: {
-		effectType: 'Rule',
-		name: 'CFM UU',
-		desc: "To-do",
-	},
-	cfmru: {
-		effectType: 'Rule',
-		name: 'CFM RU',
-		desc: "To-do",
-	},
-	cfmnu: {
-		effectType: 'Rule',
-		name: 'CFM NU',
-		desc: "To-do",
-	},
-	cfmpu: {
-		effectType: 'Rule',
-		name: 'CFM PU',
-		desc: "To-do",
-	},
 	nfeclause: {
 		effectType: 'ValidatorRule',
 		name: 'NFE Clause',

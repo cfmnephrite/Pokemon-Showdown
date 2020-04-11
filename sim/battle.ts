@@ -1977,9 +1977,9 @@ export class Battle {
 		return tr((tr(value * modifier) + 2048 - 1) / 4096);
 	}
 
-	getCategory(move: string | Move, source: Pokemon) {
+	getCategory(move: string | Move, source: Pokemon | null = null) {
 		let output = this.dex.getMove(move).category || 'Physical';
-		if (this.dex.getMove(move).flags['magic']) {
+		if (source && this.dex.getMove(move).flags['magic']) {
 			if (output === 'Physical' && source.getStat('spa') > source.getStat('atk')) output = 'Special';
 			else if (output === 'Special' && source.getStat('atk') > source.getStat('spa')) output = 'Physical';
 		}

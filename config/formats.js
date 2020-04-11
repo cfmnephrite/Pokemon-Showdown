@@ -574,7 +574,7 @@ let Formats = [
 
 		mod: 'cfm',
 		//cfacTier: 'OU',
-		ruleset: ['Obtainable', 'Baton Pass Clause', 'CFM OU', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Standard'],
+		ruleset: ['Obtainable', 'Baton Pass Clause', 'CFM OU Rules', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Standard'],
 		banlist: ['CFUb', 'Power Construct'],
 	},
 	{
@@ -582,7 +582,7 @@ let Formats = [
 
 		mod: 'cfm',
 		//cfacTier: 'UU',
-		ruleset: ['[Gen 8] CFM OU', 'CFM UU'],
+		ruleset: ['[Gen 8] CFM OU', 'CFM UU Rules'],
 		banlist: ['CFOU', 'Mewnium Z', 'Kommonium Z', 'Drought', 'Drizzle', 'Flower Gift'],
 	},
 	{
@@ -590,7 +590,7 @@ let Formats = [
 
 		mod: 'cfm',
 		//cfacTier: 'RU',
-		ruleset: ['[Gen 8] CFM UU', 'CFM RU'],
+		ruleset: ['[Gen 8] CFM UU', 'CFM RU Rules'],
 		banlist: ['CFUU'],
 	},
 	{
@@ -598,7 +598,7 @@ let Formats = [
 
 		mod: 'cfm',
 		//cfacTier: 'NU',
-		ruleset: ['[Gen 8] CFM RU', 'CFM NU'],
+		ruleset: ['[Gen 8] CFM RU', 'CFM NU Rules'],
 		banlist: ['CFRU', 'Sand Stream', 'Snow Warning'],
 	},
 	{
@@ -606,7 +606,7 @@ let Formats = [
 
 		mod: 'cfm',
 		//cfacTier: 'PU',
-		ruleset: ['[Gen 8] CFM NU', 'CFM PU'],
+		ruleset: ['[Gen 8] CFM NU', 'CFM PU Rules'],
 		banlist: ['CFNU'],
 	},
 
