@@ -1593,6 +1593,8 @@ export class TeamValidator {
 				problemString += ` is not available in generation ${problem.gen}.`;
 			} else if (problem.type === 'invalid') {
 				problemString = `${name} can't learn ${problem.moveName}.`;
+			} else if (problem.type === 'cfmprevoonly') { //CFM
+				problemString = `${problem.moveName} can only be learned by ${name}'s previous evolutions.`;
 			} else {
 				throw new Error(`Unrecognized problem ${JSON.stringify(problem)}`);
 			}
@@ -1737,6 +1739,9 @@ export class TeamValidator {
 				if (typeof lset === 'string') lset = [lset];
 
 				for (let learned of lset) {
+
+					// CFM - some moves can only be learned by prevolutions, not by their evolutions
+					if (learned.charAt(0) === 'X') return {type: 'cfmprevoonly'};
 					// Every `learned` represents a single way a pokemon might
 					// learn a move. This can be handled one of several ways:
 					// `continue`
