@@ -3,7 +3,7 @@
 /**@type {{[k: string]: ModdedSpeciesFormatsData}} */
 let BattleFormatsData = {
 	bulbasaur: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	ivysaur: {
@@ -12,16 +12,16 @@ let BattleFormatsData = {
 	},
 	venusaur: {
 		randomBattleMoves: ["gigadrain", "leechseed", "sleeppowder", "sludgebomb", "substitute"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	venusaurmega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	charmander: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	charmeleon: {
@@ -30,17 +30,17 @@ let BattleFormatsData = {
 	},
 	charizard: {
 		randomBattleMoves: ["acrobatics", "dragondance", "earthquake", "flareblitz"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	charizardmegax: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	charizardmegay: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	charizardgmax: {
@@ -48,7 +48,7 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	squirtle: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	wartortle: {
@@ -57,25 +57,25 @@ let BattleFormatsData = {
 	},
 	blastoise: {
 		randomBattleMoves: ["aurasphere", "hydropump", "icebeam", "rapidspin", "scald", "shellsmash"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	blastoisemega: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	caterpie: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	metapod: {
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	butterfree: {
 		randomBattleMoves: ["airslash", "bugbuzz", "energyball", "hurricane", "quiverdance", "sleeppowder"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	butterfreegmax: {
@@ -84,27 +84,27 @@ let BattleFormatsData = {
 	},
 	weedle: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	kakuna: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	beedrill: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	beedrillmega: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	pidgey: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	pidgeotto: {
@@ -114,32 +114,32 @@ let BattleFormatsData = {
 	},
 	pidgeot: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	pidgeotmega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	rattata: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	rattataalola: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	raticate: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	raticatealola: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	raticatealolatotem: {
@@ -148,71 +148,71 @@ let BattleFormatsData = {
 	},
 	spearow: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	fearow: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	ekans: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	arbok: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	pichu: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	pichuspikyeared: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	pikachu: {
 		randomBattleMoves: ["grassknot", "surf", "thunderbolt", "voltswitch", "volttackle"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	raichu: {
 		randomBattleMoves: ["encore", "focusblast", "grassknot", "nastyplot", "thunderbolt", "voltswitch"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	raichualola: {
 		randomBattleMoves: ["focusblast", "nastyplot", "psychic", "surf", "thunderbolt", "voltswitch"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	sandshrew: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	sandshrewalola: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	sandslash: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	sandslashalola: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	nidoranf: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	nidorina: {
@@ -222,12 +222,12 @@ let BattleFormatsData = {
 	},
 	nidoqueen: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	nidoranm: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	nidorino: {
@@ -237,43 +237,43 @@ let BattleFormatsData = {
 	},
 	nidoking: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	cleffa: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	clefairy: {
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	clefable: {
 		randomBattleMoves: ["calmmind", "fireblast", "moonblast", "moonlight", "stealthrock", "thunderwave"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	vulpix: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	vulpixalola: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	ninetales: {
 		randomBattleMoves: ["fireblast", "nastyplot", "solarbeam", "substitute", "willowisp"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	ninetalesalola: {
 		randomBattleMoves: ["auroraveil", "blizzard", "freezedry", "moonblast", "nastyplot", "substitute"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	igglybuff: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	jigglypuff: {
@@ -283,26 +283,26 @@ let BattleFormatsData = {
 	},
 	wigglytuff: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	zubat: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	golbat: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	crobat: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	oddish: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	gloom: {
@@ -311,58 +311,58 @@ let BattleFormatsData = {
 	},
 	vileplume: {
 		randomBattleMoves: ["aromatherapy", "gigadrain", "leechseed", "sleeppowder", "sludgebomb", "strengthsap"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	bellossom: {
 		randomBattleMoves: ["gigadrain", "moonblast", "quiverdance", "sleeppowder", "strengthsap"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	paras: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	parasect: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	venonat: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	venomoth: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	diglett: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	diglettalola: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	dugtrio: {
 		randomBattleMoves: ["earthquake", "memento", "reversal", "stealthrock", "stoneedge", "substitute"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	dugtrioalola: {
 		randomBattleMoves: ["earthquake", "ironhead", "stoneedge", "substitute", "suckerpunch"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	meowth: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	meowthalola: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	meowthgalar: {
@@ -375,12 +375,12 @@ let BattleFormatsData = {
 	},
 	persian: {
 		randomBattleMoves: ["hypervoice", "icywind", "nastyplot", "taunt", "thunderbolt"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	persianalola: {
 		randomBattleMoves: ["darkpulse", "hypnosis", "nastyplot", "powergem", "thunderbolt"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	perrserker: {
@@ -390,36 +390,36 @@ let BattleFormatsData = {
 	},
 	psyduck: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	golduck: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	mankey: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	primeape: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	growlithe: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	arcanine: {
 		randomBattleMoves: ["closecombat", "crunch", "extremespeed", "flareblitz", "morningsun", "roar", "wildcharge", "willowisp"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	poliwag: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	poliwhirl: {
@@ -429,45 +429,45 @@ let BattleFormatsData = {
 	},
 	poliwrath: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	politoed: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	abra: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	kadabra: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	alakazam: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	alakazammega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	machop: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	machoke: {
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	machamp: {
 		randomBattleMoves: ["bulletpunch", "dynamicpunch", "knockoff", "stoneedge", "substitute"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	machampgmax: {
@@ -476,7 +476,7 @@ let BattleFormatsData = {
 	},
 	bellsprout: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	weepinbell: {
@@ -486,27 +486,27 @@ let BattleFormatsData = {
 	},
 	victreebel: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	tentacool: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	tentacruel: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	geodude: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	geodudealola: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	graveler: {
@@ -521,16 +521,16 @@ let BattleFormatsData = {
 	},
 	golem: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	golemalola: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	ponyta: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	ponytagalar: {
@@ -539,7 +539,7 @@ let BattleFormatsData = {
 	},
 	rapidash: {
 		randomBattleMoves: ["flareblitz", "highhorsepower", "morningsun", "swordsdance", "wildcharge", "willowisp"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	rapidashgalar: {
@@ -549,42 +549,42 @@ let BattleFormatsData = {
 	},
 	slowpoke: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	slowbro: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	slowbromega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	slowking: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	magnemite: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	magneton: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	magnezone: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	farfetchd: {
 		randomBattleMoves: ["bodyslam", "bravebird", "closecombat", "knockoff", "leafblade", "roost", "swordsdance"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	farfetchdgalar: {
@@ -598,69 +598,69 @@ let BattleFormatsData = {
 	},
 	doduo: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	dodrio: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	seel: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	dewgong: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	grimer: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	grimeralola: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	muk: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	mukalola: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	shellder: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	cloyster: {
 		randomBattleMoves: ["hydropump", "iciclespear", "pinmissile", "rockblast", "shellsmash"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	gastly: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	haunter: {
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	gengar: {
 		randomBattleMoves: ["focusblast", "nastyplot", "shadowball", "sludgewave", "substitute", "willowisp"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	gengarmega: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	gengargmax: {
@@ -668,36 +668,36 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	onix: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	steelix: {
 		randomBattleMoves: ["curse", "earthquake", "ironhead", "rockslide", "stealthrock"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	steelixmega: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	drowzee: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	hypno: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	krabby: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	kingler: {
 		randomBattleMoves: ["liquidation", "xscissor", "rockslide", "swordsdance", "agility", "superpower", "knockoff"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	kinglergmax: {
@@ -706,42 +706,42 @@ let BattleFormatsData = {
 	},
 	voltorb: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	electrode: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	exeggcute: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	exeggutor: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	exeggutoralola: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	cubone: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	marowak: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	marowakalola: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	marowakalolatotem: {
@@ -749,41 +749,41 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	tyrogue: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	hitmonlee: {
 		randomBattleMoves: ["fakeout", "highjumpkick", "machpunch", "poisonjab", "rapidspin", "stoneedge", "throatchop"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	hitmonchan: {
 		randomBattleMoves: ["bulkup", "drainpunch", "firepunch", "icepunch", "machpunch", "rapidspin"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	hitmontop: {
 		randomBattleMoves: ["bulletpunch", "closecombat", "machpunch", "rapidspin", "stoneedge", "suckerpunch"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	lickitung: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	lickilicky: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	koffing: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	weezing: {
 		randomBattleMoves: ["defog", "fireblast", "painsplit", "sludgebomb", "toxicspikes", "willowisp"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	weezinggalar: {
@@ -792,96 +792,96 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	rhyhorn: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	rhydon: {
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	rhyperior: {
 		randomBattleMoves: ["earthquake", "firepunch", "megahorn", "rockblast", "rockpolish", "stealthrock", "stoneedge"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	happiny: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	chansey: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	blissey: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	tangela: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	tangrowth: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	kangaskhan: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	kangaskhanmega: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	horsea: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	seadra: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	kingdra: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	goldeen: {
 		unreleasedHidden: false,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	seaking: {
 		randomBattleMoves: ["drillrun", "megahorn", "swordsdance", "throatchop", "waterfall"],
 		unreleasedHidden: false,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	staryu: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	starmie: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	mimejr: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	mrmime: {
 		randomBattleMoves: ["dazzlinggleam", "encore", "focusblast", "healingwish", "nastyplot", "psychic", "shadowball"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	mrmimegalar: {
@@ -895,32 +895,32 @@ let BattleFormatsData = {
 	},
 	scyther: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	scizor: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	scizormega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	smoochum: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	jynx: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	elekid: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	electabuzz: {
@@ -930,12 +930,12 @@ let BattleFormatsData = {
 	},
 	electivire: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	magby: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	magmar: {
@@ -945,41 +945,41 @@ let BattleFormatsData = {
 	},
 	magmortar: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	pinsir: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	pinsirmega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	tauros: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	magikarp: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	gyarados: {
 		randomBattleMoves: ["dragondance", "earthquake", "powerwhip", "stoneedge", "substitute", "waterfall"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	gyaradosmega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	lapras: {
 		randomBattleMoves: ["freezedry", "icebeam", "sparklingaria", "substitute", "thunderbolt"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	laprasgmax: {
@@ -988,11 +988,11 @@ let BattleFormatsData = {
 	},
 	ditto: {
 		randomBattleMoves: ["transform"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	eevee: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	eeveestarter: {
@@ -1006,42 +1006,42 @@ let BattleFormatsData = {
 	},
 	vaporeon: {
 		randomBattleMoves: ["haze", "icebeam", "protect", "scald", "wish", "yawn"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	jolteon: {
 		randomBattleMoves: ["raindance", "shadowball", "thunder", "voltswitch", "weatherball"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	flareon: {
 		randomBattleMoves: ["facade", "flareblitz", "quickattack", "superpower"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	espeon: {
 		randomBattleMoves: ["calmmind", "dazzlinggleam", "morningsun", "psychic", "shadowball"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	umbreon: {
 		randomBattleMoves: ["foulplay", "protect", "taunt", "wish"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	leafeon: {
 		randomBattleMoves: ["doubleedge", "leafblade", "swordsdance", "synthesis", "xscissor"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	glaceon: {
 		randomBattleMoves: ["freezedry", "icebeam", "protect", "shadowball", "wish"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	sylveon: {
 		randomBattleMoves: ["hypervoice", "mysticalfire", "protect", "psyshock", "shadowball", "wish"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	porygon: {
@@ -1050,86 +1050,86 @@ let BattleFormatsData = {
 	},
 	porygon2: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	porygonz: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	omanyte: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	omastar: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	kabuto: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	kabutops: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	aerodactyl: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	aerodactylmega: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	munchlax: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	snorlax: {
 		randomBattleMoves: ["bodyslam", "curse", "darkestlariat", "earthquake", "firepunch", "rest", "sleeptalk"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	articuno: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	zapdos: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	moltres: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	dratini: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	dragonair: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	dragonite: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	mewtwo: {
 		randomBattleMoves: ["aurasphere", "icebeam", "nastyplot", "psystrike", "recover"],
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	mewtwomegax: {
@@ -1142,12 +1142,12 @@ let BattleFormatsData = {
 	},
 	mew: {
 		randomBattleMoves: ["closecombat", "megahorn", "powerwhip", "psychicfangs", "swordsdance", "uturn"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	chikorita: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	bayleef: {
@@ -1157,12 +1157,12 @@ let BattleFormatsData = {
 	},
 	meganium: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	cyndaquil: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	quilava: {
@@ -1172,12 +1172,12 @@ let BattleFormatsData = {
 	},
 	typhlosion: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	totodile: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	croconaw: {
@@ -1187,82 +1187,82 @@ let BattleFormatsData = {
 	},
 	feraligatr: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	sentret: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	furret: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	hoothoot: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	noctowl: {
 		randomBattleMoves: ["defog", "heatwave", "hurricane", "nastyplot", "roost", "whirlwind"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	ledyba: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	ledian: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	spinarak: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	ariados: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	chinchou: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	lanturn: {
 		randomBattleMoves: ["hydropump", "icebeam", "scald", "thunderbolt", "thunderwave", "voltswitch"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	togepi: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	togetic: {
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	togekiss: {
 		randomBattleMoves: ["airslash", "aurasphere", "morningsun", "nastyplot", "thunderwave"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	natu: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	xatu: {
 		randomBattleMoves: ["heatwave", "lightscreen", "psychic", "reflect", "roost", "thunderwave", "uturn"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	mareep: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	flaaffy: {
@@ -1272,41 +1272,41 @@ let BattleFormatsData = {
 	},
 	ampharos: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	ampharosmega: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	azurill: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	marill: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	azumarill: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	bonsly: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	sudowoodo: {
 		randomBattleMoves: ["earthquake", "headsmash", "stealthrock", "suckerpunch", "woodhammer"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	hoppip: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	skiploom: {
@@ -1316,187 +1316,187 @@ let BattleFormatsData = {
 	},
 	jumpluff: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	aipom: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	ambipom: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	sunkern: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	sunflora: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	yanma: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	yanmega: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	wooper: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	quagsire: {
 		randomBattleMoves: ["earthquake", "encore", "icebeam", "recover", "scald", "toxic"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	murkrow: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	honchkrow: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	misdreavus: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	mismagius: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	unown: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	wynaut: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	wobbuffet: {
 		randomBattleMoves: ["counter", "destinybond", "encore", "mirrorcoat"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	girafarig: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	pineco: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	forretress: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	dunsparce: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	gligar: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	gliscor: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	snubbull: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	granbull: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	qwilfish: {
 		randomBattleMoves: ["destinybond", "liquidation", "spikes", "taunt", "thunderwave", "toxic", "toxicspikes"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	shuckle: {
 		randomBattleMoves: ["encore", "infestation", "knockoff", "stealthrock", "stickyweb", "toxic"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	heracross: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	heracrossmega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	sneasel: {
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	weavile: {
 		randomBattleMoves: ["iceshard", "iciclecrash", "lowkick", "swordsdance", "throatchop"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	teddiursa: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	ursaring: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	slugma: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	magcargo: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	swinub: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	piloswine: {
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	mamoswine: {
 		randomBattleMoves: ["earthquake", "iceshard", "iciclecrash", "stealthrock", "superpower"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	corsola: {
 		randomBattleMoves: ["lightscreen", "reflect", "recover", "scald", "stealthrock"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	corsolagalar: {
@@ -1508,124 +1508,124 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	remoraid: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	octillery: {
 		randomBattleMoves: ["energyball", "fireblast", "gunkshot", "hydropump", "icebeam", "rockblast"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	delibird: {
 		randomBattleMoves: ["freezedry", "memento", "rapidspin", "spikes"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	mantyke: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	mantine: {
 		randomBattleMoves: ["airslash", "haze", "mirrorcoat", "roost", "scald", "tailwind"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	skarmory: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	houndour: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	houndoom: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	houndoommega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	phanpy: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	donphan: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	stantler: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	smeargle: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	miltank: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	raikou: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	entei: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	suicune: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	larvitar: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	pupitar: {
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	tyranitar: {
 		randomBattleMoves: ["crunch", "dragondance", "earthquake", "firepunch", "stealthrock", "stoneedge"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	tyranitarmega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	lugia: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	hooh: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	celebi: {
 		randomBattleMoves: ["aurasphere", "gigadrain", "leafstorm", "nastyplot", "psychic", "recover", "stealthrock"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	treecko: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	grovyle: {
@@ -1635,37 +1635,37 @@ let BattleFormatsData = {
 	},
 	sceptile: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	sceptilemega: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	torchic: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	combusken: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	blaziken: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	blazikenmega: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	mudkip: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	marshtomp: {
@@ -1675,26 +1675,26 @@ let BattleFormatsData = {
 	},
 	swampert: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	swampertmega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	poochyena: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	mightyena: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	zigzagoon: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	zigzagoongalar: {
@@ -1703,7 +1703,7 @@ let BattleFormatsData = {
 	},
 	linoone: {
 		randomBattleMoves: ["bellydrum", "extremespeed", "stompingtantrum", "throatchop"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	linoonegalar: {
@@ -1717,7 +1717,7 @@ let BattleFormatsData = {
 	},
 	wurmple: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	silcoon: {
@@ -1727,7 +1727,7 @@ let BattleFormatsData = {
 	},
 	beautifly: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	cascoon: {
@@ -1737,11 +1737,11 @@ let BattleFormatsData = {
 	},
 	dustox: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	lotad: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	lombre: {
@@ -1750,11 +1750,11 @@ let BattleFormatsData = {
 	},
 	ludicolo: {
 		randomBattleMoves: ["focusblast", "gigadrain", "hydropump", "icebeam", "raindance", "scald"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	seedot: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	nuzleaf: {
@@ -1763,30 +1763,30 @@ let BattleFormatsData = {
 	},
 	shiftry: {
 		randomBattleMoves: ["defog", "leafblade", "leafstorm", "suckerpunch", "swordsdance", "throatchop"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	taillow: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	swellow: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	wingull: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	pelipper: {
 		randomBattleMoves: ["hurricane", "hydropump", "knockoff", "roost", "scald", "uturn"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	ralts: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	kirlia: {
@@ -1795,76 +1795,76 @@ let BattleFormatsData = {
 	},
 	gardevoir: {
 		randomBattleMoves: ["calmmind", "focusblast", "moonblast", "psychic", "substitute", "trick", "willowisp"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	gardevoirmega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	gallade: {
 		randomBattleMoves: ["closecombat", "knockoff", "shadowsneak", "swordsdance", "trick", "zenheadbutt"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	gallademega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	surskit: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	masquerain: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	shroomish: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	breloom: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	slakoth: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	vigoroth: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	slaking: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	nincada: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	ninjask: {
 		randomBattleMoves: ["acrobatics", "leechlife", "nightslash", "swordsdance"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	shedinja: {
 		randomBattleMoves: ["shadowclaw", "shadowsneak", "swordsdance", "willowisp", "xscissor"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	whismur: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	loudred: {
@@ -1874,62 +1874,62 @@ let BattleFormatsData = {
 	},
 	exploud: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	makuhita: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	hariyama: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	nosepass: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	probopass: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	skitty: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	delcatty: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	sableye: {
 		randomBattleMoves: ["encore", "foulplay", "knockoff", "recover", "taunt", "willowisp"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	sableyemega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	mawile: {
 		randomBattleMoves: ["ironhead", "playrough", "suckerpunch", "stealthrock", "swordsdance"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	mawilemega: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	aron: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	lairon: {
@@ -1939,298 +1939,298 @@ let BattleFormatsData = {
 	},
 	aggron: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	aggronmega: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	meditite: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	medicham: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	medichammega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	electrike: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	manectric: {
 		randomBattleMoves: ["flamethrower", "overheat", "switcheroo", "thunderbolt", "voltswitch"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	manectricmega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	plusle: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	minun: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	volbeat: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	illumise: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	budew: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	roselia: {
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	roserade: {
 		randomBattleMoves: ["gigadrain", "leafstorm", "sleeppowder", "sludgebomb", "spikes", "synthesis", "toxicspikes"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	gulpin: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	swalot: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	carvanha: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	sharpedo: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	sharpedomega: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	wailmer: {
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	wailord: {
 		randomBattleMoves: ["hydropump", "hypervoice", "icebeam", "waterspout"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	numel: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	camerupt: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	cameruptmega: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	torkoal: {
 		randomBattleMoves: ["earthquake", "lavaplume", "rapidspin", "solarbeam", "stealthrock"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	spoink: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	grumpig: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	spinda: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	trapinch: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	vibrava: {
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	flygon: {
 		randomBattleMoves: ["dragondance", "earthquake", "firepunch", "outrage", "uturn"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	cacnea: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	cacturne: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	swablu: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	altaria: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	altariamega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	zangoose: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	seviper: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	lunatone: {
 		randomBattleMoves: ["earthpower", "icebeam", "nastyplot", "powergem", "psychic", "rockpolish", "stealthrock"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	solrock: {
 		randomBattleMoves: ["earthquake", "explosion", "morningsun", "rockslide", "stealthrock", "swordsdance", "willowisp", "zenheadbutt"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	barboach: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	whiscash: {
 		randomBattleMoves: ["dragondance", "earthquake", "liquidation", "stoneedge", "zenheadbutt"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	corphish: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	crawdaunt: {
 		randomBattleMoves: ["aquajet", "closecombat", "crabhammer", "dragondance", "knockoff", "swordsdance"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	baltoy: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	claydol: {
 		randomBattleMoves: ["earthquake", "icebeam", "psychic", "rapidspin", "stealthrock"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	lileep: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	cradily: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	anorith: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	armaldo: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	feebas: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	milotic: {
 		randomBattleMoves: ["dragontail", "icebeam", "recover", "rest", "scald", "sleeptalk"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	castform: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	castformsunny: {
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	castformrainy: {
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	castformsnowy: {
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	kecleon: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	shuppet: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	banette: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	banettemega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	duskull: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	dusclops: {
@@ -2239,56 +2239,56 @@ let BattleFormatsData = {
 	},
 	dusknoir: {
 		randomBattleMoves: ["earthquake", "icepunch", "painsplit", "shadowsneak", "substitute", "willowisp"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	tropius: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	chingling: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	chimecho: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	absol: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	absolmega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	snorunt: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	glalie: {
 		randomBattleMoves: ["earthquake", "freezedry", "iceshard", "spikes", "taunt"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	glaliemega: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	froslass: {
 		randomBattleMoves: ["destinybond", "icebeam", "shadowball", "spikes", "taunt", "thunderwave"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	spheal: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	sealeo: {
@@ -2298,92 +2298,92 @@ let BattleFormatsData = {
 	},
 	walrein: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	clamperl: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	huntail: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	gorebyss: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	relicanth: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	luvdisc: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	bagon: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	shelgon: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	salamence: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	salamencemega: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	beldum: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	metang: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	metagross: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	metagrossmega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	regirock: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	regice: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	registeel: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	latias: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	latiasmega: {
@@ -2392,7 +2392,7 @@ let BattleFormatsData = {
 	},
 	latios: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	latiosmega: {
@@ -2401,62 +2401,62 @@ let BattleFormatsData = {
 	},
 	kyogre: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	kyogreprimal: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	groudon: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	groudonprimal: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	rayquaza: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	rayquazamega: {
 		isNonstandard: null,
-		tier: "CFAG",
+		tier: "CAG",
 		inherit: true,
 	},
 	jirachi: {
 		randomBattleMoves: ["bodyslam", "firepunch", "ironhead", "stealthrock", "uturn", "wish"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	deoxys: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	deoxysattack: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	deoxysdefense: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	deoxysspeed: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	turtwig: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	grotle: {
@@ -2466,42 +2466,42 @@ let BattleFormatsData = {
 	},
 	torterra: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	chimchar: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	monferno: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	infernape: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	piplup: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	prinplup: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	empoleon: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	starly: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	staravia: {
@@ -2511,32 +2511,32 @@ let BattleFormatsData = {
 	},
 	staraptor: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	bidoof: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	bibarel: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	kricketot: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	kricketune: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	shinx: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	luxio: {
@@ -2546,99 +2546,99 @@ let BattleFormatsData = {
 	},
 	luxray: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	cranidos: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	rampardos: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	shieldon: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	bastiodon: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	burmy: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	wormadam: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	wormadamsandy: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	wormadamtrash: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	mothim: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	combee: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	vespiquen: {
 		randomBattleMoves: ["airslash", "bugbuzz", "powergem", "sludgebomb", "uturn"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	pachirisu: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	buizel: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	floatzel: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	cherubi: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	cherrim: {
 		randomBattleMoves: ["dazzlinggleam", "energyball", "healingwish", "leechseed", "substitute"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	cherrimsunshine: {
 		randomBattleMoves: ["dazzlinggleam", "morningsun", "solarbeam", "sunnyday", "weatherball"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	shellos: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	gastrodon: {
 		randomBattleMoves: ["clearsmog", "earthquake", "icebeam", "recover", "scald"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	drifloon: {
@@ -2646,338 +2646,338 @@ let BattleFormatsData = {
 	},
 	drifblim: {
 		randomBattleMoves: ["acrobatics", "destinybond", "shadowball", "strengthsap", "substitute"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	buneary: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	lopunny: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	lopunnymega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	glameow: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	purugly: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	stunky: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	skuntank: {
 		randomBattleMoves: ["crunch", "fireblast", "poisonjab", "suckerpunch", "taunt", "toxic"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	bronzor: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	bronzong: {
 		randomBattleMoves: ["earthquake", "gyroball", "lightscreen", "psychic", "reflect", "stealthrock"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	chatot: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	spiritomb: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	gible: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	gabite: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	garchomp: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	garchompmega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	riolu: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	lucario: {
 		randomBattleMoves: ["closecombat", "extremespeed", "icepunch", "meteormash", "swordsdance"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	lucariomega: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	hippopotas: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	hippowdon: {
 		randomBattleMoves: ["earthquake", "slackoff", "stealthrock", "stoneedge", "whirlwind", "yawn"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	skorupi: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	drapion: {
 		randomBattleMoves: ["earthquake", "knockoff", "poisonjab", "swordsdance", "taunt", "toxicspikes"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	croagunk: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	toxicroak: {
 		randomBattleMoves: ["drainpunch", "gunkshot", "icepunch", "substitute", "suckerpunch", "swordsdance"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	carnivine: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	finneon: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	lumineon: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	snover: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	abomasnow: {
 		randomBattleMoves: ["auroraveil", "blizzard", "earthquake", "iceshard", "woodhammer"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	abomasnowmega: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	rotom: {
 		randomBattleMoves: ["nastyplot", "shadowball", "storedpower", "thunderbolt"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	rotomheat: {
 		randomBattleMoves: ["overheat", "thunderbolt", "trick", "voltswitch", "willowisp"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	rotomwash: {
 		randomBattleMoves: ["hydropump", "thunderbolt", "trick", "voltswitch", "willowisp"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	rotomfrost: {
 		randomBattleMoves: ["blizzard", "thunderbolt", "trick", "voltswitch", "willowisp"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	rotomfan: {
 		randomBattleMoves: ["airslash", "thunderbolt", "trick", "voltswitch", "willowisp"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	rotommow: {
 		randomBattleMoves: ["leafstorm", "thunderbolt", "trick", "voltswitch", "willowisp"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	uxie: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	mesprit: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	azelf: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	dialga: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	palkia: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	heatran: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	regigigas: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	giratina: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	giratinaorigin: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	cresselia: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	phione: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	manaphy: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	darkrai: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	shaymin: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	shayminsky: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	arceus: {
 		isNonstandard: null,
-		tier: "CFAG",
+		tier: "CAG",
 		inherit: true,
 	},
 	arceusbug: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceusdark: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceusdragon: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceuselectric: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceusfairy: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceusfighting: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceusfire: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceusflying: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceusghost: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceusgrass: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceusground: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceusice: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceuspoison: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceuspsychic: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceusrock: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceussteel: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceuswater: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	victini: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	snivy: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	servine: {
@@ -2987,12 +2987,12 @@ let BattleFormatsData = {
 	},
 	serperior: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	tepig: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	pignite: {
@@ -3002,12 +3002,12 @@ let BattleFormatsData = {
 	},
 	emboar: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	oshawott: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	dewott: {
@@ -3017,22 +3017,22 @@ let BattleFormatsData = {
 	},
 	samurott: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	patrat: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	watchog: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	lillipup: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	herdier: {
@@ -3042,59 +3042,59 @@ let BattleFormatsData = {
 	},
 	stoutland: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	purrloin: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	liepard: {
 		randomBattleMoves: ["copycat", "darkpulse", "encore", "nastyplot", "playrough", "substitute", "thunderwave", "uturn"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	pansage: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	simisage: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	pansear: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	simisear: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	panpour: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	simipour: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	munna: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	musharna: {
 		randomBattleMoves: ["calmmind", "moonblast", "moonlight", "psychic", "shadowball", "thunderwave"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	pidove: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	tranquill: {
@@ -3103,21 +3103,21 @@ let BattleFormatsData = {
 	},
 	unfezant: {
 		randomBattleMoves: ["bravebird", "defog", "nightslash", "roost", "uturn"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	blitzle: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	zebstrika: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	roggenrola: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	boldore: {
@@ -3126,52 +3126,52 @@ let BattleFormatsData = {
 	},
 	gigalith: {
 		randomBattleMoves: ["earthquake", "explosion", "rockblast", "stealthrock", "stoneedge", "superpower"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	woobat: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	swoobat: {
 		randomBattleMoves: ["airslash", "heatwave", "nastyplot", "roost", "storedpower"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	drilbur: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	excadrill: {
 		randomBattleMoves: ["earthquake", "ironhead", "rapidspin", "rockslide", "swordsdance"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	audino: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	audinomega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	timburr: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	gurdurr: {
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	conkeldurr: {
 		randomBattleMoves: ["bulkup", "drainpunch", "facade", "machpunch", "stoneedge"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	tympole: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	palpitoad: {
@@ -3180,22 +3180,22 @@ let BattleFormatsData = {
 	},
 	seismitoad: {
 		randomBattleMoves: ["earthquake", "liquidation", "raindance", "rockslide", "stealthrock"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	throh: {
 		randomBattleMoves: ["bulkup", "circlethrow", "icepunch", "payback", "rest", "sleeptalk", "stormthrow"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	sawk: {
 		randomBattleMoves: ["bulkup", "closecombat", "poisonjab", "stoneedge", "throatchop"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	sewaddle: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	swadloon: {
@@ -3205,12 +3205,12 @@ let BattleFormatsData = {
 	},
 	leavanny: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	venipede: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	whirlipede: {
@@ -3220,41 +3220,41 @@ let BattleFormatsData = {
 	},
 	scolipede: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	cottonee: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	whimsicott: {
 		randomBattleMoves: ["encore", "energyball", "leechseed", "moonblast", "stunspore", "uturn"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	petilil: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	lilligant: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	basculin: {
 		randomBattleMoves: ["aquajet", "crunch", "headsmash", "liquidation", "psychicfangs"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	basculinbluestriped: {
 		randomBattleMoves: ["aquajet", "crunch", "headsmash", "liquidation", "psychicfangs"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	sandile: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	krokorok: {
@@ -3264,11 +3264,11 @@ let BattleFormatsData = {
 	},
 	krookodile: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	darumaka: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	darumakagalar: {
@@ -3277,11 +3277,11 @@ let BattleFormatsData = {
 	},
 	darmanitan: {
 		randomBattleMoves: ["earthquake", "flareblitz", "rockslide", "superpower", "uturn"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	darmanitanzen: {
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	darmanitangalar: {
@@ -3294,34 +3294,34 @@ let BattleFormatsData = {
 	},
 	maractus: {
 		randomBattleMoves: ["solarbeam", "sunnyday", "synthesis", "weatherball"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	dwebble: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	crustle: {
 		randomBattleMoves: ["earthquake", "shellsmash", "spikes", "stealthrock", "stoneedge", "xscissor"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	scraggy: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	scrafty: {
 		randomBattleMoves: ["closecombat", "dragondance", "icepunch", "poisonjab", "throatchop"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	sigilyph: {
 		randomBattleMoves: ["cosmicpower", "psychoshift", "roost", "storedpower"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	yamask: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	yamaskgalar: {
@@ -3330,7 +3330,7 @@ let BattleFormatsData = {
 	},
 	cofagrigus: {
 		randomBattleMoves: ["memento", "shadowball", "toxicspikes", "willowisp"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	runerigus: {
@@ -3340,31 +3340,31 @@ let BattleFormatsData = {
 	},
 	tirtouga: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	carracosta: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	archen: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	archeops: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	trubbish: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	garbodor: {
 		randomBattleMoves: ["drainpunch", "gunkshot", "painsplit", "spikes", "toxicspikes"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	garbodorgmax: {
@@ -3373,21 +3373,21 @@ let BattleFormatsData = {
 	},
 	zorua: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	zoroark: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	minccino: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	cinccino: {
 		randomBattleMoves: ["bulletseed", "knockoff", "rockblast", "tailslap", "uturn"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	gothita: {
@@ -3399,11 +3399,11 @@ let BattleFormatsData = {
 	},
 	gothitelle: {
 		randomBattleMoves: ["calmmind", "charm", "psychic", "rest"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	solosis: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	duosion: {
@@ -3412,21 +3412,21 @@ let BattleFormatsData = {
 	},
 	reuniclus: {
 		randomBattleMoves: ["calmmind", "focusblast", "psychic", "recover", "shadowball", "trickroom"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	ducklett: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	swanna: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	vanillite: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	vanillish: {
@@ -3435,77 +3435,77 @@ let BattleFormatsData = {
 	},
 	vanilluxe: {
 		randomBattleMoves: ["auroraveil", "autotomize", "blizzard", "explosion", "flashcannon", "freezedry"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	deerling: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	sawsbuck: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	emolga: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	karrablast: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	escavalier: {
 		randomBattleMoves: ["closecombat", "drillrun", "ironhead", "knockoff", "megahorn", "swordsdance"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	foongus: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	amoonguss: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	frillish: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	jellicent: {
 		randomBattleMoves: ["icebeam", "recover", "scald", "shadowball", "willowisp"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	alomomola: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	joltik: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	galvantula: {
 		randomBattleMoves: ["bugbuzz", "gigadrain", "stickyweb", "thunder", "voltswitch"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	ferroseed: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	ferrothorn: {
 		randomBattleMoves: ["leechseed", "gyroball", "powerwhip", "protect", "spikes", "stealthrock"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	klink: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	klang: {
@@ -3514,12 +3514,12 @@ let BattleFormatsData = {
 	},
 	klinklang: {
 		randomBattleMoves: ["geargrind", "shiftgear", "substitute", "wildcharge"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	tynamo: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	eelektrik: {
@@ -3529,20 +3529,20 @@ let BattleFormatsData = {
 	},
 	eelektross: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	elgyem: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	beheeyem: {
 		randomBattleMoves: ["nastyplot", "psychic", "shadowball", "thunderbolt", "trick", "trickroom"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	litwick: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	lampent: {
@@ -3551,11 +3551,11 @@ let BattleFormatsData = {
 	},
 	chandelure: {
 		randomBattleMoves: ["calmmind", "energyball", "fireblast", "shadowball", "substitute", "trick"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	axew: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	fraxure: {
@@ -3564,35 +3564,35 @@ let BattleFormatsData = {
 	},
 	haxorus: {
 		randomBattleMoves: ["dragondance", "earthquake", "outrage", "poisonjab", "swordsdance", "taunt"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	cubchoo: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	beartic: {
 		randomBattleMoves: ["iciclecrash", "liquidation", "raindance", "superpower", "throatchop"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	cryogonal: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	shelmet: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	accelgor: {
 		randomBattleMoves: ["bugbuzz", "encore", "energyball", "focusblast", "spikes", "toxic"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	stunfisk: {
 		randomBattleMoves: ["discharge", "earthpower", "foulplay", "scald", "stealthrock"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	stunfiskgalar: {
@@ -3602,205 +3602,205 @@ let BattleFormatsData = {
 	},
 	mienfoo: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	mienshao: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	druddigon: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	golett: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	golurk: {
 		randomBattleMoves: ["drainpunch", "earthquake", "icepunch", "shadowpunch", "substitute"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	pawniard: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	bisharp: {
 		randomBattleMoves: ["ironhead", "substitute", "suckerpunch", "swordsdance", "throatchop"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	bouffalant: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	rufflet: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	braviary: {
 		randomBattleMoves: ["bravebird", "bulkup", "closecombat", "crushclaw", "defog", "rockslide"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	vullaby: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	mandibuzz: {
 		randomBattleMoves: ["defog", "foulplay", "roost", "taunt", "toxic", "uturn"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	heatmor: {
 		randomBattleMoves: ["fireblast", "firelash", "gigadrain", "suckerpunch", "superpower"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	durant: {
 		randomBattleMoves: ["firstimpression", "ironhead", "rockslide", "superpower"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	deino: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	zweilous: {
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	hydreigon: {
 		randomBattleMoves: ["darkpulse", "dracometeor", "fireblast", "flashcannon", "nastyplot", "uturn"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	larvesta: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	volcarona: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	cobalion: {
 		randomBattleMoves: ["closecombat", "ironhead", "stealthrock", "stoneedge", "swordsdance", "voltswitch"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	terrakion: {
 		randomBattleMoves: ["closecombat", "earthquake", "quickattack", "stoneedge", "swordsdance"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	virizion: {
 		randomBattleMoves: ["closecombat", "leafblade", "stoneedge", "substitute", "swordsdance"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	tornadus: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	tornadustherian: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	thundurus: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	thundurustherian: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	reshiram: {
 		randomBattleMoves: ["blueflare", "dracometeor", "earthpower", "stoneedge", "willowisp"],
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	zekrom: {
 		randomBattleMoves: ["boltstrike", "dragondance", "outrage", "substitute"],
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	landorus: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	landorustherian: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	kyurem: {
 		randomBattleMoves: ["dracometeor", "earthpower", "focusblast", "freezedry", "icebeam", "outrage"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	kyuremblack: {
 		randomBattleMoves: ["dragondance", "fusionbolt", "iciclespear", "outrage"],
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	kyuremwhite: {
 		randomBattleMoves: ["dracometeor", "earthpower", "freezedry", "fusionflare", "icebeam"],
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	keldeo: {
 		randomBattleMoves: ["airslash", "calmmind", "hydropump", "icywind", "scald", "secretsword", "substitute"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	keldeoresolute: {
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	meloetta: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	meloettapirouette: {
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	genesect: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	genesectburn: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	genesectchill: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	genesectdouse: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	genesectshock: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	chespin: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	quilladin: {
@@ -3810,12 +3810,12 @@ let BattleFormatsData = {
 	},
 	chesnaught: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	fennekin: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	braixen: {
@@ -3825,12 +3825,12 @@ let BattleFormatsData = {
 	},
 	delphox: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	froakie: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	frogadier: {
@@ -3840,41 +3840,41 @@ let BattleFormatsData = {
 	},
 	greninja: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	greninjaash: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	bunnelby: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	diggersby: {
 		randomBattleMoves: ["bodyslam", "earthquake", "swordsdance", "uturn", "wildcharge"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	fletchling: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	fletchinder: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	talonflame: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	scatterbug: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	spewpa: {
@@ -3884,30 +3884,30 @@ let BattleFormatsData = {
 	},
 	vivillon: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	vivillonfancy: {
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	vivillonpokeball: {
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	litleo: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	pyroar: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	flabebe: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	floette: {
@@ -3922,167 +3922,167 @@ let BattleFormatsData = {
 	},
 	florges: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	skiddo: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	gogoat: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	pancham: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	pangoro: {
 		randomBattleMoves: ["closecombat", "darkestlariat", "drainpunch", "gunkshot", "icepunch", "partingshot"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	furfrou: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	espurr: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	meowstic: {
 		randomBattleMoves: ["lightscreen", "psychic", "reflect", "thunderwave", "yawn"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	meowsticf: {
 		randomBattleMoves: ["energyball", "nastyplot", "psychic", "shadowball", "thunderbolt"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	honedge: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	doublade: {
 		randomBattleMoves: ["ironhead", "sacredsword", "shadowclaw", "shadowsneak", "swordsdance"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	aegislash: {
 		randomBattleMoves: ["closecombat", "ironhead", "kingsshield", "shadowball", "shadowsneak", "swordsdance"],
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	aegislashblade: {
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	spritzee: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	aromatisse: {
 		randomBattleMoves: ["aromatherapy", "lightscreen", "moonblast", "nastyplot", "reflect", "thunderbolt", "trickroom"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	swirlix: {
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	slurpuff: {
 		randomBattleMoves: ["calmmind", "dazzlinggleam", "energyball", "flamethrower"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	inkay: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	malamar: {
 		randomBattleMoves: ["rest", "sleeptalk", "superpower", "throatchop"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	binacle: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	barbaracle: {
 		randomBattleMoves: ["crosschop", "earthquake", "liquidation", "shellsmash", "stoneedge"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	skrelp: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	dragalge: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	clauncher: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	clawitzer: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	helioptile: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	heliolisk: {
 		randomBattleMoves: ["hypervoice", "grassknot", "raindance", "surf", "thunderbolt", "voltswitch"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	tyrunt: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	tyrantrum: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	amaura: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	aurorus: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	hawlucha: {
 		randomBattleMoves: ["acrobatics", "closecombat", "stoneedge", "substitute", "swordsdance"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	dedenne: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	carbink: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	goomy: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	sliggoo: {
@@ -4091,133 +4091,133 @@ let BattleFormatsData = {
 	},
 	goodra: {
 		randomBattleMoves: ["earthquake", "fireblast", "irontail", "outrage", "powerwhip"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	klefki: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	phantump: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	trevenant: {
 		randomBattleMoves: ["earthquake", "hornleech", "rockslide", "shadowclaw", "trickroom", "woodhammer"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	pumpkaboo: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	pumpkaboosmall: {
 		unreleasedHidden: false,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	pumpkaboolarge: {
 		unreleasedHidden: false,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	pumpkaboosuper: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	gourgeist: {
 		randomBattleMoves: ["leechseed", "powerwhip", "shadowsneak", "substitute", "willowisp"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	gourgeistsmall: {
 		randomBattleMoves: ["leechseed", "powerwhip", "shadowsneak", "substitute", "willowisp"],
 		unreleasedHidden: false,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	gourgeistlarge: {
 		randomBattleMoves: ["leechseed", "powerwhip", "shadowsneak", "substitute", "willowisp"],
 		unreleasedHidden: false,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	gourgeistsuper: {
 		randomBattleMoves: ["explosion", "foulplay", "powerwhip", "rockslide", "shadowsneak", "trick"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	bergmite: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	avalugg: {
 		randomBattleMoves: ["avalanche", "earthquake", "rapidspin", "recover"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	noibat: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	noivern: {
 		randomBattleMoves: ["boomburst", "dracometeor", "flamethrower", "hurricane", "roost", "uturn"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	xerneas: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	yveltal: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	zygarde: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	zygarde10: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	zygardecomplete: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	diancie: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	dianciemega: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	hoopa: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	hoopaunbound: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	volcanion: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	rowlet: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	dartrix: {
@@ -4226,11 +4226,11 @@ let BattleFormatsData = {
 	},
 	decidueye: {
 		randomBattleMoves: ["leafblade", "shadowsneak", "spiritshackle", "swordsdance", "uturn"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	litten: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	torracat: {
@@ -4239,11 +4239,11 @@ let BattleFormatsData = {
 	},
 	incineroar: {
 		randomBattleMoves: ["darkestlariat", "earthquake", "fakeout", "flareblitz", "partingshot", "uturn"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	popplio: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	brionne: {
@@ -4252,12 +4252,12 @@ let BattleFormatsData = {
 	},
 	primarina: {
 		randomBattleMoves: ["hydropump", "moonblast", "psychic", "sparklingaria", "energyball"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	pikipek: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	trumbeak: {
@@ -4267,17 +4267,17 @@ let BattleFormatsData = {
 	},
 	toucannon: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	yungoos: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	gumshoos: {
 		isNonstandard: null,
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	gumshoostotem: {
@@ -4285,7 +4285,7 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	grubbin: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	charjabug: {
@@ -4294,7 +4294,7 @@ let BattleFormatsData = {
 	},
 	vikavolt: {
 		randomBattleMoves: ["agility", "bugbuzz", "energyball", "stickyweb", "thunderbolt", "voltswitch"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	vikavolttotem: {
@@ -4304,32 +4304,32 @@ let BattleFormatsData = {
 	},
 	crabrawler: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	crabominable: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	oricorio: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	oricoriopompom: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	oricoriopau: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	oricoriosensu: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	cutiefly: {
@@ -4337,7 +4337,7 @@ let BattleFormatsData = {
 	},
 	ribombee: {
 		randomBattleMoves: ["aromatherapy", "moonblast", "stickyweb", "stunspore", "uturn"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	ribombeetotem: {
@@ -4347,7 +4347,7 @@ let BattleFormatsData = {
 	},
 	rockruff: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	rockruffdusk: {
@@ -4357,53 +4357,53 @@ let BattleFormatsData = {
 	},
 	lycanroc: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	lycanrocmidnight: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	lycanrocdusk: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	wishiwashi: {
 		randomBattleMoves: ["earthquake", "hydropump", "icebeam", "scald", "uturn"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	wishiwashischool: {
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	mareanie: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	toxapex: {
 		randomBattleMoves: ["banefulbunker", "haze", "recover", "scald", "toxic", "toxicspikes"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	mudbray: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	mudsdale: {
 		randomBattleMoves: ["bodypress", "earthquake", "heavyslam", "rockslide", "stealthrock"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	dewpider: {
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	araquanid: {
 		randomBattleMoves: ["liquidation", "leechlife", "mirrorcoat", "reflect", "stickyweb"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	araquanidtotem: {
@@ -4413,12 +4413,12 @@ let BattleFormatsData = {
 	},
 	fomantis: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	lurantis: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	lurantistotem: {
@@ -4426,21 +4426,21 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	morelull: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	shiinotic: {
 		randomBattleMoves: ["gigadrain", "leechseed", "moonblast", "spore", "strengthsap", "substitute"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	salandit: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	salazzle: {
 		randomBattleMoves: ["flamethrower", "protect", "substitute", "toxic"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	salazzletotem: {
@@ -4449,16 +4449,16 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	stufful: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	bewear: {
 		randomBattleMoves: ["closecombat", "darkestlariat", "doubleedge", "icepunch", "swordsdance"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	bounsweet: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	steenee: {
@@ -4467,165 +4467,165 @@ let BattleFormatsData = {
 	},
 	tsareena: {
 		randomBattleMoves: ["highjumpkick", "playrough", "powerwhip", "rapidspin", "synthesis", "uturn", "zenheadbutt"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	comfey: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	oranguru: {
 		randomBattleMoves: ["nastyplot", "focusblast", "psychic", "thunderbolt", "trickroom"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	passimian: {
 		randomBattleMoves: ["closecombat", "earthquake", "gunkshot", "knockoff", "rockslide", "uturn"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	wimpod: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	golisopod: {
 		randomBattleMoves: ["aquajet", "closecombat", "firstimpression", "liquidation", "spikes"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	sandygast: {
 		isNonstandard: null,
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	palossand: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	pyukumuku: {
 		randomBattleMoves: ["counter", "mirrorcoat", "recover", "toxic"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	typenull: {
 		randomBattleMoves: ["crushclaw", "rest", "sleeptalk", "swordsdance", "uturn"],
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	silvally: {
 		randomBattleMoves: ["crunch", "explosion", "flamethrower", "multiattack", "swordsdance", "uturn"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	silvallybug: {
 		randomBattleMoves: ["flamethrower", "multiattack", "psychicfangs", "rockslide", "swordsdance", "thunderbolt", "uturn"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	silvallydark: {
 		randomBattleMoves: ["ironhead", "multiattack", "psychicfangs", "swordsdance", "uturn"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	silvallydragon: {
 		randomBattleMoves: ["firefang", "ironhead", "multiattack", "partingshot", "swordsdance"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	silvallyelectric: {
 		randomBattleMoves: ["flamethrower", "icebeam", "multiattack", "uturn"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	silvallyfairy: {
 		randomBattleMoves: ["flamethrower", "multiattack", "partingshot", "psychicfangs", "thunderwave"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	silvallyfighting: {
 		randomBattleMoves: ["crunch", "ironhead", "multiattack", "rockslide", "swordsdance", "uturn"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	silvallyfire: {
 		randomBattleMoves: ["icebeam", "multiattack", "partingshot", "surf", "thunderbolt"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	silvallyflying: {
 		randomBattleMoves: ["flamethrower", "ironhead", "multiattack", "partingshot", "rockslide", "swordsdance"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	silvallyghost: {
 		randomBattleMoves: ["multiattack", "swordsdance", "thunderwave", "xscissor"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	silvallygrass: {
 		randomBattleMoves: ["flamethrower", "icebeam", "multiattack", "surf", "uturn"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	silvallyground: {
 		randomBattleMoves: ["multiattack", "partingshot", "rockslide", "swordsdance", "xscissor"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	silvallyice: {
 		randomBattleMoves: ["flamethrower", "multiattack", "thunderbolt", "uturn"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	silvallypoison: {
 		randomBattleMoves: ["flamethrower", "multiattack", "partingshot", "psychicfangs", "surf", "thunderwave"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	silvallypsychic: {
 		randomBattleMoves: ["crunch", "flamethrower", "multiattack", "swordsdance", "uturn", "xscissor"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	silvallyrock: {
 		randomBattleMoves: ["flamethrower", "multiattack", "partingshot", "psychicfangs", "surf", "thunderwave"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	silvallysteel: {
 		randomBattleMoves: ["flamethrower", "multiattack", "partingshot", "thunderbolt", "thunderwave"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	silvallywater: {
 		randomBattleMoves: ["icebeam", "multiattack", "partingshot", "thunderbolt", "thunderwave"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	minior: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	miniormeteor: {
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	komala: {
 		isNonstandard: null,
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	turtonator: {
 		randomBattleMoves: ["dracometeor", "dragonpulse", "earthquake", "fireblast", "rapidspin", "shellsmash"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	togedemaru: {
 		randomBattleMoves: ["ironhead", "nuzzle", "spikyshield", "uturn", "wish", "zingzap"],
-		tier: "CFPU",
+		tier: "CPU",
 		inherit: true,
 	},
 	togedemarutotem: {
@@ -4635,11 +4635,11 @@ let BattleFormatsData = {
 	},
 	mimikyu: {
 		randomBattleMoves: ["playrough", "shadowclaw", "shadowsneak", "swordsdance", "taunt"],
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	mimikyubusted: {
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	mimikyutotem: {
@@ -4654,21 +4654,21 @@ let BattleFormatsData = {
 	},
 	bruxish: {
 		isNonstandard: null,
-		tier: "CFRU",
+		tier: "CRU",
 		inherit: true,
 	},
 	drampa: {
 		randomBattleMoves: ["dracometeor", "fireblast", "focusblast", "glare", "hypervoice", "thunderbolt"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	dhelmise: {
 		randomBattleMoves: ["anchorshot", "earthquake", "powerwhip", "rapidspin", "shadowclaw", "swordsdance"],
-		tier: "CFNU",
+		tier: "CNU",
 		inherit: true,
 	},
 	jangmoo: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	hakamoo: {
@@ -4677,7 +4677,7 @@ let BattleFormatsData = {
 	},
 	kommoo: {
 		randomBattleMoves: ["clangoroussoul", "clangingscales", "closecombat", "dragondance", "drainpunch", "outrage", "poisonjab"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	kommoototem: {
@@ -4687,26 +4687,26 @@ let BattleFormatsData = {
 	},
 	tapukoko: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	tapulele: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	tapubulu: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	tapufini: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	cosmog: {
-		tier: "CFLC",
+		tier: "CLC",
 		inherit: true,
 	},
 	cosmoem: {
@@ -4715,82 +4715,82 @@ let BattleFormatsData = {
 	},
 	solgaleo: {
 		randomBattleMoves: ["flareblitz", "morningsun", "psychicfangs", "stoneedge", "sunsteelstrike"],
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	lunala: {
 		randomBattleMoves: ["calmmind", "focusblast", "moongeistbeam", "moonlight", "psychic"],
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	nihilego: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	buzzwole: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	pheromosa: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	xurkitree: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	celesteela: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	kartana: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	guzzlord: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	necrozma: {
 		randomBattleMoves: ["calmmind", "heatwave", "moonlight", "photongeyser", "stealthrock"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	necrozmaduskmane: {
 		randomBattleMoves: ["dragondance", "earthquake", "photongeyser", "stealthrock", "sunsteelstrike"],
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	necrozmadawnwings: {
 		randomBattleMoves: ["calmmind", "heatwave", "moongeistbeam", "photongeyser", "trickroom"],
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	necrozmaultra: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	magearna: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	magearnaoriginal: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	marshadow: {
 		randomBattleMoves: ["bulkup", "closecombat", "icepunch", "rocktomb", "shadowsneak", "spectralthief"],
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	poipole: {
@@ -4800,22 +4800,22 @@ let BattleFormatsData = {
 	},
 	naganadel: {
 		isNonstandard: null,
-		tier: "CFUb",
+		tier: "CUb",
 		inherit: true,
 	},
 	stakataka: {
 		isNonstandard: null,
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	blacephalon: {
 		isNonstandard: null,
-		tier: "CFOU",
+		tier: "COU",
 		inherit: true,
 	},
 	zeraora: {
 		randomBattleMoves: ["bulkup", "closecombat", "grassknot", "plasmafists", "playrough", "voltswitch"],
-		tier: "CFUU",
+		tier: "CUU",
 		inherit: true,
 	},
 	meltan: {

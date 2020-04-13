@@ -441,8 +441,7 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 	let maxGen = 0;
 
 	// CFM search mode
-	let cfmSearch = null;
-	if (message.substr(0, 3).toLowerCase() === '/cs') cfmSearch = true;
+	let cfmSearch = (message.substr(0, 3).toLowerCase() === '/cs' ? true : null);
 	const validParameter = (cat: string, param: string, isNotSearch: boolean, input: string) => {
 		const uniqueTraits = ['colors', 'gens'];
 		for (const group of searches) {
@@ -489,14 +488,17 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 			}
 
 			if (toID(target) in allTiers) {
-				target = allTiers[toID(target)];
+				if (cfmSearch) target = allCFMTiers[toID(target)] || allCFMTiers[toID("c" + target)];
+				else if (allCFMTiers[toID(target)]) {
+					target = allCFMTiers[toID(target)];
+					cfmSearch = true;
+				}
+				else target = allTiers[toID(target)];
 				if (target.startsWith("CAP")) {
 					if (capSearch === isNotSearch) return {reply: "A search cannot both include and exclude CAP tiers."};
 					capSearch = !isNotSearch;
 				}
 				const invalid = validParameter("tiers", target, isNotSearch, target);
-				if (cfmSearch) target = allCFMTiers[toID(target)];
-				else if (allCFMTiers[target]) cfmSearch = true;
 				if (invalid) return {reply: invalid};
 				tierSearch = tierSearch || !isNotSearch;
 				orGroup.tiers[target] = !isNotSearch;
@@ -957,7 +959,8 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 			}
 			if (matched) continue;
 
-			const validator = TeamValidator.get(nationalSearch ? `gen8nationaldexag` : `gen${maxGen}ou`);
+			let validatorArg = cfmSearch ? `gen8cfmtesting` : (nationalSearch ? `gen8nationaldexag` : `gen${maxGen}ou`);
+			const validator = TeamValidator.get(validatorArg);
 			const pokemonSource = validator.allSources();
 			for (const move of Object.keys(alts.moves).map(x => Dex.getMove(x))) {
 				if (!validator.checkLearnset(move, dex[mon], pokemonSource) === alts.moves[move.id]) {
@@ -1939,9 +1942,15 @@ function runLearn(target: string, cmd: string, canAll: boolean, message: string)
 		break;
 	}
 	if (!formatName) {
-		if (!Dex.mod(`gen${gen}`)) return {error: `Gen ${gen} does not exist.`};
-		format = new Dex.Data.Format(format, {mod: `gen${gen}`});
-		formatName = `Gen ${gen}`;
+		if (['cfmlearn', 'cl'].includes(cmd)) {
+			format = new Dex.Data.Format(format, {mod: 'cfm'});
+			formatName = 'CFM';
+		}
+		else {
+			if (!Dex.mod(`gen${gen}`)) return {error: `Gen ${gen} does not exist.`};
+			format = new Dex.Data.Format(format, {mod: `gen${gen}`});
+			formatName = `Gen ${gen}`;
+		}
 		if (minSourceGen === 6) formatName += ' Pentagon';
 	}
 	const validator = TeamValidator.get(format);

@@ -575,7 +575,7 @@ let Formats = [
 		mod: 'cfm',
 		//cfacTier: 'OU',
 		ruleset: ['Obtainable', 'Baton Pass Clause', 'CFM OU Rules', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Standard'],
-		banlist: ['CFUb', 'Power Construct'],
+		banlist: ['CUb', 'Power Construct'],
 	},
 	{
 		name: "[Gen 8] CFM UU",
@@ -583,7 +583,7 @@ let Formats = [
 		mod: 'cfm',
 		//cfacTier: 'UU',
 		ruleset: ['[Gen 8] CFM OU', 'CFM UU Rules'],
-		banlist: ['CFOU', 'Mewnium Z', 'Kommonium Z', 'Drought', 'Drizzle', 'Flower Gift'],
+		banlist: ['COU', 'Mewnium Z', 'Kommonium Z', 'Drought', 'Drizzle', 'Flower Gift'],
 	},
 	{
 		name: "[Gen 8] CFM RU",
@@ -591,7 +591,7 @@ let Formats = [
 		mod: 'cfm',
 		//cfacTier: 'RU',
 		ruleset: ['[Gen 8] CFM UU', 'CFM RU Rules'],
-		banlist: ['CFUU'],
+		banlist: ['CUU'],
 	},
 	{
 		name: "[Gen 8] CFM NU",
@@ -599,7 +599,7 @@ let Formats = [
 		mod: 'cfm',
 		//cfacTier: 'NU',
 		ruleset: ['[Gen 8] CFM RU', 'CFM NU Rules'],
-		banlist: ['CFRU', 'Sand Stream', 'Snow Warning'],
+		banlist: ['CRU', 'Sand Stream', 'Snow Warning'],
 	},
 	{
 		name: "[Gen 8] CFM PU",
@@ -607,7 +607,7 @@ let Formats = [
 		mod: 'cfm',
 		//cfacTier: 'PU',
 		ruleset: ['[Gen 8] CFM NU', 'CFM PU Rules'],
-		banlist: ['CFNU'],
+		banlist: ['CNU'],
 	},
 
 	// Other Metagames

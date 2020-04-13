@@ -561,6 +561,7 @@ const commands = {
 						"Gen": pokemon.gen || 'CAP',
 						"Height": pokemon.heightm + " m",
 					};
+					if (pokemon.levitates) details["Airborne"] = "&#10003;";
 					if (!pokemon.forme || pokemon.forme !== "Gmax") details["Weight"] = pokemon.weighthg / 10 + " kg <em>(" + weighthit + " BP)</em>";
 					else details["Weight"] = "0 kg <em>(GK/LK fail)</em>";
 					if (pokemon.color && dex.gen >= 5) details["Dex Colour"] = pokemon.color;

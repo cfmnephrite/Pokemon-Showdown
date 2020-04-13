@@ -1028,7 +1028,7 @@ export class ModdedDex {
 					// doubles tiers
 					'duber', 'dou', 'dbl', 'duu', 'dnu',
 					// CFM tiers
-					'cfub', 'cfou', 'cfuu', 'cfru', 'cfnu', 'cfpu',
+					'cub', 'cou', 'cuu', 'cru', 'cnu', 'cpu',
 					// custom tags
 					'mega',
 					// illegal/nonstandard reasons
