@@ -5,7 +5,7 @@ const common = require('./../../../common');
 
 let battle;
 
-describe('[CFM] Baneful Bunker', function () {
+describe('CFM - Baneful Bunker', function () {
 	afterEach(function () {
 		battle.destroy();
 	});
