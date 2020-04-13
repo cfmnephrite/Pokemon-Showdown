@@ -445,12 +445,6 @@ let Formats = [
 		mod: 'gen8',
 		ruleset: ['Standard NatDex'],
 	},
-	{
-		name: "[Gen 8] CFM Testing",
-		mod: 'cfm',
-		searchShow: false,
-		ruleset: ['Evasion Moves Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
-	},
 
 	// OM of the Month
 	///////////////////////////////////////////////////////////////////
@@ -608,6 +602,43 @@ let Formats = [
 		//cfacTier: 'PU',
 		ruleset: ['[Gen 8] CFM NU', 'CFM PU Rules'],
 		banlist: ['CFNU'],
+	},
+	{
+		name: "[Gen 8] CFM Testing",
+		mod: 'cfm',
+		searchShow: false,
+		ruleset: ['Evasion Moves Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
+	},
+	{
+		name: "[CFM] Custom Game",
+
+		mod: 'cfm',
+		searchShow: false,
+		maxLevel: 9999,
+		trunc(n) { return Math.trunc(n); },
+		defaultLevel: 100,
+		teamLength: {
+			validate: [1, 24],
+			battle: 24,
+		},
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod'],
+	},
+	{
+		name: "[CFM] Doubles Custom Game",
+
+		mod: 'cfm',
+		searchShow: false,
+		gameType: 'doubles',
+		maxLevel: 9999,
+		trunc(n) { return Math.trunc(n); },
+		defaultLevel: 100,
+		teamLength: {
+			validate: [1, 24],
+			battle: 24,
+		},
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod'],
 	},
 
 	// Other Metagames
