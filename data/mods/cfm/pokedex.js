@@ -44,6 +44,7 @@ let BattlePokedex = {
 		evoLevel: 32,
 		eggGroups: ["Monster", "Grass"],
 		otherFormes: ["venusaurmega"],
+		cfmMoves: ["frenzyplant", "grassyterrain", "leafstorm", "leechseed", "poisonpowder", "powerwhip", "seedbomb", "solarbeam", "stunspore", "swordsdance", "toxic", "weatherball"],
 	},
 	venusaurmega: {
 		num: 3,
@@ -103,6 +104,7 @@ let BattlePokedex = {
 		evoLevel: 36,
 		eggGroups: ["Monster", "Dragon"],
 		otherFormes: ["charizardmegax", "charizardmegay"],
+		cfmMoves: ["aeroblast", "blastburn", "blazekick", "bulldoze", "dracometeor", "fireblast", "firespin", "focusblast", "hurricane", "overheat", "steelwing", "thunderpunch"],
 	},
 	charizardmegax: {
 		num: 6,
@@ -178,6 +180,7 @@ let BattlePokedex = {
 		evoLevel: 36,
 		eggGroups: ["Monster", "Water 1"],
 		otherFormes: ["blastoisemega"],
+		cfmMoves: ["aquatail", "aurasphere", "counter", "darkpulse", "dragonpulse", "flashcannon", "hydrocannon", "hydropump", "muddywater", "rapidspin", "roar", "shellsmash"],
 	},
 	blastoisemega: {
 		num: 9,
