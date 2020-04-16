@@ -4168,6 +4168,7 @@ let BattlePokedex = {
 		evoLevel: 36,
 		eggGroups: ["Monster", "Dragon"],
 		otherFormes: ["sceptilemega"],
+		cfmMoves: ['detect', 'dragonclaw', 'dragondance', 'dragonpulse', 'focusblast', 'frenzyplant', 'leafage', 'leafblade', 'leafstorm', 'rockslide', 'thunderpunch', 'weatherball'],
 	},
 	sceptilemega: {
 		num: 254,
@@ -4226,6 +4227,7 @@ let BattlePokedex = {
 		evoLevel: 36,
 		eggGroups: ["Field"],
 		otherFormes: ["blazikenmega"],
+		cfmMoves: ['blastburn', 'blazekick', 'bravebird', 'closecombat', 'detect', 'fireblast', 'firespin', 'flareblitz', 'focusblast', 'highjumpkick', 'inferno', 'vacuumwave'],
 	},
 	blazikenmega: {
 		num: 257,
@@ -4284,6 +4286,7 @@ let BattlePokedex = {
 		evoLevel: 36,
 		eggGroups: ["Monster", "Water 1"],
 		otherFormes: ["swampertmega"],
+		cfmMoves: ['aquatail', 'curse', 'hammerarm', 'hydrocannon', 'hydropump', 'icepunch', 'mudbomb', 'muddywater', 'roar', 'stealthrock', 'stompingtantrum', 'stoneedge'];
 	},
 	swampertmega: {
 		num: 260,
@@ -4324,6 +4327,7 @@ let BattlePokedex = {
 		prevo: "poochyena",
 		evoLevel: 18,
 		eggGroups: ["Field"],
+		cfmMoves: ['crunch', 'firefang', 'healbell', 'honeclaws', 'icefang', 'irontail', 'playrough', 'poisonfang', 'pursuit', 'submission', 'suckerpunch', 'thunderfang']
 	},
 	zigzagoon: {
 		num: 263,
@@ -4365,6 +4369,7 @@ let BattlePokedex = {
 		evoLevel: 20,
 		eggGroups: ["Field"],
 		otherFormes: ["linoonegalar"],
+		cfmMoves: ['bellydrum', 'extremespeed', 'hypervoice', 'icebeam', 'mudshot', 'playrough', 'rocksmash', 'seedbomb', 'stompingtantrum', 'tailslap', 'thunderbolt', 'workup'],
 	},
 	linoonegalar: {
 		num: 264,
@@ -4421,6 +4426,7 @@ let BattlePokedex = {
 		prevo: "silcoon",
 		evoLevel: 10,
 		eggGroups: ["Bug"],
+		cfmMoves: ['acrobatics', 'bugbuzz', 'gust', 'leechlife', 'quiverdance', 'razorwind', 'stickyweb', 'strengthsap', 'stunspore', 'tailwind', 'uturn', 'workup'],
 	},
 	cascoon: {
 		num: 268,
@@ -4449,6 +4455,7 @@ let BattlePokedex = {
 		prevo: "cascoon",
 		evoLevel: 10,
 		eggGroups: ["Bug"],
+		cfmMoves: ['acid', 'bugbuzz', 'defog', 'gigadrain', 'irondefense', 'leechlife', 'quiverdance', 'roost', 'tailwind', 'toxic', 'uturn', 'whirlwind'],
 	},
 	lotad: {
 		num: 270,
@@ -4556,6 +4563,7 @@ let BattlePokedex = {
 		prevo: "taillow",
 		evoLevel: 22,
 		eggGroups: ["Flying"],
+		cfmMoves: ['airslash', 'boomburst', 'bravebird', 'facade', 'gust', 'heatwave', 'hurricane', 'mirrormove', 'quickattack', 'reversal', 'skyattack', 'uturn'],
 	},
 	wingull: {
 		num: 278,
@@ -4583,6 +4591,7 @@ let BattlePokedex = {
 		prevo: "wingull",
 		evoLevel: 25,
 		eggGroups: ["Water 1", "Flying"],
+		cfmMoves: ['agility', 'blizzard', 'defog', 'gust', 'hurricane', 'hydropump', 'icywind', 'knockoff', 'roost', 'tailwind', 'uturn', 'weatherball'],
 	},
 	ralts: {
 		num: 280,
@@ -4623,6 +4632,7 @@ let BattlePokedex = {
 		evoLevel: 30,
 		eggGroups: ["Human-Like", "Amorphous"],
 		otherFormes: ["gardevoirmega"],
+		cfmMoves: ['barrier', 'darkpulse', 'focusblast', 'heartswap', 'moonblast', 'psychic', 'recover', 'synchronoise', 'taunt', 'teleport', 'willowisp', 'wish'],
 	},
 	gardevoirmega: {
 		num: 282,
@@ -4637,6 +4647,7 @@ let BattlePokedex = {
 		color: "White",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Gardevoirite",
+		cfmMoves: ['dreameater', 'firepunch', 'focusblast', 'hyperbeam', 'hypnosis', 'icepunch', 'knockoff', 'protect', 'swordsdance', 'telekinesis', 'thunderpunch', 'zenheadbutt'],
 	},
 	surskit: {
 		num: 283,
@@ -4663,6 +4674,7 @@ let BattlePokedex = {
 		prevo: "surskit",
 		evoLevel: 22,
 		eggGroups: ["Water 1", "Bug"],
+		cfmMoves: ['acrobatics', 'airslash', 'defog', 'gust', 'hurricane', 'hydropump', 'liquidation', 'quiverdance', 'stickyweb', 'stunspore', 'surf', 'whirlwind'],
 	},
 	shroomish: {
 		num: 285,
@@ -4688,6 +4700,7 @@ let BattlePokedex = {
 		prevo: "shroomish",
 		evoLevel: 23,
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: ['armthrust', 'closecombat', 'focuspunch', 'leechseed', 'machpunch', 'poisonjab', 'rockslide', 'seedbomb', 'spore', 'stunspore', 'thunderpunch', 'toxic'],
 	},
 	slakoth: {
 		num: 287,
@@ -4727,6 +4740,7 @@ let BattlePokedex = {
 		prevo: "vigoroth",
 		evoLevel: 36,
 		eggGroups: ["Field"],
+		cfmMoves: ['bulkup', 'firepunch', 'hammerarm', 'icepunch', 'knockoff', 'playrough', 'pursuit', 'shadowclaw', 'slackoff', 'suckerpunch', 'taunt', 'thunderpunch'],
 	},
 	nincada: {
 		num: 290,
@@ -4753,6 +4767,7 @@ let BattlePokedex = {
 		prevo: "nincada",
 		evoLevel: 20,
 		eggGroups: ["Bug"],
+		cfmMoves: ['acrobatics', 'bugbuzz', 'defog', 'drillrun', 'earthpower', 'gigadrain', 'gust', 'leechlife', 'nightslash', 'razorwind', 'swordsdance', 'xscissor'],
 	},
 	shedinja: {
 		num: 292,
@@ -4769,6 +4784,7 @@ let BattlePokedex = {
 		prevo: "nincada",
 		evoLevel: 20,
 		eggGroups: ["Mineral"],
+		cfmMoves: ['agility', 'aurasphere', 'calmmind', 'destinybond', 'drillrun', 'earthpower', 'phantomforce', 'shadowball', 'shadowclaw', 'swordsdance', 'uturn', 'xscissor']
 	},
 	whismur: {
 		num: 293,
