@@ -557,6 +557,14 @@ let Formats = [
 		column: 2,
 	},
 	{
+		name: "[Gen 8] CFM Battle Factory",
+		desc: `Randomized CFM teams for CFM tiers.`,
+
+		mod: 'cfm',
+		team: 'randomCFMFactory',
+		ruleset: ['Obtainable', 'Sleep Clause Mod', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Mega Rayquaza Clause'],
+	},
+	{
 		name: "[Gen 8] CFM Ubers",
 
 		mod: 'cfm',
