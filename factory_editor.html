@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+		<link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+	</head>
+	<body>
+		<div id="app">
+			<label>
+				<input type="file" id="set_uploads" ref="sets" @change="loadSets()" accept=".json">
+			</label>
+			<v-expansion-panels>
+				<v-expansion-panel
+					v-for="(sets, tier) in allSets"
+				>
+					<v-expansion-panel-header>
+						{{ tier }}
+					</v-expansion-panel-header>
+					<v-expansion-panel-content>
+						<v-expansion-panels>
+							<v-expansion-panel
+								v-for="(monSets, mon) in sets"
+							>
+								<v-expansion-panel-header>
+									{{ mon }}
+								</v-expansion-panel-header>
+								<v-expansion-panel-content>
+									{{ monSets }}
+								</v-expansion-panel-content>
+							</v-expansion-panel>
+						</v-expansion-panels>
+					</v-expansion-panel-content>
+				</v-expansion-panel>
+			</v-expansion-panels>
+		</div>
+	</body>
+	<!-- Bootstrap shizzle -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	<!-- Vue -->
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+
+	<script>
+		window.vueApp = new Vue({
+			el: "#app",
+			vuetify: new Vuetify(),
+			data: {
+				allSets: {}
+			},
+			methods: {
+				loadSets(){
+					let self = this;
+					let reader = new FileReader();
+
+
+					let file = this.$refs.sets.files[0];
+					reader.onload = function() {
+						self.allSets = JSON.parse(reader.result);
+					}
+
+					reader.readAsText(file);
+				}
+				// importSetFile() {
+				// 	var self = this;
+				// 	var rawFile = new XMLHttpRequest();
+				// 	rawFile.open("GET", './data/mods/cfm/cfm-factory-sets.json', false);
+				// 	rawFile.onreadystatechange = function ()
+				// 	{
+				// 		if(rawFile.readyState === 4)
+				// 		{
+				// 			if(rawFile.status === 200 || rawFile.status == 0)
+				// 			{
+				// 				self.allSets = JSON.parse(rawFile.responseText);
+				// 				console.log(self.allSets);
+				// 			}
+				// 		}
+				// 	}
+				// 	rawFile.send(null);
+				// },
+				// importAllSets() {
+				// 	var fs = new FileReader();
+				// 	fileReader.readAsText()
+
+				// }
+			},
+			beforeMount() {
+				// this.importSetFile();
+			}
+		})
+	</script>
+</html>
