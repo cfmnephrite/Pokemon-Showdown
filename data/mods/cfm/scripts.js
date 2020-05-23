@@ -1122,30 +1122,40 @@ let BattleScripts = {
 			let moveData = pokemon.getMoveData(move);
 			if (!moveData || !moveData.pp) return; // Draining the PP of the base move prevents the corresponding Z-move from being used.
 		}
-
-		if (item.zMoveFrom) {
-			if (move.name === item.zMoveFrom) return /** @type {string} */ (item.zMove);
+		if (typeof item.zMove === 'string') {
+			if (item.zMoveFrom && move.name !== item.zMoveFrom) return;
+			if (item.zMoveType && this.getEffectiveType(move, pokemon) !== item.zMoveType) return;
+			if (item.zMoveCategory && this.getCategory(move, pokemon) !== item.zMoveCategory) return;
+			return /** @type {string} */ (item.zMove);
 		} else if (item.zMove === true) {
 			if (move.type === item.zMoveType) {
 				if (move.category === "Status") {
 					return move.name;
 				} else if (move.zMovePower) {
-					return this.zMoveTable[move.type];
+					return this.zMoveTable[this.getEffectiveType(move, pokemon)];
 				}
 			}
 		}
 	},
 
 	getActiveZMove(move, pokemon) {
-		if (pokemon) {
-			let item = pokemon.getItem();
-			if (move.name === item.zMoveFrom) {
-				// @ts-ignore
-				let zMove = this.dex.getActiveMove(item.zMove);
-				zMove.isZPowered = true;
-				return zMove;
-			}
-		}
+		// if (move.category === 'Status') {
+		// 	let zMove = this.dex.getActiveMove(move);
+		// 	zMove.isZ = true;
+		// 	zMove.isZPowered = true;
+		// 	return zMove;
+		// }
+		// let item = pokemon.getItem();
+		// let zMove = this.dex.getActiveMove(this.getZMove(move, pokemon) || this.zMoveTable[move.type]);
+		// if (typeof item.zMove !== 'string') {
+		// 	zMove.basePower = move.zMovePower || 100;
+		// 	zMove.category = move.category;
+		// 	// copy the priority for Quick Guard
+		// 	zMove.priority = move.priority;
+		// }
+		// else {
+			
+		// }
 
 		if (move.category === 'Status') {
 			let zMove = this.dex.getActiveMove(move);
@@ -1153,10 +1163,17 @@ let BattleScripts = {
 			zMove.isZPowered = true;
 			return zMove;
 		}
-		let zMove = this.dex.getActiveMove(this.zMoveTable[move.type]);
-		// @ts-ignore
-		zMove.basePower = move.zMovePower;
-		zMove.category = move.category;
+
+		// Get what the Z Move is supposed to be from the held item
+		let item = pokemon.getItem();
+		let zMoveName = this.getZMove(move, pokemon, true) || this.zMoveTable[move.type];
+		let zMove = this.dex.getActiveMove(this.dex.getActiveMove(zMoveName));
+
+		// Non-unique Z Moves don't have a fixed BP or category
+		if (zMove.basePower === 1) {
+			zMove.basePower = move.zMovePower || 100;
+			zMove.category = move.category;
+		}
 		// copy the priority for Quick Guard
 		zMove.priority = move.priority;
 		zMove.isZPowered = true;
@@ -1240,33 +1257,8 @@ let BattleScripts = {
 	},
 
 	canDynamax(pokemon, skipChecks) {
-		// {gigantamax?: string, maxMoves: {[k: string]: string} | null}[]
-		if (!skipChecks) {
-			if (!pokemon.canDynamax) return;
-			if (pokemon.species.isMega || pokemon.species.isPrimal || pokemon.species.forme === "Ultra" || pokemon.getItem().zMove || this.canMegaEvo(pokemon)) {
-				return;
-			}
-			// Some pokemon species are unable to dynamax
-			const cannotDynamax = ['zacian', 'zamazenta', 'eternatus'];
-			if (cannotDynamax.includes(toID(pokemon.species.baseSpecies))) {
-				return;
-			}
-		}
-		/** @type {DynamaxOptions} */
-		let result = {maxMoves: []};
-		for (let moveSlot of pokemon.moveSlots) {
-			let move = this.dex.getMove(moveSlot.id);
-			let maxMove = this.getMaxMove(move, pokemon);
-			if (maxMove) {
-				if (pokemon.maxMoveDisabled(maxMove)) {
-					result.maxMoves.push({move: maxMove.id, target: maxMove.target, disabled: true});
-				} else {
-					result.maxMoves.push({move: maxMove.id, target: maxMove.target});
-				}
-			}
-		}
-		if (pokemon.canGigantamax) result.gigantamax = pokemon.canGigantamax;
-		return result;
+		// CFM has no dynamax
+		return;
 	},
 
 	getMaxMove(move, pokemon) {

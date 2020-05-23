@@ -60,7 +60,7 @@ let BattleAbilities = {
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
 			if (move.category === 'Status' || this.field.auraBreak()) return;
-			if ((move.type === 'Normal' || move.type === 'Flying') && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !move.isZ) {
+			if ((move.type === 'Normal' || move.type === 'Flying') && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id)) {
 				move.type = 'Flying';
 				move.aerilateBoosted = true;
 			}
@@ -71,6 +71,7 @@ let BattleAbilities = {
 		},
 		id: "aerilate",
 		name: "Aerilate",
+		ate: "Flying",
 		rating: 4,
 		num: 185,
 		cfm: true,
@@ -649,6 +650,7 @@ let BattleAbilities = {
 		isUnbreakable: true,
 		id: "darkaura",
 		name: "Dark Aura",
+		ate: "Dark",
 		rating: 3.5,
 		num: 186,
 	},
@@ -973,6 +975,7 @@ let BattleAbilities = {
 		isUnbreakable: true,
 		id: "fairyaura",
 		name: "Fairy Aura",
+		ate: "Fairy",
 		rating: 3.5,
 		num: 187,
 	},
@@ -1291,7 +1294,7 @@ let BattleAbilities = {
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
 			if (move.category === 'Status' || this.field.auraBreak()) return;
-			if ((move.type === 'Normal' || move.type === 'Electric') && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !move.isZ) {
+			if ((move.type === 'Normal' || move.type === 'Electric') && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id)) {
 				move.type = 'Electric';
 				move.galvanizeBoosted = true;
 			}
@@ -1302,6 +1305,7 @@ let BattleAbilities = {
 		},
 		id: "galvanize",
 		name: "Galvanize",
+		ate: "Electric",
 		rating: 4,
 		num: 206,
 		cfm: true,
@@ -2915,7 +2919,7 @@ let BattleAbilities = {
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
 			if (move.category === 'Status' || this.field.auraBreak()) return;
-			if ((move.type === 'Normal' || move.type === 'Fairy') && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !move.isZ) {
+			if ((move.type === 'Normal' || move.type === 'Fairy') && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id)) {
 				move.type = 'Fairy';
 				move.pixilateBoosted = true;
 			}
@@ -2926,6 +2930,7 @@ let BattleAbilities = {
 		},
 		id: "pixilate",
 		name: "Pixilate",
+		ate: "Fairy",
 		rating: 4,
 		num: 182,
 		cfm: true,
@@ -3315,7 +3320,7 @@ let BattleAbilities = {
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
 			if (move.category === 'Status' || this.field.auraBreak()) return;
-			if ((move.type === 'Normal' || move.type === 'Ice') && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) && !move.isZ) {
+			if ((move.type === 'Normal' || move.type === 'Ice') && !['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id)) {
 				move.type = 'Ice';
 				move.refrigerateBoosted = true;
 			}
@@ -3326,6 +3331,7 @@ let BattleAbilities = {
 		},
 		id: "refrigerate",
 		name: "Refrigerate",
+		ate: "Ice",
 		rating: 4,
 		num: 174,
 		cfm: true,

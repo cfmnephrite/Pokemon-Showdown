@@ -615,6 +615,7 @@ let Formats = [
 		name: "[Gen 8] CFM Testing",
 		mod: 'cfm',
 		searchShow: false,
+		debug: true,
 		ruleset: ['Evasion Moves Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
 	},
 	{

@@ -817,6 +817,7 @@ interface EffectData {
 	onRestart?: (this: Battle, target: Pokemon & Side & Field, source: Pokemon) => void;
 
 	cfm?: boolean; // CFM modified
+	ate?: string; // For calculating Z Move types 
 }
 
 interface ModdedEffectData extends Partial<EffectData> {
@@ -890,6 +891,9 @@ interface ItemData extends EffectData, ItemEventMethods, EventMethods {
 	zMoveType?: string;
 	itemUser?: string[];
 	boosts?: SparseBoostsTable | false;
+
+	// CFM - Pulverising Pancake can only be used by Snorlax off of a physical Normal-type move
+	zMoveCategory?: string;
 }
 
 interface ModdedItemData extends Partial<ItemData>, ModdedEffectData {
