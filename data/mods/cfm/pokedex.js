@@ -14,6 +14,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["ivysaur"],
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	ivysaur: {
 		num: 2,
@@ -29,6 +30,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["venusaur"],
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	venusaur: {
 		num: 3,
@@ -60,6 +62,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ["Monster", "Grass"],
 		requiredItem: "Venusaurite",
+		cfmMoves: [],
 	},
 	charmander: {
 		num: 4,
@@ -73,6 +76,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["charmeleon"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	charmeleon: {
 		num: 5,
@@ -88,6 +92,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["charizard"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	charizard: {
 		num: 6,
@@ -121,6 +126,7 @@ let BattlePokedex = {
 		color: "Black",
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Charizardite X",
+		cfmMoves: [],
 	},
 	charizardmegay: {
 		num: 6,
@@ -137,6 +143,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Charizardite Y",
+		cfmMoves: [],
 	},
 	squirtle: {
 		num: 7,
@@ -150,6 +157,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["wartortle"],
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	wartortle: {
 		num: 8,
@@ -165,6 +173,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["blastoise"],
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	blastoise: {
 		num: 9,
@@ -196,6 +205,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Monster", "Water 1"],
 		requiredItem: "Blastoisinite",
+		cfmMoves: [],
 	},
 	caterpie: {
 		num: 10,
@@ -208,6 +218,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["metapod"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	metapod: {
 		num: 11,
@@ -222,6 +233,7 @@ let BattlePokedex = {
 		evoLevel: 7,
 		evos: ["butterfree"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	butterfree: {
 		num: 12,
@@ -236,6 +248,7 @@ let BattlePokedex = {
 		prevo: "metapod",
 		evoLevel: 10,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	weedle: {
 		num: 13,
@@ -248,6 +261,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["kakuna"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	kakuna: {
 		num: 14,
@@ -262,6 +276,7 @@ let BattlePokedex = {
 		evoLevel: 7,
 		evos: ["beedrill"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	beedrill: {
 		num: 15,
@@ -277,6 +292,7 @@ let BattlePokedex = {
 		evoLevel: 10,
 		eggGroups: ["Bug"],
 		otherFormes: ["beedrillmega"],
+		cfmMoves: [],
 	},
 	beedrillmega: {
 		num: 15,
@@ -292,6 +308,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		eggGroups: ["Bug"],
 		requiredItem: "Beedrillite",
+		cfmMoves: [],
 	},
 	pidgey: {
 		num: 16,
@@ -305,6 +322,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["pidgeotto"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	pidgeotto: {
 		num: 17,
@@ -320,6 +338,7 @@ let BattlePokedex = {
 		evoLevel: 18,
 		evos: ["pidgeot"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	pidgeot: {
 		num: 18,
@@ -335,6 +354,7 @@ let BattlePokedex = {
 		evoLevel: 36,
 		eggGroups: ["Flying"],
 		otherFormes: ["pidgeotmega"],
+		cfmMoves: [],
 	},
 	pidgeotmega: {
 		num: 18,
@@ -350,6 +370,7 @@ let BattlePokedex = {
 		color: "Brown",
 		eggGroups: ["Flying"],
 		requiredItem: "Pidgeotite",
+		cfmMoves: [],
 	},
 	rattata: {
 		num: 19,
@@ -363,6 +384,7 @@ let BattlePokedex = {
 		evos: ["raticate"],
 		eggGroups: ["Field"],
 		otherFormes: ["rattataalola"],
+		cfmMoves: [],
 	},
 	rattataalola: {
 		num: 19,
@@ -377,6 +399,7 @@ let BattlePokedex = {
 		color: "Black",
 		evos: ["raticatealola"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	raticate: {
 		num: 20,
@@ -391,6 +414,7 @@ let BattlePokedex = {
 		evoLevel: 20,
 		eggGroups: ["Field"],
 		otherFormes: ["raticatealola", "raticatealolatotem"],
+		cfmMoves: [],
 	},
 	raticatealola: {
 		num: 20,
@@ -406,6 +430,7 @@ let BattlePokedex = {
 		prevo: "rattataalola",
 		evoLevel: 20,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	raticatealolatotem: {
 		num: 20,
@@ -419,6 +444,7 @@ let BattlePokedex = {
 		weightkg: 105,
 		color: "Black",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	spearow: {
 		num: 21,
@@ -432,6 +458,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["fearow"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	fearow: {
 		num: 22,
@@ -446,6 +473,7 @@ let BattlePokedex = {
 		prevo: "spearow",
 		evoLevel: 20,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	ekans: {
 		num: 23,
@@ -458,6 +486,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["arbok"],
 		eggGroups: ["Field", "Dragon"],
+		cfmMoves: [],
 	},
 	arbok: {
 		num: 24,
@@ -471,6 +500,7 @@ let BattlePokedex = {
 		prevo: "ekans",
 		evoLevel: 22,
 		eggGroups: ["Field", "Dragon"],
+		cfmMoves: [],
 	},
 	pikachu: {
 		num: 25,
@@ -485,6 +515,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		evos: ["raichu", "raichualola"],
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	raichu: {
 		num: 26,
@@ -500,6 +531,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		eggGroups: ["Field", "Fairy"],
 		otherFormes: ["raichualola"],
+		cfmMoves: [],
 	},
 	raichualola: {
 		num: 26,
@@ -517,6 +549,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Thunder Stone",
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	sandshrew: {
 		num: 27,
@@ -530,6 +563,7 @@ let BattlePokedex = {
 		evos: ["sandslash"],
 		eggGroups: ["Field"],
 		otherFormes: ["sandshrewalola"],
+		cfmMoves: [],
 	},
 	sandshrewalola: {
 		num: 27,
@@ -544,6 +578,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["sandslashalola"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	sandslash: {
 		num: 28,
@@ -558,6 +593,7 @@ let BattlePokedex = {
 		evoLevel: 22,
 		eggGroups: ["Field"],
 		otherFormes: ["sandslashalola"],
+		cfmMoves: [],
 	},
 	sandslashalola: {
 		num: 28,
@@ -574,6 +610,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Ice Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	nidoranf: {
 		num: 29,
@@ -587,6 +624,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["nidorina"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	nidorina: {
 		num: 30,
@@ -602,6 +640,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["nidoqueen"],
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	nidoqueen: {
 		num: 31,
@@ -617,6 +656,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Moon Stone",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	nidoranm: {
 		num: 32,
@@ -630,6 +670,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["nidorino"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	nidorino: {
 		num: 33,
@@ -645,6 +686,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["nidoking"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	nidoking: {
 		num: 34,
@@ -660,6 +702,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Moon Stone",
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	clefairy: {
 		num: 35,
@@ -675,6 +718,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		evos: ["clefable"],
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	clefable: {
 		num: 36,
@@ -690,6 +734,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Moon Stone",
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	vulpix: {
 		num: 37,
@@ -704,6 +749,7 @@ let BattlePokedex = {
 		evos: ["ninetales"],
 		eggGroups: ["Field"],
 		otherFormes: ["vulpixalola"],
+		cfmMoves: [],
 	},
 	vulpixalola: {
 		num: 37,
@@ -719,6 +765,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["ninetalesalola"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	ninetales: {
 		num: 38,
@@ -735,6 +782,7 @@ let BattlePokedex = {
 		evoItem: "Fire Stone",
 		eggGroups: ["Field"],
 		otherFormes: ["ninetalesalola"],
+		cfmMoves: [],
 	},
 	ninetalesalola: {
 		num: 38,
@@ -752,6 +800,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Ice Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	jigglypuff: {
 		num: 39,
@@ -767,6 +816,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		evos: ["wigglytuff"],
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	wigglytuff: {
 		num: 40,
@@ -782,6 +832,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Moon Stone",
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	zubat: {
 		num: 41,
@@ -795,6 +846,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["golbat"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	golbat: {
 		num: 42,
@@ -810,6 +862,7 @@ let BattlePokedex = {
 		evoLevel: 22,
 		evos: ["crobat"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	oddish: {
 		num: 43,
@@ -822,6 +875,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["gloom"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	gloom: {
 		num: 44,
@@ -836,6 +890,7 @@ let BattlePokedex = {
 		evoLevel: 21,
 		evos: ["vileplume", "bellossom"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	vileplume: {
 		num: 45,
@@ -850,6 +905,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Leaf Stone",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	paras: {
 		num: 46,
@@ -862,6 +918,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["parasect"],
 		eggGroups: ["Bug", "Grass"],
+		cfmMoves: [],
 	},
 	parasect: {
 		num: 47,
@@ -875,6 +932,7 @@ let BattlePokedex = {
 		prevo: "paras",
 		evoLevel: 24,
 		eggGroups: ["Bug", "Grass"],
+		cfmMoves: [],
 	},
 	venonat: {
 		num: 48,
@@ -887,6 +945,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["venomoth"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	venomoth: {
 		num: 49,
@@ -901,6 +960,7 @@ let BattlePokedex = {
 		prevo: "venonat",
 		evoLevel: 31,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	diglett: {
 		num: 50,
@@ -914,6 +974,7 @@ let BattlePokedex = {
 		evos: ["dugtrio"],
 		eggGroups: ["Field"],
 		otherFormes: ["diglettalola"],
+		cfmMoves: [],
 	},
 	diglettalola: {
 		num: 50,
@@ -928,6 +989,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["dugtrioalola"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	dugtrio: {
 		num: 51,
@@ -942,6 +1004,7 @@ let BattlePokedex = {
 		evoLevel: 26,
 		eggGroups: ["Field"],
 		otherFormes: ["dugtrioalola"],
+		cfmMoves: [],
 	},
 	dugtrioalola: {
 		num: 51,
@@ -957,6 +1020,7 @@ let BattlePokedex = {
 		prevo: "diglettalola",
 		evoLevel: 26,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	meowth: {
 		num: 52,
@@ -970,6 +1034,7 @@ let BattlePokedex = {
 		evos: ["persian"],
 		eggGroups: ["Field"],
 		otherFormes: ["meowthalola", "meowthgalar"],
+		cfmMoves: [],
 	},
 	meowthalola: {
 		num: 52,
@@ -984,6 +1049,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["persianalola"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	meowthgalar: {
 		num: 52,
@@ -998,6 +1064,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["perrserker"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	persian: {
 		num: 53,
@@ -1012,6 +1079,7 @@ let BattlePokedex = {
 		evoLevel: 28,
 		eggGroups: ["Field"],
 		otherFormes: ["persianalola"],
+		cfmMoves: [],
 	},
 	persianalola: {
 		num: 53,
@@ -1027,6 +1095,7 @@ let BattlePokedex = {
 		prevo: "meowthalola",
 		evoType: "levelFriendship",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	psyduck: {
 		num: 54,
@@ -1039,6 +1108,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		evos: ["golduck"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	golduck: {
 		num: 55,
@@ -1052,6 +1122,7 @@ let BattlePokedex = {
 		prevo: "psyduck",
 		evoLevel: 33,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	mankey: {
 		num: 56,
@@ -1064,6 +1135,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["primeape"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	primeape: {
 		num: 57,
@@ -1077,6 +1149,7 @@ let BattlePokedex = {
 		prevo: "mankey",
 		evoLevel: 28,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	growlithe: {
 		num: 58,
@@ -1090,6 +1163,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["arcanine"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	arcanine: {
 		num: 59,
@@ -1105,6 +1179,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Fire Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	poliwag: {
 		num: 60,
@@ -1117,6 +1192,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["poliwhirl"],
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	poliwhirl: {
 		num: 61,
@@ -1131,6 +1207,7 @@ let BattlePokedex = {
 		evoLevel: 25,
 		evos: ["poliwrath", "politoed"],
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	poliwrath: {
 		num: 62,
@@ -1145,6 +1222,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Water Stone",
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	abra: {
 		num: 63,
@@ -1158,6 +1236,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["kadabra"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	kadabra: {
 		num: 64,
@@ -1173,6 +1252,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["alakazam"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	alakazam: {
 		num: 65,
@@ -1188,6 +1268,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		eggGroups: ["Human-Like"],
 		otherFormes: ["alakazammega"],
+		cfmMoves: [],
 	},
 	alakazammega: {
 		num: 65,
@@ -1203,6 +1284,7 @@ let BattlePokedex = {
 		color: "Brown",
 		eggGroups: ["Human-Like"],
 		requiredItem: "Alakazite",
+		cfmMoves: [],
 	},
 	machop: {
 		num: 66,
@@ -1216,6 +1298,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["machoke"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	machoke: {
 		num: 67,
@@ -1231,6 +1314,7 @@ let BattlePokedex = {
 		evoLevel: 28,
 		evos: ["machamp"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	machamp: {
 		num: 68,
@@ -1245,6 +1329,7 @@ let BattlePokedex = {
 		prevo: "machoke",
 		evoType: "trade",
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	bellsprout: {
 		num: 69,
@@ -1257,6 +1342,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["weepinbell"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	weepinbell: {
 		num: 70,
@@ -1271,6 +1357,7 @@ let BattlePokedex = {
 		evoLevel: 21,
 		evos: ["victreebel"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	victreebel: {
 		num: 71,
@@ -1285,6 +1372,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Leaf Stone",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	tentacool: {
 		num: 72,
@@ -1297,6 +1385,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["tentacruel"],
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	tentacruel: {
 		num: 73,
@@ -1310,6 +1399,7 @@ let BattlePokedex = {
 		prevo: "tentacool",
 		evoLevel: 30,
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	geodude: {
 		num: 74,
@@ -1323,6 +1413,7 @@ let BattlePokedex = {
 		evos: ["graveler"],
 		eggGroups: ["Mineral"],
 		otherFormes: ["geodudealola"],
+		cfmMoves: [],
 	},
 	geodudealola: {
 		num: 74,
@@ -1337,6 +1428,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["graveleralola"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	graveler: {
 		num: 75,
@@ -1352,6 +1444,7 @@ let BattlePokedex = {
 		evos: ["golem"],
 		eggGroups: ["Mineral"],
 		otherFormes: ["graveleralola"],
+		cfmMoves: [],
 	},
 	graveleralola: {
 		num: 75,
@@ -1368,6 +1461,7 @@ let BattlePokedex = {
 		evoLevel: 25,
 		evos: ["golemalola"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	golem: {
 		num: 76,
@@ -1382,6 +1476,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		eggGroups: ["Mineral"],
 		otherFormes: ["golemalola"],
+		cfmMoves: [],
 	},
 	golemalola: {
 		num: 76,
@@ -1397,6 +1492,7 @@ let BattlePokedex = {
 		prevo: "graveleralola",
 		evoType: "trade",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	ponyta: {
 		num: 77,
@@ -1410,6 +1506,7 @@ let BattlePokedex = {
 		evos: ["rapidash"],
 		eggGroups: ["Field"],
 		otherFormes: ["ponytagalar"],
+		cfmMoves: [],
 	},
 	ponytagalar: {
 		num: 77,
@@ -1424,6 +1521,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["rapidashgalar"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	rapidash: {
 		num: 78,
@@ -1438,6 +1536,7 @@ let BattlePokedex = {
 		evoLevel: 40,
 		eggGroups: ["Field"],
 		otherFormes: ["rapidashgalar"],
+		cfmMoves: [],
 	},
 	rapidashgalar: {
 		num: 78,
@@ -1453,6 +1552,7 @@ let BattlePokedex = {
 		prevo: "ponytagalar",
 		evoLevel: 40,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	slowpoke: {
 		num: 79,
@@ -1466,6 +1566,7 @@ let BattlePokedex = {
 		evos: ["slowbro", "slowking"],
 		eggGroups: ["Monster", "Water 1"],
 		otherFormes: ["slowpokegalar"],
+		cfmMoves: [],
 	},
 	slowpokegalar: {
 		num: 79,
@@ -1479,6 +1580,7 @@ let BattlePokedex = {
 		weightkg: 36,
 		color: "Pink",
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	slowbro: {
 		num: 80,
@@ -1493,6 +1595,7 @@ let BattlePokedex = {
 		evoLevel: 37,
 		eggGroups: ["Monster", "Water 1"],
 		otherFormes: ["slowbromega"],
+		cfmMoves: [],
 	},
 	slowbromega: {
 		num: 80,
@@ -1507,6 +1610,7 @@ let BattlePokedex = {
 		color: "Pink",
 		eggGroups: ["Monster", "Water 1"],
 		requiredItem: "Slowbronite",
+		cfmMoves: [],
 	},
 	magnemite: {
 		num: 81,
@@ -1521,6 +1625,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["magneton"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	magneton: {
 		num: 82,
@@ -1537,6 +1642,7 @@ let BattlePokedex = {
 		evoLevel: 30,
 		evos: ["magnezone"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	farfetchd: {
 		num: 83,
@@ -1550,6 +1656,7 @@ let BattlePokedex = {
 		color: "Brown",
 		eggGroups: ["Flying", "Field"],
 		otherFormes: ["farfetchdgalar"],
+		cfmMoves: [],
 	},
 	farfetchdgalar: {
 		num: 83,
@@ -1565,6 +1672,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["sirfetchd"],
 		eggGroups: ["Flying", "Field"],
+		cfmMoves: [],
 	},
 	doduo: {
 		num: 84,
@@ -1577,6 +1685,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["dodrio"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	dodrio: {
 		num: 85,
@@ -1590,6 +1699,7 @@ let BattlePokedex = {
 		prevo: "doduo",
 		evoLevel: 31,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	seel: {
 		num: 86,
@@ -1602,6 +1712,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["dewgong"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	dewgong: {
 		num: 87,
@@ -1615,6 +1726,7 @@ let BattlePokedex = {
 		prevo: "seel",
 		evoLevel: 34,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	grimer: {
 		num: 88,
@@ -1628,6 +1740,7 @@ let BattlePokedex = {
 		evos: ["muk"],
 		eggGroups: ["Amorphous"],
 		otherFormes: ["grimeralola"],
+		cfmMoves: [],
 	},
 	grimeralola: {
 		num: 88,
@@ -1642,6 +1755,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["mukalola"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	muk: {
 		num: 89,
@@ -1656,6 +1770,7 @@ let BattlePokedex = {
 		evoLevel: 38,
 		eggGroups: ["Amorphous"],
 		otherFormes: ["mukalola"],
+		cfmMoves: [],
 	},
 	mukalola: {
 		num: 89,
@@ -1671,6 +1786,7 @@ let BattlePokedex = {
 		prevo: "grimeralola",
 		evoLevel: 38,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	shellder: {
 		num: 90,
@@ -1683,6 +1799,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["cloyster"],
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	cloyster: {
 		num: 91,
@@ -1697,6 +1814,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Water Stone",
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	gastly: {
 		num: 92,
@@ -1710,6 +1828,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["haunter"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	haunter: {
 		num: 93,
@@ -1725,6 +1844,7 @@ let BattlePokedex = {
 		evoLevel: 25,
 		evos: ["gengar"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	gengar: {
 		num: 94,
@@ -1740,6 +1860,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		eggGroups: ["Amorphous"],
 		otherFormes: ["gengarmega"],
+		cfmMoves: [],
 	},
 	gengarmega: {
 		num: 94,
@@ -1754,6 +1875,7 @@ let BattlePokedex = {
 		color: "Purple",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Gengarite",
+		cfmMoves: [],
 	},
 	onix: {
 		num: 95,
@@ -1766,6 +1888,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["steelix"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	drowzee: {
 		num: 96,
@@ -1778,6 +1901,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		evos: ["hypno"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	hypno: {
 		num: 97,
@@ -1791,6 +1915,7 @@ let BattlePokedex = {
 		prevo: "drowzee",
 		evoLevel: 26,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	krabby: {
 		num: 98,
@@ -1803,6 +1928,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["kingler"],
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	kingler: {
 		num: 99,
@@ -1816,6 +1942,7 @@ let BattlePokedex = {
 		prevo: "krabby",
 		evoLevel: 28,
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	voltorb: {
 		num: 100,
@@ -1829,6 +1956,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["electrode"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	electrode: {
 		num: 101,
@@ -1843,6 +1971,7 @@ let BattlePokedex = {
 		prevo: "voltorb",
 		evoLevel: 30,
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	exeggcute: {
 		num: 102,
@@ -1855,6 +1984,7 @@ let BattlePokedex = {
 		color: "Pink",
 		evos: ["exeggutor", "exeggutoralola"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	exeggutor: {
 		num: 103,
@@ -1870,6 +2000,7 @@ let BattlePokedex = {
 		evoItem: "Leaf Stone",
 		eggGroups: ["Grass"],
 		otherFormes: ["exeggutoralola"],
+		cfmMoves: [],
 	},
 	exeggutoralola: {
 		num: 103,
@@ -1886,6 +2017,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Leaf Stone",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	cubone: {
 		num: 104,
@@ -1898,6 +2030,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["marowak", "marowakalola"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	marowak: {
 		num: 105,
@@ -1912,6 +2045,7 @@ let BattlePokedex = {
 		evoLevel: 28,
 		eggGroups: ["Monster"],
 		otherFormes: ["marowakalola", "marowakalolatotem"],
+		cfmMoves: [],
 	},
 	marowakalola: {
 		num: 105,
@@ -1927,6 +2061,7 @@ let BattlePokedex = {
 		prevo: "cubone",
 		evoLevel: 28,
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	marowakalolatotem: {
 		num: 105,
@@ -1940,6 +2075,7 @@ let BattlePokedex = {
 		weightkg: 98,
 		color: "Purple",
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	hitmonlee: {
 		num: 106,
@@ -1954,6 +2090,7 @@ let BattlePokedex = {
 		prevo: "tyrogue",
 		evoLevel: 20,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	hitmonchan: {
 		num: 107,
@@ -1968,6 +2105,7 @@ let BattlePokedex = {
 		prevo: "tyrogue",
 		evoLevel: 20,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	lickitung: {
 		num: 108,
@@ -1980,6 +2118,7 @@ let BattlePokedex = {
 		color: "Pink",
 		evos: ["lickilicky"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	koffing: {
 		num: 109,
@@ -1993,6 +2132,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["weezing", "weezinggalar"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	weezing: {
 		num: 110,
@@ -2008,6 +2148,7 @@ let BattlePokedex = {
 		evoLevel: 35,
 		eggGroups: ["Amorphous"],
 		otherFormes: ["Weezing-Galar"],
+		cfmMoves: [],
 	},
 	weezinggalar: {
 		num: 110,
@@ -2024,6 +2165,7 @@ let BattlePokedex = {
 		prevo: "koffing",
 		evoLevel: 35,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	rhyhorn: {
 		num: 111,
@@ -2036,6 +2178,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["rhydon"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	rhydon: {
 		num: 112,
@@ -2050,6 +2193,7 @@ let BattlePokedex = {
 		evoLevel: 42,
 		evos: ["rhyperior"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	chansey: {
 		num: 113,
@@ -2068,6 +2212,7 @@ let BattlePokedex = {
 		evos: ["blissey"],
 		eggGroups: ["Fairy"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	tangela: {
 		num: 114,
@@ -2080,6 +2225,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["tangrowth"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	kangaskhan: {
 		num: 115,
@@ -2093,6 +2239,7 @@ let BattlePokedex = {
 		color: "Brown",
 		eggGroups: ["Monster"],
 		otherFormes: ["kangaskhanmega"],
+		cfmMoves: [],
 	},
 	kangaskhanmega: {
 		num: 115,
@@ -2108,6 +2255,7 @@ let BattlePokedex = {
 		color: "Brown",
 		eggGroups: ["Monster"],
 		requiredItem: "Kangaskhanite",
+		cfmMoves: [],
 	},
 	horsea: {
 		num: 116,
@@ -2120,6 +2268,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["seadra"],
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	seadra: {
 		num: 117,
@@ -2134,6 +2283,7 @@ let BattlePokedex = {
 		evoLevel: 32,
 		evos: ["kingdra"],
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	goldeen: {
 		num: 118,
@@ -2146,6 +2296,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["seaking"],
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	seaking: {
 		num: 119,
@@ -2159,6 +2310,7 @@ let BattlePokedex = {
 		prevo: "goldeen",
 		evoLevel: 33,
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	staryu: {
 		num: 120,
@@ -2172,6 +2324,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["starmie"],
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	starmie: {
 		num: 121,
@@ -2187,6 +2340,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Water Stone",
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	mrmime: {
 		num: 122,
@@ -2203,6 +2357,7 @@ let BattlePokedex = {
 		eggGroups: ["Human-Like"],
 		canHatch: true,
 		otherFormes: ["mrmimegalar"],
+		cfmMoves: [],
 	},
 	mrmimegalar: {
 		num: 122,
@@ -2221,6 +2376,7 @@ let BattlePokedex = {
 		evos: ["mrrime"],
 		eggGroups: ["Human-Like"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	scyther: {
 		num: 123,
@@ -2234,6 +2390,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["scizor"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	jynx: {
 		num: 124,
@@ -2248,6 +2405,7 @@ let BattlePokedex = {
 		prevo: "smoochum",
 		evoLevel: 30,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	electabuzz: {
 		num: 125,
@@ -2263,6 +2421,7 @@ let BattlePokedex = {
 		evoLevel: 30,
 		evos: ["electivire"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	magmar: {
 		num: 126,
@@ -2278,6 +2437,7 @@ let BattlePokedex = {
 		evoLevel: 30,
 		evos: ["magmortar"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	pinsir: {
 		num: 127,
@@ -2290,6 +2450,7 @@ let BattlePokedex = {
 		color: "Brown",
 		eggGroups: ["Bug"],
 		otherFormes: ["pinsirmega"],
+		cfmMoves: [],
 	},
 	pinsirmega: {
 		num: 127,
@@ -2305,6 +2466,7 @@ let BattlePokedex = {
 		color: "Brown",
 		eggGroups: ["Bug"],
 		requiredItem: "Pinsirite",
+		cfmMoves: [],
 	},
 	tauros: {
 		num: 128,
@@ -2317,6 +2479,7 @@ let BattlePokedex = {
 		weightkg: 88.4,
 		color: "Brown",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	magikarp: {
 		num: 129,
@@ -2329,6 +2492,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["gyarados"],
 		eggGroups: ["Water 2", "Dragon"],
+		cfmMoves: [],
 	},
 	gyarados: {
 		num: 130,
@@ -2343,6 +2507,7 @@ let BattlePokedex = {
 		evoLevel: 20,
 		eggGroups: ["Water 2", "Dragon"],
 		otherFormes: ["gyaradosmega"],
+		cfmMoves: [],
 	},
 	gyaradosmega: {
 		num: 130,
@@ -2357,6 +2522,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Water 2", "Dragon"],
 		requiredItem: "Gyaradosite",
+		cfmMoves: [],
 	},
 	lapras: {
 		num: 131,
@@ -2368,6 +2534,7 @@ let BattlePokedex = {
 		weightkg: 220,
 		color: "Blue",
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	ditto: {
 		num: 132,
@@ -2380,6 +2547,7 @@ let BattlePokedex = {
 		weightkg: 4,
 		color: "Purple",
 		eggGroups: ["Ditto"],
+		cfmMoves: [],
 	},
 	eevee: {
 		num: 133,
@@ -2393,6 +2561,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["vaporeon", "jolteon", "flareon", "espeon", "umbreon", "leafeon", "glaceon", "sylveon"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	vaporeon: {
 		num: 134,
@@ -2408,6 +2577,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Water Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	jolteon: {
 		num: 135,
@@ -2423,6 +2593,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Thunder Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	flareon: {
 		num: 136,
@@ -2438,6 +2609,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Fire Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	porygon: {
 		num: 137,
@@ -2452,6 +2624,7 @@ let BattlePokedex = {
 		color: "Pink",
 		evos: ["porygon2"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	omanyte: {
 		num: 138,
@@ -2465,6 +2638,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["omastar"],
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	omastar: {
 		num: 139,
@@ -2479,6 +2653,7 @@ let BattlePokedex = {
 		prevo: "omanyte",
 		evoLevel: 40,
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	kabuto: {
 		num: 140,
@@ -2492,6 +2667,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["kabutops"],
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	kabutops: {
 		num: 141,
@@ -2506,6 +2682,7 @@ let BattlePokedex = {
 		prevo: "kabuto",
 		evoLevel: 40,
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	aerodactyl: {
 		num: 142,
@@ -2520,6 +2697,7 @@ let BattlePokedex = {
 		color: "Purple",
 		eggGroups: ["Flying"],
 		otherFormes: ["aerodactylmega"],
+		cfmMoves: [],
 	},
 	aerodactylmega: {
 		num: 142,
@@ -2536,6 +2714,7 @@ let BattlePokedex = {
 		color: "Purple",
 		eggGroups: ["Flying"],
 		requiredItem: "Aerodactylite",
+		cfmMoves: [],
 	},
 	snorlax: {
 		num: 143,
@@ -2551,6 +2730,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Monster"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	articuno: {
 		num: 144,
@@ -2564,6 +2744,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	zapdos: {
 		num: 145,
@@ -2577,6 +2758,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	moltres: {
 		num: 146,
@@ -2590,6 +2772,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	dratini: {
 		num: 147,
@@ -2602,6 +2785,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["dragonair"],
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	dragonair: {
 		num: 148,
@@ -2616,6 +2800,7 @@ let BattlePokedex = {
 		evoLevel: 30,
 		evos: ["dragonite"],
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	dragonite: {
 		num: 149,
@@ -2630,6 +2815,7 @@ let BattlePokedex = {
 		prevo: "dragonair",
 		evoLevel: 55,
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	mewtwo: {
 		num: 150,
@@ -2643,6 +2829,7 @@ let BattlePokedex = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["mewtwomegax", "mewtwomegay"],
+		cfmMoves: [],
 	},
 	mewtwomegax: {
 		num: 150,
@@ -2658,6 +2845,7 @@ let BattlePokedex = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Mewtwonite X",
+		cfmMoves: [],
 	},
 	mewtwomegay: {
 		num: 150,
@@ -2673,6 +2861,7 @@ let BattlePokedex = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Mewtwonite Y",
+		cfmMoves: [],
 	},
 	mew: {
 		num: 151,
@@ -2686,6 +2875,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Pink",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	chikorita: {
 		num: 152,
@@ -2699,6 +2889,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["bayleef"],
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	bayleef: {
 		num: 153,
@@ -2714,6 +2905,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["meganium"],
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	meganium: {
 		num: 154,
@@ -2728,6 +2920,7 @@ let BattlePokedex = {
 		prevo: "bayleef",
 		evoLevel: 32,
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	cyndaquil: {
 		num: 155,
@@ -2741,6 +2934,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		evos: ["quilava"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	quilava: {
 		num: 156,
@@ -2756,6 +2950,7 @@ let BattlePokedex = {
 		evoLevel: 14,
 		evos: ["typhlosion"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	typhlosion: {
 		num: 157,
@@ -2770,6 +2965,7 @@ let BattlePokedex = {
 		prevo: "quilava",
 		evoLevel: 36,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	totodile: {
 		num: 158,
@@ -2783,6 +2979,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["croconaw"],
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	croconaw: {
 		num: 159,
@@ -2798,6 +2995,7 @@ let BattlePokedex = {
 		evoLevel: 18,
 		evos: ["feraligatr"],
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	feraligatr: {
 		num: 160,
@@ -2812,6 +3010,7 @@ let BattlePokedex = {
 		prevo: "croconaw",
 		evoLevel: 30,
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	sentret: {
 		num: 161,
@@ -2824,6 +3023,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["furret"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	furret: {
 		num: 162,
@@ -2837,6 +3037,7 @@ let BattlePokedex = {
 		prevo: "sentret",
 		evoLevel: 15,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	hoothoot: {
 		num: 163,
@@ -2850,6 +3051,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["noctowl"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	noctowl: {
 		num: 164,
@@ -2864,6 +3066,7 @@ let BattlePokedex = {
 		prevo: "hoothoot",
 		evoLevel: 20,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	ledyba: {
 		num: 165,
@@ -2877,6 +3080,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["ledian"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	ledian: {
 		num: 166,
@@ -2891,6 +3095,7 @@ let BattlePokedex = {
 		prevo: "ledyba",
 		evoLevel: 18,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	spinarak: {
 		num: 167,
@@ -2903,6 +3108,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["ariados"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	ariados: {
 		num: 168,
@@ -2916,6 +3122,7 @@ let BattlePokedex = {
 		prevo: "spinarak",
 		evoLevel: 22,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	crobat: {
 		num: 169,
@@ -2930,6 +3137,7 @@ let BattlePokedex = {
 		prevo: "golbat",
 		evoType: "levelFriendship",
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	chinchou: {
 		num: 170,
@@ -2942,6 +3150,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["lanturn"],
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	lanturn: {
 		num: 171,
@@ -2955,6 +3164,7 @@ let BattlePokedex = {
 		prevo: "chinchou",
 		evoLevel: 27,
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	pichu: {
 		num: 172,
@@ -2969,6 +3179,7 @@ let BattlePokedex = {
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
 		otherFormes: ["pichuspikyeared"],
+		cfmMoves: [],
 	},
 	pichuspikyeared: {
 		num: 172,
@@ -2983,6 +3194,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
 		gen: 4,
+		cfmMoves: [],
 	},
 	cleffa: {
 		num: 173,
@@ -2997,6 +3209,7 @@ let BattlePokedex = {
 		evos: ["clefairy"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	igglybuff: {
 		num: 174,
@@ -3011,6 +3224,7 @@ let BattlePokedex = {
 		evos: ["jigglypuff"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	togepi: {
 		num: 175,
@@ -3025,6 +3239,7 @@ let BattlePokedex = {
 		evos: ["togetic"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	togetic: {
 		num: 176,
@@ -3041,6 +3256,7 @@ let BattlePokedex = {
 		evos: ["togekiss"],
 		evoType: "levelFriendship",
 		eggGroups: ["Flying", "Fairy"],
+		cfmMoves: [],
 	},
 	natu: {
 		num: 177,
@@ -3054,6 +3270,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["xatu"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	xatu: {
 		num: 178,
@@ -3068,6 +3285,7 @@ let BattlePokedex = {
 		prevo: "natu",
 		evoLevel: 25,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	mareep: {
 		num: 179,
@@ -3080,6 +3298,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["flaaffy"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	flaaffy: {
 		num: 180,
@@ -3094,6 +3313,7 @@ let BattlePokedex = {
 		evoLevel: 15,
 		evos: ["ampharos"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	ampharos: {
 		num: 181,
@@ -3108,6 +3328,7 @@ let BattlePokedex = {
 		evoLevel: 30,
 		eggGroups: ["Monster", "Field"],
 		otherFormes: ["ampharosmega"],
+		cfmMoves: [],
 	},
 	ampharosmega: {
 		num: 181,
@@ -3122,6 +3343,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		eggGroups: ["Monster", "Field"],
 		requiredItem: "Ampharosite",
+		cfmMoves: [],
 	},
 	bellossom: {
 		num: 182,
@@ -3136,6 +3358,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Sun Stone",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	marill: {
 		num: 183,
@@ -3151,6 +3374,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Water 1", "Fairy"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	azumarill: {
 		num: 184,
@@ -3164,6 +3388,7 @@ let BattlePokedex = {
 		prevo: "marill",
 		evoLevel: 18,
 		eggGroups: ["Water 1", "Fairy"],
+		cfmMoves: [],
 	},
 	sudowoodo: {
 		num: 185,
@@ -3179,6 +3404,7 @@ let BattlePokedex = {
 		evoMove: "Mimic",
 		eggGroups: ["Mineral"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	politoed: {
 		num: 186,
@@ -3193,6 +3419,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		evoItem: "King's Rock",
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	hoppip: {
 		num: 187,
@@ -3206,6 +3433,7 @@ let BattlePokedex = {
 		color: "Pink",
 		evos: ["skiploom"],
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: [],
 	},
 	skiploom: {
 		num: 188,
@@ -3221,6 +3449,7 @@ let BattlePokedex = {
 		evoLevel: 18,
 		evos: ["jumpluff"],
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: [],
 	},
 	jumpluff: {
 		num: 189,
@@ -3235,6 +3464,7 @@ let BattlePokedex = {
 		prevo: "skiploom",
 		evoLevel: 27,
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: [],
 	},
 	aipom: {
 		num: 190,
@@ -3247,6 +3477,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["ambipom"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	sunkern: {
 		num: 191,
@@ -3259,6 +3490,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		evos: ["sunflora"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	sunflora: {
 		num: 192,
@@ -3273,6 +3505,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Sun Stone",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	yanma: {
 		num: 193,
@@ -3286,6 +3519,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["yanmega"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	wooper: {
 		num: 194,
@@ -3298,6 +3532,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["quagsire"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	quagsire: {
 		num: 195,
@@ -3311,6 +3546,7 @@ let BattlePokedex = {
 		prevo: "wooper",
 		evoLevel: 20,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	espeon: {
 		num: 196,
@@ -3326,6 +3562,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		evoCondition: "during the day",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	umbreon: {
 		num: 197,
@@ -3341,6 +3578,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		evoCondition: "at night",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	murkrow: {
 		num: 198,
@@ -3354,6 +3592,7 @@ let BattlePokedex = {
 		color: "Black",
 		evos: ["honchkrow"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	slowking: {
 		num: 199,
@@ -3368,6 +3607,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		evoItem: "King's Rock",
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	misdreavus: {
 		num: 200,
@@ -3381,6 +3621,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["mismagius"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	unown: {
 		num: 201,
@@ -3396,6 +3637,7 @@ let BattlePokedex = {
 		color: "Black",
 		eggGroups: ["Undiscovered"],
 		cosmeticFormes: ["unownb", "unownc", "unownd", "unowne", "unownf", "unowng", "unownh", "unowni", "unownj", "unownk", "unownl", "unownm", "unownn", "unowno", "unownp", "unownq", "unownr", "unowns", "unownt", "unownu", "unownv", "unownw", "unownx", "unowny", "unownz", "unownexclamation", "unownquestion"],
+		cfmMoves: [],
 	},
 	wobbuffet: {
 		num: 202,
@@ -3409,6 +3651,7 @@ let BattlePokedex = {
 		prevo: "wynaut",
 		evoLevel: 15,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	girafarig: {
 		num: 203,
@@ -3420,6 +3663,7 @@ let BattlePokedex = {
 		weightkg: 41.5,
 		color: "Yellow",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	pineco: {
 		num: 204,
@@ -3432,6 +3676,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["forretress"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	forretress: {
 		num: 205,
@@ -3445,6 +3690,7 @@ let BattlePokedex = {
 		prevo: "pineco",
 		evoLevel: 31,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	dunsparce: {
 		num: 206,
@@ -3456,6 +3702,7 @@ let BattlePokedex = {
 		weightkg: 14,
 		color: "Yellow",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	gligar: {
 		num: 207,
@@ -3469,6 +3716,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["gliscor"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	steelix: {
 		num: 208,
@@ -3484,6 +3732,7 @@ let BattlePokedex = {
 		evoItem: "Metal Coat",
 		eggGroups: ["Mineral"],
 		otherFormes: ["steelixmega"],
+		cfmMoves: [],
 	},
 	steelixmega: {
 		num: 208,
@@ -3498,6 +3747,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Mineral"],
 		requiredItem: "Steelixite",
+		cfmMoves: [],
 	},
 	snubbull: {
 		num: 209,
@@ -3511,6 +3761,7 @@ let BattlePokedex = {
 		color: "Pink",
 		evos: ["granbull"],
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	granbull: {
 		num: 210,
@@ -3525,6 +3776,7 @@ let BattlePokedex = {
 		prevo: "snubbull",
 		evoLevel: 23,
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	qwilfish: {
 		num: 211,
@@ -3536,6 +3788,7 @@ let BattlePokedex = {
 		weightkg: 3.9,
 		color: "Gray",
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	scizor: {
 		num: 212,
@@ -3551,6 +3804,7 @@ let BattlePokedex = {
 		evoItem: "Metal Coat",
 		eggGroups: ["Bug"],
 		otherFormes: ["scizormega"],
+		cfmMoves: [],
 	},
 	scizormega: {
 		num: 212,
@@ -3565,6 +3819,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Bug"],
 		requiredItem: "Scizorite",
+		cfmMoves: [],
 	},
 	shuckle: {
 		num: 213,
@@ -3576,6 +3831,7 @@ let BattlePokedex = {
 		weightkg: 20.5,
 		color: "Yellow",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	heracross: {
 		num: 214,
@@ -3588,6 +3844,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Bug"],
 		otherFormes: ["heracrossmega"],
+		cfmMoves: [],
 	},
 	heracrossmega: {
 		num: 214,
@@ -3602,6 +3859,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Bug"],
 		requiredItem: "Heracronite",
+		cfmMoves: [],
 	},
 	sneasel: {
 		num: 215,
@@ -3614,6 +3872,7 @@ let BattlePokedex = {
 		color: "Black",
 		evos: ["weavile"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	teddiursa: {
 		num: 216,
@@ -3626,6 +3885,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["ursaring"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	ursaring: {
 		num: 217,
@@ -3639,6 +3899,7 @@ let BattlePokedex = {
 		prevo: "teddiursa",
 		evoLevel: 30,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	slugma: {
 		num: 218,
@@ -3651,6 +3912,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["magcargo"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	magcargo: {
 		num: 219,
@@ -3664,6 +3926,7 @@ let BattlePokedex = {
 		prevo: "slugma",
 		evoLevel: 38,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	swinub: {
 		num: 220,
@@ -3676,6 +3939,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["piloswine"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	piloswine: {
 		num: 221,
@@ -3690,6 +3954,7 @@ let BattlePokedex = {
 		evoLevel: 33,
 		evos: ["mamoswine"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	corsola: {
 		num: 222,
@@ -3703,6 +3968,7 @@ let BattlePokedex = {
 		color: "Pink",
 		eggGroups: ["Water 1", "Water 3"],
 		otherFormes: ["corsolagalar"],
+		cfmMoves: [],
 	},
 	corsolagalar: {
 		num: 222,
@@ -3718,6 +3984,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["cursola"],
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	remoraid: {
 		num: 223,
@@ -3730,6 +3997,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["octillery"],
 		eggGroups: ["Water 1", "Water 2"],
+		cfmMoves: [],
 	},
 	octillery: {
 		num: 224,
@@ -3743,6 +4011,7 @@ let BattlePokedex = {
 		prevo: "remoraid",
 		evoLevel: 25,
 		eggGroups: ["Water 1", "Water 2"],
+		cfmMoves: [],
 	},
 	delibird: {
 		num: 225,
@@ -3755,6 +4024,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Red",
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	mantine: {
 		num: 226,
@@ -3770,6 +4040,7 @@ let BattlePokedex = {
 		evoCondition: "with a Remoraid in party",
 		eggGroups: ["Water 1"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	skarmory: {
 		num: 227,
@@ -3782,6 +4053,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Gray",
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	houndour: {
 		num: 228,
@@ -3794,6 +4066,7 @@ let BattlePokedex = {
 		color: "Black",
 		evos: ["houndoom"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	houndoom: {
 		num: 229,
@@ -3808,6 +4081,7 @@ let BattlePokedex = {
 		evoLevel: 24,
 		eggGroups: ["Field"],
 		otherFormes: ["houndoommega"],
+		cfmMoves: [],
 	},
 	houndoommega: {
 		num: 229,
@@ -3822,6 +4096,7 @@ let BattlePokedex = {
 		color: "Black",
 		eggGroups: ["Field"],
 		requiredItem: "Houndoominite",
+		cfmMoves: [],
 	},
 	kingdra: {
 		num: 230,
@@ -3836,6 +4111,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		evoItem: "Dragon Scale",
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	phanpy: {
 		num: 231,
@@ -3848,6 +4124,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["donphan"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	donphan: {
 		num: 232,
@@ -3861,6 +4138,7 @@ let BattlePokedex = {
 		prevo: "phanpy",
 		evoLevel: 25,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	porygon2: {
 		num: 233,
@@ -3878,6 +4156,7 @@ let BattlePokedex = {
 		evoItem: "Up-Grade",
 		evos: ["porygonz"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	stantler: {
 		num: 234,
@@ -3889,6 +4168,7 @@ let BattlePokedex = {
 		weightkg: 71.2,
 		color: "Brown",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	smeargle: {
 		num: 235,
@@ -3900,6 +4180,7 @@ let BattlePokedex = {
 		weightkg: 58,
 		color: "White",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	tyrogue: {
 		num: 236,
@@ -3914,6 +4195,7 @@ let BattlePokedex = {
 		evos: ["hitmonlee", "hitmonchan", "hitmontop"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	hitmontop: {
 		num: 237,
@@ -3928,6 +4210,7 @@ let BattlePokedex = {
 		prevo: "tyrogue",
 		evoLevel: 20,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	smoochum: {
 		num: 238,
@@ -3942,6 +4225,7 @@ let BattlePokedex = {
 		evos: ["jynx"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	elekid: {
 		num: 239,
@@ -3956,6 +4240,7 @@ let BattlePokedex = {
 		evos: ["electabuzz"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	magby: {
 		num: 240,
@@ -3970,6 +4255,7 @@ let BattlePokedex = {
 		evos: ["magmar"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	miltank: {
 		num: 241,
@@ -3982,6 +4268,7 @@ let BattlePokedex = {
 		weightkg: 75.5,
 		color: "Pink",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	blissey: {
 		num: 242,
@@ -3996,6 +4283,7 @@ let BattlePokedex = {
 		prevo: "chansey",
 		evoType: "levelFriendship",
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	raikou: {
 		num: 243,
@@ -4008,6 +4296,7 @@ let BattlePokedex = {
 		weightkg: 178,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	entei: {
 		num: 244,
@@ -4020,6 +4309,7 @@ let BattlePokedex = {
 		weightkg: 198,
 		color: "Brown",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	suicune: {
 		num: 245,
@@ -4032,6 +4322,7 @@ let BattlePokedex = {
 		weightkg: 187,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	larvitar: {
 		num: 246,
@@ -4044,6 +4335,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["pupitar"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	pupitar: {
 		num: 247,
@@ -4058,6 +4350,7 @@ let BattlePokedex = {
 		evoLevel: 30,
 		evos: ["tyranitar"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	tyranitar: {
 		num: 248,
@@ -4072,6 +4365,7 @@ let BattlePokedex = {
 		evoLevel: 55,
 		eggGroups: ["Monster"],
 		otherFormes: ["tyranitarmega"],
+		cfmMoves: [],
 	},
 	tyranitarmega: {
 		num: 248,
@@ -4086,6 +4380,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ["Monster"],
 		requiredItem: "Tyranitarite",
+		cfmMoves: [],
 	},
 	lugia: {
 		num: 249,
@@ -4099,6 +4394,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	hooh: {
 		num: 250,
@@ -4112,6 +4408,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	celebi: {
 		num: 251,
@@ -4125,6 +4422,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	treecko: {
 		num: 252,
@@ -4138,6 +4436,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["grovyle"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	grovyle: {
 		num: 253,
@@ -4153,6 +4452,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["sceptile"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	sceptile: {
 		num: 254,
@@ -4184,6 +4484,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Sceptilite",
+		cfmMoves: [],
 	},
 	torchic: {
 		num: 255,
@@ -4197,6 +4498,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["combusken"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	combusken: {
 		num: 256,
@@ -4212,6 +4514,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["blaziken"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	blaziken: {
 		num: 257,
@@ -4243,6 +4546,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Field"],
 		requiredItem: "Blazikenite",
+		cfmMoves: [],
 	},
 	mudkip: {
 		num: 258,
@@ -4256,6 +4560,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["marshtomp"],
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	marshtomp: {
 		num: 259,
@@ -4271,6 +4576,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["swampert"],
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	swampert: {
 		num: 260,
@@ -4286,7 +4592,7 @@ let BattlePokedex = {
 		evoLevel: 36,
 		eggGroups: ["Monster", "Water 1"],
 		otherFormes: ["swampertmega"],
-		cfmMoves: ['aquatail', 'curse', 'hammerarm', 'hydrocannon', 'hydropump', 'icepunch', 'mudbomb', 'muddywater', 'roar', 'stealthrock', 'stompingtantrum', 'stoneedge'];
+		cfmMoves: ['aquatail', 'curse', 'hammerarm', 'hydrocannon', 'hydropump', 'icepunch', 'mudbomb', 'muddywater', 'roar', 'stealthrock', 'stompingtantrum', 'stoneedge'],
 	},
 	swampertmega: {
 		num: 260,
@@ -4302,6 +4608,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Monster", "Water 1"],
 		requiredItem: "Swampertite",
+		cfmMoves: [],
 	},
 	poochyena: {
 		num: 261,
@@ -4314,6 +4621,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["mightyena"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	mightyena: {
 		num: 262,
@@ -4327,7 +4635,7 @@ let BattlePokedex = {
 		prevo: "poochyena",
 		evoLevel: 18,
 		eggGroups: ["Field"],
-		cfmMoves: ['crunch', 'firefang', 'healbell', 'honeclaws', 'icefang', 'irontail', 'playrough', 'poisonfang', 'pursuit', 'submission', 'suckerpunch', 'thunderfang']
+		cfmMoves: ['crunch', 'firefang', 'healbell', 'honeclaws', 'icefang', 'irontail', 'playrough', 'poisonfang', 'pursuit', 'submission', 'suckerpunch', 'thunderfang'],
 	},
 	zigzagoon: {
 		num: 263,
@@ -4341,6 +4649,7 @@ let BattlePokedex = {
 		evos: ["linoone"],
 		eggGroups: ["Field"],
 		otherFormes: ["zigzagoongalar"],
+		cfmMoves: [],
 	},
 	zigzagoongalar: {
 		num: 263,
@@ -4355,6 +4664,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["linoonegalar"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	linoone: {
 		num: 264,
@@ -4386,6 +4696,7 @@ let BattlePokedex = {
 		evoLevel: 20,
 		evos: ["obstagoon"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	wurmple: {
 		num: 265,
@@ -4398,6 +4709,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["silcoon", "cascoon"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	silcoon: {
 		num: 266,
@@ -4412,6 +4724,7 @@ let BattlePokedex = {
 		evoLevel: 7,
 		evos: ["beautifly"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	beautifly: {
 		num: 267,
@@ -4441,6 +4754,7 @@ let BattlePokedex = {
 		evoLevel: 7,
 		evos: ["dustox"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	dustox: {
 		num: 269,
@@ -4468,6 +4782,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["lombre"],
 		eggGroups: ["Water 1", "Grass"],
+		cfmMoves: [],
 	},
 	lombre: {
 		num: 271,
@@ -4482,6 +4797,7 @@ let BattlePokedex = {
 		evoLevel: 14,
 		evos: ["ludicolo"],
 		eggGroups: ["Water 1", "Grass"],
+		cfmMoves: [],
 	},
 	ludicolo: {
 		num: 272,
@@ -4496,6 +4812,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Water Stone",
 		eggGroups: ["Water 1", "Grass"],
+		cfmMoves: [],
 	},
 	seedot: {
 		num: 273,
@@ -4508,6 +4825,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["nuzleaf"],
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	nuzleaf: {
 		num: 274,
@@ -4522,6 +4840,7 @@ let BattlePokedex = {
 		evoLevel: 14,
 		evos: ["shiftry"],
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	shiftry: {
 		num: 275,
@@ -4536,6 +4855,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Leaf Stone",
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	taillow: {
 		num: 276,
@@ -4549,6 +4869,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["swellow"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	swellow: {
 		num: 277,
@@ -4577,6 +4898,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["pelipper"],
 		eggGroups: ["Water 1", "Flying"],
+		cfmMoves: [],
 	},
 	pelipper: {
 		num: 279,
@@ -4604,6 +4926,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["kirlia"],
 		eggGroups: ["Human-Like", "Amorphous"],
+		cfmMoves: [],
 	},
 	kirlia: {
 		num: 281,
@@ -4618,6 +4941,7 @@ let BattlePokedex = {
 		evoLevel: 20,
 		evos: ["gardevoir", "gallade"],
 		eggGroups: ["Human-Like", "Amorphous"],
+		cfmMoves: [],
 	},
 	gardevoir: {
 		num: 282,
@@ -4660,6 +4984,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["masquerain"],
 		eggGroups: ["Water 1", "Bug"],
+		cfmMoves: [],
 	},
 	masquerain: {
 		num: 284,
@@ -4687,6 +5012,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["breloom"],
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: [],
 	},
 	breloom: {
 		num: 286,
@@ -4713,6 +5039,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["vigoroth"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	vigoroth: {
 		num: 288,
@@ -4727,6 +5054,7 @@ let BattlePokedex = {
 		evoLevel: 18,
 		evos: ["slaking"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	slaking: {
 		num: 289,
@@ -4753,6 +5081,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["ninjask", "shedinja"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	ninjask: {
 		num: 291,
@@ -4784,7 +5113,7 @@ let BattlePokedex = {
 		prevo: "nincada",
 		evoLevel: 20,
 		eggGroups: ["Mineral"],
-		cfmMoves: ['agility', 'aurasphere', 'calmmind', 'destinybond', 'drillrun', 'earthpower', 'phantomforce', 'shadowball', 'shadowclaw', 'swordsdance', 'uturn', 'xscissor']
+		cfmMoves: ['agility', 'aurasphere', 'calmmind', 'destinybond', 'drillrun', 'earthpower', 'phantomforce', 'shadowball', 'shadowclaw', 'swordsdance', 'uturn', 'xscissor'],
 	},
 	whismur: {
 		num: 293,
@@ -4797,6 +5126,7 @@ let BattlePokedex = {
 		color: "Pink",
 		evos: ["loudred"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	loudred: {
 		num: 294,
@@ -4811,6 +5141,7 @@ let BattlePokedex = {
 		evoLevel: 20,
 		evos: ["exploud"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	exploud: {
 		num: 295,
@@ -4824,6 +5155,7 @@ let BattlePokedex = {
 		prevo: "loudred",
 		evoLevel: 40,
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	makuhita: {
 		num: 296,
@@ -4837,6 +5169,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		evos: ["hariyama"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	hariyama: {
 		num: 297,
@@ -4851,6 +5184,7 @@ let BattlePokedex = {
 		prevo: "makuhita",
 		evoLevel: 24,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	azurill: {
 		num: 298,
@@ -4865,6 +5199,7 @@ let BattlePokedex = {
 		evos: ["marill"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	nosepass: {
 		num: 299,
@@ -4877,6 +5212,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["probopass"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	skitty: {
 		num: 300,
@@ -4890,6 +5226,7 @@ let BattlePokedex = {
 		color: "Pink",
 		evos: ["delcatty"],
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	delcatty: {
 		num: 301,
@@ -4905,6 +5242,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Moon Stone",
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	sableye: {
 		num: 302,
@@ -4917,6 +5255,7 @@ let BattlePokedex = {
 		color: "Purple",
 		eggGroups: ["Human-Like"],
 		otherFormes: ["sableyemega"],
+		cfmMoves: [],
 	},
 	sableyemega: {
 		num: 302,
@@ -4931,6 +5270,7 @@ let BattlePokedex = {
 		color: "Purple",
 		eggGroups: ["Human-Like"],
 		requiredItem: "Sablenite",
+		cfmMoves: [],
 	},
 	mawile: {
 		num: 303,
@@ -4943,6 +5283,7 @@ let BattlePokedex = {
 		color: "Black",
 		eggGroups: ["Field", "Fairy"],
 		otherFormes: ["mawilemega"],
+		cfmMoves: [],
 	},
 	mawilemega: {
 		num: 303,
@@ -4957,6 +5298,7 @@ let BattlePokedex = {
 		color: "Black",
 		eggGroups: ["Field", "Fairy"],
 		requiredItem: "Mawilite",
+		cfmMoves: [],
 	},
 	aron: {
 		num: 304,
@@ -4969,6 +5311,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["lairon"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	lairon: {
 		num: 305,
@@ -4983,6 +5326,7 @@ let BattlePokedex = {
 		evoLevel: 32,
 		evos: ["aggron"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	aggron: {
 		num: 306,
@@ -4997,6 +5341,7 @@ let BattlePokedex = {
 		evoLevel: 42,
 		eggGroups: ["Monster"],
 		otherFormes: ["aggronmega"],
+		cfmMoves: [],
 	},
 	aggronmega: {
 		num: 306,
@@ -5011,6 +5356,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Monster"],
 		requiredItem: "Aggronite",
+		cfmMoves: [],
 	},
 	meditite: {
 		num: 307,
@@ -5023,6 +5369,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["medicham"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	medicham: {
 		num: 308,
@@ -5037,6 +5384,7 @@ let BattlePokedex = {
 		evoLevel: 37,
 		eggGroups: ["Human-Like"],
 		otherFormes: ["medichammega"],
+		cfmMoves: [],
 	},
 	medichammega: {
 		num: 308,
@@ -5051,6 +5399,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Human-Like"],
 		requiredItem: "Medichamite",
+		cfmMoves: [],
 	},
 	electrike: {
 		num: 309,
@@ -5063,6 +5412,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["manectric"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	manectric: {
 		num: 310,
@@ -5077,6 +5427,7 @@ let BattlePokedex = {
 		evoLevel: 26,
 		eggGroups: ["Field"],
 		otherFormes: ["manectricmega"],
+		cfmMoves: [],
 	},
 	manectricmega: {
 		num: 310,
@@ -5091,6 +5442,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		eggGroups: ["Field"],
 		requiredItem: "Manectite",
+		cfmMoves: [],
 	},
 	plusle: {
 		num: 311,
@@ -5102,6 +5454,7 @@ let BattlePokedex = {
 		weightkg: 4.2,
 		color: "Yellow",
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	minun: {
 		num: 312,
@@ -5113,6 +5466,7 @@ let BattlePokedex = {
 		weightkg: 4.2,
 		color: "Yellow",
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	volbeat: {
 		num: 313,
@@ -5126,6 +5480,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Gray",
 		eggGroups: ["Bug", "Human-Like"],
+		cfmMoves: [],
 	},
 	illumise: {
 		num: 314,
@@ -5139,6 +5494,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Purple",
 		eggGroups: ["Bug", "Human-Like"],
+		cfmMoves: [],
 	},
 	roselia: {
 		num: 315,
@@ -5155,6 +5511,7 @@ let BattlePokedex = {
 		evos: ["roserade"],
 		eggGroups: ["Fairy", "Grass"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	gulpin: {
 		num: 316,
@@ -5167,6 +5524,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["swalot"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	swalot: {
 		num: 317,
@@ -5180,6 +5538,7 @@ let BattlePokedex = {
 		prevo: "gulpin",
 		evoLevel: 26,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	carvanha: {
 		num: 318,
@@ -5192,6 +5551,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["sharpedo"],
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	sharpedo: {
 		num: 319,
@@ -5206,6 +5566,7 @@ let BattlePokedex = {
 		evoLevel: 30,
 		eggGroups: ["Water 2"],
 		otherFormes: ["sharpedomega"],
+		cfmMoves: [],
 	},
 	sharpedomega: {
 		num: 319,
@@ -5220,6 +5581,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Water 2"],
 		requiredItem: "Sharpedonite",
+		cfmMoves: [],
 	},
 	wailmer: {
 		num: 320,
@@ -5232,6 +5594,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["wailord"],
 		eggGroups: ["Field", "Water 2"],
+		cfmMoves: [],
 	},
 	wailord: {
 		num: 321,
@@ -5245,6 +5608,7 @@ let BattlePokedex = {
 		prevo: "wailmer",
 		evoLevel: 40,
 		eggGroups: ["Field", "Water 2"],
+		cfmMoves: [],
 	},
 	numel: {
 		num: 322,
@@ -5257,6 +5621,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		evos: ["camerupt"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	camerupt: {
 		num: 323,
@@ -5271,6 +5636,7 @@ let BattlePokedex = {
 		evoLevel: 33,
 		eggGroups: ["Field"],
 		otherFormes: ["cameruptmega"],
+		cfmMoves: [],
 	},
 	cameruptmega: {
 		num: 323,
@@ -5285,6 +5651,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Field"],
 		requiredItem: "Cameruptite",
+		cfmMoves: [],
 	},
 	torkoal: {
 		num: 324,
@@ -5296,6 +5663,7 @@ let BattlePokedex = {
 		weightkg: 80.4,
 		color: "Brown",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	spoink: {
 		num: 325,
@@ -5308,6 +5676,7 @@ let BattlePokedex = {
 		color: "Black",
 		evos: ["grumpig"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	grumpig: {
 		num: 326,
@@ -5321,6 +5690,7 @@ let BattlePokedex = {
 		prevo: "spoink",
 		evoLevel: 32,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	spinda: {
 		num: 327,
@@ -5332,6 +5702,7 @@ let BattlePokedex = {
 		weightkg: 5,
 		color: "Brown",
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	trapinch: {
 		num: 328,
@@ -5344,6 +5715,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["vibrava"],
 		eggGroups: ["Bug", "Dragon"],
+		cfmMoves: [],
 	},
 	vibrava: {
 		num: 329,
@@ -5359,6 +5731,7 @@ let BattlePokedex = {
 		evos: ["flygon"],
 		evoLevel: 35,
 		eggGroups: ["Bug", "Dragon"],
+		cfmMoves: [],
 	},
 	flygon: {
 		num: 330,
@@ -5373,6 +5746,7 @@ let BattlePokedex = {
 		prevo: "vibrava",
 		evoLevel: 45,
 		eggGroups: ["Bug", "Dragon"],
+		cfmMoves: [],
 	},
 	cacnea: {
 		num: 331,
@@ -5385,6 +5759,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["cacturne"],
 		eggGroups: ["Grass", "Human-Like"],
+		cfmMoves: [],
 	},
 	cacturne: {
 		num: 332,
@@ -5398,6 +5773,7 @@ let BattlePokedex = {
 		prevo: "cacnea",
 		evoLevel: 32,
 		eggGroups: ["Grass", "Human-Like"],
+		cfmMoves: [],
 	},
 	swablu: {
 		num: 333,
@@ -5411,6 +5787,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["altaria"],
 		eggGroups: ["Flying", "Dragon"],
+		cfmMoves: [],
 	},
 	altaria: {
 		num: 334,
@@ -5426,6 +5803,7 @@ let BattlePokedex = {
 		evoLevel: 35,
 		eggGroups: ["Flying", "Dragon"],
 		otherFormes: ["altariamega"],
+		cfmMoves: [],
 	},
 	altariamega: {
 		num: 334,
@@ -5441,6 +5819,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Flying", "Dragon"],
 		requiredItem: "Altarianite",
+		cfmMoves: [],
 	},
 	zangoose: {
 		num: 335,
@@ -5452,6 +5831,7 @@ let BattlePokedex = {
 		weightkg: 40.3,
 		color: "White",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	seviper: {
 		num: 336,
@@ -5463,6 +5843,7 @@ let BattlePokedex = {
 		weightkg: 52.5,
 		color: "Black",
 		eggGroups: ["Field", "Dragon"],
+		cfmMoves: [],
 	},
 	lunatone: {
 		num: 337,
@@ -5476,6 +5857,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	solrock: {
 		num: 338,
@@ -5489,6 +5871,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Red",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	barboach: {
 		num: 339,
@@ -5501,6 +5884,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["whiscash"],
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	whiscash: {
 		num: 340,
@@ -5514,6 +5898,7 @@ let BattlePokedex = {
 		prevo: "barboach",
 		evoLevel: 30,
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	corphish: {
 		num: 341,
@@ -5526,6 +5911,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["crawdaunt"],
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	crawdaunt: {
 		num: 342,
@@ -5539,6 +5925,7 @@ let BattlePokedex = {
 		prevo: "corphish",
 		evoLevel: 30,
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	baltoy: {
 		num: 343,
@@ -5553,6 +5940,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["claydol"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	claydol: {
 		num: 344,
@@ -5568,6 +5956,7 @@ let BattlePokedex = {
 		prevo: "baltoy",
 		evoLevel: 36,
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	lileep: {
 		num: 345,
@@ -5581,6 +5970,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["cradily"],
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	cradily: {
 		num: 346,
@@ -5595,6 +5985,7 @@ let BattlePokedex = {
 		prevo: "lileep",
 		evoLevel: 40,
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	anorith: {
 		num: 347,
@@ -5608,6 +5999,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["armaldo"],
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	armaldo: {
 		num: 348,
@@ -5622,6 +6014,7 @@ let BattlePokedex = {
 		prevo: "anorith",
 		evoLevel: 40,
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	feebas: {
 		num: 349,
@@ -5634,6 +6027,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["milotic"],
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	milotic: {
 		num: 350,
@@ -5648,6 +6042,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		evoItem: "Prism Scale",
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	castform: {
 		num: 351,
@@ -5661,6 +6056,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Fairy", "Amorphous"],
 		otherFormes: ["castformsunny", "castformrainy", "castformsnowy"],
+		cfmMoves: [],
 	},
 	castformsunny: {
 		num: 351,
@@ -5677,6 +6073,7 @@ let BattlePokedex = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		cfmMoves: [],
 	},
 	castformrainy: {
 		num: 351,
@@ -5693,6 +6090,7 @@ let BattlePokedex = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		cfmMoves: [],
 	},
 	castformsnowy: {
 		num: 351,
@@ -5709,6 +6107,7 @@ let BattlePokedex = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		cfmMoves: [],
 	},
 	kecleon: {
 		num: 352,
@@ -5720,6 +6119,7 @@ let BattlePokedex = {
 		weightkg: 22,
 		color: "Green",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	shuppet: {
 		num: 353,
@@ -5733,6 +6133,7 @@ let BattlePokedex = {
 		color: "Black",
 		evos: ["banette"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	banette: {
 		num: 354,
@@ -5747,6 +6148,7 @@ let BattlePokedex = {
 		evoLevel: 37,
 		eggGroups: ["Amorphous"],
 		otherFormes: ["banettemega"],
+		cfmMoves: [],
 	},
 	banettemega: {
 		num: 354,
@@ -5761,6 +6163,7 @@ let BattlePokedex = {
 		color: "Black",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Banettite",
+		cfmMoves: [],
 	},
 	duskull: {
 		num: 355,
@@ -5774,6 +6177,7 @@ let BattlePokedex = {
 		color: "Black",
 		evos: ["dusclops"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	dusclops: {
 		num: 356,
@@ -5788,6 +6192,7 @@ let BattlePokedex = {
 		evoLevel: 37,
 		evos: ["dusknoir"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	tropius: {
 		num: 357,
@@ -5800,6 +6205,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Green",
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	chimecho: {
 		num: 358,
@@ -5816,6 +6222,7 @@ let BattlePokedex = {
 		evoCondition: "at night",
 		eggGroups: ["Amorphous"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	absol: {
 		num: 359,
@@ -5828,6 +6235,7 @@ let BattlePokedex = {
 		color: "White",
 		eggGroups: ["Field"],
 		otherFormes: ["absolmega"],
+		cfmMoves: [],
 	},
 	absolmega: {
 		num: 359,
@@ -5842,6 +6250,7 @@ let BattlePokedex = {
 		color: "White",
 		eggGroups: ["Field"],
 		requiredItem: "Absolite",
+		cfmMoves: [],
 	},
 	wynaut: {
 		num: 360,
@@ -5855,6 +6264,7 @@ let BattlePokedex = {
 		evos: ["wobbuffet"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	snorunt: {
 		num: 361,
@@ -5867,6 +6277,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["glalie", "froslass"],
 		eggGroups: ["Fairy", "Mineral"],
+		cfmMoves: [],
 	},
 	glalie: {
 		num: 362,
@@ -5882,6 +6293,7 @@ let BattlePokedex = {
 		evoLevel: 42,
 		eggGroups: ["Fairy", "Mineral"],
 		otherFormes: ["glaliemega"],
+		cfmMoves: [],
 	},
 	glaliemega: {
 		num: 362,
@@ -5897,6 +6309,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Fairy", "Mineral"],
 		requiredItem: "Glalitite",
+		cfmMoves: [],
 	},
 	spheal: {
 		num: 363,
@@ -5909,6 +6322,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["sealeo"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	sealeo: {
 		num: 364,
@@ -5923,6 +6337,7 @@ let BattlePokedex = {
 		evoLevel: 32,
 		evos: ["walrein"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	walrein: {
 		num: 365,
@@ -5936,6 +6351,7 @@ let BattlePokedex = {
 		prevo: "sealeo",
 		evoLevel: 44,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	clamperl: {
 		num: 366,
@@ -5948,6 +6364,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["huntail", "gorebyss"],
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	huntail: {
 		num: 367,
@@ -5962,6 +6379,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		evoItem: "Deep Sea Tooth",
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	gorebyss: {
 		num: 368,
@@ -5976,6 +6394,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		evoItem: "Deep Sea Scale",
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	relicanth: {
 		num: 369,
@@ -5988,6 +6407,7 @@ let BattlePokedex = {
 		weightkg: 23.4,
 		color: "Gray",
 		eggGroups: ["Water 1", "Water 2"],
+		cfmMoves: [],
 	},
 	luvdisc: {
 		num: 370,
@@ -6000,6 +6420,7 @@ let BattlePokedex = {
 		weightkg: 8.7,
 		color: "Pink",
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	bagon: {
 		num: 371,
@@ -6012,6 +6433,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["shelgon"],
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	shelgon: {
 		num: 372,
@@ -6026,6 +6448,7 @@ let BattlePokedex = {
 		evoLevel: 30,
 		evos: ["salamence"],
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	salamence: {
 		num: 373,
@@ -6041,6 +6464,7 @@ let BattlePokedex = {
 		evoLevel: 50,
 		eggGroups: ["Dragon"],
 		otherFormes: ["salamencemega"],
+		cfmMoves: [],
 	},
 	salamencemega: {
 		num: 373,
@@ -6056,6 +6480,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Dragon"],
 		requiredItem: "Salamencite",
+		cfmMoves: [],
 	},
 	beldum: {
 		num: 374,
@@ -6070,6 +6495,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["metang"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	metang: {
 		num: 375,
@@ -6086,6 +6512,7 @@ let BattlePokedex = {
 		evos: ["metagross"],
 		evoLevel: 20,
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	metagross: {
 		num: 376,
@@ -6101,6 +6528,7 @@ let BattlePokedex = {
 		evoLevel: 45,
 		eggGroups: ["Mineral"],
 		otherFormes: ["metagrossmega"],
+		cfmMoves: [],
 	},
 	metagrossmega: {
 		num: 376,
@@ -6117,6 +6545,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Mineral"],
 		requiredItem: "Metagrossite",
+		cfmMoves: [],
 	},
 	regirock: {
 		num: 377,
@@ -6129,6 +6558,7 @@ let BattlePokedex = {
 		weightkg: 230,
 		color: "Brown",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	regice: {
 		num: 378,
@@ -6141,6 +6571,7 @@ let BattlePokedex = {
 		weightkg: 175,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	registeel: {
 		num: 379,
@@ -6153,6 +6584,7 @@ let BattlePokedex = {
 		weightkg: 205,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	latias: {
 		num: 380,
@@ -6167,6 +6599,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["latiasmega"],
+		cfmMoves: [],
 	},
 	latiasmega: {
 		num: 380,
@@ -6183,6 +6616,7 @@ let BattlePokedex = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Latiasite",
+		cfmMoves: [],
 	},
 	latios: {
 		num: 381,
@@ -6197,6 +6631,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["latiosmega"],
+		cfmMoves: [],
 	},
 	latiosmega: {
 		num: 381,
@@ -6213,6 +6648,7 @@ let BattlePokedex = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Latiosite",
+		cfmMoves: [],
 	},
 	kyogre: {
 		num: 382,
@@ -6226,6 +6662,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["kyogreprimal"],
+		cfmMoves: [],
 	},
 	kyogreprimal: {
 		num: 382,
@@ -6241,6 +6678,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Blue Orb",
+		cfmMoves: [],
 	},
 	groudon: {
 		num: 383,
@@ -6254,6 +6692,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["groudonprimal"],
+		cfmMoves: [],
 	},
 	groudonprimal: {
 		num: 383,
@@ -6269,6 +6708,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Red Orb",
+		cfmMoves: [],
 	},
 	rayquaza: {
 		num: 384,
@@ -6283,6 +6723,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["rayquazamega"],
+		cfmMoves: [],
 	},
 	rayquazamega: {
 		num: 384,
@@ -6299,6 +6740,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ["Undiscovered"],
 		requiredMove: "Dragon Ascent",
+		cfmMoves: [],
 	},
 	jirachi: {
 		num: 385,
@@ -6312,6 +6754,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	deoxys: {
 		num: 386,
@@ -6326,6 +6769,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["deoxysattack", "deoxysdefense", "deoxysspeed"],
+		cfmMoves: [],
 	},
 	deoxysattack: {
 		num: 386,
@@ -6341,6 +6785,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Undiscovered"],
 		inheritsFrom: "deoxys",
+		cfmMoves: [],
 	},
 	deoxysdefense: {
 		num: 386,
@@ -6356,6 +6801,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Undiscovered"],
 		inheritsFrom: "deoxys",
+		cfmMoves: [],
 	},
 	deoxysspeed: {
 		num: 386,
@@ -6371,6 +6817,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Undiscovered"],
 		inheritsFrom: "deoxys",
+		cfmMoves: [],
 	},
 	turtwig: {
 		num: 387,
@@ -6384,6 +6831,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["grotle"],
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	grotle: {
 		num: 388,
@@ -6399,6 +6847,7 @@ let BattlePokedex = {
 		evoLevel: 18,
 		evos: ["torterra"],
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	torterra: {
 		num: 389,
@@ -6413,6 +6862,7 @@ let BattlePokedex = {
 		prevo: "grotle",
 		evoLevel: 32,
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	chimchar: {
 		num: 390,
@@ -6426,6 +6876,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["monferno"],
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	monferno: {
 		num: 391,
@@ -6441,6 +6892,7 @@ let BattlePokedex = {
 		evoLevel: 14,
 		evos: ["infernape"],
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	infernape: {
 		num: 392,
@@ -6455,6 +6907,7 @@ let BattlePokedex = {
 		prevo: "monferno",
 		evoLevel: 36,
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	piplup: {
 		num: 393,
@@ -6468,6 +6921,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["prinplup"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	prinplup: {
 		num: 394,
@@ -6483,6 +6937,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["empoleon"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	empoleon: {
 		num: 395,
@@ -6497,6 +6952,7 @@ let BattlePokedex = {
 		prevo: "prinplup",
 		evoLevel: 36,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	starly: {
 		num: 396,
@@ -6510,6 +6966,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["staravia"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	staravia: {
 		num: 397,
@@ -6525,6 +6982,7 @@ let BattlePokedex = {
 		evoLevel: 14,
 		evos: ["staraptor"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	staraptor: {
 		num: 398,
@@ -6539,6 +6997,7 @@ let BattlePokedex = {
 		prevo: "staravia",
 		evoLevel: 34,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	bidoof: {
 		num: 399,
@@ -6551,6 +7010,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["bibarel"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	bibarel: {
 		num: 400,
@@ -6564,6 +7024,7 @@ let BattlePokedex = {
 		prevo: "bidoof",
 		evoLevel: 15,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	kricketot: {
 		num: 401,
@@ -6576,6 +7037,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["kricketune"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	kricketune: {
 		num: 402,
@@ -6589,6 +7051,7 @@ let BattlePokedex = {
 		prevo: "kricketot",
 		evoLevel: 10,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	shinx: {
 		num: 403,
@@ -6601,6 +7064,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["luxio"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	luxio: {
 		num: 404,
@@ -6615,6 +7079,7 @@ let BattlePokedex = {
 		evoLevel: 15,
 		evos: ["luxray"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	luxray: {
 		num: 405,
@@ -6628,6 +7093,7 @@ let BattlePokedex = {
 		prevo: "luxio",
 		evoLevel: 30,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	budew: {
 		num: 406,
@@ -6641,6 +7107,7 @@ let BattlePokedex = {
 		evos: ["roselia"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	roserade: {
 		num: 407,
@@ -6655,6 +7122,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Shiny Stone",
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: [],
 	},
 	cranidos: {
 		num: 408,
@@ -6668,6 +7136,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["rampardos"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	rampardos: {
 		num: 409,
@@ -6682,6 +7151,7 @@ let BattlePokedex = {
 		prevo: "cranidos",
 		evoLevel: 30,
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	shieldon: {
 		num: 410,
@@ -6695,6 +7165,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["bastiodon"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	bastiodon: {
 		num: 411,
@@ -6709,6 +7180,7 @@ let BattlePokedex = {
 		prevo: "shieldon",
 		evoLevel: 30,
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	burmy: {
 		num: 412,
@@ -6723,6 +7195,7 @@ let BattlePokedex = {
 		evos: ["wormadam", "wormadamsandy", "wormadamtrash", "mothim"],
 		eggGroups: ["Bug"],
 		cosmeticFormes: ["burmysandy", "burmytrash"],
+		cfmMoves: [],
 	},
 	wormadam: {
 		num: 413,
@@ -6739,6 +7212,7 @@ let BattlePokedex = {
 		evoLevel: 20,
 		eggGroups: ["Bug"],
 		otherFormes: ["wormadamsandy", "wormadamtrash"],
+		cfmMoves: [],
 	},
 	wormadamsandy: {
 		num: 413,
@@ -6755,6 +7229,7 @@ let BattlePokedex = {
 		prevo: "burmy",
 		evoLevel: 20,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	wormadamtrash: {
 		num: 413,
@@ -6771,6 +7246,7 @@ let BattlePokedex = {
 		prevo: "burmy",
 		evoLevel: 20,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	mothim: {
 		num: 414,
@@ -6786,6 +7262,7 @@ let BattlePokedex = {
 		prevo: "burmy",
 		evoLevel: 20,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	combee: {
 		num: 415,
@@ -6800,6 +7277,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		evos: ["vespiquen"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	vespiquen: {
 		num: 416,
@@ -6815,6 +7293,7 @@ let BattlePokedex = {
 		prevo: "combee",
 		evoLevel: 21,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	pachirisu: {
 		num: 417,
@@ -6826,6 +7305,7 @@ let BattlePokedex = {
 		weightkg: 3.9,
 		color: "White",
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	buizel: {
 		num: 418,
@@ -6838,6 +7318,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["floatzel"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	floatzel: {
 		num: 419,
@@ -6851,6 +7332,7 @@ let BattlePokedex = {
 		prevo: "buizel",
 		evoLevel: 26,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	cherubi: {
 		num: 420,
@@ -6863,6 +7345,7 @@ let BattlePokedex = {
 		color: "Pink",
 		evos: ["cherrim"],
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: [],
 	},
 	cherrim: {
 		num: 421,
@@ -6878,6 +7361,7 @@ let BattlePokedex = {
 		evoLevel: 25,
 		eggGroups: ["Fairy", "Grass"],
 		otherFormes: ["cherrimsunshine"],
+		cfmMoves: [],
 	},
 	cherrimsunshine: {
 		num: 421,
@@ -6895,6 +7379,7 @@ let BattlePokedex = {
 		eggGroups: ["Fairy", "Grass"],
 		requiredAbility: "Flower Gift",
 		battleOnly: "Cherrim",
+		cfmMoves: [],
 	},
 	shellos: {
 		num: 422,
@@ -6909,6 +7394,7 @@ let BattlePokedex = {
 		evos: ["gastrodon"],
 		eggGroups: ["Water 1", "Amorphous"],
 		cosmeticFormes: ["shelloseast"],
+		cfmMoves: [],
 	},
 	gastrodon: {
 		num: 423,
@@ -6924,6 +7410,7 @@ let BattlePokedex = {
 		evoLevel: 30,
 		eggGroups: ["Water 1", "Amorphous"],
 		cosmeticFormes: ["gastrodoneast"],
+		cfmMoves: [],
 	},
 	ambipom: {
 		num: 424,
@@ -6938,6 +7425,7 @@ let BattlePokedex = {
 		evoType: "levelMove",
 		evoMove: "Double Hit",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	drifloon: {
 		num: 425,
@@ -6951,6 +7439,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["drifblim"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	drifblim: {
 		num: 426,
@@ -6965,6 +7454,7 @@ let BattlePokedex = {
 		prevo: "drifloon",
 		evoLevel: 28,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	buneary: {
 		num: 427,
@@ -6977,6 +7467,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["lopunny"],
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	lopunny: {
 		num: 428,
@@ -6991,6 +7482,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Field", "Human-Like"],
 		otherFormes: ["lopunnymega"],
+		cfmMoves: [],
 	},
 	lopunnymega: {
 		num: 428,
@@ -7005,6 +7497,7 @@ let BattlePokedex = {
 		color: "Brown",
 		eggGroups: ["Field", "Human-Like"],
 		requiredItem: "Lopunnite",
+		cfmMoves: [],
 	},
 	mismagius: {
 		num: 429,
@@ -7019,6 +7512,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Dusk Stone",
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	honchkrow: {
 		num: 430,
@@ -7034,6 +7528,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Dusk Stone",
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	glameow: {
 		num: 431,
@@ -7047,6 +7542,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["purugly"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	purugly: {
 		num: 432,
@@ -7061,6 +7557,7 @@ let BattlePokedex = {
 		prevo: "glameow",
 		evoLevel: 38,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	chingling: {
 		num: 433,
@@ -7075,6 +7572,7 @@ let BattlePokedex = {
 		evos: ["chimecho"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	stunky: {
 		num: 434,
@@ -7087,6 +7585,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["skuntank"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	skuntank: {
 		num: 435,
@@ -7100,6 +7599,7 @@ let BattlePokedex = {
 		prevo: "stunky",
 		evoLevel: 34,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	bronzor: {
 		num: 436,
@@ -7114,6 +7614,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["bronzong"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	bronzong: {
 		num: 437,
@@ -7129,6 +7630,7 @@ let BattlePokedex = {
 		prevo: "bronzor",
 		evoLevel: 33,
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	bonsly: {
 		num: 438,
@@ -7142,6 +7644,7 @@ let BattlePokedex = {
 		evos: ["sudowoodo"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	mimejr: {
 		num: 439,
@@ -7155,6 +7658,7 @@ let BattlePokedex = {
 		evos: ["mrmime", "mrmimegalar"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	happiny: {
 		num: 440,
@@ -7169,6 +7673,7 @@ let BattlePokedex = {
 		evos: ["chansey"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	chatot: {
 		num: 441,
@@ -7181,6 +7686,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Black",
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	spiritomb: {
 		num: 442,
@@ -7192,6 +7698,7 @@ let BattlePokedex = {
 		weightkg: 108,
 		color: "Purple",
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	gible: {
 		num: 443,
@@ -7204,6 +7711,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["gabite"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	gabite: {
 		num: 444,
@@ -7218,6 +7726,7 @@ let BattlePokedex = {
 		evoLevel: 24,
 		evos: ["garchomp"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	garchomp: {
 		num: 445,
@@ -7232,6 +7741,7 @@ let BattlePokedex = {
 		evoLevel: 48,
 		eggGroups: ["Monster", "Dragon"],
 		otherFormes: ["garchompmega"],
+		cfmMoves: [],
 	},
 	garchompmega: {
 		num: 445,
@@ -7246,6 +7756,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Garchompite",
+		cfmMoves: [],
 	},
 	munchlax: {
 		num: 446,
@@ -7260,6 +7771,7 @@ let BattlePokedex = {
 		evos: ["snorlax"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	riolu: {
 		num: 447,
@@ -7274,6 +7786,7 @@ let BattlePokedex = {
 		evos: ["lucario"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	lucario: {
 		num: 448,
@@ -7290,6 +7803,7 @@ let BattlePokedex = {
 		evoCondition: "during the day",
 		eggGroups: ["Field", "Human-Like"],
 		otherFormes: ["lucariomega"],
+		cfmMoves: [],
 	},
 	lucariomega: {
 		num: 448,
@@ -7305,6 +7819,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Field", "Human-Like"],
 		requiredItem: "Lucarionite",
+		cfmMoves: [],
 	},
 	hippopotas: {
 		num: 449,
@@ -7317,6 +7832,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["hippowdon"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	hippowdon: {
 		num: 450,
@@ -7330,6 +7846,7 @@ let BattlePokedex = {
 		prevo: "hippopotas",
 		evoLevel: 34,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	skorupi: {
 		num: 451,
@@ -7342,6 +7859,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["drapion"],
 		eggGroups: ["Bug", "Water 3"],
+		cfmMoves: [],
 	},
 	drapion: {
 		num: 452,
@@ -7355,6 +7873,7 @@ let BattlePokedex = {
 		prevo: "skorupi",
 		evoLevel: 40,
 		eggGroups: ["Bug", "Water 3"],
+		cfmMoves: [],
 	},
 	croagunk: {
 		num: 453,
@@ -7367,6 +7886,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["toxicroak"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	toxicroak: {
 		num: 454,
@@ -7380,6 +7900,7 @@ let BattlePokedex = {
 		prevo: "croagunk",
 		evoLevel: 37,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	carnivine: {
 		num: 455,
@@ -7391,6 +7912,7 @@ let BattlePokedex = {
 		weightkg: 27,
 		color: "Green",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	finneon: {
 		num: 456,
@@ -7403,6 +7925,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["lumineon"],
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	lumineon: {
 		num: 457,
@@ -7416,6 +7939,7 @@ let BattlePokedex = {
 		prevo: "finneon",
 		evoLevel: 31,
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	mantyke: {
 		num: 458,
@@ -7429,6 +7953,7 @@ let BattlePokedex = {
 		evos: ["mantine"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	snover: {
 		num: 459,
@@ -7441,6 +7966,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["abomasnow"],
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	abomasnow: {
 		num: 460,
@@ -7455,6 +7981,7 @@ let BattlePokedex = {
 		evoLevel: 40,
 		eggGroups: ["Monster", "Grass"],
 		otherFormes: ["abomasnowmega"],
+		cfmMoves: [],
 	},
 	abomasnowmega: {
 		num: 460,
@@ -7469,6 +7996,7 @@ let BattlePokedex = {
 		color: "White",
 		eggGroups: ["Monster", "Grass"],
 		requiredItem: "Abomasite",
+		cfmMoves: [],
 	},
 	weavile: {
 		num: 461,
@@ -7483,6 +8011,7 @@ let BattlePokedex = {
 		evoType: "levelHold",
 		evoItem: "Razor Claw",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	magnezone: {
 		num: 462,
@@ -7499,6 +8028,7 @@ let BattlePokedex = {
 		evoType: "levelExtra",
 		evoCondition: "in a special magnetic field",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	lickilicky: {
 		num: 463,
@@ -7513,6 +8043,7 @@ let BattlePokedex = {
 		evoType: "levelMove",
 		evoMove: "Rollout",
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	rhyperior: {
 		num: 464,
@@ -7527,6 +8058,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		evoItem: "Protector",
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	tangrowth: {
 		num: 465,
@@ -7541,6 +8073,7 @@ let BattlePokedex = {
 		evoType: "levelMove",
 		evoMove: "Ancient Power",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	electivire: {
 		num: 466,
@@ -7556,6 +8089,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		evoItem: "Electrizer",
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	magmortar: {
 		num: 467,
@@ -7571,6 +8105,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		evoItem: "Magmarizer",
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	togekiss: {
 		num: 468,
@@ -7587,6 +8122,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Shiny Stone",
 		eggGroups: ["Flying", "Fairy"],
+		cfmMoves: [],
 	},
 	yanmega: {
 		num: 469,
@@ -7602,6 +8138,7 @@ let BattlePokedex = {
 		evoType: "levelMove",
 		evoMove: "Ancient Power",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	leafeon: {
 		num: 470,
@@ -7617,6 +8154,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Leaf Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	glaceon: {
 		num: 471,
@@ -7632,6 +8170,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Ice Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	gliscor: {
 		num: 472,
@@ -7648,6 +8187,7 @@ let BattlePokedex = {
 		evoItem: "Razor Fang",
 		evoCondition: "at night",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	mamoswine: {
 		num: 473,
@@ -7662,6 +8202,7 @@ let BattlePokedex = {
 		evoType: "levelMove",
 		evoMove: "Ancient Power",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	porygonz: {
 		num: 474,
@@ -7678,6 +8219,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		evoItem: "Dubious Disk",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	gallade: {
 		num: 475,
@@ -7694,6 +8236,7 @@ let BattlePokedex = {
 		evoItem: "Dawn Stone",
 		eggGroups: ["Human-Like", "Amorphous"],
 		otherFormes: ["gallademega"],
+		cfmMoves: [],
 	},
 	gallademega: {
 		num: 475,
@@ -7709,6 +8252,7 @@ let BattlePokedex = {
 		color: "White",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Galladite",
+		cfmMoves: [],
 	},
 	probopass: {
 		num: 476,
@@ -7723,6 +8267,7 @@ let BattlePokedex = {
 		evoType: "levelExtra",
 		evoCondition: "near a special magnetic field",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	dusknoir: {
 		num: 477,
@@ -7738,6 +8283,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		evoItem: "Reaper Cloth",
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	froslass: {
 		num: 478,
@@ -7754,6 +8300,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Dawn Stone",
 		eggGroups: ["Fairy", "Mineral"],
+		cfmMoves: [],
 	},
 	rotom: {
 		num: 479,
@@ -7768,6 +8315,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Amorphous"],
 		otherFormes: ["rotomheat", "rotomwash", "rotomfrost", "rotomfan", "rotommow"],
+		cfmMoves: [],
 	},
 	rotomheat: {
 		num: 479,
@@ -7784,6 +8332,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Amorphous"],
 		inheritsFrom: "rotom",
+		cfmMoves: [],
 	},
 	rotomwash: {
 		num: 479,
@@ -7800,6 +8349,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Amorphous"],
 		inheritsFrom: "rotom",
+		cfmMoves: [],
 	},
 	rotomfrost: {
 		num: 479,
@@ -7816,6 +8366,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Amorphous"],
 		inheritsFrom: "rotom",
+		cfmMoves: [],
 	},
 	rotomfan: {
 		num: 479,
@@ -7832,6 +8383,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Amorphous"],
 		inheritsFrom: "rotom",
+		cfmMoves: [],
 	},
 	rotommow: {
 		num: 479,
@@ -7848,6 +8400,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Amorphous"],
 		inheritsFrom: "rotom",
+		cfmMoves: [],
 	},
 	uxie: {
 		num: 480,
@@ -7861,6 +8414,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	mesprit: {
 		num: 481,
@@ -7874,6 +8428,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Pink",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	azelf: {
 		num: 482,
@@ -7887,6 +8442,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	dialga: {
 		num: 483,
@@ -7899,6 +8455,7 @@ let BattlePokedex = {
 		weightkg: 683,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	palkia: {
 		num: 484,
@@ -7911,6 +8468,7 @@ let BattlePokedex = {
 		weightkg: 336,
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	heatran: {
 		num: 485,
@@ -7922,6 +8480,7 @@ let BattlePokedex = {
 		weightkg: 430,
 		color: "Brown",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	regigigas: {
 		num: 486,
@@ -7934,6 +8493,7 @@ let BattlePokedex = {
 		weightkg: 420,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	giratina: {
 		num: 487,
@@ -7948,6 +8508,7 @@ let BattlePokedex = {
 		color: "Black",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["giratinaorigin"],
+		cfmMoves: [],
 	},
 	giratinaorigin: {
 		num: 487,
@@ -7964,6 +8525,7 @@ let BattlePokedex = {
 		color: "Black",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Griseous Orb",
+		cfmMoves: [],
 	},
 	cresselia: {
 		num: 488,
@@ -7977,6 +8539,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	phione: {
 		num: 489,
@@ -7989,6 +8552,7 @@ let BattlePokedex = {
 		weightkg: 3.1,
 		color: "Blue",
 		eggGroups: ["Water 1", "Fairy"],
+		cfmMoves: [],
 	},
 	manaphy: {
 		num: 490,
@@ -8002,6 +8566,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Water 1", "Fairy"],
 		canHatch: false,
+		cfmMoves: [],
 	},
 	darkrai: {
 		num: 491,
@@ -8015,6 +8580,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Black",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	shaymin: {
 		num: 492,
@@ -8029,6 +8595,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["shayminsky"],
+		cfmMoves: [],
 	},
 	shayminsky: {
 		num: 492,
@@ -8044,6 +8611,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	arceus: {
 		num: 493,
@@ -8059,6 +8627,7 @@ let BattlePokedex = {
 		color: "White",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["arceusbug", "arceusdark", "arceusdragon", "arceuselectric", "arceusfairy", "arceusfighting", "arceusfire", "arceusflying", "arceusghost", "arceusgrass", "arceusground", "arceusice", "arceuspoison", "arceuspsychic", "arceusrock", "arceussteel", "arceuswater"],
+		cfmMoves: [],
 	},
 	arceusbug: {
 		num: 493,
@@ -8075,6 +8644,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Insect Plate", "Buginium Z"],
+		cfmMoves: [],
 	},
 	arceusdark: {
 		num: 493,
@@ -8091,6 +8661,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Dread Plate", "Darkinium Z"],
+		cfmMoves: [],
 	},
 	arceusdragon: {
 		num: 493,
@@ -8107,6 +8678,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Draco Plate", "Dragonium Z"],
+		cfmMoves: [],
 	},
 	arceuselectric: {
 		num: 493,
@@ -8123,6 +8695,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Zap Plate", "Electrium Z"],
+		cfmMoves: [],
 	},
 	arceusfairy: {
 		num: 493,
@@ -8140,6 +8713,7 @@ let BattlePokedex = {
 		eggGroups: ["Undiscovered"],
 		gen: 6,
 		requiredItems: ["Pixie Plate", "Fairium Z"],
+		cfmMoves: [],
 	},
 	arceusfighting: {
 		num: 493,
@@ -8156,6 +8730,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Fist Plate", "Fightinium Z"],
+		cfmMoves: [],
 	},
 	arceusfire: {
 		num: 493,
@@ -8172,6 +8747,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Flame Plate", "Firium Z"],
+		cfmMoves: [],
 	},
 	arceusflying: {
 		num: 493,
@@ -8188,6 +8764,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Sky Plate", "Flyinium Z"],
+		cfmMoves: [],
 	},
 	arceusghost: {
 		num: 493,
@@ -8204,6 +8781,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Spooky Plate", "Ghostium Z"],
+		cfmMoves: [],
 	},
 	arceusgrass: {
 		num: 493,
@@ -8220,6 +8798,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Meadow Plate", "Grassium Z"],
+		cfmMoves: [],
 	},
 	arceusground: {
 		num: 493,
@@ -8236,6 +8815,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Earth Plate", "Groundium Z"],
+		cfmMoves: [],
 	},
 	arceusice: {
 		num: 493,
@@ -8252,6 +8832,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Icicle Plate", "Icium Z"],
+		cfmMoves: [],
 	},
 	arceuspoison: {
 		num: 493,
@@ -8268,6 +8849,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Toxic Plate", "Poisonium Z"],
+		cfmMoves: [],
 	},
 	arceuspsychic: {
 		num: 493,
@@ -8284,6 +8866,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Mind Plate", "Psychium Z"],
+		cfmMoves: [],
 	},
 	arceusrock: {
 		num: 493,
@@ -8300,6 +8883,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Stone Plate", "Rockium Z"],
+		cfmMoves: [],
 	},
 	arceussteel: {
 		num: 493,
@@ -8316,6 +8900,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Iron Plate", "Steelium Z"],
+		cfmMoves: [],
 	},
 	arceuswater: {
 		num: 493,
@@ -8332,6 +8917,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Splash Plate", "Waterium Z"],
+		cfmMoves: [],
 	},
 	victini: {
 		num: 494,
@@ -8344,6 +8930,7 @@ let BattlePokedex = {
 		weightkg: 4,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	snivy: {
 		num: 495,
@@ -8357,6 +8944,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["servine"],
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	servine: {
 		num: 496,
@@ -8372,6 +8960,7 @@ let BattlePokedex = {
 		evoLevel: 17,
 		evos: ["serperior"],
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	serperior: {
 		num: 497,
@@ -8386,6 +8975,7 @@ let BattlePokedex = {
 		prevo: "servine",
 		evoLevel: 36,
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	tepig: {
 		num: 498,
@@ -8399,6 +8989,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["pignite"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	pignite: {
 		num: 499,
@@ -8414,6 +9005,7 @@ let BattlePokedex = {
 		evoLevel: 17,
 		evos: ["emboar"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	emboar: {
 		num: 500,
@@ -8428,6 +9020,7 @@ let BattlePokedex = {
 		prevo: "pignite",
 		evoLevel: 36,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	oshawott: {
 		num: 501,
@@ -8441,6 +9034,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["dewott"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	dewott: {
 		num: 502,
@@ -8456,6 +9050,7 @@ let BattlePokedex = {
 		evoLevel: 17,
 		evos: ["samurott"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	samurott: {
 		num: 503,
@@ -8470,6 +9065,7 @@ let BattlePokedex = {
 		prevo: "dewott",
 		evoLevel: 36,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	patrat: {
 		num: 504,
@@ -8482,6 +9078,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["watchog"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	watchog: {
 		num: 505,
@@ -8495,6 +9092,7 @@ let BattlePokedex = {
 		prevo: "patrat",
 		evoLevel: 20,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	lillipup: {
 		num: 506,
@@ -8507,6 +9105,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["herdier"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	herdier: {
 		num: 507,
@@ -8521,6 +9120,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["stoutland"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	stoutland: {
 		num: 508,
@@ -8534,6 +9134,7 @@ let BattlePokedex = {
 		prevo: "herdier",
 		evoLevel: 32,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	purrloin: {
 		num: 509,
@@ -8546,6 +9147,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["liepard"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	liepard: {
 		num: 510,
@@ -8559,6 +9161,7 @@ let BattlePokedex = {
 		prevo: "purrloin",
 		evoLevel: 20,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	pansage: {
 		num: 511,
@@ -8572,6 +9175,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["simisage"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	simisage: {
 		num: 512,
@@ -8587,6 +9191,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Leaf Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	pansear: {
 		num: 513,
@@ -8600,6 +9205,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["simisear"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	simisear: {
 		num: 514,
@@ -8615,6 +9221,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Fire Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	panpour: {
 		num: 515,
@@ -8628,6 +9235,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["simipour"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	simipour: {
 		num: 516,
@@ -8643,6 +9251,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Water Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	munna: {
 		num: 517,
@@ -8656,6 +9265,7 @@ let BattlePokedex = {
 		color: "Pink",
 		evos: ["musharna"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	musharna: {
 		num: 518,
@@ -8671,6 +9281,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Moon Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	pidove: {
 		num: 519,
@@ -8684,6 +9295,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["tranquill"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	tranquill: {
 		num: 520,
@@ -8699,6 +9311,7 @@ let BattlePokedex = {
 		evoLevel: 21,
 		evos: ["unfezant"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	unfezant: {
 		num: 521,
@@ -8713,6 +9326,7 @@ let BattlePokedex = {
 		prevo: "tranquill",
 		evoLevel: 32,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	blitzle: {
 		num: 522,
@@ -8725,6 +9339,7 @@ let BattlePokedex = {
 		color: "Black",
 		evos: ["zebstrika"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	zebstrika: {
 		num: 523,
@@ -8738,6 +9353,7 @@ let BattlePokedex = {
 		prevo: "blitzle",
 		evoLevel: 27,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	roggenrola: {
 		num: 524,
@@ -8750,6 +9366,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["boldore"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	boldore: {
 		num: 525,
@@ -8764,6 +9381,7 @@ let BattlePokedex = {
 		evoLevel: 25,
 		evos: ["gigalith"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	gigalith: {
 		num: 526,
@@ -8777,6 +9395,7 @@ let BattlePokedex = {
 		prevo: "boldore",
 		evoType: "trade",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	woobat: {
 		num: 527,
@@ -8790,6 +9409,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["swoobat"],
 		eggGroups: ["Flying", "Field"],
+		cfmMoves: [],
 	},
 	swoobat: {
 		num: 528,
@@ -8804,6 +9424,7 @@ let BattlePokedex = {
 		prevo: "woobat",
 		evoType: "levelFriendship",
 		eggGroups: ["Flying", "Field"],
+		cfmMoves: [],
 	},
 	drilbur: {
 		num: 529,
@@ -8816,6 +9437,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["excadrill"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	excadrill: {
 		num: 530,
@@ -8829,6 +9451,7 @@ let BattlePokedex = {
 		prevo: "drilbur",
 		evoLevel: 31,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	audino: {
 		num: 531,
@@ -8841,6 +9464,7 @@ let BattlePokedex = {
 		color: "Pink",
 		eggGroups: ["Fairy"],
 		otherFormes: ["audinomega"],
+		cfmMoves: [],
 	},
 	audinomega: {
 		num: 531,
@@ -8855,6 +9479,7 @@ let BattlePokedex = {
 		color: "White",
 		eggGroups: ["Fairy"],
 		requiredItem: "Audinite",
+		cfmMoves: [],
 	},
 	timburr: {
 		num: 532,
@@ -8868,6 +9493,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["gurdurr"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	gurdurr: {
 		num: 533,
@@ -8883,6 +9509,7 @@ let BattlePokedex = {
 		evoLevel: 25,
 		evos: ["conkeldurr"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	conkeldurr: {
 		num: 534,
@@ -8897,6 +9524,7 @@ let BattlePokedex = {
 		prevo: "gurdurr",
 		evoType: "trade",
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	tympole: {
 		num: 535,
@@ -8909,6 +9537,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["palpitoad"],
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	palpitoad: {
 		num: 536,
@@ -8923,6 +9552,7 @@ let BattlePokedex = {
 		evoLevel: 25,
 		evos: ["seismitoad"],
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	seismitoad: {
 		num: 537,
@@ -8936,6 +9566,7 @@ let BattlePokedex = {
 		prevo: "palpitoad",
 		evoLevel: 36,
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	throh: {
 		num: 538,
@@ -8948,6 +9579,7 @@ let BattlePokedex = {
 		weightkg: 55.5,
 		color: "Red",
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	sawk: {
 		num: 539,
@@ -8960,6 +9592,7 @@ let BattlePokedex = {
 		weightkg: 51,
 		color: "Blue",
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	sewaddle: {
 		num: 540,
@@ -8972,6 +9605,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		evos: ["swadloon"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	swadloon: {
 		num: 541,
@@ -8986,6 +9620,7 @@ let BattlePokedex = {
 		evoLevel: 20,
 		evos: ["leavanny"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	leavanny: {
 		num: 542,
@@ -8999,6 +9634,7 @@ let BattlePokedex = {
 		prevo: "swadloon",
 		evoType: "levelFriendship",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	venipede: {
 		num: 543,
@@ -9011,6 +9647,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["whirlipede"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	whirlipede: {
 		num: 544,
@@ -9025,6 +9662,7 @@ let BattlePokedex = {
 		evoLevel: 22,
 		evos: ["scolipede"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	scolipede: {
 		num: 545,
@@ -9038,6 +9676,7 @@ let BattlePokedex = {
 		prevo: "whirlipede",
 		evoLevel: 30,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	cottonee: {
 		num: 546,
@@ -9051,6 +9690,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["whimsicott"],
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: [],
 	},
 	whimsicott: {
 		num: 547,
@@ -9065,6 +9705,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Sun Stone",
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: [],
 	},
 	petilil: {
 		num: 548,
@@ -9079,6 +9720,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["lilligant"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	lilligant: {
 		num: 549,
@@ -9094,6 +9736,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Sun Stone",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	basculin: {
 		num: 550,
@@ -9107,6 +9750,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ["Water 2"],
 		otherFormes: ["basculinbluestriped"],
+		cfmMoves: [],
 	},
 	basculinbluestriped: {
 		num: 550,
@@ -9120,6 +9764,7 @@ let BattlePokedex = {
 		weightkg: 18,
 		color: "Green",
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	sandile: {
 		num: 551,
@@ -9132,6 +9777,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["krokorok"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	krokorok: {
 		num: 552,
@@ -9146,6 +9792,7 @@ let BattlePokedex = {
 		evoLevel: 29,
 		evos: ["krookodile"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	krookodile: {
 		num: 553,
@@ -9159,6 +9806,7 @@ let BattlePokedex = {
 		prevo: "krokorok",
 		evoLevel: 40,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	darumaka: {
 		num: 554,
@@ -9172,6 +9820,7 @@ let BattlePokedex = {
 		evos: ["darmanitan"],
 		eggGroups: ["Field"],
 		otherFormes: ["darumakagalar"],
+		cfmMoves: [],
 	},
 	darumakagalar: {
 		num: 554,
@@ -9186,6 +9835,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["darmanitangalar"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	darmanitan: {
 		num: 555,
@@ -9201,6 +9851,7 @@ let BattlePokedex = {
 		evoLevel: 35,
 		eggGroups: ["Field"],
 		otherFormes: ["darmanitanzen", "darmanitangalar", "darmanitangalarzen"],
+		cfmMoves: [],
 	},
 	darmanitanzen: {
 		num: 555,
@@ -9218,6 +9869,7 @@ let BattlePokedex = {
 		eggGroups: ["Field"],
 		requiredAbility: "Zen Mode",
 		battleOnly: "Darmanitan",
+		cfmMoves: [],
 	},
 	darmanitangalar: {
 		num: 555,
@@ -9234,6 +9886,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Ice Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	darmanitangalarzen: {
 		num: 555,
@@ -9252,6 +9905,7 @@ let BattlePokedex = {
 		eggGroups: ["Field"],
 		requiredAbility: "Zen Mode",
 		battleOnly: "Darmanitan-Galar",
+		cfmMoves: [],
 	},
 	maractus: {
 		num: 556,
@@ -9263,6 +9917,7 @@ let BattlePokedex = {
 		weightkg: 28,
 		color: "Green",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	dwebble: {
 		num: 557,
@@ -9275,6 +9930,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["crustle"],
 		eggGroups: ["Bug", "Mineral"],
+		cfmMoves: [],
 	},
 	crustle: {
 		num: 558,
@@ -9288,6 +9944,7 @@ let BattlePokedex = {
 		prevo: "dwebble",
 		evoLevel: 34,
 		eggGroups: ["Bug", "Mineral"],
+		cfmMoves: [],
 	},
 	scraggy: {
 		num: 559,
@@ -9300,6 +9957,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		evos: ["scrafty"],
 		eggGroups: ["Field", "Dragon"],
+		cfmMoves: [],
 	},
 	scrafty: {
 		num: 560,
@@ -9313,6 +9971,7 @@ let BattlePokedex = {
 		prevo: "scraggy",
 		evoLevel: 39,
 		eggGroups: ["Field", "Dragon"],
+		cfmMoves: [],
 	},
 	sigilyph: {
 		num: 561,
@@ -9324,6 +9983,7 @@ let BattlePokedex = {
 		weightkg: 14,
 		color: "Black",
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	yamask: {
 		num: 562,
@@ -9338,6 +9998,7 @@ let BattlePokedex = {
 		evos: ["cofagrigus"],
 		eggGroups: ["Mineral", "Amorphous"],
 		otherFormes: ["yamaskgalar"],
+		cfmMoves: [],
 	},
 	yamaskgalar: {
 		num: 562,
@@ -9353,6 +10014,7 @@ let BattlePokedex = {
 		color: "Black",
 		evos: ["runerigus"],
 		eggGroups: ["Mineral", "Amorphous"],
+		cfmMoves: [],
 	},
 	cofagrigus: {
 		num: 563,
@@ -9367,6 +10029,7 @@ let BattlePokedex = {
 		prevo: "yamask",
 		evoLevel: 34,
 		eggGroups: ["Mineral", "Amorphous"],
+		cfmMoves: [],
 	},
 	tirtouga: {
 		num: 564,
@@ -9380,6 +10043,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["carracosta"],
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	carracosta: {
 		num: 565,
@@ -9394,6 +10058,7 @@ let BattlePokedex = {
 		prevo: "tirtouga",
 		evoLevel: 37,
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	archen: {
 		num: 566,
@@ -9408,6 +10073,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		evos: ["archeops"],
 		eggGroups: ["Flying", "Water 3"],
+		cfmMoves: [],
 	},
 	archeops: {
 		num: 567,
@@ -9423,6 +10089,7 @@ let BattlePokedex = {
 		prevo: "archen",
 		evoLevel: 37,
 		eggGroups: ["Flying", "Water 3"],
+		cfmMoves: [],
 	},
 	trubbish: {
 		num: 568,
@@ -9435,6 +10102,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["garbodor"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	garbodor: {
 		num: 569,
@@ -9448,6 +10116,7 @@ let BattlePokedex = {
 		prevo: "trubbish",
 		evoLevel: 36,
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	zorua: {
 		num: 570,
@@ -9461,6 +10130,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["zoroark"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	zoroark: {
 		num: 571,
@@ -9475,6 +10145,7 @@ let BattlePokedex = {
 		prevo: "zorua",
 		evoLevel: 30,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	minccino: {
 		num: 572,
@@ -9488,6 +10159,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["cinccino"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	cinccino: {
 		num: 573,
@@ -9503,6 +10175,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Shiny Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	gothita: {
 		num: 574,
@@ -9516,6 +10189,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["gothorita"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	gothorita: {
 		num: 575,
@@ -9531,6 +10205,7 @@ let BattlePokedex = {
 		evoLevel: 32,
 		evos: ["gothitelle"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	gothitelle: {
 		num: 576,
@@ -9545,6 +10220,7 @@ let BattlePokedex = {
 		prevo: "gothorita",
 		evoLevel: 41,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	solosis: {
 		num: 577,
@@ -9558,6 +10234,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["duosion"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	duosion: {
 		num: 578,
@@ -9573,6 +10250,7 @@ let BattlePokedex = {
 		evoLevel: 32,
 		evos: ["reuniclus"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	reuniclus: {
 		num: 579,
@@ -9587,6 +10265,7 @@ let BattlePokedex = {
 		prevo: "duosion",
 		evoLevel: 41,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	ducklett: {
 		num: 580,
@@ -9600,6 +10279,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["swanna"],
 		eggGroups: ["Water 1", "Flying"],
+		cfmMoves: [],
 	},
 	swanna: {
 		num: 581,
@@ -9614,6 +10294,7 @@ let BattlePokedex = {
 		prevo: "ducklett",
 		evoLevel: 35,
 		eggGroups: ["Water 1", "Flying"],
+		cfmMoves: [],
 	},
 	vanillite: {
 		num: 582,
@@ -9627,6 +10308,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["vanillish"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	vanillish: {
 		num: 583,
@@ -9642,6 +10324,7 @@ let BattlePokedex = {
 		evoLevel: 35,
 		evos: ["vanilluxe"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	vanilluxe: {
 		num: 584,
@@ -9656,6 +10339,7 @@ let BattlePokedex = {
 		prevo: "vanillish",
 		evoLevel: 47,
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	deerling: {
 		num: 585,
@@ -9670,6 +10354,7 @@ let BattlePokedex = {
 		evos: ["sawsbuck"],
 		eggGroups: ["Field"],
 		cosmeticFormes: ["deerlingsummer", "deerlingautumn", "deerlingwinter"],
+		cfmMoves: [],
 	},
 	sawsbuck: {
 		num: 586,
@@ -9685,6 +10370,7 @@ let BattlePokedex = {
 		evoLevel: 34,
 		eggGroups: ["Field"],
 		cosmeticFormes: ["sawsbucksummer", "sawsbuckautumn", "sawsbuckwinter"],
+		cfmMoves: [],
 	},
 	emolga: {
 		num: 587,
@@ -9697,6 +10383,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "White",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	karrablast: {
 		num: 588,
@@ -9709,6 +10396,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["escavalier"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	escavalier: {
 		num: 589,
@@ -9723,6 +10411,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		evoCondition: "with a Shelmet",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	foongus: {
 		num: 590,
@@ -9735,6 +10424,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["amoonguss"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	amoonguss: {
 		num: 591,
@@ -9748,6 +10438,7 @@ let BattlePokedex = {
 		prevo: "foongus",
 		evoLevel: 39,
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	frillish: {
 		num: 592,
@@ -9760,6 +10451,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["jellicent"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	jellicent: {
 		num: 593,
@@ -9773,6 +10465,7 @@ let BattlePokedex = {
 		prevo: "frillish",
 		evoLevel: 40,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	alomomola: {
 		num: 594,
@@ -9784,6 +10477,7 @@ let BattlePokedex = {
 		weightkg: 31.6,
 		color: "Pink",
 		eggGroups: ["Water 1", "Water 2"],
+		cfmMoves: [],
 	},
 	joltik: {
 		num: 595,
@@ -9796,6 +10490,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		evos: ["galvantula"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	galvantula: {
 		num: 596,
@@ -9809,6 +10504,7 @@ let BattlePokedex = {
 		prevo: "joltik",
 		evoLevel: 36,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	ferroseed: {
 		num: 597,
@@ -9821,6 +10517,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["ferrothorn"],
 		eggGroups: ["Grass", "Mineral"],
+		cfmMoves: [],
 	},
 	ferrothorn: {
 		num: 598,
@@ -9834,6 +10531,7 @@ let BattlePokedex = {
 		prevo: "ferroseed",
 		evoLevel: 40,
 		eggGroups: ["Grass", "Mineral"],
+		cfmMoves: [],
 	},
 	klink: {
 		num: 599,
@@ -9848,6 +10546,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["klang"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	klang: {
 		num: 600,
@@ -9864,6 +10563,7 @@ let BattlePokedex = {
 		evoLevel: 38,
 		evos: ["klinklang"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	klinklang: {
 		num: 601,
@@ -9879,6 +10579,7 @@ let BattlePokedex = {
 		prevo: "klang",
 		evoLevel: 49,
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	tynamo: {
 		num: 602,
@@ -9892,6 +10593,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["eelektrik"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	eelektrik: {
 		num: 603,
@@ -9907,6 +10609,7 @@ let BattlePokedex = {
 		evoLevel: 39,
 		evos: ["eelektross"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	eelektross: {
 		num: 604,
@@ -9922,6 +10625,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Thunder Stone",
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	elgyem: {
 		num: 605,
@@ -9935,6 +10639,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["beheeyem"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	beheeyem: {
 		num: 606,
@@ -9949,6 +10654,7 @@ let BattlePokedex = {
 		prevo: "elgyem",
 		evoLevel: 42,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	litwick: {
 		num: 607,
@@ -9962,6 +10668,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["lampent"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	lampent: {
 		num: 608,
@@ -9977,6 +10684,7 @@ let BattlePokedex = {
 		evoLevel: 41,
 		evos: ["chandelure"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	chandelure: {
 		num: 609,
@@ -9992,6 +10700,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Dusk Stone",
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	axew: {
 		num: 610,
@@ -10004,6 +10713,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["fraxure"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	fraxure: {
 		num: 611,
@@ -10018,6 +10728,7 @@ let BattlePokedex = {
 		evoLevel: 38,
 		evos: ["haxorus"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	haxorus: {
 		num: 612,
@@ -10031,6 +10742,7 @@ let BattlePokedex = {
 		prevo: "fraxure",
 		evoLevel: 48,
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	cubchoo: {
 		num: 613,
@@ -10043,6 +10755,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["beartic"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	beartic: {
 		num: 614,
@@ -10056,6 +10769,7 @@ let BattlePokedex = {
 		prevo: "cubchoo",
 		evoLevel: 37,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	cryogonal: {
 		num: 615,
@@ -10069,6 +10783,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Blue",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	shelmet: {
 		num: 616,
@@ -10081,6 +10796,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["accelgor"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	accelgor: {
 		num: 617,
@@ -10095,6 +10811,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		evoCondition: "with a Karrablast",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	stunfisk: {
 		num: 618,
@@ -10107,6 +10824,7 @@ let BattlePokedex = {
 		color: "Brown",
 		eggGroups: ["Water 1", "Amorphous"],
 		otherFormes: ["stunfiskgalar"],
+		cfmMoves: [],
 	},
 	stunfiskgalar: {
 		num: 618,
@@ -10120,6 +10838,7 @@ let BattlePokedex = {
 		weightkg: 20.5,
 		color: "Green",
 		eggGroups: ["Water 1", "Amorphous"],
+		cfmMoves: [],
 	},
 	mienfoo: {
 		num: 619,
@@ -10132,6 +10851,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		evos: ["mienshao"],
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	mienshao: {
 		num: 620,
@@ -10145,6 +10865,7 @@ let BattlePokedex = {
 		prevo: "mienfoo",
 		evoLevel: 50,
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	druddigon: {
 		num: 621,
@@ -10156,6 +10877,7 @@ let BattlePokedex = {
 		weightkg: 139,
 		color: "Red",
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	golett: {
 		num: 622,
@@ -10169,6 +10891,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["golurk"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	golurk: {
 		num: 623,
@@ -10183,6 +10906,7 @@ let BattlePokedex = {
 		prevo: "golett",
 		evoLevel: 43,
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	pawniard: {
 		num: 624,
@@ -10195,6 +10919,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["bisharp"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	bisharp: {
 		num: 625,
@@ -10208,6 +10933,7 @@ let BattlePokedex = {
 		prevo: "pawniard",
 		evoLevel: 52,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	bouffalant: {
 		num: 626,
@@ -10219,6 +10945,7 @@ let BattlePokedex = {
 		weightkg: 94.6,
 		color: "Brown",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	rufflet: {
 		num: 627,
@@ -10232,6 +10959,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["braviary"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	braviary: {
 		num: 628,
@@ -10247,6 +10975,7 @@ let BattlePokedex = {
 		prevo: "rufflet",
 		evoLevel: 54,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	vullaby: {
 		num: 629,
@@ -10260,6 +10989,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["mandibuzz"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	mandibuzz: {
 		num: 630,
@@ -10275,6 +11005,7 @@ let BattlePokedex = {
 		prevo: "vullaby",
 		evoLevel: 54,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	heatmor: {
 		num: 631,
@@ -10286,6 +11017,7 @@ let BattlePokedex = {
 		weightkg: 58,
 		color: "Red",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	durant: {
 		num: 632,
@@ -10297,6 +11029,7 @@ let BattlePokedex = {
 		weightkg: 33,
 		color: "Gray",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	deino: {
 		num: 633,
@@ -10309,6 +11042,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["zweilous"],
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	zweilous: {
 		num: 634,
@@ -10323,6 +11057,7 @@ let BattlePokedex = {
 		evoLevel: 50,
 		evos: ["hydreigon"],
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	hydreigon: {
 		num: 635,
@@ -10337,6 +11072,7 @@ let BattlePokedex = {
 		prevo: "zweilous",
 		evoLevel: 64,
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	larvesta: {
 		num: 636,
@@ -10349,6 +11085,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["volcarona"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	volcarona: {
 		num: 637,
@@ -10363,6 +11100,7 @@ let BattlePokedex = {
 		prevo: "larvesta",
 		evoLevel: 59,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	cobalion: {
 		num: 638,
@@ -10375,6 +11113,7 @@ let BattlePokedex = {
 		weightkg: 250,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	terrakion: {
 		num: 639,
@@ -10387,6 +11126,7 @@ let BattlePokedex = {
 		weightkg: 260,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	virizion: {
 		num: 640,
@@ -10399,6 +11139,7 @@ let BattlePokedex = {
 		weightkg: 200,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	tornadus: {
 		num: 641,
@@ -10414,6 +11155,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["tornadustherian"],
+		cfmMoves: [],
 	},
 	tornadustherian: {
 		num: 641,
@@ -10429,6 +11171,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	thundurus: {
 		num: 642,
@@ -10444,6 +11187,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["thundurustherian"],
+		cfmMoves: [],
 	},
 	thundurustherian: {
 		num: 642,
@@ -10459,6 +11203,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	reshiram: {
 		num: 643,
@@ -10472,6 +11217,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	zekrom: {
 		num: 644,
@@ -10485,6 +11231,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Black",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	landorus: {
 		num: 645,
@@ -10500,6 +11247,7 @@ let BattlePokedex = {
 		color: "Brown",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["landorustherian"],
+		cfmMoves: [],
 	},
 	landorustherian: {
 		num: 645,
@@ -10515,6 +11263,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Brown",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	kyurem: {
 		num: 646,
@@ -10528,6 +11277,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["kyuremblack", "kyuremwhite"],
+		cfmMoves: [],
 	},
 	kyuremblack: {
 		num: 646,
@@ -10542,6 +11292,7 @@ let BattlePokedex = {
 		weightkg: 325,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	kyuremwhite: {
 		num: 646,
@@ -10556,6 +11307,7 @@ let BattlePokedex = {
 		weightkg: 325,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	keldeo: {
 		num: 647,
@@ -10570,6 +11322,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["keldeoresolute"],
+		cfmMoves: [],
 	},
 	keldeoresolute: {
 		num: 647,
@@ -10585,6 +11338,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
 		requiredMove: "Secret Sword",
+		cfmMoves: [],
 	},
 	meloetta: {
 		num: 648,
@@ -10599,6 +11353,7 @@ let BattlePokedex = {
 		color: "White",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["meloettapirouette"],
+		cfmMoves: [],
 	},
 	meloettapirouette: {
 		num: 648,
@@ -10615,6 +11370,7 @@ let BattlePokedex = {
 		eggGroups: ["Undiscovered"],
 		requiredMove: "Relic Song",
 		battleOnly: "Meloetta",
+		cfmMoves: [],
 	},
 	genesect: {
 		num: 649,
@@ -10628,6 +11384,7 @@ let BattlePokedex = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["genesectdouse", "genesectshock", "genesectburn", "genesectchill"],
+		cfmMoves: [],
 	},
 	genesectdouse: {
 		num: 649,
@@ -10643,6 +11400,7 @@ let BattlePokedex = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Douse Drive",
+		cfmMoves: [],
 	},
 	genesectshock: {
 		num: 649,
@@ -10658,6 +11416,7 @@ let BattlePokedex = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Shock Drive",
+		cfmMoves: [],
 	},
 	genesectburn: {
 		num: 649,
@@ -10673,6 +11432,7 @@ let BattlePokedex = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Burn Drive",
+		cfmMoves: [],
 	},
 	genesectchill: {
 		num: 649,
@@ -10688,6 +11448,7 @@ let BattlePokedex = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Chill Drive",
+		cfmMoves: [],
 	},
 	chespin: {
 		num: 650,
@@ -10701,6 +11462,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["quilladin"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	quilladin: {
 		num: 651,
@@ -10716,6 +11478,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["chesnaught"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	chesnaught: {
 		num: 652,
@@ -10730,6 +11493,7 @@ let BattlePokedex = {
 		prevo: "quilladin",
 		evoLevel: 36,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	fennekin: {
 		num: 653,
@@ -10743,6 +11507,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["braixen"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	braixen: {
 		num: 654,
@@ -10758,6 +11523,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["delphox"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	delphox: {
 		num: 655,
@@ -10772,6 +11538,7 @@ let BattlePokedex = {
 		prevo: "braixen",
 		evoLevel: 36,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	froakie: {
 		num: 656,
@@ -10785,6 +11552,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["frogadier"],
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	frogadier: {
 		num: 657,
@@ -10800,6 +11568,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["greninja"],
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	greninja: {
 		num: 658,
@@ -10815,6 +11584,7 @@ let BattlePokedex = {
 		evoLevel: 36,
 		eggGroups: ["Water 1"],
 		otherFormes: ["greninjaash"],
+		cfmMoves: [],
 	},
 	greninjaash: {
 		num: 658,
@@ -10832,6 +11602,7 @@ let BattlePokedex = {
 		gen: 7,
 		requiredAbility: "Battle Bond",
 		battleOnly: "Greninja",
+		cfmMoves: [],
 	},
 	bunnelby: {
 		num: 659,
@@ -10844,6 +11615,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["diggersby"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	diggersby: {
 		num: 660,
@@ -10857,6 +11629,7 @@ let BattlePokedex = {
 		prevo: "bunnelby",
 		evoLevel: 20,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	fletchling: {
 		num: 661,
@@ -10870,6 +11643,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["fletchinder"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	fletchinder: {
 		num: 662,
@@ -10885,6 +11659,7 @@ let BattlePokedex = {
 		evoLevel: 17,
 		evos: ["talonflame"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	talonflame: {
 		num: 663,
@@ -10899,6 +11674,7 @@ let BattlePokedex = {
 		prevo: "fletchinder",
 		evoLevel: 35,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	scatterbug: {
 		num: 664,
@@ -10911,6 +11687,7 @@ let BattlePokedex = {
 		color: "Black",
 		evos: ["spewpa"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	spewpa: {
 		num: 665,
@@ -10925,6 +11702,7 @@ let BattlePokedex = {
 		evoLevel: 9,
 		evos: ["vivillon"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	vivillon: {
 		num: 666,
@@ -10941,6 +11719,7 @@ let BattlePokedex = {
 		eggGroups: ["Bug"],
 		cosmeticFormes: ["vivillonarchipelago", "vivilloncontinental", "vivillonelegant", "vivillongarden", "vivillonhighplains", "vivillonicysnow", "vivillonjungle", "vivillonmarine", "vivillonmodern", "vivillonmonsoon", "vivillonocean", "vivillonpolar", "vivillonriver", "vivillonsandstorm", "vivillonsavanna", "vivillonsun", "vivillontundra"],
 		otherFormes: ["vivillonfancy", "vivillonpokeball"],
+		cfmMoves: [],
 	},
 	vivillonfancy: {
 		num: 666,
@@ -10955,6 +11734,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Black",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	vivillonpokeball: {
 		num: 666,
@@ -10969,6 +11749,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Black",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	litleo: {
 		num: 667,
@@ -10982,6 +11763,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["pyroar"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	pyroar: {
 		num: 668,
@@ -10996,6 +11778,7 @@ let BattlePokedex = {
 		prevo: "litleo",
 		evoLevel: 35,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	flabebe: {
 		num: 669,
@@ -11011,6 +11794,7 @@ let BattlePokedex = {
 		evos: ["floette"],
 		eggGroups: ["Fairy"],
 		cosmeticFormes: ["flabebeblue", "flabebeorange", "flabebewhite", "flabebeyellow"],
+		cfmMoves: [],
 	},
 	floette: {
 		num: 670,
@@ -11029,6 +11813,7 @@ let BattlePokedex = {
 		eggGroups: ["Fairy"],
 		cosmeticFormes: ["floetteblue", "floetteorange", "floettewhite", "floetteyellow"],
 		otherFormes: ["floetteeternal"],
+		cfmMoves: [],
 	},
 	floetteeternal: {
 		num: 670,
@@ -11043,6 +11828,7 @@ let BattlePokedex = {
 		weightkg: 0.9,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	florges: {
 		num: 671,
@@ -11060,6 +11846,7 @@ let BattlePokedex = {
 		evoItem: "Shiny Stone",
 		eggGroups: ["Fairy"],
 		cosmeticFormes: ["florgesblue", "florgesorange", "florgeswhite", "florgesyellow"],
+		cfmMoves: [],
 	},
 	skiddo: {
 		num: 672,
@@ -11072,6 +11859,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["gogoat"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	gogoat: {
 		num: 673,
@@ -11085,6 +11873,7 @@ let BattlePokedex = {
 		prevo: "skiddo",
 		evoLevel: 32,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	pancham: {
 		num: 674,
@@ -11097,6 +11886,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["pangoro"],
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	pangoro: {
 		num: 675,
@@ -11110,6 +11900,7 @@ let BattlePokedex = {
 		prevo: "pancham",
 		evoLevel: 32,
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	furfrou: {
 		num: 676,
@@ -11122,6 +11913,7 @@ let BattlePokedex = {
 		color: "White",
 		eggGroups: ["Field"],
 		cosmeticFormes: ["furfroudandy", "furfroudebutante", "furfroudiamond", "furfrouheart", "furfroukabuki", "furfroulareine", "furfroumatron", "furfroupharaoh", "furfroustar"],
+		cfmMoves: [],
 	},
 	espurr: {
 		num: 677,
@@ -11134,6 +11926,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["meowstic"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	meowstic: {
 		num: 678,
@@ -11150,6 +11943,7 @@ let BattlePokedex = {
 		evoLevel: 25,
 		eggGroups: ["Field"],
 		otherFormes: ["meowsticf"],
+		cfmMoves: [],
 	},
 	meowsticf: {
 		num: 678,
@@ -11166,6 +11960,7 @@ let BattlePokedex = {
 		prevo: "espurr",
 		evoLevel: 25,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	honedge: {
 		num: 679,
@@ -11179,6 +11974,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["doublade"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	doublade: {
 		num: 680,
@@ -11194,6 +11990,7 @@ let BattlePokedex = {
 		evoLevel: 35,
 		evos: ["aegislash"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	aegislash: {
 		num: 681,
@@ -11211,6 +12008,7 @@ let BattlePokedex = {
 		evoItem: "Dusk Stone",
 		eggGroups: ["Mineral"],
 		otherFormes: ["aegislashblade"],
+		cfmMoves: [],
 	},
 	aegislashblade: {
 		num: 681,
@@ -11230,6 +12028,7 @@ let BattlePokedex = {
 		eggGroups: ["Mineral"],
 		requiredAbility: "Stance Change",
 		battleOnly: "Aegislash",
+		cfmMoves: [],
 	},
 	spritzee: {
 		num: 682,
@@ -11243,6 +12042,7 @@ let BattlePokedex = {
 		color: "Pink",
 		evos: ["aromatisse"],
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	aromatisse: {
 		num: 683,
@@ -11257,6 +12057,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		evoItem: "Sachet",
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	swirlix: {
 		num: 684,
@@ -11269,6 +12070,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["slurpuff"],
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	slurpuff: {
 		num: 685,
@@ -11283,6 +12085,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		evoItem: "Whipped Dream",
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	inkay: {
 		num: 686,
@@ -11296,6 +12099,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["malamar"],
 		eggGroups: ["Water 1", "Water 2"],
+		cfmMoves: [],
 	},
 	malamar: {
 		num: 687,
@@ -11309,6 +12113,7 @@ let BattlePokedex = {
 		prevo: "inkay",
 		evoLevel: 30,
 		eggGroups: ["Water 1", "Water 2"],
+		cfmMoves: [],
 	},
 	binacle: {
 		num: 688,
@@ -11321,6 +12126,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["barbaracle"],
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	barbaracle: {
 		num: 689,
@@ -11334,6 +12140,7 @@ let BattlePokedex = {
 		prevo: "binacle",
 		evoLevel: 39,
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	skrelp: {
 		num: 690,
@@ -11346,6 +12153,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["dragalge"],
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	dragalge: {
 		num: 691,
@@ -11359,6 +12167,7 @@ let BattlePokedex = {
 		prevo: "skrelp",
 		evoLevel: 48,
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	clauncher: {
 		num: 692,
@@ -11371,6 +12180,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["clawitzer"],
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	clawitzer: {
 		num: 693,
@@ -11384,6 +12194,7 @@ let BattlePokedex = {
 		prevo: "clauncher",
 		evoLevel: 37,
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	helioptile: {
 		num: 694,
@@ -11396,6 +12207,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		evos: ["heliolisk"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	heliolisk: {
 		num: 695,
@@ -11410,6 +12222,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Sun Stone",
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	tyrunt: {
 		num: 696,
@@ -11423,6 +12236,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["tyrantrum"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	tyrantrum: {
 		num: 697,
@@ -11437,6 +12251,7 @@ let BattlePokedex = {
 		prevo: "tyrunt",
 		evoLevel: 39,
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	amaura: {
 		num: 698,
@@ -11450,6 +12265,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["aurorus"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	aurorus: {
 		num: 699,
@@ -11464,6 +12280,7 @@ let BattlePokedex = {
 		prevo: "amaura",
 		evoLevel: 39,
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	sylveon: {
 		num: 700,
@@ -11479,6 +12296,7 @@ let BattlePokedex = {
 		evoType: "levelExtra",
 		evoCondition: "with a Fairy-type move and two levels of Affection",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	hawlucha: {
 		num: 701,
@@ -11491,6 +12309,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Green",
 		eggGroups: ["Flying", "Human-Like"],
+		cfmMoves: [],
 	},
 	dedenne: {
 		num: 702,
@@ -11502,6 +12321,7 @@ let BattlePokedex = {
 		weightkg: 2.2,
 		color: "Yellow",
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	carbink: {
 		num: 703,
@@ -11515,6 +12335,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Gray",
 		eggGroups: ["Fairy", "Mineral"],
+		cfmMoves: [],
 	},
 	goomy: {
 		num: 704,
@@ -11527,6 +12348,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["sliggoo"],
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	sliggoo: {
 		num: 705,
@@ -11541,6 +12363,7 @@ let BattlePokedex = {
 		evoLevel: 40,
 		evos: ["goodra"],
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	goodra: {
 		num: 706,
@@ -11554,6 +12377,7 @@ let BattlePokedex = {
 		prevo: "sliggoo",
 		evoLevel: 50,
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	klefki: {
 		num: 707,
@@ -11566,6 +12390,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Gray",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	phantump: {
 		num: 708,
@@ -11579,6 +12404,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["trevenant"],
 		eggGroups: ["Grass", "Amorphous"],
+		cfmMoves: [],
 	},
 	trevenant: {
 		num: 709,
@@ -11592,6 +12418,7 @@ let BattlePokedex = {
 		prevo: "phantump",
 		evoType: "trade",
 		eggGroups: ["Grass", "Amorphous"],
+		cfmMoves: [],
 	},
 	pumpkaboo: {
 		num: 710,
@@ -11607,6 +12434,7 @@ let BattlePokedex = {
 		evos: ["gourgeist"],
 		eggGroups: ["Amorphous"],
 		otherFormes: ["pumpkaboosmall", "pumpkaboolarge", "pumpkaboosuper"],
+		cfmMoves: [],
 	},
 	pumpkaboosmall: {
 		num: 710,
@@ -11622,6 +12450,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["gourgeistsmall"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	pumpkaboolarge: {
 		num: 710,
@@ -11637,6 +12466,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["gourgeistlarge"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	pumpkaboosuper: {
 		num: 710,
@@ -11652,6 +12482,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["gourgeistsuper"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	gourgeist: {
 		num: 711,
@@ -11668,6 +12499,7 @@ let BattlePokedex = {
 		evoType: "trade",
 		eggGroups: ["Amorphous"],
 		otherFormes: ["gourgeistsmall", "gourgeistlarge", "gourgeistsuper"],
+		cfmMoves: [],
 	},
 	gourgeistsmall: {
 		num: 711,
@@ -11684,6 +12516,7 @@ let BattlePokedex = {
 		prevo: "pumpkaboosmall",
 		evoType: "trade",
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	gourgeistlarge: {
 		num: 711,
@@ -11700,6 +12533,7 @@ let BattlePokedex = {
 		prevo: "pumpkaboolarge",
 		evoType: "trade",
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	gourgeistsuper: {
 		num: 711,
@@ -11716,6 +12550,7 @@ let BattlePokedex = {
 		prevo: "pumpkaboosuper",
 		evoType: "trade",
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	bergmite: {
 		num: 712,
@@ -11728,6 +12563,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["avalugg"],
 		eggGroups: ["Monster", "Mineral"],
+		cfmMoves: [],
 	},
 	avalugg: {
 		num: 713,
@@ -11741,6 +12577,7 @@ let BattlePokedex = {
 		prevo: "bergmite",
 		evoLevel: 37,
 		eggGroups: ["Monster", "Mineral"],
+		cfmMoves: [],
 	},
 	noibat: {
 		num: 714,
@@ -11754,6 +12591,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["noivern"],
 		eggGroups: ["Flying", "Dragon"],
+		cfmMoves: [],
 	},
 	noivern: {
 		num: 715,
@@ -11768,6 +12606,7 @@ let BattlePokedex = {
 		prevo: "noibat",
 		evoLevel: 48,
 		eggGroups: ["Flying", "Dragon"],
+		cfmMoves: [],
 	},
 	xerneas: {
 		num: 716,
@@ -11780,6 +12619,7 @@ let BattlePokedex = {
 		weightkg: 215,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	yveltal: {
 		num: 717,
@@ -11793,6 +12633,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	zygarde: {
 		num: 718,
@@ -11807,6 +12648,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["zygarde10", "zygardecomplete"],
+		cfmMoves: [],
 	},
 	zygarde10: {
 		num: 718,
@@ -11822,6 +12664,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ["Undiscovered"],
 		gen: 7,
+		cfmMoves: [],
 	},
 	zygardecomplete: {
 		num: 718,
@@ -11839,6 +12682,7 @@ let BattlePokedex = {
 		gen: 7,
 		requiredAbility: "Power Construct",
 		battleOnly: ["Zygarde", "Zygarde10"],
+		cfmMoves: [],
 	},
 	diancie: {
 		num: 719,
@@ -11853,6 +12697,7 @@ let BattlePokedex = {
 		color: "Pink",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["dianciemega"],
+		cfmMoves: [],
 	},
 	dianciemega: {
 		num: 719,
@@ -11869,6 +12714,7 @@ let BattlePokedex = {
 		color: "Pink",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Diancite",
+		cfmMoves: [],
 	},
 	hoopa: {
 		num: 720,
@@ -11884,6 +12730,7 @@ let BattlePokedex = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["hoopaunbound"],
+		cfmMoves: [],
 	},
 	hoopaunbound: {
 		num: 720,
@@ -11899,6 +12746,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	volcanion: {
 		num: 721,
@@ -11911,6 +12759,7 @@ let BattlePokedex = {
 		weightkg: 195,
 		color: "Brown",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	rowlet: {
 		num: 722,
@@ -11925,6 +12774,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["dartrix"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	dartrix: {
 		num: 723,
@@ -11941,6 +12791,7 @@ let BattlePokedex = {
 		evoLevel: 17,
 		evos: ["decidueye"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	decidueye: {
 		num: 724,
@@ -11956,6 +12807,7 @@ let BattlePokedex = {
 		prevo: "dartrix",
 		evoLevel: 34,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	litten: {
 		num: 725,
@@ -11969,6 +12821,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["torracat"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	torracat: {
 		num: 726,
@@ -11984,6 +12837,7 @@ let BattlePokedex = {
 		evoLevel: 17,
 		evos: ["incineroar"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	incineroar: {
 		num: 727,
@@ -11998,6 +12852,7 @@ let BattlePokedex = {
 		prevo: "torracat",
 		evoLevel: 34,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	popplio: {
 		num: 728,
@@ -12011,6 +12866,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["brionne"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	brionne: {
 		num: 729,
@@ -12026,6 +12882,7 @@ let BattlePokedex = {
 		evoLevel: 17,
 		evos: ["primarina"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	primarina: {
 		num: 730,
@@ -12040,6 +12897,7 @@ let BattlePokedex = {
 		prevo: "brionne",
 		evoLevel: 34,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	pikipek: {
 		num: 731,
@@ -12053,6 +12911,7 @@ let BattlePokedex = {
 		color: "Black",
 		evos: ["trumbeak"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	trumbeak: {
 		num: 732,
@@ -12068,6 +12927,7 @@ let BattlePokedex = {
 		evoLevel: 14,
 		evos: ["toucannon"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	toucannon: {
 		num: 733,
@@ -12082,6 +12942,7 @@ let BattlePokedex = {
 		prevo: "trumbeak",
 		evoLevel: 28,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	yungoos: {
 		num: 734,
@@ -12094,6 +12955,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["gumshoos"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	gumshoos: {
 		num: 735,
@@ -12108,6 +12970,7 @@ let BattlePokedex = {
 		evoLevel: 20,
 		eggGroups: ["Field"],
 		otherFormes: ["gumshoostotem"],
+		cfmMoves: [],
 	},
 	gumshoostotem: {
 		num: 735,
@@ -12121,6 +12984,7 @@ let BattlePokedex = {
 		weightkg: 60,
 		color: "Brown",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	grubbin: {
 		num: 736,
@@ -12133,6 +12997,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["charjabug"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	charjabug: {
 		num: 737,
@@ -12147,6 +13012,7 @@ let BattlePokedex = {
 		evoLevel: 20,
 		evos: ["vikavolt"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	vikavolt: {
 		num: 738,
@@ -12163,6 +13029,7 @@ let BattlePokedex = {
 		evoItem: "Thunder Stone",
 		eggGroups: ["Bug"],
 		otherFormes: ["vikavolttotem"],
+		cfmMoves: [],
 	},
 	vikavolttotem: {
 		num: 738,
@@ -12177,6 +13044,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Blue",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	crabrawler: {
 		num: 739,
@@ -12189,6 +13057,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["crabominable"],
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	crabominable: {
 		num: 740,
@@ -12203,6 +13072,7 @@ let BattlePokedex = {
 		evoType: "levelExtra",
 		evoCondition: "at Mount Lanakila",
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	oricorio: {
 		num: 741,
@@ -12218,6 +13088,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Flying"],
 		otherFormes: ["oricoriopompom", "oricoriopau", "oricoriosensu"],
+		cfmMoves: [],
 	},
 	oricoriopompom: {
 		num: 741,
@@ -12233,6 +13104,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	oricoriopau: {
 		num: 741,
@@ -12248,6 +13120,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Pink",
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	oricoriosensu: {
 		num: 741,
@@ -12263,6 +13136,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Purple",
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	cutiefly: {
 		num: 742,
@@ -12276,6 +13150,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		evos: ["ribombee"],
 		eggGroups: ["Bug", "Fairy"],
+		cfmMoves: [],
 	},
 	ribombee: {
 		num: 743,
@@ -12291,6 +13166,7 @@ let BattlePokedex = {
 		evoLevel: 25,
 		eggGroups: ["Bug", "Fairy"],
 		otherFormes: ["ribombeetotem"],
+		cfmMoves: [],
 	},
 	ribombeetotem: {
 		num: 743,
@@ -12305,6 +13181,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Bug", "Fairy"],
+		cfmMoves: [],
 	},
 	rockruff: {
 		num: 744,
@@ -12318,6 +13195,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["lycanroc", "lycanrocmidnight", "lycanrocdusk"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	lycanroc: {
 		num: 745,
@@ -12333,6 +13211,7 @@ let BattlePokedex = {
 		evoLevel: 25,
 		eggGroups: ["Field"],
 		otherFormes: ["lycanrocmidnight", "lycanrocdusk"],
+		cfmMoves: [],
 	},
 	lycanrocmidnight: {
 		num: 745,
@@ -12348,6 +13227,7 @@ let BattlePokedex = {
 		prevo: "rockruff",
 		evoLevel: 25,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	lycanrocdusk: {
 		num: 745,
@@ -12363,6 +13243,7 @@ let BattlePokedex = {
 		prevo: "rockruff",
 		evoLevel: 25,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	wishiwashi: {
 		num: 746,
@@ -12376,6 +13257,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Water 2"],
 		otherFormes: ["wishiwashischool"],
+		cfmMoves: [],
 	},
 	wishiwashischool: {
 		num: 746,
@@ -12391,6 +13273,7 @@ let BattlePokedex = {
 		eggGroups: ["Water 2"],
 		requiredAbility: "Schooling",
 		battleOnly: "Wishiwashi",
+		cfmMoves: [],
 	},
 	mareanie: {
 		num: 747,
@@ -12403,6 +13286,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["toxapex"],
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	toxapex: {
 		num: 748,
@@ -12416,6 +13300,7 @@ let BattlePokedex = {
 		prevo: "mareanie",
 		evoLevel: 38,
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	mudbray: {
 		num: 749,
@@ -12428,6 +13313,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["mudsdale"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	mudsdale: {
 		num: 750,
@@ -12441,6 +13327,7 @@ let BattlePokedex = {
 		prevo: "mudbray",
 		evoLevel: 30,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	dewpider: {
 		num: 751,
@@ -12453,6 +13340,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["araquanid"],
 		eggGroups: ["Water 1", "Bug"],
+		cfmMoves: [],
 	},
 	araquanid: {
 		num: 752,
@@ -12467,6 +13355,7 @@ let BattlePokedex = {
 		evoLevel: 22,
 		eggGroups: ["Water 1", "Bug"],
 		otherFormes: ["araquanidtotem"],
+		cfmMoves: [],
 	},
 	araquanidtotem: {
 		num: 752,
@@ -12480,6 +13369,7 @@ let BattlePokedex = {
 		weightkg: 217.5,
 		color: "Green",
 		eggGroups: ["Water 1", "Bug"],
+		cfmMoves: [],
 	},
 	fomantis: {
 		num: 753,
@@ -12492,6 +13382,7 @@ let BattlePokedex = {
 		color: "Pink",
 		evos: ["lurantis"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	lurantis: {
 		num: 754,
@@ -12506,6 +13397,7 @@ let BattlePokedex = {
 		evoLevel: 34,
 		eggGroups: ["Grass"],
 		otherFormes: ["lurantistotem"],
+		cfmMoves: [],
 	},
 	lurantistotem: {
 		num: 754,
@@ -12519,6 +13411,7 @@ let BattlePokedex = {
 		weightkg: 58,
 		color: "Pink",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	morelull: {
 		num: 755,
@@ -12531,6 +13424,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["shiinotic"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	shiinotic: {
 		num: 756,
@@ -12544,6 +13438,7 @@ let BattlePokedex = {
 		prevo: "morelull",
 		evoLevel: 24,
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	salandit: {
 		num: 757,
@@ -12557,6 +13452,7 @@ let BattlePokedex = {
 		color: "Black",
 		evos: ["salazzle"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	salazzle: {
 		num: 758,
@@ -12572,6 +13468,7 @@ let BattlePokedex = {
 		evoLevel: 33,
 		eggGroups: ["Monster", "Dragon"],
 		otherFormes: ["salazzletotem"],
+		cfmMoves: [],
 	},
 	salazzletotem: {
 		num: 758,
@@ -12586,6 +13483,7 @@ let BattlePokedex = {
 		weightkg: 81,
 		color: "Black",
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	stufful: {
 		num: 759,
@@ -12598,6 +13496,7 @@ let BattlePokedex = {
 		color: "Pink",
 		evos: ["bewear"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	bewear: {
 		num: 760,
@@ -12611,6 +13510,7 @@ let BattlePokedex = {
 		prevo: "stufful",
 		evoLevel: 27,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	bounsweet: {
 		num: 761,
@@ -12624,6 +13524,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["steenee"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	steenee: {
 		num: 762,
@@ -12639,6 +13540,7 @@ let BattlePokedex = {
 		evoLevel: 18,
 		evos: ["tsareena"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	tsareena: {
 		num: 763,
@@ -12654,6 +13556,7 @@ let BattlePokedex = {
 		evoType: "levelMove",
 		evoMove: "Stomp",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	comfey: {
 		num: 764,
@@ -12667,6 +13570,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Green",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	oranguru: {
 		num: 765,
@@ -12678,6 +13582,7 @@ let BattlePokedex = {
 		weightkg: 76,
 		color: "White",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	passimian: {
 		num: 766,
@@ -12689,6 +13594,7 @@ let BattlePokedex = {
 		weightkg: 82.8,
 		color: "White",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	wimpod: {
 		num: 767,
@@ -12701,6 +13607,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["golisopod"],
 		eggGroups: ["Bug", "Water 3"],
+		cfmMoves: [],
 	},
 	golisopod: {
 		num: 768,
@@ -12714,6 +13621,7 @@ let BattlePokedex = {
 		prevo: "wimpod",
 		evoLevel: 30,
 		eggGroups: ["Bug", "Water 3"],
+		cfmMoves: [],
 	},
 	sandygast: {
 		num: 769,
@@ -12726,6 +13634,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["palossand"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	palossand: {
 		num: 770,
@@ -12739,6 +13648,7 @@ let BattlePokedex = {
 		prevo: "sandygast",
 		evoLevel: 42,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	pyukumuku: {
 		num: 771,
@@ -12750,6 +13660,7 @@ let BattlePokedex = {
 		weightkg: 1.2,
 		color: "Black",
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	typenull: {
 		num: 772,
@@ -12763,6 +13674,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["silvally"],
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	silvally: {
 		num: 773,
@@ -12778,6 +13690,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["silvallybug", "silvallydark", "silvallydragon", "silvallyelectric", "silvallyfairy", "silvallyfighting", "silvallyfire", "silvallyflying", "silvallyghost", "silvallygrass", "silvallyground", "silvallyice", "silvallypoison", "silvallypsychic", "silvallyrock", "silvallysteel", "silvallywater"],
+		cfmMoves: [],
 	},
 	silvallybug: {
 		num: 773,
@@ -12795,6 +13708,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Bug Memory",
+		cfmMoves: [],
 	},
 	silvallydark: {
 		num: 773,
@@ -12812,6 +13726,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Dark Memory",
+		cfmMoves: [],
 	},
 	silvallydragon: {
 		num: 773,
@@ -12829,6 +13744,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Dragon Memory",
+		cfmMoves: [],
 	},
 	silvallyelectric: {
 		num: 773,
@@ -12846,6 +13762,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Electric Memory",
+		cfmMoves: [],
 	},
 	silvallyfairy: {
 		num: 773,
@@ -12863,6 +13780,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Fairy Memory",
+		cfmMoves: [],
 	},
 	silvallyfighting: {
 		num: 773,
@@ -12880,6 +13798,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Fighting Memory",
+		cfmMoves: [],
 	},
 	silvallyfire: {
 		num: 773,
@@ -12897,6 +13816,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Fire Memory",
+		cfmMoves: [],
 	},
 	silvallyflying: {
 		num: 773,
@@ -12914,6 +13834,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Flying Memory",
+		cfmMoves: [],
 	},
 	silvallyghost: {
 		num: 773,
@@ -12931,6 +13852,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Ghost Memory",
+		cfmMoves: [],
 	},
 	silvallygrass: {
 		num: 773,
@@ -12948,6 +13870,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Grass Memory",
+		cfmMoves: [],
 	},
 	silvallyground: {
 		num: 773,
@@ -12965,6 +13888,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Ground Memory",
+		cfmMoves: [],
 	},
 	silvallyice: {
 		num: 773,
@@ -12982,6 +13906,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Ice Memory",
+		cfmMoves: [],
 	},
 	silvallypoison: {
 		num: 773,
@@ -12999,6 +13924,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Poison Memory",
+		cfmMoves: [],
 	},
 	silvallypsychic: {
 		num: 773,
@@ -13016,6 +13942,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Psychic Memory",
+		cfmMoves: [],
 	},
 	silvallyrock: {
 		num: 773,
@@ -13033,6 +13960,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Rock Memory",
+		cfmMoves: [],
 	},
 	silvallysteel: {
 		num: 773,
@@ -13050,6 +13978,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Steel Memory",
+		cfmMoves: [],
 	},
 	silvallywater: {
 		num: 773,
@@ -13067,6 +13996,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Water Memory",
+		cfmMoves: [],
 	},
 	minior: {
 		num: 774,
@@ -13083,6 +14013,7 @@ let BattlePokedex = {
 		eggGroups: ["Mineral"],
 		otherFormes: ["miniormeteor"],
 		cosmeticFormes: ["miniororange", "minioryellow", "miniorgreen", "miniorblue", "miniorindigo", "miniorviolet"],
+		cfmMoves: [],
 	},
 	miniormeteor: {
 		num: 774,
@@ -13100,6 +14031,7 @@ let BattlePokedex = {
 		eggGroups: ["Mineral"],
 		requiredAbility: "Shields Down",
 		battleOnly: "Minior",
+		cfmMoves: [],
 	},
 	komala: {
 		num: 775,
@@ -13111,6 +14043,7 @@ let BattlePokedex = {
 		weightkg: 19.9,
 		color: "Blue",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	turtonator: {
 		num: 776,
@@ -13122,6 +14055,7 @@ let BattlePokedex = {
 		weightkg: 212,
 		color: "Red",
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	togedemaru: {
 		num: 777,
@@ -13134,6 +14068,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Field", "Fairy"],
 		otherFormes: ["togedemarutotem"],
+		cfmMoves: [],
 	},
 	togedemarutotem: {
 		num: 777,
@@ -13147,6 +14082,7 @@ let BattlePokedex = {
 		weightkg: 13,
 		color: "Gray",
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	mimikyu: {
 		num: 778,
@@ -13159,6 +14095,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		eggGroups: ["Amorphous"],
 		otherFormes: ["mimikyubusted", "mimikyutotem", "mimikyubustedtotem"],
+		cfmMoves: [],
 	},
 	mimikyubusted: {
 		num: 778,
@@ -13174,6 +14111,7 @@ let BattlePokedex = {
 		eggGroups: ["Amorphous"],
 		requiredAbility: "Disguise",
 		battleOnly: "Mimikyu",
+		cfmMoves: [],
 	},
 	mimikyutotem: {
 		num: 778,
@@ -13187,6 +14125,7 @@ let BattlePokedex = {
 		weightkg: 2.8,
 		color: "Yellow",
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	mimikyubustedtotem: {
 		num: 778,
@@ -13202,6 +14141,7 @@ let BattlePokedex = {
 		eggGroups: ["Amorphous"],
 		requiredAbility: "Disguise",
 		battleOnly: "Mimikyu-Totem",
+		cfmMoves: [],
 	},
 	bruxish: {
 		num: 779,
@@ -13213,6 +14153,7 @@ let BattlePokedex = {
 		weightkg: 19,
 		color: "Pink",
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	drampa: {
 		num: 780,
@@ -13224,6 +14165,7 @@ let BattlePokedex = {
 		weightkg: 185,
 		color: "White",
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	dhelmise: {
 		num: 781,
@@ -13236,6 +14178,7 @@ let BattlePokedex = {
 		weightkg: 210,
 		color: "Green",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	jangmoo: {
 		num: 782,
@@ -13248,6 +14191,7 @@ let BattlePokedex = {
 		color: "Gray",
 		evos: ["hakamoo"],
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	hakamoo: {
 		num: 783,
@@ -13262,6 +14206,7 @@ let BattlePokedex = {
 		evoLevel: 35,
 		evos: ["kommoo"],
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	kommoo: {
 		num: 784,
@@ -13276,6 +14221,7 @@ let BattlePokedex = {
 		evoLevel: 45,
 		eggGroups: ["Dragon"],
 		otherFormes: ["kommoototem"],
+		cfmMoves: [],
 	},
 	kommoototem: {
 		num: 784,
@@ -13289,6 +14235,7 @@ let BattlePokedex = {
 		weightkg: 207.5,
 		color: "Gray",
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	tapukoko: {
 		num: 785,
@@ -13302,6 +14249,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	tapulele: {
 		num: 786,
@@ -13315,6 +14263,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Pink",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	tapubulu: {
 		num: 787,
@@ -13328,6 +14277,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	tapufini: {
 		num: 788,
@@ -13341,6 +14291,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	cosmog: {
 		num: 789,
@@ -13355,6 +14306,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["cosmoem"],
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	cosmoem: {
 		num: 790,
@@ -13371,6 +14323,7 @@ let BattlePokedex = {
 		evoLevel: 43,
 		evos: ["solgaleo", "lunala"],
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	solgaleo: {
 		num: 791,
@@ -13386,6 +14339,7 @@ let BattlePokedex = {
 		prevo: "cosmoem",
 		evoLevel: 53,
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	lunala: {
 		num: 792,
@@ -13401,6 +14355,7 @@ let BattlePokedex = {
 		prevo: "cosmoem",
 		evoLevel: 53,
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	nihilego: {
 		num: 793,
@@ -13414,6 +14369,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	buzzwole: {
 		num: 794,
@@ -13426,6 +14382,7 @@ let BattlePokedex = {
 		weightkg: 333.6,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	pheromosa: {
 		num: 795,
@@ -13438,6 +14395,7 @@ let BattlePokedex = {
 		weightkg: 25,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	xurkitree: {
 		num: 796,
@@ -13450,6 +14408,7 @@ let BattlePokedex = {
 		weightkg: 100,
 		color: "Black",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	celesteela: {
 		num: 797,
@@ -13463,6 +14422,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	kartana: {
 		num: 798,
@@ -13476,6 +14436,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	guzzlord: {
 		num: 799,
@@ -13488,6 +14449,7 @@ let BattlePokedex = {
 		weightkg: 888,
 		color: "Black",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	necrozma: {
 		num: 800,
@@ -13502,6 +14464,7 @@ let BattlePokedex = {
 		color: "Black",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["necrozmaduskmane", "necrozmadawnwings", "necrozmaultra"],
+		cfmMoves: [],
 	},
 	necrozmaduskmane: {
 		num: 800,
@@ -13518,6 +14481,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
 		inheritsFrom: "necrozma",
+		cfmMoves: [],
 	},
 	necrozmadawnwings: {
 		num: 800,
@@ -13534,6 +14498,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
 		inheritsFrom: "necrozma",
+		cfmMoves: [],
 	},
 	necrozmaultra: {
 		num: 800,
@@ -13551,6 +14516,7 @@ let BattlePokedex = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Ultranecrozium Z",
 		battleOnly: ["Necrozma-Dawn-Wings", "Necrozma-Dusk-Mane"],
+		cfmMoves: [],
 	},
 	magearna: {
 		num: 801,
@@ -13564,6 +14530,7 @@ let BattlePokedex = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["magearnaoriginal"],
+		cfmMoves: [],
 	},
 	magearnaoriginal: {
 		num: 801,
@@ -13578,6 +14545,7 @@ let BattlePokedex = {
 		weightkg: 80.5,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	marshadow: {
 		num: 802,
@@ -13590,6 +14558,7 @@ let BattlePokedex = {
 		weightkg: 22.2,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	poipole: {
 		num: 803,
@@ -13604,6 +14573,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["naganadel"],
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	naganadel: {
 		num: 804,
@@ -13620,6 +14590,7 @@ let BattlePokedex = {
 		evoType: "levelMove",
 		evoMove: "Dragon Pulse",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	stakataka: {
 		num: 805,
@@ -13632,6 +14603,7 @@ let BattlePokedex = {
 		weightkg: 820,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	blacephalon: {
 		num: 806,
@@ -13644,6 +14616,7 @@ let BattlePokedex = {
 		weightkg: 13,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	zeraora: {
 		num: 807,
@@ -13656,6 +14629,7 @@ let BattlePokedex = {
 		weightkg: 44.5,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	meltan: {
 		num: 808,
@@ -13668,6 +14642,7 @@ let BattlePokedex = {
 		weightkg: 8,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	melmetal: {
 		num: 809,
@@ -13680,6 +14655,7 @@ let BattlePokedex = {
 		weightkg: 800,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	grookey: {
 		num: 810,
@@ -13693,6 +14669,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["thwackey"],
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	thwackey: {
 		num: 811,
@@ -13708,6 +14685,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["rillaboom"],
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	rillaboom: {
 		num: 812,
@@ -13722,6 +14700,7 @@ let BattlePokedex = {
 		prevo: "thwackey",
 		evoLevel: 35,
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	scorbunny: {
 		num: 813,
@@ -13735,6 +14714,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["raboot"],
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	raboot: {
 		num: 814,
@@ -13750,6 +14730,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["cinderace"],
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	cinderace: {
 		num: 815,
@@ -13764,6 +14745,7 @@ let BattlePokedex = {
 		evoLevel: 35,
 		prevo: "raboot",
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	sobble: {
 		num: 816,
@@ -13777,6 +14759,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["drizzile"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	drizzile: {
 		num: 817,
@@ -13792,6 +14775,7 @@ let BattlePokedex = {
 		evoLevel: 16,
 		evos: ["inteleon"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	inteleon: {
 		num: 818,
@@ -13806,6 +14790,7 @@ let BattlePokedex = {
 		prevo: "drizzile",
 		evoLevel: 35,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	skwovet: {
 		num: 819,
@@ -13818,6 +14803,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["greedent"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	greedent: {
 		num: 820,
@@ -13831,6 +14817,7 @@ let BattlePokedex = {
 		prevo: "skwovet",
 		evoLevel: 24,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	rookidee: {
 		num: 821,
@@ -13844,6 +14831,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["corvisquire"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	corvisquire: {
 		num: 822,
@@ -13859,6 +14847,7 @@ let BattlePokedex = {
 		evoLevel: 18,
 		evos: ["corviknight"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	corviknight: {
 		num: 823,
@@ -13873,6 +14862,7 @@ let BattlePokedex = {
 		prevo: "corvisquire",
 		evoLevel: 38,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	blipbug: {
 		num: 824,
@@ -13885,6 +14875,7 @@ let BattlePokedex = {
 		color: "Blue",
 		evos: ["dottler"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	dottler: {
 		num: 825,
@@ -13899,6 +14890,7 @@ let BattlePokedex = {
 		evoLevel: 10,
 		evos: ["orbeetle"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	orbeetle: {
 		num: 826,
@@ -13913,6 +14905,7 @@ let BattlePokedex = {
 		prevo: "dottler",
 		evoLevel: 30,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	nickit: {
 		num: 827,
@@ -13925,6 +14918,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["thievul"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	thievul: {
 		num: 828,
@@ -13938,6 +14932,7 @@ let BattlePokedex = {
 		prevo: "nickit",
 		evoLevel: 18,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	gossifleur: {
 		num: 829,
@@ -13950,6 +14945,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["eldegoss"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	eldegoss: {
 		num: 830,
@@ -13963,6 +14959,7 @@ let BattlePokedex = {
 		prevo: "gossifleur",
 		evoLevel: 20,
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	wooloo: {
 		num: 831,
@@ -13975,6 +14972,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["dubwool"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	dubwool: {
 		num: 832,
@@ -13988,6 +14986,7 @@ let BattlePokedex = {
 		prevo: "wooloo",
 		evoLevel: 24,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	chewtle: {
 		num: 833,
@@ -14000,6 +14999,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["drednaw"],
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	drednaw: {
 		num: 834,
@@ -14013,6 +15013,7 @@ let BattlePokedex = {
 		prevo: "chewtle",
 		evoLevel: 22,
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	yamper: {
 		num: 835,
@@ -14025,6 +15026,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		evos: ["boltund"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	boltund: {
 		num: 836,
@@ -14038,6 +15040,7 @@ let BattlePokedex = {
 		prevo: "yamper",
 		evoLevel: 25,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	rolycoly: {
 		num: 837,
@@ -14050,6 +15053,7 @@ let BattlePokedex = {
 		color: "Black",
 		evos: ["carkol"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	carkol: {
 		num: 838,
@@ -14064,6 +15068,7 @@ let BattlePokedex = {
 		evoLevel: 18,
 		evos: ["coalossal"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	coalossal: {
 		num: 839,
@@ -14077,6 +15082,7 @@ let BattlePokedex = {
 		prevo: "carkol",
 		evoLevel: 34,
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	applin: {
 		num: 840,
@@ -14089,6 +15095,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["flapple", "appletun"],
 		eggGroups: ["Grass", "Dragon"],
+		cfmMoves: [],
 	},
 	flapple: {
 		num: 841,
@@ -14104,6 +15111,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Tart Apple",
 		eggGroups: ["Grass", "Dragon"],
+		cfmMoves: [],
 	},
 	appletun: {
 		num: 842,
@@ -14118,6 +15126,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Sweet Apple",
 		eggGroups: ["Grass", "Dragon"],
+		cfmMoves: [],
 	},
 	silicobra: {
 		num: 843,
@@ -14130,6 +15139,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["sandaconda"],
 		eggGroups: ["Field", "Dragon"],
+		cfmMoves: [],
 	},
 	sandaconda: {
 		num: 844,
@@ -14143,6 +15153,7 @@ let BattlePokedex = {
 		prevo: "silicobra",
 		evoLevel: 36,
 		eggGroups: ["Field", "Dragon"],
+		cfmMoves: [],
 	},
 	cramorant: {
 		num: 845,
@@ -14156,6 +15167,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Water 1", "Flying"],
 		otherFormes: ["cramorantgulping", "cramorantgorging"],
+		cfmMoves: [],
 	},
 	cramorantgulping: {
 		num: 845,
@@ -14172,6 +15184,7 @@ let BattlePokedex = {
 		eggGroups: ["Water 1", "Flying"],
 		requiredAbility: "Gulp Missile",
 		battleOnly: "Cramorant",
+		cfmMoves: [],
 	},
 	cramorantgorging: {
 		num: 845,
@@ -14188,6 +15201,7 @@ let BattlePokedex = {
 		eggGroups: ["Water 1", "Flying"],
 		requiredAbility: "Gulp Missile",
 		battleOnly: "Cramorant",
+		cfmMoves: [],
 	},
 	arrokuda: {
 		num: 846,
@@ -14200,6 +15214,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["barraskewda"],
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	barraskewda: {
 		num: 847,
@@ -14213,6 +15228,7 @@ let BattlePokedex = {
 		prevo: "arrokuda",
 		evoLevel: 26,
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	toxel: {
 		num: 848,
@@ -14225,6 +15241,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["toxtricity", "toxtricitylowkey"],
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	toxtricity: {
 		num: 849,
@@ -14240,6 +15257,7 @@ let BattlePokedex = {
 		evoLevel: 30,
 		eggGroups: ["Human-Like"],
 		otherFormes: ["toxtricitylowkey"],
+		cfmMoves: [],
 	},
 	toxtricitylowkey: {
 		num: 849,
@@ -14255,6 +15273,7 @@ let BattlePokedex = {
 		prevo: "toxel",
 		evoLevel: 30,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	sizzlipede: {
 		num: 850,
@@ -14267,6 +15286,7 @@ let BattlePokedex = {
 		color: "Red",
 		evos: ["centiskorch"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	centiskorch: {
 		num: 851,
@@ -14280,6 +15300,7 @@ let BattlePokedex = {
 		prevo: "sizzlipede",
 		evoLevel: 28,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	clobbopus: {
 		num: 852,
@@ -14292,6 +15313,7 @@ let BattlePokedex = {
 		color: "Brown",
 		evos: ["grapploct"],
 		eggGroups: ["Water 1", "Human-Like"],
+		cfmMoves: [],
 	},
 	grapploct: {
 		num: 853,
@@ -14306,6 +15328,7 @@ let BattlePokedex = {
 		evoType: "levelMove",
 		evoMove: "Taunt",
 		eggGroups: ["Water 1", "Human-Like"],
+		cfmMoves: [],
 	},
 	sinistea: {
 		num: 854,
@@ -14322,6 +15345,7 @@ let BattlePokedex = {
 		evos: ["polteageist"],
 		eggGroups: ["Mineral", "Amorphous"],
 		otherFormes: ["sinisteaantique"],
+		cfmMoves: [],
 	},
 	sinisteaantique: {
 		num: 854,
@@ -14337,6 +15361,7 @@ let BattlePokedex = {
 		color: "Purple",
 		evos: ["polteageistantique"],
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	polteageist: {
 		num: 855,
@@ -14355,6 +15380,7 @@ let BattlePokedex = {
 		evoItem: "Cracked Pot",
 		eggGroups: ["Mineral", "Amorphous"],
 		otherFormes: ["polteageistantique"],
+		cfmMoves: [],
 	},
 	polteageistantique: {
 		num: 855,
@@ -14372,6 +15398,7 @@ let BattlePokedex = {
 		evoType: "useItem",
 		evoItem: "Chipped Pot",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	hatenna: {
 		num: 856,
@@ -14385,6 +15412,7 @@ let BattlePokedex = {
 		color: "Pink",
 		evos: ["hattrem"],
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	hattrem: {
 		num: 857,
@@ -14400,6 +15428,7 @@ let BattlePokedex = {
 		evoLevel: 32,
 		evos: ["hatterene"],
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	hatterene: {
 		num: 858,
@@ -14414,6 +15443,7 @@ let BattlePokedex = {
 		prevo: "hattrem",
 		evoLevel: 42,
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	impidimp: {
 		num: 859,
@@ -14427,6 +15457,7 @@ let BattlePokedex = {
 		color: "Pink",
 		evos: ["morgrem"],
 		eggGroups: ["Fairy", "Human-Like"],
+		cfmMoves: [],
 	},
 	morgrem: {
 		num: 860,
@@ -14442,6 +15473,7 @@ let BattlePokedex = {
 		evoLevel: 32,
 		evos: ["grimmsnarl"],
 		eggGroups: ["Fairy", "Human-Like"],
+		cfmMoves: [],
 	},
 	grimmsnarl: {
 		num: 861,
@@ -14456,6 +15488,7 @@ let BattlePokedex = {
 		prevo: "morgrem",
 		evoLevel: 42,
 		eggGroups: ["Fairy", "Human-Like"],
+		cfmMoves: [],
 	},
 	obstagoon: {
 		num: 862,
@@ -14470,6 +15503,7 @@ let BattlePokedex = {
 		evoLevel: 35,
 		evoCondition: "at night",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	perrserker: {
 		num: 863,
@@ -14483,6 +15517,7 @@ let BattlePokedex = {
 		prevo: "meowthgalar",
 		evoLevel: 28,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	cursola: {
 		num: 864,
@@ -14497,6 +15532,7 @@ let BattlePokedex = {
 		prevo: "corsolagalar",
 		evoLevel: 38,
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	sirfetchd: {
 		num: 865,
@@ -14512,6 +15548,7 @@ let BattlePokedex = {
 		evoType: "other",
 		evoCondition: "Land 3 critical hits in 1 battle",
 		eggGroups: ["Flying", "Field"],
+		cfmMoves: [],
 	},
 	mrrime: {
 		num: 866,
@@ -14525,6 +15562,7 @@ let BattlePokedex = {
 		prevo: "mrmimegalar",
 		evoLevel: 42,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	runerigus: {
 		num: 867,
@@ -14540,6 +15578,7 @@ let BattlePokedex = {
 		evoType: "other",
 		evoCondition: "Have 49+ HP lost and walk under stone sculpture in Dusty Bowl",
 		eggGroups: ["Mineral", "Amorphous"],
+		cfmMoves: [],
 	},
 	milcery: {
 		num: 868,
@@ -14553,6 +15592,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["alcremie"],
 		eggGroups: ["Fairy", "Amorphous"],
+		cfmMoves: [],
 	},
 	alcremie: {
 		num: 869,
@@ -14570,6 +15610,7 @@ let BattlePokedex = {
 		evoCondition: "spin while holding a Sweet",
 		eggGroups: ["Fairy", "Amorphous"],
 		cosmeticFormes: ["alcremierubycream", "alcremiematchacream", "alcremiemintcream", "alcremielemoncream", "alcremiesaltedcream", "alcremierubyswirl", "alcremiecaramelswirl", "alcremierainbowswirl"],
+		cfmMoves: [],
 	},
 	falinks: {
 		num: 870,
@@ -14582,6 +15623,7 @@ let BattlePokedex = {
 		weightkg: 62,
 		color: "Yellow",
 		eggGroups: ["Fairy", "Mineral"],
+		cfmMoves: [],
 	},
 	pincurchin: {
 		num: 871,
@@ -14593,6 +15635,7 @@ let BattlePokedex = {
 		weightkg: 1,
 		color: "Purple",
 		eggGroups: ["Water 1", "Amorphous"],
+		cfmMoves: [],
 	},
 	snom: {
 		num: 872,
@@ -14605,6 +15648,7 @@ let BattlePokedex = {
 		color: "White",
 		evos: ["frosmoth"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	frosmoth: {
 		num: 873,
@@ -14620,6 +15664,7 @@ let BattlePokedex = {
 		evoType: "levelFriendship",
 		evoCondition: "at night",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	stonjourner: {
 		num: 874,
@@ -14631,6 +15676,7 @@ let BattlePokedex = {
 		weightkg: 520,
 		color: "Gray",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	eiscue: {
 		num: 875,
@@ -14643,6 +15689,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Water 1", "Field"],
 		otherFormes: ["eiscuenoice"],
+		cfmMoves: [],
 	},
 	eiscuenoice: {
 		num: 875,
@@ -14658,6 +15705,7 @@ let BattlePokedex = {
 		eggGroups: ["Water 1", "Field"],
 		requiredAbility: "Ice Face",
 		battleOnly: "Eiscue",
+		cfmMoves: [],
 	},
 	indeedee: {
 		num: 876,
@@ -14672,6 +15720,7 @@ let BattlePokedex = {
 		color: "Purple",
 		eggGroups: ["Fairy"],
 		otherFormes: ["indeedeef"],
+		cfmMoves: [],
 	},
 	indeedeef: {
 		num: 876,
@@ -14686,6 +15735,7 @@ let BattlePokedex = {
 		weightkg: 28,
 		color: "Purple",
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	morpeko: {
 		num: 877,
@@ -14698,6 +15748,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		eggGroups: ["Field", "Fairy"],
 		otherFormes: ["morpekohangry"],
+		cfmMoves: [],
 	},
 	morpekohangry: {
 		num: 877,
@@ -14713,6 +15764,7 @@ let BattlePokedex = {
 		eggGroups: ["Field", "Fairy"],
 		requiredAbility: "Hunger Switch",
 		battleOnly: "Morpeko",
+		cfmMoves: [],
 	},
 	cufant: {
 		num: 878,
@@ -14725,6 +15777,7 @@ let BattlePokedex = {
 		color: "Yellow",
 		evos: ["copperajah"],
 		eggGroups: ["Field", "Mineral"],
+		cfmMoves: [],
 	},
 	copperajah: {
 		num: 879,
@@ -14738,6 +15791,7 @@ let BattlePokedex = {
 		prevo: "cufant",
 		evoLevel: 34,
 		eggGroups: ["Field", "Mineral"],
+		cfmMoves: [],
 	},
 	dracozolt: {
 		num: 880,
@@ -14750,6 +15804,7 @@ let BattlePokedex = {
 		weightkg: 190,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	arctozolt: {
 		num: 881,
@@ -14762,6 +15817,7 @@ let BattlePokedex = {
 		weightkg: 150,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	dracovish: {
 		num: 882,
@@ -14774,6 +15830,7 @@ let BattlePokedex = {
 		weightkg: 215,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	arctovish: {
 		num: 883,
@@ -14786,6 +15843,7 @@ let BattlePokedex = {
 		weightkg: 175,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	duraludon: {
 		num: 884,
@@ -14797,6 +15855,7 @@ let BattlePokedex = {
 		weightkg: 40,
 		color: "White",
 		eggGroups: ["Mineral", "Dragon"],
+		cfmMoves: [],
 	},
 	dreepy: {
 		num: 885,
@@ -14810,6 +15869,7 @@ let BattlePokedex = {
 		color: "Green",
 		evos: ["drakloak"],
 		eggGroups: ["Amorphous", "Dragon"],
+		cfmMoves: [],
 	},
 	drakloak: {
 		num: 886,
@@ -14825,6 +15885,7 @@ let BattlePokedex = {
 		evoLevel: 50,
 		evos: ["dragapult"],
 		eggGroups: ["Amorphous", "Dragon"],
+		cfmMoves: [],
 	},
 	dragapult: {
 		num: 887,
@@ -14839,6 +15900,7 @@ let BattlePokedex = {
 		prevo: "drakloak",
 		evoLevel: 60,
 		eggGroups: ["Amorphous", "Dragon"],
+		cfmMoves: [],
 	},
 	zacian: {
 		num: 888,
@@ -14852,6 +15914,7 @@ let BattlePokedex = {
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["zaciancrowned"],
+		cfmMoves: [],
 	},
 	zaciancrowned: {
 		num: 888,
@@ -14868,6 +15931,7 @@ let BattlePokedex = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Rusted Sword",
 		inheritsFrom: "zacian",
+		cfmMoves: [],
 	},
 	zamazenta: {
 		num: 889,
@@ -14881,6 +15945,7 @@ let BattlePokedex = {
 		color: "Red",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["zamazentacrowned"],
+		cfmMoves: [],
 	},
 	zamazentacrowned: {
 		num: 889,
@@ -14897,6 +15962,7 @@ let BattlePokedex = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Rusted Shield",
 		inheritsFrom: "zamazenta",
+		cfmMoves: [],
 	},
 	eternatus: {
 		num: 890,
@@ -14910,6 +15976,7 @@ let BattlePokedex = {
 		levitates: true,
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	eternatuseternamax: {
 		num: 890,
@@ -14924,6 +15991,7 @@ let BattlePokedex = {
 		weightkg: 0,
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	missingno: {
 		num: 0,
@@ -14935,6 +16003,7 @@ let BattlePokedex = {
 		weightkg: 1590.8,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 };
 

@@ -50,6 +50,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"absorb": {
 		num: 71,
@@ -68,6 +69,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"accelerock": {
 		num: 709,
@@ -86,6 +88,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"acid": {
 		num: 51,
@@ -108,6 +111,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Poison",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"acidarmor": {
 		num: 151,
@@ -129,6 +133,7 @@ let BattleMovedex = {
 		type: "Poison",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Tough",
+		cfm: false,
 	},
 	"aciddownpour": {
 		num: 628,
@@ -147,6 +152,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"acidspray": {
 		num: 491,
@@ -169,6 +175,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"acrobatics": {
 		num: 512,
@@ -193,6 +200,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"acupressure": {
 		num: 367,
@@ -229,6 +237,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'crit2',
 		contestType: "Tough",
+		cfm: false,
 	},
 	"aerialace": {
 		num: 332,
@@ -246,6 +255,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"aeroblast": {
 		num: 177,
@@ -266,6 +276,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"afteryou": {
 		num: 495,
@@ -294,6 +305,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spe: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"agility": {
 		num: 97,
@@ -316,6 +328,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cool",
+		cfm: false,
 	},
 	"aircutter": {
 		num: 314,
@@ -334,6 +347,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"airslash": {
 		num: 403,
@@ -355,6 +369,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"alloutpummeling": {
 		num: 624,
@@ -373,6 +388,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"allyswitch": {
 		num: 502,
@@ -401,6 +417,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spe: 2},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"amnesia": {
 		num: 133,
@@ -422,6 +439,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cute",
+		cfm: false,
 	},
 	"anchorshot": {
 		num: 677,
@@ -445,6 +463,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"ancientpower": {
 		num: 246,
@@ -473,6 +492,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"appleacid": {
 		num: 787,
@@ -494,6 +514,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Grass",
+		cfm: false,
 	},
 	"aquajet": {
 		num: 453,
@@ -512,6 +533,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"aquaring": {
 		num: 392,
@@ -540,6 +562,7 @@ let BattleMovedex = {
 		type: "Water",
 		zMoveBoost: {def: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"aquatail": {
 		num: 401,
@@ -557,6 +580,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"armthrust": {
 		num: 292,
@@ -575,6 +599,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"aromatherapy": {
 		num: 312,
@@ -605,6 +630,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMoveEffect: 'heal',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"aromaticmist": {
 		num: 597,
@@ -626,6 +652,7 @@ let BattleMovedex = {
 		type: "Fairy",
 		zMoveBoost: {spd: 2},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"assist": {
 		num: 274,
@@ -669,6 +696,7 @@ let BattleMovedex = {
 		target: "self",
 		type: "Normal",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"assurance": {
 		num: 372,
@@ -693,6 +721,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"astonish": {
 		num: 310,
@@ -713,6 +742,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"attackorder": {
 		num: 454,
@@ -732,6 +762,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"attract": {
 		num: 213,
@@ -789,6 +820,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cute",
+		cfm: false,
 	},
 	"aurasphere": {
 		num: 396,
@@ -806,6 +838,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Fighting",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"aurawheel": {
 		num: 783,
@@ -845,6 +878,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Electric",
+		cfm: false,
 	},
 	"aurorabeam": {
 		num: 62,
@@ -867,6 +901,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"auroraveil": {
 		num: 694,
@@ -920,6 +955,7 @@ let BattleMovedex = {
 		type: "Ice",
 		zMoveBoost: {spe: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"autotomize": {
 		num: 475,
@@ -954,6 +990,7 @@ let BattleMovedex = {
 		type: "Steel",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"avalanche": {
 		num: 419,
@@ -982,6 +1019,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"babydolleyes": {
 		num: 608,
@@ -1003,6 +1041,7 @@ let BattleMovedex = {
 		type: "Fairy",
 		zMoveBoost: {def: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"baddybad": {
 		num: 737,
@@ -1025,6 +1064,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"banefulbunker": {
 		num: 661,
@@ -1086,6 +1126,7 @@ let BattleMovedex = {
 		type: "Poison",
 		zMoveBoost: {def: 1},
 		contestType: "Tough",
+		cfm: false,
 	},
 	"barrage": {
 		num: 140,
@@ -1105,6 +1146,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"barrier": {
 		num: 112,
@@ -1127,6 +1169,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cool",
+		cfm: false,
 	},
 	"batonpass": {
 		num: 226,
@@ -1147,6 +1190,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cute",
+		cfm: false,
 	},
 	"beakblast": {
 		num: 690,
@@ -1183,6 +1227,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"beatup": {
 		num: 251,
@@ -1208,6 +1253,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"behemothbash": {
 		num: 782,
@@ -1224,6 +1270,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Steel",
+		cfm: false,
 	},
 	"behemothblade": {
 		num: 781,
@@ -1240,6 +1287,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Steel",
+		cfm: false,
 	},
 	"belch": {
 		num: 562,
@@ -1258,6 +1306,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"bellydrum": {
 		num: 187,
@@ -1283,6 +1332,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'heal',
 		contestType: "Cute",
+		cfm: false,
 	},
 	"bestow": {
 		num: 516,
@@ -1314,6 +1364,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spe: 2},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"bide": {
 		num: 117,
@@ -1391,6 +1442,7 @@ let BattleMovedex = {
 		target: "self",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"bind": {
 		num: 20,
@@ -1409,6 +1461,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"bite": {
 		num: 44,
@@ -1429,6 +1482,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"blackholeeclipse": {
 		num: 654,
@@ -1447,6 +1501,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"blastburn": {
 		num: 307,
@@ -1467,6 +1522,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"blazekick": {
 		num: 299,
@@ -1489,6 +1545,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"blizzard": {
 		num: 59,
@@ -1513,6 +1570,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"block": {
 		num: 335,
@@ -1534,6 +1592,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {def: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"bloomdoom": {
 		num: 644,
@@ -1552,6 +1611,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"blueflare": {
 		num: 551,
@@ -1573,6 +1633,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"bodypress": {
 		num: 776,
@@ -1591,6 +1652,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Fighting",
+		cfm: false,
 	},
 	"bodyslam": {
 		num: 34,
@@ -1612,6 +1674,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"boltbeak": {
 		num: 754,
@@ -1637,6 +1700,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Electric",
+		cfm: false,
 	},
 	"boltstrike": {
 		num: 550,
@@ -1658,6 +1722,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"boneclub": {
 		num: 125,
@@ -1679,6 +1744,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"bonemerang": {
 		num: 155,
@@ -1700,6 +1766,7 @@ let BattleMovedex = {
 		type: "Ground",
 		gmaxPower: 130,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"bonerush": {
 		num: 198,
@@ -1720,6 +1787,7 @@ let BattleMovedex = {
 		zMovePower: 140,
 		gmaxPower: 130,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"boomburst": {
 		num: 586,
@@ -1738,6 +1806,7 @@ let BattleMovedex = {
 		target: "allAdjacent",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"bounce": {
 		num: 340,
@@ -1783,6 +1852,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"bouncybubble": {
 		num: 733,
@@ -1803,6 +1873,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"branchpoke": {
 		num: 785,
@@ -1819,6 +1890,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Grass",
+		cfm: false,
 	},
 	"bravebird": {
 		num: 413,
@@ -1838,6 +1910,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"breakingswipe": {
 		num: 784,
@@ -1859,6 +1932,7 @@ let BattleMovedex = {
 		},
 		target: "allAdjacentFoes",
 		type: "Dragon",
+		cfm: false,
 	},
 	"breakneckblitz": {
 		num: 622,
@@ -1877,6 +1951,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"brickbreak": {
 		num: 280,
@@ -1903,6 +1978,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"brine": {
 		num: 362,
@@ -1925,6 +2001,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"brutalswing": {
 		num: 693,
@@ -1942,6 +2019,7 @@ let BattleMovedex = {
 		target: "allAdjacent",
 		type: "Dark",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"bubble": {
 		num: 145,
@@ -1965,6 +2043,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"bubblebeam": {
 		num: 61,
@@ -1987,6 +2066,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"bugbite": {
 		num: 450,
@@ -2015,6 +2095,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"bugbuzz": {
 		num: 405,
@@ -2038,6 +2119,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"bulkup": {
 		num: 339,
@@ -2061,6 +2143,7 @@ let BattleMovedex = {
 		type: "Fighting",
 		zMoveBoost: {atk: 1},
 		contestType: "Cool",
+		cfm: false,
 	},
 	"bulldoze": {
 		num: 523,
@@ -2083,6 +2166,7 @@ let BattleMovedex = {
 		target: "allAdjacent",
 		type: "Ground",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"bulletpunch": {
 		num: 418,
@@ -2101,6 +2185,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"bulletseed": {
 		num: 331,
@@ -2122,6 +2207,7 @@ let BattleMovedex = {
 		zMovePower: 140,
 		gmaxPower: 130,
 		contestType: "Cool",
+		cfm: false,
 	},
 	"burnup": {
 		num: 682,
@@ -2151,6 +2237,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"buzzybuzz": {
 		num: 734,
@@ -2173,6 +2260,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"calmmind": {
 		num: 347,
@@ -2196,6 +2284,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"camouflage": {
 		num: 293,
@@ -2230,6 +2319,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {evasion: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"captivate": {
 		num: 445,
@@ -2255,6 +2345,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spd: 2},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"catastropika": {
 		num: 658,
@@ -2274,6 +2365,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"celebrate": {
 		num: 606,
@@ -2294,6 +2386,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"charge": {
 		num: 268,
@@ -2332,6 +2425,7 @@ let BattleMovedex = {
 		type: "Electric",
 		zMoveBoost: {spd: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"chargebeam": {
 		num: 451,
@@ -2356,6 +2450,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"charm": {
 		num: 204,
@@ -2377,6 +2472,7 @@ let BattleMovedex = {
 		type: "Fairy",
 		zMoveBoost: {def: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"chatter": {
 		num: 448,
@@ -2399,6 +2495,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"chipaway": {
 		num: 498,
@@ -2419,6 +2516,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"circlethrow": {
 		num: 509,
@@ -2437,6 +2535,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"clamp": {
 		num: 128,
@@ -2456,6 +2555,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"clangingscales": {
 		num: 691,
@@ -2479,6 +2579,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Dragon",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"clangoroussoul": {
 		num: 775,
@@ -2514,6 +2615,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "self",
 		type: "Dragon",
+		cfm: false,
 	},
 	"clangoroussoulblaze": {
 		num: 728,
@@ -2545,6 +2647,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Dragon",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"clearsmog": {
 		num: 499,
@@ -2566,6 +2669,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"closecombat": {
 		num: 370,
@@ -2590,6 +2694,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"coil": {
 		num: 489,
@@ -2614,6 +2719,7 @@ let BattleMovedex = {
 		type: "Poison",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Tough",
+		cfm: false,
 	},
 	"cometpunch": {
 		num: 4,
@@ -2634,6 +2740,7 @@ let BattleMovedex = {
 		type: "Normal",
 		gmaxPower: 100,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"confide": {
 		num: 590,
@@ -2655,6 +2762,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spd: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"confuseray": {
 		num: 109,
@@ -2674,6 +2782,7 @@ let BattleMovedex = {
 		type: "Ghost",
 		zMoveBoost: {spa: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"confusion": {
 		num: 93,
@@ -2694,6 +2803,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"constrict": {
 		num: 132,
@@ -2717,6 +2827,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"continentalcrush": {
 		num: 632,
@@ -2735,6 +2846,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"conversion": {
 		num: 160,
@@ -2759,6 +2871,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"conversion2": {
 		num: 176,
@@ -2799,6 +2912,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'heal',
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"copycat": {
 		num: 383,
@@ -2830,6 +2944,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {accuracy: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"coreenforcer": {
 		num: 687,
@@ -2860,6 +2975,7 @@ let BattleMovedex = {
 		type: "Dragon",
 		zMovePower: 140,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"corkscrewcrash": {
 		num: 638,
@@ -2878,6 +2994,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"cosmicpower": {
 		num: 322,
@@ -2900,6 +3017,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spd: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"cottonguard": {
 		num: 538,
@@ -2922,6 +3040,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cute",
+		cfm: false,
 	},
 	"cottonspore": {
 		num: 178,
@@ -2943,6 +3062,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"counter": {
 		num: 68,
@@ -2991,6 +3111,7 @@ let BattleMovedex = {
 		type: "Fighting",
 		gmaxPower: 75,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"courtchange": {
 		num: 756,
@@ -3045,6 +3166,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "all",
 		type: "Normal",
+		cfm: false,
 	},
 	"covet": {
 		num: 343,
@@ -3076,6 +3198,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"crabhammer": {
 		num: 152,
@@ -3095,6 +3218,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"craftyshield": {
 		num: 578,
@@ -3129,6 +3253,7 @@ let BattleMovedex = {
 		type: "Fairy",
 		zMoveBoost: {spd: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"crosschop": {
 		num: 238,
@@ -3148,6 +3273,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"crosspoison": {
 		num: 440,
@@ -3169,6 +3295,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"crunch": {
 		num: 242,
@@ -3192,6 +3319,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"crushclaw": {
 		num: 306,
@@ -3214,6 +3342,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"crushgrip": {
 		num: 462,
@@ -3237,6 +3366,7 @@ let BattleMovedex = {
 		zMovePower: 190,
 		gmaxPower: 140,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"curse": {
 		num: 174,
@@ -3284,6 +3414,7 @@ let BattleMovedex = {
 		type: "Ghost",
 		zMoveEffect: 'curse',
 		contestType: "Tough",
+		cfm: false,
 	},
 	"cut": {
 		num: 15,
@@ -3300,6 +3431,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"darkestlariat": {
 		num: 663,
@@ -3320,6 +3452,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"darkpulse": {
 		num: 399,
@@ -3341,6 +3474,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Dark",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"darkvoid": {
 		num: 464,
@@ -3369,6 +3503,7 @@ let BattleMovedex = {
 		type: "Dark",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"dazzlinggleam": {
 		num: 605,
@@ -3387,6 +3522,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"decorate": {
 		num: 777,
@@ -3407,6 +3543,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Fairy",
+		cfm: false,
 	},
 	"defendorder": {
 		num: 455,
@@ -3429,6 +3566,7 @@ let BattleMovedex = {
 		type: "Bug",
 		zMoveBoost: {def: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"defensecurl": {
 		num: 111,
@@ -3454,6 +3592,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {accuracy: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"defog": {
 		num: 432,
@@ -3494,6 +3633,7 @@ let BattleMovedex = {
 		type: "Flying",
 		zMoveBoost: {accuracy: 1},
 		contestType: "Cool",
+		cfm: false,
 	},
 	"destinybond": {
 		num: 194,
@@ -3542,6 +3682,7 @@ let BattleMovedex = {
 		type: "Ghost",
 		zMoveEffect: 'redirect',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"detect": {
 		num: 197,
@@ -3569,6 +3710,7 @@ let BattleMovedex = {
 		type: "Fighting",
 		zMoveBoost: {evasion: 1},
 		contestType: "Cool",
+		cfm: false,
 	},
 	"devastatingdrake": {
 		num: 652,
@@ -3587,6 +3729,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"diamondstorm": {
 		num: 591,
@@ -3613,6 +3756,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Rock",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"dig": {
 		num: 91,
@@ -3658,6 +3802,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"disable": {
 		num: 50,
@@ -3733,6 +3878,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"disarmingvoice": {
 		num: 574,
@@ -3750,6 +3896,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"discharge": {
 		num: 435,
@@ -3771,6 +3918,7 @@ let BattleMovedex = {
 		target: "allAdjacent",
 		type: "Electric",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"dive": {
 		num: 291,
@@ -3820,6 +3968,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"dizzypunch": {
 		num: 146,
@@ -3841,6 +3990,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"doomdesire": {
 		num: 353,
@@ -3880,6 +4030,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"doubleedge": {
 		num: 38,
@@ -3899,6 +4050,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"doublehit": {
 		num: 458,
@@ -3919,6 +4071,7 @@ let BattleMovedex = {
 		zMovePower: 140,
 		gmaxPower: 120,
 		contestType: "Cool",
+		cfm: false,
 	},
 	"doubleironbash": {
 		num: 742,
@@ -3943,6 +4096,7 @@ let BattleMovedex = {
 		zMovePower: 180,
 		gmaxPower: 140,
 		contestType: "Clever",
+		cfm: false,
 	},
 	"doublekick": {
 		num: 24,
@@ -3962,6 +4116,7 @@ let BattleMovedex = {
 		type: "Fighting",
 		gmaxPower: 80,
 		contestType: "Cool",
+		cfm: false,
 	},
 	"doubleslap": {
 		num: 3,
@@ -3981,6 +4136,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"doubleteam": {
 		num: 104,
@@ -4002,6 +4158,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cool",
+		cfm: false,
 	},
 	"dracometeor": {
 		num: 434,
@@ -4025,6 +4182,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"dragonascent": {
 		num: 620,
@@ -4049,6 +4207,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"dragonbreath": {
 		num: 225,
@@ -4069,6 +4228,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"dragonclaw": {
 		num: 337,
@@ -4086,6 +4246,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"dragondance": {
 		num: 349,
@@ -4109,6 +4270,7 @@ let BattleMovedex = {
 		type: "Dragon",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cool",
+		cfm: false,
 	},
 	"dragondarts": {
 		num: 751,
@@ -4128,6 +4290,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dragon",
 		gmaxPower: 130,
+		cfm: false,
 	},
 	"dragonhammer": {
 		num: 692,
@@ -4146,6 +4309,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"dragonpulse": {
 		num: 406,
@@ -4163,6 +4327,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Dragon",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"dragonrage": {
 		num: 82,
@@ -4181,6 +4346,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"dragonrush": {
 		num: 407,
@@ -4201,6 +4367,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"dragontail": {
 		num: 525,
@@ -4219,6 +4386,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"drainingkiss": {
 		num: 577,
@@ -4237,6 +4405,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"drainpunch": {
 		num: 409,
@@ -4256,6 +4425,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"dreameater": {
 		num: 138,
@@ -4277,6 +4447,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"drillpeck": {
 		num: 65,
@@ -4293,6 +4464,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"drillrun": {
 		num: 529,
@@ -4312,6 +4484,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"drumbeating": {
 		num: 778,
@@ -4334,6 +4507,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Grass",
+		cfm: false,
 	},
 	"dualchop": {
 		num: 530,
@@ -4353,6 +4527,7 @@ let BattleMovedex = {
 		type: "Dragon",
 		gmaxPower: 130,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"dynamaxcannon": {
 		num: 744,
@@ -4369,6 +4544,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
+		cfm: false,
 	},
 	"dynamicpunch": {
 		num: 223,
@@ -4389,6 +4565,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"earthpower": {
 		num: 414,
@@ -4412,6 +4589,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"earthquake": {
 		num: 89,
@@ -4430,6 +4608,7 @@ let BattleMovedex = {
 		target: "allAdjacent",
 		type: "Ground",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"echoedvoice": {
 		num: 497,
@@ -4470,6 +4649,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"eerieimpulse": {
 		num: 598,
@@ -4491,6 +4671,7 @@ let BattleMovedex = {
 		type: "Electric",
 		zMoveBoost: {spd: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"eggbomb": {
 		num: 121,
@@ -4508,6 +4689,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"electricterrain": {
 		num: 604,
@@ -4569,6 +4751,7 @@ let BattleMovedex = {
 		type: "Electric",
 		zMoveBoost: {spe: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"electrify": {
 		num: 582,
@@ -4604,6 +4787,7 @@ let BattleMovedex = {
 		type: "Electric",
 		zMoveBoost: {spa: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"electroball": {
 		num: 486,
@@ -4630,6 +4814,7 @@ let BattleMovedex = {
 		zMovePower: 160,
 		gmaxPower: 130,
 		contestType: "Cool",
+		cfm: false,
 	},
 	"electroweb": {
 		num: 527,
@@ -4652,6 +4837,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Electric",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"embargo": {
 		num: 373,
@@ -4683,6 +4869,7 @@ let BattleMovedex = {
 		type: "Dark",
 		zMoveBoost: {spa: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"ember": {
 		num: 52,
@@ -4703,6 +4890,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"encore": {
 		num: 227,
@@ -4769,6 +4957,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spe: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"endeavor": {
 		num: 283,
@@ -4795,6 +4984,7 @@ let BattleMovedex = {
 		zMovePower: 160,
 		gmaxPower: 130,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"endure": {
 		num: 203,
@@ -4834,6 +5024,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Tough",
+		cfm: false,
 	},
 	"energyball": {
 		num: 412,
@@ -4857,6 +5048,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"entrainment": {
 		num: 494,
@@ -4891,6 +5083,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spd: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"eruption": {
 		num: 284,
@@ -4912,6 +5105,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"eternabeam": {
 		num: 795,
@@ -4931,6 +5125,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
+		cfm: false,
 	},
 	"explosion": {
 		num: 153,
@@ -4950,6 +5145,7 @@ let BattleMovedex = {
 		target: "allAdjacent",
 		type: "Normal",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"extrasensory": {
 		num: 326,
@@ -4971,6 +5167,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"extremeevoboost": {
 		num: 702,
@@ -4998,6 +5195,7 @@ let BattleMovedex = {
 		target: "self",
 		type: "Normal",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"extremespeed": {
 		num: 245,
@@ -5016,6 +5214,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"facade": {
 		num: 263,
@@ -5039,6 +5238,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"fairylock": {
 		num: 587,
@@ -5067,6 +5267,7 @@ let BattleMovedex = {
 		type: "Fairy",
 		zMoveBoost: {def: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"fairywind": {
 		num: 584,
@@ -5083,6 +5284,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"fakeout": {
 		num: 252,
@@ -5112,6 +5314,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"faketears": {
 		num: 313,
@@ -5133,6 +5336,7 @@ let BattleMovedex = {
 		type: "Dark",
 		zMoveBoost: {spa: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"falsesurrender": {
 		num: 793,
@@ -5149,6 +5353,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Dark",
+		cfm: false,
 	},
 	"falseswipe": {
 		num: 206,
@@ -5167,6 +5372,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"featherdance": {
 		num: 297,
@@ -5188,6 +5394,7 @@ let BattleMovedex = {
 		type: "Flying",
 		zMoveBoost: {def: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"feint": {
 		num: 364,
@@ -5207,6 +5414,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"feintattack": {
 		num: 185,
@@ -5224,6 +5432,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"fellstinger": {
 		num: 565,
@@ -5244,6 +5453,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"fierydance": {
 		num: 552,
@@ -5270,6 +5480,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"finalgambit": {
 		num: 515,
@@ -5294,6 +5505,7 @@ let BattleMovedex = {
 		type: "Fighting",
 		zMovePower: 180,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"fireblast": {
 		num: 126,
@@ -5315,6 +5527,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"firefang": {
 		num: 424,
@@ -5341,6 +5554,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"firelash": {
 		num: 680,
@@ -5364,6 +5578,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"firepledge": {
 		num: 519,
@@ -5436,6 +5651,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"firepunch": {
 		num: 7,
@@ -5457,6 +5673,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"firespin": {
 		num: 83,
@@ -5475,6 +5692,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"firstimpression": {
 		num: 660,
@@ -5501,6 +5719,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"fishiousrend": {
 		num: 755,
@@ -5526,6 +5745,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Water",
+		cfm: false,
 	},
 	"fissure": {
 		num: 90,
@@ -5546,6 +5766,7 @@ let BattleMovedex = {
 		zMovePower: 180,
 		gmaxPower: 130,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"flail": {
 		num: 175,
@@ -5584,6 +5805,7 @@ let BattleMovedex = {
 		zMovePower: 160,
 		gmaxPower: 130,
 		contestType: "Cute",
+		cfm: false,
 	},
 	"flameburst": {
 		num: 481,
@@ -5622,6 +5844,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"flamecharge": {
 		num: 488,
@@ -5647,6 +5870,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"flamewheel": {
 		num: 172,
@@ -5667,6 +5891,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"flamethrower": {
 		num: 53,
@@ -5688,6 +5913,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"flareblitz": {
 		num: 394,
@@ -5710,6 +5936,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"flash": {
 		num: 148,
@@ -5732,6 +5959,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {evasion: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"flashcannon": {
 		num: 430,
@@ -5755,6 +5983,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"flatter": {
 		num: 260,
@@ -5777,6 +6006,7 @@ let BattleMovedex = {
 		type: "Dark",
 		zMoveBoost: {spd: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"fleurcannon": {
 		num: 705,
@@ -5801,6 +6031,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"fling": {
 		num: 374,
@@ -5848,6 +6079,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"floatyfall": {
 		num: 731,
@@ -5870,6 +6102,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"floralhealing": {
 		num: 666,
@@ -5901,6 +6134,7 @@ let BattleMovedex = {
 		type: "Fairy",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"flowershield": {
 		num: 579,
@@ -5933,6 +6167,7 @@ let BattleMovedex = {
 		type: "Fairy",
 		zMoveBoost: {def: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"fly": {
 		num: 19,
@@ -5975,6 +6210,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"flyingpress": {
 		num: 560,
@@ -5996,6 +6232,7 @@ let BattleMovedex = {
 		type: "Fighting",
 		zMovePower: 170,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"focusblast": {
 		num: 411,
@@ -6019,6 +6256,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"focusenergy": {
 		num: 116,
@@ -6052,6 +6290,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {accuracy: 1},
 		contestType: "Cool",
+		cfm: false,
 	},
 	"focuspunch": {
 		num: 264,
@@ -6090,6 +6329,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"followme": {
 		num: 266,
@@ -6130,6 +6370,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cute",
+		cfm: false,
 	},
 	"forcepalm": {
 		num: 395,
@@ -6150,6 +6391,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"foresight": {
 		num: 193,
@@ -6187,6 +6429,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'crit2',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"forestscurse": {
 		num: 571,
@@ -6210,6 +6453,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMoveBoost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"foulplay": {
 		num: 492,
@@ -6229,6 +6473,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"freezedry": {
 		num: 573,
@@ -6253,6 +6498,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"freezeshock": {
 		num: 553,
@@ -6284,6 +6530,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"freezyfrost": {
 		num: 739,
@@ -6309,6 +6556,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"frenzyplant": {
 		num: 338,
@@ -6329,6 +6577,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"frostbreath": {
 		num: 524,
@@ -6347,6 +6596,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"frustration": {
 		num: 218,
@@ -6371,6 +6621,7 @@ let BattleMovedex = {
 		zMovePower: 160,
 		gmaxPower: 130,
 		contestType: "Cute",
+		cfm: false,
 	},
 	"furyattack": {
 		num: 31,
@@ -6389,6 +6640,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"furycutter": {
 		num: 210,
@@ -6424,6 +6676,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"furyswipes": {
 		num: 154,
@@ -6443,6 +6696,7 @@ let BattleMovedex = {
 		type: "Normal",
 		gmaxPower: 100,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"fusionbolt": {
 		num: 559,
@@ -6467,6 +6721,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"fusionflare": {
 		num: 558,
@@ -6491,6 +6746,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"futuresight": {
 		num: 248,
@@ -6533,6 +6789,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"gastroacid": {
 		num: 380,
@@ -6565,6 +6822,7 @@ let BattleMovedex = {
 		type: "Poison",
 		zMoveBoost: {spe: 1},
 		contestType: "Tough",
+		cfm: false,
 	},
 	"geargrind": {
 		num: 544,
@@ -6586,6 +6844,7 @@ let BattleMovedex = {
 		zMovePower: 180,
 		gmaxPower: 130,
 		contestType: "Clever",
+		cfm: false,
 	},
 	"gearup": {
 		num: 674,
@@ -6618,6 +6877,7 @@ let BattleMovedex = {
 		type: "Steel",
 		zMoveBoost: {spa: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"genesissupernova": {
 		num: 703,
@@ -6645,6 +6905,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"geomancy": {
 		num: 601,
@@ -6680,6 +6941,7 @@ let BattleMovedex = {
 		type: "Fairy",
 		zMoveBoost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"gigadrain": {
 		num: 202,
@@ -6699,6 +6961,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"gigaimpact": {
 		num: 416,
@@ -6719,6 +6982,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"gigavolthavoc": {
 		num: 646,
@@ -6737,6 +7001,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"glaciate": {
 		num: 549,
@@ -6759,6 +7024,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"glare": {
 		num: 137,
@@ -6779,6 +7045,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spd: 1},
 		contestType: "Tough",
+		cfm: false,
 	},
 	"glitzyglow": {
 		num: 736,
@@ -6801,6 +7068,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"gmaxbefuddle": {
 		num: 1000,
@@ -6833,6 +7101,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxcentiferno": {
 		num: 1000,
@@ -6859,6 +7128,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Fire",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxchistrike": {
 		num: 1000,
@@ -6885,6 +7155,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxcuddle": {
 		num: 1000,
@@ -6911,6 +7182,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxdepletion": {
 		num: 1000,
@@ -6945,6 +7217,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxfinale": {
 		num: 1000,
@@ -6971,6 +7244,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxfoamburst": {
 		num: 1000,
@@ -6997,6 +7271,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxgoldrush": {
 		num: 1000,
@@ -7023,6 +7298,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxgravitas": {
 		num: 1000,
@@ -7044,6 +7320,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxmalodor": {
 		num: 1000,
@@ -7069,6 +7346,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxmeltdown": {
 		num: 1000,
@@ -7095,6 +7373,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxreplenish": {
 		num: 1000,
@@ -7127,6 +7406,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxresonance": {
 		num: 1000,
@@ -7149,6 +7429,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxsandblast": {
 		num: 1000,
@@ -7175,6 +7456,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxsmite": {
 		num: 1000,
@@ -7201,6 +7483,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxsnooze": {
 		num: 1000,
@@ -7230,6 +7513,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxsteelsurge": {
 		num: 1000,
@@ -7270,6 +7554,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxstonesurge": {
 		num: 1000,
@@ -7294,6 +7579,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxstunshock": {
 		num: 1000,
@@ -7325,6 +7611,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxsweetness": {
 		num: 1000,
@@ -7351,6 +7638,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxtartness": {
 		num: 1000,
@@ -7377,6 +7665,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxterror": {
 		num: 1000,
@@ -7403,6 +7692,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxvolcalith": {
 		num: 1000,
@@ -7444,6 +7734,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Rock",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxvoltcrash": {
 		num: 1000,
@@ -7470,6 +7761,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxwildfire": {
 		num: 1000,
@@ -7511,6 +7803,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Fire",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gmaxwindrage": {
 		num: 1000,
@@ -7552,6 +7845,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"grassknot": {
 		num: 447,
@@ -7604,6 +7898,7 @@ let BattleMovedex = {
 		zMovePower: 160,
 		gmaxPower: 130,
 		contestType: "Cute",
+		cfm: false,
 	},
 	"grasspledge": {
 		num: 520,
@@ -7667,6 +7962,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"grasswhistle": {
 		num: 320,
@@ -7686,6 +7982,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMoveBoost: {spe: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"grassyterrain": {
 		num: 580,
@@ -7747,6 +8044,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMoveBoost: {def: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"gravapple": {
 		num: 788,
@@ -7773,6 +8071,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Grass",
+		cfm: false,
 	},
 	"gravity": {
 		num: 356,
@@ -7855,6 +8154,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spa: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"growl": {
 		num: 45,
@@ -7876,6 +8176,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {def: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"growth": {
 		num: 74,
@@ -7901,6 +8202,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spa: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"grudge": {
 		num: 288,
@@ -7941,6 +8243,7 @@ let BattleMovedex = {
 		type: "Ghost",
 		zMoveEffect: 'redirect',
 		contestType: "Tough",
+		cfm: false,
 	},
 	"guardianofalola": {
 		num: 698,
@@ -7968,6 +8271,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"guardsplit": {
 		num: 470,
@@ -7995,6 +8299,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spe: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"guardswap": {
 		num: 385,
@@ -8029,6 +8334,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spe: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"guillotine": {
 		num: 12,
@@ -8049,6 +8355,7 @@ let BattleMovedex = {
 		zMovePower: 180,
 		gmaxPower: 130,
 		contestType: "Cool",
+		cfm: false,
 	},
 	"gunkshot": {
 		num: 441,
@@ -8070,6 +8377,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"gust": {
 		num: 16,
@@ -8087,6 +8395,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"gyroball": {
 		num: 360,
@@ -8114,6 +8423,7 @@ let BattleMovedex = {
 		zMovePower: 160,
 		gmaxPower: 130,
 		contestType: "Cool",
+		cfm: false,
 	},
 	"hail": {
 		num: 258,
@@ -8133,6 +8443,7 @@ let BattleMovedex = {
 		type: "Ice",
 		zMoveBoost: {spe: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"hammerarm": {
 		num: 359,
@@ -8156,6 +8467,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"happyhour": {
 		num: 603,
@@ -8176,6 +8488,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"harden": {
 		num: 106,
@@ -8197,6 +8510,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {def: 1},
 		contestType: "Tough",
+		cfm: false,
 	},
 	"haze": {
 		num: 114,
@@ -8222,6 +8536,7 @@ let BattleMovedex = {
 		type: "Ice",
 		zMoveEffect: 'heal',
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"headbutt": {
 		num: 29,
@@ -8242,6 +8557,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"headcharge": {
 		num: 543,
@@ -8262,6 +8578,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"headsmash": {
 		num: 457,
@@ -8281,6 +8598,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"healbell": {
 		num: 215,
@@ -8309,6 +8627,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'heal',
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"healblock": {
 		num: 377,
@@ -8364,6 +8683,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spa: 2},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"healingwish": {
 		num: 361,
@@ -8400,6 +8720,7 @@ let BattleMovedex = {
 		target: "self",
 		type: "Psychic",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"healorder": {
 		num: 456,
@@ -8421,6 +8742,7 @@ let BattleMovedex = {
 		type: "Bug",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"healpulse": {
 		num: 505,
@@ -8451,6 +8773,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"heartstamp": {
 		num: 531,
@@ -8472,6 +8795,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"heartswap": {
 		num: 391,
@@ -8507,6 +8831,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveEffect: 'crit2',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"heatcrash": {
 		num: 535,
@@ -8550,6 +8875,7 @@ let BattleMovedex = {
 		zMovePower: 160,
 		gmaxPower: 130,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"heatwave": {
 		num: 257,
@@ -8571,6 +8897,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"heavyslam": {
 		num: 484,
@@ -8615,6 +8942,7 @@ let BattleMovedex = {
 		zMovePower: 160,
 		gmaxPower: 130,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"helpinghand": {
 		num: 270,
@@ -8653,6 +8981,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hex": {
 		num: 506,
@@ -8676,6 +9005,7 @@ let BattleMovedex = {
 		type: "Ghost",
 		zMovePower: 160,
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hiddenpower": {
 		num: 237,
@@ -8697,6 +9027,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hiddenpowerbug": {
 		num: 237,
@@ -8715,6 +9046,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hiddenpowerdark": {
 		num: 237,
@@ -8733,6 +9065,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hiddenpowerdragon": {
 		num: 237,
@@ -8751,6 +9084,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hiddenpowerelectric": {
 		num: 237,
@@ -8770,6 +9104,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hiddenpowerfighting": {
 		num: 237,
@@ -8789,6 +9124,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hiddenpowerfire": {
 		num: 237,
@@ -8808,6 +9144,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hiddenpowerflying": {
 		num: 237,
@@ -8826,6 +9163,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hiddenpowerghost": {
 		num: 237,
@@ -8844,6 +9182,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hiddenpowergrass": {
 		num: 237,
@@ -8863,6 +9202,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hiddenpowerground": {
 		num: 237,
@@ -8881,6 +9221,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hiddenpowerice": {
 		num: 237,
@@ -8900,6 +9241,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hiddenpowerpoison": {
 		num: 237,
@@ -8918,6 +9260,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hiddenpowerpsychic": {
 		num: 237,
@@ -8936,6 +9279,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hiddenpowerrock": {
 		num: 237,
@@ -8954,6 +9298,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hiddenpowersteel": {
 		num: 237,
@@ -8972,6 +9317,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hiddenpowerwater": {
 		num: 237,
@@ -8990,6 +9336,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"highhorsepower": {
 		num: 667,
@@ -9007,6 +9354,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"highjumpkick": {
 		num: 136,
@@ -9029,6 +9377,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"holdback": {
 		num: 610,
@@ -9047,6 +9396,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"holdhands": {
 		num: 615,
@@ -9065,6 +9415,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"honeclaws": {
 		num: 468,
@@ -9088,6 +9439,7 @@ let BattleMovedex = {
 		type: "Dark",
 		zMoveBoost: {atk: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"hornattack": {
 		num: 30,
@@ -9104,6 +9456,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"horndrill": {
 		num: 32,
@@ -9124,6 +9477,7 @@ let BattleMovedex = {
 		zMovePower: 180,
 		gmaxPower: 130,
 		contestType: "Cool",
+		cfm: false,
 	},
 	"hornleech": {
 		num: 532,
@@ -9143,6 +9497,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"howl": {
 		num: 336,
@@ -9164,6 +9519,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {atk: 1},
 		contestType: "Cool",
+		cfm: false,
 	},
 	"hurricane": {
 		num: 542,
@@ -9197,6 +9553,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"hydrocannon": {
 		num: 308,
@@ -9217,6 +9574,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"hydropump": {
 		num: 56,
@@ -9234,6 +9592,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"hydrovortex": {
 		num: 642,
@@ -9252,6 +9611,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"hyperbeam": {
 		num: 63,
@@ -9272,6 +9632,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"hyperfang": {
 		num: 158,
@@ -9293,6 +9654,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"hyperspacefury": {
 		num: 621,
@@ -9330,6 +9692,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"hyperspacehole": {
 		num: 593,
@@ -9349,6 +9712,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"hypervoice": {
 		num: 304,
@@ -9367,6 +9731,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"hypnosis": {
 		num: 95,
@@ -9385,6 +9750,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spe: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"iceball": {
 		num: 301,
@@ -9434,6 +9800,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"icebeam": {
 		num: 58,
@@ -9455,6 +9822,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"iceburn": {
 		num: 554,
@@ -9486,6 +9854,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"icefang": {
 		num: 423,
@@ -9512,6 +9881,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"icehammer": {
 		num: 665,
@@ -9536,6 +9906,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"icepunch": {
 		num: 8,
@@ -9557,6 +9928,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"iceshard": {
 		num: 420,
@@ -9575,6 +9947,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"iciclecrash": {
 		num: 556,
@@ -9596,6 +9969,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"iciclespear": {
 		num: 333,
@@ -9617,6 +9991,7 @@ let BattleMovedex = {
 		zMovePower: 140,
 		gmaxPower: 130,
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"icywind": {
 		num: 196,
@@ -9639,6 +10014,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"imprison": {
 		num: 286,
@@ -9679,6 +10055,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spd: 2},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"incinerate": {
 		num: 510,
@@ -9702,6 +10079,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Fire",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"inferno": {
 		num: 517,
@@ -9722,6 +10100,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"infernooverdrive": {
 		num: 640,
@@ -9740,6 +10119,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"infestation": {
 		num: 611,
@@ -9758,6 +10138,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"ingrain": {
 		num: 275,
@@ -9794,6 +10175,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMoveBoost: {spd: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"instruct": {
 		num: 689,
@@ -9830,6 +10212,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spa: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"iondeluge": {
 		num: 569,
@@ -9863,6 +10246,7 @@ let BattleMovedex = {
 		type: "Electric",
 		zMoveBoost: {spa: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"irondefense": {
 		num: 334,
@@ -9884,6 +10268,7 @@ let BattleMovedex = {
 		type: "Steel",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Tough",
+		cfm: false,
 	},
 	"ironhead": {
 		num: 442,
@@ -9905,6 +10290,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"irontail": {
 		num: 231,
@@ -9927,6 +10313,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"jawlock": {
 		num: 746,
@@ -9947,6 +10334,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Dark",
+		cfm: false,
 	},
 	"judgment": {
 		num: 449,
@@ -9973,6 +10361,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"jumpkick": {
 		num: 26,
@@ -9996,6 +10385,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"karatechop": {
 		num: 2,
@@ -10015,6 +10405,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"kinesis": {
 		num: 134,
@@ -10037,6 +10428,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {evasion: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"kingsshield": {
 		num: 588,
@@ -10098,6 +10490,7 @@ let BattleMovedex = {
 		type: "Steel",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cool",
+		cfm: false,
 	},
 	"knockoff": {
 		num: 282,
@@ -10131,6 +10524,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"landswrath": {
 		num: 616,
@@ -10150,6 +10544,7 @@ let BattleMovedex = {
 		type: "Ground",
 		zMovePower: 185,
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"laserfocus": {
 		num: 673,
@@ -10189,6 +10584,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {atk: 1},
 		contestType: "Cool",
+		cfm: false,
 	},
 	"lastresort": {
 		num: 387,
@@ -10218,6 +10614,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"lavaplume": {
 		num: 436,
@@ -10239,6 +10636,7 @@ let BattleMovedex = {
 		target: "allAdjacent",
 		type: "Fire",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"leafage": {
 		num: 670,
@@ -10255,6 +10653,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"leafblade": {
 		num: 348,
@@ -10274,6 +10673,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"leafstorm": {
 		num: 437,
@@ -10297,6 +10697,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"leaftornado": {
 		num: 536,
@@ -10319,6 +10720,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"leechlife": {
 		num: 141,
@@ -10338,6 +10740,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"leechseed": {
 		num: 73,
@@ -10378,6 +10781,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"leer": {
 		num: 43,
@@ -10399,6 +10803,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {atk: 1},
 		contestType: "Cool",
+		cfm: false,
 	},
 	"letssnuggleforever": {
 		num: 726,
@@ -10418,6 +10823,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"lick": {
 		num: 122,
@@ -10438,6 +10844,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"lifedew": {
 		num: 791,
@@ -10456,6 +10863,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "allies",
 		type: "Water",
+		cfm: false,
 	},
 	"lightofruin": {
 		num: 617,
@@ -10476,6 +10884,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"lightscreen": {
 		num: 113,
@@ -10522,6 +10931,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spd: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"lightthatburnsthesky": {
 		num: 723,
@@ -10545,6 +10955,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"liquidation": {
 		num: 710,
@@ -10568,6 +10979,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"lockon": {
 		num: 199,
@@ -10604,6 +11016,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spe: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"lovelykiss": {
 		num: 142,
@@ -10624,6 +11037,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spe: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"lowkick": {
 		num: 67,
@@ -10669,6 +11083,7 @@ let BattleMovedex = {
 		type: "Fighting",
 		zMovePower: 160,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"lowsweep": {
 		num: 490,
@@ -10691,6 +11106,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"luckychant": {
 		num: 381,
@@ -10723,6 +11139,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {evasion: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"lunardance": {
 		num: 461,
@@ -10782,6 +11199,7 @@ let BattleMovedex = {
 		target: "self",
 		type: "Psychic",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"lunge": {
 		num: 679,
@@ -10805,6 +11223,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"lusterpurge": {
 		num: 295,
@@ -10828,6 +11247,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"machpunch": {
 		num: 183,
@@ -10846,6 +11266,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"magicalleaf": {
 		num: 345,
@@ -10862,6 +11283,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"magiccoat": {
 		num: 277,
@@ -10912,6 +11334,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spd: 2},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"magicpowder": {
 		num: 750,
@@ -10932,6 +11355,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
+		cfm: false,
 	},
 	"magicroom": {
 		num: 478,
@@ -10972,6 +11396,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spd: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"magikarpsrevenge": {
 		num: 0,
@@ -11014,6 +11439,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"magmastorm": {
 		num: 463,
@@ -11034,6 +11460,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"magnetbomb": {
 		num: 443,
@@ -11051,6 +11478,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"magneticflux": {
 		num: 602,
@@ -11083,6 +11511,7 @@ let BattleMovedex = {
 		type: "Electric",
 		zMoveBoost: {spd: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"magnetrise": {
 		num: 393,
@@ -11116,6 +11545,7 @@ let BattleMovedex = {
 		type: "Electric",
 		zMoveBoost: {evasion: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"magnitude": {
 		num: 222,
@@ -11164,6 +11594,7 @@ let BattleMovedex = {
 		zMovePower: 140,
 		gmaxPower: 140,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"maliciousmoonsault": {
 		num: 696,
@@ -11184,6 +11615,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"matblock": {
 		num: 561,
@@ -11233,6 +11665,7 @@ let BattleMovedex = {
 		type: "Fighting",
 		zMoveBoost: {def: 1},
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxairstream": {
 		num: 766,
@@ -11258,6 +11691,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxdarkness": {
 		num: 772,
@@ -11283,6 +11717,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxflare": {
 		num: 757,
@@ -11307,6 +11742,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Fire",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxflutterby": {
 		num: 758,
@@ -11332,6 +11768,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxgeyser": {
 		num: 765,
@@ -11355,6 +11792,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxguard": {
 		num: 743,
@@ -11412,6 +11850,7 @@ let BattleMovedex = {
 		target: "self",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxhailstorm": {
 		num: 763,
@@ -11435,6 +11874,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxknuckle": {
 		num: 761,
@@ -11460,6 +11900,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxlightning": {
 		num: 759,
@@ -11483,6 +11924,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxmindstorm": {
 		num: 769,
@@ -11506,6 +11948,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxooze": {
 		num: 764,
@@ -11531,6 +11974,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxovergrowth": {
 		num: 773,
@@ -11554,6 +11998,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxphantasm": {
 		num: 762,
@@ -11579,6 +12024,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxquake": {
 		num: 771,
@@ -11604,6 +12050,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxrockfall": {
 		num: 770,
@@ -11627,6 +12074,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Rock",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxstarfall": {
 		num: 767,
@@ -11650,6 +12098,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxsteelspike": {
 		num: 774,
@@ -11675,6 +12124,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxstrike": {
 		num: 760,
@@ -11700,6 +12150,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"maxwyrmwind": {
 		num: 768,
@@ -11725,6 +12176,7 @@ let BattleMovedex = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"meanlook": {
 		num: 212,
@@ -11746,6 +12198,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spd: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"meditate": {
 		num: 96,
@@ -11768,6 +12221,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {atk: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"mefirst": {
 		num: 382,
@@ -11809,6 +12263,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spe: 2},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"megadrain": {
 		num: 72,
@@ -11828,6 +12283,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMovePower: 120,
 		contestType: "Clever",
+		cfm: false,
 	},
 	"megahorn": {
 		num: 224,
@@ -11845,6 +12301,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"megakick": {
 		num: 25,
@@ -11861,6 +12318,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"megapunch": {
 		num: 5,
@@ -11877,6 +12335,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"memento": {
 		num: 262,
@@ -11901,6 +12360,7 @@ let BattleMovedex = {
 		type: "Dark",
 		zMoveEffect: 'healreplacement',
 		contestType: "Tough",
+		cfm: false,
 	},
 	"menacingmoonrazemaelstrom": {
 		num: 725,
@@ -11922,6 +12382,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"metalburst": {
 		num: 368,
@@ -11969,6 +12430,7 @@ let BattleMovedex = {
 		target: "scripted",
 		type: "Steel",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"metalclaw": {
 		num: 232,
@@ -11993,6 +12455,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"metalsound": {
 		num: 319,
@@ -12014,6 +12477,7 @@ let BattleMovedex = {
 		type: "Steel",
 		zMoveBoost: {spa: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"meteorassault": {
 		num: 794,
@@ -12033,6 +12497,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Fighting",
+		cfm: false,
 	},
 	"meteormash": {
 		num: 309,
@@ -12058,6 +12523,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"metronome": {
 		num: 118,
@@ -12097,6 +12563,7 @@ let BattleMovedex = {
 		target: "self",
 		type: "Normal",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"milkdrink": {
 		num: 208,
@@ -12118,6 +12585,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cute",
+		cfm: false,
 	},
 	"mimic": {
 		num: 102,
@@ -12158,6 +12626,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {accuracy: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"mindblown": {
 		num: 720,
@@ -12183,6 +12652,7 @@ let BattleMovedex = {
 		target: "allAdjacent",
 		type: "Fire",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"mindreader": {
 		num: 170,
@@ -12208,6 +12678,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spa: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"minimize": {
 		num: 107,
@@ -12244,6 +12715,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cute",
+		cfm: false,
 	},
 	"miracleeye": {
 		num: 357,
@@ -12281,6 +12753,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spa: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"mirrorcoat": {
 		num: 243,
@@ -12328,6 +12801,7 @@ let BattleMovedex = {
 		target: "scripted",
 		type: "Psychic",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"mirrormove": {
 		num: 119,
@@ -12355,6 +12829,7 @@ let BattleMovedex = {
 		type: "Flying",
 		zMoveBoost: {atk: 2},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"mirrorshot": {
 		num: 429,
@@ -12378,6 +12853,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"mist": {
 		num: 54,
@@ -12425,6 +12901,7 @@ let BattleMovedex = {
 		type: "Ice",
 		zMoveEffect: 'heal',
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"mistball": {
 		num: 296,
@@ -12448,6 +12925,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"mistyterrain": {
 		num: 581,
@@ -12508,6 +12986,7 @@ let BattleMovedex = {
 		type: "Fairy",
 		zMoveBoost: {spd: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"moonblast": {
 		num: 585,
@@ -12531,6 +13010,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"moongeistbeam": {
 		num: 714,
@@ -12550,6 +13030,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"moonlight": {
 		num: 236,
@@ -12585,6 +13066,7 @@ let BattleMovedex = {
 		type: "Fairy",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"morningsun": {
 		num: 234,
@@ -12620,6 +13102,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"mudbomb": {
 		num: 426,
@@ -12643,6 +13126,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"mudshot": {
 		num: 341,
@@ -12665,6 +13149,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"mudslap": {
 		num: 189,
@@ -12687,6 +13172,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"mudsport": {
 		num: 300,
@@ -12724,6 +13210,7 @@ let BattleMovedex = {
 		type: "Ground",
 		zMoveBoost: {spd: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"muddywater": {
 		num: 330,
@@ -12746,6 +13233,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"multiattack": {
 		num: 718,
@@ -12769,6 +13257,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMovePower: 185,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"mysticalfire": {
 		num: 595,
@@ -12791,6 +13280,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"nastyplot": {
 		num: 417,
@@ -12813,6 +13303,7 @@ let BattleMovedex = {
 		type: "Dark",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"naturalgift": {
 		num: 363,
@@ -12849,6 +13340,7 @@ let BattleMovedex = {
 		zMovePower: 160,
 		gmaxPower: 130,
 		contestType: "Clever",
+		cfm: false,
 	},
 	"naturepower": {
 		num: 267,
@@ -12881,6 +13373,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"naturesmadness": {
 		num: 717,
@@ -12902,6 +13395,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"needlearm": {
 		num: 302,
@@ -12923,6 +13417,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"neverendingnightmare": {
 		num: 636,
@@ -12941,6 +13436,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"nightdaze": {
 		num: 539,
@@ -12963,6 +13459,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"nightmare": {
 		num: 171,
@@ -12996,6 +13493,7 @@ let BattleMovedex = {
 		type: "Ghost",
 		zMoveBoost: {spa: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"nightshade": {
 		num: 101,
@@ -13015,6 +13513,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"nightslash": {
 		num: 400,
@@ -13034,6 +13533,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"nobleroar": {
 		num: 568,
@@ -13056,6 +13556,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {def: 1},
 		contestType: "Tough",
+		cfm: false,
 	},
 	"noretreat": {
 		num: 748,
@@ -13095,6 +13596,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "self",
 		type: "Fighting",
+		cfm: false,
 	},
 	"nuzzle": {
 		num: 609,
@@ -13116,6 +13618,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"oblivionwing": {
 		num: 613,
@@ -13136,6 +13639,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"obstruct": {
 		num: 792,
@@ -13195,6 +13699,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "self",
 		type: "Dark",
+		cfm: false,
 	},
 	"oceanicoperetta": {
 		num: 697,
@@ -13214,6 +13719,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"octazooka": {
 		num: 190,
@@ -13236,6 +13742,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"octolock": {
 		num: 753,
@@ -13274,6 +13781,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Fighting",
+		cfm: false,
 	},
 	"odorsleuth": {
 		num: 316,
@@ -13297,6 +13805,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {atk: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"ominouswind": {
 		num: 466,
@@ -13326,6 +13835,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"originpulse": {
 		num: 618,
@@ -13344,6 +13854,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"outrage": {
 		num: 200,
@@ -13370,6 +13881,7 @@ let BattleMovedex = {
 		target: "randomNormal",
 		type: "Dragon",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"overdrive": {
 		num: 786,
@@ -13387,6 +13899,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Electric",
+		cfm: false,
 	},
 	"overheat": {
 		num: 315,
@@ -13410,6 +13923,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"painsplit": {
 		num: 220,
@@ -13438,6 +13952,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {def: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"paleowave": {
 		num: 0,
@@ -13462,6 +13977,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"paraboliccharge": {
 		num: 570,
@@ -13480,6 +13996,7 @@ let BattleMovedex = {
 		target: "allAdjacent",
 		type: "Electric",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"partingshot": {
 		num: 575,
@@ -13506,6 +14023,7 @@ let BattleMovedex = {
 		type: "Dark",
 		zMoveEffect: 'healreplacement',
 		contestType: "Cool",
+		cfm: false,
 	},
 	"payback": {
 		num: 371,
@@ -13531,6 +14049,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"payday": {
 		num: 6,
@@ -13551,6 +14070,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"peck": {
 		num: 64,
@@ -13567,6 +14087,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"perishsong": {
 		num: 195,
@@ -13617,6 +14138,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"petalblizzard": {
 		num: 572,
@@ -13635,6 +14157,7 @@ let BattleMovedex = {
 		target: "allAdjacent",
 		type: "Grass",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"petaldance": {
 		num: 80,
@@ -13660,6 +14183,7 @@ let BattleMovedex = {
 		target: "randomNormal",
 		type: "Grass",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"phantomforce": {
 		num: 566,
@@ -13693,6 +14217,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"photongeyser": {
 		num: 722,
@@ -13715,6 +14240,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"pikapapow": {
 		num: 732,
@@ -13737,6 +14263,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"pinmissile": {
 		num: 42,
@@ -13757,6 +14284,7 @@ let BattleMovedex = {
 		zMovePower: 140,
 		gmaxPower: 130,
 		contestType: "Cool",
+		cfm: false,
 	},
 	"plasmafists": {
 		num: 721,
@@ -13776,6 +14304,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"playnice": {
 		num: 589,
@@ -13797,6 +14326,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {def: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"playrough": {
 		num: 583,
@@ -13820,6 +14350,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"pluck": {
 		num: 365,
@@ -13848,6 +14379,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"poisonfang": {
 		num: 305,
@@ -13868,6 +14400,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"poisongas": {
 		num: 139,
@@ -13887,6 +14420,7 @@ let BattleMovedex = {
 		type: "Poison",
 		zMoveBoost: {def: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"poisonjab": {
 		num: 398,
@@ -13908,6 +14442,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"poisonpowder": {
 		num: 77,
@@ -13927,6 +14462,7 @@ let BattleMovedex = {
 		type: "Poison",
 		zMoveBoost: {def: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"poisonsting": {
 		num: 40,
@@ -13947,6 +14483,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"poisontail": {
 		num: 342,
@@ -13968,6 +14505,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"pollenpuff": {
 		num: 676,
@@ -13995,6 +14533,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"pound": {
 		num: 1,
@@ -14011,6 +14550,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"powder": {
 		num: 600,
@@ -14045,6 +14585,7 @@ let BattleMovedex = {
 		type: "Bug",
 		zMoveBoost: {spd: 2},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"powdersnow": {
 		num: 181,
@@ -14065,6 +14606,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"powergem": {
 		num: 408,
@@ -14082,6 +14624,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"powersplit": {
 		num: 471,
@@ -14109,6 +14652,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spe: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"powerswap": {
 		num: 384,
@@ -14143,6 +14687,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spe: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"powertrick": {
 		num: 379,
@@ -14187,6 +14732,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {atk: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"powertrip": {
 		num: 681,
@@ -14209,6 +14755,7 @@ let BattleMovedex = {
 		zMovePower: 160,
 		gmaxPower: 130,
 		contestType: "Clever",
+		cfm: false,
 	},
 	"poweruppunch": {
 		num: 612,
@@ -14234,6 +14781,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"powerwhip": {
 		num: 438,
@@ -14251,6 +14799,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"precipiceblades": {
 		num: 619,
@@ -14269,6 +14818,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Ground",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"present": {
 		num: 217,
@@ -14298,6 +14848,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"prismaticlaser": {
 		num: 711,
@@ -14318,6 +14869,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"protect": {
 		num: 182,
@@ -14371,6 +14923,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cute",
+		cfm: false,
 	},
 	"psybeam": {
 		num: 60,
@@ -14391,6 +14944,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"psychup": {
 		num: 244,
@@ -14424,6 +14978,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'heal',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"psychic": {
 		num: 94,
@@ -14447,6 +15002,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"psychicfangs": {
 		num: 706,
@@ -14473,6 +15029,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"psychicterrain": {
 		num: 678,
@@ -14535,6 +15092,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spa: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"psychoboost": {
 		num: 354,
@@ -14559,6 +15117,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"psychocut": {
 		num: 427,
@@ -14578,6 +15137,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"psychoshift": {
 		num: 375,
@@ -14605,6 +15165,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spa: 2},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"psyshock": {
 		num: 473,
@@ -14624,6 +15185,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"psystrike": {
 		num: 540,
@@ -14643,6 +15205,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"psywave": {
 		num: 149,
@@ -14664,6 +15227,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"pulverizingpancake": {
 		num: 701,
@@ -14683,6 +15247,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"punishment": {
 		num: 386,
@@ -14708,6 +15273,7 @@ let BattleMovedex = {
 		zMovePower: 160,
 		gmaxPower: 130,
 		contestType: "Cool",
+		cfm: false,
 	},
 	"purify": {
 		num: 685,
@@ -14730,6 +15296,7 @@ let BattleMovedex = {
 		type: "Poison",
 		zMoveBoost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"pursuit": {
 		num: 228,
@@ -14801,6 +15368,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"pyroball": {
 		num: 780,
@@ -14821,6 +15389,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Fire",
+		cfm: false,
 	},
 	"quash": {
 		num: 511,
@@ -14847,6 +15416,7 @@ let BattleMovedex = {
 		type: "Dark",
 		zMoveBoost: {spe: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"quickattack": {
 		num: 98,
@@ -14865,6 +15435,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"quickguard": {
 		num: 501,
@@ -14915,6 +15486,7 @@ let BattleMovedex = {
 		type: "Fighting",
 		zMoveBoost: {def: 1},
 		contestType: "Cool",
+		cfm: false,
 	},
 	"quiverdance": {
 		num: 483,
@@ -14939,6 +15511,7 @@ let BattleMovedex = {
 		type: "Bug",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"rage": {
 		num: 99,
@@ -14975,6 +15548,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"ragepowder": {
 		num: 476,
@@ -15011,6 +15585,7 @@ let BattleMovedex = {
 		type: "Bug",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"raindance": {
 		num: 240,
@@ -15030,6 +15605,7 @@ let BattleMovedex = {
 		type: "Water",
 		zMoveBoost: {spe: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"rapidspin": {
 		num: 229,
@@ -15083,6 +15659,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"razorleaf": {
 		num: 75,
@@ -15101,6 +15678,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Grass",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"razorshell": {
 		num: 534,
@@ -15124,6 +15702,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"razorwind": {
 		num: 13,
@@ -15154,6 +15733,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"recover": {
 		num: 105,
@@ -15174,6 +15754,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"recycle": {
 		num: 278,
@@ -15199,6 +15780,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spe: 2},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"reflect": {
 		num: 115,
@@ -15244,6 +15826,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {def: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"reflecttype": {
 		num: 513,
@@ -15277,6 +15860,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spa: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"refresh": {
 		num: 287,
@@ -15301,6 +15885,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'heal',
 		contestType: "Cute",
+		cfm: false,
 	},
 	"relicsong": {
 		num: 547,
@@ -15332,6 +15917,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"rest": {
 		num: 156,
@@ -15367,6 +15953,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cute",
+		cfm: false,
 	},
 	"retaliate": {
 		num: 514,
@@ -15390,6 +15977,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"return": {
 		num: 216,
@@ -15414,6 +16002,7 @@ let BattleMovedex = {
 		zMovePower: 160,
 		gmaxPower: 130,
 		contestType: "Cute",
+		cfm: false,
 	},
 	"revelationdance": {
 		num: 686,
@@ -15438,6 +16027,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"revenge": {
 		num: 279,
@@ -15465,6 +16055,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"reversal": {
 		num: 179,
@@ -15502,6 +16093,7 @@ let BattleMovedex = {
 		type: "Fighting",
 		zMovePower: 160,
 		contestType: "Cool",
+		cfm: false,
 	},
 	"roar": {
 		num: 46,
@@ -15522,6 +16114,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {def: 1},
 		contestType: "Cool",
+		cfm: false,
 	},
 	"roaroftime": {
 		num: 459,
@@ -15543,6 +16136,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"rockblast": {
 		num: 350,
@@ -15564,6 +16158,7 @@ let BattleMovedex = {
 		zMovePower: 140,
 		gmaxPower: 130,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"rockclimb": {
 		num: 431,
@@ -15585,6 +16180,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"rockpolish": {
 		num: 397,
@@ -15607,6 +16203,7 @@ let BattleMovedex = {
 		type: "Rock",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Tough",
+		cfm: false,
 	},
 	"rockslide": {
 		num: 157,
@@ -15628,6 +16225,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Rock",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"rocksmash": {
 		num: 249,
@@ -15650,6 +16248,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"rockthrow": {
 		num: 88,
@@ -15666,6 +16265,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"rocktomb": {
 		num: 317,
@@ -15688,6 +16288,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"rockwrecker": {
 		num: 439,
@@ -15708,6 +16309,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"roleplay": {
 		num: 272,
@@ -15741,6 +16343,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spe: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"rollingkick": {
 		num: 27,
@@ -15762,6 +16365,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"rollout": {
 		num: 205,
@@ -15810,6 +16414,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"roost": {
 		num: 355,
@@ -15845,6 +16450,7 @@ let BattleMovedex = {
 		type: "Flying",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"rototiller": {
 		num: 563,
@@ -15883,6 +16489,7 @@ let BattleMovedex = {
 		type: "Ground",
 		zMoveBoost: {atk: 1},
 		contestType: "Tough",
+		cfm: false,
 	},
 	"round": {
 		num: 496,
@@ -15918,6 +16525,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"sacredfire": {
 		num: 221,
@@ -15940,6 +16548,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"sacredsword": {
 		num: 533,
@@ -15960,6 +16569,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"safeguard": {
 		num: 219,
@@ -16017,6 +16627,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spe: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"sandattack": {
 		num: 28,
@@ -16038,6 +16649,7 @@ let BattleMovedex = {
 		type: "Ground",
 		zMoveBoost: {evasion: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"sandstorm": {
 		num: 201,
@@ -16057,6 +16669,7 @@ let BattleMovedex = {
 		type: "Rock",
 		zMoveBoost: {spe: 1},
 		contestType: "Tough",
+		cfm: false,
 	},
 	"sandtomb": {
 		num: 328,
@@ -16075,6 +16688,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"sappyseed": {
 		num: 738,
@@ -16098,6 +16712,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"savagespinout": {
 		num: 634,
@@ -16116,6 +16731,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"scald": {
 		num: 503,
@@ -16138,6 +16754,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"scaryface": {
 		num: 184,
@@ -16159,6 +16776,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spe: 1},
 		contestType: "Tough",
+		cfm: false,
 	},
 	"scratch": {
 		num: 10,
@@ -16175,6 +16793,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"screech": {
 		num: 103,
@@ -16196,6 +16815,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {atk: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"searingshot": {
 		num: 545,
@@ -16218,6 +16838,7 @@ let BattleMovedex = {
 		target: "allAdjacent",
 		type: "Fire",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"searingsunrazesmash": {
 		num: 724,
@@ -16239,6 +16860,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"secretpower": {
 		num: 290,
@@ -16289,6 +16911,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"secretsword": {
 		num: 548,
@@ -16308,6 +16931,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"seedbomb": {
 		num: 402,
@@ -16325,6 +16949,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"seedflare": {
 		num: 465,
@@ -16348,6 +16973,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"seismictoss": {
 		num: 69,
@@ -16368,6 +16994,7 @@ let BattleMovedex = {
 		type: "Fighting",
 		gmaxPower: 75,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"selfdestruct": {
 		num: 120,
@@ -16386,6 +17013,7 @@ let BattleMovedex = {
 		target: "allAdjacent",
 		type: "Normal",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"shadowball": {
 		num: 247,
@@ -16409,6 +17037,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"shadowbone": {
 		num: 708,
@@ -16433,6 +17062,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"shadowclaw": {
 		num: 421,
@@ -16452,6 +17082,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"shadowforce": {
 		num: 467,
@@ -16487,6 +17118,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"shadowpunch": {
 		num: 325,
@@ -16504,6 +17136,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"shadowsneak": {
 		num: 425,
@@ -16522,6 +17155,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"shadowstrike": {
 		num: 0,
@@ -16546,6 +17180,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"sharpen": {
 		num: 159,
@@ -16568,6 +17203,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {atk: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"shatteredpsyche": {
 		num: 648,
@@ -16586,6 +17222,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"sheercold": {
 		num: 329,
@@ -16606,6 +17243,7 @@ let BattleMovedex = {
 		zMovePower: 180,
 		gmaxPower: 130,
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"shellsmash": {
 		num: 504,
@@ -16632,6 +17270,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Tough",
+		cfm: false,
 	},
 	"shelltrap": {
 		num: 704,
@@ -16674,6 +17313,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Fire",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"shiftgear": {
 		num: 508,
@@ -16697,6 +17337,7 @@ let BattleMovedex = {
 		type: "Steel",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"shockwave": {
 		num: 351,
@@ -16713,6 +17354,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"shoreup": {
 		num: 659,
@@ -16739,6 +17381,7 @@ let BattleMovedex = {
 		type: "Ground",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"signalbeam": {
 		num: 324,
@@ -16761,6 +17404,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"silverwind": {
 		num: 318,
@@ -16790,6 +17434,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"simplebeam": {
 		num: 493,
@@ -16822,6 +17467,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spa: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"sing": {
 		num: 47,
@@ -16840,6 +17486,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spe: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"sinisterarrowraid": {
 		num: 695,
@@ -16859,6 +17506,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"sizzlyslide": {
 		num: 735,
@@ -16881,6 +17529,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"sketch": {
 		num: 166,
@@ -16921,6 +17570,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"skillswap": {
 		num: 285,
@@ -16964,6 +17614,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spe: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"skullbash": {
 		num: 130,
@@ -16993,6 +17644,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"skyattack": {
 		num: 143,
@@ -17025,6 +17677,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"skydrop": {
 		num: 507,
@@ -17135,6 +17788,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"skyuppercut": {
 		num: 327,
@@ -17153,6 +17807,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"slackoff": {
 		num: 303,
@@ -17173,6 +17828,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cute",
+		cfm: false,
 	},
 	"slam": {
 		num: 21,
@@ -17189,6 +17845,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"slash": {
 		num: 163,
@@ -17207,6 +17864,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"sleeppowder": {
 		num: 79,
@@ -17226,6 +17884,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMoveBoost: {spe: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"sleeptalk": {
 		num: 214,
@@ -17270,6 +17929,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'crit2',
 		contestType: "Cute",
+		cfm: false,
 	},
 	"sludge": {
 		num: 124,
@@ -17290,6 +17950,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"sludgebomb": {
 		num: 188,
@@ -17311,6 +17972,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"sludgewave": {
 		num: 482,
@@ -17332,6 +17994,7 @@ let BattleMovedex = {
 		target: "allAdjacent",
 		type: "Poison",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"smackdown": {
 		num: 479,
@@ -17380,6 +18043,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"smartstrike": {
 		num: 684,
@@ -17396,6 +18060,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"smellingsalts": {
 		num: 265,
@@ -17421,6 +18086,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"smog": {
 		num: 123,
@@ -17441,6 +18107,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"smokescreen": {
 		num: 108,
@@ -17462,6 +18129,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {evasion: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"snaptrap": {
 		num: 779,
@@ -17479,6 +18147,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Grass",
+		cfm: false,
 	},
 	"snarl": {
 		num: 555,
@@ -17501,6 +18170,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Dark",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"snatch": {
 		num: 289,
@@ -17539,6 +18209,7 @@ let BattleMovedex = {
 		type: "Dark",
 		zMoveBoost: {spe: 2},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"snipeshot": {
 		num: 745,
@@ -17557,6 +18228,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Water",
+		cfm: false,
 	},
 	"snore": {
 		num: 173,
@@ -17581,6 +18253,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"soak": {
 		num: 487,
@@ -17608,6 +18281,7 @@ let BattleMovedex = {
 		type: "Water",
 		zMoveBoost: {spa: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"softboiled": {
 		num: 135,
@@ -17628,6 +18302,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cute",
+		cfm: false,
 	},
 	"solarbeam": {
 		num: 76,
@@ -17667,6 +18342,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"solarblade": {
 		num: 669,
@@ -17706,6 +18382,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"sonicboom": {
 		num: 49,
@@ -17725,6 +18402,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"soulstealing7starstrike": {
 		num: 699,
@@ -17744,6 +18422,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"spacialrend": {
 		num: 460,
@@ -17764,6 +18443,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"spark": {
 		num: 209,
@@ -17784,6 +18464,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"sparklingaria": {
 		num: 664,
@@ -17807,6 +18488,7 @@ let BattleMovedex = {
 		target: "allAdjacent",
 		type: "Water",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"sparklyswirl": {
 		num: 740,
@@ -17837,6 +18519,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"spectralthief": {
 		num: 712,
@@ -17857,6 +18540,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"speedswap": {
 		num: 683,
@@ -17881,6 +18565,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spe: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"spiderweb": {
 		num: 169,
@@ -17903,6 +18588,7 @@ let BattleMovedex = {
 		type: "Bug",
 		zMoveBoost: {def: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"spikecannon": {
 		num: 131,
@@ -17923,6 +18609,7 @@ let BattleMovedex = {
 		type: "Normal",
 		gmaxPower: 120,
 		contestType: "Cool",
+		cfm: false,
 	},
 	"spikes": {
 		num: 191,
@@ -17961,6 +18648,7 @@ let BattleMovedex = {
 		type: "Ground",
 		zMoveBoost: {def: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"spikyshield": {
 		num: 596,
@@ -18022,6 +18710,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMoveBoost: {def: 1},
 		contestType: "Tough",
+		cfm: false,
 	},
 	"spiritbreak": {
 		num: 789,
@@ -18044,6 +18733,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Fairy",
+		cfm: false,
 	},
 	"spiritshackle": {
 		num: 662,
@@ -18067,6 +18757,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"spitup": {
 		num: 255,
@@ -18096,6 +18787,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"spite": {
 		num: 180,
@@ -18123,6 +18815,7 @@ let BattleMovedex = {
 		type: "Ghost",
 		zMoveEffect: 'heal',
 		contestType: "Tough",
+		cfm: false,
 	},
 	"splash": {
 		num: 150,
@@ -18143,6 +18836,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {atk: 3},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"splinteredstormshards": {
 		num: 727,
@@ -18166,6 +18860,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"splishysplash": {
 		num: 730,
@@ -18188,6 +18883,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"spore": {
 		num: 147,
@@ -18207,6 +18903,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"spotlight": {
 		num: 671,
@@ -18242,6 +18939,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spd: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"stealthrock": {
 		num: 446,
@@ -18273,6 +18971,7 @@ let BattleMovedex = {
 		type: "Rock",
 		zMoveBoost: {def: 1},
 		contestType: "Cool",
+		cfm: false,
 	},
 	"steameruption": {
 		num: 592,
@@ -18296,6 +18995,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"steamroller": {
 		num: 537,
@@ -18317,6 +19017,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"steelbeam": {
 		num: 796,
@@ -18340,6 +19041,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Steel",
+		cfm: false,
 	},
 	"steelwing": {
 		num: 211,
@@ -18364,6 +19066,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"stickyweb": {
 		num: 564,
@@ -18395,6 +19098,7 @@ let BattleMovedex = {
 		type: "Bug",
 		zMoveBoost: {spe: 1},
 		contestType: "Tough",
+		cfm: false,
 	},
 	"stockpile": {
 		num: 254,
@@ -18453,6 +19157,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'heal',
 		contestType: "Tough",
+		cfm: false,
 	},
 	"stokedsparksurfer": {
 		num: 700,
@@ -18476,6 +19181,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"stomp": {
 		num: 23,
@@ -18496,6 +19202,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"stompingtantrum": {
 		num: 707,
@@ -18517,6 +19224,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"stoneedge": {
 		num: 444,
@@ -18536,6 +19244,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"storedpower": {
 		num: 500,
@@ -18558,6 +19267,7 @@ let BattleMovedex = {
 		zMovePower: 160,
 		gmaxPower: 130,
 		contestType: "Clever",
+		cfm: false,
 	},
 	"stormthrow": {
 		num: 480,
@@ -18577,6 +19287,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"strangesteam": {
 		num: 790,
@@ -18597,6 +19308,7 @@ let BattleMovedex = {
 		},
 		target: "normal",
 		type: "Fairy",
+		cfm: false,
 	},
 	"strength": {
 		num: 70,
@@ -18613,6 +19325,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"strengthsap": {
 		num: 668,
@@ -18638,6 +19351,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMoveBoost: {def: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"stringshot": {
 		num: 81,
@@ -18659,6 +19373,7 @@ let BattleMovedex = {
 		type: "Bug",
 		zMoveBoost: {spe: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"struggle": {
 		num: 165,
@@ -18684,6 +19399,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMovePower: 1,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"strugglebug": {
 		num: 522,
@@ -18706,6 +19422,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Bug",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"stuffcheeks": {
 		num: 747,
@@ -18730,6 +19447,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "self",
 		type: "Normal",
+		cfm: false,
 	},
 	"stunspore": {
 		num: 78,
@@ -18749,6 +19467,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMoveBoost: {spd: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"submission": {
 		num: 66,
@@ -18767,6 +19486,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"substitute": {
 		num: 164,
@@ -18848,6 +19568,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cute",
+		cfm: false,
 	},
 	"subzeroslammer": {
 		num: 650,
@@ -18866,6 +19587,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"suckerpunch": {
 		num: 389,
@@ -18892,6 +19614,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"sunnyday": {
 		num: 241,
@@ -18911,6 +19634,7 @@ let BattleMovedex = {
 		type: "Fire",
 		zMoveBoost: {spe: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"sunsteelstrike": {
 		num: 713,
@@ -18930,6 +19654,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"superfang": {
 		num: 162,
@@ -18950,6 +19675,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"superpower": {
 		num: 276,
@@ -18974,6 +19700,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"supersonic": {
 		num: 48,
@@ -18992,6 +19719,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spe: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"supersonicskystrike": {
 		num: 626,
@@ -19010,6 +19738,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"surf": {
 		num: 57,
@@ -19028,6 +19757,7 @@ let BattleMovedex = {
 		target: "allAdjacent",
 		type: "Water",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"swagger": {
 		num: 207,
@@ -19050,6 +19780,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Cute",
+		cfm: false,
 	},
 	"swallow": {
 		num: 256,
@@ -19077,6 +19808,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Tough",
+		cfm: false,
 	},
 	"sweetkiss": {
 		num: 186,
@@ -19095,6 +19827,7 @@ let BattleMovedex = {
 		type: "Fairy",
 		zMoveBoost: {spa: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"sweetscent": {
 		num: 230,
@@ -19116,6 +19849,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {accuracy: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"swift": {
 		num: 129,
@@ -19133,6 +19867,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"switcheroo": {
 		num: 415,
@@ -19182,6 +19917,7 @@ let BattleMovedex = {
 		type: "Dark",
 		zMoveBoost: {spe: 2},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"swordsdance": {
 		num: 14,
@@ -19204,6 +19940,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"synchronoise": {
 		num: 485,
@@ -19225,6 +19962,7 @@ let BattleMovedex = {
 		target: "allAdjacent",
 		type: "Psychic",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"synthesis": {
 		num: 235,
@@ -19260,6 +19998,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"tackle": {
 		num: 33,
@@ -19276,6 +20015,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"tailglow": {
 		num: 294,
@@ -19299,6 +20039,7 @@ let BattleMovedex = {
 		type: "Bug",
 		zMoveEffect: 'clearnegativeboost',
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"tailslap": {
 		num: 541,
@@ -19320,6 +20061,7 @@ let BattleMovedex = {
 		zMovePower: 140,
 		gmaxPower: 130,
 		contestType: "Cute",
+		cfm: false,
 	},
 	"tailwhip": {
 		num: 39,
@@ -19341,6 +20083,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {atk: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"tailwind": {
 		num: 366,
@@ -19382,6 +20125,7 @@ let BattleMovedex = {
 		type: "Flying",
 		zMoveEffect: 'crit2',
 		contestType: "Cool",
+		cfm: false,
 	},
 	"takedown": {
 		num: 36,
@@ -19400,6 +20144,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"tarshot": {
 		num: 749,
@@ -19431,6 +20176,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "normal",
 		type: "Rock",
+		cfm: false,
 	},
 	"taunt": {
 		num: 269,
@@ -19478,6 +20224,7 @@ let BattleMovedex = {
 		type: "Dark",
 		zMoveBoost: {atk: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"tearfullook": {
 		num: 715,
@@ -19500,6 +20247,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {def: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"teatime": {
 		num: 752,
@@ -19533,6 +20281,7 @@ let BattleMovedex = {
 		secondary: null,
 		target: "all",
 		type: "Normal",
+		cfm: false,
 	},
 	"technoblast": {
 		num: 546,
@@ -19555,6 +20304,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"tectonicrage": {
 		num: 630,
@@ -19573,6 +20323,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"teeterdance": {
 		num: 298,
@@ -19592,6 +20343,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spa: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"telekinesis": {
 		num: 477,
@@ -19641,6 +20393,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spa: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"teleport": {
 		num: 100,
@@ -19661,6 +20414,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveEffect: 'heal',
 		contestType: "Cool",
+		cfm: false,
 	},
 	"thief": {
 		num: 168,
@@ -19693,6 +20447,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"thousandarrows": {
 		num: 614,
@@ -19723,6 +20478,7 @@ let BattleMovedex = {
 		type: "Ground",
 		zMovePower: 180,
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"thousandwaves": {
 		num: 615,
@@ -19745,6 +20501,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Ground",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"thrash": {
 		num: 37,
@@ -19770,6 +20527,7 @@ let BattleMovedex = {
 		target: "randomNormal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"throatchop": {
 		num: 675,
@@ -19817,6 +20575,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"thunder": {
 		num: 87,
@@ -19850,6 +20609,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"thunderbolt": {
 		num: 85,
@@ -19871,6 +20631,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"thunderfang": {
 		num: 422,
@@ -19896,6 +20657,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"thunderpunch": {
 		num: 9,
@@ -19917,6 +20679,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"thundershock": {
 		num: 84,
@@ -19937,6 +20700,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"thunderwave": {
 		num: 86,
@@ -19958,6 +20722,7 @@ let BattleMovedex = {
 		type: "Electric",
 		zMoveBoost: {spd: 1},
 		contestType: "Cool",
+		cfm: false,
 	},
 	"tickle": {
 		num: 321,
@@ -19980,6 +20745,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {def: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"topsyturvy": {
 		num: 576,
@@ -20010,6 +20776,7 @@ let BattleMovedex = {
 		type: "Dark",
 		zMoveBoost: {atk: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"torment": {
 		num: 259,
@@ -20045,6 +20812,7 @@ let BattleMovedex = {
 		type: "Dark",
 		zMoveBoost: {def: 1},
 		contestType: "Tough",
+		cfm: false,
 	},
 	"toxic": {
 		num: 92,
@@ -20066,6 +20834,7 @@ let BattleMovedex = {
 		type: "Poison",
 		zMoveBoost: {def: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"toxicspikes": {
 		num: 390,
@@ -20111,6 +20880,7 @@ let BattleMovedex = {
 		type: "Poison",
 		zMoveBoost: {def: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"toxicthread": {
 		num: 672,
@@ -20134,6 +20904,7 @@ let BattleMovedex = {
 		type: "Poison",
 		zMoveBoost: {spe: 1},
 		contestType: "Tough",
+		cfm: false,
 	},
 	"transform": {
 		num: 144,
@@ -20157,6 +20928,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveEffect: 'heal',
 		contestType: "Clever",
+		cfm: false,
 	},
 	"triattack": {
 		num: 161,
@@ -20187,6 +20959,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"trick": {
 		num: 271,
@@ -20236,6 +21009,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spe: 2},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"trickortreat": {
 		num: 567,
@@ -20267,6 +21041,7 @@ let BattleMovedex = {
 		type: "Ghost",
 		zMoveBoost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"trickroom": {
 		num: 433,
@@ -20307,6 +21082,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {accuracy: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"triplekick": {
 		num: 167,
@@ -20331,6 +21107,7 @@ let BattleMovedex = {
 		zMovePower: 120,
 		gmaxPower: 80,
 		contestType: "Cool",
+		cfm: false,
 	},
 	"tropkick": {
 		num: 688,
@@ -20353,6 +21130,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"trumpcard": {
 		num: 376,
@@ -20391,6 +21169,7 @@ let BattleMovedex = {
 		zMovePower: 160,
 		gmaxPower: 130,
 		contestType: "Cool",
+		cfm: false,
 	},
 	"twineedle": {
 		num: 41,
@@ -20414,6 +21193,7 @@ let BattleMovedex = {
 		type: "Bug",
 		gmaxPower: 100,
 		contestType: "Cool",
+		cfm: false,
 	},
 	"twinkletackle": {
 		num: 656,
@@ -20432,6 +21212,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"twister": {
 		num: 239,
@@ -20452,6 +21233,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Dragon",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"uturn": {
 		num: 369,
@@ -20471,6 +21253,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"uproar": {
 		num: 253,
@@ -20525,6 +21308,7 @@ let BattleMovedex = {
 		target: "randomNormal",
 		type: "Normal",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"vacuumwave": {
 		num: 410,
@@ -20542,6 +21326,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"vcreate": {
 		num: 557,
@@ -20568,6 +21353,7 @@ let BattleMovedex = {
 		type: "Fire",
 		zMovePower: 220,
 		contestType: "Cool",
+		cfm: false,
 	},
 	"veeveevolley": {
 		num: 741,
@@ -20590,6 +21376,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"venomdrench": {
 		num: 599,
@@ -20614,6 +21401,7 @@ let BattleMovedex = {
 		type: "Poison",
 		zMoveBoost: {def: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"venoshock": {
 		num: 474,
@@ -20636,6 +21424,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"vinewhip": {
 		num: 22,
@@ -20652,6 +21441,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"visegrip": {
 		num: 11,
@@ -20668,6 +21458,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"vitalthrow": {
 		num: 233,
@@ -20685,6 +21476,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"voltswitch": {
 		num: 521,
@@ -20704,6 +21496,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"volttackle": {
 		num: 344,
@@ -20726,6 +21519,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"wakeupslap": {
 		num: 358,
@@ -20751,6 +21545,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"waterfall": {
 		num: 127,
@@ -20772,6 +21567,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"watergun": {
 		num: 55,
@@ -20788,6 +21584,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Cute",
+		cfm: false,
 	},
 	"waterpledge": {
 		num: 518,
@@ -20856,6 +21653,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"waterpulse": {
 		num: 352,
@@ -20876,6 +21674,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Water",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"watershuriken": {
 		num: 594,
@@ -20901,6 +21700,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"watersport": {
 		num: 346,
@@ -20938,6 +21738,7 @@ let BattleMovedex = {
 		type: "Water",
 		zMoveBoost: {spd: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"waterspout": {
 		num: 323,
@@ -20959,6 +21760,7 @@ let BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"weatherball": {
 		num: 311,
@@ -21014,6 +21816,7 @@ let BattleMovedex = {
 		zMovePower: 160,
 		gmaxPower: 130,
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"whirlpool": {
 		num: 250,
@@ -21032,6 +21835,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"whirlwind": {
 		num: 18,
@@ -21052,6 +21856,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spd: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"wideguard": {
 		num: 469,
@@ -21103,6 +21908,7 @@ let BattleMovedex = {
 		type: "Rock",
 		zMoveBoost: {def: 1},
 		contestType: "Tough",
+		cfm: false,
 	},
 	"wildcharge": {
 		num: 528,
@@ -21122,6 +21928,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"willowisp": {
 		num: 261,
@@ -21142,6 +21949,7 @@ let BattleMovedex = {
 		type: "Fire",
 		zMoveBoost: {atk: 1},
 		contestType: "Beautiful",
+		cfm: false,
 	},
 	"wingattack": {
 		num: 17,
@@ -21158,6 +21966,7 @@ let BattleMovedex = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"wish": {
 		num: 273,
@@ -21191,6 +22000,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spd: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"withdraw": {
 		num: 110,
@@ -21212,6 +22022,7 @@ let BattleMovedex = {
 		type: "Water",
 		zMoveBoost: {def: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"wonderroom": {
 		num: 472,
@@ -21252,6 +22063,7 @@ let BattleMovedex = {
 		type: "Psychic",
 		zMoveBoost: {spd: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"woodhammer": {
 		num: 452,
@@ -21271,6 +22083,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"workup": {
 		num: 526,
@@ -21293,6 +22106,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {atk: 1},
 		contestType: "Tough",
+		cfm: false,
 	},
 	"worryseed": {
 		num: 388,
@@ -21328,6 +22142,7 @@ let BattleMovedex = {
 		type: "Grass",
 		zMoveBoost: {spe: 1},
 		contestType: "Clever",
+		cfm: false,
 	},
 	"wrap": {
 		num: 35,
@@ -21346,6 +22161,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: false,
 	},
 	"wringout": {
 		num: 378,
@@ -21369,6 +22185,7 @@ let BattleMovedex = {
 		zMovePower: 190,
 		gmaxPower: 140,
 		contestType: "Tough",
+		cfm: false,
 	},
 	"xscissor": {
 		num: 404,
@@ -21386,6 +22203,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"yawn": {
 		num: 281,
@@ -21422,6 +22240,7 @@ let BattleMovedex = {
 		type: "Normal",
 		zMoveBoost: {spe: 1},
 		contestType: "Cute",
+		cfm: false,
 	},
 	"zapcannon": {
 		num: 192,
@@ -21442,6 +22261,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"zenheadbutt": {
 		num: 428,
@@ -21463,6 +22283,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		cfm: false,
 	},
 	"zingzap": {
 		num: 716,
@@ -21484,6 +22305,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 	"zippyzap": {
 		num: 729,
@@ -21510,6 +22332,7 @@ let BattleMovedex = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: false,
 	},
 };
 
