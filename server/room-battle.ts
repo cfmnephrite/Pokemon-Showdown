@@ -161,6 +161,23 @@ export class RoomBattlePlayer extends RoomGames.RoomGamePlayer {
 	}
 }
 
+export class CFMTutorial {
+	readonly battle: RoomBattle;
+	requesters: ID[];
+	constructor(battle: RoomBattle) {
+		this.battle = battle;
+		this.requesters = [];
+	}
+	start(requester: User) {
+		if (this.requesters.includes(requester.id)) return false;
+		this.requesters.push(requester.id);
+		this.battle.playerTable[requester.id].sendRoom(
+			`|inactive|CFM Tutorial mode ON!`
+		);
+	}
+
+}
+
 export class RoomBattleTimer {
 	readonly battle: RoomBattle;
 	readonly timerRequesters: Set<ID>;
@@ -468,6 +485,7 @@ export class RoomBattle extends RoomGames.RoomGame {
 	readonly allowExtraction: {[k: string]: Set<ID>};
 	readonly stream: Streams.ObjectReadWriteStream<string>;
 	readonly timer: RoomBattleTimer;
+	readonly cfmTutorial: CFMTutorial;
 	missingBattleStartMessage: boolean;
 	started: boolean;
 	ended: boolean;
@@ -567,6 +585,7 @@ export class RoomBattle extends RoomGames.RoomGame {
 			this.addPlayer(options.p4, options.p4team || '', options.p4rating);
 		}
 		this.timer = new RoomBattleTimer(this);
+		this.cfmTutorial = new CFMTutorial(this);
 		if (Config.forcetimer || this.format.includes('blitz')) this.timer.start();
 		this.start();
 	}
