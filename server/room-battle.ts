@@ -172,7 +172,14 @@ export class CFMTutorial {
 		if (this.requesters.includes(requester.id)) return false;
 		this.requesters.push(requester.id);
 		this.battle.playerTable[requester.id].sendRoom(
-			`|inactive|CFM Tutorial mode ON!`
+			`|raw|<b>CFM Tutorial mode ON!</b>`
+		);
+	}
+	stop(requester: User) {
+		if (!this.requesters.includes(requester.id)) return false;
+		this.requesters.splice(this.requesters.indexOf(requester.id, 1));
+		this.battle.playerTable[requester.id].sendRoom(
+			`|raw|<b>CFM Tutorial mode OFF!</b>`
 		);
 	}
 

@@ -1783,7 +1783,7 @@ export const Chat = new class {
 		const basePP = move.pp || 1;
 		const pp = Math.floor(move.noPPBoosts ? basePP : basePP * 8 / 5);
 		buf += `<span class="col pplabelcol"><em>PP</em><br>${pp}</span> `;
-		buf += `<span class="col movedesccol">${move.shortDesc || move.desc}</span> `;
+		buf += `</li><li style="font-size: 8pt; padding-top: 8px; padding-bottom: 8px">${move.shortDesc || move.desc}`;
 		buf += `</li><li style="clear:both"></li></ul>`;
 		return buf;
 	}

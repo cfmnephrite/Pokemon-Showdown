@@ -1204,7 +1204,17 @@ export const commands: ChatCommands = {
 			return this.errorReply(`You can only set CFM tutorial mode inside a CFM battle room.`);
 		}
 		const cfmTutorial = room.battle.cfmTutorial;
-		cfmTutorial.start(user);
+		if (target && this.meansNo(target)) {
+			if (!cfmTutorial.requesters.includes(user.id)) {
+				return this.errorReply(`CFM Tutorial Mode is already OFF.`);
+			} else
+				cfmTutorial.stop(user);
+		} else if (!target || this.meansYes(target)) {
+			if (cfmTutorial.requesters.includes(user.id)) {
+				return this.errorReply(`CFM Tutorial Mode is already ON.`);
+			} else
+				cfmTutorial.start(user);
+		}
 	},
 
 	/*********************************************************
