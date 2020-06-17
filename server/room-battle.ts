@@ -163,26 +163,25 @@ export class RoomBattlePlayer extends RoomGames.RoomGamePlayer {
 
 export class CFMTutorial {
 	readonly battle: RoomBattle;
-	requesters: ID[];
+	requesters: User[];
 	constructor(battle: RoomBattle) {
 		this.battle = battle;
 		this.requesters = [];
 	}
 	start(requester: User) {
-		if (this.requesters.includes(requester.id)) return false;
-		this.requesters.push(requester.id);
+		if (this.requesters.includes(requester)) return false;
+		this.requesters.push(requester);
 		this.battle.playerTable[requester.id].sendRoom(
 			`|raw|<b>CFM Tutorial mode ON!</b>`
 		);
 	}
 	stop(requester: User) {
-		if (!this.requesters.includes(requester.id)) return false;
-		this.requesters.splice(this.requesters.indexOf(requester.id, 1));
+		if (!this.requesters.includes(requester)) return false;
+		this.requesters.splice(this.requesters.indexOf(requester, 1));
 		this.battle.playerTable[requester.id].sendRoom(
 			`|raw|<b>CFM Tutorial mode OFF!</b>`
 		);
 	}
-
 }
 
 export class RoomBattleTimer {
@@ -792,6 +791,12 @@ export class RoomBattle extends RoomGames.RoomGame {
 			if (player) player.sendRoom(lines[2]);
 			break;
 		}
+
+		case 'tutorial':
+			for(const user of this.cfmTutorial.requesters) {
+				Chat.parse(`/dt ${lines[1]}`, this.room, user, user.connections[0]);
+			}
+			break;
 
 		case 'end':
 			this.logData = JSON.parse(lines[1]);
