@@ -3,9 +3,11 @@
 /** @typedef {import('../sim/prng').PRNG} PRNG */
 
 /** @type {typeof import('../sim/dex').Dex} */
-const Dex = require(/** @type {any} */ ('../.sim-dist/dex')).Dex;
+const Dex = require(/** @type {any} */ ('../../../.sim-dist/dex')).Dex;
 /** @type {typeof import('../sim/prng').PRNG} */
-const PRNG = require(/** @type {any} */ ('../.sim-dist/prng')).PRNG;
+const PRNG = require(/** @type {any} */ ('../../../.sim-dist/prng')).PRNG;
+
+const TeamValidator = require('../../../.sim-dist/team-validator').TeamValidator;
 
 /**
  * @typedef {Object} TeamData
@@ -31,6 +33,8 @@ class RandomTeams {
 		format = Dex.getFormat(format);
 		this.dex = Dex.forFormat(format);
 		this.gen = this.dex.gen;
+		// @ts-ignore
+		this.randomCFMFactorySets = require('./cfm-factory-sets.json');
 		// this.randomFactorySets = randomFactorySets;
 		// this.randomBSSFactorySets = randomBSSFactorySets;
 
@@ -1554,6 +1558,283 @@ class RandomTeams {
 
 		return pokemon;
 	}
+
+	/**
+	 * @param {Species} species
+	 * @param {number} slot
+	 * @param {RandomTeamsTypes.FactoryTeamDetails} teamData
+	 * @param {string} tier
+	 * @return {RandomTeamsTypes.RandomFactorySet | false}
+	 */
+	randomCFMFactorySet(species, slot, teamData, tier) {
+		let id = toID(species.name);
+		// let flags = this.randomFactorySets[tier][id].flags;
+		let setList = this.randomCFMFactorySets[tier][id].sets;
+
+		/**@type {{[k: string]: number}} */
+		let itemsMax = {'choicespecs': 1, 'choiceband': 1, 'choicescarf': 1};
+		/**@type {{[k: string]: number}} */
+		let movesMax = {'rapidspin': 1, 'batonpass': 1, 'stealthrock': 1, 'defog': 1, 'spikes': 1, 'toxicspikes': 1};
+		let requiredMoves = {'stealthrock': 'hazardSet', 'rapidspin': 'hazardClear', 'defog': 'hazardClear'};
+		let weatherAbilitiesRequire = {
+			'hydration': 'raindance', 'swiftswim': 'raindance',
+			'leafguard': 'sunnyday', 'solarpower': 'sunnyday', 'chlorophyll': 'sunnyday',
+			'sandforce': 'sandstorm', 'sandrush': 'sandstorm', 'sandveil': 'sandstorm',
+			'slushrush': 'hail', 'snowcloak': 'hail',
+		};
+		let weatherAbilities = ['drizzle', 'drought', 'snowwarning', 'sandstream'];
+
+		// Build a pool of eligible sets, given the team partners
+		// Also keep track of sets with moves the team requires
+		/**@type {{set: AnyObject, moveVariants?: number[]}[]} */
+		let effectivePool = [];
+		let priorityPool = [];
+		for (const curSet of setList) {
+			let item = this.dex.getItem(curSet.item);
+			if (teamData.megaCount > 0 && item.megaStone) continue; // reject 2+ mega stones
+			if (teamData.zCount && teamData.zCount > 0 && item.zMove) continue; // reject 2+ Z stones
+			if (itemsMax[item.id] && teamData.has[item.id] >= itemsMax[item.id]) continue;
+
+			let ability = this.dex.getAbility(curSet.ability);
+			// @ts-ignore
+			if (weatherAbilitiesRequire[ability.id] && teamData.weather !== weatherAbilitiesRequire[ability.id]) continue;
+			if (teamData.weather && weatherAbilities.includes(ability.id)) continue; // reject 2+ weather setters
+
+			let reject = false;
+			let hasRequiredMove = false;
+			let curSetVariants = [];
+			for (const move of curSet.moves) {
+				let variantIndex = this.random(move.length);
+				let moveId = toID(move[variantIndex]);
+				if (movesMax[moveId] && teamData.has[moveId] >= movesMax[moveId]) {
+					reject = true;
+					break;
+				}
+				// @ts-ignore
+				if (requiredMoves[moveId] && !teamData.has[requiredMoves[moveId]]) {
+					hasRequiredMove = true;
+				}
+				curSetVariants.push(variantIndex);
+			}
+			if (reject) continue;
+			effectivePool.push({set: curSet, moveVariants: curSetVariants});
+			if (hasRequiredMove) priorityPool.push({set: curSet, moveVariants: curSetVariants});
+		}
+		if (priorityPool.length) effectivePool = priorityPool;
+
+		if (!effectivePool.length) {
+			if (!teamData.forceResult) return false;
+			for (const curSet of setList) {
+				effectivePool.push({set: curSet});
+			}
+		}
+
+		let setData = this.sample(effectivePool);
+		let moves = [];
+		for (const [i, moveSlot] of setData.set.moves.entries()) {
+			moves.push(setData.moveVariants ? moveSlot[setData.moveVariants[i]] : this.sample(moveSlot));
+		}
+
+		let item = Array.isArray(setData.set.item) ? this.sample(setData.set.item) : setData.set.item;
+		let ability = Array.isArray(setData.set.ability) ? this.sample(setData.set.ability) : setData.set.ability;
+		let nature = Array.isArray(setData.set.nature) ? this.sample(setData.set.nature) : setData.set.nature;
+
+		return {
+			name: setData.set.name || species.baseSpecies,
+			species: setData.set.species,
+			gender: setData.set.gender || species.gender || (this.randomChance(1, 2) ? 'M' : 'F'),
+			item: item || '',
+			ability: ability || species.abilities['0'],
+			shiny: typeof setData.set.shiny === 'undefined' ? this.randomChance(1, 1024) : setData.set.shiny,
+			level: setData.set.level ? setData.set.level : tier === "LC" ? 5 : 100,
+			happiness: typeof setData.set.happiness === 'undefined' ? 255 : setData.set.happiness,
+			evs: Object.assign({hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0}, setData.set.evs),
+			ivs: Object.assign({hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31}, setData.set.ivs),
+			nature: nature || 'Serious',
+			moves: moves,
+		};
+	}
+
+	/**
+	 * @param {PlayerOptions} [side]
+	 * @param {number} [depth]
+	 * @return {RandomTeamsTypes.RandomFactorySet[]}
+	 */
+	randomCFMFactoryTeam(side, depth = 0) {
+		let forceResult = (depth >= 4);
+
+		// The teams generated depend on the tier choice in such a way that
+		// no exploitable information is leaked from rolling the tier in getTeam(p1).
+		let availableTiers = ['Uber', 'OU', 'UU', 'RU', 'NU', 'PU'];
+		if (!this.FactoryTier) this.FactoryTier = this.sample(availableTiers);
+		const chosenTier = this.FactoryTier;
+
+		/**@type {{[k: string]: number}} */
+		const tierValues = {
+			'Uber': 5,
+			'OU': 4, 'UUBL': 4,
+			'UU': 3, 'RUBL': 3,
+			'RU': 2, 'NUBL': 2,
+			'NU': 1, 'PUBL': 1,
+			'PU': 0,
+		};
+
+		let pokemon = [];
+		let pokemonPool = Object.keys(this.randomCFMFactorySets[chosenTier]);
+
+		let typePool = Object.keys(this.dex.data.TypeChart);
+		const type = this.sample(typePool);
+
+		/**@type {TeamData} */
+		let teamData = {typeCount: {}, typeComboCount: {}, baseFormes: {}, megaCount: 0, zCount: 0, has: {}, forceResult: forceResult, weaknesses: {}, resistances: {}};
+		let requiredMoveFamilies = ['hazardSet', 'hazardClear'];
+		/**@type {{[k: string]: string}} */
+		let requiredMoves = {'stealthrock': 'hazardSet', 'rapidspin': 'hazardClear', 'defog': 'hazardClear'};
+		/**@type {{[k: string]: string}} */
+		let weatherAbilitiesSet = {'drizzle': 'raindance', 'drought': 'sunnyday', 'snowwarning': 'hail', 'sandstream': 'sandstorm'};
+		/**@type {{[k: string]: string[]}} */
+		let resistanceAbilities = {
+			'dryskin': ['Water'], 'waterabsorb': ['Water'], 'stormdrain': ['Water'], 'watercompaction': ['Water'],
+			'flashfire': ['Fire'], 'heatproof': ['Fire'],
+			'lightningrod': ['Electric'], 'motordrive': ['Electric'], 'voltabsorb': ['Electric'], 'battery': ['Electric'],
+			'sapsipper': ['Grass'],
+			'thickfat': ['Ice', 'Fire']
+		};
+
+		while (pokemonPool.length && pokemon.length < 6) {
+			let species = this.dex.getSpecies(this.sampleNoReplace(pokemonPool));
+			if (!species.exists) continue;
+
+			// Lessen the need of deleting sets of Pokemon after tier shifts
+			if (chosenTier in tierValues && species.tier in tierValues && tierValues[species.tier] > tierValues[chosenTier]) continue;
+
+			let speciesFlags = this.randomCFMFactorySets[chosenTier][species.id].flags;
+
+			// Limit to one of each species (Species Clause)
+			if (teamData.baseFormes[species.baseSpecies]) continue;
+
+			// Limit the number of Megas to one
+			if (teamData.megaCount >= 1 && speciesFlags.megaOnly) continue;
+
+			let set = this.randomCFMFactorySet(species, pokemon.length, teamData, chosenTier);
+			if (!set) continue;
+
+			let itemData = this.dex.getItem(set.item);
+
+			// Actually limit the number of Megas to one
+			if (teamData.megaCount >= 1 && itemData.megaStone) continue;
+
+			// Limit the number of Z moves to one
+			if (teamData.zCount >= 1 && itemData.zMove) continue;
+
+			let types = species.types;
+
+			// Enforce Monotype
+			if (chosenTier === 'Mono') {
+				// Prevents Mega Evolutions from breaking the type limits
+				if (itemData.megaStone) {
+					let megaSpecies = this.dex.getSpecies(itemData.megaStone);
+					if (types.length > megaSpecies.types.length) types = [species.types[0]];
+					// Only check the second type because a Mega Evolution should always share the first type with its base forme.
+					if (megaSpecies.types[1] && types[1] && megaSpecies.types[1] !== types[1]) {
+						types = [megaSpecies.types[0]];
+					}
+				}
+				if (!types.includes(type)) continue;
+			} else {
+			// If not Monotype, limit to two of each type
+				let skip = false;
+				for (const type of types) {
+					if (teamData.typeCount[type] > 1 && this.randomChance(4, 5)) {
+						skip = true;
+						break;
+					}
+				}
+				if (skip) continue;
+
+				// Limit 1 of any type combination
+				let typeCombo = types.slice().sort().join();
+				if (set.ability + '' === 'Drought' || set.ability + '' === 'Drizzle') {
+				// Drought and Drizzle don't count towards the type combo limit
+					typeCombo = set.ability + '';
+				}
+				if (typeCombo in teamData.typeComboCount) continue;
+			}
+
+			// Okay, the set passes, add it to our team
+			pokemon.push(set);
+			let typeCombo = types.slice().sort().join();
+			// Now that our Pokemon has passed all checks, we can update team data:
+			for (const type of types) {
+				if (type in teamData.typeCount) {
+					teamData.typeCount[type]++;
+				} else {
+					teamData.typeCount[type] = 1;
+				}
+			}
+			teamData.typeComboCount[typeCombo] = 1;
+
+			teamData.baseFormes[species.baseSpecies] = 1;
+
+			if (itemData.megaStone) teamData.megaCount++;
+			if (itemData.zMove) teamData.zCount++;
+			if (itemData.id in teamData.has) {
+				teamData.has[itemData.id]++;
+			} else {
+				teamData.has[itemData.id] = 1;
+			}
+
+			let abilityData = this.dex.getAbility(set.ability);
+			if (abilityData.id in weatherAbilitiesSet) {
+				teamData.weather = weatherAbilitiesSet[abilityData.id];
+			}
+
+			for (const move of set.moves) {
+				let moveId = toID(move);
+				if (moveId in teamData.has) {
+					teamData.has[moveId]++;
+				} else {
+					teamData.has[moveId] = 1;
+				}
+				if (moveId in requiredMoves) {
+					teamData.has[requiredMoves[moveId]] = 1;
+				}
+			}
+
+			for (let typeName in this.dex.data.TypeChart) {
+				// Cover any major weakness (3+) with at least one resistance
+				if (teamData.resistances[typeName] >= 1) continue;
+				if (resistanceAbilities[abilityData.id] && resistanceAbilities[abilityData.id].includes(typeName) || !this.dex.getImmunity(typeName, types)) {
+					// Heuristic: assume that Pokémon with these abilities don't have (too) negative typing.
+					teamData.resistances[typeName] = (teamData.resistances[typeName] || 0) + 1;
+					if (teamData.resistances[typeName] >= 1) teamData.weaknesses[typeName] = 0;
+					continue;
+				}
+				let typeMod = this.dex.getEffectiveness(typeName, types);
+				if (typeMod < 0) {
+					teamData.resistances[typeName] = (teamData.resistances[typeName] || 0) + 1;
+					if (teamData.resistances[typeName] >= 1) teamData.weaknesses[typeName] = 0;
+				} else if (typeMod > 0) {
+					teamData.weaknesses[typeName] = (teamData.weaknesses[typeName] || 0) + 1;
+				}
+			}
+		}
+		if (pokemon.length < 6) return this.randomCFMFactoryTeam(side, ++depth);
+
+		// Quality control
+		if (!teamData.forceResult) {
+			for (const requiredFamily of requiredMoveFamilies) {
+				if (!teamData.has[requiredFamily]) return this.randomCFMFactoryTeam(side, ++depth);
+			}
+			for (let type in teamData.weaknesses) {
+				if (teamData.weaknesses[type] >= 3) return this.randomCFMFactoryTeam(side, ++depth);
+			}
+		}
+
+		return pokemon;
+	}
+
+
 }
 
 module.exports = RandomTeams;

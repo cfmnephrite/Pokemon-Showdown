@@ -909,6 +909,38 @@ let BattleFormats = {
 			return newSpecies;
 		},
 	},
+
+	//CFM Rules -tbd
+	cfmmoves: {
+		effectType: 'Rule',
+		name: 'CFM Moves',
+		desc: "To-do",
+	},
+	cfmourules: {
+		effectType: 'Rule',
+		name: 'CFM OU Rules',
+		desc: "To-do",
+	},
+	cfmuurules: {
+		effectType: 'Rule',
+		name: 'CFM UU Rules',
+		desc: "To-do",
+	},
+	cfmrurules: {
+		effectType: 'Rule',
+		name: 'CFM RU Rules',
+		desc: "To-do",
+	},
+	cfmnurules: {
+		effectType: 'Rule',
+		name: 'CFM NU Rules',
+		desc: "To-do",
+	},
+	cfmpurules: {
+		effectType: 'Rule',
+		name: 'CFM PU Rules',
+		desc: "To-do",
+	},
 };
 
 exports.BattleFormats = BattleFormats;
