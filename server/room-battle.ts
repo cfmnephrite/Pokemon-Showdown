@@ -164,13 +164,19 @@ export class RoomBattlePlayer extends RoomGames.RoomGamePlayer {
 export class CFMTutorial {
 	readonly battle: RoomBattle;
 	requesters: User[];
+	seenMoves: {[userId: string]: string[]};
+	seenMons: {[userId: string]: string[]};
 	constructor(battle: RoomBattle) {
 		this.battle = battle;
 		this.requesters = [];
+		this.seenMoves = {};
+		this.seenMons = {};
 	}
 	start(requester: User) {
 		if (this.requesters.includes(requester)) return false;
 		this.requesters.push(requester);
+		this.seenMoves[requester.id.toString()] = [];
+		this.seenMons[requester.id.toString()] = [];
 		this.battle.playerTable[requester.id].sendRoom(
 			`|raw|<b>CFM Tutorial mode ON!</b>`
 		);
@@ -792,9 +798,50 @@ export class RoomBattle extends RoomGames.RoomGame {
 			break;
 		}
 
-		case 'tutorial':
+		case 'tutorialPkmn':
 			for(const user of this.cfmTutorial.requesters) {
-				Chat.parse(`/dt ${lines[1]}`, this.room, user, user.connections[0]);
+				
+				let monId = lines[1];
+				// Check whether or not we've already shown a message for this mon
+				// If not, add it to the 'seen' array - if we have, skip message
+				if (!this.cfmTutorial.seenMons[user.id].includes(monId))
+					this.cfmTutorial.seenMons[user.id].push(monId);
+				else
+					break;
+
+				let player = this.playerTable[user.id];
+				if (this.checkPlayerSide(player, lines[2])) {
+					player.sendRoom(`|raw|<b>Your Pokémon:</b>`);
+					Chat.parse(`/dt ${monId}`, this.room, user, user.connections[0]);
+
+					player.sendRoom(`|raw|<b>Your Pokémon's moves:</b>`);
+					for (const move of JSON.parse(lines[3])) {
+						if (!this.cfmTutorial.seenMoves[user.id].includes(move))
+							this.cfmTutorial.seenMoves[user.id].push(move);
+						Chat.parse(`/dt ${move}`, this.room, user, user.connections[0]);
+					}
+				}
+				else {
+					player.sendRoom(`|raw|<b>Your opponent's Pokémon:</b>`);
+					Chat.parse(`/dt ${monId}`, this.room, user, user.connections[0]);
+				}
+			}
+			break;
+
+		case 'tutorialMove':
+			for(const user of this.cfmTutorial.requesters) {
+				let move = lines[2];
+				let player = this.playerTable[user.id];
+				if (!this.cfmTutorial.seenMoves[user.id].includes(move))
+				{
+					this.cfmTutorial.seenMoves[user.id].push(move);
+					if (this.checkPlayerSide(player, lines[1]))
+						player.sendRoom(`|raw|<b>Your chosen move:</b>`)
+					else
+						player.sendRoom(`|raw|<b>Your opponent's move:</b>`)
+
+					Chat.parse(`/dt ${move}`, this.room, user, user.connections[0]);
+				}
 			}
 			break;
 
@@ -1113,6 +1160,13 @@ export class RoomBattle extends RoomGames.RoomGame {
 		for (const player of this.players) {
 			player.unlinkUser();
 		}
+	}
+
+	checkPlayerSide(player: RoomBattlePlayer, slot: SideID | string) {
+		let playerSide = parseInt(player.slot[1]) % 2;
+		let monSide = parseInt(slot[1]) % 2;
+
+		return playerSide === monSide;
 	}
 
 	destroy() {

@@ -1327,7 +1327,7 @@ export class Battle {
 		pokemon.isStarted = true;
 		if (!pokemon.fainted) {
 			this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityData, pokemon);
-			this.send('tutorial', pokemon.speciesid);
+			this.send('tutorialPkmn', `${pokemon.speciesid}\n${pokemon.side.id}\n${JSON.stringify(pokemon.moveSlots.map(moveSlot => moveSlot.id))}`);
 			pokemon.abilityOrder = this.abilityOrder++;
 			this.singleEvent('Start', pokemon.getItem(), pokemon.itemData, pokemon);
 		}

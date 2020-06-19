@@ -542,7 +542,7 @@ const commands = {
 					['gen7doublesou', 'gen7doublesubers', 'gen7doublesuu'].includes(room.battle && room.battle.format))) {
 					tier = pokemon.doublesTier;
 				}
-				buffer += `|raw|<ul class="infobox">${Chat.getDataPokemonHTML(pokemon, dex.gen, tier)}`;
+				buffer += `|raw|<div class="infobox">${Chat.getDataPokemonHTML(pokemon, dex.gen, tier)}`;
 				if (showDetails) {
 					let weighthit = 20;
 					if (pokemon.weighthg >= 2000) {
@@ -607,7 +607,7 @@ const commands = {
 				break;
 			case 'item':
 				let item = dex.getItem(newTarget.name);
-				buffer += `|raw|<ul class="infobox">${Chat.getDataItemHTML(item)}`;
+				buffer += `|raw|<div class="infobox">${Chat.getDataItemHTML(item)}`;
 				if (showDetails) {
 					details = {
 						"Gen": item.gen,
@@ -636,7 +636,7 @@ const commands = {
 				break;
 			case 'move':
 				let move = dex.getMove(newTarget.name);
-				buffer += `|raw|<ul class="infobox">${Chat.getDataMoveHTML(move)}`;
+				buffer += `|raw|<div class="infobox">${Chat.getDataMoveHTML(move)}`;
 				if (showDetails) {
 					details = {
 						"Priority": move.priority,
@@ -738,7 +738,7 @@ const commands = {
 				break;
 			case 'ability':
 				let ability = dex.getAbility(newTarget.name);
-				buffer += `|raw|<ul class="infobox">${Chat.getDataAbilityHTML(ability)}`;
+				buffer += `|raw|<div class="infobox">${Chat.getDataAbilityHTML(ability)}`;
 				break;
 			default:
 				throw new Error(`Unrecognized searchType`);
@@ -748,7 +748,7 @@ const commands = {
 				buffer += '<font size="1">' + Object.keys(details).map(detail => {
 					if (details[detail] === '') return detail;
 					return '<font color="#686868">' + detail + ':</font> ' + details[detail];
-				}).join("&nbsp;|&ThickSpace;") + '</font></ul>\n';
+				}).join("&nbsp;|&ThickSpace;") + '</font></div>\n';
 			}
 		}
 		this.sendReply(buffer);
