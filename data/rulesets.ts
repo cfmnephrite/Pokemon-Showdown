@@ -281,8 +281,8 @@ export const BattleFormats: {[k: string]: FormatsData} = {
 		onBegin() {
 			this.add('clearpoke');
 			for (const pokemon of this.getAllPokemon()) {
-				const details = pokemon.details.replace(/(Arceus|Gourgeist|Genesect|Pumpkaboo|Silvally)(-[a-zA-Z?]+)?/g, '$1-*')
-					.replace(', shiny', '');
+				const details = pokemon.details.replace(', shiny', '')
+					.replace(/(Arceus|Gourgeist|Genesect|Pumpkaboo|Silvally|Urshifu)(-[a-zA-Z?-]+)?/g, '$1-*');
 				this.add('poke', pokemon.side.id, details, this.gen < 8 && pokemon.item ? 'item' : '');
 			}
 		},
@@ -1016,37 +1016,5 @@ export const BattleFormats: {[k: string]: FormatsData} = {
 			}
 			return newSpecies;
 		},
-	},
-
-	// CFM Rules -tbd
-	cfmmoves: {
-		effectType: 'Rule',
-		name: 'CFM Moves',
-		desc: "To-do",
-	},
-	cfmourules: {
-		effectType: 'Rule',
-		name: 'CFM OU Rules',
-		desc: "To-do",
-	},
-	cfmuurules: {
-		effectType: 'Rule',
-		name: 'CFM UU Rules',
-		desc: "To-do",
-	},
-	cfmrurules: {
-		effectType: 'Rule',
-		name: 'CFM RU Rules',
-		desc: "To-do",
-	},
-	cfmnurules: {
-		effectType: 'Rule',
-		name: 'CFM NU Rules',
-		desc: "To-do",
-	},
-	cfmpurules: {
-		effectType: 'Rule',
-		name: 'CFM PU Rules',
-		desc: "To-do",
 	},
 };

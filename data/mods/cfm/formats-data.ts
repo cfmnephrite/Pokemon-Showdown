@@ -1,7 +1,4 @@
-'use strict';
-
-/**@type {{[k: string]: ModdedSpeciesFormatsData}} */
-let BattleFormatsData = {
+export const BattleFormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bulbasaur: {
 		tier: "CLC",
 		inherit: true,
@@ -43,10 +40,6 @@ let BattleFormatsData = {
 		tier: "COU",
 		inherit: true,
 	},
-	charizardgmax: {
-		tier: "New",
-		inherit: true,
-	},
 	squirtle: {
 		tier: "CLC",
 		inherit: true,
@@ -76,10 +69,6 @@ let BattleFormatsData = {
 	butterfree: {
 		randomBattleMoves: ["airslash", "bugbuzz", "energyball", "hurricane", "quiverdance", "sleeppowder"],
 		tier: "CNU",
-		inherit: true,
-	},
-	butterfreegmax: {
-		tier: "New",
 		inherit: true,
 	},
 	weedle: {
@@ -369,10 +358,6 @@ let BattleFormatsData = {
 		tier: "LC",
 		inherit: true,
 	},
-	meowthgmax: {
-		tier: "New",
-		inherit: true,
-	},
 	persian: {
 		randomBattleMoves: ["hypervoice", "icywind", "nastyplot", "taunt", "thunderbolt"],
 		tier: "CPU",
@@ -385,7 +370,7 @@ let BattleFormatsData = {
 	},
 	perrserker: {
 		randomBattleMoves: ["closecombat", "crunch", "gunkshot", "ironhead", "playrough", "swordsdance", "uturn"],
-		tier: "New",
+		tier: "CNU",
 		inherit: true,
 	},
 	psyduck: {
@@ -470,10 +455,6 @@ let BattleFormatsData = {
 		tier: "CUU",
 		inherit: true,
 	},
-	machampgmax: {
-		tier: "New",
-		inherit: true,
-	},
 	bellsprout: {
 		isNonstandard: null,
 		tier: "CLC",
@@ -544,7 +525,7 @@ let BattleFormatsData = {
 	},
 	rapidashgalar: {
 		randomBattleMoves: ["highhorsepower", "morningsun", "playrough", "swordsdance", "zenheadbutt"],
-		tier: "New",
+		tier: "CNU",
 		inherit: true,
 	},
 	slowpoke: {
@@ -593,7 +574,7 @@ let BattleFormatsData = {
 	},
 	sirfetchd: {
 		randomBattleMoves: ["bravebird", "closecombat", "firstimpression", "knockoff", "swordsdance"],
-		tier: "New",
+		tier: "CUU",
 		inherit: true,
 	},
 	doduo: {
@@ -663,10 +644,6 @@ let BattleFormatsData = {
 		tier: "CUb",
 		inherit: true,
 	},
-	gengargmax: {
-		tier: "New",
-		inherit: true,
-	},
 	onix: {
 		tier: "CLC",
 		inherit: true,
@@ -698,10 +675,6 @@ let BattleFormatsData = {
 	kingler: {
 		randomBattleMoves: ["liquidation", "xscissor", "rockslide", "swordsdance", "agility", "superpower", "knockoff"],
 		tier: "CNU",
-		inherit: true,
-	},
-	kinglergmax: {
-		tier: "New",
 		inherit: true,
 	},
 	voltorb: {
@@ -782,13 +755,13 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	weezing: {
-		randomBattleMoves: ["defog", "fireblast", "painsplit", "sludgebomb", "toxicspikes", "willowisp"],
+		randomBattleMoves: ["defog", "fireblast", "painsplit", "sludgebomb", "willowisp"],
 		tier: "CNU",
 		inherit: true,
 	},
 	weezinggalar: {
-		randomBattleMoves: ["defog", "fireblast", "painsplit", "sludgebomb", "strangesteam", "toxicspikes", "willowisp"],
-		tier: "New",
+		randomBattleMoves: ["defog", "fireblast", "painsplit", "sludgebomb", "strangesteam", "willowisp"],
+		tier: "CUU",
 		inherit: true,
 	},
 	rhyhorn: {
@@ -855,13 +828,11 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	goldeen: {
-		unreleasedHidden: false,
 		tier: "CLC",
 		inherit: true,
 	},
 	seaking: {
 		randomBattleMoves: ["drillrun", "megahorn", "swordsdance", "throatchop", "waterfall"],
-		unreleasedHidden: false,
 		tier: "CPU",
 		inherit: true,
 	},
@@ -885,12 +856,12 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	mrmimegalar: {
-		tier: "NFE",
+		tier: "CPU",
 		inherit: true,
 	},
 	mrrime: {
 		randomBattleMoves: ["focusblast", "icebeam", "nastyplot", "psychic", "rapidspin", "shadowball", "slackoff", "thunderbolt"],
-		tier: "New",
+		tier: "CPU",
 		inherit: true,
 	},
 	scyther: {
@@ -982,10 +953,6 @@ let BattleFormatsData = {
 		tier: "CNU",
 		inherit: true,
 	},
-	laprasgmax: {
-		tier: "New",
-		inherit: true,
-	},
 	ditto: {
 		randomBattleMoves: ["transform"],
 		tier: "CPU",
@@ -998,10 +965,6 @@ let BattleFormatsData = {
 	eeveestarter: {
 		isNonstandard: "LGPE",
 		tier: "Illegal",
-		inherit: true,
-	},
-	eeveegmax: {
-		tier: "New",
 		inherit: true,
 	},
 	vaporeon: {
@@ -1496,15 +1459,15 @@ let BattleFormatsData = {
 	},
 	corsola: {
 		randomBattleMoves: ["lightscreen", "reflect", "recover", "scald", "stealthrock"],
-		tier: "CRU",
+		tier: "CPU",
 		inherit: true,
 	},
 	corsolagalar: {
-		tier: "LC",
+		tier: "CRU",
 		inherit: true,
 	},
 	cursola: {
-		tier: "New",
+		tier: "CNU",
 		inherit: true,
 	},
 	remoraid: {
@@ -1707,12 +1670,12 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	linoonegalar: {
-		tier: "NFE",
+		tier: "CPU",
 		inherit: true,
 	},
 	obstagoon: {
 		randomBattleMoves: ["closecombat", "doubleedge", "facade", "firepunch", "gunkshot", "knockoff", "obstruct", "partingshot"],
-		tier: "New",
+		tier: "COU",
 		inherit: true,
 	},
 	wurmple: {
@@ -3286,7 +3249,7 @@ let BattleFormatsData = {
 	},
 	darmanitangalar: {
 		randomBattleMoves: ["earthquake", "flareblitz", "iciclecrash", "superpower", "uturn"],
-		tier: "New",
+		tier: "CUb",
 		inherit: true,
 	},
 	darmanitanzengalar: {
@@ -3329,13 +3292,13 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	cofagrigus: {
-		randomBattleMoves: ["memento", "shadowball", "toxicspikes", "willowisp"],
+		randomBattleMoves: ["memento", "shadowball", "willowisp"],
 		tier: "CRU",
 		inherit: true,
 	},
 	runerigus: {
-		randomBattleMoves: ["earthquake", "haze", "nightshade", "stealthrock", "toxicspikes", "willowisp"],
-		tier: "New",
+		randomBattleMoves: ["earthquake", "haze", "nightshade", "stealthrock", "willowisp"],
+		tier: "CRU",
 		inherit: true,
 	},
 	tirtouga: {
@@ -3365,10 +3328,6 @@ let BattleFormatsData = {
 	garbodor: {
 		randomBattleMoves: ["drainpunch", "gunkshot", "painsplit", "spikes", "toxicspikes"],
 		tier: "CNU",
-		inherit: true,
-	},
-	garbodorgmax: {
-		tier: "New",
 		inherit: true,
 	},
 	zorua: {
@@ -3597,7 +3556,7 @@ let BattleFormatsData = {
 	},
 	stunfiskgalar: {
 		randomBattleMoves: ["curse", "earthquake", "painsplit", "rockslide", "stealthrock"],
-		tier: "New",
+		tier: "CNU",
 		inherit: true,
 	},
 	mienfoo: {
@@ -4113,12 +4072,10 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	pumpkaboosmall: {
-		unreleasedHidden: false,
 		tier: "CLC",
 		inherit: true,
 	},
 	pumpkaboolarge: {
-		unreleasedHidden: false,
 		tier: "CLC",
 		inherit: true,
 	},
@@ -4133,13 +4090,11 @@ let BattleFormatsData = {
 	},
 	gourgeistsmall: {
 		randomBattleMoves: ["leechseed", "powerwhip", "shadowsneak", "substitute", "willowisp"],
-		unreleasedHidden: false,
 		tier: "CPU",
 		inherit: true,
 	},
 	gourgeistlarge: {
 		randomBattleMoves: ["leechseed", "powerwhip", "shadowsneak", "substitute", "willowisp"],
-		unreleasedHidden: false,
 		tier: "CPU",
 		inherit: true,
 	},
@@ -4170,6 +4125,10 @@ let BattleFormatsData = {
 		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
+	},
+	xerneasneutral: {
+		isNonstandard: "Custom", // can't be used in battle
+		tier: "Illegal",
 	},
 	yveltal: {
 		isNonstandard: null,
@@ -4828,61 +4787,51 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	grookey: {
-		unreleasedHidden: false,
 		tier: "LC",
 		inherit: true,
 	},
 	thwackey: {
-		unreleasedHidden: false,
 		tier: "NFE",
 		inherit: true,
 	},
 	rillaboom: {
 		randomBattleMoves: ["drumbeating", "highhorsepower", "knockoff", "superpower", "swordsdance", "uturn", "woodhammer"],
-		unreleasedHidden: false,
-		tier: "New",
+		tier: "CRU",
 		inherit: true,
 	},
 	scorbunny: {
-		unreleasedHidden: false,
 		tier: "LC",
 		inherit: true,
 	},
 	raboot: {
-		unreleasedHidden: false,
 		tier: "NFE",
 		inherit: true,
 	},
 	cinderace: {
 		randomBattleMoves: ["courtchange", "gunkshot", "highjumpkick", "ironhead", "pyroball", "uturn", "zenheadbutt"],
-		unreleasedHidden: false,
-		tier: "New",
+		tier: "COU",
 		inherit: true,
 	},
 	sobble: {
-		unreleasedHidden: false,
 		tier: "LC",
 		inherit: true,
 	},
 	drizzile: {
-		unreleasedHidden: false,
 		tier: "NFE",
 		inherit: true,
 	},
 	inteleon: {
 		randomBattleMoves: ["airslash", "darkpulse", "hydropump", "icebeam", "scald", "snipeshot", "uturn"],
-		unreleasedHidden: false,
-		tier: "New",
+		tier: "CUU",
 		inherit: true,
 	},
 	skwovet: {
-		unreleasedHidden: true,
 		tier: "LC",
 		inherit: true,
 	},
 	greedent: {
 		randomBattleMoves: ["bodyslam", "crunch", "earthquake", "seedbomb", "superpower", "swordsdance", "wildcharge"],
-		tier: "New",
+		tier: "CPU",
 		inherit: true,
 	},
 	rookidee: {
@@ -4895,11 +4844,7 @@ let BattleFormatsData = {
 	},
 	corviknight: {
 		randomBattleMoves: ["bodypress", "bravebird", "bulkup", "defog", "ironhead", "roost", "uturn"],
-		tier: "New",
-		inherit: true,
-	},
-	corviknightgmax: {
-		tier: "New",
+		tier: "COU",
 		inherit: true,
 	},
 	blipbug: {
@@ -4912,21 +4857,16 @@ let BattleFormatsData = {
 	},
 	orbeetle: {
 		randomBattleMoves: ["bugbuzz", "calmmind", "psychic", "recover", "stickyweb", "uturn"],
-		tier: "New",
-		inherit: true,
-	},
-	orbeetlegmax: {
-		tier: "New",
+		tier: "CNU",
 		inherit: true,
 	},
 	nickit: {
-		unreleasedHidden: true,
 		tier: "LC",
 		inherit: true,
 	},
 	thievul: {
 		randomBattleMoves: ["darkpulse", "knockoff", "nastyplot", "psychic", "taunt", "uturn"],
-		tier: "New",
+		tier: "CPU",
 		inherit: true,
 	},
 	gossifleur: {
@@ -4935,17 +4875,16 @@ let BattleFormatsData = {
 	},
 	eldegoss: {
 		randomBattleMoves: ["charm", "gigadrain", "pollenpuff", "rapidspin", "sleeppowder", "synthesis"],
-		tier: "New",
+		tier: "CNU",
 		inherit: true,
 	},
 	wooloo: {
-		unreleasedHidden: true,
 		tier: "LC",
 		inherit: true,
 	},
 	dubwool: {
 		randomBattleMoves: ["bodypress", "bodyslam", "doubleedge", "swordsdance", "zenheadbutt"],
-		tier: "New",
+		tier: "CPU",
 		inherit: true,
 	},
 	chewtle: {
@@ -4954,21 +4893,16 @@ let BattleFormatsData = {
 	},
 	drednaw: {
 		randomBattleMoves: ["crunch", "earthquake", "jawlock", "liquidation", "stealthrock", "stoneedge"],
-		tier: "New",
-		inherit: true,
-	},
-	drednawgmax: {
-		tier: "New",
+		tier: "CNU",
 		inherit: true,
 	},
 	yamper: {
-		unreleasedHidden: true,
 		tier: "LC",
 		inherit: true,
 	},
 	boltund: {
 		randomBattleMoves: ["crunch", "firefang", "nuzzle", "playrough", "psychicfangs", "thunderfang", "voltswitch"],
-		tier: "New",
+		tier: "CNU",
 		inherit: true,
 	},
 	rolycoly: {
@@ -4976,16 +4910,12 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	carkol: {
-		tier: "NFE",
+		tier: "CPU",
 		inherit: true,
 	},
 	coalossal: {
 		randomBattleMoves: ["earthquake", "fireblast", "rapidspin", "spikes", "stealthrock", "stoneedge"],
-		tier: "New",
-		inherit: true,
-	},
-	coalossalgmax: {
-		tier: "New",
+		tier: "CRU",
 		inherit: true,
 	},
 	applin: {
@@ -4994,20 +4924,12 @@ let BattleFormatsData = {
 	},
 	flapple: {
 		randomBattleMoves: ["acrobatics", "dragondance", "gravapple", "outrage", "suckerpunch"],
-		tier: "New",
-		inherit: true,
-	},
-	flapplegmax: {
-		tier: "New",
+		tier: "CNU",
 		inherit: true,
 	},
 	appletun: {
 		randomBattleMoves: ["appleacid", "dragonpulse", "earthquake", "leechseed", "recover"],
-		tier: "New",
-		inherit: true,
-	},
-	appletungmax: {
-		tier: "New",
+		tier: "CNU",
 		inherit: true,
 	},
 	silicobra: {
@@ -5016,16 +4938,12 @@ let BattleFormatsData = {
 	},
 	sandaconda: {
 		randomBattleMoves: ["bodypress", "coil", "earthquake", "glare", "stoneedge"],
-		tier: "New",
-		inherit: true,
-	},
-	sandacondagmax: {
-		tier: "New",
+		tier: "CNU",
 		inherit: true,
 	},
 	cramorant: {
 		randomBattleMoves: ["defog", "hurricane", "icebeam", "roost", "scald", "surf"],
-		tier: "New",
+		tier: "CRU",
 		inherit: true,
 	},
 	cramorantgulping: {
@@ -5040,7 +4958,7 @@ let BattleFormatsData = {
 	},
 	barraskewda: {
 		randomBattleMoves: ["aquajet", "closecombat", "crunch", "liquidation", "poisonjab"],
-		tier: "New",
+		tier: "CUU",
 		inherit: true,
 	},
 	toxel: {
@@ -5049,12 +4967,12 @@ let BattleFormatsData = {
 	},
 	toxtricity: {
 		randomBattleMoves: ["boomburst", "drainpunch", "firepunch", "gunkshot", "overdrive", "poisonjab", "sludgebomb", "voltswitch"],
-		tier: "New",
+		tier: "CUU",
 		inherit: true,
 	},
 	toxtricitylowkey: {
 		randomBattleMoves: ["boomburst", "drainpunch", "firepunch", "gunkshot", "overdrive", "poisonjab", "shiftgear", "sludgebomb", "voltswitch"],
-		tier: "New",
+		tier: "CUU",
 		inherit: true,
 	},
 	sizzlipede: {
@@ -5063,11 +4981,7 @@ let BattleFormatsData = {
 	},
 	centiskorch: {
 		randomBattleMoves: ["coil", "firelash", "knockoff", "leechlife", "powerwhip"],
-		tier: "New",
-		inherit: true,
-	},
-	centiskorchgmax: {
-		tier: "New",
+		tier: "CUU",
 		inherit: true,
 	},
 	clobbopus: {
@@ -5076,7 +4990,7 @@ let BattleFormatsData = {
 	},
 	grapploct: {
 		randomBattleMoves: ["brutalswing", "closecombat", "icepunch", "octolock", "suckerpunch"],
-		tier: "New",
+		tier: "CPU",
 		inherit: true,
 	},
 	sinistea: {
@@ -5084,12 +4998,11 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	sinisteaantique: {
-		unreleasedHidden: true,
 		tier: "LC",
 	},
 	polteageist: {
 		randomBattleMoves: ["gigadrain", "shadowball", "shellsmash", "storedpower", "strengthsap"],
-		tier: "New",
+		tier: "CUU",
 		inherit: true,
 	},
 	hatenna: {
@@ -5097,16 +5010,12 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 	hattrem: {
-		tier: "NFE",
+		tier: "CNU",
 		inherit: true,
 	},
 	hatterene: {
 		randomBattleMoves: ["calmmind", "dazzlinggleam", "mysticalfire", "psychic", "shadowball", "trickroom"],
-		tier: "New",
-		inherit: true,
-	},
-	hatterenegmax: {
-		tier: "New",
+		tier: "COU",
 		inherit: true,
 	},
 	impidimp: {
@@ -5119,11 +5028,7 @@ let BattleFormatsData = {
 	},
 	grimmsnarl: {
 		randomBattleMoves: ["bulkup", "drainpunch", "falsesurrender", "playrough", "spiritbreak", "suckerpunch", "superpower", "thunderwave", "taunt"],
-		tier: "New",
-		inherit: true,
-	},
-	grimmsnarlgmax: {
-		tier: "New",
+		tier: "COU",
 		inherit: true,
 	},
 	milcery: {
@@ -5132,21 +5037,17 @@ let BattleFormatsData = {
 	},
 	alcremie: {
 		randomBattleMoves: ["aromatherapy", "calmmind", "dazzlinggleam", "mysticalfire", "psychic", "recover"],
-		tier: "New",
-		inherit: true,
-	},
-	alcremiegmax: {
-		tier: "New",
+		tier: "CNU",
 		inherit: true,
 	},
 	falinks: {
 		randomBattleMoves: ["closecombat", "megahorn", "noretreat", "poisonjab", "rockslide", "throatchop"],
-		tier: "New",
+		tier: "CPU",
 		inherit: true,
 	},
 	pincurchin: {
-		randomBattleMoves: ["recover", "scald", "spikes", "suckerpunch", "toxicspikes", "zingzap"],
-		tier: "New",
+		randomBattleMoves: ["recover", "scald", "spikes", "suckerpunch", "zingzap"],
+		tier: "CPU",
 		inherit: true,
 	},
 	snom: {
@@ -5155,17 +5056,17 @@ let BattleFormatsData = {
 	},
 	frosmoth: {
 		randomBattleMoves: ["bugbuzz", "dazzlinggleam", "gigadrain", "icebeam", "quiverdance"],
-		tier: "New",
+		tier: "CRU",
 		inherit: true,
 	},
 	stonjourner: {
 		randomBattleMoves: ["earthquake", "heatcrash", "rockpolish", "stoneedge"],
-		tier: "New",
+		tier: "CPU",
 		inherit: true,
 	},
 	eiscue: {
 		randomBattleMoves: ["bellydrum", "iciclecrash", "liquidation", "zenheadbutt"],
-		tier: "New",
+		tier: "CPU",
 		inherit: true,
 	},
 	eiscuenoice: {
@@ -5173,17 +5074,17 @@ let BattleFormatsData = {
 	},
 	indeedee: {
 		randomBattleMoves: ["calmmind", "hypervoice", "mysticalfire", "psychic", "trick"],
-		tier: "New",
+		tier: "CRU",
 		inherit: true,
 	},
 	indeedeef: {
 		randomBattleMoves: ["aromatherapy", "calmmind", "hypervoice", "mysticalfire", "psychic"],
-		tier: "New",
+		tier: "CNU",
 		inherit: true,
 	},
 	morpeko: {
 		randomBattleMoves: ["aurawheel", "crunch", "partingshot", "psychicfangs", "rapidspin", "superfang", "wildcharge"],
-		tier: "New",
+		tier: "CNU",
 		inherit: true,
 	},
 	morpekohangry: {
@@ -5195,44 +5096,32 @@ let BattleFormatsData = {
 	},
 	copperajah: {
 		randomBattleMoves: ["curse", "earthquake", "heavyslam", "ironhead", "powerwhip", "playrough", "rockslide", "stealthrock"],
-		tier: "New",
-		inherit: true,
-	},
-	copperajahgmax: {
-		tier: "New",
+		tier: "CRU",
 		inherit: true,
 	},
 	dracozolt: {
 		randomBattleMoves: ["boltbeak", "dragontail", "earthquake", "fireblast", "outrage"],
-		unreleasedHidden: false,
-		tier: "New",
+		tier: "cou",
 		inherit: true,
 	},
 	arctozolt: {
 		randomBattleMoves: ["boltbeak", "bulldoze", "iciclecrash", "freezedry"],
-		unreleasedHidden: false,
-		tier: "New",
+		tier: "CNU",
 		inherit: true,
 	},
 	dracovish: {
 		randomBattleMoves: ["crunch", "earthquake", "fishiousrend", "iciclecrash", "ironhead", "psychicfangs"],
-		unreleasedHidden: false,
-		tier: "New",
+		tier: "CUb",
 		inherit: true,
 	},
 	arctovish: {
 		randomBattleMoves: ["crunch", "fishiousrend", "freezedry", "iciclecrash", "ironhead", "psychicfangs"],
-		unreleasedHidden: false,
-		tier: "New",
+		tier: "CNU",
 		inherit: true,
 	},
 	duraludon: {
 		randomBattleMoves: ["dracometeor", "dragontail", "flashcannon", "stealthrock", "thunderbolt"],
-		tier: "New",
-		inherit: true,
-	},
-	duraludongmax: {
-		tier: "New",
+		tier: "CRU",
 		inherit: true,
 	},
 	dreepy: {
@@ -5245,32 +5134,63 @@ let BattleFormatsData = {
 	},
 	dragapult: {
 		randomBattleMoves: ["dragondance", "dragondarts", "fireblast", "phantomforce", "psychicfangs", "shadowball", "uturn"],
-		tier: "New",
+		tier: "COU",
 		inherit: true,
 	},
 	zacian: {
 		randomBattleMoves: ["closecombat", "crunch", "ironhead", "playrough", "psychicfangs", "swordsdance"],
-		tier: "Uber",
+		tier: "CUb",
 		inherit: true,
 	},
 	zaciancrowned: {
 		randomBattleMoves: ["behemothblade", "closecombat", "crunch", "playrough", "psychicfangs", "swordsdance"],
-		tier: "Uber",
+		randomBattleLevel: 72,
+		randomDoubleBattleMoves: ["behemothblade", "closecombat", "playrough", "protect", "psychicfangs", "swordsdance"],
+		tier: "CUb",
 		inherit: true,
 	},
 	zamazenta: {
 		randomBattleMoves: ["closecombat", "crunch", "ironhead", "psychicfangs"],
-		tier: "Uber",
+		tier: "CUb",
 		inherit: true,
 	},
 	zamazentacrowned: {
 		randomBattleMoves: ["behemothbash", "closecombat", "crunch", "psychicfangs"],
-		tier: "Uber",
+		randomBattleLevel: 72,
+		randomDoubleBattleMoves: ["behemothbash", "closecombat", "crunch", "playrough", "protect", "psychicfangs"],
+		tier: "CUb",
 		inherit: true,
 	},
 	eternatus: {
 		randomBattleMoves: ["dynamaxcannon", "flamethrower", "recover", "sludgewave"],
-		tier: "Uber",
+		tier: "CUb",
+		inherit: true,
+	},
+	kubfu: {
+		tier: "NFE",
+		inherit: true,
+	},
+	urshifu: {
+		randomBattleMoves: ["closecombat", "ironhead", "uturn", "wickedblow"],
+		randomBattleLevel: 80,
+		tier: "COU",
+		inherit: true,
+	},
+	urshifurapidstrike: {
+		randomBattleMoves: ["closecombat", "surgingstrikes", "thunderpunch", "uturn"],
+		randomBattleLevel: 82,
+		tier: "COU",
+		inherit: true,
+	},
+	zarude: {
+		randomBattleMoves: ["bulkup", "closecombat", "darkestlariat", "powerwhip", "uturn"],
+		randomBattleLevel: 80,
+		isNonstandard: "Unobtainable",
+		tier: "Unreleased",
+		inherit: true,
+	},
+	zarudedada: {
+		isNonstandard: "Unobtainable",
 		inherit: true,
 	},
 	missingno: {
@@ -5279,5 +5199,3 @@ let BattleFormatsData = {
 		inherit: true,
 	},
 };
-
-exports.BattleFormatsData = BattleFormatsData;

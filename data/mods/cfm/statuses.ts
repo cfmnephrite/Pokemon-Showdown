@@ -1,11 +1,6 @@
-'use strict';
-
-/**@type {{[k: string]: PureEffectData}} */
-let BattleStatuses = {
+export const BattleStatuses: {[k: string]: PureEffectData} = {
 	brn: {
 		name: 'brn',
-		id: 'brn',
-		num: 0,
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.id === 'flameorb') {
@@ -24,8 +19,6 @@ let BattleStatuses = {
 	},
 	par: {
 		name: 'par',
-		id: 'par',
-		num: 0,
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
@@ -49,8 +42,6 @@ let BattleStatuses = {
 	},
 	slp: {
 		name: 'slp',
-		id: 'slp',
-		num: 0,
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
@@ -83,8 +74,6 @@ let BattleStatuses = {
 	},
 	frz: {
 		name: 'frz',
-		id: 'frz',
-		num: 0,
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
@@ -120,8 +109,6 @@ let BattleStatuses = {
 	},
 	psn: {
 		name: 'psn',
-		id: 'psn',
-		num: 0,
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
@@ -137,8 +124,6 @@ let BattleStatuses = {
 	},
 	tox: {
 		name: 'tox',
-		id: 'tox',
-		num: 0,
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
 			this.effectData.stage = 0;
@@ -158,13 +143,11 @@ let BattleStatuses = {
 			if (this.effectData.stage < 15) {
 				this.effectData.stage++;
 			}
-			this.damage(this.dex.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectData.stage);
+			this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectData.stage);
 		},
 	},
 	confusion: {
 		name: 'confusion',
-		id: 'confusion',
-		num: 0,
 		// this is a volatile status
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.id === 'lockedmove') {
@@ -191,20 +174,15 @@ let BattleStatuses = {
 				return;
 			}
 			this.activeTarget = pokemon;
-			let damage = this.getDamage(pokemon, pokemon, 40);
+			const damage = this.getDamage(pokemon, pokemon, 40);
 			if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
-			this.damage(damage, pokemon, pokemon, /** @type {ActiveMove} */ ({
-				id: 'confused',
-				effectType: 'Move',
-				type: '???',
-			}));
+			const activeMove = {id: toID('confused'), effectType: 'Move', type: '???'};
+			this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
 			return false;
 		},
 	},
 	flinch: {
 		name: 'flinch',
-		id: 'flinch',
-		num: 0,
 		duration: 1,
 		onBeforeMovePriority: 8,
 		onBeforeMove(pokemon) {
@@ -215,8 +193,6 @@ let BattleStatuses = {
 	},
 	trapped: {
 		name: 'trapped',
-		id: 'trapped',
-		num: 0,
 		noCopy: true,
 		onTrapPokemon(pokemon) {
 			pokemon.tryTrap();
@@ -227,53 +203,46 @@ let BattleStatuses = {
 	},
 	trapper: {
 		name: 'trapper',
-		id: 'trapper',
-		num: 0,
 		noCopy: true,
 	},
 	partiallytrapped: {
 		name: 'partiallytrapped',
-		id: 'partiallytrapped',
-		num: 0,
 		duration: 5,
 		durationCallback(target, source) {
-			if (source && source.hasItem('gripclaw')) return 8;
+			if (source?.hasItem('gripclaw')) return 8;
 			return this.random(5, 7);
 		},
 		onStart(pokemon, source, sourceEffect) {
-			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+			if (sourceEffect?.effectType === 'Ability') {
 				this.add('-start', pokemon, 'partiallytrapped');
-			} else
+			} else {
 				this.add('-activate', pokemon, 'move: ' + this.effectData.sourceEffect, '[of] ' + source);
+				this.effectData.boundDivisor = source.hasItem('bindingband') ? 6 : 8;
+			}
 		},
 		onResidualOrder: 11,
 		onResidual(pokemon) {
 			const source = this.effectData.source;
-			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
-				// G-Max Centiferno and G-Max Sandblast continue even after the user leaves the field
-				if (['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectData.sourceEffect.id)) return;
+			// G-Max Centiferno and G-Max Sandblast continue even after the user leaves the field
+			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectData.sourceEffect.id);
+			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns) && !gmaxEffect) {
 				delete pokemon.volatiles['partiallytrapped'];
 				this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]', '[silent]');
 				return;
 			}
-			if (source.hasItem('bindingband')) {
-				this.damage(pokemon.baseMaxhp / 6);
-			} else {
-				this.damage(pokemon.baseMaxhp / 8);
-			}
+			this.damage(pokemon.baseMaxhp / this.effectData.boundDivisor);
 		},
 		onEnd(pokemon) {
 			this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]');
 		},
 		onTrapPokemon(pokemon) {
-			if (this.effectData.source && this.effectData.source.isActive) pokemon.tryTrap();
+			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectData.sourceEffect.id);
+			if (this.effectData.source?.isActive || gmaxEffect) pokemon.tryTrap();
 		},
 	},
 	lockedmove: {
 		// Outrage, Thrash, Petal Dance...
 		name: 'lockedmove',
-		id: 'lockedmove',
-		num: 0,
 		duration: 2,
 		onResidual(target) {
 			if (target.status === 'slp') {
@@ -303,8 +272,6 @@ let BattleStatuses = {
 	twoturnmove: {
 		// Skull Bash, SolarBeam, Sky Drop...
 		name: 'twoturnmove',
-		id: 'twoturnmove',
-		num: 0,
 		duration: 2,
 		onStart(target, source, effect) {
 			this.effectData.move = effect.id;
@@ -323,8 +290,6 @@ let BattleStatuses = {
 	},
 	choicelock: {
 		name: 'choicelock',
-		id: 'choicelock',
-		num: 0,
 		noCopy: true,
 		onStart(pokemon) {
 			if (!this.activeMove) throw new Error("Battle.activeMove is null");
@@ -336,7 +301,10 @@ let BattleStatuses = {
 				pokemon.removeVolatile('choicelock');
 				return;
 			}
-			if (!pokemon.ignoringItem() && !pokemon.volatiles['dynamax'] && move.id !== this.effectData.move && move.id !== 'struggle') {
+			if (
+				!pokemon.ignoringItem() && !pokemon.volatiles['dynamax'] &&
+				move.id !== this.effectData.move && move.id !== 'struggle'
+			) {
 				// Fails unless the Choice item is being ignored, and no PP is lost
 				this.addMove('move', pokemon, move.name);
 				this.attrLastMove('[still]');
@@ -362,8 +330,6 @@ let BattleStatuses = {
 	},
 	mustrecharge: {
 		name: 'mustrecharge',
-		id: 'mustrecharge',
-		num: 0,
 		duration: 2,
 		onBeforeMovePriority: 11,
 		onBeforeMove(pokemon) {
@@ -380,8 +346,6 @@ let BattleStatuses = {
 	futuremove: {
 		// this is a slot condition
 		name: 'futuremove',
-		id: 'futuremove',
-		num: 0,
 		duration: 3,
 		onResidualOrder: 3,
 		onEnd(target) {
@@ -406,16 +370,15 @@ let BattleStatuses = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			const hitMove = new this.dex.Data.Move(data.moveData);
+			// @ts-ignore
+			const hitMove: ActiveMove = new this.dex.Data.Move(data.moveData);
 
-			this.trySpreadMoveHit([target], data.source, /** @type {ActiveMove} */(/** @type {unknown} */(hitMove)));
+			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 	},
 	healreplacement: {
 		// this is a slot condition
 		name: 'healreplacement',
-		id: 'healreplacement',
-		num: 0,
 		onStart(side, source, sourceEffect) {
 			this.effectData.sourceEffect = sourceEffect;
 			this.add('-activate', source, 'healreplacement');
@@ -432,8 +395,6 @@ let BattleStatuses = {
 	stall: {
 		// Protect, Detect, Endure counter
 		name: 'stall',
-		id: 'stall',
-		num: 0,
 		duration: 2,
 		counterMax: 729,
 		onStart() {
@@ -442,9 +403,9 @@ let BattleStatuses = {
 		onStallMove(pokemon) {
 			// this.effectData.counter should never be undefined here.
 			// However, just in case, use 1 if it is undefined.
-			let counter = this.effectData.counter || 1;
+			const counter = this.effectData.counter || 1;
 			this.debug("Success chance: " + Math.round(100 / counter) + "%");
-			let success = this.randomChance(1, counter);
+			const success = this.randomChance(1, counter);
 			if (!success) delete pokemon.volatiles['stall'];
 			return success;
 		},
@@ -458,10 +419,9 @@ let BattleStatuses = {
 	},
 	gem: {
 		name: 'gem',
-		id: 'gem',
-		num: 0,
 		duration: 1,
 		affectsFainted: true,
+		onBasePowerPriority: 14,
 		onBasePower(basePower, user, target, move) {
 			this.debug('Gem Boost');
 			return this.chainModify([0x14CD, 0x1000]);
@@ -472,12 +432,10 @@ let BattleStatuses = {
 
 	raindance: {
 		name: 'RainDance',
-		id: 'raindance',
-		num: 0,
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source && source.hasItem('damprock')) {
+			if (source?.hasItem('damprock')) {
 				return 8;
 			}
 			return 5;
@@ -494,7 +452,7 @@ let BattleStatuses = {
 			}
 		},
 		onStart(battle, source, effect) {
-			if (effect && effect.effectType === 'Ability') {
+			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5 || effect.id === 'forecast') this.effectData.duration = 0;
 				this.add('-weather', 'RainDance', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
@@ -512,8 +470,6 @@ let BattleStatuses = {
 	},
 	primordialsea: {
 		name: 'PrimordialSea',
-		id: 'primordialsea',
-		num: 0,
 		effectType: 'Weather',
 		duration: 0,
 		onTryMovePriority: 1,
@@ -554,12 +510,10 @@ let BattleStatuses = {
 	},
 	sunnyday: {
 		name: 'SunnyDay',
-		id: 'sunnyday',
-		num: 0,
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source && source.hasItem('heatrock')) {
+			if (source?.hasItem('heatrock')) {
 				return 8;
 			}
 			return 5;
@@ -576,7 +530,7 @@ let BattleStatuses = {
 			}
 		},
 		onStart(battle, source, effect) {
-			if (effect && effect.effectType === 'Ability') {
+			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5 || effect.id === 'flowergift' || effect.id === 'forecast') this.effectData.duration = 0;
 				this.add('-weather', 'SunnyDay', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
@@ -598,8 +552,6 @@ let BattleStatuses = {
 	},
 	desolateland: {
 		name: 'DesolateLand',
-		id: 'desolateland',
-		num: 0,
 		effectType: 'Weather',
 		duration: 0,
 		onTryMovePriority: 1,
@@ -644,12 +596,10 @@ let BattleStatuses = {
 	},
 	sandstorm: {
 		name: 'Sandstorm',
-		id: 'sandstorm',
-		num: 0,
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source && source.hasItem('smoothrock')) {
+			if (source?.hasItem('smoothrock')) {
 				return 8;
 			}
 			return 5;
@@ -663,7 +613,7 @@ let BattleStatuses = {
 			}
 		},
 		onStart(battle, source, effect) {
-			if (effect && effect.effectType === 'Ability') {
+			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectData.duration = 0;
 				this.add('-weather', 'Sandstorm', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
@@ -684,12 +634,10 @@ let BattleStatuses = {
 	},
 	hail: {
 		name: 'Hail',
-		id: 'hail',
-		num: 0,
 		effectType: 'Weather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source && source.hasItem('icyrock')) {
+			if (source?.hasItem('icyrock')) {
 				return 8;
 			}
 			return 5;
@@ -699,13 +647,14 @@ let BattleStatuses = {
 				this.debug('Hail boost');
 				return this.chainModify(1.25);
 			}
-			if (!attacker.hasType('Ice') && (move.type === 'Water' || move.type === 'Fire') && move.id !== 'originpulse' && move.id !== 'sacredfire' && !move.ignoreWeather) {
+			if (!attacker.hasType('Ice') && (move.type === 'Water' || move.type === 'Fire') &&
+			move.id !== 'originpulse' && move.id !== 'sacredfire' && !move.ignoreWeather) {
 				this.debug('Hail fire/water suppress');
 				return this.chainModify(0.5);
 			}
 		},
 		onStart(battle, source, effect) {
-			if (effect && effect.effectType === 'Ability') {
+			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5 || effect.id === 'forecast') this.effectData.duration = 0;
 				this.add('-weather', 'Hail', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
@@ -726,12 +675,12 @@ let BattleStatuses = {
 	},
 	deltastream: {
 		name: 'DeltaStream',
-		id: 'deltastream',
-		num: 0,
 		effectType: 'Weather',
 		duration: 0,
+		onEffectivenessPriority: -1,
 		onEffectiveness(typeMod, target, type, move) {
-			if (move && move.effectType === 'Move' && move.category !== 'Status' && target && target.hasType('Flying') && ['Electric', 'Ice', 'Rock'].includes(move.type) && typeMod > 0 && !move.ignoreWeather) {
+			if (move && move.effectType === 'Move' && move.category !== 'Status' && target && target.hasType('Flying') &&
+			['Electric', 'Ice', 'Rock'].includes(move.type) && typeMod > 0 && !move.ignoreWeather) {
 				if (type === 'Flying') this.add('-activate', '', 'deltastream');
 				return 0;
 			}
@@ -752,8 +701,6 @@ let BattleStatuses = {
 	// CFM Gooey + Hyper Cutter
 	gooey: {
 		name: 'Gooey',
-		id: 'gooey',
-		num: 0,
 		noCopy: true,
 		duration: 1,
 		onStart(target, source) {
@@ -763,8 +710,6 @@ let BattleStatuses = {
 	},
 	hypercutter: {
 		name: 'Hyper Cutter',
-		id: 'hypercutter',
-		num: 0,
 		noCopy: true,
 		duration: 1,
 		onStart(target, source) {
@@ -775,8 +720,6 @@ let BattleStatuses = {
 
 	charge: {
 		name: 'Charge',
-		id: 'charge',
-		num: 0,
 		noCopy: true,
 		duration: 2,
 		onRestart(pokemon) {
@@ -803,13 +746,10 @@ let BattleStatuses = {
 	// This is mainly relevant for Hackmons Cup and Balanced Hackmons.
 	arceus: {
 		name: 'Arceus',
-		id: 'arceus',
-		num: 493,
 		onTypePriority: 1,
 		onType(types, pokemon) {
-			if (pokemon.transformed || pokemon.ability !== 'multitype' && this.gen >= 8) return types;
-			/** @type {string | undefined} */
-			let type = pokemon.getItem().onPlate;
+			if (pokemon.transformed) return types;
+			let type: string | undefined = pokemon.getItem().onPlate;
 			if (!type) {
 				type = 'Normal';
 			}
@@ -818,15 +758,15 @@ let BattleStatuses = {
 	},
 	silvally: {
 		name: 'Silvally',
-		id: 'silvally',
-		num: 773,
 		onTypePriority: 1,
 		onType(types, pokemon) {
-			if (pokemon.transformed || pokemon.ability !== 'rkssystem' && this.gen >= 8) return types;
-			/** @type {string | undefined} */
-			let type = pokemon.getItem().onMemory;
-			if (!type) {
-				type = 'Normal';
+			if (pokemon.transformed) return types;
+			let type: string | undefined = 'Normal';
+			if (pokemon.ability === 'rkssystem') {
+				type = pokemon.getItem().onMemory;
+				if (!type) {
+					type = 'Normal';
+				}
 			}
 			return [type];
 		},
@@ -835,8 +775,6 @@ let BattleStatuses = {
 	// CFM type changing mons
 	unown: {
 		name: 'Unown',
-		id: 'unown',
-		num: 201,
 		onStart(pokemon) {
 			if (pokemon.hpType) {
 				pokemon.setType(pokemon.hpType);
@@ -845,22 +783,20 @@ let BattleStatuses = {
 	},
 	kecleon: {
 		name: 'Kecleon',
-		id: 'kecleon',
-		num: 352,
 		onStart(pokemon) {
 			if (pokemon.ability === 'colorchange') {
-				let types = [];
+				const types = [];
 				types.push(this.dex.getMove(pokemon.moveSlots[0].move).type);
-				if (pokemon.moveSlots[1] && this.dex.getMove(pokemon.moveSlots[0].move).type !== this.dex.getMove(pokemon.moveSlots[1].move).type)
+				if (pokemon.moveSlots[1] &&
+				this.dex.getMove(pokemon.moveSlots[0].move).type !== this.dex.getMove(pokemon.moveSlots[1].move).type) {
 					types.push(this.dex.getMove(pokemon.moveSlots[1].move).type);
+				}
 				pokemon.setType(types);
 			}
 		},
 	},
 	solgaleo: {
 		name: 'Solgaleo',
-		id: 'solgaleo',
-		num: 791,
 		onStart(pokemon) {
 			if (pokemon.ability === 'fullmetalbody') {
 				pokemon.setType(['Psychic', 'Fire', 'Steel']);
@@ -869,8 +805,6 @@ let BattleStatuses = {
 	},
 	lunala: {
 		name: 'Lunala',
-		id: 'lunala',
-		num: 791,
 		onStart(pokemon) {
 			if (pokemon.ability === 'shadowshield') {
 				pokemon.setType(['Psychic', 'Fairy', 'Ghost']);
@@ -878,5 +812,3 @@ let BattleStatuses = {
 		},
 	},
 };
-
-exports.BattleStatuses = BattleStatuses;
