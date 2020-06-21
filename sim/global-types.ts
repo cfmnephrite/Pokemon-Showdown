@@ -1156,10 +1156,10 @@ interface SpeciesData {
 }
 
 type ModdedSpeciesData = SpeciesData | Partial<Omit<SpeciesData, 'name'>> & {
-	inherit: true;
-	levitates?: boolean;
-	cfm?: boolean;
-}
+	inherit: true,
+	levitates?: boolean,
+	cfm?: boolean,
+};
 
 interface SpeciesFormatsData {
 	comboMoves?: readonly string[];
@@ -1482,7 +1482,7 @@ namespace RandomTeamsTypes {
 	}
 	export interface FactoryTeamDetails {
 		megaCount: number;
-		zCount: number;
+		zCount?: number;
 		forceResult: boolean;
 		weather?: string;
 		typeCount: {[k: string]: number};

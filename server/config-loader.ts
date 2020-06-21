@@ -15,24 +15,6 @@ export type ConfigType = typeof defaults & {
 	[k: string]: any,
 };
 
-export interface GroupInfo {
-	symbol: GroupSymbol;
-	id: ID;
-	name: string;
-	rank: number;
-	inherit?: GroupSymbol;
-	jurisdiction?: string;
-	globalGroupInPersonalRoom?: GroupSymbol;
-	[k: string]: string | true | number | undefined;
-}
-
-export type ConfigType = typeof defaults & {
-	groups: {[symbol: string]: GroupInfo},
-	groupsranking: GroupSymbol[],
-	greatergroupscache: {[combo: string]: GroupSymbol},
-	[k: string]: any,
-};
-
 const CONFIG_PATH = require.resolve('../config/config');
 
 export function load(invalidate = false) {

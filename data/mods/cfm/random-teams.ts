@@ -1,22 +1,9 @@
 /* eslint max-len: ["error", 240] */
 
-import {Dex} from '../sim/dex';
-import {PRNG, PRNGSeed} from '../sim/prng';
-import {Utils} from '../lib/utils';
-
-export interface TeamData {
-	typeCount: {[k: string]: number};
-	typeComboCount: {[k: string]: number};
-	baseFormes: {[k: string]: number};
-	megaCount: number;
-	zCount: number;
-	has: {[k: string]: number};
-	forceResult: boolean;
-	weaknesses: {[k: string]: number};
-	resistances: {[k: string]: number};
-	weather?: string;
-	eeveeLimCount?: number;
-}
+import {TeamData} from '../../random-teams';
+import {Dex} from '../../../sim/dex';
+import {PRNG, PRNGSeed} from '../../../sim/prng';
+import {Utils} from '../../../lib/utils';
 
 export class RandomTeams {
 	dex: ModdedDex;
@@ -32,7 +19,6 @@ export class RandomTeams {
 		format = Dex.getFormat(format);
 		this.dex = Dex.forFormat(format);
 		this.gen = this.dex.gen;
-		// @ts-ignore
 		this.randomCFMFactorySets = require('./cfm-factory-sets.json');
 		// this.randomFactorySets = randomFactorySets;
 		// this.randomBSSFactorySets = randomBSSFactorySets;
@@ -1568,7 +1554,7 @@ export class RandomTeams {
 		for (const curSet of setList) {
 			const item = this.dex.getItem(curSet.item);
 			if (teamData.megaCount > 0 && item.megaStone) continue; // reject 2+ mega stones
-			if (teamData.zCount > 0 && item.zMove) continue; // reject 2+ Z stones
+			if (teamData.zCount && teamData.zCount > 0 && item.zMove) continue; // reject 2+ Z stones
 			if (itemsMax[item.id] && teamData.has[item.id] >= itemsMax[item.id]) continue;
 
 			const ability = this.dex.getAbility(curSet.ability);
@@ -1696,7 +1682,7 @@ export class RandomTeams {
 			if (teamData.megaCount >= 1 && itemData.megaStone) continue;
 
 			// Limit the number of Z moves to one
-			if (teamData.zCount >= 1 && itemData.zMove) continue;
+			if (teamData.zCount && teamData.zCount >= 1 && itemData.zMove) continue;
 
 			let types = species.types;
 
@@ -1748,12 +1734,11 @@ export class RandomTeams {
 			teamData.baseFormes[species.baseSpecies] = 1;
 
 			if (itemData.megaStone) teamData.megaCount++;
-			if (itemData.zMove) teamData.zCount++;
-			if (itemData.id in teamData.has) {
-				teamData.has[itemData.id]++;
-			} else {
-				teamData.has[itemData.id] = 1;
+			if (itemData.zMove) {
+				if (!teamData.zCount) teamData.zCount = 0;
+				teamData.zCount++;
 			}
+			teamData.has[itemData.id] = 1;
 
 			const abilityData = this.dex.getAbility(set.ability);
 			if (abilityData.id in weatherAbilitiesSet) {

@@ -521,7 +521,6 @@ export class GlobalRoom extends BasicRoom {
 				creationTime: Date.now(),
 				isOfficial: true,
 				autojoin: true,
-				persistSettings: true,
 			}, {
 				title: 'Staff',
 				auth: {},
@@ -529,7 +528,6 @@ export class GlobalRoom extends BasicRoom {
 				isPrivate: true,
 				staffRoom: true,
 				staffAutojoin: true,
-				persistSettings: true,
 			}];
 		}
 
