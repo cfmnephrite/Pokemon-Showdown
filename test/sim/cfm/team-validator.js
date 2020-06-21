@@ -8,23 +8,23 @@ describe('CFM - Team Validator', function () {
 		try {
 			Dex.getRuleTable(Dex.getFormat('gen8cfmou'));
 		} catch (e) {
-			e.message = `${format}: ${e.message}`;
+			e.message = `gen8cfmou: ${e.message}`;
 			throw e;
 		}
 	});
 	it('should allow for CFM learnsets', function () {
-		let team = [
+		const team = [
 			{species: 'pikachu', ability: "static", moves: ['catastropika'], evs: {hp: 1}},
 		];
-		let illegal = TeamValidator.get('gen8cfmou').validateTeam(team);
+		const illegal = TeamValidator.get('gen8cfmou').validateTeam(team);
 		assert(!illegal);
 	});
 
 	it('should account for moves that can only be learned by prevolutions', function () {
-		let team = [
+		const team = [
 			{species: 'raichu', ability: "static", moves: ['catastropika'], evs: {hp: 1}},
 		];
-		let illegal = TeamValidator.get('gen8cfmou').validateTeam(team);
+		const illegal = TeamValidator.get('gen8cfmou').validateTeam(team);
 		assert(illegal);
 	});
 });
