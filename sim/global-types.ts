@@ -1155,8 +1155,8 @@ interface SpeciesData {
 	unreleasedHidden?: boolean | 'Past';
 }
 
-interface ModdedSpeciesData extends Partial<SpeciesData> {
-	inherit?: true;
+type ModdedSpeciesData = SpeciesData | Partial<Omit<SpeciesData, 'name'>> & {
+	inherit: true;
 	levitates?: boolean;
 	cfm?: boolean;
 }

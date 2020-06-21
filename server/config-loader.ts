@@ -6,6 +6,14 @@
  */
 
 import * as defaults from '../config/config-example';
+type GroupInfo = import('./user-groups').GroupInfo;
+
+export type ConfigType = typeof defaults & {
+	groups: {[symbol: string]: GroupInfo},
+	groupsranking: GroupSymbol[],
+	greatergroupscache: {[combo: string]: GroupSymbol},
+	[k: string]: any,
+};
 
 export interface GroupInfo {
 	symbol: GroupSymbol;
@@ -68,7 +76,7 @@ export function cacheGroupData(config: ConfigType) {
 				// preserving permissions specifically declared for the higher group.
 				for (const key in inheritGroup) {
 					if (key in groupData) continue;
-					groupData[key] = inheritGroup[key];
+					(groupData as any)[key] = (inheritGroup as any)[key];
 				}
 			}
 			delete groupData['inherit'];

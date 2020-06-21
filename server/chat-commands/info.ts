@@ -510,13 +510,13 @@ export const commands: ChatCommands = {
 			dex = Dex.mod(toID(sep[1]));
 		} else if (sep[1]) {
 			format = Dex.getFormat(sep[1]);
-			if (!format.exists) {
-				return this.errorReply(`Unrecognized format or mod "${format.name}"`);
+			if (!format?.exists) {
+				return this.errorReply(`Unrecognized format or mod "${format?.name}"`);
 			}
 			dex = Dex.mod(format.mod);
 		} else if (room?.battle) {
 			format = Dex.getFormat(room.battle.format);
-			dex = Dex.mod(format.mod);
+			dex = Dex.mod(format?.mod);
 		}
 		const newTargets = dex.dataSearch(target);
 		const showDetails = (cmd.startsWith('dt') || cmd === 'details' || cmd === 'cfm');
@@ -893,6 +893,23 @@ export const commands: ChatCommands = {
 				}
 			} else {
 				immunities.push(type);
+			}
+		}
+
+		const statuses: {[k: string]: string} = {
+			brn: "Burn",
+			frz: "Frozen",
+			hail: "Hail damage",
+			par: "Paralysis",
+			powder: "Powder moves",
+			prankster: "Prankster",
+			sandstorm: "Sandstorm damage",
+			tox: "Toxic",
+			trapped: "Trapping",
+		};
+		for (const status in statuses) {
+			if (!mod.getImmunity(status, species)) {
+				immunities.push(statuses[status]);
 			}
 		}
 
