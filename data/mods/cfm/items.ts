@@ -60,7 +60,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		itemUser: ["Dialga"],
 		num: 135,
 		gen: 4,
-		isNonstandard: "Past",
 		desc: "If held by a Dialga, its Steel- and Dragon-type attacks have 1.2x power.",
 	},
 	adrenalineorb: {
@@ -247,7 +246,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 104,
 		gen: 4,
-		isNonstandard: "Past",
 		desc: "Can be revived into Shieldon.",
 	},
 	aspearberry: {
@@ -379,7 +377,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 183,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "Cannot be eaten by the holder. No effect when eaten with Bug Bite or Pluck.",
 	},
 	berryjuice: {
@@ -543,7 +540,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		itemUser: ["Kyogre"],
 		num: 535,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Kyogre, this item triggers its Primal Reversion in battle.",
 	},
 	blukberry: {
@@ -607,7 +603,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 558,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's first successful Bug-type attack will have 1.3x power. Single use.",
 	},
 	bugmemory: {
@@ -652,7 +647,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		itemUser: ["Genesect-Burn"],
 		num: 118,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's Techno Blast is Fire type.",
 	},
 	cameruptite: {
@@ -847,7 +841,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		itemUser: ["Genesect-Chill"],
 		num: 119,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's Techno Blast is Ice type.",
 	},
 	chippedpot: {
@@ -967,7 +960,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 100,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "Can be revived into Anorith.",
 	},
 	cloversweet: {
@@ -1041,7 +1033,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 175,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "Cannot be eaten by the holder. No effect when eaten with Bug Bite or Pluck.",
 	},
 	coverfossil: {
@@ -1052,7 +1043,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 572,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Can be revived into Tirtouga.",
 	},
 	crackedpot: {
@@ -1110,7 +1100,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 562,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's first successful Dark-type attack will have 1.3x power. Single use.",
 	},
 	darkmemory: {
@@ -1245,7 +1234,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 102,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "Can be revived into Kabuto.",
 	},
 	dousedrive: {
@@ -1262,7 +1250,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		itemUser: ["Genesect-Douse"],
 		num: 116,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's Techno Blast is Water type.",
 	},
 	dracoplate: {
@@ -1315,7 +1302,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 561,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's first successful Dragon-type attack will have 1.3x power. Single use.",
 	},
 	dragonmemory: {
@@ -1407,7 +1393,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 182,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "Cannot be eaten by the holder. No effect when eaten with Bug Bite or Pluck.",
 	},
 	duskball: {
@@ -1537,7 +1522,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 550,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's first successful Electric-type attack will have 1.3x power. Single use.",
 	},
 	electricmemory: {
@@ -1687,7 +1671,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 715,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "Holder's first successful Fairy-type attack will have 1.3x power. Single use.",
 	},
 	fairymemory: {
@@ -1726,7 +1709,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 553,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's first successful Fighting-type attack will have 1.3x power. Single use.",
 	},
 	fightingmemory: {
@@ -1796,7 +1778,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 548,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's first successful Fire-type attack will have 1.3x power. Single use.",
 	},
 	firememory: {
@@ -1933,7 +1914,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 556,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's first successful Flying-type attack will have 1.3x power. Single use.",
 	},
 	flyingmemory: {
@@ -2146,7 +2126,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 560,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's first successful Ghost-type attack will have 1.3x power. Single use.",
 	},
 	ghostmemory: {
@@ -2214,7 +2193,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 551,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's first successful Grass-type attack will have 1.3x power. Single use.",
 	},
 	grassmemory: {
@@ -2323,7 +2301,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		itemUser: ["Giratina-Origin"],
 		num: 112,
 		gen: 4,
-		isNonstandard: "Past",
 		desc: "If held by a Giratina, its Ghost- and Dragon-type attacks have 1.2x power.",
 	},
 	groundgem: {
@@ -2338,7 +2315,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 555,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's first successful Ground-type attack will have 1.3x power. Single use.",
 	},
 	groundmemory: {
@@ -2469,7 +2445,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 101,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "Can be revived into Omanyte.",
 	},
 	heracronite: {
@@ -2551,7 +2526,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 552,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's first successful Ice-type attack will have 1.3x power. Single use.",
 	},
 	icememory: {
@@ -2728,7 +2702,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 710,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "Can be revived into Tyrunt.",
 	},
 	kasibberry: {
@@ -3127,7 +3100,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		itemUser: ["Chansey"],
 		num: 256,
 		gen: 2,
-		isNonstandard: "Past",
 		desc: "If held by a Chansey, its critical hit ratio is raised by 2 stages.",
 	},
 	lumberry: {
@@ -3206,7 +3178,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		itemUser: ["Palkia"],
 		num: 136,
 		gen: 4,
-		isNonstandard: "Past",
 		desc: "If held by a Palkia, its Water- and Dragon-type attacks have 1.2x power.",
 	},
 	luxuryball: {
@@ -3305,7 +3276,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 176,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "Cannot be eaten by the holder. No effect when eaten with Bug Bite or Pluck.",
 	},
 	mail: {
@@ -3317,7 +3287,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 0,
 		gen: 2,
-		isNonstandard: "Past",
 		desc: "Cannot be given to or taken from a Pokemon, except by Covet/Knock Off/Thief.",
 	},
 	manectite: {
@@ -3724,7 +3693,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 166,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "Cannot be eaten by the holder. No effect when eaten with Bug Bite or Pluck.",
 	},
 	nestball: {
@@ -3770,7 +3738,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 178,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "Cannot be eaten by the holder. No effect when eaten with Bug Bite or Pluck.",
 	},
 	normalgem: {
@@ -3847,7 +3814,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 103,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "Can be revived into Aerodactyl.",
 	},
 	oranberry: {
@@ -3894,7 +3860,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 180,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "Cannot be eaten by the holder. No effect when eaten with Bug Bite or Pluck.",
 	},
 	parkball: {
@@ -4109,7 +4074,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 573,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Can be revived into Archen.",
 	},
 	poisonbarb: {
@@ -4141,7 +4105,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 554,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's first successful Poison-type attack will have 1.3x power. Single use.",
 	},
 	poisonmemory: {
@@ -4398,7 +4361,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 557,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's first successful Psychic-type attack will have 1.3x power. Single use.",
 	},
 	psychicmemory: {
@@ -4518,7 +4480,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 177,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "Cannot be eaten by the holder. No effect when eaten with Bug Bite or Pluck.",
 	},
 	rarebone: {
@@ -4589,7 +4550,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 327,
 		gen: 4,
-		isNonstandard: "Past",
 		desc: "Holder's attacks without a chance to flinch gain a 10% chance to flinch. Evolves Gligar into Gliscor when held and leveled up during the night.",
 		shortDesc: "Holder's attacks without a chance to flinch gain a 10% chance to flinch.",
 	},
@@ -4604,7 +4564,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 164,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "Cannot be eaten by the holder. No effect when eaten with Bug Bite or Pluck.",
 	},
 	reapercloth: {
@@ -4658,7 +4617,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		itemUser: ["Groudon"],
 		num: 534,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Groudon, this item triggers its Primal Reversion in battle.",
 	},
 	repeatball: {
@@ -4727,7 +4685,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 559,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's first successful Rock-type attack will have 1.3x power. Single use.",
 	},
 	rockincense: {
@@ -4816,7 +4773,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 99,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "Can be revived into Lileep.",
 	},
 	roseincense: {
@@ -4970,7 +4926,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 711,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "Can be revived into Amaura.",
 	},
 	salacberry: {
@@ -5149,7 +5104,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		itemUser: ["Genesect-Shock"],
 		num: 117,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's Techno Blast is Electric type.",
 	},
 	shucaberry: {
@@ -5240,7 +5194,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 105,
 		gen: 4,
-		isNonstandard: "Past",
 		desc: "Can be revived into Cranidos.",
 	},
 	skyplate: {
@@ -5363,7 +5316,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		itemUser: ["Latios", "Latias"],
 		num: 225,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "If held by a Latias/Latios, its Dragon- and Psychic-type moves have 1.2x power.",
 	},
 	spelltag: {
@@ -5393,7 +5345,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 179,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "Cannot be eaten by the holder. No effect when eaten with Bug Bite or Pluck.",
 	},
 	splashplate: {
@@ -5516,7 +5467,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 563,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's first successful Steel-type attack will have 1.3x power. Single use.",
 	},
 	steelmemory: {
@@ -5561,7 +5511,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		itemUser: ["Farfetch\u2019d"],
 		num: 259,
 		gen: 2,
-		isNonstandard: "Past",
 		desc: "If held by a Farfetch\u2019d, its critical hit ratio is raised by 2 stages.",
 	},
 	stickybarb: {
@@ -6843,7 +6792,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 669,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Tyranitar, this item allows it to Mega Evolve in battle.",
 	},
 	ultraball: {
@@ -6863,7 +6811,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		itemUser: ["Necrozma-Ultra"],
 		num: 923,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "Dusk Mane/Dawn Wings Necrozma: Ultra Burst, then Z-Move w/ Photon Geyser.",
 	},
 	upgrade: {
@@ -6900,7 +6847,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 659,
 		gen: 6,
-		isNonstandard: "Past",
 		desc: "If held by a Venusaur, this item allows it to Mega Evolve in battle.",
 	},
 	wacanberry: {
@@ -6940,7 +6886,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		},
 		num: 549,
 		gen: 5,
-		isNonstandard: "Past",
 		desc: "Holder's first successful Water-type attack will have 1.3x power. Single use.",
 	},
 	watermemory: {
@@ -6980,7 +6925,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Water",
 		num: 778,
 		gen: 7,
-		isNonstandard: "Past",
 		desc: "If holder has a Water move, this item allows it to use a Water Z-Move.",
 	},
 	watmelberry: {
@@ -6994,7 +6938,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 181,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "Cannot be eaten by the holder. No effect when eaten with Bug Bite or Pluck.",
 	},
 	waveincense: {
@@ -7047,7 +6990,6 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 167,
 		gen: 3,
-		isNonstandard: "Past",
 		desc: "Cannot be eaten by the holder. No effect when eaten with Bug Bite or Pluck.",
 	},
 	whippeddream: {

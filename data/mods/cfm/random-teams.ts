@@ -23,7 +23,7 @@ export class RandomTeams {
 		// this.randomBSSFactorySets = randomBSSFactorySets;
 		this.randomCAP1v1Sets = require('./../../cap-1v1-sets.json');
 		this.randomCFMFactorySets = require('./cfm-factory-sets.json');
-		
+
 		this.factoryTier = '';
 		this.format = format;
 		this.prng = prng && !Array.isArray(prng) ? prng : new PRNG(prng);

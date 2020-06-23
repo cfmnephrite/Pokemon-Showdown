@@ -27,4 +27,34 @@ describe('CFM - Team Validator', function () {
 		const illegal = TeamValidator.get('gen8cfmou').validateTeam(team);
 		assert(illegal);
 	});
+
+	it('CFM complex bans', function () {
+		// abilities - OU
+		let team = [
+			{species: 'blaziken', ability: "speedboost", moves: ['fireblast'], evs: {hp: 1}},
+		];
+		let illegal = TeamValidator.get('gen8cfmou').validateTeam(team);
+		assert(illegal);
+
+		// abilities - UU
+		team = [
+			{species: 'serperior', ability: "contrary", moves: ['leafstorm'], evs: {hp: 1}},
+		];
+		illegal = TeamValidator.get('gen8cfmuu').validateTeam(team);
+		assert(illegal);
+
+		// items
+		team = [
+			{species: 'latios', ability: "magicbounce", moves: ['psychic'], item: "souldew", evs: {hp: 1}},
+		];
+		illegal = TeamValidator.get('gen8cfmou').validateTeam(team);
+		assert(illegal);
+
+		// moves
+		team = [
+			{species: 'porygonz', ability: "download", moves: ['hyperbeam'], evs: {hp: 1}},
+		];
+		illegal = TeamValidator.get('gen8cfmou').validateTeam(team);
+		assert(illegal);
+	});
 });

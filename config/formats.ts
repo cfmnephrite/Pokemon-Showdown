@@ -499,46 +499,46 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 
 		mod: 'cfm',
 		// cfacTier: 'Uber',
-		ruleset: ['Obtainable', 'Mega Rayquaza Clause', 'Baton Pass Clause', 'CFM Moves', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Standard'],
+		ruleset: ['Obtainable', 'Mega Rayquaza Clause', 'Baton Pass Clause', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Standard'],
 	},
 	{
 		name: "[Gen 8] CFM OU",
 
 		mod: 'cfm',
 		// cfacTier: 'OU',
-		ruleset: ['Obtainable', 'Baton Pass Clause', 'CFM OU Rules', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Standard'],
-		banlist: ['CUb', 'Power Construct'],
+		ruleset: ['Obtainable', 'Baton Pass Clause', 'CFM Complex Bans', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Standard'],
+		banlist: ['CUb', 'Power Construct', 'Arena Trap', 'Shadow Tag'],
 	},
 	{
 		name: "[Gen 8] CFM UU",
 
 		mod: 'cfm',
 		// cfacTier: 'UU',
-		ruleset: ['[Gen 8] CFM OU', 'CFM UU Rules'],
-		banlist: ['COU', 'Mewnium Z', 'Kommonium Z', 'Drought', 'Drizzle', 'Flower Gift'],
+		ruleset: ['[Gen 8] CFM OU'],
+		banlist: ['COU', 'Mewnium Z', 'Kommonium Z', 'Drought', 'Drizzle'],
 	},
 	{
 		name: "[Gen 8] CFM RU",
 
 		mod: 'cfm',
 		// cfacTier: 'RU',
-		ruleset: ['[Gen 8] CFM UU', 'CFM RU Rules'],
-		banlist: ['CUU'],
+		ruleset: ['[Gen 8] CFM UU'],
+		banlist: ['CUU', 'Sand Stream', 'Snow Warning'],
 	},
 	{
 		name: "[Gen 8] CFM NU",
 
 		mod: 'cfm',
 		// cfacTier: 'NU',
-		ruleset: ['[Gen 8] CFM RU', 'CFM NU Rules'],
-		banlist: ['CRU', 'Sand Stream', 'Snow Warning'],
+		ruleset: ['[Gen 8] CFM RU'],
+		banlist: ['CRU'],
 	},
 	{
 		name: "[Gen 8] CFM PU",
 
 		mod: 'cfm',
 		// cfacTier: 'PU',
-		ruleset: ['[Gen 8] CFM NU', 'CFM PU Rules'],
+		ruleset: ['[Gen 8] CFM NU'],
 		banlist: ['CNU'],
 	},
 	{
