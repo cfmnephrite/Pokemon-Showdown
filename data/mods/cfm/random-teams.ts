@@ -19,11 +19,11 @@ export class RandomTeams {
 		format = Dex.getFormat(format);
 		this.dex = Dex.forFormat(format);
 		this.gen = this.dex.gen;
-		this.randomCFMFactorySets = require('./cfm-factory-sets.json');
 		// this.randomFactorySets = randomFactorySets;
 		// this.randomBSSFactorySets = randomBSSFactorySets;
-		this.randomCAP1v1Sets = require('./cap-1v1-sets.json');
-
+		this.randomCAP1v1Sets = require('./../../cap-1v1-sets.json');
+		this.randomCFMFactorySets = require('./cfm-factory-sets.json');
+		
 		this.factoryTier = '';
 		this.format = format;
 		this.prng = prng && !Array.isArray(prng) ? prng : new PRNG(prng);
