@@ -856,6 +856,7 @@ interface ItemData extends EffectData, ItemEventMethods, EventMethods {
 
 	// CFM - Pulverising Pancake can only be used by Snorlax off of a physical Normal-type move
 	zMoveCategory?: string;
+	zMoveSpecialMoves?: {[k: string]: string},
 }
 
 type ModdedItemData = ItemData | Partial<Omit<ItemData, 'name'>> & {
@@ -1044,6 +1045,11 @@ interface MoveData extends EffectData, MoveEventMethods, HitEffect {
 	solarPowerBoosted?: boolean;
 	// Mold Breaker et al make moves also ignore weather
 	ignoreWeather?: boolean;
+
+	// Special Z Moves
+	zMoveSpecialUser?: string;
+	zMoveSpecialType?: string;
+	zMoveSpecialMoveFrom?: string[];
 }
 
 type ModdedMoveData = MoveData | Partial<Omit<MoveData, 'name'>> & {inherit: true};

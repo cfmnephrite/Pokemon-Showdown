@@ -1126,6 +1126,11 @@ export const BattleScripts: BattleScriptsData = {
 			// Draining the PP of the base move prevents the corresponding Z-move from being used.
 			if (!moveData || !moveData.pp) return;
 		}
+		if (item.zMoveSpecialMoves && !!item.zMoveSpecialMoves[pokemon.baseSpecies.name]) {
+			const zMove = this.dex.getMove(item.zMoveSpecialMoves[pokemon.baseSpecies.name]);
+			if (zMove.zMoveSpecialMoveFrom?.includes(move.name) ||
+			zMove.zMoveSpecialType === this.getEffectiveType(move, pokemon)) return zMove.name;
+		}
 		if (typeof item.zMove === 'string') {
 			if (item.zMoveFrom && move.name !== item.zMoveFrom) return;
 			if (item.zMoveType && this.getEffectiveType(move, pokemon) !== item.zMoveType) return;
@@ -1156,10 +1161,9 @@ export const BattleScripts: BattleScriptsData = {
 		const zMove = this.dex.getActiveMove(this.dex.getActiveMove(zMoveName));
 
 		// Non-unique Z Moves don't have a fixed BP or category
-		if (zMove.basePower === 1) {
-			zMove.basePower = move.zMove!.basePower!;
-			zMove.category = move.category;
-		}
+		zMove.basePower = move.zMove!.basePower!;
+		zMove.category = move.category;
+
 		// copy the priority for Quick Guard
 		zMove.priority = move.priority;
 		zMove.isZOrMaxPowered = true;
