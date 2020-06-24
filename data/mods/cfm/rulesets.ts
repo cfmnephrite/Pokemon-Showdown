@@ -1053,7 +1053,7 @@ export const BattleFormats: {[k: string]: FormatsData} = {
 				}
 				for (const move of set.moves) {
 					if (complexBans[speciesRef].move === toID(move)) {
-						let moveName = Dex.getMove(move).name;
+						const moveName = Dex.getMove(move).name;
 						return [`${set.name || set.species} is not allowed to use ${moveName} in C${complexBans[speciesRef].tier} or below.`];
 					}
 				}

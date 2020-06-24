@@ -559,7 +559,7 @@ export const commands: ChatCommands = {
 				const displayedTier = tierDisplay === 'tiers' ? pokemon.tier :
 					tierDisplay === 'doubles tiers' ? pokemon.doublesTier :
 					pokemon.num >= 0 ? String(pokemon.num) : pokemon.tier;
-				buffer += `|raw|${Chat.getDataPokemonHTML(pokemon, dex.gen, displayedTier)}\n`;
+				buffer += `|raw|<div class="infobox">${Chat.getDataPokemonHTML(pokemon, dex.gen, displayedTier)}`;
 				if (showDetails) {
 					let weighthit = 20;
 					if (pokemon.weighthg >= 2000) {
@@ -628,7 +628,7 @@ export const commands: ChatCommands = {
 				break;
 			case 'item':
 				const item = dex.getItem(newTarget.name);
-				buffer += `|raw|${Chat.getDataItemHTML(item)}\n`;
+				buffer += `|raw|<div class="infobox">${Chat.getDataItemHTML(item)}`;
 				if (showDetails) {
 					details = {
 						Gen: String(item.gen),
@@ -660,7 +660,7 @@ export const commands: ChatCommands = {
 				break;
 			case 'move':
 				const move = dex.getMove(newTarget.name);
-				buffer += `|raw|${Chat.getDataMoveHTML(move)}\n`;
+				buffer += `|raw|<div class="infobox">${Chat.getDataMoveHTML(move)}`;
 				if (showDetails) {
 					details = {
 						Priority: String(move.priority),
@@ -729,7 +729,7 @@ export const commands: ChatCommands = {
 						}
 					}
 
-					if (dex.gen >= 8) {
+					if (dex.currentMod !== 'cfm' && dex.gen >= 8) {
 						if (move.isMax) {
 							details["&#10003; Max Move"] = "";
 							if (typeof move.isMax === "string") details["User"] = `${move.isMax}-Gmax`;
@@ -770,7 +770,7 @@ export const commands: ChatCommands = {
 				break;
 			case 'ability':
 				const ability = dex.getAbility(newTarget.name);
-				buffer += `|raw|${Chat.getDataAbilityHTML(ability)}\n`;
+				buffer += `|raw|<div class="infobox">${Chat.getDataAbilityHTML(ability)}`;
 				if (showDetails) {
 					details = {
 						Gen: String(ability.gen) || 'CAP',
@@ -782,7 +782,7 @@ export const commands: ChatCommands = {
 			}
 
 			if (details) {
-				buffer += `|raw|<font size="1">${Object.keys(details).map(detail => {
+				buffer += `<font size="1">${Object.keys(details).map(detail => {
 					if (details[detail] === '') return detail;
 					return `<font color="#686868">${detail}:</font> ${details[detail]}`;
 				}).join("&nbsp;|&ThickSpace;")}</font>\n`;

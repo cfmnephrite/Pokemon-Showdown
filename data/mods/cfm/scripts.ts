@@ -53,12 +53,14 @@ export const BattleScripts: BattleScriptsData = {
 			// false indicates that this counts as a move failing for the purpose of calculating Stomping Tantrum's base power
 			// null indicates the opposite, as the Pokemon didn't have an option to choose anything
 			pokemon.moveThisTurnResult = willTryMove;
+			this.send('tutorialMove', `${pokemon.side.id}\n${move.id}`);
 			return;
 		}
 		if (move.beforeMoveCallback) {
 			if (move.beforeMoveCallback.call(this, pokemon, target, move)) {
 				this.clearActiveMove(true);
 				pokemon.moveThisTurnResult = false;
+				this.send('tutorialMove', `${pokemon.side.id}\n${move.id}`);
 				return;
 			}
 		}
@@ -76,6 +78,7 @@ export const BattleScripts: BattleScriptsData = {
 					this.hint(`This is not a bug, this is really how it works on the ${gameConsole}; try it yourself if you don't believe us.`);
 					this.clearActiveMove(true);
 					pokemon.moveThisTurnResult = false;
+					this.send('tutorialMove', `${pokemon.side.id}\n${move.id}`);
 					return;
 				}
 			} else {
@@ -99,6 +102,7 @@ export const BattleScripts: BattleScriptsData = {
 		if (this.activeMove) move = this.activeMove;
 		this.singleEvent('AfterMove', move, null, pokemon, target, move);
 		this.runEvent('AfterMove', pokemon, target, move);
+		this.send('tutorialMove', `${pokemon.side.id}\n${move.id}`);
 
 		// Dancer's activation order is completely different from any other event, so it's handled separately
 		if (move.flags['dance'] && moveDidSomething && !move.isExternal) {
