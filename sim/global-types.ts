@@ -773,7 +773,7 @@ interface EffectData {
 	isNonstandard?: Nonstandard | null;
 	shortDesc?: string;
 	cfm?: boolean; // CFM modified
-	ate?: string; // For calculating Z Move types 
+	ate?: string; // For calculating Z Move types
 }
 
 type ModdedEffectData = EffectData | Partial<EffectData> & {inherit: true};
@@ -856,7 +856,7 @@ interface ItemData extends EffectData, ItemEventMethods, EventMethods {
 
 	// CFM - Pulverising Pancake can only be used by Snorlax off of a physical Normal-type move
 	zMoveCategory?: string;
-	zMoveSpecialMoves?: {[k: string]: string},
+	zMoveSpecialMoves?: {[k: string]: string};
 }
 
 type ModdedItemData = ItemData | Partial<Omit<ItemData, 'name'>> & {

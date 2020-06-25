@@ -2000,9 +2000,11 @@ export class Battle {
 	getEffectiveType(move: string | Move, pokemon: Pokemon | null = null): string {
 		// For calculating Z Moves - calculates what the effective type of a move should be not taking Aura Break into account
 		if (typeof move === 'string') move = this.dex.getMove(move);
-		if (['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'].includes(move.id) || pokemon === null) return move.type;
+		if (['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast',
+			'weatherball'].includes(move.id) || pokemon === null) return move.type;
 		else if (pokemon.getAbility().ate && move.type === 'Normal') return pokemon.getAbility().ate!;
-		else if (move.flags['omnitype'] || (pokemon.hasAbility('powerofalchemy') && move.id == pokemon.moveSlots[0].id )) return pokemon.getTypes()[0];
+		else if (move.flags['omnitype'] || (pokemon.hasAbility('powerofalchemy') &&
+		move.id === pokemon.moveSlots[0].id)) return pokemon.getTypes()[0];
 		else return move.type;
 	}
 

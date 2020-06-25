@@ -56,7 +56,6 @@ describe('CFM Z-Moves', function () {
 		try {
 			battle.makeChoices('move protect', 'move nuzzle zmove');
 			assert.equal(toID(battle.log[battle.lastMoveLine].split('|')[3]), 'stokedsparksurfer');
-			
 		} catch (e) {
 			assert(e.message.includes("can't use Nuzzle as a Z-move"));
 		}
@@ -76,7 +75,6 @@ describe('CFM Z-Moves', function () {
 		try {
 			battle.makeChoices('move protect', 'move round zmove');
 			assert.equal(toID(battle.log[battle.lastMoveLine].split('|')[3]), 'pulverizingpancake');
-			
 		} catch (e) {
 			assert(e.message.includes("can't use Round as a Z-move"));
 		}
@@ -154,7 +152,7 @@ describe('CFM Z-Moves', function () {
 
 		// The Togekiss is now grounded, so Bulldoze hits it
 		battle.makeChoices('move bulldoze', 'move extremespeed');
-		assert.ok(!battle.log[battle.lastMoveLine + 1].startsWith('|-immune|'))
+		assert.ok(!battle.log[battle.lastMoveLine + 1].startsWith('|-immune|'));
 	});
 
 	it("Omnitype moves", function () {
@@ -216,7 +214,6 @@ describe('CFM Z-Moves', function () {
 		try {
 			battle.makeChoices('move protect', 'move tackle zmove');
 			assert.equal(toID(battle.log[battle.lastMoveLine].split('|')[3]), 'blackholeeclipse');
-			
 		} catch (e) {
 			assert(e.message.includes("can't use Tackle as a Z-move"));
 		}

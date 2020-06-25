@@ -1156,7 +1156,6 @@ export const BattleScripts: BattleScriptsData = {
 		}
 
 		// Get what the Z Move is supposed to be from the held item
-		const item = pokemon.getItem();
 		const zMoveName = this.getZMove(move, pokemon, true) || this.zMoveTable[move.type];
 		const zMove = this.dex.getActiveMove(this.dex.getActiveMove(zMoveName));
 
@@ -1251,7 +1250,7 @@ export const BattleScripts: BattleScriptsData = {
 
 	canDynamax(pokemon, skipChecks) {
 		// CFM has no dynamax
-		return false;
+		return;
 	},
 
 	getMaxMove(move, pokemon) {

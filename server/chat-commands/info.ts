@@ -724,8 +724,7 @@ export const commands: ChatCommands = {
 								details["User"] = zCrystal.itemUser.join(", ");
 								let requiredMove = dex.getItem(move.isZ).zMoveFrom;
 								if (!requiredMove && dex.currentMod === 'cfm') {
-									let cat: string | undefined = '';
-									requiredMove = `Any ${(cat = zCrystal.zMoveCategory) ? `${cat} ` : ''}${zCrystal.zMoveType!} move`;
+									requiredMove = `Any ${(zCrystal.zMoveCategory) ? `${zCrystal.zMoveCategory} ` : ''}${zCrystal.zMoveType!} move`;
 									details["Required Move"] = requiredMove;
 								} else {
 									details["Required Move"] = dex.getItem(move.isZ).zMoveFrom!;
