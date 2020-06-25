@@ -722,7 +722,21 @@ export const commands: ChatCommands = {
 							details["Z-Crystal"] = zCrystal.name;
 							if (zCrystal.itemUser) {
 								details["User"] = zCrystal.itemUser.join(", ");
-								details["Required Move"] = dex.getItem(move.isZ).zMoveFrom!;
+								let requiredMove = dex.getItem(move.isZ).zMoveFrom;
+								if (!requiredMove && dex.currentMod === 'cfm') {
+									let cat: string | undefined = '';
+									requiredMove = `Any ${(cat = zCrystal.zMoveCategory) ? `${cat} ` : ''}${zCrystal.zMoveType!} move`;
+									details["Required Move"] = requiredMove;
+								} else {
+									details["Required Move"] = dex.getItem(move.isZ).zMoveFrom!;
+								}
+							} else if (dex.currentMod === 'cfm' && move.zMoveSpecialUser) {
+								details["User"] = move.zMoveSpecialUser;
+								if (move.zMoveSpecialMoveFrom) {
+									details["Required Move"] = move.zMoveSpecialMoveFrom.join(" or ");
+								} else if (move.zMoveSpecialType) {
+									details["Required Move"] = `Any ${move.zMoveSpecialType} move`;
+								}
 							}
 						} else {
 							details["Z-Effect"] = "None";
