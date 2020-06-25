@@ -1126,8 +1126,8 @@ export const BattleScripts: BattleScriptsData = {
 			// Draining the PP of the base move prevents the corresponding Z-move from being used.
 			if (!moveData || !moveData.pp) return;
 		}
-		if (item.zMoveSpecialMoves && !!item.zMoveSpecialMoves[pokemon.baseSpecies.name]) {
-			const zMove = this.dex.getMove(item.zMoveSpecialMoves[pokemon.baseSpecies.name]);
+		if (item.zMoveSpecialMoves && !!item.zMoveSpecialMoves[pokemon.baseSpecies.baseSpecies]) {
+			const zMove = this.dex.getMove(item.zMoveSpecialMoves[pokemon.baseSpecies.baseSpecies]);
 			if (zMove.zMoveSpecialMoveFrom?.includes(move.name) ||
 			zMove.zMoveSpecialType === this.getEffectiveType(move, pokemon)) return zMove.name;
 		}
@@ -1137,7 +1137,7 @@ export const BattleScripts: BattleScriptsData = {
 			if (item.zMoveCategory && this.getCategory(move, pokemon) !== item.zMoveCategory) return;
 			return item.zMove as string;
 		} else if (item.zMove === true) {
-			if (move.type === item.zMoveType) {
+			if (this.getEffectiveType(move, pokemon) === item.zMoveType) {
 				if (move.category === "Status") {
 					return move.name;
 				} else if (move.zMove?.basePower) {

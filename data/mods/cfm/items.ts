@@ -184,11 +184,12 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		spritenum: 655,
 		onTakeItem: false,
 		zMove: "Stoked Sparksurfer",
-		zMoveFrom: "Thunderbolt",
+		zMoveType: "Electric",
+		zMoveCategory: "Special",
 		itemUser: ["Raichu-Alola"],
 		num: 803,
 		gen: 7,
-		desc: "If held by an Alolan Raichu with Thunderbolt, it can use Stoked Sparksurfer.",
+		desc: "If held by an Alolan Raichu with a Special Electric move, it can use Stoked Sparksurfer.",
 	},
 	altarianite: {
 		name: "Altarianite",
@@ -3528,7 +3529,7 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		itemUser: ["Mew"],
 		num: 806,
 		gen: 7,
-		desc: "If held by a Mew with Psychic, it can use Genesis Supernova.",
+		desc: "If held by a Mew with a Psychic move, it can use Genesis Supernova.",
 	},
 	micleberry: {
 		name: "Micle Berry",
@@ -5255,7 +5256,7 @@ export const BattleItems: {[itemid: string]: ItemData} = {
 		itemUser: ["Snorlax"],
 		num: 804,
 		gen: 7,
-		desc: "If held by a Snorlax with Giga Impact, it can use Pulverizing Pancake.",
+		desc: "If held by a Snorlax with a Physical Normal move, it can use Pulverizing Pancake.",
 	},
 	snowball: {
 		name: "Snowball",
