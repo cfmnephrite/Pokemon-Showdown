@@ -1,4 +1,4 @@
-export const BattleStatuses: {[k: string]: PureEffectData} = {
+export const BattleStatuses: {[k: string]: ModdedPureEffectData} = {
 	brn: {
 		name: 'brn',
 		effectType: 'Status',
@@ -809,6 +809,50 @@ export const BattleStatuses: {[k: string]: PureEffectData} = {
 			if (pokemon.ability === 'shadowshield') {
 				pokemon.setType(['Psychic', 'Fairy', 'Ghost']);
 			}
+		},
+	},
+
+	// CFM Roar of Time && Spacial Rend
+	dialga: {
+		name: 'Dialga',
+		onSwitchOut(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.species.name === 'Dialga' && target.moveSlots[0].id === 'roaroftime') {
+					return;
+				}
+			}
+			this.field.removePseudoWeather('roaroftime');
+		},
+		onFaint(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.species.name === 'Dialga' && target.moveSlots[0].id === 'roaroftime') {
+					return;
+				}
+			}
+			this.field.removePseudoWeather('roaroftime');
+		},
+	},
+	palkia: {
+		name: 'Palkia',
+		onSwitchOut(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.species.name === 'Palkia' && target.moveSlots[0].id === 'spacialrend') {
+					return;
+				}
+			}
+			this.field.removePseudoWeather('spacialrend');
+		},
+		onFaint(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.species.name === 'Palkia' && target.moveSlots[0].id === 'spacialrend') {
+					return;
+				}
+			}
+			this.field.removePseudoWeather('spacialrend');
 		},
 	},
 };

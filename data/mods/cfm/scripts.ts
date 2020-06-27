@@ -1248,11 +1248,6 @@ export const BattleScripts: BattleScriptsData = {
 		Dragon: 'Max Wyrmwind',
 	},
 
-	canDynamax(pokemon, skipChecks) {
-		// CFM has no dynamax
-		return;
-	},
-
 	getMaxMove(move, pokemon) {
 		if (typeof move === 'string') move = this.dex.getMove(move);
 		if (move.name === 'Struggle') return move;
