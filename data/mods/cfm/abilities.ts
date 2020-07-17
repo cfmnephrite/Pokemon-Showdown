@@ -965,14 +965,10 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 	filter: {
 		shortDesc: "Reduces super-effective damage taken by 25%; 50% if 2x super-effective.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.getMoveHitData(move).typeMod > 0) {
-				let chainMod = 0.75;
-				if (this.dex.getEffectiveness(move.type, target.getTypes()[0]) > 0 &&
-				this.dex.getEffectiveness(move.type, target.getTypes()[1]) > 0) {
-					chainMod = 0.5;
-				}
+			const typeMod = target.getMoveHitData(move).typeMod;
+			if (typeMod > 0) {
 				this.debug('Filter neutralize');
-				return this.chainModify(chainMod);
+				return this.chainModify(typeMod === 2 ? 0.5 : 0.75);
 			}
 		},
 		name: "Filter",
