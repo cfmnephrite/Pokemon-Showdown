@@ -281,8 +281,8 @@ export const BattleFormats: {[k: string]: FormatsData} = {
 		onBegin() {
 			this.add('clearpoke');
 			for (const pokemon of this.getAllPokemon()) {
-				const details = pokemon.details.replace(', shiny', '')
-					.replace(/(Arceus|Gourgeist|Genesect|Pumpkaboo|Silvally|Urshifu)(-[a-zA-Z?-]+)?/g, '$1-*');
+				const details = pokemon.details.replace(/(Arceus|Gourgeist|Genesect|Pumpkaboo|Silvally)(-[a-zA-Z?]+)?/g, '$1-*')
+					.replace(', shiny', '');
 				this.add('poke', pokemon.side.id, details, this.gen < 8 && pokemon.item ? 'item' : '');
 			}
 		},
@@ -1015,6 +1015,49 @@ export const BattleFormats: {[k: string]: FormatsData} = {
 				newSpecies.baseStats[stat] = this.clampIntRange(newSpecies.baseStats[stat] * scale / pst, 1, 255);
 			}
 			return newSpecies;
+		},
+	},
+
+	// CFM Rules
+	cfmcomplexbans: {
+		effectType: 'Rule',
+		name: 'CFM Complex Bans',
+		desc: "Implements CFM's complex bans",
+		onValidateSet(set, format) {
+			const allTiers: {[k: string]: number} = {PU: 0, NU: 1, RU: 2, UU: 3, OU: 4};
+			const currTier = format.name.substr(format.name.indexOf("CFM ") + 4);
+			const speciesRef = toID(Dex.getSpecies(set.species).baseSpecies);
+			const complexBans: {[k: string]: {[k: string]: string}} = {
+				// abilities - OU
+				blaziken:	{tier: 'OU', ability: 'speedboost'},
+				zapdos:		{tier: 'OU', ability: 'drizzle'},
+				moltres:	{tier: 'OU', ability: 'drought'},
+				volcarona:	{tier: 'OU', ability: 'drought'},
+				heatran:	{tier: 'OU', ability: 'magmaarmor'},
+				// abilities - UU
+				serperior:	{tier: 'UU', ability: 'contrary'},
+				diggersby:	{tier: 'UU', ability: 'hugepower'},
+				// items
+				latias:		{tier: 'OU', item: 'souldew'},
+				latios:		{tier: 'OU', item: 'souldew'},
+				// moves
+				porygonz:	{tier: 'OU', move: 'hyperbeam'},
+			};
+			if (!!complexBans[speciesRef] && allTiers[currTier] <= allTiers[complexBans[speciesRef].tier]) {
+				if (complexBans[speciesRef].ability === toID(set.ability)) {
+					const ability = set.ability;
+					return [`${set.name || set.species} is not allowed to run ${ability} in C${complexBans[speciesRef].tier} or below.`];
+				}
+				if (complexBans[speciesRef].item === toID(set.item)) {
+					return [`${set.name || set.species} is not allowed to hold ${set.item} in C${complexBans[speciesRef].tier} or below.`];
+				}
+				for (const move of set.moves) {
+					if (complexBans[speciesRef].move === toID(move)) {
+						const moveName = Dex.getMove(move).name;
+						return [`${set.name || set.species} is not allowed to use ${moveName} in C${complexBans[speciesRef].tier} or below.`];
+					}
+				}
+			}
 		},
 	},
 };

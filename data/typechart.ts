@@ -1,4 +1,4 @@
-export const BattleTypeChart: {[k: string]: TypeData} = {
+export const BattleTypeChart: {[k: string]: ModdedTypeData} = {
 	Bug: {
 		damageTaken: {
 			Bug: 0,
@@ -145,6 +145,7 @@ export const BattleTypeChart: {[k: string]: TypeData} = {
 	Fire: {
 		damageTaken: {
 			brn: 3,
+			frz: 3,
 			Bug: 2,
 			Dark: 0,
 			Dragon: 0,
@@ -179,7 +180,7 @@ export const BattleTypeChart: {[k: string]: TypeData} = {
 			Flying: 0,
 			Ghost: 0,
 			Grass: 2,
-			Ground: 3,
+			Ground: 2,
 			Ice: 1,
 			Normal: 0,
 			Poison: 0,
@@ -418,6 +419,7 @@ export const BattleTypeChart: {[k: string]: TypeData} = {
 	},
 	Water: {
 		damageTaken: {
+			brn: 3,
 			Bug: 0,
 			Dark: 0,
 			Dragon: 0,

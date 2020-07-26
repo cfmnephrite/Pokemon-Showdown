@@ -53,12 +53,14 @@ export const BattleScripts: BattleScriptsData = {
 			// false indicates that this counts as a move failing for the purpose of calculating Stomping Tantrum's base power
 			// null indicates the opposite, as the Pokemon didn't have an option to choose anything
 			pokemon.moveThisTurnResult = willTryMove;
+			this.send('tutorialMove', `${pokemon.side.id}\n${move.id}`);
 			return;
 		}
 		if (move.beforeMoveCallback) {
 			if (move.beforeMoveCallback.call(this, pokemon, target, move)) {
 				this.clearActiveMove(true);
 				pokemon.moveThisTurnResult = false;
+				this.send('tutorialMove', `${pokemon.side.id}\n${move.id}`);
 				return;
 			}
 		}
@@ -76,6 +78,7 @@ export const BattleScripts: BattleScriptsData = {
 					this.hint(`This is not a bug, this is really how it works on the ${gameConsole}; try it yourself if you don't believe us.`);
 					this.clearActiveMove(true);
 					pokemon.moveThisTurnResult = false;
+					this.send('tutorialMove', `${pokemon.side.id}\n${move.id}`);
 					return;
 				}
 			} else {
@@ -99,6 +102,7 @@ export const BattleScripts: BattleScriptsData = {
 		if (this.activeMove) move = this.activeMove;
 		this.singleEvent('AfterMove', move, null, pokemon, target, move);
 		this.runEvent('AfterMove', pokemon, target, move);
+		this.send('tutorialMove', `${pokemon.side.id}\n${move.id}`);
 
 		// Dancer's activation order is completely different from any other event, so it's handled separately
 		if (move.flags['dance'] && moveDidSomething && !move.isExternal) {
@@ -1122,40 +1126,43 @@ export const BattleScripts: BattleScriptsData = {
 			// Draining the PP of the base move prevents the corresponding Z-move from being used.
 			if (!moveData || !moveData.pp) return;
 		}
-
-		if (item.zMoveFrom) {
-			if (move.name === item.zMoveFrom) return item.zMove as string;
+		if (item.zMoveSpecialMoves && !!item.zMoveSpecialMoves[pokemon.baseSpecies.baseSpecies]) {
+			const zMove = this.dex.getMove(item.zMoveSpecialMoves[pokemon.baseSpecies.baseSpecies]);
+			if (zMove.zMoveSpecialMoveFrom?.includes(move.name) ||
+			zMove.zMoveSpecialType === this.getEffectiveType(move, pokemon)) return zMove.name;
+		}
+		if (typeof item.zMove === 'string') {
+			if (item.zMoveFrom && move.name !== item.zMoveFrom) return;
+			if (item.zMoveType && this.getEffectiveType(move, pokemon) !== item.zMoveType) return;
+			if (item.zMoveCategory && this.getCategory(move, pokemon) !== item.zMoveCategory) return;
+			return item.zMove as string;
 		} else if (item.zMove === true) {
-			if (move.type === item.zMoveType) {
+			if (this.getEffectiveType(move, pokemon) === item.zMoveType) {
 				if (move.category === "Status") {
 					return move.name;
 				} else if (move.zMove?.basePower) {
-					return this.zMoveTable[move.type];
+					return this.zMoveTable[this.getEffectiveType(move, pokemon)];
 				}
 			}
 		}
 	},
 
 	getActiveZMove(move, pokemon) {
-		if (pokemon) {
-			const item = pokemon.getItem();
-			if (move.name === item.zMoveFrom) {
-				// @ts-ignore
-				const zMove = this.dex.getActiveMove(item.zMove);
-				zMove.isZOrMaxPowered = true;
-				return zMove;
-			}
-		}
-
 		if (move.category === 'Status') {
 			const zMove = this.dex.getActiveMove(move);
 			zMove.isZ = true;
 			zMove.isZOrMaxPowered = true;
 			return zMove;
 		}
-		const zMove = this.dex.getActiveMove(this.zMoveTable[move.type]);
+
+		// Get what the Z Move is supposed to be from the held item
+		const zMoveName = this.getZMove(move, pokemon, true) || this.zMoveTable[move.type];
+		const zMove = this.dex.getActiveMove(this.dex.getActiveMove(zMoveName));
+
+		// Non-unique Z Moves don't have a fixed BP or category
 		zMove.basePower = move.zMove!.basePower!;
 		zMove.category = move.category;
+
 		// copy the priority for Quick Guard
 		zMove.priority = move.priority;
 		zMove.isZOrMaxPowered = true;
