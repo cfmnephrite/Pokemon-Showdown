@@ -13326,7 +13326,7 @@ export const BattleMovedex: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, magic: 1},
 		onTry(pokemon, target, move) {
-			if (pokemon.baseSpecies.name === 'Deoxys') {
+			if (pokemon.baseSpecies.baseSpecies === 'Deoxys') {
 				return;
 			}
 			this.add('-fail', pokemon, 'move: Psycho Boost');
@@ -17155,7 +17155,7 @@ export const BattleMovedex: {[moveid: string]: ModdedMoveData} = {
 		flags: {reflectable: 1},
 		sideCondition: 'stickyweb',
 		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Bug') || pokemon.name === 'Masquerain' || move.hasBounced) {
+			if (pokemon.hasType('Bug') || pokemon.baseSpecies.name === 'Masquerain' || move.hasBounced) {
 				return;
 			}
 			this.add('-fail', pokemon, 'move: Sticky Web');
@@ -18301,22 +18301,32 @@ export const BattleMovedex: {[moveid: string]: ModdedMoveData} = {
 	technoblast: {
 		num: 546,
 		accuracy: 100,
-		basePower: 120,
+		basePower: 100,
 		category: "Special",
-		desc: "This move's type depends on the user's held Drive.",
-		shortDesc: "Type varies based on the held Drive.",
+		shortDesc: "Type varies based on Genesect's forme (does not require a Drive).",
 		name: "Techno Blast",
-		pp: 5,
+		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, pulse: 1},
 		onModifyType(move, pokemon) {
-			if (pokemon.ignoringItem()) return;
-			move.type = this.runEvent('Drive', pokemon, null, move, 'Normal');
+			switch (pokemon.species.name) {
+				case 'Genesect-Douse':
+					move.type = 'Water';
+					break;
+				case 'Genesect-Shock':
+					move.type = 'Electric';
+					break;
+				case 'Genesect-Burn':
+					move.type = 'Fire';
+					break;
+				case 'Genesect-Chill':
+					move.type = 'Ice';
+					break;
+			}
 		},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
-		zMove: {basePower: 190},
 		contestType: "Cool",
 	},
 	tectonicrage: {
