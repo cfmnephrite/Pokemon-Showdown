@@ -26,7 +26,7 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 
 */
 
-export const BattleMovedex: {[moveid: string]: MoveData} = {
+export const BattleMovedex: {[moveid: string]: ModdedMoveData} = {
 	"10000000voltthunderbolt": {
 		num: 719,
 		accuracy: 85,
@@ -10944,7 +10944,7 @@ export const BattleMovedex: {[moveid: string]: MoveData} = {
 				if (move.isZ || move.isMax || move.isNonstandard) continue;
 				if (effect.noMetronome!.includes(id)) continue;
 				if (this.dex.getMove(id).gen > this.gen) continue;
-				moves.push(move);
+				moves.push(this.dex.getMove(id));
 			}
 			let randomMove = '';
 			if (moves.length) {
@@ -14354,11 +14354,11 @@ export const BattleMovedex: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
-		shortDesc: "20% chance to lower Sp. Atk or Atk; Dialga: Temporal Storm.",
+		shortDesc: "20% chance to lower Sp. Atk or Atk; Dialga: Temporal Storm - slower Pokémon move first for 5 turns.",
 		name: "Roar of Time",
 		pp: 10,
 		priority: 0,
-		flags: {recharge: 1, protect: 1, mirror: 1, sound: 1, authentic: 1, magic: 1},
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1, magic: 1},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('spa') > pokemon.getStat('atk')) move.category = 'Special';
 			move.secondaries = [];
@@ -14370,11 +14370,41 @@ export const BattleMovedex: {[moveid: string]: MoveData} = {
 				},
 			});
 		},
-		// Actual Temporal storm stuff is to-do
-		secondary: null,
+		beforeMoveCallback(pokemon) {
+			if (!(pokemon.species.name === 'Dialga' && pokemon.moveSlots[0].id === 'roaroftime')) return;
+			// If Dialga and Roar of Time is in first slot, remove other "room" effects
+			// and Spacial Rend, and apply Roar of Time field effect
+			this.field.removePseudoWeather('wonderroom');
+			this.field.removePseudoWeather('trickroom');
+			this.field.removePseudoWeather('magicroom');
+			this.field.removePseudoWeather('spacialrend');
+			this.field.addPseudoWeather('roaroftime');
+		},
+		effect: {
+			duration: 5,
+			onStart(target, source) {
+				this.add('-fieldstart', 'move: Temporal Storm', '[of] ' + source);
+				this.add('-message', "Dialga's Roar of Time creates a temporal upheaval!");
+			},
+			// Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
+			onTryMovePriority: -1,
+			onTryMove(pokemon, target, move) {
+				if (move.id === 'trickroom') {
+					this.add('-message', "Dialga's Temporal Storm is already controlling time!");
+					return null;
+				} else if (['wonderroom', 'magicroom'].includes(move.id)) {
+					this.add('-message', `Dialga's Temporal Storm made ${move.name} ineffective!`);
+					return null;
+				}
+			},
+			onEnd() {
+				this.add('-fieldend', 'move: Temporal Storm');
+				this.add('-message', 'Time returned to normal.');
+			},
+		},
+		secondary: {},
 		target: "normal",
 		type: "Steel",
-		zMove: {basePower: 180},
 		contestType: "Beautiful",
 	},
 	rockblast: {
@@ -16501,7 +16531,7 @@ export const BattleMovedex: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
-		shortDesc: "20% chance to lower Sp. Def or Def; Palkia: Spatial Distortion",
+		shortDesc: "20% chance to lower Sp. Def or Def; Palkia: Spacial Disturbance - inverts type effectiveness for 5 turns.",
 		name: "Spacial Rend",
 		pp: 10,
 		priority: 0,
@@ -16520,7 +16550,46 @@ export const BattleMovedex: {[moveid: string]: MoveData} = {
 				},
 			});
 		},
-		// Actual Spatial Distortion stuff is to-do
+		beforeMoveCallback(pokemon) {
+			if (!(pokemon.species.name === 'Palkia' && pokemon.moveSlots[0].id === 'spacialrend')) return;
+			// If Palkia and Spacial Rend is in first slot, remove other "room" effects
+			// and Roar of Time, and apply Spacial Rend field effect
+			this.field.removePseudoWeather('wonderroom');
+			this.field.removePseudoWeather('trickroom');
+			this.field.removePseudoWeather('magicroom');
+			this.field.removePseudoWeather('roaroftime');
+			this.field.addPseudoWeather('spacialrend');
+		},
+		effect: {
+			duration: 5,
+			onStart(target, source) {
+				this.add('-fieldstart', 'move: Spacial Disturbance', '[of] ' + source);
+				this.add('-message', "Palkia's Spacial Rend distorted the fabric of space!");
+			},
+			// Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
+			onTryMovePriority: -1,
+			onTryMove(pokemon, target, move) {
+				if (move.id === 'wonderroom') {
+					this.add('-message', "Palkia's Spacial Disturbance is already controlling space!");
+					return null;
+				} else if (['magicroom', 'trickroom'].includes(move.id)) {
+					this.add('-message', `Palkia's Spacial Disturbance made ${move.name} ineffective!`);
+					return null;
+				}
+			},
+			onEffectivenessPriority: 1,
+			onEffectiveness(typeMod, target, type, move) {
+				// The effectiveness of "special typeMod" moves isn't reversed
+				if (move?.flags.specialTypeMod === type) return;
+				if (move.id === 'synchronoise' && type === this.activePokemon!.getTypes()[0]) return 1;
+				if (move && !this.dex.getImmunity(move, type)) return 1;
+				return -typeMod;
+			},
+			onEnd() {
+				this.add('-fieldend', 'move: Spacial Disturbance');
+				this.add('-message', 'Space returned to normal.');
+			},
+		},
 		secondary: {},
 		target: "normal",
 		type: "Psychic",
@@ -17922,8 +17991,7 @@ export const BattleMovedex: {[moveid: string]: MoveData} = {
 			}
 		},
 		onEffectiveness(typeMod, target, type) {
-			// @ts-ignore
-			if (type === this.activePokemon.getTypes()[0]) return 1;
+			if (type === this.activePokemon!.getTypes()[0]) return 1;
 		},
 		secondary: null,
 		target: "allAdjacent",
@@ -19826,8 +19894,7 @@ export const BattleMovedex: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "For 5 turns, all active Pokemon have their Defense and Special Defense stats swapped. Stat stage changes are unaffected. If this move is used during the effect, the effect ends.",
-		shortDesc: "For 5 turns, all Defense and Sp. Def stats switch.",
+		shortDesc: "For 5 turns, type effectiveness is inverted.",
 		name: "Wonder Room",
 		pp: 10,
 		priority: 0,
@@ -19844,6 +19911,14 @@ export const BattleMovedex: {[moveid: string]: MoveData} = {
 			},
 			onStart(side, source) {
 				this.add('-fieldstart', 'move: Wonder Room', '[of] ' + source);
+			},
+			onEffectivenessPriority: 1,
+			onEffectiveness(typeMod, target, type, move) {
+				// The effectiveness of "special typeMod" moves isn't reversed
+				if (move?.flags.specialTypeMod === type) return;
+				if (move.id === 'synchronoise' && type === this.activePokemon!.getTypes()[0]) return 1;
+				if (move && !this.dex.getImmunity(move, type)) return 1;
+				return -typeMod;
 			},
 			onRestart(target, source) {
 				this.field.removePseudoWeather('wonderroom');

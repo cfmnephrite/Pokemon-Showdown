@@ -410,7 +410,7 @@ export class Pokemon {
 		this.canMegaEvo = this.battle.canMegaEvo(this);
 		this.canUltraBurst = this.battle.canUltraBurst(this);
 		// Normally would want to use battle.canDynamax to set this, but it references this property.
-		this.canDynamax = (this.battle.gen >= 8);
+		this.canDynamax = (this.battle.format.mod !== 'cfm' && this.battle.gen >= 8);
 		this.canGigantamax = gMax;
 
 		// This is used in gen 1 only, here to avoid code repetition.
@@ -471,7 +471,7 @@ export class Pokemon {
 		let stat = this.storedStats[statName];
 
 		// Wonder Room swaps defenses before calculating anything else
-		if ('wonderroom' in this.battle.field.pseudoWeather) {
+		if ('wonderroom' in this.battle.field.pseudoWeather && this.battle.format.mod !== 'cfm') {
 			if (statName === 'def') {
 				stat = this.storedStats['spd'];
 			} else if (statName === 'spd') {
@@ -508,7 +508,7 @@ export class Pokemon {
 
 		// Download ignores Wonder Room's effect, but this results in
 		// stat stages being calculated on the opposite defensive stat
-		if (unmodified && 'wonderroom' in this.battle.field.pseudoWeather) {
+		if (unmodified && 'wonderroom' in this.battle.field.pseudoWeather && this.battle.format.mod !== 'cfm') {
 			if (statName === 'def') {
 				statName = 'spd';
 			} else if (statName === 'spd') {
@@ -542,7 +542,7 @@ export class Pokemon {
 
 	getActionSpeed() {
 		let speed = this.getStat('spe', false, false);
-		if (this.battle.field.getPseudoWeather('trickroom')) {
+		if (this.battle.field.getPseudoWeather('trickroom') || this.battle.field.getPseudoWeather('roaroftime')) {
 			speed = 0x2710 - speed;
 		}
 		return this.battle.trunc(speed, 13);
