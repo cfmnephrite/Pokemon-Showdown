@@ -75,7 +75,7 @@ export const commands: ChatCommands = {
 	ds8: 'dexsearch',
 	dsearch: 'dexsearch',
 	nds: 'dexsearch',
-	cs: 'dexsearch',
+	cds: 'dexsearch',
 	dexsearch(target, room, user, connection, cmd, message) {
 		if (!this.canBroadcast()) return;
 		if (!target) return this.parse('/help dexsearch');
@@ -253,12 +253,14 @@ export const commands: ChatCommands = {
 	ms8: 'movesearch',
 	msearch: 'movesearch',
 	nms: 'movesearch',
+	cms: 'movesearch',
 	movesearch(target, room, user, connection, cmd, message) {
 		if (!this.canBroadcast()) return;
 		if (!target) return this.parse('/help movesearch');
 		const targetGen = parseInt(cmd[cmd.length - 1]);
 		if (targetGen) target += `, maxgen${targetGen}`;
 		if (cmd === 'nms') target += ', natdex';
+		if (cmd === 'cms') target += ', cfm';
 		return runSearch({
 			tar: target,
 			cmd: 'movesearch',
@@ -404,6 +406,7 @@ export const commands: ChatCommands = {
 	oraslearn: 'learn',
 	usumlearn: 'learn',
 	cfmlearn: 'learn',
+	clearn: 'learn',
 	cl: 'learn',
 	learn(target, room, user, connection, cmd, message) {
 		if (!target) return this.parse('/help learn');
@@ -506,7 +509,7 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 	let maxGen = 0;
 
 	// CFM search mode
-	let cfmSearch = (message.substr(0, 3).toLowerCase() === '/cs' ? true : null);
+	let cfmSearch = (message.substr(0, 4).toLowerCase() === '/cds' ? true : null);
 	const validParameter = (cat: string, param: string, isNotSearch: boolean, input: string) => {
 		const uniqueTraits = ['colors', 'gens'];
 		for (const group of searches) {
@@ -1129,6 +1132,9 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 		'authentic', 'bite', 'bullet', 'charge', 'contact', 'dance', 'defrost', 'gravity', 'highcrit', 'mirror',
 		'ohko', 'powder', 'protect', 'pulse', 'punch', 'recharge', 'reflectable', 'secondary',
 		'snatch', 'sound', 'zmove', 'maxmove', 'gmaxmove', 'protection',
+
+		// CFM flags
+		'magic', 'omnitype', 'antiair', 'specialTypeMod', 'magician',
 	];
 	const allStatus = ['psn', 'tox', 'brn', 'par', 'frz', 'slp'];
 	const allVolatileStatus = ['flinch', 'confusion', 'partiallytrapped'];
@@ -1158,6 +1164,7 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 	let sort: string | null = null;
 	const targetMons: {name: string, shouldBeExcluded: boolean}[] = [];
 	let nationalSearch = null;
+	let cfmSearch: boolean | null = null;
 	let randomOutput = 0;
 	let maxGen = 0;
 	for (const arg of target.split(',')) {
@@ -1271,6 +1278,12 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 			if (target.substr(0, 6) === 'maxgen') {
 				maxGen = parseInt(target[6]);
 				if (!maxGen || maxGen < 1 || maxGen > 8) return {error: "The generation must be between 1 and 8"};
+				orGroup.skip = true;
+				continue;
+			}
+
+			if (target === 'cfm') {
+				cfmSearch = true;
 				orGroup.skip = true;
 				continue;
 			}
@@ -1511,12 +1524,12 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 	}
 
 	if (!maxGen) maxGen = 8;
-	const mod = Dex.mod('gen' + maxGen);
+	const mod = cfmSearch ? Dex.mod('cfm') : Dex.mod('gen' + maxGen);
 
 	const getFullLearnsetOfPokemon = (species: Species) => {
 		let usedSpecies: Species = Dex.deepClone(species);
 		let usedSpeciesLearnset: LearnsetData = Dex.deepClone(Dex.getLearnsetData(usedSpecies.id));
-		if (!usedSpeciesLearnset.learnset) {
+		if (!usedSpeciesLearnset.learnset || cfmSearch) {
 			usedSpecies = Dex.deepClone(mod.getSpecies(usedSpecies.baseSpecies));
 			usedSpeciesLearnset.learnset = Dex.deepClone(mod.getLearnsetData(usedSpecies.id).learnset || {});
 		}
@@ -2257,7 +2270,7 @@ function runLearn(target: string, cmd: string, canAll: boolean, message: string)
 		break;
 	}
 	if (!formatName) {
-		if (['cfmlearn', 'cl'].includes(cmd)) {
+		if (['cfmlearn', 'clearn', 'cl'].includes(cmd)) {
 			format = new Dex.Data.Format(format, {mod: 'cfm'});
 			formatName = 'CFM';
 		}

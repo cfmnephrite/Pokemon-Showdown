@@ -572,10 +572,8 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onEffectiveness(typeMod, target, type, move) {
-			if (move && move.effectType === 'Move' && move.type === 'Fire' && typeMod > 0){
-				if (target && type !== target.getTypes()[0]) return 0;
+			if (this.getEffectiveType(move) === 'Fire' && typeMod > 0)
 				return -1;
-			}
 		},
 		onSetStatus(status, target, source, effect) {
 			if (status.id !== 'brn') return;
@@ -1022,9 +1020,10 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 	flowergift: {
 		shortDesc: "Cherrim: auto-summons Sunny Day if in slot 1; transforms into Cherrim-Sunshine.",
 		onStart(pokemon) {
-			delete this.effectData.forme;
+			if (pokemon.baseSpecies.baseSpecies !== 'Cherrim') return;
+			const move = this.dex.getMove(pokemon.moveSlots[0].move);
 			if (this.field.isWeather(['desolateland', 'primordialsea', 'deltastream', 'sunnyday'])) return;
-			if (pokemon.moveSlots[0].move === 'sunnyday') this.field.setWeather('sunnyday');
+			if (move.id === 'sunnyday') this.field.setWeather('sunnyday');
 		},
 		onUpdate(pokemon) {
 			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
@@ -1039,12 +1038,14 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onEnd(pokemon) {
-			if (this.field.weatherData.source !== pokemon) return;
+			if (this.field.weatherData.source !== pokemon ||
+				!this.field.isWeather(this.dex.getMove(pokemon.moveSlots[0].move).id)) return;
 			for (const target of this.getAllActive()) {
 				if (target === pokemon) continue;
 				const move = this.dex.getMove(target.moveSlots[0].move);
-				if (target?.hp && ((target.hasAbility('flowergift') || target.hasAbility('forecast')) &&
-				move.id === 'sunnyday')) {
+				if (target?.hp && move.id === 'sunnyday' &&
+					((target.hasAbility('flowergift') && target.species.baseSpecies === 'Cherrim') ||
+					(target.hasAbility('forecast') && target.species.baseSpecies === 'Castform'))) {
 					this.field.weatherData.source = target;
 					return;
 				}
@@ -1112,8 +1113,9 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 	forecast: {
 		shortDesc: "Castform changes the weather with move in slot 1 and transforms.",
 		onStart(pokemon) {
-			if (['desolateland', 'primordialsea', 'deltastream'].includes(this.field.getWeather().id)) return;
+			if (pokemon.baseSpecies.baseSpecies !== 'Castform') return;
 			const move = this.dex.getMove(pokemon.moveSlots[0].move);
+			if (this.field.isWeather(['desolateland', 'primordialsea', 'deltastream', move.id])) return;
 			if (['hail', 'raindance', 'sunnyday'].includes(move.id)) this.field.setWeather(move.id);
 		},
 		onUpdate(pokemon) {
@@ -1140,14 +1142,16 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onEnd(pokemon) {
-			if (this.field.weatherData.source !== pokemon) return;
+			if (this.field.weatherData.source !== pokemon ||
+				!this.field.isWeather(this.dex.getMove(pokemon.moveSlots[0].move).id)) return;
 			for (const side of this.sides) {
 				for (const target of side.active) {
 					if (target === pokemon) continue;
 					const moveSource = this.dex.getMove(pokemon.moveSlots[0].move);
 					const moveTarget = this.dex.getMove(target.moveSlots[0].move);
-					if (target?.hp && ((target.hasAbility('flowergift') && moveTarget.id === 'sunnyday') ||
-					target.hasAbility('forecast')) && moveSource.id === moveTarget.id) {
+					if (target?.hp && moveSource.id === moveTarget.id &&
+						((target.hasAbility('flowergift') && target.species.baseSpecies === 'Cherrim') ||
+						(target.hasAbility('forecast') && target.species.baseSpecies === 'Castform'))) {
 						this.field.weatherData.source = target;
 						return;
 					}
