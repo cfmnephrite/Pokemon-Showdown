@@ -5,7 +5,7 @@ import {Utils} from './../lib/utils';
 export const Formats: (FormatsData | {section: string, column?: number})[] = [
 
 	// Sw/Sh Singles
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 
 	{
 		section: "Sw/Sh Singles",
@@ -247,7 +247,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 
 	// Sw/Sh Doubles
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 
 	{
 		section: "Sw/Sh Doubles",
@@ -415,7 +415,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 
 	// National Dex
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 
 	{
 		section: "National Dex",
@@ -472,7 +472,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 
 	// OM of the Month
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 
 	{
 		section: "OM of the Month",
@@ -727,7 +727,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 
 	// Other Metagames
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 
 	{
 		section: "Other Metagames",
@@ -1178,109 +1178,6 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 		mod: 'gen8',
 		searchShow: false,
 		ruleset: ['[Gen 8] OU'],
-		banlist: [],
-		restricted: [
-			'Baneful Bunker', 'Block', 'Copycat', 'Detect', 'Destiny Bond', 'Ingrain', 'King\'s Shield', 'Mean Look', 'move:Metronome', 'Obstruct', 'Octolock',
-			'Nature Power', 'Parting Shot', 'Protect', 'Roar', 'Skill Swap', 'Sleep Talk', 'Spiky Shield', 'Teleport', 'Whirlwind', 'Wish', 'Yawn',
-		],
-		onValidateTeam(team, format, teamHas) {
-			const problems = [];
-			for (const trademark in teamHas.trademarks) {
-				if (teamHas.trademarks[trademark] > 1) {
-					problems.push(`You are limited to 1 of each Trademark.`, `(You have ${teamHas.trademarks[trademark]} Pok\u00e9mon with ${trademark} as a Trademark.)`);
-				}
-			}
-			return problems;
-		},
-		validateSet(set, teamHas) {
-			const dex = this.dex;
-			const ability = dex.getMove(set.ability);
-			if (ability.category !== 'Status' || ability.status === 'slp' ||
-				this.ruleTable.isRestricted(`move:${ability.id}`) || set.moves.map(toID).includes(ability.id)) {
-				return this.validateSet(set, teamHas);
-			}
-			const customRules = this.format.customRules || [];
-			if (!customRules.includes('!obtainableabilities')) customRules.push('!obtainableabilities');
-			// const TeamValidator: new (format: string | Format) => TeamValidator = this.constructor as TeamValidator;
-			const validator = new TeamValidator(dex.getFormat(`${this.format.id}@@@${customRules.join(',')}`));
-			const moves = set.moves;
-			set.moves = [ability.id];
-			set.ability = dex.getSpecies(set.species).abilities['0'];
-			let problems = validator.validateSet(set, {}) || [];
-			if (problems.length) return problems;
-			set.moves = moves;
-			set.ability = dex.getSpecies(set.species).abilities['0'];
-			problems = problems.concat(validator.validateSet(set, teamHas) || []);
-			set.ability = ability.id;
-			if (!teamHas.trademarks) teamHas.trademarks = {};
-			teamHas.trademarks[ability.name] = (teamHas.trademarks[ability.name] || 0) + 1;
-			return problems.length ? problems : null;
-		},
-		pokemon: {
-			getAbility() {
-				const move = this.battle.dex.getMove(toID(this.ability));
-				if (!move.exists) return Object.getPrototypeOf(this).getAbility.call(this);
-				return {
-					id: move.id,
-					name: move.name,
-					onStart(pokemon) {
-						this.add('-activate', pokemon, 'ability: ' + move.name);
-						this.useMove(move, pokemon);
-					},
-					toString() {
-						return "";
-					},
-				};
-			},
-		},
-	},
-	{
-		name: "[Gen 8] Tier Shift",
-		desc: `Pok&eacute;mon below OU get all their stats boosted. UU/RUBL get +10, RU/NUBL get +20, NU/PUBL get +30, and PU or lower get +40.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3662165/">Tier Shift</a>`,
-		],
-
-		mod: 'gen8',
-		searchShow: false,
-		ruleset: ['[Gen 8] OU'],
-		banlist: ['Damp Rock', 'Eviolite', 'Heat Rock'],
-		onModifySpecies(species, target, source, effect) {
-			if (!species.baseStats) return;
-			const boosts: {[tier: string]: number} = {
-				uu: 10,
-				rubl: 10,
-				ru: 20,
-				nubl: 20,
-				nu: 30,
-				publ: 30,
-				pu: 40,
-				nfe: 40,
-				lcuber: 40,
-				lc: 40,
-			};
-			const tier = toID(species.tier) || 'ou';
-			if (!(tier in boosts)) return;
-			const pokemon: Species = this.dex.deepClone(species);
-			const boost = boosts[tier];
-			let statName: StatName;
-			for (statName in pokemon.baseStats) {
-				if (statName === 'hp') continue;
-				pokemon.baseStats[statName] = Utils.clampIntRange(pokemon.baseStats[statName] + boost, 1, 255);
-			}
-			return pokemon;
-		},
-	},
-	{
-		name: "[Gen 8] Trademarked",
-		desc: `Sacrifice your Pok&eacute;mon's ability for a status move that activates on switch-in.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3656980/">Trademarked</a>`,
-		],
-
-		mod: 'gen8',
-		searchShow: false,
-		ruleset: ['[Gen 8] OU'],
 		banlist: ['Dragapult'],
 		restricted: [
 			'Baneful Bunker', 'Block', 'Copycat', 'Detect', 'Destiny Bond', 'Ingrain', 'King\'s Shield', 'Mean Look', 'move:Metronome', 'Obstruct', 'Octolock',
@@ -1420,7 +1317,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 
 	// Pet Mods
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 
 	{
 		section: "Pet Mods",
@@ -1576,11 +1473,11 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 
 	// Randomized Metas
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 
 	{
 		section: "Randomized Metas",
-		column: 3,
+		column: 2,
 	},
 	{
 		name: "[Gen 8] Monotype Random Battle",
@@ -1801,7 +1698,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 
 	// RoA Spotlight
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 
 	{
 		section: "RoA Spotlight",
@@ -1842,7 +1739,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 
 	// Past Gens OU
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 
 	{
 		section: "Past Gens OU",
@@ -1930,7 +1827,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 
 	// US/UM Singles
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 	{
 		section: "US/UM Singles",
 		column: 3,
@@ -2143,7 +2040,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 
 	// US/UM Doubles
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 
 	{
 		section: "US/UM Doubles",
@@ -2302,7 +2199,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 
 	// OR/AS Singles
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 
 	{
 		section: "OR/AS Singles",
@@ -2479,7 +2376,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 
 	// OR/AS Doubles/Triples
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 
 	{
 		section: "OR/AS Doubles/Triples",
@@ -2603,7 +2500,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 
 	// B2/W2 Singles
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 
 	{
 		section: "B2/W2 Singles",
@@ -2741,7 +2638,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 
 	// B2/W2 Doubles
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 
 	{
 		section: 'B2/W2 Doubles',
@@ -2807,7 +2704,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 
 	// DPP Singles
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 
 	{
 		section: "DPP Singles",
@@ -2910,7 +2807,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 
 	// DPP Doubles
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 
 	{
 		section: "DPP Doubles",
@@ -2946,7 +2843,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 	},
 
 	// Past Generations
-	// /////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 
 	{
 		section: "Past Generations",
