@@ -458,6 +458,8 @@ export class ServerStream extends Streams.ObjectReadWriteStream<string> {
 		case '#':
 			// #roomid, message
 			// message to all connections in room
+			// #, message
+			// message to all connections
 			nlLoc = data.indexOf('\n');
 			roomid = data.substr(1, nlLoc - 1) as RoomID;
 			room = roomid ? this.rooms.get(roomid) : this.sockets;
