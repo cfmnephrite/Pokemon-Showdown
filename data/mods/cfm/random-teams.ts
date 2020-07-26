@@ -1628,6 +1628,7 @@ export class RandomTeams {
 		for (const [i, moveSlot] of setData.set.moves.entries()) {
 			moves.push(setData.moveVariants ? moveSlot[setData.moveVariants[i]] : this.sample(moveSlot));
 		}
+		if (!moves.length) return false; // Temporary fix
 
 		const item = Array.isArray(setData.set.item) ? this.sample(setData.set.item) : setData.set.item;
 		const ability = Array.isArray(setData.set.ability) ? this.sample(setData.set.ability) : setData.set.ability;

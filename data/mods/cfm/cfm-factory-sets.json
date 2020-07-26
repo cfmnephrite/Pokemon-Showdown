@@ -10292,7 +10292,7 @@
 "tags":[],
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["Rapid Spin"],["Slash"],["Aqua Jet"],["Waterfall"]]},
+"moves":[["Rapid Spin"],["Slash"],["Aqua Jet"],["Liquidation"]]},
 
 {"species":"Kabutops",
 "gender":"",
@@ -10301,7 +10301,7 @@
 "tags":[],
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["Swords Dance"],["Slash"],["Aqua Jet"],["Superpower","Waterfall"]]}]},
+"moves":[["Swords Dance"],["Slash"],["Aqua Jet"],["Superpower","Liquidation"]]}]},
 "kangaskhan":{"flags":{},"sets":[
 
 {"species":"Kangaskhan",
