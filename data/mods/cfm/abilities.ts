@@ -32,7 +32,7 @@ Ratings and how they work:
 
 */
 
-export const BattleAbilities: {[abilityid: string]: AbilityData} = {
+export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	noability: {
 		shortDesc: "Does nothing.",
 		isNonstandard: "Past",
@@ -478,6 +478,7 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 	},
 	compoundeyes: {
 		shortDesc: "This Pokemon's moves have their accuracy multiplied by 1.3.",
+		onSourceModifyAccuracyPriority: 9,
 		onSourceModifyAccuracy(accuracy) {
 			if (typeof accuracy !== 'number') return;
 			this.debug('compoundeyes - enhancing accuracy');
@@ -558,9 +559,9 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 		num: 56,
 	},
 	damp: {
-		shortDesc: "Immune to burn, Explosion, Aftermath; resists Fire-type moves.",
+		shortDesc: "Immune to burn, Explosion-like moves, Aftermath; resists Fire-type moves.",
 		onAnyTryMove(target, source, effect) {
-			if (['explosion', 'mindblown', 'selfdestruct'].includes(effect.id)) {
+			if (['explosion', 'mindblown', 'mistyexplosion', 'selfdestruct'].includes(effect.id)) {
 				this.attrLastMove('[still]');
 				this.add('cant', this.effectData.target, 'ability: Damp', effect, '[of] ' + target);
 				return false;
@@ -1541,10 +1542,10 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 		onModifyAtk(atk) {
 			return this.modify(atk, 1.5);
 		},
-		onModifyMovePriority: -1,
-		onModifyMove(move) {
-			if (move.category === 'Physical' && typeof move.accuracy === 'number') {
-				move.accuracy *= 0.8;
+		onSourceModifyAccuracyPriority: 7,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.category === 'Physical' && typeof accuracy === 'number') {
+				return accuracy * 0.8;
 			}
 		},
 		name: "Hustle",
@@ -1625,7 +1626,6 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 	iceface: {
 		desc: "If this Pokemon is an Eiscue, the first physical hit it takes in battle deals 0 neutral damage. Its ice face is then broken and it changes forme to Noice Face. Eiscue regains its Ice Face forme when Hail begins or when Eiscue switches in while Hail is active. Confusion damage also breaks the ice face.",
 		shortDesc: "If Eiscue, the first physical hit it takes deals 0 damage. This effect is restored in Hail.",
-		onDamagePriority: 1,
 		onStart(pokemon) {
 			if (this.field.isWeather('hail') && pokemon.species.id === 'eiscuenoice' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
@@ -1633,6 +1633,7 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 				pokemon.formeChange('Eiscue', this.effect, true);
 			}
 		},
+		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
 			if (
 				effect && effect.effectType === 'Move' && effect.category === 'Physical' &&
@@ -3168,16 +3169,16 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 		num: 214,
 	},
 	quickdraw: {
-		shortDesc: "This Pokemon has a 20% chance to move first in its priority bracket with attacking moves.",
+		shortDesc: "This Pokemon has a 30% chance to move first in its priority bracket with attacking moves.",
 		onFractionalPriorityPriority: -1,
 		onFractionalPriority(priority, pokemon, target, move) {
-			if (move.category !== "Status" && this.randomChance(1, 5)) {
+			if (move.category !== "Status" && this.randomChance(3, 10)) {
 				this.add('-activate', pokemon, 'ability: Quick Draw');
-				return Math.round(priority) + 0.1;
+				return 0.1;
 			}
 		},
 		name: "Quick Draw",
-		rating: 2,
+		rating: 3,
 		num: 259,
 	},
 	quickfeet: {
@@ -3328,7 +3329,7 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Ripen",
-		rating: 2.5,
+		rating: 2,
 		num: 247,
 	},
 	rivalry: {
@@ -3577,6 +3578,7 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
 		},
+		onModifyAccuracyPriority: 8,
 		onModifyAccuracy(accuracy) {
 			if (typeof accuracy !== 'number') return;
 			if (this.field.isWeather('sandstorm')) {
@@ -3921,6 +3923,7 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
+		onModifyAccuracyPriority: 8,
 		onModifyAccuracy(accuracy) {
 			if (typeof accuracy !== 'number') return;
 			if (this.field.isWeather('hail')) {
@@ -4046,9 +4049,7 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 	},
 	stall: {
 		shortDesc: "Boosts Atk/Def/SpA/SpD by 20%; always moves last in its priority bracket.",
-		onFractionalPriority(priority) {
-			return Math.round(priority) - 0.1;
-		},
+		onFractionalPriority: -0.1,
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk) {
 			return this.chainModify(1.2);
@@ -4392,7 +4393,7 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 				move.secondaries = [];
 			}
 			move.secondaries.push({
-				chance: 100,
+				chance: 30,
 				volatileStatus: 'confusion',
 				ability: this.dex.getAbility('tangledfeet'),
 			});
@@ -4694,7 +4695,7 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 			if (move.flags['contact']) delete move.flags['protect'];
 		},
 		name: "Unseen Fist",
-		rating: 2,
+		rating: 2.5,
 		num: 260,
 	},
 	victorystar: {
@@ -4930,7 +4931,7 @@ export const BattleAbilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "Status moves with accuracy checks are 50% accurate when used on this Pokemon.",
 		onModifyAccuracyPriority: 10,
 		onModifyAccuracy(accuracy, target, source, move) {
-			if (move.category === 'Status' && typeof move.accuracy === 'number') {
+			if (move.category === 'Status' && typeof accuracy === 'number') {
 				this.debug('Wonder Skin - setting accuracy to 50');
 				return 50;
 			}

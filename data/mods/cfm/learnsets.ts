@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 
-exports.BattleLearnsets = {
+export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	missingno: {learnset: {
 		blizzard: ["5L1"],
 		bubblebeam: ["5L1"],

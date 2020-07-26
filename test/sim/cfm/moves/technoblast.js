@@ -16,7 +16,7 @@ describe('CFM - Techno Blast', function () {
 			 {species: 'Genesect-Douse', ability: 'protean', moves: ['technoblast']},
 			 {species: 'Genesect-Burn', ability: 'protean', moves: ['technoblast']},
 			 {species: 'Genesect-Shock', ability: 'protean', moves: ['technoblast']},
-			 {species: 'Genesect-Chill', ability: 'protean', moves: ['technoblast']}
+			 {species: 'Genesect-Chill', ability: 'protean', moves: ['technoblast']},
 			],
 			[{species: 'Blissey', ability: 'icescales', moves: ['recover', 'splash']}],
 		]);
