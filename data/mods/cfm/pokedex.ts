@@ -1,4 +1,4 @@
-export const BattlePokedex: {[speciesid: string]: ModdedSpeciesData} = {
+export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	bulbasaur: {
 		num: 1,
 		name: "Bulbasaur",
@@ -486,21 +486,6 @@ export const BattlePokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelFriendship",
 		evos: ["Raichu", "Raichu-Alola"],
 		eggGroups: ["Field", "Fairy"],
-	},
-	pikachuworld: {
-		num: 25,
-		name: "Pikachu-World",
-		baseSpecies: "Pikachu",
-		forme: "World",
-		types: ["Electric"],
-		gender: "M",
-		baseStats: {hp: 35, atk: 55, def: 40, spa: 50, spd: 50, spe: 90},
-		abilities: {0: "Static", H: "Lightning Rod"},
-		heightm: 0.4,
-		weightkg: 6,
-		color: "Yellow",
-		eggGroups: ["Undiscovered"],
-		gen: 8,
 	},
 	raichu: {
 		num: 26,
@@ -1547,7 +1532,7 @@ export const BattlePokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Slowbro-Galar",
 		baseSpecies: "Slowbro",
 		forme: "Galar",
-		types: ["Psychic", "Poison"],
+		types: ["Poison", "Psychic"],
 		baseStats: {hp: 95, atk: 100, def: 95, spa: 100, spd: 70, spe: 30},
 		abilities: {0: "Quick Draw", 1: "Own Tempo", H: "Regenerator"},
 		heightm: 1.6,
@@ -15193,6 +15178,7 @@ export const BattlePokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 105,
 		color: "Gray",
 		prevo: "Kubfu",
+		evoType: "other",
 		evoCondition: "Defeat the Single Strike Tower",
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Urshifu-Rapid-Strike"],
@@ -15211,6 +15197,7 @@ export const BattlePokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 105,
 		color: "Gray",
 		prevo: "Kubfu",
+		evoType: "other",
 		evoCondition: "Defeat the Rapid Strike Tower",
 		eggGroups: ["Undiscovered"],
 	},

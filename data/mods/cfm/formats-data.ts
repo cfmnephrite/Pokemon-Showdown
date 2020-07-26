@@ -1,4 +1,4 @@
-export const BattleFormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bulbasaur: {
 		tier: "CLC",
 		inherit: true,
@@ -5185,6 +5185,8 @@ export const BattleFormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	zarude: {
 		randomBattleMoves: ["bulkup", "closecombat", "darkestlariat", "powerwhip", "uturn"],
 		randomBattleLevel: 80,
+		randomDoubleBattleMoves: ["closecombat", "darkestlariat", "junglehealing", "powerwhip", "protect", "rockslide"],
+		randomDoubleBattleLevel: 80,
 		isNonstandard: "Unobtainable",
 		tier: "Unreleased",
 		inherit: true,

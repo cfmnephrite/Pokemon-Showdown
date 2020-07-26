@@ -397,7 +397,7 @@ export const LogViewer = new class {
 		const list = await LogReader.listCategorized(user, opts) as {[k: string]: RoomID[]};
 
 		if (!list) {
-			buf += `<p class="message-error">You must be a staff member of a room, to view logs</p></div>`;
+			buf += `<p class="message-error">You must be a staff member of a room to view its logs</p></div>`;
 			return buf;
 		}
 
@@ -674,6 +674,9 @@ export const commands: ChatCommands = {
 		const roomid = targetRoom ? targetRoom.roomid : target;
 		this.parse(`/join view-chatlog-${roomid}--today`);
 	},
+	chatloghelp: [
+		`/chatlog [optional room] - View chatlogs from the given room. If none is specified, shows logs from the room you're in. Requires: % @ * # &`,
+	],
 
 	sl: 'searchlogs',
 	searchlog: 'searchlogs',
