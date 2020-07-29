@@ -29,12 +29,12 @@ export const Conditions: {[k: string]: ModdedPureEffectData} = {
 		},
 		onModifySpe(spe, pokemon) {
 			if (!pokemon.hasAbility('quickfeet')) {
-				return this.chainModify(0.5);
+				return this.chainModify(0.33);
 			}
 		},
 		onBeforeMovePriority: 1,
 		onBeforeMove(pokemon) {
-			if (this.randomChance(1, 4)) {
+			if (this.randomChance(1, 10)) {
 				this.add('cant', pokemon, 'par');
 				return false;
 			}
@@ -78,8 +78,10 @@ export const Conditions: {[k: string]: ModdedPureEffectData} = {
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'frz', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.effectData.time = 5;
 			} else {
 				this.add('-status', target, 'frz');
+				this.effectData.time = 5;
 			}
 			if (target.species.name === 'Shaymin-Sky' && target.baseSpecies.baseSpecies === 'Shaymin') {
 				target.formeChange('Shaymin', this.effect, true);
@@ -88,7 +90,8 @@ export const Conditions: {[k: string]: ModdedPureEffectData} = {
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
 			if (move.flags['defrost']) return;
-			if (this.randomChance(1, 5)) {
+			pokemon.statusData.time--;
+			if (this.randomChance(1, 4) || !pokemon.statusData.time) {
 				pokemon.cureStatus();
 				return;
 			}
