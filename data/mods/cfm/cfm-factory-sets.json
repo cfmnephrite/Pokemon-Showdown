@@ -1189,7 +1189,7 @@
 "tags":[],
 "evs":{ "hp":4,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
 "nature":["Modest"],
-"moves":[["Blue Flare"],["Solar Beam"],["Draco Meteor"],["Stone Edge", "Roost"]]},
+"moves":[["Fusion Flare"],["Solar Beam"],["Draco Meteor"],["Stone Edge", "Roost"]]},
 
 {"species":"Reshiram",
 "gender":"",
@@ -1198,7 +1198,7 @@
 "tags":[],
 "evs":{ "hp":0,"atk":4,"def":0,"spa":252,"spd":0,"spe":252},
 "nature":["Hasty"],
-"moves":[["Draco Meteor"],["Outrage"],["Blue Flare"],["Roost"]]},
+"moves":[["Draco Meteor"],["Outrage"],["Fusion Flare"],["Roost"]]},
 
 {"species":"Reshiram",
 "gender":"",
@@ -1207,7 +1207,7 @@
 "tags":[],
 "evs":{ "hp":4,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
 "nature":["Timid"],
-"moves":[["Blue Flare"],["Sunny Day"],["Solar Beam"],["Draco Meteor"]]},
+"moves":[["Fusion Flare"],["Sunny Day"],["Solar Beam"],["Draco Meteor", "Dragon Pulse"]]},
 
 {"species":"Reshiram",
 "gender":"",
@@ -1216,7 +1216,7 @@
 "tags":[],
 "evs":{"hp":0,"atk":4,"def":0,"spa":252,"spd":0,"spe":252},
 "nature":["Timid"],
-"moves":[["Flame Charge"],["Blue Flare"],["Draco Meteor"],["Stone Edge"]]}]},
+"moves":[["Flame Charge"],["Fusion Flare"],["Draco Meteor"],["Stone Edge"]]}]},
 "sableye":{"flags":{"megaOnly":1},"sets":[
 
 {"species":"Sableye",
@@ -1452,7 +1452,7 @@
 "tags":[],
 "evs":{ "hp":4,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
 "nature":["Timid"],
-"moves":[["Dark Aura"],["Oblivion Wing"],["Heat Wave","Focus Blast"],["U-Turn"]]},
+"moves":[["Dark Pulse","Hyper Voice"],["Oblivion Wing"],["Heat Wave","Focus Blast"],["U-Turn"]]},
 
 {"species":"Yveltal",
 "gender":"",
@@ -1471,7 +1471,7 @@
 "tags":[],
 "evs":{"hp":0,"atk":252,"def":0,"spa":4,"spd":0,"spe":252},
 "nature":["Adamant"],
-"moves":[["Bolt Strike"],["Outrage"],["Dragon Claw"],["Volt Switch"]]},
+"moves":[["Fusion Bolt"],["Outrage"],["Dragon Claw"],["Volt Switch"]]},
 
 {"species":"Zekrom",
 "gender":"",
@@ -1480,7 +1480,7 @@
 "tags":[],
 "evs":{"hp":0,"atk":252,"def":0,"spa":4,"spd":0,"spe":252},
 "nature":["Lonely"],
-"moves":[["Bolt Strike"],["Volt Switch"],["Draco Meteor"],["Outrage"]]},
+"moves":[["Fusion Bolt"],["Volt Switch"],["Draco Meteor"],["Outrage"]]},
 
 {"species":"Zekrom",
 "gender":"",
@@ -1489,34 +1489,25 @@
 "tags":[],
 "evs":{"hp":0,"atk":252,"def":0,"spa":4,"spd":0,"spe":252},
 "nature":["Adamant"],
-"moves":[["Bolt Strike"],["Volt Switch"],["Sleep Talk"],["Outrage"]]},
+"moves":[["Fusion Bolt"],["Volt Switch"],["Sleep Talk"],["Outrage"]]},
 
 {"species":"Zekrom",
 "gender":"",
-"item":"Life Orb",
+"item":"Electrium Z",
 "ability":"Teravolt",
 "tags":[],
 "evs":{"hp":0,"atk":252,"def":0,"spa":4,"spd":0,"spe":252},
 "nature":["Lonely"],
-"moves":[["Bolt Strike"],["Draco Meteor"],["Dragon Claw"],["Tailwind"]]},
-
-{"species":"Zekrom",
-"gender":"",
-"item":"Shuca Berry",
-"ability":"Teravolt",
-"tags":[],
-"evs":{"hp":136,"atk":252,"def":0,"spa":0,"spd":0,"spe":120},
-"nature":["Adamant"],
-"moves":[["Outrage"],["Hone Claws"],["Bolt Strike"],["Dragon Claw"]]},
+"moves":[["Fusion Bolt"],["Draco Meteor"],["Dragon Claw"],["Dragon Dance"]]},
 
 {"species":"Zekrom",
 "gender":"",
 "item":"Dragonium Z",
 "ability":"Teravolt",
 "tags":[],
-"evs":{ "hp":0,"atk":252,"def":0,"spa":4,"spd":0,"spe":252},
-"nature":["Naughty"],
-"moves":[["Outrage"],["Bolt Strike"],["Hone Claws"],["Draco Meteor"]]}]}
+"evs":{"hp":136,"atk":252,"def":0,"spa":0,"spd":0,"spe":120},
+"nature":["Adamant"],
+"moves":[["Outrage"],["Dragon Dance"],["Fusion Bolt"],["Dragon Claw"]]}]}
 },
 
 "OU":{
