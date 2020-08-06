@@ -525,7 +525,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	rapidashgalar: {
 		randomBattleMoves: ["highhorsepower", "morningsun", "playrough", "swordsdance", "zenheadbutt"],
-		tier: "CNU",
+		tier: "CPU",
 		inherit: true,
 	},
 	slowpoke: {
@@ -871,7 +871,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	scizor: {
 		isNonstandard: null,
-		tier: "CUU",
+		tier: "COU",
 		inherit: true,
 	},
 	scizormega: {
@@ -1675,7 +1675,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	obstagoon: {
 		randomBattleMoves: ["closecombat", "doubleedge", "facade", "firepunch", "gunkshot", "knockoff", "obstruct", "partingshot"],
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	wurmple: {
@@ -2081,7 +2081,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zangoose: {
 		isNonstandard: null,
-		tier: "CUU",
+		tier: "CRU",
 		inherit: true,
 	},
 	seviper: {
@@ -2326,7 +2326,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	metagrossmega: {
 		isNonstandard: null,
-		tier: "COU",
+		tier: "CUb",
 		inherit: true,
 	},
 	regirock: {
@@ -3298,7 +3298,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	runerigus: {
 		randomBattleMoves: ["earthquake", "haze", "nightshade", "stealthrock", "willowisp"],
-		tier: "CRU",
+		tier: "CNU",
 		inherit: true,
 	},
 	tirtouga: {
@@ -3622,7 +3622,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	durant: {
 		randomBattleMoves: ["firstimpression", "ironhead", "rockslide", "superpower"],
-		tier: "CRU",
+		tier: "CUU",
 		inherit: true,
 	},
 	deino: {
@@ -3670,7 +3670,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	tornadustherian: {
 		isNonstandard: null,
-		tier: "COU",
+		tier: "CUb",
 		inherit: true,
 	},
 	thundurus: {
@@ -4594,7 +4594,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mimikyu: {
 		randomBattleMoves: ["playrough", "shadowclaw", "shadowsneak", "swordsdance", "taunt"],
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	mimikyubusted: {
@@ -4739,12 +4739,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	magearna: {
 		isNonstandard: null,
-		tier: "COU",
+		tier: "CUb",
 		inherit: true,
 	},
 	magearnaoriginal: {
 		isNonstandard: null,
-		tier: "COU",
+		tier: "CUb",
 		inherit: true,
 	},
 	marshadow: {
@@ -4809,7 +4809,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	cinderace: {
 		randomBattleMoves: ["courtchange", "gunkshot", "highjumpkick", "ironhead", "pyroball", "uturn", "zenheadbutt"],
-		tier: "COU",
+		tier: "CUb",
 		inherit: true,
 	},
 	sobble: {
@@ -4822,7 +4822,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	inteleon: {
 		randomBattleMoves: ["airslash", "darkpulse", "hydropump", "icebeam", "scald", "snipeshot", "uturn"],
-		tier: "CUU",
+		tier: "CRU",
 		inherit: true,
 	},
 	skwovet: {
@@ -4875,7 +4875,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	eldegoss: {
 		randomBattleMoves: ["charm", "gigadrain", "pollenpuff", "rapidspin", "sleeppowder", "synthesis"],
-		tier: "CNU",
+		tier: "COU",
 		inherit: true,
 	},
 	wooloo: {
@@ -4893,7 +4893,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	drednaw: {
 		randomBattleMoves: ["crunch", "earthquake", "jawlock", "liquidation", "stealthrock", "stoneedge"],
-		tier: "CNU",
+		tier: "CPU",
 		inherit: true,
 	},
 	yamper: {
@@ -4902,7 +4902,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	boltund: {
 		randomBattleMoves: ["crunch", "firefang", "nuzzle", "playrough", "psychicfangs", "thunderfang", "voltswitch"],
-		tier: "CNU",
+		tier: "CPU",
 		inherit: true,
 	},
 	rolycoly: {
@@ -4915,7 +4915,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	coalossal: {
 		randomBattleMoves: ["earthquake", "fireblast", "rapidspin", "spikes", "stealthrock", "stoneedge"],
-		tier: "CRU",
+		tier: "CNU",
 		inherit: true,
 	},
 	applin: {
@@ -4929,7 +4929,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	appletun: {
 		randomBattleMoves: ["appleacid", "dragonpulse", "earthquake", "leechseed", "recover"],
-		tier: "CNU",
+		tier: "CPU",
 		inherit: true,
 	},
 	silicobra: {
@@ -4958,7 +4958,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	barraskewda: {
 		randomBattleMoves: ["aquajet", "closecombat", "crunch", "liquidation", "poisonjab"],
-		tier: "CUU",
+		tier: "CRU",
 		inherit: true,
 	},
 	toxel: {
@@ -5002,7 +5002,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	polteageist: {
 		randomBattleMoves: ["gigadrain", "shadowball", "shellsmash", "storedpower", "strengthsap"],
-		tier: "CUU",
+		tier: "CRU",
 		inherit: true,
 	},
 	hatenna: {
@@ -5010,12 +5010,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	hattrem: {
-		tier: "CNU",
+		tier: "CPU",
 		inherit: true,
 	},
 	hatterene: {
 		randomBattleMoves: ["calmmind", "dazzlinggleam", "mysticalfire", "psychic", "shadowball", "trickroom"],
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	impidimp: {
@@ -5028,7 +5028,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	grimmsnarl: {
 		randomBattleMoves: ["bulkup", "drainpunch", "falsesurrender", "playrough", "spiritbreak", "suckerpunch", "superpower", "thunderwave", "taunt"],
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	milcery: {
@@ -5074,17 +5074,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	indeedee: {
 		randomBattleMoves: ["calmmind", "hypervoice", "mysticalfire", "psychic", "trick"],
-		tier: "CRU",
+		tier: "CUU",
 		inherit: true,
 	},
 	indeedeef: {
 		randomBattleMoves: ["aromatherapy", "calmmind", "hypervoice", "mysticalfire", "psychic"],
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	morpeko: {
 		randomBattleMoves: ["aurawheel", "crunch", "partingshot", "psychicfangs", "rapidspin", "superfang", "wildcharge"],
-		tier: "CNU",
+		tier: "CPU",
 		inherit: true,
 	},
 	morpekohangry: {

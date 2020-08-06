@@ -1084,6 +1084,7 @@ export const Formats: {[k: string]: FormatsData} = {
 				// abilities - UU
 				serperior:	{tier: 'UU', ability: 'contrary'},
 				diggersby:	{tier: 'UU', ability: 'hugepower'},
+				rillaboom:	{tier: 'UU', ability: 'grassysurge'},
 				// items
 				latias:		{tier: 'OU', item: 'souldew'},
 				latios:		{tier: 'OU', item: 'souldew'},

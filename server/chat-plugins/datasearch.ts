@@ -444,7 +444,7 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 		cap: 'CAP', caplc: 'CAP LC', capnfe: 'CAP NFE',
 
 		// CFM Singles
-		cag: 'CAG', cub: 'CUb',
+		cag: 'CAG', cub: 'CUb', cuber: 'CUb', cubers: 'CUb',
 		cou: 'COU', cuu: 'CUU',
 		cru: 'CRU', cnu: 'CNU',
 		cpu: 'CPU', clc: 'CLC',
