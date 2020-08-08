@@ -688,13 +688,6 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 		banlist: ['CNU'],
 	},
 	{
-		name: "[Gen 8] CFM Testing",
-		mod: 'cfm',
-		searchShow: false,
-		debug: true,
-		ruleset: ['Evasion Moves Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
-	},
-	{
 		name: "[CFM] Custom Game",
 
 		mod: 'cfm',
