@@ -637,7 +637,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 		desc: `Randomized CFM teams for CFM tiers.`,
 
 		mod: 'cfm',
-		team: 'randomCFMFactory',
+		team: 'randomFactory',
 		ruleset: ['Obtainable', 'Sleep Clause Mod', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Mega Rayquaza Clause'],
 	},
 	{

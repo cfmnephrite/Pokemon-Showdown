@@ -3349,7 +3349,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		// RKS System's type-changing itself is implemented in statuses.js
 		onStart(pokemon) {
 			const type = pokemon.getItem().onMemory;
-			if (pokemon.baseSpecies.name !== 'Silvally') return;
+			if (pokemon.baseSpecies.baseSpecies !== 'Silvally') return;
 			let maIndex = 4;
 			for (let j = 0; j < pokemon.moveSlots.length; j++) {
 				if (pokemon.moveSlots[j].id === 'multiattack') {
@@ -3361,13 +3361,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let move = this.dex.getMove('multiattack');
 
 			// For Memories that change effect depending on higher stat
-			let oStat = 'atk';
-			if (pokemon.storedStats.spa > pokemon.storedStats.atk) oStat = 'spa';
+			const oStat = pokemon.storedStats.spa > pokemon.storedStats.atk ? 'spa' : 'atk';
 
 			switch (type) {
 			case 'Bug':
+				const bugMoves: {[k: string]: string} = {'atk': 'leechlife', 'spa': 'tailglow'};
 				this.boost({atk:1, def:-2, spa:1});
-				move = this.dex.getMove('tailglow');
+				move = this.dex.getMove(bugMoves[oStat]);
 				break;
 			case 'Dark':
 				this.boost({atk:1, spa:1, spd:-2});
@@ -3390,15 +3390,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				move = this.dex.getMove('sacredsword');
 				break;
 			case 'Fire':
-				const fireMoves = {'atk': 'blazekick', 'spa': 'firespin'};
+				const fireMoves: {[k: string]: string} = {'atk': 'blazekick', 'spa': 'firespin'};
 				this.boost({atk:1, def:-2, spa:1});
-				// @ts-ignore
 				move = this.dex.getMove(fireMoves[oStat]);
 				break;
 			case 'Flying':
-				const flyingMoves = {'atk': 'drillpeck', 'spa': 'gust'};
+				const flyingMoves: {[k: string]: string} = {'atk': 'drillpeck', 'spa': 'gust'};
 				this.boost({[oStat]:1, def:-2, spe:1});
-				// @ts-ignore
 				move = this.dex.getMove(flyingMoves[oStat]);
 				break;
 			case 'Ghost':
@@ -3414,9 +3412,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				move = this.dex.getMove('drillrun');
 				break;
 			case 'Ice':
-				const iceMoves = {'atk': 'iciclecrash', 'spa': 'freezedry'};
+				const iceMoves: {[k: string]: string} = {'atk': 'iciclecrash', 'spa': 'freezedry'};
 				this.boost({def:-1, [oStat]:2, spd:-1});
-				// @ts-ignore
 				move = this.dex.getMove(iceMoves[oStat]);
 				break;
 			case 'Poison':
@@ -3459,8 +3456,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		// Type: Null part
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
-			if (attacker.species.name !== 'Type: Null') return;
-			const category = (attacker.getStat('atk') > attacker.getStat('spa') ? 'Physical' : 'Special');
+			if (attacker.species.id !== 'typenull') return;
+			const category = (attacker.getStat('spa') > attacker.getStat('atk') ? 'Special' : 'Physical');
 			if (move && (move.category === category || move.flags['magic'])) {
 				move.rksBoosted = true;
 				return this.chainModify(1.5);
@@ -3615,7 +3612,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	schooling: {
 		shortDesc: "If Wishiwashi-Solo, changes to School Forme if below 50% max HP and recovers HP.",
 		onUpdate(pokemon) {
-			if (pokemon.species.name !== 'Wishiwashi' || pokemon.hp > pokemon.maxhp / 2) return;
+			if (pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.hp > pokemon.maxhp / 2) return;
 			if (pokemon.transformed || !pokemon.hp) return;
 			this.add('-message', pokemon.name + " called out for assistance!");
 			this.add('-activate', pokemon, 'ability: Schooling');
