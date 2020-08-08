@@ -3361,7 +3361,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let move = this.dex.getMove('multiattack');
 
 			// For Memories that change effect depending on higher stat
-			let oStat = pokemon.storedStats.spa > pokemon.storedStats.atk ? 'spa' : 'atk';
+			const oStat = pokemon.storedStats.spa > pokemon.storedStats.atk ? 'spa' : 'atk';
 
 			switch (type) {
 			case 'Bug':

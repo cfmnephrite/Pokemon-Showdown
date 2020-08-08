@@ -14035,7 +14035,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, authentic: 1, mystery: 1},
 		onHit(target, source) {
-			if (source.species && (source.species.num === 493 || source.species.num === 773 || source.species.num === 201 || source.species.num === 352)) return false;
+			if (source.species && (source.species.num === 493 || source.species.num === 773 || source.species.num === 201 ||
+				source.species.num === 352)) return false;
 			let newBaseTypes = target.getTypes(true).filter(type => type !== '???');
 			if (!newBaseTypes.length) {
 				if (target.addedType) {

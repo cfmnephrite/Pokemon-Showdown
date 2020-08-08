@@ -1346,7 +1346,7 @@ export class RandomCFMTeams extends RandomTeams {
 			flashfire: ['Fire'], heatproof: ['Fire'], damp: ['Fire'],
 			lightningrod: ['Electric'], motordrive: ['Electric'], voltabsorb: ['Electric'], battery: ['Electric'],
 			sapsipper: ['Grass'],
-			thickfat: ['Ice', 'Fire']
+			thickfat: ['Ice', 'Fire'],
 		};
 
 		while (pokemonPool.length && pokemon.length < 6) {
@@ -1460,8 +1460,7 @@ export class RandomCFMTeams extends RandomTeams {
 				if (teamData.resistances[typeName] >= 1) continue;
 				if (
 					resistanceAbilities[abilityData.id] && resistanceAbilities[abilityData.id].includes(typeName) ||
-					!this.dex.getImmunity(typeName, types)
-					|| (species.baseSpecies.levitates && typeName == 'Ground')
+					!this.dex.getImmunity(typeName, types) || (species.levitates && typeName === 'Ground')
 				) {
 					// Heuristic: assume that Pokémon with these abilities don't have (too) negative typing.
 					teamData.resistances[typeName] = (teamData.resistances[typeName] || 0) + 1;
