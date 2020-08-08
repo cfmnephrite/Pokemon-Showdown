@@ -1822,7 +1822,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 20, perfectIVs: 3, moves: ["bite", "pursuit", "hyperfang", "assurance"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	spearow: {
 		learnset: {
@@ -2292,7 +2291,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 4, level: 30, gender: "F", nature: "Naughty", moves: ["helpinghand", "volttackle", "swagger", "painsplit"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachu: {
 		learnset: {
@@ -2525,7 +2523,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 6, level: 20, perfectIVs: 3, moves: ["quickattack", "electroball", "thunderwave", "thundershock"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachurockstar: {
 		learnset: {
@@ -2588,7 +2585,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 6, level: 20, perfectIVs: 3, moves: ["quickattack", "electroball", "thunderwave", "meteormash"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachubelle: {
 		learnset: {
@@ -2651,7 +2647,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 6, level: 20, perfectIVs: 3, moves: ["quickattack", "electroball", "thunderwave", "iciclecrash"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachupopstar: {
 		learnset: {
@@ -2714,7 +2709,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 6, level: 20, perfectIVs: 3, moves: ["quickattack", "electroball", "thunderwave", "drainingkiss"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachuphd: {
 		learnset: {
@@ -2777,7 +2771,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 6, level: 20, perfectIVs: 3, moves: ["quickattack", "electroball", "thunderwave", "electricterrain"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachulibre: {
 		learnset: {
@@ -2840,7 +2833,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 6, level: 20, perfectIVs: 3, moves: ["quickattack", "electroball", "thunderwave", "flyingpress"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachuoriginal: {
 		learnset: {
@@ -2926,7 +2918,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 1, nature: "Hardy", moves: ["thunderbolt", "quickattack", "thunder", "agility"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachuhoenn: {
 		learnset: {
@@ -3012,7 +3003,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 6, nature: "Hardy", moves: ["thunderbolt", "quickattack", "thunder", "irontail"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachusinnoh: {
 		learnset: {
@@ -3098,7 +3088,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 10, nature: "Hardy", moves: ["thunderbolt", "quickattack", "irontail", "volttackle"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachuunova: {
 		learnset: {
@@ -3184,7 +3173,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 14, nature: "Hardy", moves: ["thunderbolt", "quickattack", "irontail", "volttackle"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachukalos: {
 		learnset: {
@@ -3270,7 +3258,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 17, nature: "Hardy", moves: ["thunderbolt", "quickattack", "irontail", "electroball"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachualola: {
 		learnset: {
@@ -3356,7 +3343,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 20, nature: "Hardy", moves: ["thunderbolt", "quickattack", "irontail", "electroball"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachupartner: {
 		learnset: {
@@ -3442,7 +3428,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 21, shiny: 1, nature: "Hardy", moves: ["thunderbolt", "quickattack", "thunder", "irontail"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	pikachustarter: {
 		learnset: {
@@ -3481,7 +3466,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 5, perfectIVs: 6, moves: ["thundershock", "tailwhip", "growl"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	raichu: {
 		learnset: {
@@ -13231,7 +13215,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 25, perfectIVs: 3, moves: ["leer", "hex", "bonemerang", "willowisp"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	tyrogue: {
 		learnset: {
@@ -17326,7 +17309,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 5, perfectIVs: 6, moves: ["tackle", "tailwhip", "growl"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	vaporeon: {
 		learnset: {
@@ -18966,7 +18948,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 70, isHidden: true, moves: ["freezedry", "icebeam", "hail", "reflect"], pokeball: "cherishball"},
 			{generation: 7, level: 60, shiny: 1, moves: ["ancientpower", "freezedry", "reflect", "hail"]},
 		],
-		eventOnly: true,
 	},
 	zapdos: {
 		learnset: {
@@ -19055,7 +19036,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 70, isHidden: true, moves: ["discharge", "thundershock", "raindance", "agility"], pokeball: "cherishball"},
 			{generation: 7, level: 60, shiny: 1, moves: ["ancientpower", "discharge", "pluck", "raindance"]},
 		],
-		eventOnly: true,
 	},
 	moltres: {
 		learnset: {
@@ -19139,7 +19119,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 70, isHidden: true, moves: ["skyattack", "heatwave", "sunnyday", "safeguard"], pokeball: "cherishball"},
 			{generation: 7, level: 60, shiny: 1, moves: ["ancientpower", "flamethrower", "airslash", "sunnyday"]},
 		],
-		eventOnly: true,
 	},
 	dratini: {
 		learnset: {
@@ -19573,7 +19552,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 100, shiny: true, isHidden: true, moves: ["psystrike", "psychic", "recover", "aurasphere"], pokeball: "cherishball"},
 			{generation: 7, level: 60, shiny: 1, moves: ["psychic", "recover", "swift", "psychocut"]},
 		],
-		eventOnly: true,
 	},
 	mew: {
 		learnset: {
@@ -19938,7 +19916,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 50, moves: ["psychic", "barrier", "metronome", "transform"], pokeball: "cherishball"},
 			{generation: 8, level: 1, moves: ["pound"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	chikorita: {
 		learnset: {
@@ -26996,7 +26973,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["reflect", "crunch", "thunderfang", "discharge"], pokeball: "cherishball"},
 			{generation: 7, level: 100, moves: ["thunderbolt", "voltswitch", "extrasensory", "calmmind"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	entei: {
 		learnset: {
@@ -27080,7 +27056,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["stomp", "bite", "swagger", "lavaplume"], pokeball: "cherishball"},
 			{generation: 7, level: 100, moves: ["sacredfire", "stoneedge", "ironhead", "flamecharge"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	suicune: {
 		learnset: {
@@ -27168,7 +27143,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 50, shiny: 1, moves: ["aurorabeam", "mist", "mirrorcoat", "icefang"]},
 			{generation: 7, level: 60, shiny: 1, moves: ["bubblebeam", "aurorabeam", "mist", "raindance"]},
 		],
-		eventOnly: true,
 	},
 	larvitar: {
 		learnset: {
@@ -27569,7 +27543,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["skillswap", "aeroblast", "extrasensory", "ancientpower"], pokeball: "cherishball"},
 			{generation: 7, level: 100, moves: ["aeroblast", "earthpower", "psychic", "tailwind"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	hooh: {
 		learnset: {
@@ -27672,7 +27645,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["burnup", "sacredfire", "extrasensory", "ancientpower"], pokeball: "cherishball"},
 			{generation: 7, level: 100, moves: ["sacredfire", "bravebird", "earthquake", "tailwind"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	celebi: {
 		learnset: {
@@ -27786,7 +27758,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 100, moves: ["confusion", "recover", "healbell", "safeguard"], pokeball: "cherishball"},
 			{generation: 7, level: 30, moves: ["healbell", "safeguard", "ancientpower", "futuresight"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	treecko: {
 		learnset: {
@@ -38506,7 +38477,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 50, isHidden: true, moves: ["explosion", "icepunch", "stoneedge", "hammerarm"], pokeball: "pokeball"},
 			{generation: 7, level: 60, shiny: 1, moves: ["stoneedge", "hammerarm", "lockon", "zapcannon"]},
 		],
-		eventOnly: true,
 	},
 	regice: {
 		learnset: {
@@ -38593,7 +38563,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 50, isHidden: true, moves: ["thunderbolt", "amnesia", "icebeam", "hail"], pokeball: "pokeball"},
 			{generation: 7, level: 60, shiny: 1, moves: ["icebeam", "hammerarm", "lockon", "zapcannon"]},
 		],
-		eventOnly: true,
 	},
 	registeel: {
 		learnset: {
@@ -38680,7 +38649,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 50, isHidden: true, moves: ["ironhead", "rockslide", "gravity", "irondefense"], pokeball: "pokeball"},
 			{generation: 7, level: 60, shiny: 1, moves: ["flashcannon", "hammerarm", "lockon", "zapcannon"]},
 		],
-		eventOnly: true,
 	},
 	latias: {
 		learnset: {
@@ -38794,7 +38762,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["mistball", "dragonpulse", "psychoshift", "wish"], pokeball: "cherishball"},
 			{generation: 7, level: 100, moves: ["mistball", "psychic", "dracometeor", "tailwind"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	latios: {
 		learnset: {
@@ -38904,7 +38871,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["lusterpurge", "dragonpulse", "psychoshift", "dragonbreath"], pokeball: "cherishball"},
 			{generation: 7, level: 100, moves: ["lusterpurge", "psychic", "dracometeor", "tailwind"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	kyogre: {
 		learnset: {
@@ -38988,7 +38954,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["icebeam", "originpulse", "calmmind", "muddywater"], pokeball: "cherishball"},
 			{generation: 7, level: 100, moves: ["originpulse", "icebeam", "waterspout", "calmmind"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	groudon: {
 		learnset: {
@@ -39089,7 +39054,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["earthquake", "precipiceblades", "bulkup", "solarbeam"], pokeball: "cherishball"},
 			{generation: 7, level: 100, moves: ["precipiceblades", "earthpower", "firepunch", "swordsdance"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	rayquaza: {
 		learnset: {
@@ -39194,7 +39158,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 100, shiny: true, moves: ["dragonascent", "dracometeor", "fly", "celebrate"], pokeball: "cherishball"},
 			{generation: 7, level: 60, shiny: 1, moves: ["rest", "extremespeed", "dragonpulse", "dragondance"]},
 		],
-		eventOnly: true,
 	},
 	jirachi: {
 		learnset: {
@@ -39322,7 +39285,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 100, moves: ["wish", "confusion", "rest"], pokeball: "cherishball"},
 			{generation: 7, level: 15, moves: ["swift", "wish", "healingwish", "rest"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	deoxys: {
 		learnset: {
@@ -39452,7 +39414,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 5, level: 100, moves: ["nastyplot", "darkpulse", "recover", "psychoboost"], pokeball: "duskball"},
 			{generation: 6, level: 80, moves: ["cosmicpower", "recover", "psychoboost", "hyperbeam"]},
 		],
-		eventOnly: true,
 	},
 	deoxysattack: {
 		learnset: {
@@ -44401,7 +44362,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 50, shiny: 1, moves: ["yawn", "futuresight", "amnesia", "extrasensory"]},
 			{generation: 7, level: 60, shiny: 1, moves: ["extrasensory", "yawn", "amnesia", "swift"]},
 		],
-		eventOnly: true,
 	},
 	mesprit: {
 		learnset: {
@@ -44486,7 +44446,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 50, shiny: 1, moves: ["luckychant", "futuresight", "charm", "extrasensory"]},
 			{generation: 7, level: 60, shiny: 1, moves: ["extrasensory", "charm", "futuresight", "swift"]},
 		],
-		eventOnly: true,
 	},
 	azelf: {
 		learnset: {
@@ -44575,7 +44534,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 50, shiny: 1, moves: ["uproar", "futuresight", "nastyplot", "extrasensory"]},
 			{generation: 7, level: 60, shiny: 1, moves: ["extrasensory", "nastyplot", "uproar", "swift"]},
 		],
-		eventOnly: true,
 	},
 	dialga: {
 		learnset: {
@@ -44669,7 +44627,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 100, moves: ["roaroftime", "aurasphere", "dracometeor", "flashcannon"], pokeball: "cherishball"},
 			{generation: 7, level: 50, moves: ["flashcannon", "dracometeor", "roaroftime", "aurasphere"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	palkia: {
 		learnset: {
@@ -44771,7 +44728,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 100, moves: ["spacialrend", "aurasphere", "dracometeor", "hydropump"], pokeball: "cherishball"},
 			{generation: 7, level: 50, moves: ["hydropump", "dracometeor", "spacialrend", "aurasphere"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	heatran: {
 		learnset: {
@@ -44852,7 +44808,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["crunch", "scaryface", "lavaplume", "firespin"], pokeball: "cherishball"},
 			{generation: 7, level: 100, moves: ["magmastorm", "heatwave", "earthpower", "flashcannon"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	regigigas: {
 		learnset: {
@@ -44940,7 +44895,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["zenheadbutt", "revenge", "dizzypunch", "confuseray"], pokeball: "cherishball"},
 			{generation: 7, level: 100, moves: ["crushgrip", "drainpunch", "zenheadbutt", "heavyslam"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	giratina: {
 		learnset: {
@@ -45038,7 +44992,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 100, nature: "Brave", isHidden: true, moves: ["aurasphere", "dracometeor", "shadowforce", "ironhead"], pokeball: "cherishball"},
 			{generation: 7, level: 60, shiny: 1, moves: ["shadowforce", "aurasphere", "earthpower", "dragonclaw"]},
 		],
-		eventOnly: true,
 	},
 	giratinaorigin: {
 		learnset: {
@@ -45117,7 +45070,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 50, shiny: 1, moves: ["mist", "aurorabeam", "futuresight", "slash"]},
 			{generation: 7, level: 60, shiny: 1, moves: ["aurorabeam", "futuresight", "slash", "moonlight"]},
 		],
-		eventOnly: true,
 	},
 	phione: {
 		learnset: {
@@ -45252,7 +45204,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 100, moves: ["tailglow", "bubble", "watersport"], pokeball: "cherishball"},
 			{generation: 7, level: 15, moves: ["tailglow", "waterpulse", "aquaring", "heartswap"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	darkrai: {
 		learnset: {
@@ -45351,7 +45302,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 100, moves: ["darkvoid", "ominouswind", "nightmare", "feintattack"], pokeball: "cherishball"},
 			{generation: 7, level: 50, moves: ["darkvoid", "feintattack", "nightmare", "ominouswind"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	shaymin: {
 		learnset: {
@@ -45422,7 +45372,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 100, moves: ["seedflare", "aromatherapy", "substitute", "energyball"], pokeball: "cherishball"},
 			{generation: 7, level: 20, moves: ["return", "growth", "seedflare", "celebrate"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	shayminsky: {
 		learnset: {
@@ -45574,7 +45523,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 100, moves: ["judgment", "perishsong", "hyperbeam", "recover"], pokeball: "cherishball"},
 			{generation: 7, level: 100, moves: ["judgment", "extremespeed", "recover", "hyperbeam"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	arceusbug: {
 		learnset: {
@@ -45734,7 +45682,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 15, moves: ["quickattack", "swagger", "vcreate"], pokeball: "cherishball"},
 			{generation: 7, level: 15, moves: ["vcreate", "reversal", "storedpower", "celebrate"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	snivy: {
 		learnset: {
@@ -56010,7 +55957,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 50, shiny: 1, moves: ["retaliate", "ironhead", "sacredsword", "swordsdance"]},
 			{generation: 7, level: 60, shiny: 1, moves: ["sacredsword", "swordsdance", "quickattack", "ironhead"]},
 		],
-		eventOnly: true,
 	},
 	terrakion: {
 		learnset: {
@@ -56087,7 +56033,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 50, shiny: 1, moves: ["retaliate", "rockslide", "sacredsword", "swordsdance"]},
 			{generation: 7, level: 60, shiny: 1, moves: ["sacredsword", "swordsdance", "rockslide", "stoneedge"]},
 		],
-		eventOnly: true,
 	},
 	virizion: {
 		learnset: {
@@ -56168,7 +56113,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 50, shiny: 1, moves: ["retaliate", "gigadrain", "sacredsword", "swordsdance"]},
 			{generation: 7, level: 60, shiny: 1, moves: ["sacredsword", "swordsdance", "gigadrain", "leafblade"]},
 		],
-		eventOnly: true,
 	},
 	tornadus: {
 		learnset: {
@@ -56242,7 +56186,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["airslash", "crunch", "tailwind", "raindance"], pokeball: "cherishball"},
 			{generation: 7, level: 100, moves: ["hurricane", "heatwave", "grassknot", "tailwind"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	tornadustherian: {
 		learnset: {
@@ -56326,7 +56269,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["discharge", "crunch", "charge", "nastyplot"], pokeball: "cherishball"},
 			{generation: 7, level: 100, moves: ["thunderbolt", "focusblast", "grassknot", "nastyplot"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	thundurustherian: {
 		learnset: {
@@ -56421,7 +56363,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["slash", "extrasensory", "fusionflare", "dragonpulse"], pokeball: "cherishball"},
 			{generation: 7, level: 100, moves: ["fusionflare", "blueflare", "dracometeor", "earthpower"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	zekrom: {
 		learnset: {
@@ -56511,7 +56452,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["slash", "zenheadbutt", "fusionbolt", "dragonclaw"], pokeball: "cherishball"},
 			{generation: 7, level: 100, moves: ["fusionbolt", "boltstrike", "outrage", "stoneedge"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	landorus: {
 		learnset: {
@@ -56586,7 +56526,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 50, nature: "Adamant", ivs: {hp: 31, atk: 31, def: 31, spa: 1, spd: 31, spe: 24}, moves: ["earthquake", "knockoff", "uturn", "rocktomb"], pokeball: "cherishball"},
 			{generation: 7, level: 60, shiny: 1, moves: ["earthpower", "rockslide", "earthquake", "sandstorm"]},
 		],
-		eventOnly: true,
 	},
 	landorustherian: {
 		learnset: {
@@ -56675,7 +56614,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 100, moves: ["glaciate", "scaryface", "dracometeor", "ironhead"], pokeball: "cherishball"},
 			{generation: 7, level: 60, shiny: 1, moves: ["slash", "scaryface", "glaciate", "dragonpulse"]},
 		],
-		eventOnly: true,
 	},
 	kyuremblack: {
 		learnset: {
@@ -56761,7 +56699,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 100, moves: ["freezeshock", "fusionbolt", "dracometeor", "ironhead"], pokeball: "cherishball"},
 			{generation: 7, level: 60, shiny: 1, moves: ["slash", "fusionbolt", "freezeshock", "dragonpulse"]},
 		],
-		eventOnly: true,
 	},
 	kyuremwhite: {
 		learnset: {
@@ -56847,7 +56784,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 100, moves: ["iceburn", "fusionflare", "dracometeor", "ironhead"], pokeball: "cherishball"},
 			{generation: 7, level: 60, shiny: 1, moves: ["slash", "fusionflare", "iceburn", "dragonpulse"]},
 		],
-		eventOnly: true,
 	},
 	keldeo: {
 		learnset: {
@@ -56925,7 +56861,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 15, moves: ["aquajet", "leer", "doublekick", "hydropump"], pokeball: "cherishball"},
 			{generation: 6, level: 100, moves: ["aquajet", "leer", "doublekick", "bubblebeam"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	keldeoresolute: {
 		learnset: {
@@ -57026,7 +56961,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 15, moves: ["sing", "psychic", "closecombat"], pokeball: "cherishball"},
 			{generation: 7, level: 50, moves: ["sing", "celebrate", "round", "relicsong"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	genesect: {
 		learnset: {
@@ -57114,7 +57048,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 5, level: 100, shiny: true, nature: "Hasty", ivs: {atk: 31, spe: 31}, moves: ["extremespeed", "technoblast", "blazekick", "shiftgear"], pokeball: "cherishball"},
 			{generation: 6, level: 100, moves: ["technoblast", "magnetbomb", "solarbeam", "signalbeam"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	genesectburn: {
 		learnset: {
@@ -57852,7 +57785,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 36, ivs: {hp: 20, atk: 31, def: 20, spa: 31, spd: 20, spe: 31}, moves: ["watershuriken", "aerialace", "doubleteam", "nightslash"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	bunnelby: {
 		learnset: {
@@ -58318,7 +58250,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 6, level: 12, moves: ["gust", "lightscreen", "strugglebug", "holdhands"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	vivillonpokeball: {
 		learnset: {
@@ -58385,7 +58316,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 6, level: 12, moves: ["stunspore", "gust", "lightscreen", "strugglebug"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	litleo: {
 		learnset: {
@@ -61986,7 +61916,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["geomancy", "hornleech", "nightslash", "moonblast"], pokeball: "cherishball"},
 			{generation: 7, level: 100, moves: ["geomancy", "focusblast", "grassknot", "moonblast"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	yveltal: {
 		learnset: {
@@ -62056,7 +61985,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["oblivionwing", "darkpulse", "phantomforce", "psychic"], pokeball: "cherishball"},
 			{generation: 7, level: 100, moves: ["oblivionwing", "darkpulse", "heatwave", "tailwind"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	zygarde: {
 		learnset: {
@@ -62126,7 +62054,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 100, shiny: true, moves: ["thousandarrows", "outrage", "extremespeed", "dragondance"], pokeball: "cherishball"},
 			{generation: 7, level: 100, shiny: true, isHidden: true, moves: ["thousandarrows", "outrage", "extremespeed", "dragondance"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	zygarde10: {
 		learnset: {
@@ -62147,7 +62074,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, shiny: true, isHidden: true, moves: ["landswrath", "glare", "safeguard", "dragonbreath"], pokeball: "cherishball"},
 			{generation: 7, level: 100, shiny: true, isHidden: true, moves: ["thousandarrows", "outrage", "extremespeed", "dragondance"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	diancie: {
 		learnset: {
@@ -62215,7 +62141,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 50, moves: ["diamondstorm", "reflect", "return", "moonblast"], pokeball: "cherishball"},
 			{generation: 6, level: 50, shiny: true, moves: ["diamondstorm", "moonblast", "reflect", "return"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	hoopa: {
 		learnset: {
@@ -62301,7 +62226,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 50, moves: ["hyperspacehole", "nastyplot", "psychic", "astonish"], pokeball: "cherishball"},
 			{generation: 7, level: 15, moves: ["shadowball", "nastyplot", "psychic", "hyperspacehole"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	hoopaunbound: {
 		learnset: {
@@ -62370,7 +62294,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 6, level: 70, moves: ["steameruption", "overheat", "hydropump", "mist"], pokeball: "cherishball"},
 			{generation: 6, level: 70, moves: ["steameruption", "flamethrower", "hydropump", "explosion"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	rowlet: {
 		learnset: {
@@ -63331,7 +63254,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 20, perfectIVs: 3, moves: ["sandattack", "odorsleuth", "bide", "bite"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	grubbin: {
 		learnset: {
@@ -63555,7 +63477,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 35, perfectIVs: 3, moves: ["spark", "acrobatics", "guillotine", "bugbuzz"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	crabrawler: {
 		learnset: {
@@ -63947,7 +63868,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 50, perfectIVs: 3, moves: ["bugbuzz", "dazzlinggleam", "aromatherapy", "quiverdance"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	rockruff: {
 		learnset: {
@@ -64777,7 +64697,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 25, perfectIVs: 3, moves: ["spiderweb", "bugbite", "bubblebeam", "bite"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	fomantis: {
 		learnset: {
@@ -64970,7 +64889,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 30, perfectIVs: 3, moves: ["growth", "ingrain", "leafblade", "synthesis"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	morelull: {
 		learnset: {
@@ -65315,7 +65233,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 30, perfectIVs: 3, moves: ["smog", "doubleslap", "flameburst", "toxic"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	stufful: {
 		learnset: {
@@ -66260,7 +66177,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, shiny: 1, perfectIVs: 3, moves: ["metalsound", "ironhead", "doublehit", "airslash"], pokeball: "pokeball"},
 			{generation: 8, level: 50, shiny: 1, perfectIVs: 3, moves: ["triattack", "xscissor", "ironhead", "takedown"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	silvally: {
 		learnset: {
@@ -66716,7 +66632,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 30, perfectIVs: 3, moves: ["nuzzle", "magnetrise", "discharge", "zingzap"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	mimikyu: {
 		learnset: {
@@ -66870,7 +66785,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 40, perfectIVs: 3, moves: ["feintattack", "charm", "slash", "shadowclaw"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	bruxish: {
 		learnset: {
@@ -67416,7 +67330,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 50, perfectIVs: 3, moves: ["workup", "screech", "irondefense", "dragonclaw"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	tapukoko: {
 		learnset: {
@@ -67489,7 +67402,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, shiny: true, nature: "Timid", moves: ["naturesmadness", "discharge", "agility", "electroball"], pokeball: "cherishball"},
 			{generation: 7, level: 60, shiny: true, moves: ["thunderbolt", "dazzlinggleam", "voltswitch", "naturesmadness"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	tapulele: {
 		learnset: {
@@ -67557,7 +67469,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["naturesmadness", "extrasensory", "flatter", "moonblast"]},
 			{generation: 7, level: 60, shiny: true, moves: ["naturesmadness", "extrasensory", "flatter", "moonblast"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	tapubulu: {
 		learnset: {
@@ -67631,7 +67542,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["naturesmadness", "zenheadbutt", "megahorn", "skullbash"]},
 			{generation: 7, level: 60, shiny: true, moves: ["naturesmadness", "zenheadbutt", "megahorn", "skullbash"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	tapufini: {
 		learnset: {
@@ -67698,7 +67608,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["naturesmadness", "muddywater", "aquaring", "hydropump"]},
 			{generation: 7, level: 60, shiny: true, moves: ["naturesmadness", "muddywater", "aquaring", "hydropump"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	cosmog: {
 		learnset: {
@@ -67720,7 +67629,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 5, moves: ["splash"]},
 		],
-		eventOnly: true,
 	},
 	cosmoem: {
 		learnset: {
@@ -67983,7 +67891,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 55, moves: ["powergem", "mirrorcoat", "acidspray", "venomdrench"]},
 			{generation: 7, level: 60, shiny: 1, moves: ["powergem", "acidspray", "stealthrock", "mirrorcoat"]},
 		],
-		eventOnly: true,
 	},
 	buzzwole: {
 		learnset: {
@@ -68048,7 +67955,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 65, moves: ["counter", "hammerarm", "lunge", "dynamicpunch"]},
 			{generation: 7, level: 60, shiny: 1, moves: ["counter", "hammerarm", "lunge", "dynamicpunch"]},
 		],
-		eventOnly: true,
 	},
 	pheromosa: {
 		learnset: {
@@ -68113,7 +68019,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["triplekick", "lunge", "bugbuzz", "mefirst"]},
 			{generation: 7, level: 60, shiny: 1, moves: ["triplekick", "lunge", "bugbuzz", "mefirst"]},
 		],
-		eventOnly: true,
 	},
 	xurkitree: {
 		learnset: {
@@ -68174,7 +68079,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 65, moves: ["hypnosis", "discharge", "electricterrain", "powerwhip"]},
 			{generation: 7, level: 60, shiny: 1, moves: ["hypnosis", "discharge", "electricterrain", "powerwhip"]},
 		],
-		eventOnly: true,
 	},
 	celesteela: {
 		learnset: {
@@ -68238,7 +68142,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 65, moves: ["autotomize", "seedbomb", "skullbash", "irondefense"]},
 			{generation: 7, level: 60, shiny: 1, moves: ["autotomize", "seedbomb", "skullbash", "irondefense"]},
 		],
-		eventOnly: true,
 	},
 	kartana: {
 		learnset: {
@@ -68288,7 +68191,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 60, moves: ["leafblade", "xscissor", "detect", "airslash"]},
 			{generation: 7, level: 60, shiny: 1, moves: ["leafblade", "xscissor", "detect", "airslash"]},
 		],
-		eventOnly: true,
 	},
 	guzzlord: {
 		learnset: {
@@ -68369,7 +68271,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 70, moves: ["thrash", "gastroacid", "heavyslam", "wringout"]},
 			{generation: 7, level: 60, shiny: 1, moves: ["hammerarm", "thrash", "gastroacid", "heavyslam"]},
 		],
-		eventOnly: true,
 	},
 	necrozma: {
 		learnset: {
@@ -68460,7 +68361,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 65, moves: ["photongeyser", "irondefense", "powergem", "nightslash"]},
 			{generation: 7, level: 75, shiny: true, moves: ["lightscreen", "substitute", "moonlight"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	necrozmaduskmane: {
 		learnset: {
@@ -68705,7 +68605,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 50, moves: ["fleurcannon", "flashcannon", "luckychant", "helpinghand"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	magearnaoriginal: {
 		learnset: {
@@ -68794,7 +68693,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 8, level: 50, nature: "Mild", ivs: {hp: 31, atk: 30, def: 30, spa: 31, spd: 31, spe: 0}, moves: ["fleurcannon", "flashcannon", "defensecurl", "rest"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	marshadow: {
 		learnset: {
@@ -68883,7 +68781,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 50, moves: ["spectralthief", "closecombat", "forcepalm", "shadowball"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	poipole: {
 		learnset: {
@@ -68925,7 +68822,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 40, shiny: 1, perfectIVs: 3, moves: ["charm", "venomdrench", "nastyplot", "poisonjab"], pokeball: "pokeball"},
 			{generation: 7, level: 40, shiny: true, nature: "Modest", perfectIVs: 3, moves: ["venomdrench", "nastyplot", "poisonjab", "dragonpulse"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	naganadel: {
 		learnset: {
@@ -69050,7 +68946,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 60, shiny: 1, moves: ["irondefense", "ironhead", "rockblast", "wideguard"]},
 		],
-		eventOnly: true,
 	},
 	blacephalon: {
 		learnset: {
@@ -69116,7 +69011,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 7, level: 60, shiny: 1, moves: ["fireblast", "shadowball", "trick", "mindblown"]},
 		],
-		eventOnly: true,
 	},
 	zeraora: {
 		learnset: {
@@ -69207,7 +69101,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			{generation: 7, level: 50, moves: ["plasmafists", "thunderpunch", "closecombat", "thunder"]},
 			{generation: 8, level: 100, shiny: true, nature: "Hasty", ivs: {hp: 31, atk: 31, def: 30, spa: 31, spd: 31, spe: 31}, moves: ["plasmafists", "closecombat", "blazekick", "outrage"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 	meltan: {
 		learnset: {
@@ -72490,7 +72383,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 8, level: 10, shiny: 1, perfectIVs: 3, moves: ["tackle", "thundershock", "charge"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	arctozolt: {
 		learnset: {
@@ -72552,7 +72444,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 8, level: 10, shiny: 1, perfectIVs: 3, moves: ["powdersnow", "thundershock", "charge"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	dracovish: {
 		learnset: {
@@ -72610,7 +72501,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 8, level: 10, shiny: 1, perfectIVs: 3, moves: ["tackle", "watergun", "protect"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	arctovish: {
 		learnset: {
@@ -72663,7 +72553,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 8, level: 10, shiny: 1, perfectIVs: 3, moves: ["powdersnow", "watergun", "protect"], pokeball: "pokeball"},
 		],
-		eventOnly: true,
 	},
 	duraludon: {
 		learnset: {
@@ -72931,7 +72820,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 8, level: 70, perfectIVs: 3, moves: ["sacredsword", "swordsdance", "ironhead", "crunch"]},
 		],
-		eventOnly: true,
 	},
 	zaciancrowned: {
 		learnset: {
@@ -73051,7 +72939,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 8, level: 70, perfectIVs: 3, moves: ["slash", "crunch", "ironhead", "irondefense"]},
 		],
-		eventOnly: true,
 	},
 	zamazentacrowned: {
 		learnset: {
@@ -73160,7 +73047,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 8, level: 60, perfectIVs: 3, moves: ["crosspoison", "dragonpulse", "flamethrower", "dynamaxcannon"]},
 		],
-		eventOnly: true,
 	},
 	kubfu: {
 		learnset: {
@@ -73210,7 +73096,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		eventData: [
 			{generation: 8, level: 10, perfectIVs: 3, moves: ["rocksmash", "leer", "endure", "focusenergy"]},
 		],
-		eventOnly: true,
 	},
 	urshifu: {
 		learnset: {
