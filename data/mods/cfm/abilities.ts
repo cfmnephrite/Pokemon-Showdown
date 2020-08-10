@@ -126,10 +126,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Anger Point",
 		rating: 1.5,
 		num: 83,
+		cfm: true,
 	},
 	anticipation: {
-		desc: "On switch-in, this Pokemon is alerted if any opposing Pokemon has an attack that is super effective on this Pokemon, or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",
-		shortDesc: "On switch-in, this Pokemon shudders if any foe has a supereffective or OHKO move.",
+		shortDesc: "On switch-in: +1 Speed if any foe has a super-effective move.",
 		onStart(pokemon) {
 			for (const target of pokemon.side.foe.active) {
 				if (!target || target.fainted) continue;
@@ -141,7 +141,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
 						move.ohko
 					) {
-						this.add('-ability', pokemon, 'Anticipation');
+						this.boost({'spe': 1}, pokemon);
 						return;
 					}
 				}
@@ -150,6 +150,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Anticipation",
 		rating: 0.5,
 		num: 107,
+		cfm: true,
 	},
 	arenatrap: {
 		desc: "Prevents adjacent opposing Pokemon from choosing to switch out unless they are immune to trapping or are airborne.",
@@ -188,8 +189,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 165,
 	},
 	aurabreak: {
-		desc: "While this Pokemon is active, the effects of the Dark Aura and Fairy Aura Abilities are reversed, multiplying the power of Dark- and Fairy-type moves, respectively, by 3/4 instead of 1.33.",
-		shortDesc: "While this Pokemon is active, the Dark Aura and Fairy Aura power modifier is 0.75x.",
+		desc: "While this Pokémon is active on the field, all abilities that boost the power of moves are nullified. These are: Adaptability, Aerilate, Blaze, Dark Aura, Fairy Aura, Flare Boost, Galvanise, Guts, Huge Power, Iron Fist, Mega Launcher, Overgrow, Pixilate, Poison Touch, Power of Alchemy, Pure Power, Reckless, Refrigerate, Sand Force, Sheer Force, Solar Power, Solid Rock, Steelworker, Strong Jaw, Swarm, Technician, Torrent, Tough Claws, Toxic Boost, Water Bubble. Further, for Pokémon with Dark Aura & Fairy Aura: Dark/Fairy-type moves (respectively) become typeless",
+		shortDesc: "All abilities on the field that boost the power of moves are nullified.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Aura Break');
 		},
@@ -197,6 +198,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Aura Break",
 		rating: 1,
 		num: 188,
+		cfm: true,
 	},
 	baddreams: {
 		desc: "Causes adjacent opposing Pokemon to lose 1/8 of their maximum HP, rounded down, at the end of each turn if they are asleep.",
@@ -242,6 +244,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Battery",
 		rating: 0,
 		num: 217,
+		cfm: true,
 	},
 	battlearmor: {
 		shortDesc: "Takes 33% less damage from Physical attacks; changes to Weak Armour if crit.",
@@ -265,6 +268,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Battle Armor",
 		rating: 1,
 		num: 4,
+		cfm: true,
 	},
 	battlebond: {
 		desc: "If this Pokemon is a Greninja, it transforms into Ash-Greninja after knocking out a Pokemon. As Ash-Greninja, its Water Shuriken has 20 base power and always hits 3 times.",
@@ -289,7 +293,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 210,
 	},
 	beastboost: {
-		shortDesc: "Raises highest stat upon knocking out a target at over 25% HP.",
+		shortDesc: "Raises highest stat upon knocking out a target that was at over 25% max HP.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move' && effect.totalDamage) {
 				if (effect.totalDamage <= 0.25 * target.maxhp) return;
@@ -308,6 +312,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Beast Boost",
 		rating: 3.5,
 		num: 224,
+		cfm: true,
 	},
 	berserk: {
 		shortDesc: "The higher of Atk/Sp. Atk is raised by 2 upon reaching 1/2 or less of max HP.",
@@ -323,9 +328,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Berserk",
 		rating: 2.5,
 		num: 201,
+		cfm: true,
 	},
 	bigpecks: {
-		shortDesc: "Prevents Defence drops; boosts Flying-type moves by 50%.",
+		shortDesc: "Prevents Defence drops; boosts the power of Flying-type moves by 50%.",
 		onBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			if (boost.def && boost.def < 0) {
@@ -344,6 +350,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Big Pecks",
 		rating: 0.5,
 		num: 145,
+		cfm: true,
 	},
 	blaze: {
 		desc: "When this Pokemon has 1/3 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Fire-type attack.",
@@ -425,7 +432,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 13,
 	},
 	colorchange: {
-		shortDesc: "Kecleon: type changes to match first two moves in its movepool.",
+		shortDesc: "Kecleon: type changes to match the first two moves in its movepool.",
 		name: "Color Change",
 		// Actually implemented in statuses.js
 		rating: 0,
@@ -434,7 +441,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	comatose: {
 		desc: "This Pokemon cannot be statused, and is considered to be asleep. Moongeist Beam, Sunsteel Strike, and the Mold Breaker, Teravolt, and Turboblaze Abilities cannot ignore this Ability.",
-		shortDesc: "This Pokemon cannot be statused, and is considered to be asleep.",
+		shortDesc: "This Pokmon is considered asleep and cannot be statuses. Rest restores 50% HP.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Comatose');
 		},
@@ -449,6 +456,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Comatose",
 		rating: 3.5,
 		num: 213,
+		cfm: true,
 	},
 	competitive: {
 		desc: "This Pokemon's Special Attack is raised by 2 stages for each of its stat stages that is lowered by an opposing Pokemon.",
@@ -528,8 +536,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 238,
 	},
 	cursedbody: {
-		desc: "If this Pokemon is hit by an attack, there is a 30% chance that move gets disabled unless one of the attacker's moves is already disabled.",
-		shortDesc: "If this Pokemon is hit by an attack, there is a 30% chance that move gets disabled.",
+		desc: "If this Pokemon is hit by an attack, there is a 30% chance that move gets disabled unless one of the attacker's moves is already disabled. This doubles to a 60% chance if that move knocks out this Pokémon.",
+		shortDesc: "If hit by an attack, 30% chance to Disable it (60% if it KOs).",
 		onDamagingHit(damage, target, source, move) {
 			if (!source || source.volatiles['disable']) return;
 			if (!move.isFutureMove) {
@@ -585,6 +593,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Damp",
 		rating: 1,
 		num: 6,
+		cfm: true,
 	},
 	dancer: {
 		desc: "After another Pokemon uses a dance move, this Pokemon uses the same move. Moves used by this Ability cannot be copied again.",
@@ -595,8 +604,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 216,
 	},
 	darkaura: {
-		desc: "While this Pokemon is active, the power of Dark-type moves used by active Pokemon is multiplied by 1.33.",
-		shortDesc: "While this Pokemon is active, a Dark move used by any Pokemon has 1.33x power.",
+		desc: "While this Pokemon is active, the power of Dark-type moves used by any active Pokemon is multiplied by 1.33. This Pokémon's Normal-type moves become Dark-type. If Aura Break is active, then the effect of this ability is nullified and this Pokémon's Dark-type moves become typeless.",
+		shortDesc: "This Pokemon's Normal moves become Dark; all Dark moves on the field +33%.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Dark Aura');
 		},
@@ -621,6 +630,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		ate: "Dark",
 		rating: 3.5,
 		num: 186,
+		cfm: true,
 	},
 	dauntlessshield: {
 		shortDesc: "On switch-in, this Pokemon's Defense is raised by 1 stage.",
@@ -697,8 +707,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 128,
 	},
 	deltastream: {
-		desc: "On switch-in, the weather becomes strong winds that remove the weaknesses of the Flying type from Flying-type Pokemon. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Desolate Land or Primordial Sea.",
-		shortDesc: "On switch-in, strong winds begin until this Ability is not active in battle.",
+		desc: "On switch-in, the weather becomes strong winds that remove the Ice, Electric and Rock-type weaknesses of all Flying-type Pokemon on the field. This weather remains in effect until this Ability is no longer active for any Pokemon. While active, the weather cannot be changed.",
+		shortDesc: "Sets strong winds; cannot be negated. Flying loses its weaknesses.",
 		onStart(source) {
 			this.field.setWeather('deltastream');
 		},
@@ -718,12 +728,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.field.clearWeather();
 		},
 		name: "Delta Stream",
+		isUnbreakable: true,
 		rating: 4,
 		num: 191,
+		cfm: true,
 	},
 	desolateland: {
-		desc: "On switch-in, the weather becomes extremely harsh sunlight that prevents damaging Water-type moves from executing, in addition to all the effects of Sunny Day. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Delta Stream or Primordial Sea.",
-		shortDesc: "On switch-in, extremely harsh sunlight begins until this Ability is not active in battle.",
+		desc: "On switch-in, the weather becomes extremely harsh sunlight that prevents damaging Water-type moves from executing (except for Origin Pulse) and boosts the power of Fire-type attacks by 50%. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Delta Stream or Primordial Sea. If neither this nor Delta Stream is active, there is a 50% chance for the weather to reset at the end of the turn. If this Pokémon is no longer active, the weather turns to regular sunlight.",
+		shortDesc: "Harsh sunlight; 50% chance to reset at turn end; turns to sunlight on end.",
 		onStart(source) {
 			this.field.setWeather('desolateland');
 		},
@@ -753,6 +765,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Desolate Land",
 		rating: 5,
 		num: 190,
+		cfm: true,
 	},
 	disguise: {
 		desc: "If this Pokemon is a Mimikyu, the first hit it takes in battle deals 0 neutral damage. Its disguise is then broken, it changes to Busted Form, and it loses 1/8 of its max HP. Confusion damage also breaks the disguise.",
@@ -849,7 +862,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 70,
 	},
 	dryskin: {
-		desc: "This Pokemon is immune to Water-type moves and restores 1/4 of its maximum HP, rounded down, when hit by a Water-type move. The power of Fire-type moves is multiplied by 1.25 when used on this Pokemon. At the end of each turn, this Pokemon restores 1/8 of its maximum HP, rounded down, if the weather is Rain Dance, and loses 1/8 of its maximum HP, rounded down, if the weather is Sunny Day.",
+		desc: "This Pokemon is immune to Water-type moves and restores 1/4 of its maximum HP, rounded down, when hit by a Water-type move. If this Pokemon is not a Fire-type: the power of Fire-type moves is multiplied by 1.25 when used on this Pokemon; at the end of each turn, this Pokemon restores 1/8 of its maximum HP, rounded down, if the weather is Rain Dance, and loses 1/8 of its maximum HP, rounded down, if the weather is Sunny Day.",
 		shortDesc: "Healed 1/4 by Water, hurt 1.25x by Fire; non-Fire: healed 1/8 by Rain, hurt 1/8 by Sun.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
@@ -934,8 +947,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 194,
 	},
 	fairyaura: {
-		desc: "While this Pokemon is active, the power of Fairy-type moves used by active Pokemon is multiplied by 1.33.",
-		shortDesc: "While this Pokemon is active, a Fairy move used by any Pokemon has 1.33x power.",
+		desc: "While this Pokemon is active, the power of Fairy-type moves used by any active Pokemon is multiplied by 1.33. This Pokémon's Normal-type moves become Fairy-type. If Aura Break is active, then the effect of this ability is nullified and this Pokémon's Fairy-type moves become typeless.",
+		shortDesc: "This Pokemon's Normal moves become Fairy; all Fairy moves on the field +33%.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Fairy Aura');
 		},
@@ -960,6 +973,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		ate: "Fairy",
 		rating: 3.5,
 		num: 187,
+		cfm: true,
 	},
 	filter: {
 		shortDesc: "Reduces super-effective damage taken by 25%; 50% if 2x super-effective.",
@@ -973,6 +987,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Filter",
 		rating: 3,
 		num: 111,
+		cfm: true,
 	},
 	flamebody: {
 		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be burned.",
@@ -988,6 +1003,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 49,
 	},
 	flareboost: {
+		desc: "While this Pokemon is burned, the power of its special attacks is multiplied by 1.5.",
 		shortDesc: "If this Pokémon is burned: Sp. Attack boosted by 50%; burn damage 1/16th.",
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
@@ -1003,8 +1019,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Flare Boost",
 		rating: 2,
 		num: 138,
+		cfm: true,
 	},
 	flashfire: {
+		desc: "This Pokemon is immune to Fire-type moves, and the higher of its Sp. Attack or Attack is raised by 1 when hit by a Fire-type move.",
 		shortDesc: "If hit by a Fire-type attack; grants immunity, boosts higher of SpA/Atk.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
@@ -1017,8 +1035,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Flash Fire",
 		rating: 3.5,
 		num: 18,
+		cfm: true,
 	},
 	flowergift: {
+		desc: "Cherrim transforms into Cherrim-Sunshine in the Sun. If Sunny Day is in Cherrim's first slot, Sun will automatically be summoned on switch-in Sun summoned in this way, or by Cherrim manually using Sunny Day, will last until Cherrim faints, switches out, or another Pokemon changes the weather. This ability cannot be removed, copied or transferred.",
 		shortDesc: "Cherrim: auto-summons Sunny Day if in slot 1; transforms into Cherrim-Sunshine.",
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Cherrim') return;
@@ -1059,7 +1079,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		cfm: true,
 	},
 	flowerveil: {
-		shortDesc: "Grass-type allies immune to status and stat drops under Grassy Terrain.",
+		shortDesc: "Grass-type allies are immune to status and stat drops under Grassy Terrain.",
 		onAllyBoost(boost, target, source, effect) {
 			if ((source && target === source) || !target.hasType('Grass') || !this.field.isTerrain('grassyterrain')) return;
 			let showMsg = false;
@@ -1097,6 +1117,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Flower Veil",
 		rating: 0,
 		num: 166,
+		cfm: true,
 	},
 	fluffy: {
 		desc: "This Pokemon receives 1/2 damage from contact moves, but double damage from Fire moves.",

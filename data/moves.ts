@@ -45,7 +45,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	absorb: {
 		num: 71,
@@ -63,7 +62,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Clever",
-		cfm: false,
 	},
 	accelerock: {
 		num: 709,
@@ -80,7 +78,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Cool",
-		cfm: false,
 	},
 	acid: {
 		num: 51,
@@ -102,7 +99,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Poison",
 		contestType: "Clever",
-		cfm: false,
 	},
 	acidarmor: {
 		num: 151,
@@ -123,7 +119,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Tough",
-		cfm: false,
 	},
 	aciddownpour: {
 		num: 628,
@@ -141,7 +136,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Cool",
-		cfm: false,
 	},
 	acidspray: {
 		num: 491,
@@ -163,7 +157,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	acrobatics: {
 		num: 512,
@@ -186,7 +179,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
-		cfm: false,
 	},
 	acupressure: {
 		num: 367,
@@ -221,7 +213,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'crit2'},
 		contestType: "Tough",
-		cfm: false,
 	},
 	aerialace: {
 		num: 332,
@@ -237,7 +228,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
-		cfm: false,
 	},
 	aeroblast: {
 		num: 177,
@@ -256,7 +246,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
-		cfm: false,
 	},
 	afteryou: {
 		num: 495,
@@ -284,7 +273,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spe: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	agility: {
 		num: 97,
@@ -305,7 +293,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
-		cfm: false,
 	},
 	aircutter: {
 		num: 314,
@@ -323,7 +310,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Flying",
 		contestType: "Cool",
-		cfm: false,
 	},
 	airslash: {
 		num: 403,
@@ -343,7 +329,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
-		cfm: false,
 	},
 	alloutpummeling: {
 		num: 624,
@@ -361,7 +346,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	allyswitch: {
 		num: 502,
@@ -389,7 +373,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spe: 2}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	amnesia: {
 		num: 133,
@@ -410,7 +393,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
-		cfm: false,
 	},
 	anchorshot: {
 		num: 677,
@@ -432,7 +414,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		cfm: false,
 	},
 	ancientpower: {
 		num: 246,
@@ -460,7 +441,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
-		cfm: false,
 	},
 	appleacid: {
 		num: 787,
@@ -481,7 +461,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Grass",
-		cfm: false,
 	},
 	aquajet: {
 		num: 453,
@@ -498,7 +477,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Cool",
-		cfm: false,
 	},
 	aquaring: {
 		num: 392,
@@ -526,7 +504,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		zMove: {boost: {def: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	aquatail: {
 		num: 401,
@@ -542,7 +519,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	armthrust: {
 		num: 292,
@@ -560,7 +536,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-		cfm: false,
 	},
 	aromatherapy: {
 		num: 312,
@@ -589,7 +564,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {effect: 'heal'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	aromaticmist: {
 		num: 597,
@@ -610,7 +584,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		zMove: {boost: {spd: 2}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	assist: {
 		num: 274,
@@ -653,7 +626,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Normal",
 		contestType: "Cute",
-		cfm: false,
 	},
 	assurance: {
 		num: 372,
@@ -677,7 +649,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
-		cfm: false,
 	},
 	astonish: {
 		num: 310,
@@ -697,7 +668,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cute",
-		cfm: false,
 	},
 	attackorder: {
 		num: 454,
@@ -715,7 +685,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Clever",
-		cfm: false,
 	},
 	attract: {
 		num: 213,
@@ -772,7 +741,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
-		cfm: false,
 	},
 	aurasphere: {
 		num: 396,
@@ -788,7 +756,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Fighting",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	aurawheel: {
 		num: 783,
@@ -826,7 +793,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Electric",
-		cfm: false,
 	},
 	aurorabeam: {
 		num: 62,
@@ -848,7 +814,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	auroraveil: {
 		num: 694,
@@ -900,7 +865,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	autotomize: {
 		num: 475,
@@ -933,7 +897,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	avalanche: {
 		num: 419,
@@ -960,7 +923,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	babydolleyes: {
 		num: 608,
@@ -981,7 +943,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		zMove: {boost: {def: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	baddybad: {
 		num: 737,
@@ -1002,7 +963,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
-		cfm: false,
 	},
 	banefulbunker: {
 		num: 661,
@@ -1062,7 +1022,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
-		cfm: false,
 	},
 	barrage: {
 		num: 140,
@@ -1081,7 +1040,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
-		cfm: false,
 	},
 	barrier: {
 		num: 112,
@@ -1103,7 +1061,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
-		cfm: false,
 	},
 	batonpass: {
 		num: 226,
@@ -1122,7 +1079,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
-		cfm: false,
 	},
 	beakblast: {
 		num: 690,
@@ -1158,7 +1114,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
-		cfm: false,
 	},
 	beatup: {
 		num: 251,
@@ -1182,7 +1137,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
-		cfm: false,
 	},
 	behemothbash: {
 		num: 782,
@@ -1197,7 +1151,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Steel",
-		cfm: false,
 	},
 	behemothblade: {
 		num: 781,
@@ -1212,7 +1165,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Steel",
-		cfm: false,
 	},
 	belch: {
 		num: 562,
@@ -1230,7 +1182,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
-		cfm: false,
 	},
 	bellydrum: {
 		num: 187,
@@ -1255,7 +1206,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'heal'},
 		contestType: "Cute",
-		cfm: false,
 	},
 	bestow: {
 		num: 516,
@@ -1286,7 +1236,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spe: 2}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	bide: {
 		num: 117,
@@ -1362,7 +1311,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	bind: {
 		num: 20,
@@ -1380,7 +1328,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	bite: {
 		num: 44,
@@ -1400,7 +1347,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
-		cfm: false,
 	},
 	blackholeeclipse: {
 		num: 654,
@@ -1418,7 +1364,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Cool",
-		cfm: false,
 	},
 	blastburn: {
 		num: 307,
@@ -1438,7 +1383,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	blazekick: {
 		num: 299,
@@ -1459,7 +1403,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Cool",
-		cfm: false,
 	},
 	blizzard: {
 		num: 59,
@@ -1482,7 +1425,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	block: {
 		num: 335,
@@ -1503,7 +1445,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {def: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	bloomdoom: {
 		num: 644,
@@ -1521,7 +1462,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cool",
-		cfm: false,
 	},
 	blueflare: {
 		num: 551,
@@ -1541,7 +1481,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	bodypress: {
 		num: 776,
@@ -1558,7 +1497,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fighting",
-		cfm: false,
 	},
 	bodyslam: {
 		num: 34,
@@ -1578,7 +1516,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	boltbeak: {
 		num: 754,
@@ -1602,7 +1539,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Electric",
-		cfm: false,
 	},
 	boltstrike: {
 		num: 550,
@@ -1622,7 +1558,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	boneclub: {
 		num: 125,
@@ -1643,7 +1578,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		cfm: false,
 	},
 	bonemerang: {
 		num: 155,
@@ -1662,7 +1596,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 		maxMove: {basePower: 130},
 		contestType: "Tough",
-		cfm: false,
 	},
 	bonerush: {
 		num: 198,
@@ -1682,7 +1615,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 140},
 		maxMove: {basePower: 130},
 		contestType: "Tough",
-		cfm: false,
 	},
 	boomburst: {
 		num: 586,
@@ -1699,7 +1631,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	bounce: {
 		num: 340,
@@ -1744,7 +1675,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cute",
-		cfm: false,
 	},
 	bouncybubble: {
 		num: 733,
@@ -1763,7 +1693,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Clever",
-		cfm: false,
 	},
 	branchpoke: {
 		num: 785,
@@ -1779,7 +1708,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Grass",
-		cfm: false,
 	},
 	bravebird: {
 		num: 413,
@@ -1797,7 +1725,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
-		cfm: false,
 	},
 	breakingswipe: {
 		num: 784,
@@ -1818,7 +1745,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "allAdjacentFoes",
 		type: "Dragon",
-		cfm: false,
 	},
 	breakneckblitz: {
 		num: 622,
@@ -1836,7 +1762,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	brickbreak: {
 		num: 280,
@@ -1861,7 +1786,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	brine: {
 		num: 362,
@@ -1883,7 +1807,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		cfm: false,
 	},
 	brutalswing: {
 		num: 693,
@@ -1900,7 +1823,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Dark",
 		contestType: "Tough",
-		cfm: false,
 	},
 	bubble: {
 		num: 145,
@@ -1923,7 +1845,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Cute",
-		cfm: false,
 	},
 	bubblebeam: {
 		num: 61,
@@ -1945,7 +1866,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	bugbite: {
 		num: 450,
@@ -1973,7 +1893,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cute",
-		cfm: false,
 	},
 	bugbuzz: {
 		num: 405,
@@ -1995,7 +1914,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	bulkup: {
 		num: 339,
@@ -2017,7 +1935,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		zMove: {boost: {atk: 1}},
 		contestType: "Cool",
-		cfm: false,
 	},
 	bulldoze: {
 		num: 523,
@@ -2039,7 +1956,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Ground",
 		contestType: "Tough",
-		cfm: false,
 	},
 	bulletpunch: {
 		num: 418,
@@ -2056,7 +1972,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		cfm: false,
 	},
 	bulletseed: {
 		num: 331,
@@ -2076,7 +1991,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 140},
 		maxMove: {basePower: 130},
 		contestType: "Cool",
-		cfm: false,
 	},
 	burningjealousy: {
 		num: 807,
@@ -2128,7 +2042,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Clever",
-		cfm: false,
 	},
 	buzzybuzz: {
 		num: 734,
@@ -2149,7 +2062,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Clever",
-		cfm: false,
 	},
 	calmmind: {
 		num: 347,
@@ -2171,7 +2083,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	camouflage: {
 		num: 293,
@@ -2205,7 +2116,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {evasion: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	captivate: {
 		num: 445,
@@ -2230,7 +2140,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spd: 2}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	catastropika: {
 		num: 658,
@@ -2248,7 +2157,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	celebrate: {
 		num: 606,
@@ -2268,7 +2176,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	charge: {
 		num: 268,
@@ -2306,7 +2213,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	chargebeam: {
 		num: 451,
@@ -2330,7 +2236,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	charm: {
 		num: 204,
@@ -2351,7 +2256,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		zMove: {boost: {def: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	chatter: {
 		num: 448,
@@ -2373,7 +2277,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cute",
-		cfm: false,
 	},
 	chipaway: {
 		num: 498,
@@ -2393,7 +2296,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	circlethrow: {
 		num: 509,
@@ -2410,7 +2312,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	clamp: {
 		num: 128,
@@ -2429,7 +2330,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		cfm: false,
 	},
 	clangingscales: {
 		num: 691,
@@ -2451,7 +2351,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Dragon",
 		contestType: "Tough",
-		cfm: false,
 	},
 	clangoroussoul: {
 		num: 775,
@@ -2484,7 +2383,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Dragon",
-		cfm: false,
 	},
 	clangoroussoulblaze: {
 		num: 728,
@@ -2514,7 +2412,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Dragon",
 		contestType: "Cool",
-		cfm: false,
 	},
 	clearsmog: {
 		num: 499,
@@ -2534,7 +2431,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	closecombat: {
 		num: 370,
@@ -2557,7 +2453,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-		cfm: false,
 	},
 	coaching: {
 		num: 811,
@@ -2599,7 +2494,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Tough",
-		cfm: false,
 	},
 	cometpunch: {
 		num: 4,
@@ -2619,7 +2513,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		maxMove: {basePower: 100},
 		contestType: "Tough",
-		cfm: false,
 	},
 	confide: {
 		num: 590,
@@ -2640,7 +2533,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spd: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	confuseray: {
 		num: 109,
@@ -2659,7 +2551,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	confusion: {
 		num: 93,
@@ -2679,7 +2570,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
-		cfm: false,
 	},
 	constrict: {
 		num: 132,
@@ -2702,7 +2592,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	continentalcrush: {
 		num: 632,
@@ -2720,7 +2609,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Cool",
-		cfm: false,
 	},
 	conversion: {
 		num: 160,
@@ -2743,7 +2631,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	conversion2: {
 		num: 176,
@@ -2782,7 +2669,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'heal'},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	copycat: {
 		num: 383,
@@ -2813,7 +2699,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	coreenforcer: {
 		num: 687,
@@ -2848,7 +2733,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dragon",
 		zMove: {basePower: 140},
 		contestType: "Tough",
-		cfm: false,
 	},
 	corkscrewcrash: {
 		num: 638,
@@ -2866,7 +2750,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
-		cfm: false,
 	},
 	corrosivegas: {
 		num: 810,
@@ -2909,7 +2792,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spd: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	cottonguard: {
 		num: 538,
@@ -2930,7 +2812,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
-		cfm: false,
 	},
 	cottonspore: {
 		num: 178,
@@ -2951,7 +2832,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	counter: {
 		num: 68,
@@ -2999,7 +2879,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		maxMove: {basePower: 75},
 		contestType: "Tough",
-		cfm: false,
 	},
 	courtchange: {
 		num: 756,
@@ -3054,7 +2933,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "all",
 		type: "Normal",
-		cfm: false,
 	},
 	covet: {
 		num: 343,
@@ -3088,7 +2966,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
-		cfm: false,
 	},
 	crabhammer: {
 		num: 152,
@@ -3106,7 +2983,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		cfm: false,
 	},
 	craftyshield: {
 		num: 578,
@@ -3140,7 +3016,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	crosschop: {
 		num: 238,
@@ -3158,7 +3033,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	crosspoison: {
 		num: 440,
@@ -3179,7 +3053,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Cool",
-		cfm: false,
 	},
 	crunch: {
 		num: 242,
@@ -3201,7 +3074,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
-		cfm: false,
 	},
 	crushclaw: {
 		num: 306,
@@ -3223,7 +3095,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	crushgrip: {
 		num: 462,
@@ -3246,7 +3117,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 190},
 		maxMove: {basePower: 140},
 		contestType: "Tough",
-		cfm: false,
 	},
 	curse: {
 		num: 174,
@@ -3292,7 +3162,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 		zMove: {effect: 'curse'},
 		contestType: "Tough",
-		cfm: false,
 	},
 	cut: {
 		num: 15,
@@ -3308,7 +3177,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	darkestlariat: {
 		num: 663,
@@ -3327,7 +3195,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Cool",
-		cfm: false,
 	},
 	darkpulse: {
 		num: 399,
@@ -3347,7 +3214,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Dark",
 		contestType: "Cool",
-		cfm: false,
 	},
 	darkvoid: {
 		num: 464,
@@ -3375,7 +3241,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	dazzlinggleam: {
 		num: 605,
@@ -3392,7 +3257,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	decorate: {
 		num: 777,
@@ -3412,7 +3276,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Fairy",
-		cfm: false,
 	},
 	defendorder: {
 		num: 455,
@@ -3434,7 +3297,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	defensecurl: {
 		num: 111,
@@ -3459,7 +3321,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	defog: {
 		num: 432,
@@ -3502,7 +3363,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Cool",
-		cfm: false,
 	},
 	destinybond: {
 		num: 194,
@@ -3549,7 +3409,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 		zMove: {effect: 'redirect'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	detect: {
 		num: 197,
@@ -3575,7 +3434,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		zMove: {boost: {evasion: 1}},
 		contestType: "Cool",
-		cfm: false,
 	},
 	devastatingdrake: {
 		num: 652,
@@ -3593,7 +3451,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Cool",
-		cfm: false,
 	},
 	diamondstorm: {
 		num: 591,
@@ -3618,7 +3475,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Rock",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	dig: {
 		num: 91,
@@ -3663,7 +3519,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		cfm: false,
 	},
 	disable: {
 		num: 50,
@@ -3740,7 +3595,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	disarmingvoice: {
 		num: 574,
@@ -3757,7 +3611,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Cute",
-		cfm: false,
 	},
 	discharge: {
 		num: 435,
@@ -3777,7 +3630,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Electric",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	dive: {
 		num: 291,
@@ -3826,7 +3678,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	dizzypunch: {
 		num: 146,
@@ -3847,7 +3698,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
-		cfm: false,
 	},
 	doomdesire: {
 		num: 353,
@@ -3886,7 +3736,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	doubleedge: {
 		num: 38,
@@ -3904,7 +3753,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	doublehit: {
 		num: 458,
@@ -3924,7 +3772,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 140},
 		maxMove: {basePower: 120},
 		contestType: "Cool",
-		cfm: false,
 	},
 	doubleironbash: {
 		num: 742,
@@ -3947,7 +3794,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 180},
 		maxMove: {basePower: 140},
 		contestType: "Clever",
-		cfm: false,
 	},
 	doublekick: {
 		num: 24,
@@ -3966,7 +3812,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		maxMove: {basePower: 80},
 		contestType: "Cool",
-		cfm: false,
 	},
 	doubleslap: {
 		num: 3,
@@ -3985,7 +3830,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
-		cfm: false,
 	},
 	doubleteam: {
 		num: 104,
@@ -4006,7 +3850,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
-		cfm: false,
 	},
 	dracometeor: {
 		num: 434,
@@ -4028,7 +3871,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	dragonascent: {
 		num: 620,
@@ -4051,7 +3893,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	dragonbreath: {
 		num: 225,
@@ -4071,7 +3912,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Cool",
-		cfm: false,
 	},
 	dragonclaw: {
 		num: 337,
@@ -4087,7 +3927,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Cool",
-		cfm: false,
 	},
 	dragondance: {
 		num: 349,
@@ -4109,7 +3948,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dragon",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
-		cfm: false,
 	},
 	dragondarts: {
 		num: 751,
@@ -4127,7 +3965,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
-		cfm: false,
+		maxMove: {basePower: 130},
 	},
 	dragonhammer: {
 		num: 692,
@@ -4143,7 +3981,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
-		cfm: false,
 	},
 	dragonpulse: {
 		num: 406,
@@ -4159,7 +3996,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Dragon",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	dragonrage: {
 		num: 82,
@@ -4177,7 +4013,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Cool",
-		cfm: false,
 	},
 	dragonrush: {
 		num: 407,
@@ -4197,7 +4032,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
-		cfm: false,
 	},
 	dragontail: {
 		num: 525,
@@ -4214,7 +4048,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
-		cfm: false,
 	},
 	drainingkiss: {
 		num: 577,
@@ -4232,7 +4065,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cute",
-		cfm: false,
 	},
 	drainpunch: {
 		num: 409,
@@ -4250,7 +4082,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-		cfm: false,
 	},
 	dreameater: {
 		num: 138,
@@ -4271,7 +4102,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
-		cfm: false,
 	},
 	drillpeck: {
 		num: 65,
@@ -4287,7 +4117,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
-		cfm: false,
 	},
 	drillrun: {
 		num: 529,
@@ -4305,7 +4134,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		cfm: false,
 	},
 	drumbeating: {
 		num: 778,
@@ -4326,7 +4154,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Grass",
-		cfm: false,
 	},
 	dualchop: {
 		num: 530,
@@ -4345,7 +4172,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dragon",
 		maxMove: {basePower: 130},
 		contestType: "Tough",
-		cfm: false,
 	},
 	dualwingbeat: {
 		num: 814,
@@ -4377,7 +4203,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
-		cfm: false,
 	},
 	dynamicpunch: {
 		num: 223,
@@ -4397,7 +4222,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	earthpower: {
 		num: 414,
@@ -4419,7 +4243,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	earthquake: {
 		num: 89,
@@ -4436,7 +4259,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Ground",
 		contestType: "Tough",
-		cfm: false,
 	},
 	echoedvoice: {
 		num: 497,
@@ -4476,7 +4298,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	eerieimpulse: {
 		num: 598,
@@ -4497,7 +4318,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	eggbomb: {
 		num: 121,
@@ -4514,7 +4334,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
-		cfm: false,
 	},
 	electricterrain: {
 		num: 604,
@@ -4576,7 +4395,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	electrify: {
 		num: 582,
@@ -4611,7 +4429,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	electroball: {
 		num: 486,
@@ -4637,7 +4454,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Cool",
-		cfm: false,
 	},
 	electroweb: {
 		num: 527,
@@ -4659,7 +4475,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Electric",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	embargo: {
 		num: 373,
@@ -4690,7 +4505,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	ember: {
 		num: 52,
@@ -4710,7 +4524,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Cute",
-		cfm: false,
 	},
 	encore: {
 		num: 227,
@@ -4776,7 +4589,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spe: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	endeavor: {
 		num: 283,
@@ -4801,7 +4613,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Tough",
-		cfm: false,
 	},
 	endure: {
 		num: 203,
@@ -4840,7 +4651,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Tough",
-		cfm: false,
 	},
 	energyball: {
 		num: 412,
@@ -4862,7 +4672,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	entrainment: {
 		num: 494,
@@ -4904,7 +4713,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spd: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	eruption: {
 		num: 284,
@@ -4924,7 +4732,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	eternabeam: {
 		num: 795,
@@ -4943,7 +4750,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
-		cfm: false,
 	},
 	expandingforce: {
 		num: 797,
@@ -4987,7 +4793,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Normal",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	extrasensory: {
 		num: 326,
@@ -5007,7 +4812,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
-		cfm: false,
 	},
 	extremeevoboost: {
 		num: 702,
@@ -5033,7 +4837,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Normal",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	extremespeed: {
 		num: 245,
@@ -5050,7 +4853,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	facade: {
 		num: 263,
@@ -5072,7 +4874,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
-		cfm: false,
 	},
 	fairylock: {
 		num: 587,
@@ -5100,7 +4901,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	fairywind: {
 		num: 584,
@@ -5116,7 +4916,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	fakeout: {
 		num: 252,
@@ -5144,7 +4943,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
-		cfm: false,
 	},
 	faketears: {
 		num: 313,
@@ -5165,7 +4963,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		zMove: {boost: {spa: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	falsesurrender: {
 		num: 793,
@@ -5180,7 +4977,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Dark",
-		cfm: false,
 	},
 	falseswipe: {
 		num: 206,
@@ -5198,7 +4994,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	featherdance: {
 		num: 297,
@@ -5219,7 +5014,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 		zMove: {boost: {def: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	feint: {
 		num: 364,
@@ -5238,7 +5032,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Clever",
-		cfm: false,
 	},
 	feintattack: {
 		num: 185,
@@ -5255,7 +5048,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
-		cfm: false,
 	},
 	fellstinger: {
 		num: 565,
@@ -5275,7 +5067,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cool",
-		cfm: false,
 	},
 	fierydance: {
 		num: 552,
@@ -5299,7 +5090,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	finalgambit: {
 		num: 515,
@@ -5323,7 +5113,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		zMove: {basePower: 180},
 		contestType: "Tough",
-		cfm: false,
 	},
 	fireblast: {
 		num: 126,
@@ -5343,7 +5132,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	firefang: {
 		num: 424,
@@ -5368,7 +5156,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Cool",
-		cfm: false,
 	},
 	firelash: {
 		num: 680,
@@ -5390,7 +5177,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Cute",
-		cfm: false,
 	},
 	firepledge: {
 		num: 519,
@@ -5468,7 +5254,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	firepunch: {
 		num: 7,
@@ -5488,7 +5273,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Tough",
-		cfm: false,
 	},
 	firespin: {
 		num: 83,
@@ -5506,7 +5290,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	firstimpression: {
 		num: 660,
@@ -5531,7 +5314,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cute",
-		cfm: false,
 	},
 	fishiousrend: {
 		num: 755,
@@ -5555,7 +5337,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Water",
-		cfm: false,
 	},
 	fissure: {
 		num: 90,
@@ -5575,7 +5356,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 180},
 		maxMove: {basePower: 130},
 		contestType: "Tough",
-		cfm: false,
 	},
 	flail: {
 		num: 175,
@@ -5613,7 +5393,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Cute",
-		cfm: false,
 	},
 	flameburst: {
 		num: 481,
@@ -5651,7 +5430,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	flamecharge: {
 		num: 488,
@@ -5675,7 +5453,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Cool",
-		cfm: false,
 	},
 	flamewheel: {
 		num: 172,
@@ -5695,7 +5472,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	flamethrower: {
 		num: 53,
@@ -5715,7 +5491,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	flareblitz: {
 		num: 394,
@@ -5736,7 +5511,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Cool",
-		cfm: false,
 	},
 	flash: {
 		num: 148,
@@ -5758,7 +5532,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {evasion: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	flashcannon: {
 		num: 430,
@@ -5780,7 +5553,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	flatter: {
 		num: 260,
@@ -5802,7 +5574,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	fleurcannon: {
 		num: 705,
@@ -5824,7 +5595,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	fling: {
 		num: 374,
@@ -5871,7 +5641,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Cute",
-		cfm: false,
 	},
 	flipturn: {
 		num: 812,
@@ -5908,7 +5677,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Cool",
-		cfm: false,
 	},
 	floralhealing: {
 		num: 666,
@@ -5938,7 +5706,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	flowershield: {
 		num: 579,
@@ -5970,7 +5737,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		zMove: {boost: {def: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	fly: {
 		num: 19,
@@ -6012,7 +5778,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Clever",
-		cfm: false,
 	},
 	flyingpress: {
 		num: 560,
@@ -6033,7 +5798,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		zMove: {basePower: 170},
 		contestType: "Tough",
-		cfm: false,
 	},
 	focusblast: {
 		num: 411,
@@ -6055,7 +5819,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	focusenergy: {
 		num: 116,
@@ -6088,7 +5851,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Cool",
-		cfm: false,
 	},
 	focuspunch: {
 		num: 264,
@@ -6125,7 +5887,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-		cfm: false,
 	},
 	followme: {
 		num: 266,
@@ -6165,7 +5926,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
-		cfm: false,
 	},
 	forcepalm: {
 		num: 395,
@@ -6185,7 +5945,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	foresight: {
 		num: 193,
@@ -6222,7 +5981,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'crit2'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	forestscurse: {
 		num: 571,
@@ -6245,7 +6003,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	foulplay: {
 		num: 492,
@@ -6263,7 +6020,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
-		cfm: false,
 	},
 	freezedry: {
 		num: 573,
@@ -6286,7 +6042,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	freezeshock: {
 		num: 553,
@@ -6317,7 +6072,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	freezyfrost: {
 		num: 739,
@@ -6341,7 +6095,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Clever",
-		cfm: false,
 	},
 	frenzyplant: {
 		num: 338,
@@ -6361,7 +6114,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cool",
-		cfm: false,
 	},
 	frostbreath: {
 		num: 524,
@@ -6379,7 +6131,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	frustration: {
 		num: 218,
@@ -6402,7 +6153,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Cute",
-		cfm: false,
 	},
 	furyattack: {
 		num: 31,
@@ -6420,7 +6170,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	furycutter: {
 		num: 210,
@@ -6455,7 +6204,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cool",
-		cfm: false,
 	},
 	furyswipes: {
 		num: 154,
@@ -6474,7 +6222,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		maxMove: {basePower: 100},
 		contestType: "Tough",
-		cfm: false,
 	},
 	fusionbolt: {
 		num: 559,
@@ -6497,7 +6244,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	fusionflare: {
 		num: 558,
@@ -6520,7 +6266,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	futuresight: {
 		num: 248,
@@ -6562,7 +6307,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
-		cfm: false,
 	},
 	gastroacid: {
 		num: 380,
@@ -6596,7 +6340,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		zMove: {boost: {spe: 1}},
 		contestType: "Tough",
-		cfm: false,
 	},
 	geargrind: {
 		num: 544,
@@ -6616,7 +6359,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 180},
 		maxMove: {basePower: 130},
 		contestType: "Clever",
-		cfm: false,
 	},
 	gearup: {
 		num: 674,
@@ -6648,7 +6390,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	genesissupernova: {
 		num: 703,
@@ -6674,7 +6415,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
-		cfm: false,
 	},
 	geomancy: {
 		num: 601,
@@ -6709,7 +6449,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	gigadrain: {
 		num: 202,
@@ -6727,7 +6466,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Clever",
-		cfm: false,
 	},
 	gigaimpact: {
 		num: 416,
@@ -6747,7 +6485,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	gigavolthavoc: {
 		num: 646,
@@ -6765,7 +6502,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	glaciate: {
 		num: 549,
@@ -6787,7 +6523,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	glare: {
 		num: 137,
@@ -6806,7 +6541,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spd: 1}},
 		contestType: "Tough",
-		cfm: false,
 	},
 	glitzyglow: {
 		num: 736,
@@ -6827,7 +6561,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
-		cfm: false,
 	},
 	gmaxbefuddle: {
 		num: 1000,
@@ -6859,7 +6592,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxcannonade: {
 		num: 1000,
@@ -6927,7 +6659,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Fire",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxchistrike: {
 		num: 1000,
@@ -6972,7 +6703,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxcuddle: {
 		num: 1000,
@@ -6998,7 +6728,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxdepletion: {
 		num: 1000,
@@ -7032,7 +6761,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxdrumsolo: {
 		num: 1000,
@@ -7077,7 +6805,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxfireball: {
 		num: 1000,
@@ -7122,7 +6849,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxgoldrush: {
 		num: 1000,
@@ -7148,7 +6874,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxgravitas: {
 		num: 1000,
@@ -7169,7 +6894,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxhydrosnipe: {
 		num: 1000,
@@ -7213,7 +6937,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxmeltdown: {
 		num: 1000,
@@ -7239,7 +6962,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxoneblow: {
 		num: 1000,
@@ -7309,7 +7031,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxresonance: {
 		num: 1000,
@@ -7331,7 +7052,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxsandblast: {
 		num: 1000,
@@ -7357,7 +7077,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxsmite: {
 		num: 1000,
@@ -7383,7 +7102,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxsnooze: {
 		num: 1000,
@@ -7412,7 +7130,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxsteelsurge: {
 		num: 1000,
@@ -7452,7 +7169,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxstonesurge: {
 		num: 1000,
@@ -7476,7 +7192,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxstunshock: {
 		num: 1000,
@@ -7507,7 +7222,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxsweetness: {
 		num: 1000,
@@ -7533,7 +7247,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxtartness: {
 		num: 1000,
@@ -7559,7 +7272,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxterror: {
 		num: 1000,
@@ -7585,7 +7297,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxvinelash: {
 		num: 1000,
@@ -7670,7 +7381,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Rock",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxvoltcrash: {
 		num: 1000,
@@ -7696,7 +7406,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxwildfire: {
 		num: 1000,
@@ -7739,7 +7448,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Fire",
 		contestType: "Cool",
-		cfm: false,
 	},
 	gmaxwindrage: {
 		num: 1000,
@@ -7782,7 +7490,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Flying",
 		contestType: "Cool",
-		cfm: false,
 	},
 	grassknot: {
 		num: 447,
@@ -7833,7 +7540,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Cute",
-		cfm: false,
 	},
 	grasspledge: {
 		num: 520,
@@ -7900,7 +7606,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	grasswhistle: {
 		num: 320,
@@ -7919,7 +7624,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	grassyglide: {
 		num: 803,
@@ -8002,7 +7706,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {boost: {def: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	gravapple: {
 		num: 788,
@@ -8028,7 +7731,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Grass",
-		cfm: false,
 	},
 	gravity: {
 		num: 356,
@@ -8110,7 +7812,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	growl: {
 		num: 45,
@@ -8131,7 +7832,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {def: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	growth: {
 		num: 74,
@@ -8156,7 +7856,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spa: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	grudge: {
 		num: 288,
@@ -8196,7 +7895,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 		zMove: {effect: 'redirect'},
 		contestType: "Tough",
-		cfm: false,
 	},
 	guardianofalola: {
 		num: 698,
@@ -8226,7 +7924,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Tough",
-		cfm: false,
 	},
 	guardsplit: {
 		num: 470,
@@ -8253,7 +7950,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	guardswap: {
 		num: 385,
@@ -8286,7 +7982,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	guillotine: {
 		num: 12,
@@ -8306,7 +8001,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 180},
 		maxMove: {basePower: 130},
 		contestType: "Cool",
-		cfm: false,
 	},
 	gunkshot: {
 		num: 441,
@@ -8326,7 +8020,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
-		cfm: false,
 	},
 	gust: {
 		num: 16,
@@ -8343,7 +8036,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Clever",
-		cfm: false,
 	},
 	gyroball: {
 		num: 360,
@@ -8369,7 +8061,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Cool",
-		cfm: false,
 	},
 	hail: {
 		num: 258,
@@ -8388,7 +8079,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	hammerarm: {
 		num: 359,
@@ -8410,7 +8100,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-		cfm: false,
 	},
 	happyhour: {
 		num: 603,
@@ -8430,7 +8119,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	harden: {
 		num: 106,
@@ -8451,7 +8139,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
-		cfm: false,
 	},
 	haze: {
 		num: 114,
@@ -8475,7 +8162,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 		zMove: {effect: 'heal'},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	headbutt: {
 		num: 29,
@@ -8495,7 +8181,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	headcharge: {
 		num: 543,
@@ -8513,7 +8198,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	headsmash: {
 		num: 457,
@@ -8531,7 +8215,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
-		cfm: false,
 	},
 	healbell: {
 		num: 215,
@@ -8558,7 +8241,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'heal'},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	healblock: {
 		num: 377,
@@ -8613,7 +8295,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spa: 2}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	healingwish: {
 		num: 361,
@@ -8648,7 +8329,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Psychic",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	healorder: {
 		num: 456,
@@ -8668,7 +8348,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	healpulse: {
 		num: 505,
@@ -8698,7 +8377,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	heartstamp: {
 		num: 531,
@@ -8719,7 +8397,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cute",
-		cfm: false,
 	},
 	heartswap: {
 		num: 391,
@@ -8753,7 +8430,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {effect: 'crit2'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	heatcrash: {
 		num: 535,
@@ -8796,7 +8472,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Tough",
-		cfm: false,
 	},
 	heatwave: {
 		num: 257,
@@ -8816,7 +8491,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	heavyslam: {
 		num: 484,
@@ -8859,7 +8533,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Tough",
-		cfm: false,
 	},
 	helpinghand: {
 		num: 270,
@@ -8897,7 +8570,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	hex: {
 		num: 506,
@@ -8919,7 +8591,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 		zMove: {basePower: 160},
 		contestType: "Clever",
-		cfm: false,
 	},
 	hiddenpower: {
 		num: 237,
@@ -8940,7 +8611,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Clever",
-		cfm: false,
 	},
 	hiddenpowerbug: {
 		num: 237,
@@ -8959,7 +8629,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Clever",
-		cfm: false,
 	},
 	hiddenpowerdark: {
 		num: 237,
@@ -8978,7 +8647,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
-		cfm: false,
 	},
 	hiddenpowerdragon: {
 		num: 237,
@@ -8997,7 +8665,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Clever",
-		cfm: false,
 	},
 	hiddenpowerelectric: {
 		num: 237,
@@ -9016,7 +8683,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Clever",
-		cfm: false,
 	},
 	hiddenpowerfighting: {
 		num: 237,
@@ -9035,7 +8701,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Clever",
-		cfm: false,
 	},
 	hiddenpowerfire: {
 		num: 237,
@@ -9054,7 +8719,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Clever",
-		cfm: false,
 	},
 	hiddenpowerflying: {
 		num: 237,
@@ -9073,7 +8737,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Clever",
-		cfm: false,
 	},
 	hiddenpowerghost: {
 		num: 237,
@@ -9092,7 +8755,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
-		cfm: false,
 	},
 	hiddenpowergrass: {
 		num: 237,
@@ -9111,7 +8773,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Clever",
-		cfm: false,
 	},
 	hiddenpowerground: {
 		num: 237,
@@ -9130,7 +8791,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Clever",
-		cfm: false,
 	},
 	hiddenpowerice: {
 		num: 237,
@@ -9149,7 +8809,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Clever",
-		cfm: false,
 	},
 	hiddenpowerpoison: {
 		num: 237,
@@ -9168,7 +8827,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Clever",
-		cfm: false,
 	},
 	hiddenpowerpsychic: {
 		num: 237,
@@ -9187,7 +8845,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
-		cfm: false,
 	},
 	hiddenpowerrock: {
 		num: 237,
@@ -9206,7 +8863,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Clever",
-		cfm: false,
 	},
 	hiddenpowersteel: {
 		num: 237,
@@ -9225,7 +8881,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Clever",
-		cfm: false,
 	},
 	hiddenpowerwater: {
 		num: 237,
@@ -9244,7 +8899,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Clever",
-		cfm: false,
 	},
 	highhorsepower: {
 		num: 667,
@@ -9260,7 +8914,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		cfm: false,
 	},
 	highjumpkick: {
 		num: 136,
@@ -9281,7 +8934,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	holdback: {
 		num: 610,
@@ -9299,7 +8951,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	holdhands: {
 		num: 615,
@@ -9317,7 +8968,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	honeclaws: {
 		num: 468,
@@ -9339,7 +8989,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		zMove: {boost: {atk: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	hornattack: {
 		num: 30,
@@ -9355,7 +9004,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	horndrill: {
 		num: 32,
@@ -9375,7 +9023,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 180},
 		maxMove: {basePower: 130},
 		contestType: "Cool",
-		cfm: false,
 	},
 	hornleech: {
 		num: 532,
@@ -9393,7 +9040,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
-		cfm: false,
 	},
 	howl: {
 		num: 336,
@@ -9414,7 +9060,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {atk: 1}},
 		contestType: "Cool",
-		cfm: false,
 	},
 	hurricane: {
 		num: 542,
@@ -9446,7 +9091,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Tough",
-		cfm: false,
 	},
 	hydrocannon: {
 		num: 308,
@@ -9466,7 +9110,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	hydropump: {
 		num: 56,
@@ -9482,7 +9125,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	hydrovortex: {
 		num: 642,
@@ -9500,7 +9142,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Cool",
-		cfm: false,
 	},
 	hyperbeam: {
 		num: 63,
@@ -9520,7 +9161,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	hyperfang: {
 		num: 158,
@@ -9541,7 +9181,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	hyperspacefury: {
 		num: 621,
@@ -9577,7 +9216,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
-		cfm: false,
 	},
 	hyperspacehole: {
 		num: 593,
@@ -9596,7 +9234,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
-		cfm: false,
 	},
 	hypervoice: {
 		num: 304,
@@ -9613,7 +9250,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	hypnosis: {
 		num: 95,
@@ -9631,7 +9267,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	iceball: {
 		num: 301,
@@ -9680,7 +9315,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	icebeam: {
 		num: 58,
@@ -9700,7 +9334,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	iceburn: {
 		num: 554,
@@ -9731,7 +9364,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	icefang: {
 		num: 423,
@@ -9756,7 +9388,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Cool",
-		cfm: false,
 	},
 	icehammer: {
 		num: 665,
@@ -9779,7 +9410,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Tough",
-		cfm: false,
 	},
 	icepunch: {
 		num: 8,
@@ -9799,7 +9429,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	iceshard: {
 		num: 420,
@@ -9816,7 +9445,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	iciclecrash: {
 		num: 556,
@@ -9836,7 +9464,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	iciclespear: {
 		num: 333,
@@ -9856,7 +9483,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 140},
 		maxMove: {basePower: 130},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	icywind: {
 		num: 196,
@@ -9878,7 +9504,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	imprison: {
 		num: 286,
@@ -9918,7 +9543,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spd: 2}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	incinerate: {
 		num: 510,
@@ -9941,7 +9565,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Fire",
 		contestType: "Tough",
-		cfm: false,
 	},
 	inferno: {
 		num: 517,
@@ -9961,7 +9584,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	infernooverdrive: {
 		num: 640,
@@ -9979,7 +9601,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Cool",
-		cfm: false,
 	},
 	infestation: {
 		num: 611,
@@ -9997,7 +9618,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cute",
-		cfm: false,
 	},
 	ingrain: {
 		num: 275,
@@ -10033,7 +9653,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	instruct: {
 		num: 689,
@@ -10069,7 +9688,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	iondeluge: {
 		num: 569,
@@ -10102,7 +9720,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		zMove: {boost: {spa: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	irondefense: {
 		num: 334,
@@ -10123,7 +9740,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Tough",
-		cfm: false,
 	},
 	ironhead: {
 		num: 442,
@@ -10143,7 +9759,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
-		cfm: false,
 	},
 	irontail: {
 		num: 231,
@@ -10165,7 +9780,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
-		cfm: false,
 	},
 	jawlock: {
 		num: 746,
@@ -10185,7 +9799,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Dark",
-		cfm: false,
 	},
 	judgment: {
 		num: 449,
@@ -10210,7 +9823,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	jumpkick: {
 		num: 26,
@@ -10232,7 +9844,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	junglehealing: {
 		num: 816,
@@ -10270,7 +9881,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-		cfm: false,
 	},
 	kinesis: {
 		num: 134,
@@ -10291,7 +9901,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {evasion: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	kingsshield: {
 		num: 588,
@@ -10351,7 +9960,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
-		cfm: false,
 	},
 	knockoff: {
 		num: 282,
@@ -10383,7 +9991,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
-		cfm: false,
 	},
 	landswrath: {
 		num: 616,
@@ -10402,7 +10009,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 		zMove: {basePower: 185},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	laserfocus: {
 		num: 673,
@@ -10441,7 +10047,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {atk: 1}},
 		contestType: "Cool",
-		cfm: false,
 	},
 	lashout: {
 		num: 808,
@@ -10491,7 +10096,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
-		cfm: false,
 	},
 	lavaplume: {
 		num: 436,
@@ -10511,7 +10115,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Fire",
 		contestType: "Tough",
-		cfm: false,
 	},
 	leafage: {
 		num: 670,
@@ -10527,7 +10130,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
-		cfm: false,
 	},
 	leafblade: {
 		num: 348,
@@ -10545,7 +10147,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cool",
-		cfm: false,
 	},
 	leafstorm: {
 		num: 437,
@@ -10567,7 +10168,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	leaftornado: {
 		num: 536,
@@ -10589,7 +10189,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cool",
-		cfm: false,
 	},
 	leechlife: {
 		num: 141,
@@ -10607,7 +10206,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Clever",
-		cfm: false,
 	},
 	leechseed: {
 		num: 73,
@@ -10646,7 +10244,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	leer: {
 		num: 43,
@@ -10667,7 +10264,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {atk: 1}},
 		contestType: "Cool",
-		cfm: false,
 	},
 	letssnuggleforever: {
 		num: 726,
@@ -10685,7 +10281,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cool",
-		cfm: false,
 	},
 	lick: {
 		num: 122,
@@ -10705,7 +10300,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cute",
-		cfm: false,
 	},
 	lifedew: {
 		num: 791,
@@ -10722,7 +10316,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "allies",
 		type: "Water",
-		cfm: false,
 	},
 	lightofruin: {
 		num: 617,
@@ -10741,7 +10334,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	lightscreen: {
 		num: 113,
@@ -10786,7 +10378,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spd: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	lightthatburnsthesky: {
 		num: 723,
@@ -10809,7 +10400,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
-		cfm: false,
 	},
 	liquidation: {
 		num: 710,
@@ -10831,7 +10421,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Cool",
-		cfm: false,
 	},
 	lockon: {
 		num: 199,
@@ -10867,7 +10456,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	lovelykiss: {
 		num: 142,
@@ -10886,7 +10474,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	lowkick: {
 		num: 67,
@@ -10930,7 +10517,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		zMove: {basePower: 160},
 		contestType: "Tough",
-		cfm: false,
 	},
 	lowsweep: {
 		num: 490,
@@ -10952,7 +10538,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Clever",
-		cfm: false,
 	},
 	luckychant: {
 		num: 381,
@@ -10984,7 +10569,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {evasion: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	lunardance: {
 		num: 461,
@@ -11043,7 +10627,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Psychic",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	lunge: {
 		num: 679,
@@ -11065,7 +10648,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cute",
-		cfm: false,
 	},
 	lusterpurge: {
 		num: 295,
@@ -11088,7 +10670,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
-		cfm: false,
 	},
 	machpunch: {
 		num: 183,
@@ -11105,7 +10686,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	magicalleaf: {
 		num: 345,
@@ -11121,7 +10701,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	magiccoat: {
 		num: 277,
@@ -11170,7 +10749,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spd: 2}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	magicpowder: {
 		num: 750,
@@ -11190,7 +10768,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
-		cfm: false,
 	},
 	magicroom: {
 		num: 478,
@@ -11230,7 +10807,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	magmastorm: {
 		num: 463,
@@ -11249,7 +10825,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Tough",
-		cfm: false,
 	},
 	magnetbomb: {
 		num: 443,
@@ -11266,7 +10841,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
-		cfm: false,
 	},
 	magneticflux: {
 		num: 602,
@@ -11298,7 +10872,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	magnetrise: {
 		num: 393,
@@ -11331,7 +10904,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		zMove: {boost: {evasion: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	magnitude: {
 		num: 222,
@@ -11379,7 +10951,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 140},
 		maxMove: {basePower: 140},
 		contestType: "Tough",
-		cfm: false,
 	},
 	maliciousmoonsault: {
 		num: 696,
@@ -11398,7 +10969,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Cool",
-		cfm: false,
 	},
 	matblock: {
 		num: 561,
@@ -11447,7 +11017,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		zMove: {boost: {def: 1}},
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxairstream: {
 		num: 766,
@@ -11472,7 +11041,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Flying",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxdarkness: {
 		num: 772,
@@ -11497,7 +11065,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Dark",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxflare: {
 		num: 757,
@@ -11520,7 +11087,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Fire",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxflutterby: {
 		num: 758,
@@ -11545,7 +11111,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Bug",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxgeyser: {
 		num: 765,
@@ -11568,7 +11133,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Water",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxguard: {
 		num: 743,
@@ -11626,7 +11190,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxhailstorm: {
 		num: 763,
@@ -11649,7 +11212,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Ice",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxknuckle: {
 		num: 761,
@@ -11674,7 +11236,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxlightning: {
 		num: 759,
@@ -11697,7 +11258,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxmindstorm: {
 		num: 769,
@@ -11720,7 +11280,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxooze: {
 		num: 764,
@@ -11745,7 +11304,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Poison",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxovergrowth: {
 		num: 773,
@@ -11768,7 +11326,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Grass",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxphantasm: {
 		num: 762,
@@ -11793,7 +11350,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Ghost",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxquake: {
 		num: 771,
@@ -11818,7 +11374,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Ground",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxrockfall: {
 		num: 770,
@@ -11841,7 +11396,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Rock",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxstarfall: {
 		num: 767,
@@ -11864,7 +11418,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Fairy",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxsteelspike: {
 		num: 774,
@@ -11889,7 +11442,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Steel",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxstrike: {
 		num: 760,
@@ -11914,7 +11466,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	maxwyrmwind: {
 		num: 768,
@@ -11939,7 +11490,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "adjacentFoe",
 		type: "Dragon",
 		contestType: "Cool",
-		cfm: false,
 	},
 	meanlook: {
 		num: 212,
@@ -11960,7 +11510,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spd: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	meditate: {
 		num: 96,
@@ -11982,7 +11531,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {atk: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	mefirst: {
 		num: 382,
@@ -12023,7 +11571,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spe: 2}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	megadrain: {
 		num: 72,
@@ -12042,7 +11589,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {basePower: 120},
 		contestType: "Clever",
-		cfm: false,
 	},
 	megahorn: {
 		num: 224,
@@ -12058,7 +11604,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cool",
-		cfm: false,
 	},
 	megakick: {
 		num: 25,
@@ -12074,7 +11619,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	megapunch: {
 		num: 5,
@@ -12090,7 +11634,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	memento: {
 		num: 262,
@@ -12113,7 +11656,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		zMove: {effect: 'healreplacement'},
 		contestType: "Tough",
-		cfm: false,
 	},
 	menacingmoonrazemaelstrom: {
 		num: 725,
@@ -12133,7 +11675,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
-		cfm: false,
 	},
 	metalburst: {
 		num: 368,
@@ -12180,7 +11721,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "scripted",
 		type: "Steel",
 		contestType: "Cool",
-		cfm: false,
 	},
 	metalclaw: {
 		num: 232,
@@ -12204,7 +11744,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
-		cfm: false,
 	},
 	metalsound: {
 		num: 319,
@@ -12225,7 +11764,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	meteorassault: {
 		num: 794,
@@ -12244,7 +11782,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fighting",
-		cfm: false,
 	},
 	meteorbeam: {
 		num: 800,
@@ -12272,7 +11809,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Rock",
-		cfm: false,
 	},
 	meteormash: {
 		num: 309,
@@ -12296,7 +11832,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
-		cfm: false,
 	},
 	metronome: {
 		num: 118,
@@ -12336,7 +11871,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Normal",
 		contestType: "Cute",
-		cfm: false,
 	},
 	milkdrink: {
 		num: 208,
@@ -12355,7 +11889,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
-		cfm: false,
 	},
 	mimic: {
 		num: 102,
@@ -12395,7 +11928,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	mindblown: {
 		num: 720,
@@ -12419,7 +11951,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Fire",
 		contestType: "Cool",
-		cfm: false,
 	},
 	mindreader: {
 		num: 170,
@@ -12444,7 +11975,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	minimize: {
 		num: 107,
@@ -12486,7 +12016,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
-		cfm: false,
 	},
 	miracleeye: {
 		num: 357,
@@ -12523,7 +12052,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	mirrorcoat: {
 		num: 243,
@@ -12570,7 +12098,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "scripted",
 		type: "Psychic",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	mirrormove: {
 		num: 119,
@@ -12597,7 +12124,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 		zMove: {boost: {atk: 2}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	mirrorshot: {
 		num: 429,
@@ -12620,7 +12146,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	mist: {
 		num: 54,
@@ -12666,7 +12191,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 		zMove: {effect: 'heal'},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	mistball: {
 		num: 296,
@@ -12689,7 +12213,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
-		cfm: false,
 	},
 	mistyexplosion: {
 		num: 802,
@@ -12772,7 +12295,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		zMove: {boost: {spd: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	moonblast: {
 		num: 585,
@@ -12794,7 +12316,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	moongeistbeam: {
 		num: 714,
@@ -12812,7 +12333,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
-		cfm: false,
 	},
 	moonlight: {
 		num: 236,
@@ -12846,7 +12366,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	morningsun: {
 		num: 234,
@@ -12880,7 +12399,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	mudbomb: {
 		num: 426,
@@ -12903,7 +12421,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Cute",
-		cfm: false,
 	},
 	mudshot: {
 		num: 341,
@@ -12925,7 +12442,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		cfm: false,
 	},
 	mudslap: {
 		num: 189,
@@ -12947,7 +12463,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Cute",
-		cfm: false,
 	},
 	mudsport: {
 		num: 300,
@@ -12984,7 +12499,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 		zMove: {boost: {spd: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	muddywater: {
 		num: 330,
@@ -13006,7 +12520,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Tough",
-		cfm: false,
 	},
 	multiattack: {
 		num: 718,
@@ -13029,7 +12542,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 185},
 		maxMove: {basePower: 95},
 		contestType: "Tough",
-		cfm: false,
 	},
 	mysticalfire: {
 		num: 595,
@@ -13051,7 +12563,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	nastyplot: {
 		num: 417,
@@ -13072,7 +12583,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	naturalgift: {
 		num: 363,
@@ -13108,7 +12618,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Clever",
-		cfm: false,
 	},
 	naturepower: {
 		num: 267,
@@ -13139,7 +12648,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	naturesmadness: {
 		num: 717,
@@ -13160,7 +12668,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Tough",
-		cfm: false,
 	},
 	needlearm: {
 		num: 302,
@@ -13181,7 +12688,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Clever",
-		cfm: false,
 	},
 	neverendingnightmare: {
 		num: 636,
@@ -13199,7 +12705,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
-		cfm: false,
 	},
 	nightdaze: {
 		num: 539,
@@ -13221,7 +12726,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Cool",
-		cfm: false,
 	},
 	nightmare: {
 		num: 171,
@@ -13254,7 +12758,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	nightshade: {
 		num: 101,
@@ -13272,7 +12775,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
-		cfm: false,
 	},
 	nightslash: {
 		num: 400,
@@ -13290,7 +12792,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Cool",
-		cfm: false,
 	},
 	nobleroar: {
 		num: 568,
@@ -13312,7 +12813,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
-		cfm: false,
 	},
 	noretreat: {
 		num: 748,
@@ -13350,7 +12850,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Fighting",
-		cfm: false,
 	},
 	nuzzle: {
 		num: 609,
@@ -13370,7 +12869,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cute",
-		cfm: false,
 	},
 	oblivionwing: {
 		num: 613,
@@ -13389,7 +12887,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
-		cfm: false,
 	},
 	obstruct: {
 		num: 792,
@@ -13447,7 +12944,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Dark",
-		cfm: false,
 	},
 	oceanicoperetta: {
 		num: 697,
@@ -13465,7 +12961,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Cool",
-		cfm: false,
 	},
 	octazooka: {
 		num: 190,
@@ -13487,7 +12982,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		cfm: false,
 	},
 	octolock: {
 		num: 753,
@@ -13525,7 +13019,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fighting",
-		cfm: false,
 	},
 	odorsleuth: {
 		num: 316,
@@ -13548,7 +13041,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {atk: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	ominouswind: {
 		num: 466,
@@ -13577,7 +13069,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	originpulse: {
 		num: 618,
@@ -13594,7 +13085,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	outrage: {
 		num: 200,
@@ -13619,7 +13109,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "randomNormal",
 		type: "Dragon",
 		contestType: "Cool",
-		cfm: false,
 	},
 	overdrive: {
 		num: 786,
@@ -13635,7 +13124,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Electric",
-		cfm: false,
 	},
 	overheat: {
 		num: 315,
@@ -13657,7 +13145,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	painsplit: {
 		num: 220,
@@ -13684,7 +13171,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	paleowave: {
 		num: 0,
@@ -13707,7 +13193,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	paraboliccharge: {
 		num: 570,
@@ -13725,7 +13210,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Electric",
 		contestType: "Clever",
-		cfm: false,
 	},
 	partingshot: {
 		num: 575,
@@ -13750,7 +13234,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		zMove: {effect: 'healreplacement'},
 		contestType: "Cool",
-		cfm: false,
 	},
 	payback: {
 		num: 371,
@@ -13775,7 +13258,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
-		cfm: false,
 	},
 	payday: {
 		num: 6,
@@ -13795,7 +13277,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Clever",
-		cfm: false,
 	},
 	peck: {
 		num: 64,
@@ -13811,7 +13292,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
-		cfm: false,
 	},
 	perishsong: {
 		num: 195,
@@ -13860,7 +13340,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	petalblizzard: {
 		num: 572,
@@ -13877,7 +13356,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Grass",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	petaldance: {
 		num: 80,
@@ -13902,7 +13380,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "randomNormal",
 		type: "Grass",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	phantomforce: {
 		num: 566,
@@ -13935,7 +13412,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
-		cfm: false,
 	},
 	photongeyser: {
 		num: 722,
@@ -13956,7 +13432,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
-		cfm: false,
 	},
 	pikapapow: {
 		num: 732,
@@ -13977,7 +13452,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cute",
-		cfm: false,
 	},
 	pinmissile: {
 		num: 42,
@@ -13997,7 +13471,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 140},
 		maxMove: {basePower: 130},
 		contestType: "Cool",
-		cfm: false,
 	},
 	plasmafists: {
 		num: 721,
@@ -14015,7 +13488,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	playnice: {
 		num: 589,
@@ -14036,7 +13508,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {def: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	playrough: {
 		num: 583,
@@ -14058,7 +13529,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cute",
-		cfm: false,
 	},
 	pluck: {
 		num: 365,
@@ -14086,7 +13556,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cute",
-		cfm: false,
 	},
 	poisonfang: {
 		num: 305,
@@ -14106,7 +13575,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Clever",
-		cfm: false,
 	},
 	poisongas: {
 		num: 139,
@@ -14125,7 +13593,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	poisonjab: {
 		num: 398,
@@ -14145,7 +13612,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
-		cfm: false,
 	},
 	poisonpowder: {
 		num: 77,
@@ -14164,7 +13630,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	poisonsting: {
 		num: 40,
@@ -14184,7 +13649,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Clever",
-		cfm: false,
 	},
 	poisontail: {
 		num: 342,
@@ -14205,7 +13669,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Clever",
-		cfm: false,
 	},
 	pollenpuff: {
 		num: 676,
@@ -14232,7 +13695,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cute",
-		cfm: false,
 	},
 	poltergeist: {
 		num: 809,
@@ -14272,7 +13734,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	powder: {
 		num: 600,
@@ -14306,7 +13767,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 		zMove: {boost: {spd: 2}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	powdersnow: {
 		num: 181,
@@ -14326,7 +13786,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	powergem: {
 		num: 408,
@@ -14342,7 +13801,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	powersplit: {
 		num: 471,
@@ -14369,7 +13827,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	powerswap: {
 		num: 384,
@@ -14402,7 +13859,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	powertrick: {
 		num: 379,
@@ -14446,7 +13902,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {atk: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	powertrip: {
 		num: 681,
@@ -14468,7 +13923,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Clever",
-		cfm: false,
 	},
 	poweruppunch: {
 		num: 612,
@@ -14492,7 +13946,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-		cfm: false,
 	},
 	powerwhip: {
 		num: 438,
@@ -14508,7 +13961,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
-		cfm: false,
 	},
 	precipiceblades: {
 		num: 619,
@@ -14525,7 +13977,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Ground",
 		contestType: "Cool",
-		cfm: false,
 	},
 	present: {
 		num: 217,
@@ -14554,7 +14005,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
-		cfm: false,
 	},
 	prismaticlaser: {
 		num: 711,
@@ -14574,7 +14024,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
-		cfm: false,
 	},
 	protect: {
 		num: 182,
@@ -14626,7 +14075,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
-		cfm: false,
 	},
 	psybeam: {
 		num: 60,
@@ -14646,7 +14094,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	psychup: {
 		num: 244,
@@ -14680,7 +14127,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'heal'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	psychic: {
 		num: 94,
@@ -14702,7 +14148,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
-		cfm: false,
 	},
 	psychicfangs: {
 		num: 706,
@@ -14727,7 +14172,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
-		cfm: false,
 	},
 	psychicterrain: {
 		num: 678,
@@ -14790,7 +14234,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	psychoboost: {
 		num: 354,
@@ -14813,7 +14256,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
-		cfm: false,
 	},
 	psychocut: {
 		num: 427,
@@ -14831,7 +14273,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
-		cfm: false,
 	},
 	psychoshift: {
 		num: 375,
@@ -14858,7 +14299,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spa: 2}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	psyshock: {
 		num: 473,
@@ -14876,7 +14316,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	psystrike: {
 		num: 540,
@@ -14894,7 +14333,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
-		cfm: false,
 	},
 	psywave: {
 		num: 149,
@@ -14915,7 +14353,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
-		cfm: false,
 	},
 	pulverizingpancake: {
 		num: 701,
@@ -14933,7 +14370,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	punishment: {
 		num: 386,
@@ -14958,7 +14394,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Cool",
-		cfm: false,
 	},
 	purify: {
 		num: 685,
@@ -14980,7 +14415,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	pursuit: {
 		num: 228,
@@ -15050,7 +14484,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
-		cfm: false,
 	},
 	pyroball: {
 		num: 780,
@@ -15069,7 +14502,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Fire",
-		cfm: false,
 	},
 	quash: {
 		num: 511,
@@ -15095,7 +14527,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	quickattack: {
 		num: 98,
@@ -15112,7 +14543,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	quickguard: {
 		num: 501,
@@ -15162,7 +14592,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		zMove: {boost: {def: 1}},
 		contestType: "Cool",
-		cfm: false,
 	},
 	quiverdance: {
 		num: 483,
@@ -15185,7 +14614,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	rage: {
 		num: 99,
@@ -15221,7 +14649,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	ragepowder: {
 		num: 476,
@@ -15260,7 +14687,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	raindance: {
 		num: 240,
@@ -15279,7 +14705,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	rapidspin: {
 		num: 229,
@@ -15331,7 +14756,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	razorleaf: {
 		num: 75,
@@ -15349,7 +14773,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Grass",
 		contestType: "Cool",
-		cfm: false,
 	},
 	razorshell: {
 		num: 534,
@@ -15371,7 +14794,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Cool",
-		cfm: false,
 	},
 	razorwind: {
 		num: 13,
@@ -15401,7 +14823,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	recover: {
 		num: 105,
@@ -15420,7 +14841,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	recycle: {
 		num: 278,
@@ -15445,7 +14865,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spe: 2}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	reflect: {
 		num: 115,
@@ -15489,7 +14908,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	reflecttype: {
 		num: 513,
@@ -15522,7 +14940,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	refresh: {
 		num: 287,
@@ -15545,7 +14962,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'heal'},
 		contestType: "Cute",
-		cfm: false,
 	},
 	relicsong: {
 		num: 547,
@@ -15577,7 +14993,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	rest: {
 		num: 156,
@@ -15611,7 +15026,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
-		cfm: false,
 	},
 	retaliate: {
 		num: 514,
@@ -15634,7 +15048,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	return: {
 		num: 216,
@@ -15657,7 +15070,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Cute",
-		cfm: false,
 	},
 	revelationdance: {
 		num: 686,
@@ -15680,7 +15092,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	revenge: {
 		num: 279,
@@ -15707,7 +15118,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-		cfm: false,
 	},
 	reversal: {
 		num: 179,
@@ -15744,7 +15154,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		zMove: {basePower: 160},
 		contestType: "Cool",
-		cfm: false,
 	},
 	risingvoltage: {
 		num: 804,
@@ -15784,7 +15193,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {def: 1}},
 		contestType: "Cool",
-		cfm: false,
 	},
 	roaroftime: {
 		num: 459,
@@ -15805,7 +15213,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	rockblast: {
 		num: 350,
@@ -15825,7 +15232,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 140},
 		maxMove: {basePower: 130},
 		contestType: "Tough",
-		cfm: false,
 	},
 	rockclimb: {
 		num: 431,
@@ -15846,7 +15252,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	rockpolish: {
 		num: 397,
@@ -15867,7 +15272,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Rock",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Tough",
-		cfm: false,
 	},
 	rockslide: {
 		num: 157,
@@ -15887,7 +15291,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Rock",
 		contestType: "Tough",
-		cfm: false,
 	},
 	rocksmash: {
 		num: 249,
@@ -15909,7 +15312,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-		cfm: false,
 	},
 	rockthrow: {
 		num: 88,
@@ -15925,7 +15327,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
-		cfm: false,
 	},
 	rocktomb: {
 		num: 317,
@@ -15947,7 +15348,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Clever",
-		cfm: false,
 	},
 	rockwrecker: {
 		num: 439,
@@ -15967,7 +15367,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
-		cfm: false,
 	},
 	roleplay: {
 		num: 272,
@@ -16006,7 +15405,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spe: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	rollingkick: {
 		num: 27,
@@ -16027,7 +15425,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	rollout: {
 		num: 205,
@@ -16075,7 +15472,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Cute",
-		cfm: false,
 	},
 	roost: {
 		num: 355,
@@ -16109,7 +15505,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	rototiller: {
 		num: 563,
@@ -16147,7 +15542,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 		zMove: {boost: {atk: 1}},
 		contestType: "Tough",
-		cfm: false,
 	},
 	round: {
 		num: 496,
@@ -16182,7 +15576,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	sacredfire: {
 		num: 221,
@@ -16203,7 +15596,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	sacredsword: {
 		num: 533,
@@ -16222,7 +15614,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	safeguard: {
 		num: 219,
@@ -16279,7 +15670,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	sandattack: {
 		num: 28,
@@ -16300,7 +15690,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 		zMove: {boost: {evasion: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	sandstorm: {
 		num: 201,
@@ -16319,7 +15708,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Rock",
 		zMove: {boost: {spe: 1}},
 		contestType: "Tough",
-		cfm: false,
 	},
 	sandtomb: {
 		num: 328,
@@ -16337,7 +15725,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Clever",
-		cfm: false,
 	},
 	sappyseed: {
 		num: 738,
@@ -16359,7 +15746,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Clever",
-		cfm: false,
 	},
 	savagespinout: {
 		num: 634,
@@ -16377,7 +15763,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cool",
-		cfm: false,
 	},
 	scald: {
 		num: 503,
@@ -16398,7 +15783,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		cfm: false,
 	},
 	scaleshot: {
 		num: 799,
@@ -16443,7 +15827,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spe: 1}},
 		contestType: "Tough",
-		cfm: false,
 	},
 	scorchingsands: {
 		num: 815,
@@ -16478,7 +15861,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	screech: {
 		num: 103,
@@ -16499,7 +15881,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {atk: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	searingshot: {
 		num: 545,
@@ -16520,7 +15901,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Fire",
 		contestType: "Cool",
-		cfm: false,
 	},
 	searingsunrazesmash: {
 		num: 724,
@@ -16540,7 +15920,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
-		cfm: false,
 	},
 	secretpower: {
 		num: 290,
@@ -16590,7 +15969,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Clever",
-		cfm: false,
 	},
 	secretsword: {
 		num: 548,
@@ -16608,7 +15986,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	seedbomb: {
 		num: 402,
@@ -16624,7 +16001,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
-		cfm: false,
 	},
 	seedflare: {
 		num: 465,
@@ -16647,7 +16023,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	seismictoss: {
 		num: 69,
@@ -16666,7 +16041,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		maxMove: {basePower: 75},
 		contestType: "Tough",
-		cfm: false,
 	},
 	selfdestruct: {
 		num: 120,
@@ -16684,7 +16058,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Normal",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	shadowball: {
 		num: 247,
@@ -16706,7 +16079,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
-		cfm: false,
 	},
 	shadowbone: {
 		num: 708,
@@ -16728,7 +16100,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
-		cfm: false,
 	},
 	shadowclaw: {
 		num: 421,
@@ -16746,7 +16117,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
-		cfm: false,
 	},
 	shadowforce: {
 		num: 467,
@@ -16780,7 +16150,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
-		cfm: false,
 	},
 	shadowpunch: {
 		num: 325,
@@ -16796,7 +16165,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
-		cfm: false,
 	},
 	shadowsneak: {
 		num: 425,
@@ -16813,7 +16181,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
-		cfm: false,
 	},
 	shadowstrike: {
 		num: 0,
@@ -16836,7 +16203,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
-		cfm: false,
 	},
 	sharpen: {
 		num: 159,
@@ -16858,7 +16224,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {atk: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	shatteredpsyche: {
 		num: 648,
@@ -16876,7 +16241,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
-		cfm: false,
 	},
 	sheercold: {
 		num: 329,
@@ -16896,7 +16260,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 180},
 		maxMove: {basePower: 130},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	shellsidearm: {
 		num: 801,
@@ -16957,7 +16320,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Tough",
-		cfm: false,
 	},
 	shelltrap: {
 		num: 704,
@@ -16999,7 +16361,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Fire",
 		contestType: "Tough",
-		cfm: false,
 	},
 	shiftgear: {
 		num: 508,
@@ -17021,7 +16382,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	shockwave: {
 		num: 351,
@@ -17037,7 +16397,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	shoreup: {
 		num: 659,
@@ -17062,7 +16421,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	signalbeam: {
 		num: 324,
@@ -17083,7 +16441,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	silverwind: {
 		num: 318,
@@ -17112,7 +16469,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	simplebeam: {
 		num: 493,
@@ -17146,7 +16502,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spa: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	sing: {
 		num: 47,
@@ -17164,7 +16519,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spe: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	sinisterarrowraid: {
 		num: 695,
@@ -17182,7 +16536,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
-		cfm: false,
 	},
 	sizzlyslide: {
 		num: 735,
@@ -17203,7 +16556,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Clever",
-		cfm: false,
 	},
 	sketch: {
 		num: 166,
@@ -17243,7 +16595,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	skillswap: {
 		num: 285,
@@ -17291,7 +16642,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	skittersmack: {
 		num: 806,
@@ -17340,7 +16690,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	skyattack: {
 		num: 143,
@@ -17372,7 +16721,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
-		cfm: false,
 	},
 	skydrop: {
 		num: 507,
@@ -17482,7 +16830,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Tough",
-		cfm: false,
 	},
 	skyuppercut: {
 		num: 327,
@@ -17500,7 +16847,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	slackoff: {
 		num: 303,
@@ -17519,7 +16865,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
-		cfm: false,
 	},
 	slam: {
 		num: 21,
@@ -17535,7 +16880,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	slash: {
 		num: 163,
@@ -17553,7 +16897,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	sleeppowder: {
 		num: 79,
@@ -17571,7 +16914,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	sleeptalk: {
 		num: 214,
@@ -17614,7 +16956,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'crit2'},
 		contestType: "Cute",
-		cfm: false,
 	},
 	sludge: {
 		num: 124,
@@ -17634,7 +16975,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
-		cfm: false,
 	},
 	sludgebomb: {
 		num: 188,
@@ -17654,7 +16994,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
-		cfm: false,
 	},
 	sludgewave: {
 		num: 482,
@@ -17674,7 +17013,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Poison",
 		contestType: "Tough",
-		cfm: false,
 	},
 	smackdown: {
 		num: 479,
@@ -17723,7 +17061,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
-		cfm: false,
 	},
 	smartstrike: {
 		num: 684,
@@ -17739,7 +17076,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
-		cfm: false,
 	},
 	smellingsalts: {
 		num: 265,
@@ -17764,7 +17100,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	smog: {
 		num: 123,
@@ -17784,7 +17119,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
-		cfm: false,
 	},
 	smokescreen: {
 		num: 108,
@@ -17805,7 +17139,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {evasion: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	snaptrap: {
 		num: 779,
@@ -17822,7 +17155,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Grass",
-		cfm: false,
 	},
 	snarl: {
 		num: 555,
@@ -17844,7 +17176,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Dark",
 		contestType: "Tough",
-		cfm: false,
 	},
 	snatch: {
 		num: 289,
@@ -17882,7 +17213,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		zMove: {boost: {spe: 2}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	snipeshot: {
 		num: 745,
@@ -17900,7 +17230,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Water",
-		cfm: false,
 	},
 	snore: {
 		num: 173,
@@ -17924,7 +17253,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
-		cfm: false,
 	},
 	soak: {
 		num: 487,
@@ -17951,7 +17279,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		zMove: {boost: {spa: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	softboiled: {
 		num: 135,
@@ -17970,7 +17297,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
-		cfm: false,
 	},
 	solarbeam: {
 		num: 76,
@@ -18009,7 +17335,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cool",
-		cfm: false,
 	},
 	solarblade: {
 		num: 669,
@@ -18048,7 +17373,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cool",
-		cfm: false,
 	},
 	sonicboom: {
 		num: 49,
@@ -18067,7 +17391,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	soulstealing7starstrike: {
 		num: 699,
@@ -18085,7 +17408,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
-		cfm: false,
 	},
 	spacialrend: {
 		num: 460,
@@ -18104,7 +17426,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	spark: {
 		num: 209,
@@ -18124,7 +17445,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	sparklingaria: {
 		num: 664,
@@ -18147,7 +17467,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Water",
 		contestType: "Tough",
-		cfm: false,
 	},
 	sparklyswirl: {
 		num: 740,
@@ -18176,7 +17495,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Clever",
-		cfm: false,
 	},
 	spectralthief: {
 		num: 712,
@@ -18195,7 +17513,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
-		cfm: false,
 	},
 	speedswap: {
 		num: 683,
@@ -18219,7 +17536,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	spiderweb: {
 		num: 169,
@@ -18241,7 +17557,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	spikecannon: {
 		num: 131,
@@ -18261,7 +17576,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		maxMove: {basePower: 120},
 		contestType: "Cool",
-		cfm: false,
 	},
 	spikes: {
 		num: 191,
@@ -18298,7 +17612,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	spikyshield: {
 		num: 596,
@@ -18358,7 +17671,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
-		cfm: false,
 	},
 	spiritbreak: {
 		num: 789,
@@ -18379,7 +17691,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Fairy",
-		cfm: false,
 	},
 	spiritshackle: {
 		num: 662,
@@ -18401,7 +17712,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Tough",
-		cfm: false,
 	},
 	spitup: {
 		num: 255,
@@ -18430,7 +17740,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	spite: {
 		num: 180,
@@ -18457,7 +17766,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 		zMove: {effect: 'heal'},
 		contestType: "Tough",
-		cfm: false,
 	},
 	splash: {
 		num: 150,
@@ -18477,7 +17785,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {atk: 3}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	splinteredstormshards: {
 		num: 727,
@@ -18499,7 +17806,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Cool",
-		cfm: false,
 	},
 	splishysplash: {
 		num: 730,
@@ -18520,7 +17826,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Cool",
-		cfm: false,
 	},
 	spore: {
 		num: 147,
@@ -18538,7 +17843,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	spotlight: {
 		num: 671,
@@ -18573,7 +17877,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spd: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	stealthrock: {
 		num: 446,
@@ -18603,7 +17906,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Rock",
 		zMove: {boost: {def: 1}},
 		contestType: "Cool",
-		cfm: false,
 	},
 	steameruption: {
 		num: 592,
@@ -18625,7 +17927,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	steamroller: {
 		num: 537,
@@ -18646,7 +17947,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Tough",
-		cfm: false,
 	},
 	steelbeam: {
 		num: 796,
@@ -18668,7 +17968,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Steel",
-		cfm: false,
 	},
 	steelroller: {
 		num: 798,
@@ -18713,7 +18012,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
-		cfm: false,
 	},
 	stickyweb: {
 		num: 564,
@@ -18743,7 +18041,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 		zMove: {boost: {spe: 1}},
 		contestType: "Tough",
-		cfm: false,
 	},
 	stockpile: {
 		num: 254,
@@ -18800,7 +18097,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'heal'},
 		contestType: "Tough",
-		cfm: false,
 	},
 	stokedsparksurfer: {
 		num: 700,
@@ -18822,7 +18118,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	stomp: {
 		num: 23,
@@ -18842,7 +18137,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	stompingtantrum: {
 		num: 707,
@@ -18863,7 +18157,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
-		cfm: false,
 	},
 	stoneedge: {
 		num: 444,
@@ -18881,7 +18174,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
-		cfm: false,
 	},
 	storedpower: {
 		num: 500,
@@ -18903,7 +18195,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Clever",
-		cfm: false,
 	},
 	stormthrow: {
 		num: 480,
@@ -18921,7 +18212,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	strangesteam: {
 		num: 790,
@@ -18940,7 +18230,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Fairy",
-		cfm: false,
 	},
 	strength: {
 		num: 70,
@@ -18956,7 +18245,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	strengthsap: {
 		num: 668,
@@ -18980,7 +18268,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {boost: {def: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	stringshot: {
 		num: 81,
@@ -19001,7 +18288,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	struggle: {
 		num: 165,
@@ -19025,7 +18311,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "randomNormal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	strugglebug: {
 		num: 522,
@@ -19047,7 +18332,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Bug",
 		contestType: "Cute",
-		cfm: false,
 	},
 	stuffcheeks: {
 		num: 747,
@@ -19071,7 +18355,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Normal",
-		cfm: false,
 	},
 	stunspore: {
 		num: 78,
@@ -19090,7 +18373,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	submission: {
 		num: 66,
@@ -19108,7 +18390,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	substitute: {
 		num: 164,
@@ -19188,7 +18469,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
-		cfm: false,
 	},
 	subzeroslammer: {
 		num: 650,
@@ -19206,7 +18486,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Cool",
-		cfm: false,
 	},
 	suckerpunch: {
 		num: 389,
@@ -19232,7 +18511,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
-		cfm: false,
 	},
 	sunnyday: {
 		num: 241,
@@ -19251,7 +18529,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	sunsteelstrike: {
 		num: 713,
@@ -19269,7 +18546,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
-		cfm: false,
 	},
 	superfang: {
 		num: 162,
@@ -19289,7 +18565,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	superpower: {
 		num: 276,
@@ -19312,7 +18587,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-		cfm: false,
 	},
 	supersonic: {
 		num: 48,
@@ -19330,7 +18604,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	supersonicskystrike: {
 		num: 626,
@@ -19348,7 +18621,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Flying",
 		contestType: "Cool",
-		cfm: false,
 	},
 	surf: {
 		num: 57,
@@ -19365,7 +18637,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Water",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	surgingstrikes: {
 		num: 818,
@@ -19406,7 +18677,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
-		cfm: false,
 	},
 	swallow: {
 		num: 256,
@@ -19433,7 +18703,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Tough",
-		cfm: false,
 	},
 	sweetkiss: {
 		num: 186,
@@ -19451,7 +18720,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		zMove: {boost: {spa: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	sweetscent: {
 		num: 230,
@@ -19472,7 +18740,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	swift: {
 		num: 129,
@@ -19489,7 +18756,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	switcheroo: {
 		num: 415,
@@ -19540,7 +18806,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		zMove: {boost: {spe: 2}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	swordsdance: {
 		num: 14,
@@ -19561,7 +18826,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	synchronoise: {
 		num: 485,
@@ -19582,7 +18846,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Psychic",
 		contestType: "Clever",
-		cfm: false,
 	},
 	synthesis: {
 		num: 235,
@@ -19616,7 +18879,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	tackle: {
 		num: 33,
@@ -19632,7 +18894,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	tailglow: {
 		num: 294,
@@ -19654,7 +18915,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	tailslap: {
 		num: 541,
@@ -19674,7 +18934,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 140},
 		maxMove: {basePower: 130},
 		contestType: "Cute",
-		cfm: false,
 	},
 	tailwhip: {
 		num: 39,
@@ -19695,7 +18954,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {atk: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	tailwind: {
 		num: 366,
@@ -19735,7 +18993,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 		zMove: {effect: 'crit2'},
 		contestType: "Cool",
-		cfm: false,
 	},
 	takedown: {
 		num: 36,
@@ -19753,7 +19010,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	tarshot: {
 		num: 749,
@@ -19785,7 +19041,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Rock",
-		cfm: false,
 	},
 	taunt: {
 		num: 269,
@@ -19832,7 +19087,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		zMove: {boost: {atk: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	tearfullook: {
 		num: 715,
@@ -19854,7 +19108,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {def: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	teatime: {
 		num: 752,
@@ -19887,7 +19140,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "all",
 		type: "Normal",
-		cfm: false,
 	},
 	technoblast: {
 		num: 546,
@@ -19909,7 +19161,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
-		cfm: false,
 	},
 	tectonicrage: {
 		num: 630,
@@ -19927,7 +19178,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Cool",
-		cfm: false,
 	},
 	teeterdance: {
 		num: 298,
@@ -19946,7 +19196,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spa: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	telekinesis: {
 		num: 477,
@@ -19995,7 +19244,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	teleport: {
 		num: 100,
@@ -20015,7 +19263,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {effect: 'heal'},
 		contestType: "Cool",
-		cfm: false,
 	},
 	terrainpulse: {
 		num: 805,
@@ -20087,7 +19334,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
-		cfm: false,
 	},
 	thousandarrows: {
 		num: 614,
@@ -20116,7 +19362,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 		zMove: {basePower: 180},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	thousandwaves: {
 		num: 615,
@@ -20137,7 +19382,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Ground",
 		contestType: "Tough",
-		cfm: false,
 	},
 	thrash: {
 		num: 37,
@@ -20162,7 +19406,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "randomNormal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	throatchop: {
 		num: 675,
@@ -20208,7 +19451,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Clever",
-		cfm: false,
 	},
 	thunder: {
 		num: 87,
@@ -20240,7 +19482,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	thunderbolt: {
 		num: 85,
@@ -20260,7 +19501,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	thunderfang: {
 		num: 422,
@@ -20285,7 +19525,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	thunderpunch: {
 		num: 9,
@@ -20305,7 +19544,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	thundershock: {
 		num: 84,
@@ -20325,7 +19563,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	thunderwave: {
 		num: 86,
@@ -20345,7 +19582,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		zMove: {boost: {spd: 1}},
 		contestType: "Cool",
-		cfm: false,
 	},
 	tickle: {
 		num: 321,
@@ -20367,7 +19603,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {def: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	topsyturvy: {
 		num: 576,
@@ -20396,7 +19631,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		zMove: {boost: {atk: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	torment: {
 		num: 259,
@@ -20431,7 +19665,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
-		cfm: false,
 	},
 	toxic: {
 		num: 92,
@@ -20451,7 +19684,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	toxicspikes: {
 		num: 390,
@@ -20495,7 +19727,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	toxicthread: {
 		num: 672,
@@ -20518,7 +19749,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		zMove: {boost: {spe: 1}},
 		contestType: "Tough",
-		cfm: false,
 	},
 	transform: {
 		num: 144,
@@ -20541,7 +19771,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {effect: 'heal'},
 		contestType: "Clever",
-		cfm: false,
 	},
 	triattack: {
 		num: 161,
@@ -20570,7 +19799,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	trick: {
 		num: 271,
@@ -20621,7 +19849,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spe: 2}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	trickortreat: {
 		num: 567,
@@ -20652,7 +19879,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	trickroom: {
 		num: 433,
@@ -20692,7 +19918,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	tripleaxel: {
 		num: 813,
@@ -20738,7 +19963,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 120},
 		maxMove: {basePower: 80},
 		contestType: "Cool",
-		cfm: false,
 	},
 	tropkick: {
 		num: 688,
@@ -20760,7 +19984,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cute",
-		cfm: false,
 	},
 	trumpcard: {
 		num: 376,
@@ -20798,7 +20021,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Cool",
-		cfm: false,
 	},
 	twineedle: {
 		num: 41,
@@ -20821,7 +20043,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 		maxMove: {basePower: 100},
 		contestType: "Cool",
-		cfm: false,
 	},
 	twinkletackle: {
 		num: 656,
@@ -20839,7 +20060,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cool",
-		cfm: false,
 	},
 	twister: {
 		num: 239,
@@ -20859,7 +20079,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Dragon",
 		contestType: "Cool",
-		cfm: false,
 	},
 	uturn: {
 		num: 369,
@@ -20877,7 +20096,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cute",
-		cfm: false,
 	},
 	uproar: {
 		num: 253,
@@ -20931,7 +20149,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "randomNormal",
 		type: "Normal",
 		contestType: "Cute",
-		cfm: false,
 	},
 	vacuumwave: {
 		num: 410,
@@ -20948,7 +20165,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	vcreate: {
 		num: 557,
@@ -20973,7 +20189,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 		zMove: {basePower: 220},
 		contestType: "Cool",
-		cfm: false,
 	},
 	veeveevolley: {
 		num: 741,
@@ -20994,7 +20209,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
-		cfm: false,
 	},
 	venomdrench: {
 		num: 599,
@@ -21018,7 +20232,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	venoshock: {
 		num: 474,
@@ -21040,7 +20253,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	vinewhip: {
 		num: 22,
@@ -21056,7 +20268,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cool",
-		cfm: false,
 	},
 	visegrip: {
 		num: 11,
@@ -21072,7 +20283,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	vitalthrow: {
 		num: 233,
@@ -21089,7 +20299,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
-		cfm: false,
 	},
 	voltswitch: {
 		num: 521,
@@ -21107,7 +20316,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	volttackle: {
 		num: 344,
@@ -21128,7 +20336,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	wakeupslap: {
 		num: 358,
@@ -21153,7 +20360,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
-		cfm: false,
 	},
 	waterfall: {
 		num: 127,
@@ -21173,7 +20379,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		cfm: false,
 	},
 	watergun: {
 		num: 55,
@@ -21189,7 +20394,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Cute",
-		cfm: false,
 	},
 	waterpledge: {
 		num: 518,
@@ -21260,7 +20464,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	waterpulse: {
 		num: 352,
@@ -21280,7 +20483,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Water",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	watershuriken: {
 		num: 594,
@@ -21304,7 +20506,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Cool",
-		cfm: false,
 	},
 	watersport: {
 		num: 346,
@@ -21341,7 +20542,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		zMove: {boost: {spd: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	waterspout: {
 		num: 323,
@@ -21361,7 +20561,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	weatherball: {
 		num: 311,
@@ -21416,7 +20615,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	whirlpool: {
 		num: 250,
@@ -21434,7 +20632,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	whirlwind: {
 		num: 18,
@@ -21453,7 +20650,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	wickedblow: {
 		num: 817,
@@ -21521,7 +20717,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Rock",
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
-		cfm: false,
 	},
 	wildcharge: {
 		num: 528,
@@ -21539,7 +20734,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Tough",
-		cfm: false,
 	},
 	willowisp: {
 		num: 261,
@@ -21558,7 +20752,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 		zMove: {boost: {atk: 1}},
 		contestType: "Beautiful",
-		cfm: false,
 	},
 	wingattack: {
 		num: 17,
@@ -21574,7 +20767,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
-		cfm: false,
 	},
 	wish: {
 		num: 273,
@@ -21606,7 +20798,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spd: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	withdraw: {
 		num: 110,
@@ -21627,7 +20818,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		zMove: {boost: {def: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	wonderroom: {
 		num: 472,
@@ -21667,7 +20857,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	woodhammer: {
 		num: 452,
@@ -21685,7 +20874,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
-		cfm: false,
 	},
 	workup: {
 		num: 526,
@@ -21707,7 +20895,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {atk: 1}},
 		contestType: "Tough",
-		cfm: false,
 	},
 	worryseed: {
 		num: 388,
@@ -21744,7 +20931,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
-		cfm: false,
 	},
 	wrap: {
 		num: 35,
@@ -21762,7 +20948,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
-		cfm: false,
 	},
 	wringout: {
 		num: 378,
@@ -21785,7 +20970,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 190},
 		maxMove: {basePower: 140},
 		contestType: "Tough",
-		cfm: false,
 	},
 	xscissor: {
 		num: 404,
@@ -21801,7 +20985,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Cool",
-		cfm: false,
 	},
 	yawn: {
 		num: 281,
@@ -21837,7 +21020,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {spe: 1}},
 		contestType: "Cute",
-		cfm: false,
 	},
 	zapcannon: {
 		num: 192,
@@ -21857,7 +21039,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	zenheadbutt: {
 		num: 428,
@@ -21877,7 +21058,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
-		cfm: false,
 	},
 	zingzap: {
 		num: 716,
@@ -21897,7 +21077,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 	zippyzap: {
 		num: 729,
@@ -21922,6 +21101,5 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
-		cfm: false,
 	},
 };
