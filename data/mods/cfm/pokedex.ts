@@ -11,6 +11,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Ivysaur"],
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	ivysaur: {
 		num: 2,
@@ -26,6 +27,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Venusaur"],
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	venusaur: {
 		num: 3,
@@ -42,6 +44,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Grass"],
 		otherFormes: ["Venusaur-Mega"],
 		formeOrder: ["Venusaur", "Venusaur-Mega"],
+		cfmMoves: ["frenzyplant", "grassyterrain", "leafstorm", "leechseed", "poisonpowder", "powerwhip", "seedbomb", "solarbeam", "stunspore", "swordsdance", "toxic", "weatherball"],
 	},
 	venusaurmega: {
 		num: 3,
@@ -57,6 +60,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Monster", "Grass"],
 		requiredItem: "Venusaurite",
+		cfmMoves: [],
 	},
 	charmander: {
 		num: 4,
@@ -70,6 +74,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Charmeleon"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	charmeleon: {
 		num: 5,
@@ -85,6 +90,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Charizard"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	charizard: {
 		num: 6,
@@ -102,6 +108,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Dragon"],
 		otherFormes: ["Charizard-Mega-X", "Charizard-Mega-Y"],
 		formeOrder: ["Charizard", "Charizard-Mega-X", "Charizard-Mega-Y"],
+		cfmMoves: ["aeroblast", "blastburn", "blazekick", "bulldoze", "dracometeor", "fireblast", "firespin", "focusblast", "hurricane", "overheat", "steelwing", "thunderpunch"],
 	},
 	charizardmegax: {
 		num: 6,
@@ -118,6 +125,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Charizardite X",
+		cfmMoves: [],
 	},
 	charizardmegay: {
 		num: 6,
@@ -134,6 +142,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Charizardite Y",
+		cfmMoves: [],
 	},
 	squirtle: {
 		num: 7,
@@ -147,6 +156,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Wartortle"],
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	wartortle: {
 		num: 8,
@@ -162,6 +172,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Blastoise"],
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	blastoise: {
 		num: 9,
@@ -178,6 +189,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Water 1"],
 		otherFormes: ["Blastoise-Mega"],
 		formeOrder: ["Blastoise", "Blastoise-Mega"],
+		cfmMoves: ["aquatail", "aurasphere", "counter", "darkpulse", "dragonpulse", "flashcannon", "hydrocannon", "hydropump", "muddywater", "rapidspin", "roar", "shellsmash"],
 	},
 	blastoisemega: {
 		num: 9,
@@ -193,6 +205,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Monster", "Water 1"],
 		requiredItem: "Blastoisinite",
+		cfmMoves: [],
 	},
 	caterpie: {
 		num: 10,
@@ -205,6 +218,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Metapod"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	metapod: {
 		num: 11,
@@ -219,6 +233,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 7,
 		evos: ["Butterfree"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	butterfree: {
 		num: 12,
@@ -233,6 +248,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Metapod",
 		evoLevel: 10,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	weedle: {
 		num: 13,
@@ -245,6 +261,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Kakuna"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	kakuna: {
 		num: 14,
@@ -259,6 +276,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 7,
 		evos: ["Beedrill"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	beedrill: {
 		num: 15,
@@ -275,6 +293,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 		otherFormes: ["Beedrill-Mega"],
 		formeOrder: ["Beedrill", "Beedrill-Mega"],
+		cfmMoves: [],
 	},
 	beedrillmega: {
 		num: 15,
@@ -290,6 +309,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Bug"],
 		requiredItem: "Beedrillite",
+		cfmMoves: [],
 	},
 	pidgey: {
 		num: 16,
@@ -303,6 +323,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Pidgeotto"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	pidgeotto: {
 		num: 17,
@@ -318,6 +339,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 18,
 		evos: ["Pidgeot"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	pidgeot: {
 		num: 18,
@@ -334,6 +356,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying"],
 		otherFormes: ["Pidgeot-Mega"],
 		formeOrder: ["Pidgeot", "Pidgeot-Mega"],
+		cfmMoves: [],
 	},
 	pidgeotmega: {
 		num: 18,
@@ -349,6 +372,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Flying"],
 		requiredItem: "Pidgeotite",
+		cfmMoves: [],
 	},
 	rattata: {
 		num: 19,
@@ -363,6 +387,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Rattata-Alola"],
 		formeOrder: ["Rattata", "Rattata-Alola"],
+		cfmMoves: [],
 	},
 	rattataalola: {
 		num: 19,
@@ -377,6 +402,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		evos: ["Raticate-Alola"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	raticate: {
 		num: 20,
@@ -392,6 +418,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Raticate-Alola", "Raticate-Alola-Totem"],
 		formeOrder: ["Raticate", "Raticate-Alola", "Raticate-Alola-Totem"],
+		cfmMoves: [],
 	},
 	raticatealola: {
 		num: 20,
@@ -407,6 +434,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Rattata-Alola",
 		evoLevel: 20,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	raticatealolatotem: {
 		num: 20,
@@ -420,6 +448,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 105,
 		color: "Black",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	spearow: {
 		num: 21,
@@ -433,6 +462,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Fearow"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	fearow: {
 		num: 22,
@@ -447,6 +477,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Spearow",
 		evoLevel: 20,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	ekans: {
 		num: 23,
@@ -459,6 +490,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Arbok"],
 		eggGroups: ["Field", "Dragon"],
+		cfmMoves: [],
 	},
 	arbok: {
 		num: 24,
@@ -472,6 +504,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Ekans",
 		evoLevel: 22,
 		eggGroups: ["Field", "Dragon"],
+		cfmMoves: [],
 	},
 	pikachu: {
 		num: 25,
@@ -486,6 +519,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelFriendship",
 		evos: ["Raichu", "Raichu-Alola"],
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	raichu: {
 		num: 26,
@@ -502,6 +536,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field", "Fairy"],
 		otherFormes: ["Raichu-Alola"],
 		formeOrder: ["Raichu", "Raichu-Alola"],
+		cfmMoves: [],
 	},
 	raichualola: {
 		num: 26,
@@ -519,6 +554,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Thunder Stone",
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	sandshrew: {
 		num: 27,
@@ -533,6 +569,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Sandshrew-Alola"],
 		formeOrder: ["Sandshrew", "Sandshrew-Alola"],
+		cfmMoves: [],
 	},
 	sandshrewalola: {
 		num: 27,
@@ -547,6 +584,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Sandslash-Alola"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	sandslash: {
 		num: 28,
@@ -562,6 +600,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Sandslash-Alola"],
 		formeOrder: ["Sandslash", "Sandslash-Alola"],
+		cfmMoves: [],
 	},
 	sandslashalola: {
 		num: 28,
@@ -578,6 +617,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Ice Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	nidoranf: {
 		num: 29,
@@ -591,6 +631,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Nidorina"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	nidorina: {
 		num: 30,
@@ -606,6 +647,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Nidoqueen"],
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	nidoqueen: {
 		num: 31,
@@ -621,6 +663,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Moon Stone",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	nidoranm: {
 		num: 32,
@@ -634,6 +677,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Nidorino"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	nidorino: {
 		num: 33,
@@ -649,6 +693,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Nidoking"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	nidoking: {
 		num: 34,
@@ -664,6 +709,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Moon Stone",
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	clefairy: {
 		num: 35,
@@ -679,6 +725,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelFriendship",
 		evos: ["Clefable"],
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	clefable: {
 		num: 36,
@@ -694,6 +741,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Moon Stone",
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	vulpix: {
 		num: 37,
@@ -709,6 +757,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Vulpix-Alola"],
 		formeOrder: ["Vulpix", "Vulpix-Alola"],
+		cfmMoves: [],
 	},
 	vulpixalola: {
 		num: 37,
@@ -724,6 +773,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Ninetales-Alola"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	ninetales: {
 		num: 38,
@@ -741,6 +791,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Ninetales-Alola"],
 		formeOrder: ["Ninetales", "Ninetales-Alola"],
+		cfmMoves: [],
 	},
 	ninetalesalola: {
 		num: 38,
@@ -758,6 +809,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Ice Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	jigglypuff: {
 		num: 39,
@@ -773,6 +825,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelFriendship",
 		evos: ["Wigglytuff"],
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	wigglytuff: {
 		num: 40,
@@ -788,6 +841,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Moon Stone",
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	zubat: {
 		num: 41,
@@ -801,6 +855,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Golbat"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	golbat: {
 		num: 42,
@@ -816,6 +871,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 22,
 		evos: ["Crobat"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	oddish: {
 		num: 43,
@@ -828,6 +884,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Gloom"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	gloom: {
 		num: 44,
@@ -842,6 +899,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 21,
 		evos: ["Vileplume", "Bellossom"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	vileplume: {
 		num: 45,
@@ -856,6 +914,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Leaf Stone",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	paras: {
 		num: 46,
@@ -868,6 +927,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Parasect"],
 		eggGroups: ["Bug", "Grass"],
+		cfmMoves: [],
 	},
 	parasect: {
 		num: 47,
@@ -881,6 +941,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Paras",
 		evoLevel: 24,
 		eggGroups: ["Bug", "Grass"],
+		cfmMoves: [],
 	},
 	venonat: {
 		num: 48,
@@ -893,6 +954,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Venomoth"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	venomoth: {
 		num: 49,
@@ -907,6 +969,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Venonat",
 		evoLevel: 31,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	diglett: {
 		num: 50,
@@ -921,6 +984,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Diglett-Alola"],
 		formeOrder: ["Diglett", "Diglett-Alola"],
+		cfmMoves: [],
 	},
 	diglettalola: {
 		num: 50,
@@ -935,6 +999,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Dugtrio-Alola"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	dugtrio: {
 		num: 51,
@@ -950,6 +1015,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Dugtrio-Alola"],
 		formeOrder: ["Dugtrio", "Dugtrio-Alola"],
+		cfmMoves: [],
 	},
 	dugtrioalola: {
 		num: 51,
@@ -965,6 +1031,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Diglett-Alola",
 		evoLevel: 26,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	meowth: {
 		num: 52,
@@ -979,6 +1046,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Meowth-Alola", "Meowth-Galar"],
 		formeOrder: ["Meowth", "Meowth-Alola", "Meowth-Galar"],
+		cfmMoves: [],
 	},
 	meowthalola: {
 		num: 52,
@@ -993,6 +1061,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Persian-Alola"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	meowthgalar: {
 		num: 52,
@@ -1007,6 +1076,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Perrserker"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	persian: {
 		num: 53,
@@ -1022,6 +1092,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Persian-Alola"],
 		formeOrder: ["Persian", "Persian-Alola"],
+		cfmMoves: [],
 	},
 	persianalola: {
 		num: 53,
@@ -1037,6 +1108,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Meowth-Alola",
 		evoType: "levelFriendship",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	psyduck: {
 		num: 54,
@@ -1049,6 +1121,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		evos: ["Golduck"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	golduck: {
 		num: 55,
@@ -1062,6 +1135,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Psyduck",
 		evoLevel: 33,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	mankey: {
 		num: 56,
@@ -1074,6 +1148,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Primeape"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	primeape: {
 		num: 57,
@@ -1087,6 +1162,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Mankey",
 		evoLevel: 28,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	growlithe: {
 		num: 58,
@@ -1100,6 +1176,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Arcanine"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	arcanine: {
 		num: 59,
@@ -1115,6 +1192,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Fire Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	poliwag: {
 		num: 60,
@@ -1127,6 +1205,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Poliwhirl"],
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	poliwhirl: {
 		num: 61,
@@ -1141,6 +1220,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 25,
 		evos: ["Poliwrath", "Politoed"],
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	poliwrath: {
 		num: 62,
@@ -1155,6 +1235,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Water Stone",
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	abra: {
 		num: 63,
@@ -1168,6 +1249,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Kadabra"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	kadabra: {
 		num: 64,
@@ -1183,6 +1265,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Alakazam"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	alakazam: {
 		num: 65,
@@ -1199,6 +1282,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 		otherFormes: ["Alakazam-Mega"],
 		formeOrder: ["Alakazam", "Alakazam-Mega"],
+		cfmMoves: [],
 	},
 	alakazammega: {
 		num: 65,
@@ -1214,6 +1298,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Human-Like"],
 		requiredItem: "Alakazite",
+		cfmMoves: [],
 	},
 	machop: {
 		num: 66,
@@ -1227,6 +1312,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Machoke"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	machoke: {
 		num: 67,
@@ -1242,6 +1328,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 28,
 		evos: ["Machamp"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	machamp: {
 		num: 68,
@@ -1256,6 +1343,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Machoke",
 		evoType: "trade",
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	bellsprout: {
 		num: 69,
@@ -1268,6 +1356,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Weepinbell"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	weepinbell: {
 		num: 70,
@@ -1282,6 +1371,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 21,
 		evos: ["Victreebel"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	victreebel: {
 		num: 71,
@@ -1296,6 +1386,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Leaf Stone",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	tentacool: {
 		num: 72,
@@ -1308,6 +1399,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Tentacruel"],
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	tentacruel: {
 		num: 73,
@@ -1321,6 +1413,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Tentacool",
 		evoLevel: 30,
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	geodude: {
 		num: 74,
@@ -1335,6 +1428,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 		otherFormes: ["Geodude-Alola"],
 		formeOrder: ["Geodude", "Geodude-Alola"],
+		cfmMoves: [],
 	},
 	geodudealola: {
 		num: 74,
@@ -1349,6 +1443,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Graveler-Alola"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	graveler: {
 		num: 75,
@@ -1365,6 +1460,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 		otherFormes: ["Graveler-Alola"],
 		formeOrder: ["Graveler", "Graveler-Alola"],
+		cfmMoves: [],
 	},
 	graveleralola: {
 		num: 75,
@@ -1381,6 +1477,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 25,
 		evos: ["Golem-Alola"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	golem: {
 		num: 76,
@@ -1396,6 +1493,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 		otherFormes: ["Golem-Alola"],
 		formeOrder: ["Golem", "Golem-Alola"],
+		cfmMoves: [],
 	},
 	golemalola: {
 		num: 76,
@@ -1411,6 +1509,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Graveler-Alola",
 		evoType: "trade",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	ponyta: {
 		num: 77,
@@ -1425,6 +1524,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Ponyta-Galar"],
 		formeOrder: ["Ponyta", "Ponyta-Galar"],
+		cfmMoves: [],
 	},
 	ponytagalar: {
 		num: 77,
@@ -1439,6 +1539,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Rapidash-Galar"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	rapidash: {
 		num: 78,
@@ -1454,6 +1555,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Rapidash-Galar"],
 		formeOrder: ["Rapidash", "Rapidash-Galar"],
+		cfmMoves: [],
 	},
 	rapidashgalar: {
 		num: 78,
@@ -1469,6 +1571,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Ponyta-Galar",
 		evoLevel: 40,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	slowpoke: {
 		num: 79,
@@ -1483,6 +1586,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Water 1"],
 		otherFormes: ["Slowpoke-Galar"],
 		formeOrder: ["Slowpoke", "Slowpoke-Galar"],
+		cfmMoves: [],
 	},
 	slowpokegalar: {
 		num: 79,
@@ -1497,6 +1601,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		evos: ["Slowbro-Galar"],
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	slowbro: {
 		num: 80,
@@ -1512,6 +1617,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Water 1"],
 		otherFormes: ["Slowbro-Mega", "Slowbro-Galar"],
 		formeOrder: ["Slowbro", "Slowbro-Mega", "Slowbro-Galar"],
+		cfmMoves: [],
 	},
 	slowbromega: {
 		num: 80,
@@ -1526,6 +1632,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		eggGroups: ["Monster", "Water 1"],
 		requiredItem: "Slowbronite",
+		cfmMoves: [],
 	},
 	slowbrogalar: {
 		num: 80,
@@ -1556,6 +1663,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Magneton"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	magneton: {
 		num: 82,
@@ -1572,6 +1680,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 30,
 		evos: ["Magnezone"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	farfetchd: {
 		num: 83,
@@ -1586,6 +1695,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying", "Field"],
 		otherFormes: ["Farfetch\u2019d-Galar"],
 		formeOrder: ["Farfetch\u2019d", "Farfetch\u2019d-Galar"],
+		cfmMoves: [],
 	},
 	farfetchdgalar: {
 		num: 83,
@@ -1601,6 +1711,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Sirfetch\u2019d"],
 		eggGroups: ["Flying", "Field"],
+		cfmMoves: [],
 	},
 	doduo: {
 		num: 84,
@@ -1613,6 +1724,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Dodrio"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	dodrio: {
 		num: 85,
@@ -1626,6 +1738,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Doduo",
 		evoLevel: 31,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	seel: {
 		num: 86,
@@ -1638,6 +1751,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Dewgong"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	dewgong: {
 		num: 87,
@@ -1651,6 +1765,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Seel",
 		evoLevel: 34,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	grimer: {
 		num: 88,
@@ -1665,6 +1780,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		otherFormes: ["Grimer-Alola"],
 		formeOrder: ["Grimer", "Grimer-Alola"],
+		cfmMoves: [],
 	},
 	grimeralola: {
 		num: 88,
@@ -1679,6 +1795,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Muk-Alola"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	muk: {
 		num: 89,
@@ -1694,6 +1811,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		otherFormes: ["Muk-Alola"],
 		formeOrder: ["Muk", "Muk-Alola"],
+		cfmMoves: [],
 	},
 	mukalola: {
 		num: 89,
@@ -1709,6 +1827,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Grimer-Alola",
 		evoLevel: 38,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	shellder: {
 		num: 90,
@@ -1721,6 +1840,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Cloyster"],
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	cloyster: {
 		num: 91,
@@ -1735,6 +1855,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Water Stone",
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	gastly: {
 		num: 92,
@@ -1748,6 +1869,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Haunter"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	haunter: {
 		num: 93,
@@ -1763,6 +1885,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 25,
 		evos: ["Gengar"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	gengar: {
 		num: 94,
@@ -1779,6 +1902,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		otherFormes: ["Gengar-Mega"],
 		formeOrder: ["Gengar", "Gengar-Mega"],
+		cfmMoves: [],
 	},
 	gengarmega: {
 		num: 94,
@@ -1793,6 +1917,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Gengarite",
+		cfmMoves: [],
 	},
 	onix: {
 		num: 95,
@@ -1805,6 +1930,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Steelix"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	drowzee: {
 		num: 96,
@@ -1817,6 +1943,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		evos: ["Hypno"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	hypno: {
 		num: 97,
@@ -1830,6 +1957,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Drowzee",
 		evoLevel: 26,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	krabby: {
 		num: 98,
@@ -1842,6 +1970,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Kingler"],
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	kingler: {
 		num: 99,
@@ -1855,6 +1984,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Krabby",
 		evoLevel: 28,
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	voltorb: {
 		num: 100,
@@ -1868,6 +1998,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Electrode"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	electrode: {
 		num: 101,
@@ -1882,6 +2013,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Voltorb",
 		evoLevel: 30,
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	exeggcute: {
 		num: 102,
@@ -1894,6 +2026,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		evos: ["Exeggutor", "Exeggutor-Alola"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	exeggutor: {
 		num: 103,
@@ -1910,6 +2043,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Grass"],
 		otherFormes: ["Exeggutor-Alola"],
 		formeOrder: ["Exeggutor", "Exeggutor-Alola"],
+		cfmMoves: [],
 	},
 	exeggutoralola: {
 		num: 103,
@@ -1926,6 +2060,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Leaf Stone",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	cubone: {
 		num: 104,
@@ -1938,6 +2073,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Marowak", "Marowak-Alola"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	marowak: {
 		num: 105,
@@ -1953,6 +2089,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster"],
 		otherFormes: ["Marowak-Alola", "Marowak-Alola-Totem"],
 		formeOrder: ["Marowak", "Marowak-Alola", "Marowak-Alola-Totem"],
+		cfmMoves: [],
 	},
 	marowakalola: {
 		num: 105,
@@ -1968,6 +2105,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Cubone",
 		evoLevel: 28,
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	marowakalolatotem: {
 		num: 105,
@@ -1981,6 +2119,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 98,
 		color: "Purple",
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	hitmonlee: {
 		num: 106,
@@ -1996,6 +2135,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 20,
 		evoCondition: "with an Atk stat > its Def stat",
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	hitmonchan: {
 		num: 107,
@@ -2011,6 +2151,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 20,
 		evoCondition: "with an Atk stat < its Def stat",
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	lickitung: {
 		num: 108,
@@ -2023,6 +2164,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		evos: ["Lickilicky"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	koffing: {
 		num: 109,
@@ -2036,6 +2178,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Weezing", "Weezing-Galar"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	weezing: {
 		num: 110,
@@ -2052,6 +2195,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		otherFormes: ["Weezing-Galar"],
 		formeOrder: ["Weezing", "Weezing-Galar"],
+		cfmMoves: [],
 	},
 	weezinggalar: {
 		num: 110,
@@ -2068,6 +2212,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Koffing",
 		evoLevel: 35,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	rhyhorn: {
 		num: 111,
@@ -2080,6 +2225,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Rhydon"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	rhydon: {
 		num: 112,
@@ -2094,6 +2240,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 42,
 		evos: ["Rhyperior"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	chansey: {
 		num: 113,
@@ -2112,6 +2259,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Blissey"],
 		eggGroups: ["Fairy"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	tangela: {
 		num: 114,
@@ -2124,6 +2272,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Tangrowth"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	kangaskhan: {
 		num: 115,
@@ -2138,6 +2287,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster"],
 		otherFormes: ["Kangaskhan-Mega"],
 		formeOrder: ["Kangaskhan", "Kangaskhan-Mega"],
+		cfmMoves: [],
 	},
 	kangaskhanmega: {
 		num: 115,
@@ -2153,6 +2303,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Monster"],
 		requiredItem: "Kangaskhanite",
+		cfmMoves: [],
 	},
 	horsea: {
 		num: 116,
@@ -2165,6 +2316,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Seadra"],
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	seadra: {
 		num: 117,
@@ -2179,6 +2331,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 32,
 		evos: ["Kingdra"],
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	goldeen: {
 		num: 118,
@@ -2191,6 +2344,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Seaking"],
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	seaking: {
 		num: 119,
@@ -2204,6 +2358,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Goldeen",
 		evoLevel: 33,
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	staryu: {
 		num: 120,
@@ -2217,6 +2372,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Starmie"],
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	starmie: {
 		num: 121,
@@ -2232,6 +2388,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Water Stone",
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	mrmime: {
 		num: 122,
@@ -2249,6 +2406,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		canHatch: true,
 		otherFormes: ["Mr. Mime-Galar"],
 		formeOrder: ["Mr. Mime", "Mr. Mime-Galar"],
+		cfmMoves: [],
 	},
 	mrmimegalar: {
 		num: 122,
@@ -2267,6 +2425,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Mr. Rime"],
 		eggGroups: ["Human-Like"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	scyther: {
 		num: 123,
@@ -2280,6 +2439,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Scizor"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	jynx: {
 		num: 124,
@@ -2294,6 +2454,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Smoochum",
 		evoLevel: 30,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	electabuzz: {
 		num: 125,
@@ -2309,6 +2470,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 30,
 		evos: ["Electivire"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	magmar: {
 		num: 126,
@@ -2324,6 +2486,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 30,
 		evos: ["Magmortar"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	pinsir: {
 		num: 127,
@@ -2337,6 +2500,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 		otherFormes: ["Pinsir-Mega"],
 		formeOrder: ["Pinsir", "Pinsir-Mega"],
+		cfmMoves: [],
 	},
 	pinsirmega: {
 		num: 127,
@@ -2352,6 +2516,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Bug"],
 		requiredItem: "Pinsirite",
+		cfmMoves: [],
 	},
 	tauros: {
 		num: 128,
@@ -2364,6 +2529,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 88.4,
 		color: "Brown",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	magikarp: {
 		num: 129,
@@ -2376,6 +2542,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Gyarados"],
 		eggGroups: ["Water 2", "Dragon"],
+		cfmMoves: [],
 	},
 	gyarados: {
 		num: 130,
@@ -2391,6 +2558,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 2", "Dragon"],
 		otherFormes: ["Gyarados-Mega"],
 		formeOrder: ["Gyarados", "Gyarados-Mega"],
+		cfmMoves: [],
 	},
 	gyaradosmega: {
 		num: 130,
@@ -2405,6 +2573,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Water 2", "Dragon"],
 		requiredItem: "Gyaradosite",
+		cfmMoves: [],
 	},
 	lapras: {
 		num: 131,
@@ -2416,6 +2585,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 220,
 		color: "Blue",
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	ditto: {
 		num: 132,
@@ -2428,6 +2598,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 4,
 		color: "Purple",
 		eggGroups: ["Ditto"],
+		cfmMoves: [],
 	},
 	eevee: {
 		num: 133,
@@ -2441,6 +2612,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	vaporeon: {
 		num: 134,
@@ -2456,6 +2628,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Water Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	jolteon: {
 		num: 135,
@@ -2471,6 +2644,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Thunder Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	flareon: {
 		num: 136,
@@ -2486,6 +2660,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Fire Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	porygon: {
 		num: 137,
@@ -2500,6 +2675,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		evos: ["Porygon2"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	omanyte: {
 		num: 138,
@@ -2513,6 +2689,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Omastar"],
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	omastar: {
 		num: 139,
@@ -2527,6 +2704,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Omanyte",
 		evoLevel: 40,
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	kabuto: {
 		num: 140,
@@ -2540,6 +2718,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Kabutops"],
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	kabutops: {
 		num: 141,
@@ -2554,6 +2733,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Kabuto",
 		evoLevel: 40,
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	aerodactyl: {
 		num: 142,
@@ -2569,6 +2749,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying"],
 		otherFormes: ["Aerodactyl-Mega"],
 		formeOrder: ["Aerodactyl", "Aerodactyl-Mega"],
+		cfmMoves: [],
 	},
 	aerodactylmega: {
 		num: 142,
@@ -2585,6 +2766,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Flying"],
 		requiredItem: "Aerodactylite",
+		cfmMoves: [],
 	},
 	snorlax: {
 		num: 143,
@@ -2600,6 +2782,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelFriendship",
 		eggGroups: ["Monster"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	articuno: {
 		num: 144,
@@ -2613,6 +2796,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	zapdos: {
 		num: 145,
@@ -2626,6 +2810,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	moltres: {
 		num: 146,
@@ -2639,6 +2824,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	dratini: {
 		num: 147,
@@ -2651,6 +2837,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Dragonair"],
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	dragonair: {
 		num: 148,
@@ -2665,6 +2852,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 30,
 		evos: ["Dragonite"],
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	dragonite: {
 		num: 149,
@@ -2679,6 +2867,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Dragonair",
 		evoLevel: 55,
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	mewtwo: {
 		num: 150,
@@ -2693,6 +2882,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Mewtwo-Mega-X", "Mewtwo-Mega-Y"],
 		formeOrder: ["Mewtwo", "Mewtwo-Mega-X", "Mewtwo-Mega-Y"],
+		cfmMoves: [],
 	},
 	mewtwomegax: {
 		num: 150,
@@ -2708,6 +2898,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Mewtwonite X",
+		cfmMoves: [],
 	},
 	mewtwomegay: {
 		num: 150,
@@ -2723,6 +2914,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Mewtwonite Y",
+		cfmMoves: [],
 	},
 	mew: {
 		num: 151,
@@ -2736,6 +2928,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Pink",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	chikorita: {
 		num: 152,
@@ -2749,6 +2942,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Bayleef"],
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	bayleef: {
 		num: 153,
@@ -2764,6 +2958,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Meganium"],
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	meganium: {
 		num: 154,
@@ -2778,6 +2973,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Bayleef",
 		evoLevel: 32,
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	cyndaquil: {
 		num: 155,
@@ -2791,6 +2987,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		evos: ["Quilava"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	quilava: {
 		num: 156,
@@ -2806,6 +3003,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 14,
 		evos: ["Typhlosion"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	typhlosion: {
 		num: 157,
@@ -2820,6 +3018,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Quilava",
 		evoLevel: 36,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	totodile: {
 		num: 158,
@@ -2833,6 +3032,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Croconaw"],
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	croconaw: {
 		num: 159,
@@ -2848,6 +3048,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 18,
 		evos: ["Feraligatr"],
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	feraligatr: {
 		num: 160,
@@ -2862,6 +3063,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Croconaw",
 		evoLevel: 30,
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	sentret: {
 		num: 161,
@@ -2874,6 +3076,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Furret"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	furret: {
 		num: 162,
@@ -2887,6 +3090,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Sentret",
 		evoLevel: 15,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	hoothoot: {
 		num: 163,
@@ -2900,6 +3104,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Noctowl"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	noctowl: {
 		num: 164,
@@ -2914,6 +3119,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Hoothoot",
 		evoLevel: 20,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	ledyba: {
 		num: 165,
@@ -2927,6 +3133,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Ledian"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	ledian: {
 		num: 166,
@@ -2941,6 +3148,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Ledyba",
 		evoLevel: 18,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	spinarak: {
 		num: 167,
@@ -2953,6 +3161,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Ariados"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	ariados: {
 		num: 168,
@@ -2966,6 +3175,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Spinarak",
 		evoLevel: 22,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	crobat: {
 		num: 169,
@@ -2980,6 +3190,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Golbat",
 		evoType: "levelFriendship",
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	chinchou: {
 		num: 170,
@@ -2992,6 +3203,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Lanturn"],
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	lanturn: {
 		num: 171,
@@ -3005,6 +3217,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Chinchou",
 		evoLevel: 27,
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	pichu: {
 		num: 172,
@@ -3020,6 +3233,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		canHatch: true,
 		otherFormes: ["Pichu-Spiky-eared"],
 		formeOrder: ["Pichu", "Pichu-Spiky-eared"],
+		cfmMoves: [],
 	},
 	pichuspikyeared: {
 		num: 172,
@@ -3034,6 +3248,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
 		gen: 4,
+		cfmMoves: [],
 	},
 	cleffa: {
 		num: 173,
@@ -3048,6 +3263,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Clefairy"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	igglybuff: {
 		num: 174,
@@ -3062,6 +3278,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Jigglypuff"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	togepi: {
 		num: 175,
@@ -3076,6 +3293,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Togetic"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	togetic: {
 		num: 176,
@@ -3092,6 +3310,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelFriendship",
 		evos: ["Togekiss"],
 		eggGroups: ["Flying", "Fairy"],
+		cfmMoves: [],
 	},
 	natu: {
 		num: 177,
@@ -3105,6 +3324,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Xatu"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	xatu: {
 		num: 178,
@@ -3119,6 +3339,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Natu",
 		evoLevel: 25,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	mareep: {
 		num: 179,
@@ -3131,6 +3352,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Flaaffy"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	flaaffy: {
 		num: 180,
@@ -3145,6 +3367,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 15,
 		evos: ["Ampharos"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	ampharos: {
 		num: 181,
@@ -3160,6 +3383,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Field"],
 		otherFormes: ["Ampharos-Mega"],
 		formeOrder: ["Ampharos", "Ampharos-Mega"],
+		cfmMoves: [],
 	},
 	ampharosmega: {
 		num: 181,
@@ -3174,6 +3398,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Monster", "Field"],
 		requiredItem: "Ampharosite",
+		cfmMoves: [],
 	},
 	bellossom: {
 		num: 182,
@@ -3188,6 +3413,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Sun Stone",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	marill: {
 		num: 183,
@@ -3203,6 +3429,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Azumarill"],
 		eggGroups: ["Water 1", "Fairy"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	azumarill: {
 		num: 184,
@@ -3216,6 +3443,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Marill",
 		evoLevel: 18,
 		eggGroups: ["Water 1", "Fairy"],
+		cfmMoves: [],
 	},
 	sudowoodo: {
 		num: 185,
@@ -3231,6 +3459,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoMove: "Mimic",
 		eggGroups: ["Mineral"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	politoed: {
 		num: 186,
@@ -3245,6 +3474,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoItem: "King's Rock",
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	hoppip: {
 		num: 187,
@@ -3258,6 +3488,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		evos: ["Skiploom"],
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: [],
 	},
 	skiploom: {
 		num: 188,
@@ -3273,6 +3504,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 18,
 		evos: ["Jumpluff"],
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: [],
 	},
 	jumpluff: {
 		num: 189,
@@ -3287,6 +3519,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Skiploom",
 		evoLevel: 27,
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: [],
 	},
 	aipom: {
 		num: 190,
@@ -3299,6 +3532,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Ambipom"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	sunkern: {
 		num: 191,
@@ -3311,6 +3545,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		evos: ["Sunflora"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	sunflora: {
 		num: 192,
@@ -3325,6 +3560,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Sun Stone",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	yanma: {
 		num: 193,
@@ -3338,6 +3574,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Yanmega"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	wooper: {
 		num: 194,
@@ -3350,6 +3587,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Quagsire"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	quagsire: {
 		num: 195,
@@ -3363,6 +3601,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Wooper",
 		evoLevel: 20,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	espeon: {
 		num: 196,
@@ -3378,6 +3617,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelFriendship",
 		evoCondition: "during the day",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	umbreon: {
 		num: 197,
@@ -3393,6 +3633,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelFriendship",
 		evoCondition: "at night",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	murkrow: {
 		num: 198,
@@ -3406,6 +3647,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		evos: ["Honchkrow"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	slowking: {
 		num: 199,
@@ -3420,6 +3662,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoItem: "King's Rock",
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	misdreavus: {
 		num: 200,
@@ -3433,6 +3676,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Mismagius"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	unown: {
 		num: 201,
@@ -3449,6 +3693,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		cosmeticFormes: ["Unown-B", "Unown-C", "Unown-D", "Unown-E", "Unown-F", "Unown-G", "Unown-H", "Unown-I", "Unown-J", "Unown-K", "Unown-L", "Unown-M", "Unown-N", "Unown-O", "Unown-P", "Unown-Q", "Unown-R", "Unown-S", "Unown-T", "Unown-U", "Unown-V", "Unown-W", "Unown-X", "Unown-Y", "Unown-Z", "Unown-Exclamation", "Unown-Question"],
 		formeOrder: ["Unown", "Unown-B", "Unown-C", "Unown-D", "Unown-E", "Unown-F", "Unown-G", "Unown-H", "Unown-I", "Unown-J", "Unown-K", "Unown-L", "Unown-M", "Unown-N", "Unown-O", "Unown-P", "Unown-Q", "Unown-R", "Unown-S", "Unown-T", "Unown-U", "Unown-V", "Unown-W", "Unown-X", "Unown-Y", "Unown-Z", "Unown-Exclamation", "Unown-Question"],
+		cfmMoves: [],
 	},
 	wobbuffet: {
 		num: 202,
@@ -3462,6 +3707,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Wynaut",
 		evoLevel: 15,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	girafarig: {
 		num: 203,
@@ -3473,6 +3719,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 41.5,
 		color: "Yellow",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	pineco: {
 		num: 204,
@@ -3485,6 +3732,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Forretress"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	forretress: {
 		num: 205,
@@ -3498,6 +3746,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Pineco",
 		evoLevel: 31,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	dunsparce: {
 		num: 206,
@@ -3509,6 +3758,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 14,
 		color: "Yellow",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	gligar: {
 		num: 207,
@@ -3522,6 +3772,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Gliscor"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	steelix: {
 		num: 208,
@@ -3538,6 +3789,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 		otherFormes: ["Steelix-Mega"],
 		formeOrder: ["Steelix", "Steelix-Mega"],
+		cfmMoves: [],
 	},
 	steelixmega: {
 		num: 208,
@@ -3552,6 +3804,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		eggGroups: ["Mineral"],
 		requiredItem: "Steelixite",
+		cfmMoves: [],
 	},
 	snubbull: {
 		num: 209,
@@ -3565,6 +3818,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		evos: ["Granbull"],
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	granbull: {
 		num: 210,
@@ -3579,6 +3833,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Snubbull",
 		evoLevel: 23,
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	qwilfish: {
 		num: 211,
@@ -3590,6 +3845,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 3.9,
 		color: "Gray",
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	scizor: {
 		num: 212,
@@ -3606,6 +3862,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 		otherFormes: ["Scizor-Mega"],
 		formeOrder: ["Scizor", "Scizor-Mega"],
+		cfmMoves: [],
 	},
 	scizormega: {
 		num: 212,
@@ -3620,6 +3877,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Bug"],
 		requiredItem: "Scizorite",
+		cfmMoves: [],
 	},
 	shuckle: {
 		num: 213,
@@ -3631,6 +3889,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 20.5,
 		color: "Yellow",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	heracross: {
 		num: 214,
@@ -3644,6 +3903,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 		otherFormes: ["Heracross-Mega"],
 		formeOrder: ["Heracross", "Heracross-Mega"],
+		cfmMoves: [],
 	},
 	heracrossmega: {
 		num: 214,
@@ -3658,6 +3918,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Bug"],
 		requiredItem: "Heracronite",
+		cfmMoves: [],
 	},
 	sneasel: {
 		num: 215,
@@ -3670,6 +3931,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		evos: ["Weavile"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	teddiursa: {
 		num: 216,
@@ -3682,6 +3944,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Ursaring"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	ursaring: {
 		num: 217,
@@ -3695,6 +3958,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Teddiursa",
 		evoLevel: 30,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	slugma: {
 		num: 218,
@@ -3707,6 +3971,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Magcargo"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	magcargo: {
 		num: 219,
@@ -3720,6 +3985,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Slugma",
 		evoLevel: 38,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	swinub: {
 		num: 220,
@@ -3732,6 +3998,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Piloswine"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	piloswine: {
 		num: 221,
@@ -3746,6 +4013,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 33,
 		evos: ["Mamoswine"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	corsola: {
 		num: 222,
@@ -3760,6 +4028,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Water 3"],
 		otherFormes: ["Corsola-Galar"],
 		formeOrder: ["Corsola", "Corsola-Galar"],
+		cfmMoves: [],
 	},
 	corsolagalar: {
 		num: 222,
@@ -3775,6 +4044,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Cursola"],
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	remoraid: {
 		num: 223,
@@ -3787,6 +4057,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Octillery"],
 		eggGroups: ["Water 1", "Water 2"],
+		cfmMoves: [],
 	},
 	octillery: {
 		num: 224,
@@ -3800,6 +4071,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Remoraid",
 		evoLevel: 25,
 		eggGroups: ["Water 1", "Water 2"],
+		cfmMoves: [],
 	},
 	delibird: {
 		num: 225,
@@ -3812,6 +4084,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Red",
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	mantine: {
 		num: 226,
@@ -3827,6 +4100,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoCondition: "with a Remoraid in party",
 		eggGroups: ["Water 1"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	skarmory: {
 		num: 227,
@@ -3839,6 +4113,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Gray",
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	houndour: {
 		num: 228,
@@ -3851,6 +4126,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		evos: ["Houndoom"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	houndoom: {
 		num: 229,
@@ -3866,6 +4142,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Houndoom-Mega"],
 		formeOrder: ["Houndoom", "Houndoom-Mega"],
+		cfmMoves: [],
 	},
 	houndoommega: {
 		num: 229,
@@ -3880,6 +4157,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		eggGroups: ["Field"],
 		requiredItem: "Houndoominite",
+		cfmMoves: [],
 	},
 	kingdra: {
 		num: 230,
@@ -3894,6 +4172,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoItem: "Dragon Scale",
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	phanpy: {
 		num: 231,
@@ -3906,6 +4185,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Donphan"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	donphan: {
 		num: 232,
@@ -3919,6 +4199,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Phanpy",
 		evoLevel: 25,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	porygon2: {
 		num: 233,
@@ -3936,6 +4217,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoItem: "Up-Grade",
 		evos: ["Porygon-Z"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	stantler: {
 		num: 234,
@@ -3947,6 +4229,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 71.2,
 		color: "Brown",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	smeargle: {
 		num: 235,
@@ -3958,6 +4241,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 58,
 		color: "White",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	tyrogue: {
 		num: 236,
@@ -3972,6 +4256,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Hitmonlee", "Hitmonchan", "Hitmontop"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	hitmontop: {
 		num: 237,
@@ -3987,6 +4272,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 20,
 		evoCondition: "with an Atk stat equal to its Def stat",
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	smoochum: {
 		num: 238,
@@ -4001,6 +4287,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Jynx"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	elekid: {
 		num: 239,
@@ -4015,6 +4302,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Electabuzz"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	magby: {
 		num: 240,
@@ -4029,6 +4317,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Magmar"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	miltank: {
 		num: 241,
@@ -4041,6 +4330,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 75.5,
 		color: "Pink",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	blissey: {
 		num: 242,
@@ -4055,6 +4345,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Chansey",
 		evoType: "levelFriendship",
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	raikou: {
 		num: 243,
@@ -4067,6 +4358,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 178,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	entei: {
 		num: 244,
@@ -4079,6 +4371,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 198,
 		color: "Brown",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	suicune: {
 		num: 245,
@@ -4091,6 +4384,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 187,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	larvitar: {
 		num: 246,
@@ -4103,6 +4397,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Pupitar"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	pupitar: {
 		num: 247,
@@ -4117,6 +4412,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 30,
 		evos: ["Tyranitar"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	tyranitar: {
 		num: 248,
@@ -4132,6 +4428,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster"],
 		otherFormes: ["Tyranitar-Mega"],
 		formeOrder: ["Tyranitar", "Tyranitar-Mega"],
+		cfmMoves: [],
 	},
 	tyranitarmega: {
 		num: 248,
@@ -4146,6 +4443,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Monster"],
 		requiredItem: "Tyranitarite",
+		cfmMoves: [],
 	},
 	lugia: {
 		num: 249,
@@ -4159,6 +4457,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	hooh: {
 		num: 250,
@@ -4172,6 +4471,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	celebi: {
 		num: 251,
@@ -4185,6 +4485,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	treecko: {
 		num: 252,
@@ -4198,6 +4499,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Grovyle"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	grovyle: {
 		num: 253,
@@ -4213,6 +4515,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Sceptile"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	sceptile: {
 		num: 254,
@@ -4229,6 +4532,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Dragon"],
 		otherFormes: ["Sceptile-Mega"],
 		formeOrder: ["Sceptile", "Sceptile-Mega"],
+		cfmMoves: ['detect', 'dragonclaw', 'dragondance', 'dragonpulse', 'focusblast', 'frenzyplant', 'leafage', 'leafblade', 'leafstorm', 'rockslide', 'thunderpunch', 'weatherball'],
 	},
 	sceptilemega: {
 		num: 254,
@@ -4244,6 +4548,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Sceptilite",
+		cfmMoves: [],
 	},
 	torchic: {
 		num: 255,
@@ -4257,6 +4562,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Combusken"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	combusken: {
 		num: 256,
@@ -4272,6 +4578,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Blaziken"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	blaziken: {
 		num: 257,
@@ -4288,6 +4595,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Blaziken-Mega"],
 		formeOrder: ["Blaziken", "Blaziken-Mega"],
+		cfmMoves: ['blastburn', 'blazekick', 'bravebird', 'closecombat', 'detect', 'fireblast', 'firespin', 'flareblitz', 'focusblast', 'highjumpkick', 'inferno', 'vacuumwave'],
 	},
 	blazikenmega: {
 		num: 257,
@@ -4303,6 +4611,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Field"],
 		requiredItem: "Blazikenite",
+		cfmMoves: [],
 	},
 	mudkip: {
 		num: 258,
@@ -4316,6 +4625,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Marshtomp"],
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	marshtomp: {
 		num: 259,
@@ -4331,6 +4641,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Swampert"],
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	swampert: {
 		num: 260,
@@ -4347,6 +4658,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Water 1"],
 		otherFormes: ["Swampert-Mega"],
 		formeOrder: ["Swampert", "Swampert-Mega"],
+		cfmMoves: ['aquatail', 'curse', 'hammerarm', 'hydrocannon', 'hydropump', 'icepunch', 'mudbomb', 'muddywater', 'roar', 'stealthrock', 'stompingtantrum', 'stoneedge'],
 	},
 	swampertmega: {
 		num: 260,
@@ -4362,6 +4674,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Monster", "Water 1"],
 		requiredItem: "Swampertite",
+		cfmMoves: [],
 	},
 	poochyena: {
 		num: 261,
@@ -4374,6 +4687,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Mightyena"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	mightyena: {
 		num: 262,
@@ -4387,6 +4701,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Poochyena",
 		evoLevel: 18,
 		eggGroups: ["Field"],
+		cfmMoves: ['crunch', 'firefang', 'healbell', 'honeclaws', 'icefang', 'irontail', 'playrough', 'poisonfang', 'pursuit', 'submission', 'suckerpunch', 'thunderfang'],
 	},
 	zigzagoon: {
 		num: 263,
@@ -4401,6 +4716,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Zigzagoon-Galar"],
 		formeOrder: ["Zigzagoon", "Zigzagoon-Galar"],
+		cfmMoves: [],
 	},
 	zigzagoongalar: {
 		num: 263,
@@ -4415,6 +4731,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Linoone-Galar"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	linoone: {
 		num: 264,
@@ -4430,6 +4747,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Linoone-Galar"],
 		formeOrder: ["Linoone", "Linoone-Galar"],
+		cfmMoves: ['bellydrum', 'extremespeed', 'hypervoice', 'icebeam', 'mudshot', 'playrough', 'rocksmash', 'seedbomb', 'stompingtantrum', 'tailslap', 'thunderbolt', 'workup'],
 	},
 	linoonegalar: {
 		num: 264,
@@ -4446,6 +4764,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 20,
 		evos: ["Obstagoon"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	wurmple: {
 		num: 265,
@@ -4458,6 +4777,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Silcoon", "Cascoon"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	silcoon: {
 		num: 266,
@@ -4472,6 +4792,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 7,
 		evos: ["Beautifly"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	beautifly: {
 		num: 267,
@@ -4486,6 +4807,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Silcoon",
 		evoLevel: 10,
 		eggGroups: ["Bug"],
+		cfmMoves: ['acrobatics', 'bugbuzz', 'gust', 'leechlife', 'quiverdance', 'razorwind', 'stickyweb', 'strengthsap', 'stunspore', 'tailwind', 'uturn', 'workup'],
 	},
 	cascoon: {
 		num: 268,
@@ -4500,6 +4822,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 7,
 		evos: ["Dustox"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	dustox: {
 		num: 269,
@@ -4514,6 +4837,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Cascoon",
 		evoLevel: 10,
 		eggGroups: ["Bug"],
+		cfmMoves: ['acid', 'bugbuzz', 'defog', 'gigadrain', 'irondefense', 'leechlife', 'quiverdance', 'roost', 'tailwind', 'toxic', 'uturn', 'whirlwind'],
 	},
 	lotad: {
 		num: 270,
@@ -4526,6 +4850,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Lombre"],
 		eggGroups: ["Water 1", "Grass"],
+		cfmMoves: [],
 	},
 	lombre: {
 		num: 271,
@@ -4540,6 +4865,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 14,
 		evos: ["Ludicolo"],
 		eggGroups: ["Water 1", "Grass"],
+		cfmMoves: [],
 	},
 	ludicolo: {
 		num: 272,
@@ -4554,6 +4880,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Water Stone",
 		eggGroups: ["Water 1", "Grass"],
+		cfmMoves: [],
 	},
 	seedot: {
 		num: 273,
@@ -4566,6 +4893,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Nuzleaf"],
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	nuzleaf: {
 		num: 274,
@@ -4580,6 +4908,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 14,
 		evos: ["Shiftry"],
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	shiftry: {
 		num: 275,
@@ -4594,6 +4923,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Leaf Stone",
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	taillow: {
 		num: 276,
@@ -4607,6 +4937,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Swellow"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	swellow: {
 		num: 277,
@@ -4621,6 +4952,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Taillow",
 		evoLevel: 22,
 		eggGroups: ["Flying"],
+		cfmMoves: ['airslash', 'boomburst', 'bravebird', 'facade', 'gust', 'heatwave', 'hurricane', 'mirrormove', 'quickattack', 'reversal', 'skyattack', 'uturn'],
 	},
 	wingull: {
 		num: 278,
@@ -4634,6 +4966,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Pelipper"],
 		eggGroups: ["Water 1", "Flying"],
+		cfmMoves: [],
 	},
 	pelipper: {
 		num: 279,
@@ -4648,6 +4981,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Wingull",
 		evoLevel: 25,
 		eggGroups: ["Water 1", "Flying"],
+		cfmMoves: ['agility', 'blizzard', 'defog', 'gust', 'hurricane', 'hydropump', 'icywind', 'knockoff', 'roost', 'tailwind', 'uturn', 'weatherball'],
 	},
 	ralts: {
 		num: 280,
@@ -4660,6 +4994,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Kirlia"],
 		eggGroups: ["Human-Like", "Amorphous"],
+		cfmMoves: [],
 	},
 	kirlia: {
 		num: 281,
@@ -4674,6 +5009,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 20,
 		evos: ["Gardevoir", "Gallade"],
 		eggGroups: ["Human-Like", "Amorphous"],
+		cfmMoves: [],
 	},
 	gardevoir: {
 		num: 282,
@@ -4689,6 +5025,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like", "Amorphous"],
 		otherFormes: ["Gardevoir-Mega"],
 		formeOrder: ["Gardevoir", "Gardevoir-Mega"],
+		cfmMoves: ['barrier', 'darkpulse', 'focusblast', 'heartswap', 'moonblast', 'psychic', 'recover', 'synchronoise', 'taunt', 'teleport', 'willowisp', 'wish'],
 	},
 	gardevoirmega: {
 		num: 282,
@@ -4703,6 +5040,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Gardevoirite",
+		cfmMoves: ['dreameater', 'firepunch', 'focusblast', 'hyperbeam', 'hypnosis', 'icepunch', 'knockoff', 'protect', 'swordsdance', 'telekinesis', 'thunderpunch', 'zenheadbutt'],
 	},
 	surskit: {
 		num: 283,
@@ -4715,6 +5053,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Masquerain"],
 		eggGroups: ["Water 1", "Bug"],
+		cfmMoves: [],
 	},
 	masquerain: {
 		num: 284,
@@ -4729,6 +5068,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Surskit",
 		evoLevel: 22,
 		eggGroups: ["Water 1", "Bug"],
+		cfmMoves: ['acrobatics', 'airslash', 'defog', 'gust', 'hurricane', 'hydropump', 'liquidation', 'quiverdance', 'stickyweb', 'stunspore', 'surf', 'whirlwind'],
 	},
 	shroomish: {
 		num: 285,
@@ -4741,6 +5081,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Breloom"],
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: [],
 	},
 	breloom: {
 		num: 286,
@@ -4754,6 +5095,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Shroomish",
 		evoLevel: 23,
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: ['armthrust', 'closecombat', 'focuspunch', 'leechseed', 'machpunch', 'poisonjab', 'rockslide', 'seedbomb', 'spore', 'stunspore', 'thunderpunch', 'toxic'],
 	},
 	slakoth: {
 		num: 287,
@@ -4766,6 +5108,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Vigoroth"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	vigoroth: {
 		num: 288,
@@ -4780,6 +5123,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 18,
 		evos: ["Slaking"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	slaking: {
 		num: 289,
@@ -4793,6 +5137,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Vigoroth",
 		evoLevel: 36,
 		eggGroups: ["Field"],
+		cfmMoves: ['bulkup', 'firepunch', 'hammerarm', 'icepunch', 'knockoff', 'playrough', 'pursuit', 'shadowclaw', 'slackoff', 'suckerpunch', 'taunt', 'thunderpunch'],
 	},
 	nincada: {
 		num: 290,
@@ -4805,6 +5150,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Ninjask", "Shedinja"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	ninjask: {
 		num: 291,
@@ -4819,6 +5165,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Nincada",
 		evoLevel: 20,
 		eggGroups: ["Bug"],
+		cfmMoves: ['acrobatics', 'bugbuzz', 'defog', 'drillrun', 'earthpower', 'gigadrain', 'gust', 'leechlife', 'nightslash', 'razorwind', 'swordsdance', 'xscissor'],
 	},
 	shedinja: {
 		num: 292,
@@ -4835,6 +5182,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Nincada",
 		evoLevel: 20,
 		eggGroups: ["Mineral"],
+		cfmMoves: ['agility', 'aurasphere', 'calmmind', 'destinybond', 'drillrun', 'earthpower', 'phantomforce', 'shadowball', 'shadowclaw', 'swordsdance', 'uturn', 'xscissor'],
 	},
 	whismur: {
 		num: 293,
@@ -4847,6 +5195,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		evos: ["Loudred"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	loudred: {
 		num: 294,
@@ -4861,6 +5210,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 20,
 		evos: ["Exploud"],
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	exploud: {
 		num: 295,
@@ -4874,6 +5224,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Loudred",
 		evoLevel: 40,
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	makuhita: {
 		num: 296,
@@ -4887,6 +5238,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		evos: ["Hariyama"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	hariyama: {
 		num: 297,
@@ -4901,6 +5253,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Makuhita",
 		evoLevel: 24,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	azurill: {
 		num: 298,
@@ -4915,6 +5268,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Marill"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	nosepass: {
 		num: 299,
@@ -4927,6 +5281,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Probopass"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	skitty: {
 		num: 300,
@@ -4940,6 +5295,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		evos: ["Delcatty"],
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	delcatty: {
 		num: 301,
@@ -4955,6 +5311,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Moon Stone",
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	sableye: {
 		num: 302,
@@ -4968,6 +5325,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 		otherFormes: ["Sableye-Mega"],
 		formeOrder: ["Sableye", "Sableye-Mega"],
+		cfmMoves: [],
 	},
 	sableyemega: {
 		num: 302,
@@ -4982,6 +5340,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Human-Like"],
 		requiredItem: "Sablenite",
+		cfmMoves: [],
 	},
 	mawile: {
 		num: 303,
@@ -4995,6 +5354,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field", "Fairy"],
 		otherFormes: ["Mawile-Mega"],
 		formeOrder: ["Mawile", "Mawile-Mega"],
+		cfmMoves: [],
 	},
 	mawilemega: {
 		num: 303,
@@ -5009,6 +5369,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		eggGroups: ["Field", "Fairy"],
 		requiredItem: "Mawilite",
+		cfmMoves: [],
 	},
 	aron: {
 		num: 304,
@@ -5021,6 +5382,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Lairon"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	lairon: {
 		num: 305,
@@ -5035,6 +5397,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 32,
 		evos: ["Aggron"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	aggron: {
 		num: 306,
@@ -5050,6 +5413,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster"],
 		otherFormes: ["Aggron-Mega"],
 		formeOrder: ["Aggron", "Aggron-Mega"],
+		cfmMoves: [],
 	},
 	aggronmega: {
 		num: 306,
@@ -5064,6 +5428,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		eggGroups: ["Monster"],
 		requiredItem: "Aggronite",
+		cfmMoves: [],
 	},
 	meditite: {
 		num: 307,
@@ -5076,6 +5441,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Medicham"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	medicham: {
 		num: 308,
@@ -5091,6 +5457,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 		otherFormes: ["Medicham-Mega"],
 		formeOrder: ["Medicham", "Medicham-Mega"],
+		cfmMoves: [],
 	},
 	medichammega: {
 		num: 308,
@@ -5105,6 +5472,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Human-Like"],
 		requiredItem: "Medichamite",
+		cfmMoves: [],
 	},
 	electrike: {
 		num: 309,
@@ -5117,6 +5485,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Manectric"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	manectric: {
 		num: 310,
@@ -5132,6 +5501,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Manectric-Mega"],
 		formeOrder: ["Manectric", "Manectric-Mega"],
+		cfmMoves: [],
 	},
 	manectricmega: {
 		num: 310,
@@ -5146,6 +5516,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Field"],
 		requiredItem: "Manectite",
+		cfmMoves: [],
 	},
 	plusle: {
 		num: 311,
@@ -5157,6 +5528,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 4.2,
 		color: "Yellow",
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	minun: {
 		num: 312,
@@ -5168,6 +5540,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 4.2,
 		color: "Yellow",
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	volbeat: {
 		num: 313,
@@ -5181,6 +5554,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Gray",
 		eggGroups: ["Bug", "Human-Like"],
+		cfmMoves: [],
 	},
 	illumise: {
 		num: 314,
@@ -5194,6 +5568,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Purple",
 		eggGroups: ["Bug", "Human-Like"],
+		cfmMoves: [],
 	},
 	roselia: {
 		num: 315,
@@ -5210,6 +5585,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Roserade"],
 		eggGroups: ["Fairy", "Grass"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	gulpin: {
 		num: 316,
@@ -5222,6 +5598,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Swalot"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	swalot: {
 		num: 317,
@@ -5235,6 +5612,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Gulpin",
 		evoLevel: 26,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	carvanha: {
 		num: 318,
@@ -5247,6 +5625,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Sharpedo"],
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	sharpedo: {
 		num: 319,
@@ -5262,6 +5641,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 2"],
 		otherFormes: ["Sharpedo-Mega"],
 		formeOrder: ["Sharpedo", "Sharpedo-Mega"],
+		cfmMoves: [],
 	},
 	sharpedomega: {
 		num: 319,
@@ -5276,6 +5656,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Water 2"],
 		requiredItem: "Sharpedonite",
+		cfmMoves: [],
 	},
 	wailmer: {
 		num: 320,
@@ -5288,6 +5669,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Wailord"],
 		eggGroups: ["Field", "Water 2"],
+		cfmMoves: [],
 	},
 	wailord: {
 		num: 321,
@@ -5301,6 +5683,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Wailmer",
 		evoLevel: 40,
 		eggGroups: ["Field", "Water 2"],
+		cfmMoves: [],
 	},
 	numel: {
 		num: 322,
@@ -5313,6 +5696,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		evos: ["Camerupt"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	camerupt: {
 		num: 323,
@@ -5328,6 +5712,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Camerupt-Mega"],
 		formeOrder: ["Camerupt", "Camerupt-Mega"],
+		cfmMoves: [],
 	},
 	cameruptmega: {
 		num: 323,
@@ -5342,6 +5727,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Field"],
 		requiredItem: "Cameruptite",
+		cfmMoves: [],
 	},
 	torkoal: {
 		num: 324,
@@ -5353,6 +5739,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 80.4,
 		color: "Brown",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	spoink: {
 		num: 325,
@@ -5365,6 +5752,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		evos: ["Grumpig"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	grumpig: {
 		num: 326,
@@ -5378,6 +5766,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Spoink",
 		evoLevel: 32,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	spinda: {
 		num: 327,
@@ -5389,6 +5778,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 5,
 		color: "Brown",
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	trapinch: {
 		num: 328,
@@ -5401,6 +5791,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Vibrava"],
 		eggGroups: ["Bug", "Dragon"],
+		cfmMoves: [],
 	},
 	vibrava: {
 		num: 329,
@@ -5416,6 +5807,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 35,
 		evos: ["Flygon"],
 		eggGroups: ["Bug", "Dragon"],
+		cfmMoves: [],
 	},
 	flygon: {
 		num: 330,
@@ -5430,6 +5822,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Vibrava",
 		evoLevel: 45,
 		eggGroups: ["Bug", "Dragon"],
+		cfmMoves: [],
 	},
 	cacnea: {
 		num: 331,
@@ -5442,6 +5835,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Cacturne"],
 		eggGroups: ["Grass", "Human-Like"],
+		cfmMoves: [],
 	},
 	cacturne: {
 		num: 332,
@@ -5455,6 +5849,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Cacnea",
 		evoLevel: 32,
 		eggGroups: ["Grass", "Human-Like"],
+		cfmMoves: [],
 	},
 	swablu: {
 		num: 333,
@@ -5468,6 +5863,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Altaria"],
 		eggGroups: ["Flying", "Dragon"],
+		cfmMoves: [],
 	},
 	altaria: {
 		num: 334,
@@ -5484,6 +5880,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying", "Dragon"],
 		otherFormes: ["Altaria-Mega"],
 		formeOrder: ["Altaria", "Altaria-Mega"],
+		cfmMoves: [],
 	},
 	altariamega: {
 		num: 334,
@@ -5499,6 +5896,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Flying", "Dragon"],
 		requiredItem: "Altarianite",
+		cfmMoves: [],
 	},
 	zangoose: {
 		num: 335,
@@ -5510,6 +5908,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 40.3,
 		color: "White",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	seviper: {
 		num: 336,
@@ -5521,6 +5920,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 52.5,
 		color: "Black",
 		eggGroups: ["Field", "Dragon"],
+		cfmMoves: [],
 	},
 	lunatone: {
 		num: 337,
@@ -5534,6 +5934,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	solrock: {
 		num: 338,
@@ -5547,6 +5948,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Red",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	barboach: {
 		num: 339,
@@ -5559,6 +5961,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Whiscash"],
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	whiscash: {
 		num: 340,
@@ -5572,6 +5975,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Barboach",
 		evoLevel: 30,
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	corphish: {
 		num: 341,
@@ -5584,6 +5988,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Crawdaunt"],
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	crawdaunt: {
 		num: 342,
@@ -5597,6 +6002,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Corphish",
 		evoLevel: 30,
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	baltoy: {
 		num: 343,
@@ -5611,6 +6017,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Claydol"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	claydol: {
 		num: 344,
@@ -5626,6 +6033,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Baltoy",
 		evoLevel: 36,
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	lileep: {
 		num: 345,
@@ -5639,6 +6047,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Cradily"],
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	cradily: {
 		num: 346,
@@ -5653,6 +6062,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Lileep",
 		evoLevel: 40,
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	anorith: {
 		num: 347,
@@ -5666,6 +6076,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Armaldo"],
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	armaldo: {
 		num: 348,
@@ -5680,6 +6091,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Anorith",
 		evoLevel: 40,
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	feebas: {
 		num: 349,
@@ -5692,6 +6104,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Milotic"],
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	milotic: {
 		num: 350,
@@ -5706,6 +6119,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoItem: "Prism Scale",
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	castform: {
 		num: 351,
@@ -5720,6 +6134,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy", "Amorphous"],
 		otherFormes: ["Castform-Sunny", "Castform-Rainy", "Castform-Snowy"],
 		formeOrder: ["Castform", "Castform-Sunny", "Castform-Rainy", "Castform-Snowy"],
+		cfmMoves: [],
 	},
 	castformsunny: {
 		num: 351,
@@ -5736,6 +6151,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		cfmMoves: [],
 	},
 	castformrainy: {
 		num: 351,
@@ -5752,6 +6168,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		cfmMoves: [],
 	},
 	castformsnowy: {
 		num: 351,
@@ -5768,6 +6185,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		cfmMoves: [],
 	},
 	kecleon: {
 		num: 352,
@@ -5779,6 +6197,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 22,
 		color: "Green",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	shuppet: {
 		num: 353,
@@ -5792,6 +6211,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		evos: ["Banette"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	banette: {
 		num: 354,
@@ -5807,6 +6227,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		otherFormes: ["Banette-Mega"],
 		formeOrder: ["Banette", "Banette-Mega"],
+		cfmMoves: [],
 	},
 	banettemega: {
 		num: 354,
@@ -5821,6 +6242,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Banettite",
+		cfmMoves: [],
 	},
 	duskull: {
 		num: 355,
@@ -5834,6 +6256,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		evos: ["Dusclops"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	dusclops: {
 		num: 356,
@@ -5848,6 +6271,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 37,
 		evos: ["Dusknoir"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	tropius: {
 		num: 357,
@@ -5860,6 +6284,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Green",
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	chimecho: {
 		num: 358,
@@ -5876,6 +6301,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoCondition: "at night",
 		eggGroups: ["Amorphous"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	absol: {
 		num: 359,
@@ -5889,6 +6315,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Absol-Mega"],
 		formeOrder: ["Absol", "Absol-Mega"],
+		cfmMoves: [],
 	},
 	absolmega: {
 		num: 359,
@@ -5903,6 +6330,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Field"],
 		requiredItem: "Absolite",
+		cfmMoves: [],
 	},
 	wynaut: {
 		num: 360,
@@ -5916,6 +6344,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Wobbuffet"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	snorunt: {
 		num: 361,
@@ -5928,6 +6357,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Glalie", "Froslass"],
 		eggGroups: ["Fairy", "Mineral"],
+		cfmMoves: [],
 	},
 	glalie: {
 		num: 362,
@@ -5944,6 +6374,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy", "Mineral"],
 		otherFormes: ["Glalie-Mega"],
 		formeOrder: ["Glalie", "Glalie-Mega"],
+		cfmMoves: [],
 	},
 	glaliemega: {
 		num: 362,
@@ -5959,6 +6390,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		eggGroups: ["Fairy", "Mineral"],
 		requiredItem: "Glalitite",
+		cfmMoves: [],
 	},
 	spheal: {
 		num: 363,
@@ -5971,6 +6403,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Sealeo"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	sealeo: {
 		num: 364,
@@ -5985,6 +6418,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 32,
 		evos: ["Walrein"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	walrein: {
 		num: 365,
@@ -5998,6 +6432,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Sealeo",
 		evoLevel: 44,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	clamperl: {
 		num: 366,
@@ -6010,6 +6445,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Huntail", "Gorebyss"],
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	huntail: {
 		num: 367,
@@ -6024,6 +6460,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoItem: "Deep Sea Tooth",
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	gorebyss: {
 		num: 368,
@@ -6038,6 +6475,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoItem: "Deep Sea Scale",
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	relicanth: {
 		num: 369,
@@ -6050,6 +6488,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 23.4,
 		color: "Gray",
 		eggGroups: ["Water 1", "Water 2"],
+		cfmMoves: [],
 	},
 	luvdisc: {
 		num: 370,
@@ -6062,6 +6501,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 8.7,
 		color: "Pink",
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	bagon: {
 		num: 371,
@@ -6074,6 +6514,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Shelgon"],
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	shelgon: {
 		num: 372,
@@ -6088,6 +6529,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 30,
 		evos: ["Salamence"],
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	salamence: {
 		num: 373,
@@ -6104,6 +6546,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Dragon"],
 		otherFormes: ["Salamence-Mega"],
 		formeOrder: ["Salamence", "Salamence-Mega"],
+		cfmMoves: [],
 	},
 	salamencemega: {
 		num: 373,
@@ -6119,6 +6562,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Dragon"],
 		requiredItem: "Salamencite",
+		cfmMoves: [],
 	},
 	beldum: {
 		num: 374,
@@ -6133,6 +6577,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Metang"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	metang: {
 		num: 375,
@@ -6149,6 +6594,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 20,
 		evos: ["Metagross"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	metagross: {
 		num: 376,
@@ -6165,6 +6611,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 		otherFormes: ["Metagross-Mega"],
 		formeOrder: ["Metagross", "Metagross-Mega"],
+		cfmMoves: [],
 	},
 	metagrossmega: {
 		num: 376,
@@ -6181,6 +6628,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Mineral"],
 		requiredItem: "Metagrossite",
+		cfmMoves: [],
 	},
 	regirock: {
 		num: 377,
@@ -6193,6 +6641,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 230,
 		color: "Brown",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	regice: {
 		num: 378,
@@ -6205,6 +6654,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 175,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	registeel: {
 		num: 379,
@@ -6217,6 +6667,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 205,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	latias: {
 		num: 380,
@@ -6232,6 +6683,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Latias-Mega"],
 		formeOrder: ["Latias", "Latias-Mega"],
+		cfmMoves: [],
 	},
 	latiasmega: {
 		num: 380,
@@ -6248,6 +6700,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Latiasite",
+		cfmMoves: [],
 	},
 	latios: {
 		num: 381,
@@ -6263,6 +6716,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Latios-Mega"],
 		formeOrder: ["Latios", "Latios-Mega"],
+		cfmMoves: [],
 	},
 	latiosmega: {
 		num: 381,
@@ -6279,6 +6733,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Latiosite",
+		cfmMoves: [],
 	},
 	kyogre: {
 		num: 382,
@@ -6293,6 +6748,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Kyogre-Primal"],
 		formeOrder: ["Kyogre", "Kyogre-Primal"],
+		cfmMoves: [],
 	},
 	kyogreprimal: {
 		num: 382,
@@ -6308,6 +6764,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Blue Orb",
+		cfmMoves: [],
 	},
 	groudon: {
 		num: 383,
@@ -6322,6 +6779,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Groudon-Primal"],
 		formeOrder: ["Groudon", "Groudon-Primal"],
+		cfmMoves: [],
 	},
 	groudonprimal: {
 		num: 383,
@@ -6337,6 +6795,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Red Orb",
+		cfmMoves: [],
 	},
 	rayquaza: {
 		num: 384,
@@ -6352,6 +6811,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Rayquaza-Mega"],
 		formeOrder: ["Rayquaza", "Rayquaza-Mega"],
+		cfmMoves: [],
 	},
 	rayquazamega: {
 		num: 384,
@@ -6368,6 +6828,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Undiscovered"],
 		requiredMove: "Dragon Ascent",
+		cfmMoves: [],
 	},
 	jirachi: {
 		num: 385,
@@ -6381,6 +6842,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	deoxys: {
 		num: 386,
@@ -6396,6 +6858,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Deoxys-Attack", "Deoxys-Defense", "Deoxys-Speed"],
 		formeOrder: ["Deoxys", "Deoxys-Attack", "Deoxys-Defense", "Deoxys-Speed"],
+		cfmMoves: [],
 	},
 	deoxysattack: {
 		num: 386,
@@ -6411,6 +6874,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Deoxys",
+		cfmMoves: [],
 	},
 	deoxysdefense: {
 		num: 386,
@@ -6426,6 +6890,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Deoxys",
+		cfmMoves: [],
 	},
 	deoxysspeed: {
 		num: 386,
@@ -6441,6 +6906,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Deoxys",
+		cfmMoves: [],
 	},
 	turtwig: {
 		num: 387,
@@ -6454,6 +6920,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Grotle"],
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	grotle: {
 		num: 388,
@@ -6469,6 +6936,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 18,
 		evos: ["Torterra"],
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	torterra: {
 		num: 389,
@@ -6483,6 +6951,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Grotle",
 		evoLevel: 32,
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	chimchar: {
 		num: 390,
@@ -6496,6 +6965,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Monferno"],
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	monferno: {
 		num: 391,
@@ -6511,6 +6981,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 14,
 		evos: ["Infernape"],
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	infernape: {
 		num: 392,
@@ -6525,6 +6996,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Monferno",
 		evoLevel: 36,
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	piplup: {
 		num: 393,
@@ -6538,6 +7010,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Prinplup"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	prinplup: {
 		num: 394,
@@ -6553,6 +7026,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Empoleon"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	empoleon: {
 		num: 395,
@@ -6567,6 +7041,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Prinplup",
 		evoLevel: 36,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	starly: {
 		num: 396,
@@ -6580,6 +7055,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Staravia"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	staravia: {
 		num: 397,
@@ -6595,6 +7071,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 14,
 		evos: ["Staraptor"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	staraptor: {
 		num: 398,
@@ -6609,6 +7086,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Staravia",
 		evoLevel: 34,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	bidoof: {
 		num: 399,
@@ -6621,6 +7099,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Bibarel"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	bibarel: {
 		num: 400,
@@ -6634,6 +7113,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Bidoof",
 		evoLevel: 15,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	kricketot: {
 		num: 401,
@@ -6646,6 +7126,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Kricketune"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	kricketune: {
 		num: 402,
@@ -6659,6 +7140,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Kricketot",
 		evoLevel: 10,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	shinx: {
 		num: 403,
@@ -6671,6 +7153,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Luxio"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	luxio: {
 		num: 404,
@@ -6685,6 +7168,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 15,
 		evos: ["Luxray"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	luxray: {
 		num: 405,
@@ -6698,6 +7182,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Luxio",
 		evoLevel: 30,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	budew: {
 		num: 406,
@@ -6711,6 +7196,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Roselia"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	roserade: {
 		num: 407,
@@ -6725,6 +7211,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Shiny Stone",
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: [],
 	},
 	cranidos: {
 		num: 408,
@@ -6738,6 +7225,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Rampardos"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	rampardos: {
 		num: 409,
@@ -6752,6 +7240,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Cranidos",
 		evoLevel: 30,
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	shieldon: {
 		num: 410,
@@ -6765,6 +7254,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Bastiodon"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	bastiodon: {
 		num: 411,
@@ -6779,6 +7269,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Shieldon",
 		evoLevel: 30,
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	burmy: {
 		num: 412,
@@ -6794,6 +7285,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 		cosmeticFormes: ["Burmy-Sandy", "Burmy-Trash"],
 		formeOrder: ["Burmy", "Burmy-Sandy", "Burmy-Trash"],
+		cfmMoves: [],
 	},
 	wormadam: {
 		num: 413,
@@ -6811,6 +7303,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 		otherFormes: ["Wormadam-Sandy", "Wormadam-Trash"],
 		formeOrder: ["Wormadam", "Wormadam-Sandy", "Wormadam-Trash"],
+		cfmMoves: [],
 	},
 	wormadamsandy: {
 		num: 413,
@@ -6827,6 +7320,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Burmy",
 		evoLevel: 20,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	wormadamtrash: {
 		num: 413,
@@ -6843,6 +7337,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Burmy",
 		evoLevel: 20,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	mothim: {
 		num: 414,
@@ -6858,6 +7353,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Burmy",
 		evoLevel: 20,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	combee: {
 		num: 415,
@@ -6872,6 +7368,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		evos: ["Vespiquen"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	vespiquen: {
 		num: 416,
@@ -6887,6 +7384,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Combee",
 		evoLevel: 21,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	pachirisu: {
 		num: 417,
@@ -6898,6 +7396,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 3.9,
 		color: "White",
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	buizel: {
 		num: 418,
@@ -6910,6 +7409,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Floatzel"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	floatzel: {
 		num: 419,
@@ -6923,6 +7423,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Buizel",
 		evoLevel: 26,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	cherubi: {
 		num: 420,
@@ -6935,6 +7436,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		evos: ["Cherrim"],
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: [],
 	},
 	cherrim: {
 		num: 421,
@@ -6951,6 +7453,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy", "Grass"],
 		otherFormes: ["Cherrim-Sunshine"],
 		formeOrder: ["Cherrim", "Cherrim-Sunshine"],
+		cfmMoves: [],
 	},
 	cherrimsunshine: {
 		num: 421,
@@ -6966,6 +7469,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy", "Grass"],
 		requiredAbility: "Flower Gift",
 		battleOnly: "Cherrim",
+		cfmMoves: [],
 	},
 	shellos: {
 		num: 422,
@@ -6981,6 +7485,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Amorphous"],
 		cosmeticFormes: ["Shellos-East"],
 		formeOrder: ["Shellos", "Shellos-East"],
+		cfmMoves: [],
 	},
 	gastrodon: {
 		num: 423,
@@ -6997,6 +7502,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Amorphous"],
 		cosmeticFormes: ["Gastrodon-East"],
 		formeOrder: ["Gastrodon", "Gastrodon-East"],
+		cfmMoves: [],
 	},
 	ambipom: {
 		num: 424,
@@ -7011,6 +7517,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelMove",
 		evoMove: "Double Hit",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	drifloon: {
 		num: 425,
@@ -7024,6 +7531,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Drifblim"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	drifblim: {
 		num: 426,
@@ -7038,6 +7546,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Drifloon",
 		evoLevel: 28,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	buneary: {
 		num: 427,
@@ -7050,6 +7559,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Lopunny"],
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	lopunny: {
 		num: 428,
@@ -7065,6 +7575,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field", "Human-Like"],
 		otherFormes: ["Lopunny-Mega"],
 		formeOrder: ["Lopunny", "Lopunny-Mega"],
+		cfmMoves: [],
 	},
 	lopunnymega: {
 		num: 428,
@@ -7079,6 +7590,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Field", "Human-Like"],
 		requiredItem: "Lopunnite",
+		cfmMoves: [],
 	},
 	mismagius: {
 		num: 429,
@@ -7093,6 +7605,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Dusk Stone",
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	honchkrow: {
 		num: 430,
@@ -7108,6 +7621,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Dusk Stone",
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	glameow: {
 		num: 431,
@@ -7121,6 +7635,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Purugly"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	purugly: {
 		num: 432,
@@ -7135,6 +7650,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Glameow",
 		evoLevel: 38,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	chingling: {
 		num: 433,
@@ -7149,6 +7665,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Chimecho"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	stunky: {
 		num: 434,
@@ -7161,6 +7678,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Skuntank"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	skuntank: {
 		num: 435,
@@ -7174,6 +7692,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Stunky",
 		evoLevel: 34,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	bronzor: {
 		num: 436,
@@ -7188,6 +7707,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Bronzong"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	bronzong: {
 		num: 437,
@@ -7203,6 +7723,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Bronzor",
 		evoLevel: 33,
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	bonsly: {
 		num: 438,
@@ -7216,6 +7737,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Sudowoodo"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	mimejr: {
 		num: 439,
@@ -7229,6 +7751,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Mr. Mime", "Mr. Mime-Galar"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	happiny: {
 		num: 440,
@@ -7243,6 +7766,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Chansey"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	chatot: {
 		num: 441,
@@ -7255,6 +7779,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Black",
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	spiritomb: {
 		num: 442,
@@ -7266,6 +7791,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 108,
 		color: "Purple",
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	gible: {
 		num: 443,
@@ -7278,6 +7804,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Gabite"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	gabite: {
 		num: 444,
@@ -7292,6 +7819,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 24,
 		evos: ["Garchomp"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	garchomp: {
 		num: 445,
@@ -7307,6 +7835,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Dragon"],
 		otherFormes: ["Garchomp-Mega"],
 		formeOrder: ["Garchomp", "Garchomp-Mega"],
+		cfmMoves: [],
 	},
 	garchompmega: {
 		num: 445,
@@ -7321,6 +7850,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Garchompite",
+		cfmMoves: [],
 	},
 	munchlax: {
 		num: 446,
@@ -7335,6 +7865,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Snorlax"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	riolu: {
 		num: 447,
@@ -7349,6 +7880,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Lucario"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	lucario: {
 		num: 448,
@@ -7366,6 +7898,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field", "Human-Like"],
 		otherFormes: ["Lucario-Mega"],
 		formeOrder: ["Lucario", "Lucario-Mega"],
+		cfmMoves: [],
 	},
 	lucariomega: {
 		num: 448,
@@ -7381,6 +7914,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Field", "Human-Like"],
 		requiredItem: "Lucarionite",
+		cfmMoves: [],
 	},
 	hippopotas: {
 		num: 449,
@@ -7393,6 +7927,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Hippowdon"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	hippowdon: {
 		num: 450,
@@ -7406,6 +7941,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Hippopotas",
 		evoLevel: 34,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	skorupi: {
 		num: 451,
@@ -7418,6 +7954,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Drapion"],
 		eggGroups: ["Bug", "Water 3"],
+		cfmMoves: [],
 	},
 	drapion: {
 		num: 452,
@@ -7431,6 +7968,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Skorupi",
 		evoLevel: 40,
 		eggGroups: ["Bug", "Water 3"],
+		cfmMoves: [],
 	},
 	croagunk: {
 		num: 453,
@@ -7443,6 +7981,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Toxicroak"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	toxicroak: {
 		num: 454,
@@ -7456,6 +7995,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Croagunk",
 		evoLevel: 37,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	carnivine: {
 		num: 455,
@@ -7467,6 +8007,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 27,
 		color: "Green",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	finneon: {
 		num: 456,
@@ -7479,6 +8020,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Lumineon"],
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	lumineon: {
 		num: 457,
@@ -7492,6 +8034,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Finneon",
 		evoLevel: 31,
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	mantyke: {
 		num: 458,
@@ -7505,6 +8048,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Mantine"],
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
+		cfmMoves: [],
 	},
 	snover: {
 		num: 459,
@@ -7517,6 +8061,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Abomasnow"],
 		eggGroups: ["Monster", "Grass"],
+		cfmMoves: [],
 	},
 	abomasnow: {
 		num: 460,
@@ -7532,6 +8077,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Grass"],
 		otherFormes: ["Abomasnow-Mega"],
 		formeOrder: ["Abomasnow", "Abomasnow-Mega"],
+		cfmMoves: [],
 	},
 	abomasnowmega: {
 		num: 460,
@@ -7546,6 +8092,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Monster", "Grass"],
 		requiredItem: "Abomasite",
+		cfmMoves: [],
 	},
 	weavile: {
 		num: 461,
@@ -7560,6 +8107,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelHold",
 		evoItem: "Razor Claw",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	magnezone: {
 		num: 462,
@@ -7576,6 +8124,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Thunder Stone",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	lickilicky: {
 		num: 463,
@@ -7590,6 +8139,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelMove",
 		evoMove: "Rollout",
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	rhyperior: {
 		num: 464,
@@ -7604,6 +8154,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoItem: "Protector",
 		eggGroups: ["Monster", "Field"],
+		cfmMoves: [],
 	},
 	tangrowth: {
 		num: 465,
@@ -7618,6 +8169,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelMove",
 		evoMove: "Ancient Power",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	electivire: {
 		num: 466,
@@ -7633,6 +8185,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoItem: "Electrizer",
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	magmortar: {
 		num: 467,
@@ -7648,6 +8201,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoItem: "Magmarizer",
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	togekiss: {
 		num: 468,
@@ -7664,6 +8218,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Shiny Stone",
 		eggGroups: ["Flying", "Fairy"],
+		cfmMoves: [],
 	},
 	yanmega: {
 		num: 469,
@@ -7679,6 +8234,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelMove",
 		evoMove: "Ancient Power",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	leafeon: {
 		num: 470,
@@ -7694,6 +8250,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Leaf Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	glaceon: {
 		num: 471,
@@ -7709,6 +8266,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Ice Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	gliscor: {
 		num: 472,
@@ -7725,6 +8283,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoItem: "Razor Fang",
 		evoCondition: "at night",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	mamoswine: {
 		num: 473,
@@ -7739,6 +8298,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelMove",
 		evoMove: "Ancient Power",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	porygonz: {
 		num: 474,
@@ -7755,6 +8315,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoItem: "Dubious Disk",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	gallade: {
 		num: 475,
@@ -7772,6 +8333,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like", "Amorphous"],
 		otherFormes: ["Gallade-Mega"],
 		formeOrder: ["Gallade", "Gallade-Mega"],
+		cfmMoves: [],
 	},
 	gallademega: {
 		num: 475,
@@ -7787,6 +8349,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Amorphous"],
 		requiredItem: "Galladite",
+		cfmMoves: [],
 	},
 	probopass: {
 		num: 476,
@@ -7801,6 +8364,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelExtra",
 		evoCondition: "near a special magnetic field",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	dusknoir: {
 		num: 477,
@@ -7816,6 +8380,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoItem: "Reaper Cloth",
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	froslass: {
 		num: 478,
@@ -7832,6 +8397,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Dawn Stone",
 		eggGroups: ["Fairy", "Mineral"],
+		cfmMoves: [],
 	},
 	rotom: {
 		num: 479,
@@ -7847,6 +8413,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		otherFormes: ["Rotom-Heat", "Rotom-Wash", "Rotom-Frost", "Rotom-Fan", "Rotom-Mow"],
 		formeOrder: ["Rotom", "Rotom-Heat", "Rotom-Wash", "Rotom-Frost", "Rotom-Fan", "Rotom-Mow"],
+		cfmMoves: [],
 	},
 	rotomheat: {
 		num: 479,
@@ -7863,6 +8430,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Amorphous"],
 		changesFrom: "Rotom",
+		cfmMoves: [],
 	},
 	rotomwash: {
 		num: 479,
@@ -7879,6 +8447,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Amorphous"],
 		changesFrom: "Rotom",
+		cfmMoves: [],
 	},
 	rotomfrost: {
 		num: 479,
@@ -7895,6 +8464,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Amorphous"],
 		changesFrom: "Rotom",
+		cfmMoves: [],
 	},
 	rotomfan: {
 		num: 479,
@@ -7911,6 +8481,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Amorphous"],
 		changesFrom: "Rotom",
+		cfmMoves: [],
 	},
 	rotommow: {
 		num: 479,
@@ -7927,6 +8498,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Amorphous"],
 		changesFrom: "Rotom",
+		cfmMoves: [],
 	},
 	uxie: {
 		num: 480,
@@ -7940,6 +8512,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	mesprit: {
 		num: 481,
@@ -7953,6 +8526,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Pink",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	azelf: {
 		num: 482,
@@ -7966,6 +8540,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	dialga: {
 		num: 483,
@@ -7978,6 +8553,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 683,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	palkia: {
 		num: 484,
@@ -7990,6 +8566,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 336,
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	heatran: {
 		num: 485,
@@ -8001,6 +8578,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 430,
 		color: "Brown",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	regigigas: {
 		num: 486,
@@ -8013,6 +8591,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 420,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	giratina: {
 		num: 487,
@@ -8028,6 +8607,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Giratina-Origin"],
 		formeOrder: ["Giratina", "Giratina-Origin"],
+		cfmMoves: [],
 	},
 	giratinaorigin: {
 		num: 487,
@@ -8045,6 +8625,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Griseous Orb",
 		changesFrom: "Giratina",
+		cfmMoves: [],
 	},
 	cresselia: {
 		num: 488,
@@ -8058,6 +8639,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	phione: {
 		num: 489,
@@ -8070,6 +8652,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 3.1,
 		color: "Blue",
 		eggGroups: ["Water 1", "Fairy"],
+		cfmMoves: [],
 	},
 	manaphy: {
 		num: 490,
@@ -8082,6 +8665,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 1.4,
 		color: "Blue",
 		eggGroups: ["Water 1", "Fairy"],
+		cfmMoves: [],
 	},
 	darkrai: {
 		num: 491,
@@ -8095,6 +8679,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Black",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	shaymin: {
 		num: 492,
@@ -8110,6 +8695,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Shaymin-Sky"],
 		formeOrder: ["Shaymin", "Shaymin-Sky"],
+		cfmMoves: [],
 	},
 	shayminsky: {
 		num: 492,
@@ -8126,6 +8712,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Shaymin",
+		cfmMoves: [],
 	},
 	arceus: {
 		num: 493,
@@ -8145,6 +8732,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 			"Arceus", "Arceus-Fighting", "Arceus-Flying", "Arceus-Poison", "Arceus-Ground", "Arceus-Rock", "Arceus-Bug", "Arceus-Ghost", "Arceus-Steel",
 			"Arceus-Fire", "Arceus-Water", "Arceus-Grass", "Arceus-Electric", "Arceus-Psychic", "Arceus-Ice", "Arceus-Dragon", "Arceus-Dark", "Arceus-Fairy",
 		],
+		cfmMoves: [],
 	},
 	arceusbug: {
 		num: 493,
@@ -8162,6 +8750,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Insect Plate", "Buginium Z"],
 		changesFrom: "Arceus",
+		cfmMoves: [],
 	},
 	arceusdark: {
 		num: 493,
@@ -8179,6 +8768,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Dread Plate", "Darkinium Z"],
 		changesFrom: "Arceus",
+		cfmMoves: [],
 	},
 	arceusdragon: {
 		num: 493,
@@ -8196,6 +8786,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Draco Plate", "Dragonium Z"],
 		changesFrom: "Arceus",
+		cfmMoves: [],
 	},
 	arceuselectric: {
 		num: 493,
@@ -8213,6 +8804,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Zap Plate", "Electrium Z"],
 		changesFrom: "Arceus",
+		cfmMoves: [],
 	},
 	arceusfairy: {
 		num: 493,
@@ -8231,6 +8823,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		requiredItems: ["Pixie Plate", "Fairium Z"],
 		changesFrom: "Arceus",
 		gen: 6,
+		cfmMoves: [],
 	},
 	arceusfighting: {
 		num: 493,
@@ -8248,6 +8841,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Fist Plate", "Fightinium Z"],
 		changesFrom: "Arceus",
+		cfmMoves: [],
 	},
 	arceusfire: {
 		num: 493,
@@ -8265,6 +8859,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Flame Plate", "Firium Z"],
 		changesFrom: "Arceus",
+		cfmMoves: [],
 	},
 	arceusflying: {
 		num: 493,
@@ -8282,6 +8877,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Sky Plate", "Flyinium Z"],
 		changesFrom: "Arceus",
+		cfmMoves: [],
 	},
 	arceusghost: {
 		num: 493,
@@ -8299,6 +8895,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Spooky Plate", "Ghostium Z"],
 		changesFrom: "Arceus",
+		cfmMoves: [],
 	},
 	arceusgrass: {
 		num: 493,
@@ -8316,6 +8913,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Meadow Plate", "Grassium Z"],
 		changesFrom: "Arceus",
+		cfmMoves: [],
 	},
 	arceusground: {
 		num: 493,
@@ -8333,6 +8931,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Earth Plate", "Groundium Z"],
 		changesFrom: "Arceus",
+		cfmMoves: [],
 	},
 	arceusice: {
 		num: 493,
@@ -8350,6 +8949,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Icicle Plate", "Icium Z"],
 		changesFrom: "Arceus",
+		cfmMoves: [],
 	},
 	arceuspoison: {
 		num: 493,
@@ -8367,6 +8967,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Toxic Plate", "Poisonium Z"],
 		changesFrom: "Arceus",
+		cfmMoves: [],
 	},
 	arceuspsychic: {
 		num: 493,
@@ -8384,6 +8985,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Mind Plate", "Psychium Z"],
 		changesFrom: "Arceus",
+		cfmMoves: [],
 	},
 	arceusrock: {
 		num: 493,
@@ -8401,6 +9003,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Stone Plate", "Rockium Z"],
 		changesFrom: "Arceus",
+		cfmMoves: [],
 	},
 	arceussteel: {
 		num: 493,
@@ -8418,6 +9021,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Iron Plate", "Steelium Z"],
 		changesFrom: "Arceus",
+		cfmMoves: [],
 	},
 	arceuswater: {
 		num: 493,
@@ -8435,6 +9039,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Splash Plate", "Waterium Z"],
 		changesFrom: "Arceus",
+		cfmMoves: [],
 	},
 	victini: {
 		num: 494,
@@ -8447,6 +9052,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 4,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	snivy: {
 		num: 495,
@@ -8460,6 +9066,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Servine"],
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	servine: {
 		num: 496,
@@ -8475,6 +9082,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 17,
 		evos: ["Serperior"],
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	serperior: {
 		num: 497,
@@ -8489,6 +9097,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Servine",
 		evoLevel: 36,
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	tepig: {
 		num: 498,
@@ -8502,6 +9111,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Pignite"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	pignite: {
 		num: 499,
@@ -8517,6 +9127,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 17,
 		evos: ["Emboar"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	emboar: {
 		num: 500,
@@ -8531,6 +9142,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Pignite",
 		evoLevel: 36,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	oshawott: {
 		num: 501,
@@ -8544,6 +9156,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Dewott"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	dewott: {
 		num: 502,
@@ -8559,6 +9172,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 17,
 		evos: ["Samurott"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	samurott: {
 		num: 503,
@@ -8573,6 +9187,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Dewott",
 		evoLevel: 36,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	patrat: {
 		num: 504,
@@ -8585,6 +9200,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Watchog"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	watchog: {
 		num: 505,
@@ -8598,6 +9214,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Patrat",
 		evoLevel: 20,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	lillipup: {
 		num: 506,
@@ -8610,6 +9227,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Herdier"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	herdier: {
 		num: 507,
@@ -8624,6 +9242,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Stoutland"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	stoutland: {
 		num: 508,
@@ -8637,6 +9256,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Herdier",
 		evoLevel: 32,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	purrloin: {
 		num: 509,
@@ -8649,6 +9269,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Liepard"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	liepard: {
 		num: 510,
@@ -8662,6 +9283,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Purrloin",
 		evoLevel: 20,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	pansage: {
 		num: 511,
@@ -8675,6 +9297,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Simisage"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	simisage: {
 		num: 512,
@@ -8690,6 +9313,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Leaf Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	pansear: {
 		num: 513,
@@ -8703,6 +9327,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Simisear"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	simisear: {
 		num: 514,
@@ -8718,6 +9343,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Fire Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	panpour: {
 		num: 515,
@@ -8731,6 +9357,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Simipour"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	simipour: {
 		num: 516,
@@ -8746,6 +9373,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Water Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	munna: {
 		num: 517,
@@ -8759,6 +9387,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		evos: ["Musharna"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	musharna: {
 		num: 518,
@@ -8774,6 +9403,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Moon Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	pidove: {
 		num: 519,
@@ -8787,6 +9417,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Tranquill"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	tranquill: {
 		num: 520,
@@ -8802,6 +9433,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 21,
 		evos: ["Unfezant"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	unfezant: {
 		num: 521,
@@ -8816,6 +9448,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Tranquill",
 		evoLevel: 32,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	blitzle: {
 		num: 522,
@@ -8828,6 +9461,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		evos: ["Zebstrika"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	zebstrika: {
 		num: 523,
@@ -8841,6 +9475,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Blitzle",
 		evoLevel: 27,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	roggenrola: {
 		num: 524,
@@ -8853,6 +9488,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Boldore"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	boldore: {
 		num: 525,
@@ -8867,6 +9503,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 25,
 		evos: ["Gigalith"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	gigalith: {
 		num: 526,
@@ -8880,6 +9517,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Boldore",
 		evoType: "trade",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	woobat: {
 		num: 527,
@@ -8893,6 +9531,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Swoobat"],
 		eggGroups: ["Flying", "Field"],
+		cfmMoves: [],
 	},
 	swoobat: {
 		num: 528,
@@ -8907,6 +9546,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Woobat",
 		evoType: "levelFriendship",
 		eggGroups: ["Flying", "Field"],
+		cfmMoves: [],
 	},
 	drilbur: {
 		num: 529,
@@ -8919,6 +9559,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Excadrill"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	excadrill: {
 		num: 530,
@@ -8932,6 +9573,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Drilbur",
 		evoLevel: 31,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	audino: {
 		num: 531,
@@ -8945,6 +9587,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy"],
 		otherFormes: ["Audino-Mega"],
 		formeOrder: ["Audino", "Audino-Mega"],
+		cfmMoves: [],
 	},
 	audinomega: {
 		num: 531,
@@ -8959,6 +9602,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Fairy"],
 		requiredItem: "Audinite",
+		cfmMoves: [],
 	},
 	timburr: {
 		num: 532,
@@ -8972,6 +9616,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Gurdurr"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	gurdurr: {
 		num: 533,
@@ -8987,6 +9632,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 25,
 		evos: ["Conkeldurr"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	conkeldurr: {
 		num: 534,
@@ -9001,6 +9647,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Gurdurr",
 		evoType: "trade",
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	tympole: {
 		num: 535,
@@ -9013,6 +9660,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Palpitoad"],
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	palpitoad: {
 		num: 536,
@@ -9027,6 +9675,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 25,
 		evos: ["Seismitoad"],
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	seismitoad: {
 		num: 537,
@@ -9040,6 +9689,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Palpitoad",
 		evoLevel: 36,
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	throh: {
 		num: 538,
@@ -9052,6 +9702,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 55.5,
 		color: "Red",
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	sawk: {
 		num: 539,
@@ -9064,6 +9715,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 51,
 		color: "Blue",
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	sewaddle: {
 		num: 540,
@@ -9076,6 +9728,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		evos: ["Swadloon"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	swadloon: {
 		num: 541,
@@ -9090,6 +9743,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 20,
 		evos: ["Leavanny"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	leavanny: {
 		num: 542,
@@ -9103,6 +9757,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Swadloon",
 		evoType: "levelFriendship",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	venipede: {
 		num: 543,
@@ -9115,6 +9770,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Whirlipede"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	whirlipede: {
 		num: 544,
@@ -9129,6 +9785,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 22,
 		evos: ["Scolipede"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	scolipede: {
 		num: 545,
@@ -9142,6 +9799,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Whirlipede",
 		evoLevel: 30,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	cottonee: {
 		num: 546,
@@ -9155,6 +9813,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Whimsicott"],
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: [],
 	},
 	whimsicott: {
 		num: 547,
@@ -9169,6 +9828,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Sun Stone",
 		eggGroups: ["Fairy", "Grass"],
+		cfmMoves: [],
 	},
 	petilil: {
 		num: 548,
@@ -9183,6 +9843,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Lilligant"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	lilligant: {
 		num: 549,
@@ -9198,6 +9859,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Sun Stone",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	basculin: {
 		num: 550,
@@ -9212,6 +9874,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 2"],
 		otherFormes: ["Basculin-Blue-Striped"],
 		formeOrder: ["Basculin", "Basculin-Blue-Striped"],
+		cfmMoves: [],
 	},
 	basculinbluestriped: {
 		num: 550,
@@ -9225,6 +9888,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 18,
 		color: "Green",
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	sandile: {
 		num: 551,
@@ -9237,6 +9901,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Krokorok"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	krokorok: {
 		num: 552,
@@ -9251,6 +9916,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 29,
 		evos: ["Krookodile"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	krookodile: {
 		num: 553,
@@ -9264,6 +9930,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Krokorok",
 		evoLevel: 40,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	darumaka: {
 		num: 554,
@@ -9278,6 +9945,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Darumaka-Galar"],
 		formeOrder: ["Darumaka", "Darumaka-Galar"],
+		cfmMoves: [],
 	},
 	darumakagalar: {
 		num: 554,
@@ -9292,6 +9960,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Darmanitan-Galar"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	darmanitan: {
 		num: 555,
@@ -9308,6 +9977,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Darmanitan-Zen", "Darmanitan-Galar", "Darmanitan-Galar-Zen"],
 		formeOrder: ["Darmanitan", "Darmanitan-Zen", "Darmanitan-Galar", "Darmanitan-Galar-Zen"],
+		cfmMoves: [],
 	},
 	darmanitanzen: {
 		num: 555,
@@ -9323,6 +9993,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		requiredAbility: "Zen Mode",
 		battleOnly: "Darmanitan",
+		cfmMoves: [],
 	},
 	darmanitangalar: {
 		num: 555,
@@ -9339,6 +10010,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Ice Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	darmanitangalarzen: {
 		num: 555,
@@ -9354,6 +10026,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		requiredAbility: "Zen Mode",
 		battleOnly: "Darmanitan-Galar",
+		cfmMoves: [],
 	},
 	maractus: {
 		num: 556,
@@ -9365,6 +10038,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 28,
 		color: "Green",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	dwebble: {
 		num: 557,
@@ -9377,6 +10051,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Crustle"],
 		eggGroups: ["Bug", "Mineral"],
+		cfmMoves: [],
 	},
 	crustle: {
 		num: 558,
@@ -9390,6 +10065,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Dwebble",
 		evoLevel: 34,
 		eggGroups: ["Bug", "Mineral"],
+		cfmMoves: [],
 	},
 	scraggy: {
 		num: 559,
@@ -9402,6 +10078,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		evos: ["Scrafty"],
 		eggGroups: ["Field", "Dragon"],
+		cfmMoves: [],
 	},
 	scrafty: {
 		num: 560,
@@ -9415,6 +10092,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Scraggy",
 		evoLevel: 39,
 		eggGroups: ["Field", "Dragon"],
+		cfmMoves: [],
 	},
 	sigilyph: {
 		num: 561,
@@ -9426,6 +10104,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 14,
 		color: "Black",
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	yamask: {
 		num: 562,
@@ -9441,6 +10120,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral", "Amorphous"],
 		otherFormes: ["Yamask-Galar"],
 		formeOrder: ["Yamask", "Yamask-Galar"],
+		cfmMoves: [],
 	},
 	yamaskgalar: {
 		num: 562,
@@ -9456,6 +10136,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		evos: ["Runerigus"],
 		eggGroups: ["Mineral", "Amorphous"],
+		cfmMoves: [],
 	},
 	cofagrigus: {
 		num: 563,
@@ -9470,6 +10151,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Yamask",
 		evoLevel: 34,
 		eggGroups: ["Mineral", "Amorphous"],
+		cfmMoves: [],
 	},
 	tirtouga: {
 		num: 564,
@@ -9483,6 +10165,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Carracosta"],
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	carracosta: {
 		num: 565,
@@ -9497,6 +10180,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Tirtouga",
 		evoLevel: 37,
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	archen: {
 		num: 566,
@@ -9511,6 +10195,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		evos: ["Archeops"],
 		eggGroups: ["Flying", "Water 3"],
+		cfmMoves: [],
 	},
 	archeops: {
 		num: 567,
@@ -9526,6 +10211,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Archen",
 		evoLevel: 37,
 		eggGroups: ["Flying", "Water 3"],
+		cfmMoves: [],
 	},
 	trubbish: {
 		num: 568,
@@ -9538,6 +10224,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Garbodor"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	garbodor: {
 		num: 569,
@@ -9551,6 +10238,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Trubbish",
 		evoLevel: 36,
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	zorua: {
 		num: 570,
@@ -9564,6 +10252,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Zoroark"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	zoroark: {
 		num: 571,
@@ -9578,6 +10267,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Zorua",
 		evoLevel: 30,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	minccino: {
 		num: 572,
@@ -9591,6 +10281,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Cinccino"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	cinccino: {
 		num: 573,
@@ -9606,6 +10297,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Shiny Stone",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	gothita: {
 		num: 574,
@@ -9619,6 +10311,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Gothorita"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	gothorita: {
 		num: 575,
@@ -9634,6 +10327,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 32,
 		evos: ["Gothitelle"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	gothitelle: {
 		num: 576,
@@ -9648,6 +10342,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Gothorita",
 		evoLevel: 41,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	solosis: {
 		num: 577,
@@ -9661,6 +10356,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Duosion"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	duosion: {
 		num: 578,
@@ -9676,6 +10372,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 32,
 		evos: ["Reuniclus"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	reuniclus: {
 		num: 579,
@@ -9690,6 +10387,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Duosion",
 		evoLevel: 41,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	ducklett: {
 		num: 580,
@@ -9703,6 +10401,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Swanna"],
 		eggGroups: ["Water 1", "Flying"],
+		cfmMoves: [],
 	},
 	swanna: {
 		num: 581,
@@ -9717,6 +10416,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Ducklett",
 		evoLevel: 35,
 		eggGroups: ["Water 1", "Flying"],
+		cfmMoves: [],
 	},
 	vanillite: {
 		num: 582,
@@ -9730,6 +10430,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Vanillish"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	vanillish: {
 		num: 583,
@@ -9745,6 +10446,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 35,
 		evos: ["Vanilluxe"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	vanilluxe: {
 		num: 584,
@@ -9759,6 +10461,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Vanillish",
 		evoLevel: 47,
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	deerling: {
 		num: 585,
@@ -9774,6 +10477,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		cosmeticFormes: ["Deerling-Summer", "Deerling-Autumn", "Deerling-Winter"],
 		formeOrder: ["Deerling", "Deerling-Summer", "Deerling-Autumn", "Deerling-Winter"],
+		cfmMoves: [],
 	},
 	sawsbuck: {
 		num: 586,
@@ -9790,6 +10494,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		cosmeticFormes: ["Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter"],
 		formeOrder: ["Sawsbuck", "Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter"],
+		cfmMoves: [],
 	},
 	emolga: {
 		num: 587,
@@ -9802,6 +10507,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "White",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	karrablast: {
 		num: 588,
@@ -9814,6 +10520,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Escavalier"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	escavalier: {
 		num: 589,
@@ -9828,6 +10535,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoCondition: "with a Shelmet",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	foongus: {
 		num: 590,
@@ -9840,6 +10548,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Amoonguss"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	amoonguss: {
 		num: 591,
@@ -9853,6 +10562,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Foongus",
 		evoLevel: 39,
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	frillish: {
 		num: 592,
@@ -9865,6 +10575,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Jellicent"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	jellicent: {
 		num: 593,
@@ -9878,6 +10589,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Frillish",
 		evoLevel: 40,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	alomomola: {
 		num: 594,
@@ -9889,6 +10601,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 31.6,
 		color: "Pink",
 		eggGroups: ["Water 1", "Water 2"],
+		cfmMoves: [],
 	},
 	joltik: {
 		num: 595,
@@ -9901,6 +10614,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		evos: ["Galvantula"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	galvantula: {
 		num: 596,
@@ -9914,6 +10628,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Joltik",
 		evoLevel: 36,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	ferroseed: {
 		num: 597,
@@ -9926,6 +10641,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Ferrothorn"],
 		eggGroups: ["Grass", "Mineral"],
+		cfmMoves: [],
 	},
 	ferrothorn: {
 		num: 598,
@@ -9939,6 +10655,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Ferroseed",
 		evoLevel: 40,
 		eggGroups: ["Grass", "Mineral"],
+		cfmMoves: [],
 	},
 	klink: {
 		num: 599,
@@ -9953,6 +10670,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Klang"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	klang: {
 		num: 600,
@@ -9969,6 +10687,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 38,
 		evos: ["Klinklang"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	klinklang: {
 		num: 601,
@@ -9984,6 +10703,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Klang",
 		evoLevel: 49,
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	tynamo: {
 		num: 602,
@@ -9997,6 +10717,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Eelektrik"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	eelektrik: {
 		num: 603,
@@ -10012,6 +10733,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 39,
 		evos: ["Eelektross"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	eelektross: {
 		num: 604,
@@ -10027,6 +10749,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Thunder Stone",
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	elgyem: {
 		num: 605,
@@ -10040,6 +10763,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Beheeyem"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	beheeyem: {
 		num: 606,
@@ -10054,6 +10778,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Elgyem",
 		evoLevel: 42,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	litwick: {
 		num: 607,
@@ -10067,6 +10792,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Lampent"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	lampent: {
 		num: 608,
@@ -10082,6 +10808,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 41,
 		evos: ["Chandelure"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	chandelure: {
 		num: 609,
@@ -10097,6 +10824,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Dusk Stone",
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	axew: {
 		num: 610,
@@ -10109,6 +10837,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Fraxure"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	fraxure: {
 		num: 611,
@@ -10123,6 +10852,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 38,
 		evos: ["Haxorus"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	haxorus: {
 		num: 612,
@@ -10136,6 +10866,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Fraxure",
 		evoLevel: 48,
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	cubchoo: {
 		num: 613,
@@ -10148,6 +10879,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Beartic"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	beartic: {
 		num: 614,
@@ -10161,6 +10893,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Cubchoo",
 		evoLevel: 37,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	cryogonal: {
 		num: 615,
@@ -10174,6 +10907,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Blue",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	shelmet: {
 		num: 616,
@@ -10186,6 +10920,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Accelgor"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	accelgor: {
 		num: 617,
@@ -10200,6 +10935,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoCondition: "with a Karrablast",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	stunfisk: {
 		num: 618,
@@ -10213,6 +10949,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Amorphous"],
 		otherFormes: ["Stunfisk-Galar"],
 		formeOrder: ["Stunfisk", "Stunfisk-Galar"],
+		cfmMoves: [],
 	},
 	stunfiskgalar: {
 		num: 618,
@@ -10226,6 +10963,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 20.5,
 		color: "Green",
 		eggGroups: ["Water 1", "Amorphous"],
+		cfmMoves: [],
 	},
 	mienfoo: {
 		num: 619,
@@ -10238,6 +10976,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		evos: ["Mienshao"],
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	mienshao: {
 		num: 620,
@@ -10251,6 +10990,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Mienfoo",
 		evoLevel: 50,
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	druddigon: {
 		num: 621,
@@ -10262,6 +11002,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 139,
 		color: "Red",
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	golett: {
 		num: 622,
@@ -10275,6 +11016,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Golurk"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	golurk: {
 		num: 623,
@@ -10289,6 +11031,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Golett",
 		evoLevel: 43,
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	pawniard: {
 		num: 624,
@@ -10301,6 +11044,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Bisharp"],
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	bisharp: {
 		num: 625,
@@ -10314,6 +11058,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Pawniard",
 		evoLevel: 52,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	bouffalant: {
 		num: 626,
@@ -10325,6 +11070,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 94.6,
 		color: "Brown",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	rufflet: {
 		num: 627,
@@ -10338,6 +11084,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Braviary"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	braviary: {
 		num: 628,
@@ -10353,6 +11100,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Rufflet",
 		evoLevel: 54,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	vullaby: {
 		num: 629,
@@ -10366,6 +11114,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Mandibuzz"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	mandibuzz: {
 		num: 630,
@@ -10381,6 +11130,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Vullaby",
 		evoLevel: 54,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	heatmor: {
 		num: 631,
@@ -10392,6 +11142,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 58,
 		color: "Red",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	durant: {
 		num: 632,
@@ -10403,6 +11154,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 33,
 		color: "Gray",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	deino: {
 		num: 633,
@@ -10415,6 +11167,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Zweilous"],
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	zweilous: {
 		num: 634,
@@ -10429,6 +11182,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 50,
 		evos: ["Hydreigon"],
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	hydreigon: {
 		num: 635,
@@ -10443,6 +11197,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Zweilous",
 		evoLevel: 64,
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	larvesta: {
 		num: 636,
@@ -10455,6 +11210,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Volcarona"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	volcarona: {
 		num: 637,
@@ -10469,6 +11225,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Larvesta",
 		evoLevel: 59,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	cobalion: {
 		num: 638,
@@ -10481,6 +11238,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 250,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	terrakion: {
 		num: 639,
@@ -10493,6 +11251,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 260,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	virizion: {
 		num: 640,
@@ -10505,6 +11264,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 200,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	tornadus: {
 		num: 641,
@@ -10521,6 +11281,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Tornadus-Therian"],
 		formeOrder: ["Tornadus", "Tornadus-Therian"],
+		cfmMoves: [],
 	},
 	tornadustherian: {
 		num: 641,
@@ -10537,6 +11298,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Tornadus",
+		cfmMoves: [],
 	},
 	thundurus: {
 		num: 642,
@@ -10553,6 +11315,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Thundurus-Therian"],
 		formeOrder: ["Thundurus", "Thundurus-Therian"],
+		cfmMoves: [],
 	},
 	thundurustherian: {
 		num: 642,
@@ -10569,6 +11332,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Thundurus",
+		cfmMoves: [],
 	},
 	reshiram: {
 		num: 643,
@@ -10582,6 +11346,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	zekrom: {
 		num: 644,
@@ -10595,6 +11360,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Black",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	landorus: {
 		num: 645,
@@ -10611,6 +11377,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Landorus-Therian"],
 		formeOrder: ["Landorus", "Landorus-Therian"],
+		cfmMoves: [],
 	},
 	landorustherian: {
 		num: 645,
@@ -10627,6 +11394,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Landorus",
+		cfmMoves: [],
 	},
 	kyurem: {
 		num: 646,
@@ -10641,6 +11409,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Kyurem-Black", "Kyurem-White"],
 		formeOrder: ["Kyurem", "Kyurem-White", "Kyurem-Black"],
+		cfmMoves: [],
 	},
 	kyuremblack: {
 		num: 646,
@@ -10656,6 +11425,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Kyurem",
+		cfmMoves: [],
 	},
 	kyuremwhite: {
 		num: 646,
@@ -10671,6 +11441,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Kyurem",
+		cfmMoves: [],
 	},
 	keldeo: {
 		num: 647,
@@ -10686,6 +11457,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Keldeo-Resolute"],
 		formeOrder: ["Keldeo", "Keldeo-Resolute"],
+		cfmMoves: [],
 	},
 	keldeoresolute: {
 		num: 647,
@@ -10702,6 +11474,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredMove: "Secret Sword",
 		changesFrom: "Keldeo",
+		cfmMoves: [],
 	},
 	meloetta: {
 		num: 648,
@@ -10717,6 +11490,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Meloetta-Pirouette"],
 		formeOrder: ["Meloetta", "Meloetta-Pirouette"],
+		cfmMoves: [],
 	},
 	meloettapirouette: {
 		num: 648,
@@ -10733,6 +11507,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredMove: "Relic Song",
 		battleOnly: "Meloetta",
+		cfmMoves: [],
 	},
 	genesect: {
 		num: 649,
@@ -10747,6 +11522,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Genesect-Douse", "Genesect-Shock", "Genesect-Burn", "Genesect-Chill"],
 		formeOrder: ["Genesect", "Genesect-Douse", "Genesect-Shock", "Genesect-Burn", "Genesect-Chill"],
+		cfmMoves: [],
 	},
 	genesectdouse: {
 		num: 649,
@@ -10763,6 +11539,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Douse Drive",
 		changesFrom: "Genesect",
+		cfmMoves: [],
 	},
 	genesectshock: {
 		num: 649,
@@ -10779,6 +11556,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Shock Drive",
 		changesFrom: "Genesect",
+		cfmMoves: [],
 	},
 	genesectburn: {
 		num: 649,
@@ -10795,6 +11573,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Burn Drive",
 		changesFrom: "Genesect",
+		cfmMoves: [],
 	},
 	genesectchill: {
 		num: 649,
@@ -10811,6 +11590,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Chill Drive",
 		changesFrom: "Genesect",
+		cfmMoves: [],
 	},
 	chespin: {
 		num: 650,
@@ -10824,6 +11604,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Quilladin"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	quilladin: {
 		num: 651,
@@ -10839,6 +11620,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Chesnaught"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	chesnaught: {
 		num: 652,
@@ -10853,6 +11635,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Quilladin",
 		evoLevel: 36,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	fennekin: {
 		num: 653,
@@ -10866,6 +11649,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Braixen"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	braixen: {
 		num: 654,
@@ -10881,6 +11665,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Delphox"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	delphox: {
 		num: 655,
@@ -10895,6 +11680,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Braixen",
 		evoLevel: 36,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	froakie: {
 		num: 656,
@@ -10908,6 +11694,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Frogadier"],
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	frogadier: {
 		num: 657,
@@ -10923,6 +11710,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Greninja"],
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	greninja: {
 		num: 658,
@@ -10940,6 +11728,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		otherFormes: ["Greninja-Ash"],
 		// non-activated Greninja-Ash is forme 1, but PS does not currently distinguish it
 		formeOrder: ["Greninja", "Greninja", "Greninja-Ash"],
+		cfmMoves: [],
 	},
 	greninjaash: {
 		num: 658,
@@ -10957,6 +11746,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		requiredAbility: "Battle Bond",
 		battleOnly: "Greninja",
 		gen: 7,
+		cfmMoves: [],
 	},
 	bunnelby: {
 		num: 659,
@@ -10969,6 +11759,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Diggersby"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	diggersby: {
 		num: 660,
@@ -10982,6 +11773,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Bunnelby",
 		evoLevel: 20,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	fletchling: {
 		num: 661,
@@ -10995,6 +11787,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Fletchinder"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	fletchinder: {
 		num: 662,
@@ -11010,6 +11803,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 17,
 		evos: ["Talonflame"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	talonflame: {
 		num: 663,
@@ -11024,6 +11818,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Fletchinder",
 		evoLevel: 35,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	scatterbug: {
 		num: 664,
@@ -11037,6 +11832,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Spewpa"],
 		eggGroups: ["Bug"],
 		// TODO: Scatterbug technically has the same number of formes as Vivillon
+		cfmMoves: [],
 	},
 	spewpa: {
 		num: 665,
@@ -11052,6 +11848,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Vivillon"],
 		eggGroups: ["Bug"],
 		// TODO: Spewpa technically has the same number of formes as Vivillon
+		cfmMoves: [],
 	},
 	vivillon: {
 		num: 666,
@@ -11091,6 +11888,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 			"Vivillon-Fancy",
 			"Vivillon-Pokeball",
 		],
+		cfmMoves: [],
 	},
 	vivillonfancy: {
 		num: 666,
@@ -11105,6 +11903,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Black",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	vivillonpokeball: {
 		num: 666,
@@ -11119,6 +11918,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Black",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	litleo: {
 		num: 667,
@@ -11132,6 +11932,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Pyroar"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	pyroar: {
 		num: 668,
@@ -11146,6 +11947,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Litleo",
 		evoLevel: 35,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	flabebe: {
 		num: 669,
@@ -11162,6 +11964,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy"],
 		cosmeticFormes: ["Flabe\u0301be\u0301-Blue", "Flabe\u0301be\u0301-Orange", "Flabe\u0301be\u0301-White", "Flabe\u0301be\u0301-Yellow"],
 		formeOrder: ["Flabe\u0301be\u0301", "Flabe\u0301be\u0301-Blue", "Flabe\u0301be\u0301-Orange", "Flabe\u0301be\u0301-White", "Flabe\u0301be\u0301-Yellow"],
+		cfmMoves: [],
 	},
 	floette: {
 		num: 670,
@@ -11181,6 +11984,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		otherFormes: ["Floette-Eternal"],
 		cosmeticFormes: ["Floette-Blue", "Floette-Orange", "Floette-White", "Floette-Yellow"],
 		formeOrder: ["Floette", "Floette-Blue", "Floette-Orange", "Floette-White", "Floette-Yellow", "Floette-Eternal"],
+		cfmMoves: [],
 	},
 	floetteeternal: {
 		num: 670,
@@ -11195,6 +11999,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 0.9,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	florges: {
 		num: 671,
@@ -11213,6 +12018,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy"],
 		cosmeticFormes: ["Florges-Blue", "Florges-Orange", "Florges-White", "Florges-Yellow"],
 		formeOrder: ["Florges", "Florges-Blue", "Florges-Orange", "Florges-White", "Florges-Yellow"],
+		cfmMoves: [],
 	},
 	skiddo: {
 		num: 672,
@@ -11225,6 +12031,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Gogoat"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	gogoat: {
 		num: 673,
@@ -11238,6 +12045,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Skiddo",
 		evoLevel: 32,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	pancham: {
 		num: 674,
@@ -11250,6 +12058,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Pangoro"],
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	pangoro: {
 		num: 675,
@@ -11264,6 +12073,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 32,
 		evoCondition: "with a Dark-type in the party",
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	furfrou: {
 		num: 676,
@@ -11289,6 +12099,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 			"Furfrou-Kabuki",
 			"Furfrou-Pharaoh",
 		],
+		cfmMoves: [],
 	},
 	espurr: {
 		num: 677,
@@ -11301,6 +12112,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Meowstic", "Meowstic-F"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	meowstic: {
 		num: 678,
@@ -11318,6 +12130,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Meowstic-F"],
 		formeOrder: ["Meowstic", "Meowstic-F"],
+		cfmMoves: [],
 	},
 	meowsticf: {
 		num: 678,
@@ -11334,6 +12147,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Espurr",
 		evoLevel: 25,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	honedge: {
 		num: 679,
@@ -11347,6 +12161,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Doublade"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	doublade: {
 		num: 680,
@@ -11362,6 +12177,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 35,
 		evos: ["Aegislash"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	aegislash: {
 		num: 681,
@@ -11380,6 +12196,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 		otherFormes: ["Aegislash-Blade"],
 		formeOrder: ["Aegislash", "Aegislash-Blade"],
+		cfmMoves: [],
 	},
 	aegislashblade: {
 		num: 681,
@@ -11396,6 +12213,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 		requiredAbility: "Stance Change",
 		battleOnly: "Aegislash",
+		cfmMoves: [],
 	},
 	spritzee: {
 		num: 682,
@@ -11409,6 +12227,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		evos: ["Aromatisse"],
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	aromatisse: {
 		num: 683,
@@ -11423,6 +12242,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoItem: "Sachet",
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	swirlix: {
 		num: 684,
@@ -11435,6 +12255,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Slurpuff"],
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	slurpuff: {
 		num: 685,
@@ -11449,6 +12270,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoItem: "Whipped Dream",
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	inkay: {
 		num: 686,
@@ -11462,6 +12284,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Malamar"],
 		eggGroups: ["Water 1", "Water 2"],
+		cfmMoves: [],
 	},
 	malamar: {
 		num: 687,
@@ -11476,6 +12299,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 30,
 		evoCondition: "with the console turned upside-down",
 		eggGroups: ["Water 1", "Water 2"],
+		cfmMoves: [],
 	},
 	binacle: {
 		num: 688,
@@ -11488,6 +12312,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Barbaracle"],
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	barbaracle: {
 		num: 689,
@@ -11501,6 +12326,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Binacle",
 		evoLevel: 39,
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	skrelp: {
 		num: 690,
@@ -11513,6 +12339,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Dragalge"],
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	dragalge: {
 		num: 691,
@@ -11526,6 +12353,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Skrelp",
 		evoLevel: 48,
 		eggGroups: ["Water 1", "Dragon"],
+		cfmMoves: [],
 	},
 	clauncher: {
 		num: 692,
@@ -11538,6 +12366,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Clawitzer"],
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	clawitzer: {
 		num: 693,
@@ -11551,6 +12380,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Clauncher",
 		evoLevel: 37,
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	helioptile: {
 		num: 694,
@@ -11563,6 +12393,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		evos: ["Heliolisk"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	heliolisk: {
 		num: 695,
@@ -11577,6 +12408,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Sun Stone",
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	tyrunt: {
 		num: 696,
@@ -11590,6 +12422,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Tyrantrum"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	tyrantrum: {
 		num: 697,
@@ -11604,6 +12437,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Tyrunt",
 		evoLevel: 39,
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	amaura: {
 		num: 698,
@@ -11617,6 +12451,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Aurorus"],
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	aurorus: {
 		num: 699,
@@ -11631,6 +12466,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Amaura",
 		evoLevel: 39,
 		eggGroups: ["Monster"],
+		cfmMoves: [],
 	},
 	sylveon: {
 		num: 700,
@@ -11646,6 +12482,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelExtra",
 		evoCondition: "with a Fairy-type move and two levels of Affection",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	hawlucha: {
 		num: 701,
@@ -11658,6 +12495,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Green",
 		eggGroups: ["Flying", "Human-Like"],
+		cfmMoves: [],
 	},
 	dedenne: {
 		num: 702,
@@ -11669,6 +12507,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 2.2,
 		color: "Yellow",
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	carbink: {
 		num: 703,
@@ -11682,6 +12521,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Gray",
 		eggGroups: ["Fairy", "Mineral"],
+		cfmMoves: [],
 	},
 	goomy: {
 		num: 704,
@@ -11694,6 +12534,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Sliggoo"],
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	sliggoo: {
 		num: 705,
@@ -11708,6 +12549,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 40,
 		evos: ["Goodra"],
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	goodra: {
 		num: 706,
@@ -11721,6 +12563,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Sliggoo",
 		evoLevel: 50,
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	klefki: {
 		num: 707,
@@ -11733,6 +12576,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Gray",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	phantump: {
 		num: 708,
@@ -11746,6 +12590,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Trevenant"],
 		eggGroups: ["Grass", "Amorphous"],
+		cfmMoves: [],
 	},
 	trevenant: {
 		num: 709,
@@ -11759,6 +12604,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Phantump",
 		evoType: "trade",
 		eggGroups: ["Grass", "Amorphous"],
+		cfmMoves: [],
 	},
 	pumpkaboo: {
 		num: 710,
@@ -11775,6 +12621,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		otherFormes: ["Pumpkaboo-Small", "Pumpkaboo-Large", "Pumpkaboo-Super"],
 		formeOrder: ["Pumpkaboo", "Pumpkaboo-Small", "Pumpkaboo-Large", "Pumpkaboo-Super"],
+		cfmMoves: [],
 	},
 	pumpkaboosmall: {
 		num: 710,
@@ -11790,7 +12637,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Gourgeist-Small"],
 		eggGroups: ["Amorphous"],
-		unreleasedHidden: true,
+		cfmMoves: [],
 	},
 	pumpkaboolarge: {
 		num: 710,
@@ -11806,7 +12653,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Gourgeist-Large"],
 		eggGroups: ["Amorphous"],
-		unreleasedHidden: true,
+		cfmMoves: [],
 	},
 	pumpkaboosuper: {
 		num: 710,
@@ -11822,6 +12669,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Gourgeist-Super"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	gourgeist: {
 		num: 711,
@@ -11839,6 +12687,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		otherFormes: ["Gourgeist-Small", "Gourgeist-Large", "Gourgeist-Super"],
 		formeOrder: ["Gourgeist", "Gourgeist-Small", "Gourgeist-Large", "Gourgeist-Super"],
+		cfmMoves: [],
 	},
 	gourgeistsmall: {
 		num: 711,
@@ -11855,7 +12704,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Pumpkaboo-Small",
 		evoType: "trade",
 		eggGroups: ["Amorphous"],
-		unreleasedHidden: true,
+		cfmMoves: [],
 	},
 	gourgeistlarge: {
 		num: 711,
@@ -11872,7 +12721,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Pumpkaboo-Large",
 		evoType: "trade",
 		eggGroups: ["Amorphous"],
-		unreleasedHidden: true,
+		cfmMoves: [],
 	},
 	gourgeistsuper: {
 		num: 711,
@@ -11889,6 +12738,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Pumpkaboo-Super",
 		evoType: "trade",
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	bergmite: {
 		num: 712,
@@ -11901,6 +12751,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Avalugg"],
 		eggGroups: ["Monster", "Mineral"],
+		cfmMoves: [],
 	},
 	avalugg: {
 		num: 713,
@@ -11914,6 +12765,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Bergmite",
 		evoLevel: 37,
 		eggGroups: ["Monster", "Mineral"],
+		cfmMoves: [],
 	},
 	noibat: {
 		num: 714,
@@ -11927,6 +12779,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Noivern"],
 		eggGroups: ["Flying", "Dragon"],
+		cfmMoves: [],
 	},
 	noivern: {
 		num: 715,
@@ -11941,6 +12794,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Noibat",
 		evoLevel: 48,
 		eggGroups: ["Flying", "Dragon"],
+		cfmMoves: [],
 	},
 	xerneas: {
 		num: 716,
@@ -11970,6 +12824,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 215,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	yveltal: {
 		num: 717,
@@ -11983,6 +12838,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	zygarde: {
 		num: 718,
@@ -11999,6 +12855,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		otherFormes: ["Zygarde-10%", "Zygarde-Complete"],
 		 // forme 2 = 10% with Power Constructor ,forme 3 = 50% with Power Construct
 		formeOrder: ["Zygarde", "Zygarde-10%", "Zygarde-10%", "Zygarde", "Zygarde-Complete"],
+		cfmMoves: [],
 	},
 	zygarde10: {
 		num: 718,
@@ -12015,6 +12872,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Zygarde",
 		gen: 7,
+		cfmMoves: [],
 	},
 	zygardecomplete: {
 		num: 718,
@@ -12032,6 +12890,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		requiredAbility: "Power Construct",
 		battleOnly: ["Zygarde", "Zygarde-10%"],
 		gen: 7,
+		cfmMoves: [],
 	},
 	diancie: {
 		num: 719,
@@ -12047,6 +12906,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Diancie-Mega"],
 		formeOrder: ["Diancie", "Diancie-Mega"],
+		cfmMoves: [],
 	},
 	dianciemega: {
 		num: 719,
@@ -12063,6 +12923,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Diancite",
+		cfmMoves: [],
 	},
 	hoopa: {
 		num: 720,
@@ -12079,6 +12940,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Hoopa-Unbound"],
 		formeOrder: ["Hoopa", "Hoopa-Unbound"],
+		cfmMoves: [],
 	},
 	hoopaunbound: {
 		num: 720,
@@ -12095,6 +12957,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Hoopa",
+		cfmMoves: [],
 	},
 	volcanion: {
 		num: 721,
@@ -12107,6 +12970,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 195,
 		color: "Brown",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	rowlet: {
 		num: 722,
@@ -12121,6 +12985,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Dartrix"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	dartrix: {
 		num: 723,
@@ -12137,6 +13002,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 17,
 		evos: ["Decidueye"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	decidueye: {
 		num: 724,
@@ -12152,6 +13018,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Dartrix",
 		evoLevel: 34,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	litten: {
 		num: 725,
@@ -12165,6 +13032,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Torracat"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	torracat: {
 		num: 726,
@@ -12180,6 +13048,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 17,
 		evos: ["Incineroar"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	incineroar: {
 		num: 727,
@@ -12194,6 +13063,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Torracat",
 		evoLevel: 34,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	popplio: {
 		num: 728,
@@ -12207,6 +13077,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Brionne"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	brionne: {
 		num: 729,
@@ -12222,6 +13093,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 17,
 		evos: ["Primarina"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	primarina: {
 		num: 730,
@@ -12236,6 +13108,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Brionne",
 		evoLevel: 34,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	pikipek: {
 		num: 731,
@@ -12249,6 +13122,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		evos: ["Trumbeak"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	trumbeak: {
 		num: 732,
@@ -12264,6 +13138,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 14,
 		evos: ["Toucannon"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	toucannon: {
 		num: 733,
@@ -12278,6 +13153,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Trumbeak",
 		evoLevel: 28,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	yungoos: {
 		num: 734,
@@ -12290,6 +13166,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Gumshoos"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	gumshoos: {
 		num: 735,
@@ -12305,6 +13182,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Gumshoos-Totem"],
 		formeOrder: ["Gumshoos", "Gumshoos-Totem"],
+		cfmMoves: [],
 	},
 	gumshoostotem: {
 		num: 735,
@@ -12318,6 +13196,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 60,
 		color: "Brown",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	grubbin: {
 		num: 736,
@@ -12330,6 +13209,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Charjabug"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	charjabug: {
 		num: 737,
@@ -12344,6 +13224,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 20,
 		evos: ["Vikavolt"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	vikavolt: {
 		num: 738,
@@ -12361,6 +13242,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 		otherFormes: ["Vikavolt-Totem"],
 		formeOrder: ["Vikavolt", "Vikavolt-Totem"],
+		cfmMoves: [],
 	},
 	vikavolttotem: {
 		num: 738,
@@ -12375,6 +13257,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Blue",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	crabrawler: {
 		num: 739,
@@ -12387,6 +13270,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Crabominable"],
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	crabominable: {
 		num: 740,
@@ -12401,6 +13285,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelExtra",
 		evoCondition: "at Mount Lanakila",
 		eggGroups: ["Water 3"],
+		cfmMoves: [],
 	},
 	oricorio: {
 		num: 741,
@@ -12417,6 +13302,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying"],
 		otherFormes: ["Oricorio-Pom-Pom", "Oricorio-Pa'u", "Oricorio-Sensu"],
 		formeOrder: ["Oricorio", "Oricorio-Pom-Pom", "Oricorio-Pa'u", "Oricorio-Sensu"],
+		cfmMoves: [],
 	},
 	oricoriopompom: {
 		num: 741,
@@ -12433,6 +13319,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Flying"],
 		changesFrom: "Oricorio",
+		cfmMoves: [],
 	},
 	oricoriopau: {
 		num: 741,
@@ -12449,6 +13336,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		eggGroups: ["Flying"],
 		changesFrom: "Oricorio",
+		cfmMoves: [],
 	},
 	oricoriosensu: {
 		num: 741,
@@ -12465,6 +13353,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Flying"],
 		changesFrom: "Oricorio",
+		cfmMoves: [],
 	},
 	cutiefly: {
 		num: 742,
@@ -12478,6 +13367,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		evos: ["Ribombee"],
 		eggGroups: ["Bug", "Fairy"],
+		cfmMoves: [],
 	},
 	ribombee: {
 		num: 743,
@@ -12494,6 +13384,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug", "Fairy"],
 		otherFormes: ["Ribombee-Totem"],
 		formeOrder: ["Ribombee", "Ribombee-Totem"],
+		cfmMoves: [],
 	},
 	ribombeetotem: {
 		num: 743,
@@ -12508,6 +13399,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Bug", "Fairy"],
+		cfmMoves: [],
 	},
 	rockruff: {
 		num: 744,
@@ -12522,6 +13414,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk"],
 		eggGroups: ["Field"],
 		formeOrder: ["Rockruff", "Rockruff"], // TODO: Rockruff-Dusk
+		cfmMoves: [],
 	},
 	lycanroc: {
 		num: 745,
@@ -12539,6 +13432,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Lycanroc-Midnight", "Lycanroc-Dusk"],
 		formeOrder: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk"],
+		cfmMoves: [],
 	},
 	lycanrocmidnight: {
 		num: 745,
@@ -12555,6 +13449,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 25,
 		evoCondition: "during the night",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	lycanrocdusk: {
 		num: 745,
@@ -12571,6 +13466,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 25,
 		evoCondition: "from a special Rockruff",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	wishiwashi: {
 		num: 746,
@@ -12585,6 +13481,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 2"],
 		otherFormes: ["Wishiwashi-School"],
 		formeOrder: ["Wishiwashi", "Wishiwashi-School"],
+		cfmMoves: [],
 	},
 	wishiwashischool: {
 		num: 746,
@@ -12600,6 +13497,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 2"],
 		requiredAbility: "Schooling",
 		battleOnly: "Wishiwashi",
+		cfmMoves: [],
 	},
 	mareanie: {
 		num: 747,
@@ -12612,6 +13510,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Toxapex"],
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	toxapex: {
 		num: 748,
@@ -12625,6 +13524,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Mareanie",
 		evoLevel: 38,
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	mudbray: {
 		num: 749,
@@ -12637,6 +13537,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Mudsdale"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	mudsdale: {
 		num: 750,
@@ -12650,6 +13551,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Mudbray",
 		evoLevel: 30,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	dewpider: {
 		num: 751,
@@ -12662,6 +13564,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Araquanid"],
 		eggGroups: ["Water 1", "Bug"],
+		cfmMoves: [],
 	},
 	araquanid: {
 		num: 752,
@@ -12677,6 +13580,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Bug"],
 		otherFormes: ["Araquanid-Totem"],
 		formeOrder: ["Araquanid", "Araquanid-Totem"],
+		cfmMoves: [],
 	},
 	araquanidtotem: {
 		num: 752,
@@ -12690,6 +13594,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 217.5,
 		color: "Green",
 		eggGroups: ["Water 1", "Bug"],
+		cfmMoves: [],
 	},
 	fomantis: {
 		num: 753,
@@ -12702,6 +13607,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		evos: ["Lurantis"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	lurantis: {
 		num: 754,
@@ -12717,6 +13623,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Grass"],
 		otherFormes: ["Lurantis-Totem"],
 		formeOrder: ["Lurantis", "Lurantis-Totem"],
+		cfmMoves: [],
 	},
 	lurantistotem: {
 		num: 754,
@@ -12730,6 +13637,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 58,
 		color: "Pink",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	morelull: {
 		num: 755,
@@ -12742,6 +13650,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Shiinotic"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	shiinotic: {
 		num: 756,
@@ -12755,6 +13664,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Morelull",
 		evoLevel: 24,
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	salandit: {
 		num: 757,
@@ -12768,6 +13678,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		evos: ["Salazzle"],
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	salazzle: {
 		num: 758,
@@ -12784,6 +13695,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Dragon"],
 		otherFormes: ["Salazzle-Totem"],
 		formeOrder: ["Salazzle", "Salazzle-Totem"],
+		cfmMoves: [],
 	},
 	salazzletotem: {
 		num: 758,
@@ -12798,6 +13710,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 81,
 		color: "Black",
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	stufful: {
 		num: 759,
@@ -12810,6 +13723,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		evos: ["Bewear"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	bewear: {
 		num: 760,
@@ -12823,6 +13737,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Stufful",
 		evoLevel: 27,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	bounsweet: {
 		num: 761,
@@ -12836,6 +13751,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Steenee"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	steenee: {
 		num: 762,
@@ -12851,6 +13767,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 18,
 		evos: ["Tsareena"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	tsareena: {
 		num: 763,
@@ -12866,6 +13783,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelMove",
 		evoMove: "Stomp",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	comfey: {
 		num: 764,
@@ -12879,6 +13797,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Green",
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	oranguru: {
 		num: 765,
@@ -12890,6 +13809,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 76,
 		color: "White",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	passimian: {
 		num: 766,
@@ -12901,6 +13821,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 82.8,
 		color: "White",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	wimpod: {
 		num: 767,
@@ -12913,6 +13834,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Golisopod"],
 		eggGroups: ["Bug", "Water 3"],
+		cfmMoves: [],
 	},
 	golisopod: {
 		num: 768,
@@ -12926,6 +13848,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Wimpod",
 		evoLevel: 30,
 		eggGroups: ["Bug", "Water 3"],
+		cfmMoves: [],
 	},
 	sandygast: {
 		num: 769,
@@ -12938,6 +13861,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Palossand"],
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	palossand: {
 		num: 770,
@@ -12951,6 +13875,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Sandygast",
 		evoLevel: 42,
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	pyukumuku: {
 		num: 771,
@@ -12962,6 +13887,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 1.2,
 		color: "Black",
 		eggGroups: ["Water 1"],
+		cfmMoves: [],
 	},
 	typenull: {
 		num: 772,
@@ -12975,6 +13901,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Silvally"],
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	silvally: {
 		num: 773,
@@ -12994,6 +13921,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 			"Silvally", "Silvally-Fighting", "Silvally-Flying", "Silvally-Poison", "Silvally-Ground", "Silvally-Rock", "Silvally-Bug", "Silvally-Ghost", "Silvally-Steel",
 			"Silvally-Fire", "Silvally-Water", "Silvally-Grass", "Silvally-Electric", "Silvally-Psychic", "Silvally-Ice", "Silvally-Dragon", "Silvally-Dark", "Silvally-Fairy",
 		],
+		cfmMoves: [],
 	},
 	silvallybug: {
 		num: 773,
@@ -13010,6 +13938,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Bug Memory",
 		changesFrom: "Silvally",
+		cfmMoves: [],
 	},
 	silvallydark: {
 		num: 773,
@@ -13026,6 +13955,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Dark Memory",
 		changesFrom: "Silvally",
+		cfmMoves: [],
 	},
 	silvallydragon: {
 		num: 773,
@@ -13042,6 +13972,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Dragon Memory",
 		changesFrom: "Silvally",
+		cfmMoves: [],
 	},
 	silvallyelectric: {
 		num: 773,
@@ -13058,6 +13989,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Electric Memory",
 		changesFrom: "Silvally",
+		cfmMoves: [],
 	},
 	silvallyfairy: {
 		num: 773,
@@ -13074,6 +14006,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Fairy Memory",
 		changesFrom: "Silvally",
+		cfmMoves: [],
 	},
 	silvallyfighting: {
 		num: 773,
@@ -13090,6 +14023,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Fighting Memory",
 		changesFrom: "Silvally",
+		cfmMoves: [],
 	},
 	silvallyfire: {
 		num: 773,
@@ -13106,6 +14040,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Fire Memory",
 		changesFrom: "Silvally",
+		cfmMoves: [],
 	},
 	silvallyflying: {
 		num: 773,
@@ -13122,6 +14057,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Flying Memory",
 		changesFrom: "Silvally",
+		cfmMoves: [],
 	},
 	silvallyghost: {
 		num: 773,
@@ -13138,6 +14074,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Ghost Memory",
 		changesFrom: "Silvally",
+		cfmMoves: [],
 	},
 	silvallygrass: {
 		num: 773,
@@ -13154,6 +14091,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Grass Memory",
 		changesFrom: "Silvally",
+		cfmMoves: [],
 	},
 	silvallyground: {
 		num: 773,
@@ -13170,6 +14108,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Ground Memory",
 		changesFrom: "Silvally",
+		cfmMoves: [],
 	},
 	silvallyice: {
 		num: 773,
@@ -13186,6 +14125,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Ice Memory",
 		changesFrom: "Silvally",
+		cfmMoves: [],
 	},
 	silvallypoison: {
 		num: 773,
@@ -13202,6 +14142,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Poison Memory",
 		changesFrom: "Silvally",
+		cfmMoves: [],
 	},
 	silvallypsychic: {
 		num: 773,
@@ -13218,6 +14159,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Psychic Memory",
 		changesFrom: "Silvally",
+		cfmMoves: [],
 	},
 	silvallyrock: {
 		num: 773,
@@ -13234,6 +14176,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Rock Memory",
 		changesFrom: "Silvally",
+		cfmMoves: [],
 	},
 	silvallysteel: {
 		num: 773,
@@ -13250,6 +14193,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Steel Memory",
 		changesFrom: "Silvally",
+		cfmMoves: [],
 	},
 	silvallywater: {
 		num: 773,
@@ -13266,6 +14210,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Water Memory",
 		changesFrom: "Silvally",
+		cfmMoves: [],
 	},
 	minior: {
 		num: 774,
@@ -13287,6 +14232,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 			"Minior-Meteor", "Minior-Meteor", "Minior-Meteor", "Minior-Meteor", "Minior-Meteor", "Minior-Meteor", "Minior-Meteor",
 			"Minior", "Minior-Orange", "Minior-Yellow", "Minior-Green", "Minior-Blue", "Minior-Indigo", "Minior-Violet",
 		],
+		cfmMoves: [],
 	},
 	miniormeteor: {
 		num: 774,
@@ -13304,6 +14250,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 		requiredAbility: "Shields Down",
 		battleOnly: "Minior",
+		cfmMoves: [],
 	},
 	komala: {
 		num: 775,
@@ -13315,6 +14262,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 19.9,
 		color: "Blue",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	turtonator: {
 		num: 776,
@@ -13326,6 +14274,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 212,
 		color: "Red",
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	togedemaru: {
 		num: 777,
@@ -13339,6 +14288,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field", "Fairy"],
 		otherFormes: ["Togedemaru-Totem"],
 		formeOrder: ["Togedemaru", "Togedemaru-Totem"],
+		cfmMoves: [],
 	},
 	togedemarutotem: {
 		num: 777,
@@ -13352,6 +14302,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 13,
 		color: "Gray",
 		eggGroups: ["Field", "Fairy"],
+		cfmMoves: [],
 	},
 	mimikyu: {
 		num: 778,
@@ -13366,6 +14317,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		otherFormes: ["Mimikyu-Busted", "Mimikyu-Totem", "Mimikyu-Busted-Totem"],
 		formeOrder: ["Mimikyu", "Mimikyu-Busted", "Mimikyu-Totem", "Mimikyu-Busted-Totem"],
+		cfmMoves: [],
 	},
 	mimikyubusted: {
 		num: 778,
@@ -13381,6 +14333,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		requiredAbility: "Disguise",
 		battleOnly: "Mimikyu",
+		cfmMoves: [],
 	},
 	mimikyutotem: {
 		num: 778,
@@ -13394,6 +14347,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 2.8,
 		color: "Yellow",
 		eggGroups: ["Amorphous"],
+		cfmMoves: [],
 	},
 	mimikyubustedtotem: {
 		num: 778,
@@ -13409,6 +14363,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		requiredAbility: "Disguise",
 		battleOnly: "Mimikyu-Totem",
+		cfmMoves: [],
 	},
 	bruxish: {
 		num: 779,
@@ -13420,6 +14375,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 19,
 		color: "Pink",
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	drampa: {
 		num: 780,
@@ -13431,6 +14387,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 185,
 		color: "White",
 		eggGroups: ["Monster", "Dragon"],
+		cfmMoves: [],
 	},
 	dhelmise: {
 		num: 781,
@@ -13443,6 +14400,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 210,
 		color: "Green",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	jangmoo: {
 		num: 782,
@@ -13455,6 +14413,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Hakamo-o"],
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	hakamoo: {
 		num: 783,
@@ -13469,6 +14428,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 35,
 		evos: ["Kommo-o"],
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	kommoo: {
 		num: 784,
@@ -13484,6 +14444,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Dragon"],
 		otherFormes: ["Kommo-o-Totem"],
 		formeOrder: ["Kommo-o", "Kommo-o-Totem"],
+		cfmMoves: [],
 	},
 	kommoototem: {
 		num: 784,
@@ -13497,6 +14458,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 207.5,
 		color: "Gray",
 		eggGroups: ["Dragon"],
+		cfmMoves: [],
 	},
 	tapukoko: {
 		num: 785,
@@ -13510,6 +14472,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	tapulele: {
 		num: 786,
@@ -13523,6 +14486,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Pink",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	tapubulu: {
 		num: 787,
@@ -13536,6 +14500,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	tapufini: {
 		num: 788,
@@ -13549,6 +14514,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	cosmog: {
 		num: 789,
@@ -13563,6 +14529,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Cosmoem"],
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	cosmoem: {
 		num: 790,
@@ -13579,6 +14546,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 43,
 		evos: ["Solgaleo", "Lunala"],
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	solgaleo: {
 		num: 791,
@@ -13594,6 +14562,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Cosmoem",
 		evoLevel: 53,
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	lunala: {
 		num: 792,
@@ -13609,6 +14578,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Cosmoem",
 		evoLevel: 53,
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	nihilego: {
 		num: 793,
@@ -13622,6 +14592,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	buzzwole: {
 		num: 794,
@@ -13634,6 +14605,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 333.6,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	pheromosa: {
 		num: 795,
@@ -13646,6 +14618,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 25,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	xurkitree: {
 		num: 796,
@@ -13658,6 +14631,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 100,
 		color: "Black",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	celesteela: {
 		num: 797,
@@ -13671,6 +14645,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	kartana: {
 		num: 798,
@@ -13684,6 +14659,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	guzzlord: {
 		num: 799,
@@ -13696,6 +14672,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 888,
 		color: "Black",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	necrozma: {
 		num: 800,
@@ -13711,6 +14688,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Necrozma-Dusk-Mane", "Necrozma-Dawn-Wings", "Necrozma-Ultra"],
 		formeOrder: ["Necrozma", "Necrozma-Dusk-Mane", "Necrozma-Dawn-Wings", "Necrozma-Ultra"],
+		cfmMoves: [],
 	},
 	necrozmaduskmane: {
 		num: 800,
@@ -13727,6 +14705,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Necrozma",
+		cfmMoves: [],
 	},
 	necrozmadawnwings: {
 		num: 800,
@@ -13743,6 +14722,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Necrozma",
+		cfmMoves: [],
 	},
 	necrozmaultra: {
 		num: 800,
@@ -13760,6 +14740,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Ultranecrozium Z",
 		battleOnly: ["Necrozma-Dawn-Wings", "Necrozma-Dusk-Mane"],
+		cfmMoves: [],
 	},
 	magearna: {
 		num: 801,
@@ -13774,6 +14755,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Magearna-Original"],
 		formeOrder: ["Magearna", "Magearna-Original"],
+		cfmMoves: [],
 	},
 	magearnaoriginal: {
 		num: 801,
@@ -13788,6 +14770,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 80.5,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	marshadow: {
 		num: 802,
@@ -13800,6 +14783,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 22.2,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	poipole: {
 		num: 803,
@@ -13814,6 +14798,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Naganadel"],
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	naganadel: {
 		num: 804,
@@ -13830,6 +14815,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelMove",
 		evoMove: "Dragon Pulse",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	stakataka: {
 		num: 805,
@@ -13842,6 +14828,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 820,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	blacephalon: {
 		num: 806,
@@ -13854,6 +14841,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 13,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	zeraora: {
 		num: 807,
@@ -13866,6 +14854,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 44.5,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	meltan: {
 		num: 808,
@@ -13878,6 +14867,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 8,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	melmetal: {
 		num: 809,
@@ -13890,6 +14880,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 800,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	grookey: {
 		num: 810,
@@ -13903,6 +14894,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Thwackey"],
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	thwackey: {
 		num: 811,
@@ -13918,6 +14910,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Rillaboom"],
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	rillaboom: {
 		num: 812,
@@ -13932,6 +14925,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Thwackey",
 		evoLevel: 35,
 		eggGroups: ["Field", "Grass"],
+		cfmMoves: [],
 	},
 	scorbunny: {
 		num: 813,
@@ -13945,6 +14939,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Raboot"],
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	raboot: {
 		num: 814,
@@ -13960,6 +14955,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Cinderace"],
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	cinderace: {
 		num: 815,
@@ -13974,6 +14970,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Raboot",
 		evoLevel: 35,
 		eggGroups: ["Field", "Human-Like"],
+		cfmMoves: [],
 	},
 	sobble: {
 		num: 816,
@@ -13987,6 +14984,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Drizzile"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	drizzile: {
 		num: 817,
@@ -14002,6 +15000,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 16,
 		evos: ["Inteleon"],
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	inteleon: {
 		num: 818,
@@ -14016,6 +15015,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Drizzile",
 		evoLevel: 35,
 		eggGroups: ["Water 1", "Field"],
+		cfmMoves: [],
 	},
 	skwovet: {
 		num: 819,
@@ -14028,6 +15028,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Greedent"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	greedent: {
 		num: 820,
@@ -14041,6 +15042,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Skwovet",
 		evoLevel: 24,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	rookidee: {
 		num: 821,
@@ -14054,6 +15056,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Corvisquire"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	corvisquire: {
 		num: 822,
@@ -14069,6 +15072,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 18,
 		evos: ["Corviknight"],
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	corviknight: {
 		num: 823,
@@ -14083,6 +15087,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Corvisquire",
 		evoLevel: 38,
 		eggGroups: ["Flying"],
+		cfmMoves: [],
 	},
 	blipbug: {
 		num: 824,
@@ -14095,6 +15100,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Dottler"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	dottler: {
 		num: 825,
@@ -14109,6 +15115,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 10,
 		evos: ["Orbeetle"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	orbeetle: {
 		num: 826,
@@ -14123,6 +15130,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Dottler",
 		evoLevel: 30,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	nickit: {
 		num: 827,
@@ -14135,6 +15143,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Thievul"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	thievul: {
 		num: 828,
@@ -14148,6 +15157,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Nickit",
 		evoLevel: 18,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	gossifleur: {
 		num: 829,
@@ -14160,6 +15170,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Eldegoss"],
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	eldegoss: {
 		num: 830,
@@ -14173,6 +15184,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Gossifleur",
 		evoLevel: 20,
 		eggGroups: ["Grass"],
+		cfmMoves: [],
 	},
 	wooloo: {
 		num: 831,
@@ -14185,6 +15197,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Dubwool"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	dubwool: {
 		num: 832,
@@ -14198,6 +15211,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Wooloo",
 		evoLevel: 24,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	chewtle: {
 		num: 833,
@@ -14210,6 +15224,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Drednaw"],
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	drednaw: {
 		num: 834,
@@ -14223,6 +15238,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Chewtle",
 		evoLevel: 22,
 		eggGroups: ["Monster", "Water 1"],
+		cfmMoves: [],
 	},
 	yamper: {
 		num: 835,
@@ -14235,6 +15251,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		evos: ["Boltund"],
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	boltund: {
 		num: 836,
@@ -14248,6 +15265,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Yamper",
 		evoLevel: 25,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	rolycoly: {
 		num: 837,
@@ -14260,6 +15278,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Black",
 		evos: ["Carkol"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	carkol: {
 		num: 838,
@@ -14274,6 +15293,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 18,
 		evos: ["Coalossal"],
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	coalossal: {
 		num: 839,
@@ -14287,6 +15307,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Carkol",
 		evoLevel: 34,
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	applin: {
 		num: 840,
@@ -14299,6 +15320,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Flapple", "Appletun"],
 		eggGroups: ["Grass", "Dragon"],
+		cfmMoves: [],
 	},
 	flapple: {
 		num: 841,
@@ -14314,6 +15336,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Tart Apple",
 		eggGroups: ["Grass", "Dragon"],
+		cfmMoves: [],
 	},
 	appletun: {
 		num: 842,
@@ -14328,6 +15351,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Sweet Apple",
 		eggGroups: ["Grass", "Dragon"],
+		cfmMoves: [],
 	},
 	silicobra: {
 		num: 843,
@@ -14340,6 +15364,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Sandaconda"],
 		eggGroups: ["Field", "Dragon"],
+		cfmMoves: [],
 	},
 	sandaconda: {
 		num: 844,
@@ -14353,6 +15378,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Silicobra",
 		evoLevel: 36,
 		eggGroups: ["Field", "Dragon"],
+		cfmMoves: [],
 	},
 	cramorant: {
 		num: 845,
@@ -14367,6 +15393,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Flying"],
 		otherFormes: ["Cramorant-Gulping", "Cramorant-Gorging"],
 		formeOrder: ["Cramorant", "Cramorant-Gulping", "Cramorant-Gorging"],
+		cfmMoves: [],
 	},
 	cramorantgulping: {
 		num: 845,
@@ -14383,6 +15410,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Flying"],
 		requiredAbility: "Gulp Missile",
 		battleOnly: "Cramorant",
+		cfmMoves: [],
 	},
 	cramorantgorging: {
 		num: 845,
@@ -14399,6 +15427,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Flying"],
 		requiredAbility: "Gulp Missile",
 		battleOnly: "Cramorant",
+		cfmMoves: [],
 	},
 	arrokuda: {
 		num: 846,
@@ -14411,6 +15440,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Barraskewda"],
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	barraskewda: {
 		num: 847,
@@ -14424,6 +15454,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Arrokuda",
 		evoLevel: 26,
 		eggGroups: ["Water 2"],
+		cfmMoves: [],
 	},
 	toxel: {
 		num: 848,
@@ -14436,6 +15467,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Toxtricity", "Toxtricity-Low-Key"],
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	toxtricity: {
 		num: 849,
@@ -14452,6 +15484,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 		otherFormes: ["Toxtricity-Low-Key"],
 		formeOrder: ["Toxtricity", "Toxtricity-Low-Key"],
+		cfmMoves: [],
 	},
 	toxtricitylowkey: {
 		num: 849,
@@ -14467,6 +15500,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Toxel",
 		evoLevel: 30,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	sizzlipede: {
 		num: 850,
@@ -14479,6 +15513,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		evos: ["Centiskorch"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	centiskorch: {
 		num: 851,
@@ -14492,6 +15527,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Sizzlipede",
 		evoLevel: 28,
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	clobbopus: {
 		num: 852,
@@ -14504,6 +15540,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		evos: ["Grapploct"],
 		eggGroups: ["Water 1", "Human-Like"],
+		cfmMoves: [],
 	},
 	grapploct: {
 		num: 853,
@@ -14518,6 +15555,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelMove",
 		evoMove: "Taunt",
 		eggGroups: ["Water 1", "Human-Like"],
+		cfmMoves: [],
 	},
 	sinistea: {
 		num: 854,
@@ -14535,6 +15573,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral", "Amorphous"],
 		otherFormes: ["Sinistea-Antique"],
 		formeOrder: ["Sinistea", "Sinistea-Antique"],
+		cfmMoves: [],
 	},
 	sinisteaantique: {
 		num: 854,
@@ -14550,7 +15589,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Polteageist-Antique"],
 		eggGroups: ["Undiscovered"],
-		unreleasedHidden: true,
+		cfmMoves: [],
 	},
 	polteageist: {
 		num: 855,
@@ -14570,6 +15609,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral", "Amorphous"],
 		otherFormes: ["Polteageist-Antique"],
 		formeOrder: ["Polteageist", "Polteageist-Antique"],
+		cfmMoves: [],
 	},
 	polteageistantique: {
 		num: 855,
@@ -14587,7 +15627,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Chipped Pot",
 		eggGroups: ["Undiscovered"],
-		unreleasedHidden: true,
+		cfmMoves: [],
 	},
 	hatenna: {
 		num: 856,
@@ -14601,6 +15641,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		evos: ["Hattrem"],
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	hattrem: {
 		num: 857,
@@ -14616,6 +15657,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 32,
 		evos: ["Hatterene"],
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	hatterene: {
 		num: 858,
@@ -14630,6 +15672,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Hattrem",
 		evoLevel: 42,
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	impidimp: {
 		num: 859,
@@ -14643,6 +15686,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		evos: ["Morgrem"],
 		eggGroups: ["Fairy", "Human-Like"],
+		cfmMoves: [],
 	},
 	morgrem: {
 		num: 860,
@@ -14658,6 +15702,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 32,
 		evos: ["Grimmsnarl"],
 		eggGroups: ["Fairy", "Human-Like"],
+		cfmMoves: [],
 	},
 	grimmsnarl: {
 		num: 861,
@@ -14672,6 +15717,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Morgrem",
 		evoLevel: 42,
 		eggGroups: ["Fairy", "Human-Like"],
+		cfmMoves: [],
 	},
 	obstagoon: {
 		num: 862,
@@ -14686,6 +15732,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 35,
 		evoCondition: "at night",
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	perrserker: {
 		num: 863,
@@ -14699,6 +15746,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Meowth-Galar",
 		evoLevel: 28,
 		eggGroups: ["Field"],
+		cfmMoves: [],
 	},
 	cursola: {
 		num: 864,
@@ -14713,6 +15761,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Corsola-Galar",
 		evoLevel: 38,
 		eggGroups: ["Water 1", "Water 3"],
+		cfmMoves: [],
 	},
 	sirfetchd: {
 		num: 865,
@@ -14728,6 +15777,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "other",
 		evoCondition: "Land 3 critical hits in 1 battle",
 		eggGroups: ["Flying", "Field"],
+		cfmMoves: [],
 	},
 	mrrime: {
 		num: 866,
@@ -14741,6 +15791,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Mr. Mime-Galar",
 		evoLevel: 42,
 		eggGroups: ["Human-Like"],
+		cfmMoves: [],
 	},
 	runerigus: {
 		num: 867,
@@ -14756,6 +15807,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "other",
 		evoCondition: "Have 49+ HP lost and walk under stone sculpture in Dusty Bowl",
 		eggGroups: ["Mineral", "Amorphous"],
+		cfmMoves: [],
 	},
 	milcery: {
 		num: 868,
@@ -14769,6 +15821,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Alcremie"],
 		eggGroups: ["Fairy", "Amorphous"],
+		cfmMoves: [],
 	},
 	alcremie: {
 		num: 869,
@@ -14787,6 +15840,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy", "Amorphous"],
 		cosmeticFormes: ["Alcremie-Ruby-Cream", "Alcremie-Matcha-Cream", "Alcremie-Mint-Cream", "Alcremie-Lemon-Cream", "Alcremie-Salted-Cream", "Alcremie-Ruby-Swirl", "Alcremie-Caramel-Swirl", "Alcremie-Rainbow-Swirl"],
 		formeOrder: ["Alcremie", "Alcremie-Ruby-Cream", "Alcremie-Matcha-Cream", "Alcremie-Mint-Cream", "Alcremie-Lemon-Cream", "Alcremie-Salted-Cream", "Alcremie-Ruby-Swirl", "Alcremie-Caramel-Swirl", "Alcremie-Rainbow-Swirl"],
+		cfmMoves: [],
 	},
 	falinks: {
 		num: 870,
@@ -14799,6 +15853,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 62,
 		color: "Yellow",
 		eggGroups: ["Fairy", "Mineral"],
+		cfmMoves: [],
 	},
 	pincurchin: {
 		num: 871,
@@ -14810,6 +15865,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 1,
 		color: "Purple",
 		eggGroups: ["Water 1", "Amorphous"],
+		cfmMoves: [],
 	},
 	snom: {
 		num: 872,
@@ -14822,6 +15878,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Frosmoth"],
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	frosmoth: {
 		num: 873,
@@ -14837,6 +15894,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelFriendship",
 		evoCondition: "at night",
 		eggGroups: ["Bug"],
+		cfmMoves: [],
 	},
 	stonjourner: {
 		num: 874,
@@ -14848,6 +15906,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 520,
 		color: "Gray",
 		eggGroups: ["Mineral"],
+		cfmMoves: [],
 	},
 	eiscue: {
 		num: 875,
@@ -14861,6 +15920,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Field"],
 		otherFormes: ["Eiscue-Noice"],
 		formeOrder: ["Eiscue", "Eiscue-Noice"],
+		cfmMoves: [],
 	},
 	eiscuenoice: {
 		num: 875,
@@ -14876,6 +15936,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Field"],
 		requiredAbility: "Ice Face",
 		battleOnly: "Eiscue",
+		cfmMoves: [],
 	},
 	indeedee: {
 		num: 876,
@@ -14891,6 +15952,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy"],
 		otherFormes: ["Indeedee-F"],
 		formeOrder: ["Indeedee", "Indeedee-F"],
+		cfmMoves: [],
 	},
 	indeedeef: {
 		num: 876,
@@ -14905,6 +15967,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 28,
 		color: "Purple",
 		eggGroups: ["Fairy"],
+		cfmMoves: [],
 	},
 	morpeko: {
 		num: 877,
@@ -14918,6 +15981,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field", "Fairy"],
 		otherFormes: ["Morpeko-Hangry"],
 		formeOrder: ["Morpeko", "Morpeko-Hangry"],
+		cfmMoves: [],
 	},
 	morpekohangry: {
 		num: 877,
@@ -14933,6 +15997,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field", "Fairy"],
 		requiredAbility: "Hunger Switch",
 		battleOnly: "Morpeko",
+		cfmMoves: [],
 	},
 	cufant: {
 		num: 878,
@@ -14945,6 +16010,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		evos: ["Copperajah"],
 		eggGroups: ["Field", "Mineral"],
+		cfmMoves: [],
 	},
 	copperajah: {
 		num: 879,
@@ -14958,6 +16024,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Cufant",
 		evoLevel: 34,
 		eggGroups: ["Field", "Mineral"],
+		cfmMoves: [],
 	},
 	dracozolt: {
 		num: 880,
@@ -14970,7 +16037,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 190,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
-		unreleasedHidden: true,
+		cfmMoves: [],
 	},
 	arctozolt: {
 		num: 881,
@@ -14983,7 +16050,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 150,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
-		unreleasedHidden: true,
+		cfmMoves: [],
 	},
 	dracovish: {
 		num: 882,
@@ -14996,7 +16063,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 215,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
-		unreleasedHidden: true,
+		cfmMoves: [],
 	},
 	arctovish: {
 		num: 883,
@@ -15009,7 +16076,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 175,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
-		unreleasedHidden: true,
+		cfmMoves: [],
 	},
 	duraludon: {
 		num: 884,
@@ -15021,6 +16088,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 40,
 		color: "White",
 		eggGroups: ["Mineral", "Dragon"],
+		cfmMoves: [],
 	},
 	dreepy: {
 		num: 885,
@@ -15034,6 +16102,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Drakloak"],
 		eggGroups: ["Amorphous", "Dragon"],
+		cfmMoves: [],
 	},
 	drakloak: {
 		num: 886,
@@ -15049,6 +16118,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 50,
 		evos: ["Dragapult"],
 		eggGroups: ["Amorphous", "Dragon"],
+		cfmMoves: [],
 	},
 	dragapult: {
 		num: 887,
@@ -15063,6 +16133,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Drakloak",
 		evoLevel: 60,
 		eggGroups: ["Amorphous", "Dragon"],
+		cfmMoves: [],
 	},
 	zacian: {
 		num: 888,
@@ -15077,6 +16148,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Zacian-Crowned"],
 		formeOrder: ["Zacian", "Zacian-Crowned"],
+		cfmMoves: [],
 	},
 	zaciancrowned: {
 		num: 888,
@@ -15093,6 +16165,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Rusted Sword",
 		changesFrom: "Zacian",
+		cfmMoves: [],
 	},
 	zamazenta: {
 		num: 889,
@@ -15107,6 +16180,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Zamazenta-Crowned"],
 		formeOrder: ["Zamazenta", "Zamazenta-Crowned"],
+		cfmMoves: [],
 	},
 	zamazentacrowned: {
 		num: 889,
@@ -15123,6 +16197,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Rusted Shield",
 		changesFrom: "Zamazenta",
+		cfmMoves: [],
 	},
 	eternatus: {
 		num: 890,
@@ -15138,6 +16213,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Eternatus-Eternamax"],
 		formeOrder: ["Eternatus", "Eternatus-Eternamax"],
+		cfmMoves: [],
 	},
 	eternatuseternamax: {
 		num: 890,
@@ -15152,6 +16228,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 0,
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 	kubfu: {
 		num: 891,
@@ -15239,5 +16316,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 1590.8,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		cfmMoves: [],
 	},
 };

@@ -1174,7 +1174,7 @@ interface SpeciesData {
 type ModdedSpeciesData = SpeciesData | Partial<Omit<SpeciesData, 'name'>> & {
 	inherit: true,
 	levitates?: boolean,
-	cfm?: boolean,
+	cfmMoves?: string[],
 };
 
 interface SpeciesFormatsData {
