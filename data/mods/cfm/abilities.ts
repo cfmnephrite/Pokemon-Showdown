@@ -51,7 +51,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 91,
 	},
 	aerilate: {
-		shortDesc: "Normal-type moves become Flying; all Flying moves boosted by 20%.",
+		shortDesc: "Normal-type moves become Flying; all Flying-type moves boosted by 20%.",
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
 			if (move.category === 'Status' || this.field.auraBreak()) return;
@@ -921,6 +921,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 27,
 	},
 	electricsurge: {
+		desc: "On switch-in, this Pokemon summons Electric Terrain. While Electric Terrain is active: all Electric-type moves boosted by 25%; Pokemon may be put to sleep, but no Pokemon may use Rest; Ground-types becomes susceptible to Electric-type attacks, but they are resisted.",
 		shortDesc: "On switch-in, this Pokemon summons Electric Terrain.",
 		onStart(source) {
 			this.field.setTerrain('electricterrain');
@@ -928,6 +929,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Electric Surge",
 		rating: 4,
 		num: 226,
+		cfm: true,
 	},
 	emergencyexit: {
 		desc: "When this Pokemon has more than 1/2 its maximum HP and takes damage bringing it to 1/2 or less of its maximum HP, it immediately switches out to a chosen ally. This effect applies after all hits from a multi-hit move; Sheer Force prevents it from activating if the move has a secondary effect. This effect applies to both direct and indirect damage, except Curse and Substitute on use, Belly Drum, Pain Split, and confusion damage.",
@@ -1133,6 +1135,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 218,
 	},
 	forecast: {
+		desc: "Castform transforms depending on the weather. If Rain Dance, Sunny Day or Hail is in Castform's first slot, that corresponding weather will automatically be summoned on switch-in. Any weather summoned in this way, or by Castform manually using Rain Dance, Sunny Dail or Hail, will last until Castform faints, switches out, or another Pokemon changes the weather. This ability cannot be removed, copied or transferred.",
 		shortDesc: "Castform changes the weather with move in slot 1 and transforms.",
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform') return;
@@ -1283,7 +1286,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 177,
 	},
 	galvanize: {
-		shortDesc: "Normal-type moves become Electric; all Electric moves boosted by 20%.",
+		shortDesc: "Normal-type moves become Electric; all Electric-type moves boosted by 20%.",
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
 			if (move.category === 'Status' || this.field.auraBreak()) return;
@@ -1310,7 +1313,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 82,
 	},
 	gooey: {
-		shortDesc: "Contact moves: 50% chance to reduce the target's speed.",
+		shortDesc: "Contact moves: 50% chance to reduce the target's Speed by one stage.",
 		onModifyMove(move) {
 			if (!move || !move.flags['contact'] || move.target === 'self') return;
 			if (!move.secondaries) {
@@ -1382,8 +1385,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Grass Pelt",
 		rating: 0.5,
 		num: 179,
+		cfm: true,
 	},
 	grassysurge: {
+		desc: "On switch-in, this Pokemon summons Grassy Terrain. While Grassy Terrain is active: all Grass-type moves boosted by 25%; all grounded Pokemon recover 1/16th HP per turn; grounded Grass-types, or Pokemon with Grassy Surge, recover 1/8th HP per turn; Grass-types cannot be poisoned (does not cure any existing status).",
 		shortDesc: "On switch-in, this Pokemon summons Grassy Terrain.",
 		onStart(source) {
 			this.field.setTerrain('grassyterrain');
@@ -1391,6 +1396,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Grassy Surge",
 		rating: 4,
 		num: 229,
+		cfm: true,
 	},
 	gulpmissile: {
 		desc: "If this Pokemon is a Cramorant, it changes forme when it hits a target with Surf or uses the first turn of Dive successfully. It becomes Gulping Form with an Arrokuda in its mouth if it has more than 1/2 of its maximum HP remaining, or Gorging Form with a Pikachu in its mouth if it has 1/2 or less of its maximum HP remaining. If Cramorant gets hit in Gulping or Gorging Form, it spits the Arrokuda or Pikachu at its attacker, even if it has no HP remaining. The projectile deals damage equal to 1/4 of the target's maximum HP, rounded down; this damage is blocked by the Magic Guard Ability but not by a substitute. An Arrokuda also lowers the target's Defense by 1 stage, and a Pikachu paralyzes the target. Cramorant will return to normal if it spits out a projectile, switches out, or Dynamaxes.",
@@ -1507,6 +1513,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Heatproof",
 		rating: 2,
 		num: 85,
+		cfm: true,
 	},
 	heavymetal: {
 		shortDesc: "This Pokemon's weight is doubled.",
@@ -1519,7 +1526,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 134,
 	},
 	honeygather: {
-		shortDesc: "At the end of each turn, restore 1/16 of this Pokémon's health.",
+		shortDesc: "At the end of each turn, restore 1/16th of this Pokémon's health.",
 		onResidualOrder: 5,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
@@ -1533,6 +1540,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Honey Gather",
 		rating: 0,
 		num: 118,
+		cfm: true,
 	},
 	hugepower: {
 		shortDesc: "This Pokemon's Attack is doubled.",
@@ -1597,6 +1605,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		cfm: true,
 	},
 	hypercutter: {
+		desc: "This Pokemon's Attack cannot be lowered by either itself, an opponent, or an ally. This Pokemon's contact moves gain a 20% chance to raise the user's Attack by one stage.",
 		shortDesc: "No Attack drops; contact moves: 20% chance to boost Attack.",
 		onBoost(boost, target, source, effect) {
 			if (source && target === source) return;
@@ -1622,9 +1631,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Hyper Cutter",
 		rating: 1.5,
 		num: 52,
+		cfm: true,
 	},
 	icebody: {
-		desc: "If Hail is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This Pokemon takes no damage from Hail.",
+		desc: "If Hail is active, this Pokemon restores 1/6 of its maximum HP, rounded down, at the end of each turn. This Pokemon takes no damage from Hail. There is a 10% chance that any Pokemon attacking this Pokemon with a contact move will be frozen.",
 		shortDesc: "Restores 1/6 HP per turn in Hail; 10% chance to freeze contact attackers.",
 		onWeather(target, source, effect) {
 			if (effect.id === 'hail') {
@@ -1719,6 +1729,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Illuminate",
 		rating: 0,
 		num: 35,
+		cfm: true,
 	},
 	illusion: {
 		desc: "When this Pokemon switches in, it appears as the last unfainted Pokemon in its party until it takes direct damage from another Pokemon's attack. This Pokemon's actual level and HP are displayed instead of those of the mimicked Pokemon.",
@@ -1906,7 +1917,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 160,
 	},
 	ironfist: {
-		desc: "This Pokemon's punch-based attacks have their power multiplied by 1.2.",
+		desc: `This Pokemon's punch-based attacks have their power boosted by 30%. "Punch-based" attacks include Poison Jab, but not Sucker Punch.`,
 		shortDesc: "Boosts the power of punch moves by 30%; does not include Sucker Punch.",
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
@@ -1918,8 +1929,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Iron Fist",
 		rating: 3,
 		num: 89,
+		cfm: true,
 	},
 	justified: {
+		desc: "This Pokemon takes 50% less damage from Dark-type moves, and the higher of its Attack or Sp. Attack is raised by 1 when hit by a Dark-type move.",
 		shortDesc: "If hit by a Dark move; reduces damage taken by 50%, boosts higher offensive stat.",
 		onSourceBasePowerPriority: 7,
 		onSourceBasePower(basePower, attacker, defender, move) {
@@ -2026,6 +2039,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 135,
 	},
 	lightningrod: {
+		desc: "This Pokemon is immune to Electric-type moves, and the higher of its Sp. Attack or Attack is raised by 1 when hit by a Electric-type move.",
 		shortDesc: "Draws in Electric moves; grants immunity, boosts higher of SpA/Atk when hit.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Electric') {
@@ -2049,6 +2063,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Lightning Rod",
 		rating: 3,
 		num: 31,
+		cfm: true,
 	},
 	limber: {
 		shortDesc: "This Pokémon cannot be paralysed or have its Speed reduced.",
@@ -2077,6 +2092,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Limber",
 		rating: 2,
 		num: 7,
+		cfm: true,
 	},
 	liquidooze: {
 		shortDesc: "This Pokemon damages those draining HP from it for as much as they would heal.",
@@ -2093,7 +2109,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 64,
 	},
 	liquidvoice: {
-		shortDesc: "Sound moves become Water-type; all sound moves boosted by 20%",
+		shortDesc: "Sound moves become Water-type; all sound-based moves boosted by 20%",
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
 			if (move.flags['sound']) {
@@ -2165,6 +2181,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 98,
 	},
 	magician: {
+		desc: "If this Pokemon has no item, it is immune to Knock Off, Trick, Switcheroo, Thief, Covet, Bestow. If this Pokemon has no item, it will attempt to steal its target's item with every attack.",
 		shortDesc: "If itemless: steals the target's item; else: avoids Knock Off, Trick etc.",
 		onTryHit(target, source, move) {
 			if (move.target !== 'self' && move.flags['magician']) {
@@ -2188,6 +2205,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Magician",
 		rating: 1.5,
 		num: 170,
+		cfm: true,
 	},
 	magmaarmor: {
 		shortDesc: "This Pokemon takes 1/2 damage from contact moves, 2x damage from Water moves.",
@@ -2200,6 +2218,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Magma Armor",
 		rating: 1,
 		num: 40,
+		cfm: true,
 	},
 	magnetpull: {
 		desc: "Prevents adjacent opposing Steel-type Pokemon from choosing to switch out unless they are immune to trapping.",
@@ -2247,7 +2266,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 178,
 	},
 	merciless: {
-		shortDesc: "This Pokémon's attacks are critical hits if the target has a status condition.",
+		shortDesc: "This Pokémon's attacks are critical hits if the target has any status condition.",
 		onModifyCritRatio(critRatio, source, target) {
 			if (target?.status)
 				return 5;
@@ -2255,6 +2274,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Merciless",
 		rating: 2,
 		num: 196,
+		cfm: true,
 	},
 	mimicry: {
 		shortDesc: "This Pokemon's type changes to match the Terrain. Type reverts when Terrain ends.",
@@ -2311,7 +2331,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 250,
 	},
 	minus: {
-		shortDesc: "Electric moves: 33% chance to boost Atk/Sp. Atk; 66% if partner has Plus.",
+		desc: "Every time this Pokemon uses an Electric-type move, it has a 33% chance to raise the higher of its Sp. Attack and Attack by one stage; this becomes a 66% chance if it has an ally with Plus.",
+		shortDesc: "Electric moves: 33% chance to boost Sp. Atk/Atk; 66% if partner has Plus.",
 		onSourceHit(target, source, move) {
 			if (!move || !target || move.type !== 'Electric') return;
 			let chance = 1;
@@ -2328,6 +2349,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Minus",
 		rating: 0,
 		num: 58,
+		cfm: true,
 	},
 	mirrorarmor: {
 		desc: "When one of this Pokemon's stat stages would be lowered by another Pokemon, that Pokemon's stat stage is lowered instead. This effect does not happen if this Pokemon's stat stage was already -6.",
@@ -2352,6 +2374,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 240,
 	},
 	mistysurge: {
+		desc: "On switch-in, this Pokemon summons Misty Terrain. While Misty Terrain is active: all Fairy-type moves boosted by 25%; grounded Pokemon, or Pokemon with Misty Surge, are protected from status conditions (does not cure existing conditions).",
 		shortDesc: "On switch-in, this Pokemon summons Misty Terrain.",
 		onStart(source) {
 			this.field.setTerrain('mistyterrain');
@@ -2359,6 +2382,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Misty Surge",
 		rating: 4,
 		num: 228,
+		cfm: true,
 	},
 	moldbreaker: {
 		shortDesc: "This Pokémon's moves ignore hindering weather, terrain and target Abilities.",
@@ -2423,8 +2447,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Motor Drive",
 		rating: 3,
 		num: 78,
+		cfm: true,
 	},
 	moxie: {
+		desc: "If this Pokemon attacks and knocks out a target: if the target had more than 75% HP, raises the higher of Attack and Sp. Attack by two stages; if the target had 25% - 75% HP, raises the higher of Attack and Sp. Attack by one stage, if the target had 25% or less HP gives no boosts at all.",
 		shortDesc: "May raise Atk/SpA by up to 2 upon attacking and knocking out a target.",
 		onSourceFaint(target, source, effect) {
 			if (effect && effect.effectType === 'Move' && effect.totalDamage) {
@@ -2438,6 +2464,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Moxie",
 		rating: 3.5,
 		num: 153,
+		cfm: true,
 	},
 	multiscale: {
 		shortDesc: "If this Pokemon is at full HP, damage taken from attacks is halved.",
@@ -2452,6 +2479,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 136,
 	},
 	multitype: {
+		desc: "Arceus changes to the forme corresponding to its held Plate or Z-Crystal. Its ability changes from Multitype to an ability depending on its type: Bug - Tinted Lens; Dark - Intimidate; Dragon - Multiscale; Electric - Lightning Rod; Fairy - Wonder Skin; Fighting - Scrappy; Fire - Mold Breaker; Flying - Keen Eye; Ghost - Cursed Body; Grass - Regenerator; Ground - Sand Stream; Ice - Snow Warning; Poison - Poison Point; Psychic - Inner Focus; Rock:	Solid Rock; Steel - Bulletproof; Water - Water Absorb",
 		shortDesc: "Arceus: type changes to match Plate or Z-Crystal; changes Ability.",
 		// Multitype's type-changing itself is implemented in statuses.js
 		onUpdate(pokemon) {
@@ -2473,6 +2501,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Multitype",
 		rating: 4,
 		num: 121,
+		cfm: true,
 	},
 	mummy: {
 		desc: "Pokemon making contact with this Pokemon have their Ability changed to Mummy. Does not affect the Battle Bond, Comatose, Disguise, Multitype, Power Construct, RKS System, Schooling, Shields Down, Stance Change, and Zen Mode Abilities.",
@@ -2631,8 +2660,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 99,
 	},
 	normalize: {
-		desc: "This Pokemon's moves are changed to be Normal type and have their power multiplied by 1.2. This effect comes before other effects that change a move's type.",
-		shortDesc: "This Pokemon's moves are changed to be Normal type and have 1.2x power.",
+		shortDesc: "This Pokemon's moves are changed to be Normal type and have 1.5x power.",
 		onModifyTypePriority: 1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
@@ -2645,11 +2673,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.normalizeBoosted) return this.chainModify([0x1333, 0x1000]);
+			if (move.normalizeBoosted) return this.chainModify(1.5);
 		},
 		name: "Normalize",
 		rating: 0,
 		num: 96,
+		cfm: true,
 	},
 	oblivious: {
 		desc: "This Pokemon cannot be infatuated or taunted. Gaining this Ability while affected cures it. Immune to Intimidate.",
@@ -2766,6 +2795,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Parental Bond",
 		rating: 4.5,
 		num: 184,
+		cfm: true,
 	},
 	pastelveil: {
 		shortDesc: "This Pokemon and its allies cannot be poisoned. On switch-in, cures poisoned allies.",
@@ -2876,7 +2906,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 53,
 	},
 	pixilate: {
-		shortDesc: "Normal-type moves become Fairy; all Fairy moves boosted by 20%.",
+		shortDesc: "Normal-type moves become Fairy; all Fairy-type moves boosted by 20%.",
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
 			if (move.category === 'Status' || this.field.auraBreak()) return;
@@ -2897,7 +2927,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		cfm: true,
 	},
 	plus: {
-		shortDesc: "Electric moves: 33% chance to boost Atk/Sp. Atk; 66% if partner has Minus.",
+		desc: "Every time this Pokemon uses an Electric-type move, it has a 33% chance to raise the higher of its Sp. Attack and Attack by one stage; this becomes a 66% chance if it has an ally with Minus.",
+		shortDesc: "Electric moves: 33% chance to boost Sp. Atk/Atk; 66% if partner has Minus.",
 		onSourceHit(target, source, move) {
 			if (!move || !target || move.type !== 'Electric') return;
 			let chance = 1;
@@ -2914,6 +2945,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Plus",
 		rating: 0,
 		num: 57,
+		cfm: true,
 	},
 	poisonheal: {
 		desc: "If this Pokemon is poisoned, it restores 1/8 of its maximum HP, rounded down, at the end of each turn instead of losing HP.",
@@ -2943,6 +2975,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 38,
 	},
 	poisontouch: {
+		desc: "If this Pokemon is NOT a Poison-type, the power of its Poison-type attacks is boosted by 50%. This Pokemon's contact moves have a 30% chance to poison their target.",
 		shortDesc: "Contact moves: 30% poison chance; prevents poisoning; non-Poison-types: Poison power +50%.",
 		// upokecenter says this is implemented as an added secondary effect
 		onModifyMove(move) {
@@ -2973,6 +3006,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Poison Touch",
 		rating: 2,
 		num: 143,
+		cfm: true,
 	},
 	powerconstruct: {
 		desc: "If this Pokemon is a Zygarde in its 10% or 50% Forme, it changes to Complete Forme when it has 1/2 or less of its maximum HP at the end of the turn.",
@@ -3055,7 +3089,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 46,
 	},
 	primordialsea: {
-		desc: "On switch-in, the weather becomes heavy rain that prevents damaging Fire-type moves from executing, in addition to all the effects of Rain Dance. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Delta Stream or Desolate Land.",
+		desc: "On switch-in, the weather becomes extremely heavy rain that prevents damaging Fire-type moves from executing (except for Sacred Fire) and boosts the power of Water-type attacks by 50%. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Delta Stream or Primordial Sea. If neither this nor Delta Stream is active, there is a 50% chance for the weather to reset at the end of the turn. If this Pokémon is no longer active, the weather turns to regular rain.",
 		shortDesc: "On switch-in, heavy rain begins until this Ability is not active in battle.",
 		onStart(source) {
 			this.field.setWeather('primordialsea');
@@ -3086,6 +3120,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Primordial Sea",
 		rating: 4.5,
 		num: 189,
+		cfm: true,
 	},
 	prismarmor: {
 		desc: "This Pokemon receives 3/4 damage from supereffective attacks. Moongeist Beam, Sunsteel Strike, and the Mold Breaker, Teravolt, and Turboblaze Abilities cannot ignore this Ability.",
@@ -3128,6 +3163,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 168,
 	},
 	psychicsurge: {
+		desc: "On switch-in, this Pokemon summons Psychic Terrain. While Psychic Terrain is active: all Psychic-type moves boosted by 25%; grounded Pokemon, or Pokemon with Psychic Surge, are protected from priority moves.",
 		shortDesc: "On switch-in, this Pokemon summons Psychic Terrain.",
 		onStart(source) {
 			this.field.setTerrain('psychicterrain');
@@ -3135,6 +3171,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Psychic Surge",
 		rating: 4,
 		num: 227,
+		cfm: true,
 	},
 	punkrock: {
 		desc: "This Pokemon's sound-based moves have their power multiplied by 1.3. This Pokemon takes halved damage from sound-based moves.",
@@ -3168,6 +3205,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Pure Power",
 		rating: 5,
 		num: 74,
+		cfm: true,
 	},
 	queenlymajesty: {
 		desc: "While this Pokemon is active, priority moves from opposing Pokemon targeted at allies are prevented from having an effect.",
@@ -3203,6 +3241,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 259,
 	},
 	quickfeet: {
+		desc: "If this Pokemon is afflicted with status, its Speed is boosted by 50%. Any damage from burn or poison is reduced to 1/16 of this Pokemon's maximum HP.",
 		shortDesc: "If statused (including paralysis), boosts Speed by 50%; reduces burn/poison damage.",
 		onModifySpe(spe, pokemon) {
 			if (pokemon.status) {
@@ -3217,6 +3256,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Quick Feet",
 		rating: 2.5,
 		num: 95,
+		cfm: true,
 	},
 	raindish: {
 		desc: "If Rain Dance is active, this Pokemon restores 1/6 of its maximum HP, rounded down, at the end of each turn.",
@@ -3268,7 +3308,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 222,
 	},
 	reckless: {
-		desc: "This Pokemon's attacks with recoil or crash damage have their power multiplied by 1.2. Does not affect Struggle.",
+		desc: "This Pokemon's attacks with recoil or crash damage have their power multiplied by 1.3. Does not affect Struggle.",
 		shortDesc: "Boosts the power of attacks with recoil/crash damage (except Struggle) by 30%.",
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
@@ -3282,7 +3322,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 120,
 	},
 	refrigerate: {
-		shortDesc: "Normal-type moves become Ice; all Ice moves boosted by 20%.",
+		shortDesc: "Normal-type moves become Ice; all Ice-type moves boosted by 20%.",
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
 			if (move.category === 'Status' || this.field.auraBreak()) return;
