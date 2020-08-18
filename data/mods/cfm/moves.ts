@@ -3785,7 +3785,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	doubleironbash: {
 		num: 742,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 50,
 		category: "Physical",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit. Has a 30% chance to flinch the target.",
 		shortDesc: "Hits twice. 30% chance to flinch.",

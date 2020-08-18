@@ -4778,12 +4778,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	meltan: {
-		tier: "Unreleased",
+		tier: "LC",
 		inherit: true,
 	},
 	melmetal: {
 		randomBattleMoves: ["doubleironbash", "highhorsepower", "icepunch", "thunderpunch", "thunderwave"],
-		tier: "Unreleased",
+		tier: "COU",
 		inherit: true,
 	},
 	grookey: {
