@@ -338,7 +338,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dugtrio: {
 		randomBattleMoves: ["earthquake", "memento", "reversal", "stealthrock", "stoneedge", "substitute"],
-		tier: "COU",
+		tier: "CNU",
 		inherit: true,
 	},
 	dugtrioalola: {
@@ -4139,7 +4139,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zygarde: {
 		isNonstandard: null,
-		tier: "COU",
+		tier: "CUb",
 		inherit: true,
 	},
 	zygarde10: {
@@ -4200,7 +4200,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	incineroar: {
 		randomBattleMoves: ["darkestlariat", "earthquake", "fakeout", "flareblitz", "partingshot", "uturn"],
-		tier: "CRU",
+		tier: "CUU",
 		inherit: true,
 	},
 	popplio: {

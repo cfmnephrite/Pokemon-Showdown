@@ -14426,7 +14426,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Rock",
-		zMove: {effect: 'clearnegativeboost'},
+		zMove: {boost: {accuracy: 1}},
 		contestType: "Tough",
 	},
 	rockslide: {
