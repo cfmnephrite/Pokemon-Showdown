@@ -3847,10 +3847,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	vivillonfancy: {
+		isNonstandard: null,
 		tier: "CNU",
 		inherit: true,
 	},
 	vivillonpokeball: {
+		isNonstandard: null,
 		tier: "CPU",
 		inherit: true,
 	},
