@@ -517,7 +517,7 @@
 "ability":"Insomnia",
 "evs":{"hp":248,"atk":0,"def":0,"spa":0,"spd":84,"spe":176},
 "nature":["Timid"],
-"moves":[["Perish Song"],["Taunt"],["Protect"],["Disable"]]}]},
+"moves":[["Perish Song"],["Taunt"],["Substitute"],["Disable"]]}]},
 "giratina":{"flags":{},"sets":[
 
 {"species":"Giratina",
@@ -1041,7 +1041,7 @@
 "ability":"Air Lock",
 "evs":{"hp":0,"atk":252,"def":0,"spa":4,"spd":0,"spe":252},
 "nature":["Naive"],
-"moves":[["Draco Meteor"],["Dragon Ascent"],["Extreme Speed"],["Earthquake","V-create"]]},
+"moves":[["Draco Meteor"],["Dragon Ascent"],["Extreme Speed"],["Earthquake","Inferno"]]},
 
 {"species":"Rayquaza",
 "gender":"",
@@ -1049,7 +1049,7 @@
 "ability":"Air Lock",
 "evs":{ "hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["Dragon Ascent"],["Extreme Speed"],["V-create"],["Earthquake","Aqua Tail"]]},
+"moves":[["Dragon Ascent"],["Extreme Speed"],["Inferno"],["Earthquake","Aqua Tail"]]},
 
 {"species":"Rayquaza",
 "gender":"",
@@ -1922,7 +1922,7 @@
 "ability":"Adaptability",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Adamant","Jolly"],
-"moves":[["Crabhammer"],["Knock Off"],["Aqua Jet"],["Crunch"]]}]},
+"moves":[["Crabhammer"],["Knock Off"],["Aqua Jet"],["Crunch", "Close Combat"]]}]},
 "delibird":{"flags":{},"sets":[
 
 {"name":"Delibirb",
@@ -2068,50 +2068,6 @@
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Adamant", "Jolly"],
 "moves":[["Dragon Dance"],["Fire Punch","Earthquake"],["Extreme Speed"],["Wing Attack"]]}]},
-"dugtrio":{"flags":{},"sets":[
-
-{"species":"Dugtrio",
-"gender":"",
-"item":"Choice Band",
-"ability":"Arena Trap",
-"evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
-"ivs":{"hp":31,"atk":31,"def":31,"spa":0,"spd":31,"spe":31},
-"nature":["Jolly"],
-"moves":[["Fissure"],["Slash"],["Stone Edge"],["Sucker Punch"]]},
-
-{"species":"Dugtrio",
-"gender":"",
-"item":"Focus Sash",
-"ability":"Arena Trap",
-"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
-"ivs":{"hp":31,"atk":31,"def":31,"spa":31,"spd":31,"spe":31},
-"nature":["Jolly"],
-"moves":[["Fissure"],["Slash"],["Reversal"],["Sucker Punch","Stealth Rock","Memento"]]},
-
-{"species":"Dugtrio",
-"gender":"",
-"item":"Focus Sash",
-"ability":"Arena Trap",
-"evs":{"hp":0,"atk":4,"def":0,"spa":252,"spd":0,"spe":252},
-"ivs":{"hp":31,"atk":31,"def":31,"spa":31,"spd":31,"spe":31},
-"nature":["Hasty"],
-"moves":[["Sludge Wave"],["Slash"],["Hidden Power Ice"],["Ancient Power","Stealth Rock","Memento"]]},
-
-{"species":"Dugtrio",
-"gender":"",
-"item":"Life Orb",
-"ability":"Arena Trap",
-"evs":{"hp":4,"atk":252,"def":0,"spa":0,"spd":0,"spe":252},
-"nature":["Jolly"],
-"moves":[["Slash"],["Substitute","Memento"],["Sucker Punch"],["Stone Edge", "Aerial Ace"]]},
-
-{"species":"Dugtrio",
-"gender":"",
-"item":"Life Orb",
-"ability":"Arena Trap",
-"evs":{"hp":0,"atk":252,"def":0,"spa":4,"spd":0,"spe":252},
-"nature":["Naive"],
-"moves":[["Slash"],["Substitute","Memento"],["Sucker Punch"],["Hidden Power Fire"]]}]},
 "entei":{"flags":{},"sets":[
 
 {"name":"Hentei",
@@ -4265,7 +4221,7 @@
 "ability":["Fluffy"],
 "evs":{"hp":4,"atk":252,"def":0,"spa":0,"spd":252,"spe":0},
 "nature":["Adamant"],
-"moves":[["Facade"],["Superpower"],["Shadow Claw","Ice Punch"],["Drain Punch"]]},
+"moves":[["Facade"],["Close Combat"],["Shadow Claw","Ice Punch"],["Drain Punch"]]},
 
 {"species":"Bewear",
 "gender":"",
@@ -4273,7 +4229,7 @@
 "ability":["Fluffy"],
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["Return"],["Superpower"],["Shadow Claw","Earthquake"],["Facade","Ice Punch"]],
+"moves":[["Return"],["Close Combat"],["Shadow Claw","Earthquake"],["Facade","Ice Punch"]],
 "hapiness":255},
 
 {"species":"Bewear",
@@ -4282,7 +4238,7 @@
 "ability":["Fluffy"],
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["Swords Dance"],["Drain Punch"],["Double-Edge"],["Earthquake"]]}]},
+"moves":[["Swords Dance"],["Drain Punch", "Close Combat"],["Double-Edge"],["Earthquake"]]}]},
 "blissey":{"flags":{},"sets":[
 
 {"species":"Blissey",
@@ -4815,11 +4771,10 @@
 {"species":"Forretress",
 "gender":"",
 "item":"Leftovers",
-"ability":["Sturdy","Battle Armor"],
+"ability":["Rock Head","Battle Armor"],
 "evs":{"hp":248,"atk":0,"def":8,"spa":0,"spd":252,"spe":0},
-"ivs":{"hp":31,"atk":31,"def":31,"spa":31,"spd":31,"spe":0},
-"nature":["Relaxed"],
-"moves":[["Spikes"],["Rapid Spin"],["Gyro Ball"],["U-Turn"]]}]},
+"nature":["Careful"],
+"moves":[["Spikes"],["Rapid Spin"],["Steamroller"],["U-Turn"]]}]},
 "froslass":{"flags":{},"sets":[
 {"species":"Froslass",
 "gender":"",
@@ -6803,6 +6758,23 @@
 "evs":{"hp":236,"atk":252,"def":0,"spa":0,"spd":0,"spe":20},
 "nature":["Adamant"],
 "moves":[["Dragon Claw"],["Sucker Punch"],["Fire Punch"],["Gunk Shot"]]}]},
+"dusknoir":{"flags":{},"sets":[
+
+{"species":"Dusknoir",
+"gender":"",
+"item":"Choice Band",
+"ability":"Infiltrator",
+"evs":{"hp":252,"atk":252,"def":4,"spa":0,"spd":0,"spe":0},
+"nature":["Adamant"],
+"moves":[["Shadow Sneak"],["Poltergeist"],["Drain Punch", "Earthquake"],["Trick"]]},
+
+{"species":"Dusknoir",
+"gender":"",
+"item":"Spell Tag",
+"ability":"Infiltrator",
+"evs":{"hp":252,"atk":252,"def":4,"spa":0,"spd":0,"spe":0},
+"nature":["Adamant"],
+"moves":[["Shadow Sneak"],["Poltergeist"],["Drain Punch", "Earthquake"],["Will-O-Wisp"]]}]},
 "eelektross":{"flags":{},"sets":[
 
 {"species":"Eelektross",
@@ -7175,7 +7147,7 @@
 "ability":"Guts",
 "evs":{"hp":248,"atk":252,"def":0,"spa":0,"spd":8,"spe":0},
 "nature":["Adamant"],
-"moves":[["Bulk Up"],["Drain Punch"],["Knock Off"],["Mach Punch"]]}]},
+"moves":[["Bulk Up"],["Drain Punch"],["Knock Off"],["Poison Jab"]]}]},
 "hitmonlee":{"flags":{},"sets":[
 
 {"species":"Hitmonlee",
@@ -8213,7 +8185,7 @@
 "ability":"Thick Fat",
 "evs":{"hp":0,"atk":252,"def":56,"spa":0,"spd":200,"spe":0},
 "nature":["Adamant"],
-"moves":[["Pursuit"],["Body Slam"],["Earthquake"],["Fire Punch"]]},
+"moves":[["Pursuit"],["Body Slam"],["High Horsepower"],["Fire Punch"]]},
 
 {"species":"Snorlax",
 "gender":"",
@@ -8221,7 +8193,7 @@
 "ability":"Thick Fat",
 "evs":{"hp":0,"atk":252,"def":252,"spa":0,"spd":4,"spe":0},
 "nature":["Adamant"],
-"moves":[["Pursuit"],["Body Slam"],["Earthquake"],["Fire Punch"]]},
+"moves":[["Pursuit"],["Body Slam"],["High Horsepower"],["Fire Punch"]]},
 
 {"species":"Snorlax",
 "gender":"",
@@ -8651,7 +8623,7 @@
 "evs":{"hp":4,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Timid","Modest"],
-"moves":[["Rock Polish"],["Lava Plume"],["Earth Power"],["Scald", "Hidden Power Grass", "Hidden Power Electric"]]},
+"moves":[["Rock Polish"],["Lava Plume"],["Mud Bomb"],["Scald", "Hidden Power Grass", "Hidden Power Electric"]]},
 
 {"species":"Camerupt",
 "gender":"",
@@ -8660,7 +8632,7 @@
 "evs":{"hp":4,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Modest"],
-"moves":[["Rock Polish"],["Lava Plume"],["Earth Power"],["Solar Beam"]]},
+"moves":[["Rock Polish"],["Lava Plume"],["Mud Bomb"],["Solar Beam"]]},
 
 {"species":"Camerupt",
 "gender":"",
@@ -8684,8 +8656,8 @@
 "item":"Leftovers",
 "ability":"Solid Rock",
 "evs":{"hp":252,"atk":0,"def":252,"spa":0,"spd":4,"spe":0},
-"nature":["Relaxed"],
-"moves":[["Stealth Rock"],["Surf"],["Rock Slide"],["Knock Off","Thunder Wave"]]},
+"nature":["Careful"],
+"moves":[["Stealth Rock"],["Liquidation"],["Rock Slide"],["Knock Off","Body Slam"]]},
 
 {"species":"Carracosta",
 "gender":"",
@@ -8928,6 +8900,50 @@
 "nature":["Jolly"],
 "moves":[["Brave Bird"],["U-Turn"],["High Jump Kick"],["Return"]],
 "happiness":255}]},
+"dugtrio":{"flags":{},"sets":[
+
+{"species":"Dugtrio",
+"gender":"",
+"item":"Choice Band",
+"ability":"Sand Veil",
+"evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
+"ivs":{"hp":31,"atk":31,"def":31,"spa":0,"spd":31,"spe":31},
+"nature":["Jolly"],
+"moves":[["Fissure"],["Slash"],["Stone Edge"],["Sucker Punch"]]},
+
+{"species":"Dugtrio",
+"gender":"",
+"item":"Focus Sash",
+"ability":"Sand Veil",
+"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
+"ivs":{"hp":31,"atk":31,"def":31,"spa":31,"spd":31,"spe":31},
+"nature":["Jolly"],
+"moves":[["Fissure"],["Slash"],["Reversal"],["Sucker Punch","Stealth Rock","Memento"]]},
+
+{"species":"Dugtrio",
+"gender":"",
+"item":"Focus Sash",
+"ability":"Sand Veil",
+"evs":{"hp":0,"atk":4,"def":0,"spa":252,"spd":0,"spe":252},
+"ivs":{"hp":31,"atk":31,"def":31,"spa":31,"spd":31,"spe":31},
+"nature":["Hasty"],
+"moves":[["Sludge Wave"],["Slash"],["Hidden Power Ice"],["Ancient Power","Stealth Rock","Memento"]]},
+
+{"species":"Dugtrio",
+"gender":"",
+"item":"Life Orb",
+"ability":"Sand Veil",
+"evs":{"hp":4,"atk":252,"def":0,"spa":0,"spd":0,"spe":252},
+"nature":["Jolly"],
+"moves":[["Slash"],["Substitute","Memento"],["Sucker Punch"],["Stone Edge", "Aerial Ace"]]},
+
+{"species":"Dugtrio",
+"gender":"",
+"item":"Life Orb",
+"ability":"Sand Veil",
+"evs":{"hp":0,"atk":252,"def":0,"spa":4,"spd":0,"spe":252},
+"nature":["Naive"],
+"moves":[["Slash"],["Substitute","Memento"],["Sucker Punch"],["Hidden Power Fire"]]}]},
 "exeggutor":{"flags":{},"sets":[
 
 {"species":"Exeggutor",
@@ -8989,7 +9005,7 @@
 "ability":"Adaptability",
 "evs":{ "hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
 "nature":["Adamant"],
-"moves":[["U-Turn", "Pursuit"],["Quick Attack", "Double-Edge"],["Brave Bird"],["Cross Chop"]]}]},
+"moves":[["U-Turn", "Pursuit", "First Impression"],["Quick Attack", "Double-Edge"],["Brave Bird"],["Cross Chop"]]}]},
 "ferroseed":{"flags":{},"sets":[
 
 {"species":"Ferroseed",
@@ -9092,7 +9108,7 @@
 "ability":"Iron Fist",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Adamant"],
-"moves":[["Shadow Punch"],["Earthquake"],["Ice Punch"],["Zen Headbutt","Thunder Punch"]]},
+"moves":[["Shadow Punch"],["High Horsepower"],["Ice Punch"],["Zen Headbutt","Thunder Punch"]]},
 
 {"species":"Golurk",
 "gender":"",
@@ -9100,7 +9116,7 @@
 "ability":"Iron Fist",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Adamant"],
-"moves":[["Thunder Punch"],["Earthquake"],["Shadow Punch"],["Ice Punch"]]},
+"moves":[["Thunder Punch"],["High Horsepower"],["Shadow Punch"],["Ice Punch"]]},
 
 {"species":"Golurk",
 "gender":"",
@@ -9108,7 +9124,7 @@
 "ability":"Iron Fist",
 "evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
 "nature":["Adamant"],
-"moves":[["Rock Polish"],["Earthquake"],["Shadow Punch"],["Ice Punch"]]}]},
+"moves":[["Rock Polish"],["High Horsepower"],["Shadow Punch"],["Ice Punch"]]}]},
 "grumpig":{"flags":{},"sets":[
 
 {"species":"Grumpig",
@@ -10689,15 +10705,6 @@
 "evs":{"hp":12,"atk":244,"def":0,"spa":0,"spd":40,"spe":212},
 "nature":["Adamant"],
 "moves":[["Substitute"],["Acrobatics"],["Phantom Force"],["Will-O-Wisp", "Strength Sap"]]}]},
-"drilbur":{"flags":{},"sets":[
-
-{"species":"Drilbur",
-"gender":"",
-"item":"Eviolite",
-"ability":"Mold Breaker",
-"evs":{"hp":4,"atk":252,"def":0,"spa":0,"spd":0,"spe":252},
-"nature":["Adamant"],
-"moves":[["Stealth Rock"],["Rapid Spin"],["Earthquake"],["Rock Slide"]]}]},
 "duosion":{"flags":{},"sets":[
 
 {"species":"Duosion",
@@ -10707,23 +10714,6 @@
 "evs":{"hp":252,"amk":0,"def":252,"spa":0,"spd":4,"spe":0},
 "nature":["Impish"],
 "moves":[["Calm Mind"],["Recover"],["Psyshock","Psychic"],["Acid Armor","Signal Beam"]]}]},
-"dusknoir":{"flags":{},"sets":[
-
-{"species":"Dusknoir",
-"gender":"",
-"item":"Choice Band",
-"ability":"Frisk",
-"evs":{"hp":252,"atk":252,"def":4,"spa":0,"spd":0,"spe":0},
-"nature":["Adamant"],
-"moves":[["Shadow Sneak"],["Poltergeist"],["Drain Punch", "Earthquake"],["Trick"]]},
-
-{"species":"Dusknoir",
-"gender":"",
-"item":"Spell Tag",
-"ability":"Frisk",
-"evs":{"hp":252,"atk":252,"def":4,"spa":0,"spd":0,"spe":0},
-"nature":["Adamant"],
-"moves":[["Shadow Sneak"],["Poltergeist"],["Drain Punch", "Earthquake"],["Will-O-Wisp"]]}]},
 "electrode":{"flags":{},"sets":[
 
 {"species":"Electrode",
@@ -11192,7 +11182,7 @@
 "ability":"Oblivious",
 "evs":{"hp":248,"atk":0,"def":8,"spa":0,"spd":252,"spe":0},
 "nature":["Careful"],
-"moves":[["Wish"],["Protect"],["Body Slam","Knock Off"],["Dragon Tail","Heal Bell"]]}]},
+"moves":[["Rest"],["Sleep Talk"],["Body Slam","Knock Off"],["Dragon Tail","Heal Bell"]]}]},
 "metang":{"flags":{},"sets":[
 
 {"species":"Metang",
@@ -11450,23 +11440,7 @@
 "ability":"Rock Head",
 "evs":{"hp":248,"atk":8,"def":252,"spa":0,"spd":0,"spe":0},
 "nature":["Impish"],
-"moves":[["Head Smash"],["Stealth Rock"],["Earthquake","Waterfall"],["Thunder Wave","Yawn"]]},
-
-{"species":"Relicanth",
-"gender":"",
-"item":"Leftovers",
-"ability":"Rock Head",
-"evs":{"hp":248,"atk":8,"def":252,"spa":0,"spd":0,"spe":0},
-"nature":["Impish"],
-"moves":[["Head Smash"],["Stealth Rock"],["Earthquake","Waterfall"],["Protect"]]},
-
-{"species":"Relicanth",
-"gender":"",
-"item":"Leftovers",
-"ability":"Rock Head",
-"evs":{"hp":248,"atk":8,"def":252,"spa":0,"spd":0,"spe":0},
-"nature":["Impish"],
-"moves":[["Head Smash"],["Stealth Rock"],["Protect"],["Thunder Wave","Yawn"]]},
+"moves":[["Head Smash"],["Stealth Rock"],["Earthquake","Liquidation"],["Yawn"]]},
 
 {"species":"Relicanth",
 "gender":"",
@@ -11474,15 +11448,7 @@
 "ability":"Rock Head",
 "evs":{"hp":168,"atk":252,"def":0,"spa":0,"spd":0,"spe":88},
 "nature":["Adamant"],
-"moves":[["Head Smash"],["Stealth Rock"],["Waterfall"],["Thunder Wave","Earthquake"]]},
-
-{"species":"Relicanth",
-"gender":"",
-"item":"Leftovers",
-"ability":"Rock Head",
-"evs":{"hp":168,"atk":252,"def":0,"spa":0,"spd":0,"spe":88},
-"nature":["Adamant"],
-"moves":[["Head Smash"],["Stealth Rock"],["Waterfall"],["Thunder Wave","Earthquake"]]}]},
+"moves":[["Head Smash"],["Stealth Rock"],["Waterfall"],["Rock Polish","Earthquake"]]}]},
 "roselia":{"flags":{},"sets":[
 
 {"species":"Roselia",
@@ -11603,11 +11569,19 @@
 
 {"species":"Seaking",
 "gender":"",
+"item":"Assault Vest",
+"ability":"Lightning Rod",
+"evs":{"hp":"252","atk":"252","spd":"4"},
+"nature":["Adamant"],
+"moves":[["Flip Turn"],["Aqua Jet"],["Knock Off", "Drill Run"],["Megahorn"]]},
+
+{"species":"Seaking",
+"gender":"",
 "item":"Leftovers",
 "ability":"Lightning Rod",
 "evs":{"hp":104,"atk":252,"def":0,"spa":0,"spd":0,"spe":152},
 "nature":["Adamant"],
-"moves":[["Waterfall"],["Knock Off"],["Megahorn"],["Haze","Protect"]]}]},
+"moves":[["Waterfall"],["Knock Off"],["Megahorn"],["Haze"]]}]},
 "simipour":{"flags":{},"sets":[
 
 {"species":"Simipour",

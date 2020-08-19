@@ -338,7 +338,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dugtrio: {
 		randomBattleMoves: ["earthquake", "memento", "reversal", "stealthrock", "stoneedge", "substitute"],
-		tier: "COU",
+		tier: "CNU",
 		inherit: true,
 	},
 	dugtrioalola: {
@@ -3847,10 +3847,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	vivillonfancy: {
+		isNonstandard: null,
 		tier: "CNU",
 		inherit: true,
 	},
 	vivillonpokeball: {
+		isNonstandard: null,
 		tier: "CPU",
 		inherit: true,
 	},
@@ -4137,7 +4139,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zygarde: {
 		isNonstandard: null,
-		tier: "COU",
+		tier: "CUb",
 		inherit: true,
 	},
 	zygarde10: {
@@ -4198,7 +4200,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	incineroar: {
 		randomBattleMoves: ["darkestlariat", "earthquake", "fakeout", "flareblitz", "partingshot", "uturn"],
-		tier: "CRU",
+		tier: "CUU",
 		inherit: true,
 	},
 	popplio: {
@@ -4778,12 +4780,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	meltan: {
-		tier: "Unreleased",
+		tier: "LC",
 		inherit: true,
 	},
 	melmetal: {
 		randomBattleMoves: ["doubleironbash", "highhorsepower", "icepunch", "thunderpunch", "thunderwave"],
-		tier: "Unreleased",
+		tier: "COU",
 		inherit: true,
 	},
 	grookey: {
