@@ -1181,11 +1181,11 @@
 
 {"species":"Victini",
 "gender":"",
-"item":"Choice Band",
+"item":["Choice Band","Firium Z"],
 "ability":"Victory Star",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["V-create"],["Wild Charge"],["Brick Break", "Zen Headbutt"],["U-turn"]]},
+"moves":[["Searing Shot"],["Wild Charge"],["Brick Break", "Zen Headbutt"],["U-turn"]]},
 
 {"species":"Victini",
 "gender":"",
@@ -1193,11 +1193,11 @@
 "ability":"Victory Star",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Adamant"],
-"moves":[["V-create"],["Wild Charge"],["U-turn"],["Final Gambit"]]},
+"moves":[["Searing Shot"],["Wild Charge"],["U-turn"],["Final Gambit"]]},
 
 {"species":"Victini",
 "gender":"",
-"item":["Expert Belt","Assault Vest"],
+"item":["Expert Belt","Assault Vest","Firium Z"],
 "ability":"Victory Star",
 "evs":{"hp":0,"atk":0,"def":4,"spa":252,"spd":0,"spe":252},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
@@ -1210,7 +1210,7 @@
 "ability":"Victory Star",
 "evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
 "nature":["Jolly"],
-"moves":[["Substitute"],["V-create"],["Wild Charge"],["Power-Up Punch"]]}]},
+"moves":[["Substitute"],["Searing Shot"],["Wild Charge"],["Power-Up Punch"]]}]},
 "xerneas":{"flags":{},"sets":[
 
 {"species":"Xerneas",
@@ -9818,7 +9818,7 @@
 
 {"species":"Politoed",
 "gender":"",
-"item":"Choice",
+"item":"Choice Specs",
 "ability":"Liquid Voice",
 "evs":{"hp":"248","spa":"252","spd":"8"},
 "nature":["Modest"],
@@ -10108,7 +10108,7 @@
 "ability":"Technician",
 "evs":{"hp":248,"atk":8,"def":0,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["Swords Dance"],["Aerial Ace"],["U-turn"],["Roost"]]},
+"moves":[["Swords Dance"],["Dual Wingbeat"],["U-turn"],["Roost"]]},
 
 {"species":"Scyther",
 "gender":"",
@@ -10116,7 +10116,7 @@
 "ability":"Technician",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["U-turn"],["Aerial Ace"],["Knock Off","Pursuit"],["Quick Attack"]]},
+"moves":[["U-turn"],["Dual Wingbeat"],["Knock Off","Pursuit"],["Quick Attack"]]},
 
 {"species":"Scyther",
 "gender":"",
@@ -10124,7 +10124,7 @@
 "ability":"Technician",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["U-turn"],["Aerial Ace"],["Knock Off"],["Bug Bite"]]}]},
+"moves":[["U-turn"],["Dual Wingbeat"],["Knock Off"],["Bug Bite"]]}]},
 "shiftry":{"flags":{},"sets":[
 
 {"species":"Shiftry",
