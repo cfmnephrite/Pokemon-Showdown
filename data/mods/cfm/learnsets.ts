@@ -513,7 +513,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			acrobatics: ["8M"],
 			aerialace: ["7M", "6M", "5M", "4M", "3M"],
-			aeroblast: ["8L57", "7L57", "6L57", "5L57", "4L57"],
 			aircutter: ["4T"],
 			airslash: ["8M", "8L0", "8V", "7L1", "6L1", "6S1", "6S2", "5L1", "4L1"],
 			attract: ["8M", "7M", "7V", "6M", "5M", "4M", "3M"],
@@ -591,6 +590,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			overheat: ["8M", "7M", "6M", "6S3", "5M", "4M", "3M"],
 			poweruppunch: ["6M"],
 			rage: ["7V", "3L20"],
+			razorwind: ["8L57", "7L57", "6L57", "5L57", "4L57"],
 			reflect: ["8V", "7V"],
 			rest: ["8M", "8V", "7M", "7V", "6M", "5M", "4M", "3M"],
 			return: ["7M", "7V", "6M", "5M", "4M", "3M"],
@@ -26233,7 +26233,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			acrobatics: ["8M", "7M", "6M", "5M"],
 			aerialace: ["7M", "6M", "5M", "4M", "3M"],
-			aeroblast: ["8L36", "7L36", "6L36", "5L36"],
 			agility: ["8M", "8L20", "7L32", "7V", "6L32", "5L19", "4L19", "3L29"],
 			aircutter: ["5D", "4T"],
 			airslash: ["8M", "8L32", "7L36", "6L36", "5L36"],
@@ -26283,6 +26282,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			naturalgift: ["4M"],
 			psybeam: ["8L1", "7L1", "6L1", "5L1", "4L1"],
 			raindance: ["8M", "7M", "7V", "6M", "5M", "4M", "3M"],
+			razorwind: ["8L36", "7L36", "6L36", "5L36"],
 			recover: ["8L1", "7L1"],
 			rest: ["8M", "7M", "7V", "6M", "5M", "4M", "3M"],
 			return: ["7M", "7V", "6M", "5M", "4M", "3M"],
@@ -41281,7 +41281,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			acrobatics: ["7M", "6M", "5M"],
 			aerialace: ["7M", "6M", "5M", "4M"],
-			aeroblast: ["8L1", "7L1"],
 			aircutter: ["4T"],
 			airslash: ["7L41", "6L41", "5L41", "4L41"],
 			attract: ["7M", "6M", "5M", "4M"],
@@ -41384,7 +41383,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			acrobatics: ["8M", "7M", "6M", "5M"],
 			aerialace: ["7M", "6M", "5M", "4M"],
-			aeroblast: ["8L57", "7L57", "6L57", "5L57", "4L57"],
 			aircutter: ["4T"],
 			airslash: ["8M", "8L28", "7L37", "6L37", "5L37"],
 			aromatherapy: ["8L24"],
@@ -41433,6 +41431,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			quash: ["7M", "6M", "5M"],
 			quiverdance: ["8L1", "7L1", "6L1", "5L1"],
 			raindance: ["8M", "7M", "6M", "5M", "4M"],
+			razorwind: ["8L47", "7L47", "6L47", "5L47", "4L47"],
 			rest: ["8M", "7M", "6M", "5M", "4M"],
 			return: ["7M", "6M", "5M", "4M"],
 			revenge: ["8M"],
@@ -41944,7 +41943,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	drifloon: {
 		learnset: {
 			acrobatics: ["8M", "7M", "6M", "5M"],
-			aeroblast: ["8L33", "7L33", "6L43", "5L43", "4L37"],
 			aircutter: ["4T"],
 			airslash: ["8L41", "7L41", "6L41", "5L45", "4L41"],
 			allyswitch: ["8M", "7T"],
@@ -41994,6 +41992,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			psychic: ["8M", "7M", "6M", "5M", "4M"],
 			psychup: ["7M", "6M", "5M", "4M"],
 			raindance: ["8M", "7M", "6M", "5M", "4M"],
+			razorwind: ["8L33", "7L33", "6L43", "5L43", "4L37"],
 			recover: ["8E", "7E", "6E", "5E", "4E"],
 			recycle: ["7T", "6T", "5T", "4M"],
 			rest: ["8M", "7M", "6M", "5M", "4M"],
@@ -42030,7 +42029,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	drifblim: {
 		learnset: {
 			acrobatics: ["8M", "7M", "6M", "5M"],
-			aeroblast: ["8L33", "7L33", "6L43", "5L43", "4L37"],
 			aircutter: ["4T"],
 			airslash: ["8L41", "7L41", "6L41", "5L45", "4L41"],
 			allyswitch: ["8M", "7T"],
@@ -42078,6 +42076,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			psychic: ["8M", "7M", "6M", "5M", "4M"],
 			psychup: ["7M", "6M", "5M", "4M"],
 			raindance: ["8M", "7M", "6M", "5M", "4M"],
+			razorwind: ["8L33", "7L33", "6L43", "5L43", "4L37"],
 			recycle: ["7T", "6T", "5T", "4M"],
 			rest: ["8M", "7M", "6M", "5M", "4M"],
 			return: ["7M", "6M", "5M", "4M"],
@@ -68103,7 +68102,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			absorb: ["7L1"],
 			acrobatics: ["7M"],
-			aeroblast: ["8L53", "7L53"],
 			agility: ["8L43", "7L43"],
 			airslash: ["7L1"],
 			block: ["7T"],

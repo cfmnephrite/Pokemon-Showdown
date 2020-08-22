@@ -234,20 +234,20 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	aeroblast: {
 		num: 177,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 100,
 		category: "Special",
-		shortDesc: "Lugia: 100BP; very high critical hit ratio.",
+		desc: "Has a 50% chance to lower the target's Speed by 1 stage.",
+		shortDesc: "50% chance to lower the foe(s) Speed by 1.",
 		name: "Aeroblast",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1},
-		onModifyMove(move, source) {
-			if (source.name === 'Lugia') {
-				move.basePower = 100;
-				move.critRatio = 3;
-			}
+		secondary: {
+			chance: 50,
+			boosts: {
+				spe: -1,
+			},
 		},
-		secondary: null,
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
@@ -19818,7 +19818,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	wingattack: {
 		num: 17,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 60,
 		category: "Physical",
 		shortDesc: "No additional effect.",
 		name: "Wing Attack",
