@@ -3019,13 +3019,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+			if (['Pikachu', 'Pichu-Spiky-eared'].includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+			if (['Pikachu', 'Pichu-Spiky-eared'].includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},

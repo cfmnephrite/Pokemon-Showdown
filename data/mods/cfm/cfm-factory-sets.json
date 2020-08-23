@@ -1181,11 +1181,11 @@
 
 {"species":"Victini",
 "gender":"",
-"item":"Choice Band",
+"item":["Choice Band","Firium Z"],
 "ability":"Victory Star",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["V-create"],["Wild Charge"],["Brick Break", "Zen Headbutt"],["U-turn"]]},
+"moves":[["Searing Shot"],["Wild Charge"],["Brick Break", "Zen Headbutt"],["U-turn"]]},
 
 {"species":"Victini",
 "gender":"",
@@ -1193,11 +1193,11 @@
 "ability":"Victory Star",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Adamant"],
-"moves":[["V-create"],["Wild Charge"],["U-turn"],["Final Gambit"]]},
+"moves":[["Searing Shot"],["Wild Charge"],["U-turn"],["Final Gambit"]]},
 
 {"species":"Victini",
 "gender":"",
-"item":["Expert Belt","Assault Vest"],
+"item":["Expert Belt","Assault Vest","Firium Z"],
 "ability":"Victory Star",
 "evs":{"hp":0,"atk":0,"def":4,"spa":252,"spd":0,"spe":252},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
@@ -1210,7 +1210,7 @@
 "ability":"Victory Star",
 "evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
 "nature":["Jolly"],
-"moves":[["Substitute"],["V-create"],["Wild Charge"],["Power-Up Punch"]]}]},
+"moves":[["Substitute"],["Searing Shot"],["Wild Charge"],["Power-Up Punch"]]}]},
 "xerneas":{"flags":{},"sets":[
 
 {"species":"Xerneas",
@@ -1755,7 +1755,7 @@
 "ability":"Beast Boost",
 "evs":{"hp":0,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
 "nature":["Timid"],
-"moves":[["Agility"],["Aeroblast"],["Flash Cannon","Giga Drain"],["Fire Blast"]]},
+"moves":[["Agility"],["Air Slash"],["Flash Cannon","Giga Drain"],["Fire Blast"]]},
 
 {"species":"Celesteela",
 "gender":"",
@@ -1816,7 +1816,7 @@
 "ability":"Flame Body",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["Dragon Dance"],["Flare Blitz"],["Earthquake", "Wing Attack"],["Roost"]]},
+"moves":[["Dragon Dance"],["Flare Blitz"],["Earthquake", "Dual Wingbeat"],["Roost"]]},
 
 {"species":"Charizard",
 "gender":"",
@@ -1825,7 +1825,7 @@
 "evs":{"hp":0,"atk":0,"def":4,"spa":252,"spd":0,"spe":252},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Timid"],
-"moves":[["Fire Blast"],["Solar Beam"],["Focus Blast", "Aeroblast"],["Roost"]]}]},
+"moves":[["Fire Blast"],["Solar Beam"],["Focus Blast", "Air Slash", "Razor Wind"],["Roost"]]}]},
 "cherrim":{"flags":{},"sets":[
 
 {"species":"Cherrim",
@@ -2050,7 +2050,7 @@
 "ability":"Multiscale",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Adamant", "Jolly"],
-"moves":[["Slam","Wing Attack"],["Extreme Speed"],["Thunder Punch","Ice Punch"],["Earthquake","Fire Punch"]]},
+"moves":[["Slam","Dual Wingbeat"],["Extreme Speed"],["Thunder Punch","Ice Punch"],["Earthquake","Fire Punch"]]},
 
 {"species":"Dragonite",
 "gender":"",
@@ -2067,7 +2067,7 @@
 "ability":["Multiscale","Gale Wings"],
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Adamant", "Jolly"],
-"moves":[["Dragon Dance"],["Fire Punch","Earthquake"],["Extreme Speed"],["Wing Attack"]]}]},
+"moves":[["Dragon Dance"],["Fire Punch","Earthquake"],["Extreme Speed"],["Dual Wingbeat"]]}]},
 "entei":{"flags":{},"sets":[
 
 {"name":"Hentei",
@@ -5210,7 +5210,7 @@
 {"species":"Kyurem",
 "gender":"",
 "item":"Leftovers",
-"ability":"Pressure",
+"ability":"Mold Breaker",
 "evs":{"hp":56,"atk":0,"def":0,"spa":235,"spd":0,"spe":216},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Timid"],
@@ -5334,7 +5334,7 @@
 "evs":{"hp":252,"atk":0,"def":252,"spa":0,"spd":4,"spe":0},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Calm"],
-"moves":[["Surf","Aeroblast"],["Recover"],["Hidden Power Fire","Ice Beam"],["Defog","Haze"]]},
+"moves":[["Surf","Razor Wind"],["Recover"],["Hidden Power Fire","Ice Beam"],["Defog","Haze"]]},
 
 {"species":"Mantine",
 "gender":"",
@@ -5342,7 +5342,7 @@
 "ability":["Swift Swim"],
 "evs":{"hp":252,"atk":0,"def":0,"spa":252,"spd":4,"spe":0},
 "nature":["Modest"],
-"moves":[["Surf","Hydro Pump"],["Aeroblast"],["Ice Beam"],["Rain Dance"]]}]},
+"moves":[["Surf","Hydro Pump"],["Razor Wind", "Air Slash"],["Ice Beam"],["Rain Dance"]]}]},
 "meowstic":{"flags":{},"sets":[
 
 {"species":"Meowstic",
@@ -7323,7 +7323,7 @@
 "ability":"Water Veil",
 "evs":{ "hp":252,"atk":0,"def":240,"spa":0,"spd":16,"spe":0},
 "nature":["Bold"],
-"moves":[["Aeroblast"],["Recover"],["Defog"],["Haze","Surf"]]},
+"moves":[["Air Slash", "Razor Wind"],["Recover"],["Defog"],["Haze","Surf"]]},
 
 {"species":"Mantine",
 "gender":"",
@@ -7331,7 +7331,7 @@
 "ability":"Swift Swim",
 "evs":{ "hp":0,"atk":0,"def":4,"spa":252,"spd":0,"spe":252},
 "nature":["Modest"],
-"moves":[["Aeroblast"],["Hydro Pump"],["Recover"],["Rain Dance"]]}]},
+"moves":[["Air Slash", "Razor Wind"],["Hydro Pump"],["Recover"],["Rain Dance"]]}]},
 "marowak":{"flags":{},"sets":[
 
 {"species":"Marowak",
@@ -8268,7 +8268,7 @@
 "ability":"Big Pecks",
 "evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
 "nature":["Jolly", "Adamant"],
-"moves":[["Brave Bird"],["Liquidation"],["Wing Attack", "Sky Attack"],["Sleep Talk"]]},
+"moves":[["Brave Bird"],["Liquidation"],["Dual Wingbeat", "Sky Attack"],["Sleep Talk"]]},
 
 {"species":"Swanna",
 "gender":"",
@@ -8674,7 +8674,7 @@
 "ability":"Flame Body",
 "evs":{"hp":0,"atk":0,"def":4,"spa":252,"spd":0,"spe":252},
 "nature":["Timid"],
-"moves":[["Fire Blast"],["Aeroblast"],["Hidden Power Grass"],["Roost"]]},
+"moves":[["Fire Blast"],["Air Slash", "Razor Wind", "Hurricane"],["Hidden Power Grass"],["Roost"]]},
 
 {"species":"Charizard",
 "gender":"",
@@ -8682,7 +8682,7 @@
 "ability":"Flame Body",
 "evs":{"hp":0,"atk":0,"def":4,"spa":252,"spd":0,"spe":252},
 "nature":["Hasty"],
-"moves":[["Fire Blast"],["Aeroblast"],["Earthquake"],["Roost"]]},
+"moves":[["Fire Blast"],["Air Slash", "Razor Wind", "Hurricane"],["Earthquake"],["Roost"]]},
 
 {"species":"Charizard",
 "gender":"",
@@ -8690,7 +8690,7 @@
 "ability":"Flame Body",
 "evs":{"hp":248,"atk":8,"def":0,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["Swords Dance"],["Wing Attack"],["Roost"],["Will-O-Wisp"]]},
+"moves":[["Swords Dance"],["Dual Wingbeat"],["Roost"],["Will-O-Wisp"]]},
 
 {"species":"Charizard",
 "gender":"",
@@ -9818,7 +9818,7 @@
 
 {"species":"Politoed",
 "gender":"",
-"item":"Choice",
+"item":"Choice Specs",
 "ability":"Liquid Voice",
 "evs":{"hp":"248","spa":"252","spd":"8"},
 "nature":["Modest"],
@@ -10108,7 +10108,7 @@
 "ability":"Technician",
 "evs":{"hp":248,"atk":8,"def":0,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["Swords Dance"],["Aerial Ace"],["U-turn"],["Roost"]]},
+"moves":[["Swords Dance"],["Dual Wingbeat"],["U-turn"],["Roost"]]},
 
 {"species":"Scyther",
 "gender":"",
@@ -10116,7 +10116,7 @@
 "ability":"Technician",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["U-turn"],["Aerial Ace"],["Knock Off","Pursuit"],["Quick Attack"]]},
+"moves":[["U-turn"],["Dual Wingbeat"],["Knock Off","Pursuit"],["Quick Attack"]]},
 
 {"species":"Scyther",
 "gender":"",
@@ -10124,7 +10124,7 @@
 "ability":"Technician",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["U-turn"],["Aerial Ace"],["Knock Off"],["Bug Bite"]]}]},
+"moves":[["U-turn"],["Dual Wingbeat"],["Knock Off"],["Bug Bite"]]}]},
 "shiftry":{"flags":{},"sets":[
 
 {"species":"Shiftry",
@@ -10487,7 +10487,7 @@
 "ability":"Regenerator",
 "evs":{"hp":252,"atk":0,"def":4,"spa":0,"spd":252,"spe":0},
 "nature":["Careful"],
-"moves":[["Knock Off"],["Wish"],["Soft-Boiled"],["Encore","Thunder Wave","Double-Edge"]]}]},
+"moves":[["Knock Off"],["Wish"],["Crafty Shield"],["Encore","Thunder Wave","Double-Edge"]]}]},
 "avalugg":{"flags":{},"sets":[
 
 {"species":"Avalugg",
@@ -10663,7 +10663,7 @@
 "evs":{"def":"4","spa":"252","spe":"252"},
 "ivs":{"hp":"30"},
 "nature":["Modest"],
-"moves":[["Substitute"],["Calm Mind"],["Aeroblast"],["Shadow Ball"]]},
+"moves":[["Substitute"],["Calm Mind"],["Air Slash", "Razor Wind"],["Shadow Ball"]]},
 
 {"species":"Drifblim",
 "gender":"",
@@ -10687,7 +10687,7 @@
 "ability":"Aftermath",
 "evs":{"hp":"200","def":"252","spe":"56"},
 "nature":["Timid"],
-"moves":[["Defog"],["Recover"],["Haze", "Strength Sap"],["Aeroblast"]]},
+"moves":[["Defog"],["Recover"],["Haze", "Strength Sap"],["Air Slash", "Razor Wind"]]},
 
 {"species":"Drifblim",
 "gender":"",
@@ -10696,7 +10696,7 @@
 "evs":{"hp":"140","def":"88","spa":"252","spd":"28"},
 "nature":["Bold"],
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
-"moves":[["Aeroblast"],["Shadow Ball"],["Trick","Heat Wave","Destiny Bond"],["Tailwind","Flame Charge"]]},
+"moves":[["Air Slash", "Razor Wind"],["Shadow Ball"],["Trick","Heat Wave","Destiny Bond"],["Tailwind","Flame Charge"]]},
 
 {"species":"Drifblim",
 "gender":"",

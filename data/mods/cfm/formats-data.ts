@@ -2762,7 +2762,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	rotomheat: {
 		randomBattleMoves: ["overheat", "thunderbolt", "trick", "voltswitch", "willowisp"],
-		tier: "CRU",
+		tier: "COU",
 		inherit: true,
 	},
 	rotomwash: {
