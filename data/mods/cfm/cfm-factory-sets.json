@@ -5210,7 +5210,7 @@
 {"species":"Kyurem",
 "gender":"",
 "item":"Leftovers",
-"ability":"Pressure",
+"ability":"Mold Breaker",
 "evs":{"hp":56,"atk":0,"def":0,"spa":235,"spd":0,"spe":216},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Timid"],
@@ -10487,7 +10487,7 @@
 "ability":"Regenerator",
 "evs":{"hp":252,"atk":0,"def":4,"spa":0,"spd":252,"spe":0},
 "nature":["Careful"],
-"moves":[["Knock Off"],["Wish"],["Soft-Boiled"],["Encore","Thunder Wave","Double-Edge"]]}]},
+"moves":[["Knock Off"],["Wish"],["Crafty Shield"],["Encore","Thunder Wave","Double-Edge"]]}]},
 "avalugg":{"flags":{},"sets":[
 
 {"species":"Avalugg",

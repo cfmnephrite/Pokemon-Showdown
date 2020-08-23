@@ -48132,6 +48132,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			chargebeam: ["7M", "6M", "5M"],
 			confide: ["7M", "6M"],
 			covet: ["7T", "6T", "5T"],
+			craftyshield: ["7E", "6E"],
 			dazzlinggleam: ["7M", "6M"],
 			dig: ["6M", "5M"],
 			disarmingvoice: ["7L13", "6L13"],
