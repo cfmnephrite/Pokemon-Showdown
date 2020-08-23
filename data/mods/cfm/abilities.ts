@@ -2344,7 +2344,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 			if (this.randomChance(chance, 3))
-				this.boost({[target.storedStats.atk > target.storedStats.spa ? 'atk' : 'spa']:1}, source);
+				this.boost({[source.storedStats.atk > source.storedStats.spa ? 'atk' : 'spa']:1}, source);
 		},
 		name: "Minus",
 		rating: 0,
@@ -2940,7 +2940,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 			if (this.randomChance(chance, 3))
-				this.boost({[target.storedStats.atk > target.storedStats.spa ? 'atk' : 'spa']:1}, source);
+				this.boost({[source.storedStats.atk > source.storedStats.spa ? 'atk' : 'spa']:1}, source);
 		},
 		name: "Plus",
 		rating: 0,
