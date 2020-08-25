@@ -1203,6 +1203,9 @@ export const commands: ChatCommands = {
 		if (!room || !room.battle || !room.battle.cfmTutorial || room.battle.format.substr(0, 7) !== 'gen8cfm') {
 			return this.errorReply(`You can only set CFM tutorial mode inside a CFM battle room.`);
 		}
+		if (!room.battle.playerTable[user.id]) {
+			return this.errorReply("You must be a player set CFM tutorial mode.");
+		}
 		const cfmTutorial = room.battle.cfmTutorial;
 		if (target && this.meansNo(target)) {
 			if (!cfmTutorial.requesters.includes(user)) {
