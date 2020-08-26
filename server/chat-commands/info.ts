@@ -729,7 +729,8 @@ export const commands: ChatCommands = {
 								} else {
 									details["Required Move"] = dex.getItem(move.isZ).zMoveFrom!;
 								}
-							} else if (dex.currentMod === 'cfm' && move.zMoveSpecialUser) {
+							}
+							if (dex.currentMod === 'cfm' && move.zMoveSpecialUser) {
 								details["User"] = move.zMoveSpecialUser;
 								if (move.zMoveSpecialMoveFrom) {
 									details["Required Move"] = move.zMoveSpecialMoveFrom.join(" or ");

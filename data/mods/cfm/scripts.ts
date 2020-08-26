@@ -1122,17 +1122,18 @@ export const Scripts: BattleScriptsData = {
 		if (!skipChecks) {
 			if (pokemon.side.zMoveUsed) return;
 			if (!item.zMove) return;
-			if (item.itemUser && !item.itemUser.includes(pokemon.species.name)) return;
 			const moveData = pokemon.getMoveData(move);
 			// Draining the PP of the base move prevents the corresponding Z-move from being used.
 			if (!moveData || !moveData.pp) return;
 		}
-		if (item.zMoveSpecialMoves && !!item.zMoveSpecialMoves[pokemon.baseSpecies.baseSpecies]) {
+		if (item.zMoveSpecialMoves && !!item.zMoveSpecialMoves[pokemon.baseSpecies.baseSpecies] &&
+				!item.itemUser?.includes(pokemon.species.name)) {
 			const zMove = this.dex.getMove(item.zMoveSpecialMoves[pokemon.baseSpecies.baseSpecies]);
 			if (zMove.zMoveSpecialMoveFrom?.includes(move.name) ||
 			zMove.zMoveSpecialType === this.getEffectiveType(move, pokemon)) return zMove.name;
 		}
 		if (typeof item.zMove === 'string') {
+			if (item.itemUser && !item.itemUser.includes(pokemon.species.name)) return;
 			if (item.zMoveFrom && move.name !== item.zMoveFrom) return;
 			if (item.zMoveType && this.getEffectiveType(move, pokemon) !== item.zMoveType) return;
 			if (item.zMoveCategory && this.getCategory(move, pokemon) !== item.zMoveCategory) return;
@@ -1177,7 +1178,6 @@ export const Scripts: BattleScriptsData = {
 		) return;
 		const item = pokemon.getItem();
 		if (!item.zMove) return;
-		if (item.itemUser && !item.itemUser.includes(pokemon.species.name)) return;
 		let atLeastOne = false;
 		let mustStruggle = true;
 		const zMoves: ZMoveOptions = [];

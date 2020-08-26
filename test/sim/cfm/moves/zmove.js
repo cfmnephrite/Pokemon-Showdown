@@ -155,6 +155,21 @@ describe('CFM Z-Moves', function () {
 		assert.ok(!battle.log[battle.lastMoveLine + 1].startsWith('|-immune|'));
 	});
 
+	it("Necrozma (and only regular Necrozma) can use Prismatic Laser", function () {
+		battle = common.mod('cfm').createBattle([
+			[{species: 'Necrozma', ability: 'icescales', item: 'ultranecroziumz', moves: ['photongeyser', 'protect']}],
+			[{species: 'Necrozma-Ultra', ability: 'icescales', item: 'ultranecroziumz', moves: ['photongeyser', 'protect']}],
+		]);
+
+		// First try base Necrozma - do we get Prismatic Laser?
+		battle.makeChoices('move photongeyser zmove', 'move protect');
+		assert.equal(toID(battle.log[battle.lastMoveLine].split('|')[3]), 'prismaticlaser');
+
+		// Then try Ultra Necrozma - should get Light That Burns The Sky
+		battle.makeChoices('move protect', 'move photongeyser zmove');
+		assert.equal(toID(battle.log[battle.lastMoveLine].split('|')[3]), 'lightthatburnsthesky');
+	});
+
 	it("Omnitype moves", function () {
 		battle = common.mod('cfm').createBattle([
 			[{species: 'Muk', ability: 'thickfat', item: 'poisoniumz', moves: ['slash', 'protect']}],

@@ -6816,6 +6816,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMove: "Light That Burns the Sky",
 		zMoveFrom: "Photon Geyser",
 		itemUser: ["Necrozma-Ultra"],
+		zMoveSpecialMoves: {"Necrozma": "Prismatic Laser"},
 		num: 923,
 		gen: 7,
 		desc: "Dusk Mane/Dawn Wings Necrozma: Ultra Burst, then Z-Move w/ Photon Geyser.",
