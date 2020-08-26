@@ -249,7 +249,7 @@
 "ability":"Speed Boost",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["Baton Pass"],["Protect"],["Swords Dance"],["Flare Blitz"]]},
+"moves":[["Baton Pass"],["Detect"],["Swords Dance"],["Flare Blitz"]]},
 
 {"species":"Blaziken",
 "gender":"",
@@ -257,7 +257,7 @@
 "ability":"Speed Boost",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["Low Kick"],["Flare Blitz"],["Protect"],["Stone Edge","Knock Off"]]},
+"moves":[["Low Kick"],["Flare Blitz"],["Detect"],["Stone Edge","Knock Off"]]},
 
 {"species":"Blaziken",
 "gender":"",
@@ -265,7 +265,7 @@
 "ability":"Speed Boost",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Naive"],
-"moves":[["Low Kick"],["Flare Blitz"],["Protect"],["Hidden Power Ice"]]},
+"moves":[["Low Kick"],["Flare Blitz"],["Detect"],["Hidden Power Ice"]]},
 
 {"species":"Blaziken",
 "gender":"",
@@ -273,7 +273,7 @@
 "ability":"Speed Boost",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Naive"],
-"moves":[["Low Kick"],["Flare Blitz"],["Protect"],["Hidden Power Ice"]]},
+"moves":[["Low Kick"],["Flare Blitz"],["Detect"],["Hidden Power Ice"]]},
 
 {"species":"Blaziken",
 "gender":"",
@@ -281,7 +281,7 @@
 "ability":"Speed Boost",
 "evs":{"hp":4,"atk":252,"def":0,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["Low Kick"],["Flare Blitz"],["Protect"],["Stone Edge","Knock Off"]]}]},
+"moves":[["Low Kick"],["Flare Blitz"],["Detect"],["Stone Edge","Knock Off"]]}]},
 "blissey":{"flags":{},"sets":[
 
 {"species":"Blissey",
@@ -469,7 +469,7 @@
 {"species":"Genesect",
 "gender":"",
 "item":"Life Orb",
-"ability":"Battle Armor",
+"ability":"Download",
 "evs":{"hp":0,"atk":252,"def":0,"spa":4,"spd":0,"spe":252},
 "nature":["Adamant"],
 "moves":[["Shift Gear"],["Iron Head"],["Extreme Speed"],["Explosion"]]}]},
@@ -1006,7 +1006,7 @@
 "evs":{"hp":4,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Modest", "Timid"],
-"moves":[["Hyper Beam"],["Focus Blast"],["Dark Pulse"],["Trick"]]},
+"moves":[["Hyper Beam"],["Thunderbolt"],["Dark Pulse"],["Trick"]]},
 
 {"species":"Porygon-Z",
 "gender":"",
@@ -1015,7 +1015,7 @@
 "evs":{"hp":4,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Timid"],
-"moves":[["Hyper Beam"],["Focus Blast"],["Dark Pulse", "Ice Beam", "Thunderbolt"],["Trick"]]},
+"moves":[["Hyper Beam"],["Thunderbolt"],["Dark Pulse", "Ice Beam"],["Trick"]]},
 
 {"species":"Porygon-Z",
 "gender":"",
@@ -1024,7 +1024,7 @@
 "evs":{"hp":4,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Modest", "Timid"],
-"moves":[["Hyper Beam"],["Shadow Ball"],["Focus Blast", "Ice Beam", "Thunderbolt", "Nasty Plot"],["Agility"]]}]},
+"moves":[["Hyper Beam"],["Shadow Ball", "Dark Pulse"],["Ice Beam", "Thunderbolt", "Nasty Plot"],["Agility"]]}]},
 "rayquaza":{"flags":{},"sets":[
 
 {"species":"Rayquaza",
