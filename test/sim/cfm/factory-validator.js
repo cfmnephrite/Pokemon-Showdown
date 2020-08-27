@@ -14,9 +14,11 @@ describe('CFM - Factory Validator', function () {
 		}
 	});
 	it('Validate all factory sets', function () {
-		let illegalSets = ``;
+		let illegalSets = `\n`,
+		illegalSetsFound = false;
 		let tiers = {'Uber': 'ubers', 'OU': 'ou', 'UU': 'uu', 'RU': 'ru', 'NU': 'nu', 'PU': 'pu'};
 		for (const tier in factorySets) {
+			illegalSets += `\\\\ ${tier} \\\\\n\n`
 			for (const mon in factorySets[tier]) {
 				for (const subSet in factorySets[tier][mon]["sets"]) {
 					let rawSet			= Object.assign({}, factorySets[tier][mon]["sets"][subSet]);
@@ -38,11 +40,14 @@ describe('CFM - Factory Validator', function () {
 					for (const validateSet of validateSets) {
 						team = [ validateSet ];
 						illegal = TeamValidator.get(`gen8cfm${tiers[tier]}`).validateTeam(team);
-						if(illegal) illegalSets += `${tier} - ${mon} : ${illegal}\n`;
+						if(illegal) {
+							illegalSetsFound = true;
+							illegalSets += `${tier} - ${mon} : ${illegal}\n`;
+						}
 					}
 				}
 			}
 		}
-		assert(!illegalSets, illegalSets);
+		assert(!illegalSetsFound, illegalSets);
 	});
 });

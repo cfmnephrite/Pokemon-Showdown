@@ -871,7 +871,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	scizor: {
 		isNonstandard: null,
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	scizormega: {
@@ -1018,7 +1018,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	porygonz: {
 		isNonstandard: null,
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	omanyte: {
@@ -2767,7 +2767,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	rotomwash: {
 		randomBattleMoves: ["hydropump", "thunderbolt", "trick", "voltswitch", "willowisp"],
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	rotomfrost: {
