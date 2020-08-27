@@ -871,7 +871,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	scizor: {
 		isNonstandard: null,
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	scizormega: {
@@ -1018,7 +1018,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	porygonz: {
 		isNonstandard: null,
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	omanyte: {
@@ -2767,7 +2767,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	rotomwash: {
 		randomBattleMoves: ["hydropump", "thunderbolt", "trick", "voltswitch", "willowisp"],
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	rotomfrost: {
@@ -2866,70 +2866,87 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	arceusbug: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	arceusdark: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	arceusdragon: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	arceuselectric: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	arceusfairy: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	arceusfighting: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	arceusfire: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	arceusflying: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	arceusghost: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	arceusgrass: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	arceusground: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	arceusice: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	arceuspoison: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	arceuspsychic: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	arceusrock: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	arceussteel: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	arceuswater: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
@@ -3742,18 +3759,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	genesectburn: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	genesectchill: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	genesectdouse: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	genesectshock: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},

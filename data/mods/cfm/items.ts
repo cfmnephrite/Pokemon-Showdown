@@ -1080,7 +1080,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat() { },
 		num: 210,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder moves first in its priority bracket when at 1/4 max HP or less. Single use.",
 	},
 	damprock: {
@@ -1276,7 +1275,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Dragon",
 		num: 311,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder's Dragon-type attacks have 1.2x power. Judgment is Dragon type.",
 	},
 	dragonfang: {
@@ -1366,7 +1364,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Dark",
 		num: 312,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder's Dark-type attacks have 1.2x power. Judgment is Dark type.",
 	},
 	dreamball: {
@@ -1438,7 +1435,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Ground",
 		num: 305,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder's Ground-type attacks have 1.2x power. Judgment is Ground type.",
 	},
 	eeviumz: {
@@ -1613,7 +1609,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat() { },
 		num: 208,
 		gen: 3,
-		isNonstandard: "Unobtainable",
 		desc: "Restores 1/4 max HP after holder is hit by a supereffective move. Single use.",
 	},
 	eviolite: {
@@ -1845,7 +1840,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Fighting",
 		num: 303,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder's Fighting-type attacks have 1.2x power. Judgment is Fighting type.",
 	},
 	flameorb: {
@@ -1883,7 +1877,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Fire",
 		num: 298,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder's Fire-type attacks have 1.2x power. Judgment is Fire type.",
 	},
 	floatstone: {
@@ -2580,7 +2573,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Ice",
 		num: 302,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder's Ice-type attacks have 1.2x power. Judgment is Ice type.",
 	},
 	iciumz: {
@@ -2635,7 +2627,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Bug",
 		num: 308,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder's Bug-type attacks have 1.2x power. Judgment is Bug type.",
 	},
 	ironball: {
@@ -2676,7 +2667,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Steel",
 		num: 313,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder's Steel-type attacks have 1.2x power. Judgment is Steel type.",
 	},
 	jabocaberry: {
@@ -2697,7 +2687,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat() { },
 		num: 211,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "If holder is hit by a physical move, attacker loses 1/8 of its max HP. Single use.",
 	},
 	jawfossil: {
@@ -3380,7 +3369,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Grass",
 		num: 301,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder's Grass-type attacks have 1.2x power. Judgment is Grass type.",
 	},
 	medichamite: {
@@ -3561,7 +3549,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 209,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder's next move has 1.2x accuracy when at 1/4 max HP or less. Single use.",
 	},
 	mimikiumz: {
@@ -3594,7 +3581,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Psychic",
 		num: 307,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder's Psychic-type attacks have 1.2x power. Judgment is Psychic type.",
 	},
 	miracleseed: {
@@ -4840,7 +4826,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat() { },
 		num: 212,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "If holder is hit by a special move, attacker loses 1/8 of its max HP. Single use.",
 	},
 	rustedshield: {
@@ -5221,7 +5206,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Flying",
 		num: 306,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder's Flying-type attacks have 1.2x power. Judgment is Flying type.",
 	},
 	slowbronite: {
@@ -5373,7 +5357,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Water",
 		num: 299,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder's Water-type attacks have 1.2x power. Judgment is Water type.",
 	},
 	spookyplate: {
@@ -5395,7 +5378,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Ghost",
 		num: 310,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder's Ghost-type attacks have 1.2x power. Judgment is Ghost type.",
 	},
 	sportball: {
@@ -5562,7 +5544,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Rock",
 		num: 309,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder's Rock-type attacks have 1.2x power. Judgment is Rock type.",
 	},
 	strawberrysweet: {
@@ -5768,7 +5749,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Poison",
 		num: 304,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder's Poison-type attacks have 1.2x power. Judgment is Poison type.",
 	},
 	tr00: {
@@ -6816,6 +6796,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMove: "Light That Burns the Sky",
 		zMoveFrom: "Photon Geyser",
 		itemUser: ["Necrozma-Ultra"],
+		zMoveSpecialMoves: {"Necrozma": "Prismatic Laser"},
 		num: 923,
 		gen: 7,
 		desc: "Dusk Mane/Dawn Wings Necrozma: Ultra Burst, then Z-Move w/ Photon Geyser.",
@@ -7151,7 +7132,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Electric",
 		num: 300,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 		desc: "Holder's Electric-type attacks have 1.2x power. Judgment is Electric type.",
 	},
 	zoomlens: {

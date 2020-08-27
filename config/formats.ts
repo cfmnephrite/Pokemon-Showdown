@@ -645,7 +645,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 
 		mod: 'cfm',
 		// cfacTier: 'Uber',
-		ruleset: ['Obtainable', 'Mega Rayquaza Clause', 'Baton Pass Clause', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Standard'],
+		ruleset: ['Obtainable', 'Mega Rayquaza Clause', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Standard'],
 	},
 	{
 		name: "[Gen 8] CFM OU",
