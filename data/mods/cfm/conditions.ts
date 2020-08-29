@@ -447,7 +447,7 @@ export const Conditions: {[k: string]: ModdedPureEffectData} = {
 			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Water') {
 				this.debug('rain water boost');
-				return this.chainModify(1.25);
+				return this.chainModify(1.30);
 			}
 			if (move.type === 'Fire' && move.id !== 'sacredfire' && !move.ignoreWeather) {
 				this.debug('rain fire suppress');
@@ -456,8 +456,14 @@ export const Conditions: {[k: string]: ModdedPureEffectData} = {
 		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5 || effect.id === 'forecast') this.effectData.duration = 0;
-				this.add('-weather', 'RainDance', '[from] ability: ' + effect, '[of] ' + source);
+				if (effect.id === 'primordialsea') {
+					this.add('-activate', source, 'ability: Primordial Sea');
+					this.add('-message', "The intense deluge became lighter!");
+					this.add('-weather', 'RainDance', '[silent]');
+				} else {
+					if (this.gen <= 5 || effect.id === 'forecast') this.effectData.duration = 0;
+					this.add('-weather', 'RainDance', '[from] ability: ' + effect, '[of] ' + source);
+				}
 			} else {
 				this.add('-weather', 'RainDance');
 			}
@@ -505,10 +511,7 @@ export const Conditions: {[k: string]: ModdedPureEffectData} = {
 			this.eachEvent('Weather');
 		},
 		onEnd() {
-			this.add('-activate', this.field.weatherData.source, 'ability: Primordial Sea');
-			this.add('-message', "The intense deluge became lighter!");
-			this.add('-weather', 'none', '[silent]');
-			this.add('-weather', 'raindance', '[silent]');
+			this.add('-weather', 'none');
 		},
 	},
 	sunnyday: {
@@ -525,7 +528,7 @@ export const Conditions: {[k: string]: ModdedPureEffectData} = {
 			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Fire') {
 				this.debug('Sunny Day fire boost');
-				return this.chainModify(1.25);
+				return this.chainModify(1.30);
 			}
 			if (move.type === 'Water' && move.id !== 'originpulse' && !move.ignoreWeather) {
 				this.debug('Sunny Day water suppress');
@@ -534,8 +537,14 @@ export const Conditions: {[k: string]: ModdedPureEffectData} = {
 		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5 || effect.id === 'flowergift' || effect.id === 'forecast') this.effectData.duration = 0;
-				this.add('-weather', 'SunnyDay', '[from] ability: ' + effect, '[of] ' + source);
+				if (effect.id === 'desolateland') {
+					this.add('-activate', source, 'ability: Desolate Land');
+					this.add('-message', "The harsh sunlight became milder!");
+					this.add('-weather', 'SunnyDay', '[silent]');
+				} else {
+					if (this.gen <= 5 || effect.id === 'flowergift' || effect.id === 'forecast') this.effectData.duration = 0;
+					this.add('-weather', 'SunnyDay', '[from] ability: ' + effect, '[of] ' + source);
+				}
 			} else {
 				this.add('-weather', 'SunnyDay');
 			}
@@ -591,10 +600,7 @@ export const Conditions: {[k: string]: ModdedPureEffectData} = {
 			this.eachEvent('Weather');
 		},
 		onEnd() {
-			this.add('-ability', this.field.weatherData.source, 'ability: Desolate Land');
-			this.add('-message', "The harsh sunlight became milder!");
 			this.add('-weather', 'none', '[silent]');
-			this.add('-weather', 'sunnyday', '[silent]');
 		},
 	},
 	sandstorm: {
@@ -648,7 +654,7 @@ export const Conditions: {[k: string]: ModdedPureEffectData} = {
 		onWeatherModifyDamage(damage, attacker, defender, move) {
 			if (move.type === 'Ice') {
 				this.debug('Hail boost');
-				return this.chainModify(1.25);
+				return this.chainModify(1.30);
 			}
 			if (!attacker.hasType('Ice') && (move.type === 'Water' || move.type === 'Fire') &&
 			move.id !== 'originpulse' && move.id !== 'sacredfire' && !move.ignoreWeather) {
