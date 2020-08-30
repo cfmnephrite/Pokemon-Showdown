@@ -527,16 +527,16 @@
 "evs":{"hp":248,"atk":0,"def":8,"spa":0,"spd":252,"spe":0},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Calm"],
-"moves":[["Rest"],["Sleep Talk"],["Defog"],["Dragon Pulse"]]},
+"moves":[["Rest"],["Sleep Talk"],["Defog", "Will-o-Wisp"],["Dragon Tail"]]},
 
 {"species":"Giratina",
 "gender":"",
-"item":"Lum Berry",
+"item":"Kee Berry",
 "ability":"Cursed Body",
 "evs":{"hp":248,"atk":0,"def":8,"spa":252,"spd":0,"spe":0},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Bold"],
-"moves":[["Dragon Pulse"],["Calm Mind"],["Shadow Ball"],["Rest"]]},
+"moves":[["Dragon Pulse"],["Calm Mind"],["Sleep Talk"],["Rest"]]},
 
 {"species":"Giratina",
 "gender":"",
@@ -544,7 +544,7 @@
 "ability":"Pressure",
 "evs":{"hp":248,"atk":0,"def":252,"spa":0,"spd":8,"spe":0},
 "nature":["Impish"],
-"moves":[["Rest"],["Sleep Talk"],["Will-O-Wisp"],["Dragon Tail"]]}]},
+"moves":[["Rest"],["Sleep Talk"],["Defog", "Will-O-Wisp"],["Dragon Tail"]]}]},
 "giratinaorigin":{"flags":{},"sets":[
 
 {"species":"Giratina-Origin",
@@ -8509,9 +8509,18 @@
 "gender":"",
 "item":"Leftovers",
 "ability":"Magician",
+"evs":{"hp":252,"atk":0,"def":252,"spa":0,"spd":4,"spe":0},
+"nature":["Bold"],
+"ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
+"moves":[["Calm Mind"],["Dazzling Gleam"],["Dream Eater"],["Magic Coat"]]},
+
+{"species":"Uxie",
+"gender":"",
+"item":"Leftovers",
+"ability":"Magician",
 "evs":{"hp":252,"atk":0,"def":64,"spa":0,"spd":0,"spe":192},
 "nature":["Bold"],
-"moves":[["Calm Mind"],["Psyshock"],["Thunder Wave"],["U-turn"]]}]},
+"moves":[["Magic Coat"],["Psyshock","Knock Off"],["Thunder Wave"],["U-turn", "Memento"]]}]},
 "venomoth":{"flags":{},"sets":[
 
 {"species":"Venomoth",
@@ -9954,7 +9963,7 @@
 "ability":"Mold Breaker",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["Swords Dance"],["Vice Grip"],["Earthquake"],["Stone Edge"]]},
+"moves":[["Swords Dance"],["Vise Grip"],["Earthquake"],["Stone Edge"]]},
 
 {"species":"Pinsir",
 "gender":"",
@@ -9962,7 +9971,7 @@
 "ability":"Mold Breaker",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Adamant"],
-"moves":[["Vice Grip"],["Earthquake"],["Stone Edge"],["Close Combat"]]},
+"moves":[["Vise Grip"],["Earthquake"],["Stone Edge"],["Close Combat"]]},
 
 {"species":"Pinsir",
 "gender":"",
@@ -9970,7 +9979,7 @@
 "ability":"Mold Breaker",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Adamant"],
-"moves":[["Stealth Rock"],["Vice Grip"],["Rock Tomb"],["Earthquake"]]}]},
+"moves":[["Stealth Rock"],["Vise Grip"],["Rock Tomb"],["Earthquake"]]}]},
 "politoed":{"flags":{},"sets":[
 
 {"species":"Politoed",
@@ -10168,7 +10177,7 @@
 "ability":"Natural Cure",
 "evs":{"hp":252,"atk":0,"def":4,"spa":0,"spd":252,"spe":0},
 "nature":["Calm"],
-"moves":[["Spikes"],["Giga Drain"],["Synthesis"],["Sludge Bomb"]]},
+"moves":[["Spikes"],["Giga Drain"],["Synthesis"],["Acid"]]},
 
 {"species":"Roselia",
 "gender":"",
@@ -10176,7 +10185,7 @@
 "ability":"Natural Cure",
 "evs":{"hp":80,"atk":0,"def":0,"spa":252,"spd":0,"spe":176},
 "nature":["Modest"],
-"moves":[["Spikes"],["Leaf Storm"],["Sludge Bomb"],["Sleep Powder"]]}]},
+"moves":[["Spikes"],["Leaf Storm"],["Acid"],["Sleep Powder"]]}]},
 "rotom":{"flags":{},"sets":[
 
 {"species":"Rotom",
@@ -11361,15 +11370,15 @@
 "ability":"Shed Skin",
 "evs":{ "hp":248,"atk":0,"def":252,"spa":0,"spd":8,"spe":0},
 "nature":["Impish"],
-"moves":[["Stealth Rock"],["Rest"],["Leech Life", "U-Turn"],["Earthquake"]]},
+"moves":[["Stealth Rock"],["Rest"],["Leech Life", "U-Turn"],["Drill Run"]]},
 
 {"species":"Nincada",
 "gender":"",
 "item":"Eviolite",
-"ability":"Sap Sipper",
+"ability":["Sap Sipper","Shed Skin"],
 "evs":{ "hp":248,"atk":0,"def":8,"spa":0,"spd":252,"spe":0},
 "nature":["Careful"],
-"moves":[["Stealth Rock"],["Rest"],["Leech Life", "U-Turn"],["Earthquake"]]},
+"moves":[["Stealth Rock"],["Rest"],["Leech Life", "U-Turn"],["Drill Run"]]},
 
 {"species":"Nincada",
 "gender":"",
@@ -11377,7 +11386,7 @@
 "ability":"Shed Skin",
 "evs":{ "hp":4,"atk":252,"def":0,"spa":0,"spd":0,"spe":252},
 "nature":["Adamant"],
-"moves":[["Swords Dance"],["Rest"],["Leech Life", "U-Turn"],["Earthquake"]]}]},
+"moves":[["Swords Dance"],["Rest"],["Leech Life"],["Drill Run"]]}]},
 "pawniard":{"flags":{},"sets":[
 
 {"species":"Pawniard",
@@ -11451,8 +11460,16 @@
 
 {"species":"Rampardos",
 "gender":"",
+"item":"Life Orb",
+"ability":"Rock Head",
+"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
+"nature":["Jolly", "Adamant"],
+"moves":[["Head Smash"],["Superpower"],["Earthquake"],["Swords Dance", "Rock Polish"]]},
+
+{"species":"Rampardos",
+"gender":"",
 "item":"Focus Sash",
-"ability":"Mold Breaker",
+"ability":["Rock Head","Mold Breaker"],
 "evs":{"hp":0,"atk":144,"def":0,"spa":112,"spd":0,"spe":252},
 "nature":["Naive"],
 "moves":[["Stealth Rock"],["Superpower"],["Head Smash"],["Surf"]]}]},
@@ -11730,23 +11747,6 @@
 "evs":{"hp":252,"atk":0,"def":0,"spa":252,"spd":4,"spe":0},
 "nature":["Modest"],
 "moves":[["Leaf Storm"],["Giga Drain"],["Hidden Power Fire"],["Sleep Powder"]]}]},
-"torracat":{"flags":{},"sets":[
-
-{"species":"Torracat",
-"gender":"",
-"item":"Eviolite",
-"ability":"Intimidate",
-"evs":{"hp":248,"atk":8,"def":252,"spa":0,"spd":0,"spe":0},
-"nature":["Impish"],
-"moves":[["Will-O-Wisp"],["U-turn"],["Flame Charge"],["Leech Life"]]},
-
-{"species":"Torracat",
-"gender":"",
-"item":"Eviolite",
-"ability":"Intimidate",
-"evs":{"hp":4,"atk":252,"def":0,"spa":0,"spd":0,"spe":252},
-"nature":["Adamant"],
-"moves":[["Crunch"],["Flame Charge"],["Flare Blitz"],["Swords Dance"]]}]},
 "venipede":{"flags":{},"sets":[
 
 {"species":"Venipede",
