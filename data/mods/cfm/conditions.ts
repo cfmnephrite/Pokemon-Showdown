@@ -51,6 +51,14 @@ export const Conditions: {[k: string]: ModdedPureEffectData} = {
 			} else {
 				this.add('-status', target, 'slp');
 			}
+
+			// Apply Nightmare automatically if appropriate
+			for (const move of source.moveSlots) {
+				if (move.id === 'nightmare') {
+					target.addVolatile('nightmare', source);
+					break;
+				}
+			}
 			// 1-3 turns
 			if (target.hasAbility('earlybird')) {
 				this.effectData.time = 1;

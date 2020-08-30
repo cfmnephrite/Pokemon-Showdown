@@ -4388,7 +4388,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "5 turns. Electric boosted by 25%; Ground-types not immune; can't use Rest.",
+		shortDesc: "5 turns. Electric boosted by 30%; Ground-types not immune; can't use Rest.",
 		name: "Electric Terrain",
 		pp: 10,
 		priority: 0,
@@ -4412,7 +4412,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onBasePower(basePower, attacker, defender, move) {
 				if (move.type === 'Electric') {
 					this.debug('electric terrain boost');
-					return this.chainModify(1.25);
+					return this.chainModify(1.30);
 				}
 			},
 			onNegateImmunity(pokemon, type) {
@@ -6713,7 +6713,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "5 turns. Grass boosted by 25%; grounded Pokémon recover HP; Grass-types cannot be poisoned.",
+		shortDesc: "5 turns. Grass boosted by 30%; grounded Pokémon recover HP; Grass-types cannot be poisoned.",
 		name: "Grassy Terrain",
 		pp: 10,
 		priority: 0,
@@ -6731,7 +6731,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onBasePower(basePower, attacker, defender, move) {
 				if (move.type === 'Grass') {
 					this.debug('grassy terrain boost');
-					return this.chainModify(1.25);
+					return this.chainModify(1.30);
 				}
 			},
 			onSetStatus(status, target, source, effect) {
@@ -10982,7 +10982,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
-		shortDesc: "User takes 25% recoil, then restores HP equal to 50% of damage dealt.",
+		shortDesc: "User takes 30% recoil, then restores HP equal to 50% of damage dealt.",
 		name: "Mind Blown",
 		pp: 10,
 		priority: 0,
@@ -11316,7 +11316,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onBasePower(basePower, attacker, defender, move) {
 				if (move.type === 'Fairy') {
 					this.debug('misty terrain boost');
-					return this.chainModify(1.25);
+					return this.chainModify(1.30);
 				}
 			},
 			onStart(battle, source, effect) {
@@ -11786,11 +11786,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onBasePower(basePower, pokemon) {
-			if (pokemon.hasAbility('Bad Dreams')) {
-				return this.chainModify(1.5);
-			}
-		},
 		volatileStatus: 'nightmare',
 		effect: {
 			noCopy: true,
@@ -11804,22 +11799,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onResidual(pokemon) {
 				this.damage(pokemon.maxhp / 8);
 			},
-			onUpdate(pokemon) {
-				if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose')) {
-					pokemon.removeVolatile('nightmare');
-					this.add('-end', pokemon, 'Nightmare', '[silent]');
-				}
-				if (pokemon.status === 'slp' || pokemon.hasAbility('comatose')) {
-					pokemon.addVolatile('nightmare');
-					this.add('-start', pokemon, 'Nightmare');
-				}
-			},
-
 		},
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
-		zMove: {basePower: 180},
 		contestType: "Clever",
 	},
 	nightshade: {
@@ -13224,7 +13207,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "5 turns: Psychic power boosted by 25%; Grounded: priority-safe.",
+		shortDesc: "5 turns: Psychic power boosted by 30%; Grounded: priority-safe.",
 		name: "Psychic Terrain",
 		pp: 10,
 		priority: 0,
@@ -13260,7 +13243,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onBasePower(basePower, attacker, defender, move) {
 				if (move.type === 'Psychic') {
 					this.debug('psychic terrain boost');
-					return this.chainModify(1.25);
+					return this.chainModify(1.30);
 				}
 			},
 			onStart(battle, source, effect) {

@@ -201,8 +201,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		cfm: true,
 	},
 	baddreams: {
-		desc: "Causes adjacent opposing Pokemon to lose 1/8 of their maximum HP, rounded down, at the end of each turn if they are asleep.",
-		shortDesc: "Causes sleeping adjacent foes to lose 1/8 of their max HP at the end of each turn.",
+		desc: "Causes adjacent opposing Pokemon to lose 1/8 of their maximum HP, rounded down, at the end of each turn if they are asleep. This ability boosts the power of the moves Nightmare and Never-Ending Nightmare by 50%.",
+		shortDesc: "Nightmare & Never-Ending Nightmare +50%; damages sleeping foes by 1/8 HP per turn.",
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
@@ -214,9 +214,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (["Nightmare", "Never-Ending Nightmare"].includes(move.name)) return this.chainModify(1.5);
+		},
 		name: "Bad Dreams",
 		rating: 1.5,
 		num: 123,
+		cfm: true,
 	},
 	ballfetch: {
 		shortDesc: "No competitive use.",
@@ -2495,8 +2500,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const multiAbility = multiTypes[type];
 			this.add('-activate', pokemon, 'ability: Multitype');
 			pokemon.ability = pokemon.baseAbility = toID(multiAbility);
-			this.add('-ability', pokemon, multiAbility);
-			this.add('-message', pokemon.name + "'s ability changed to " + this.dex.getAbility(pokemon.baseAbility).name + " to suit its type!");
+			this.add('-message', pokemon.name + "'s Ability changed to " + this.dex.getAbility(pokemon.baseAbility).name + " to suit its type!");
 			return;
 		},
 		name: "Multitype",
