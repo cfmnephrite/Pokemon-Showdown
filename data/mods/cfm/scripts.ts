@@ -1119,6 +1119,7 @@ export const Scripts: BattleScriptsData = {
 
 	getZMove(move, pokemon, skipChecks) {
 		const item = pokemon.getItem();
+		const type = this.getEffectiveType(move, pokemon);
 		if (!skipChecks) {
 			if (pokemon.side.zMoveUsed) return;
 			if (!item.zMove) return;
@@ -1130,16 +1131,16 @@ export const Scripts: BattleScriptsData = {
 				!item.itemUser?.includes(pokemon.species.name)) {
 			const zMove = this.dex.getMove(item.zMoveSpecialMoves[pokemon.baseSpecies.baseSpecies]);
 			if (zMove.zMoveSpecialMoveFrom?.includes(move.name) ||
-			zMove.zMoveSpecialType === this.getEffectiveType(move, pokemon)) return zMove.name;
+			zMove.zMoveSpecialType === type) return zMove.name;
 		}
 		if (typeof item.zMove === 'string') {
 			if (item.itemUser && !item.itemUser.includes(pokemon.species.name)) return;
 			if (item.zMoveFrom && move.name !== item.zMoveFrom) return;
-			if (item.zMoveType && this.getEffectiveType(move, pokemon) !== item.zMoveType) return;
+			if (item.zMoveType && type !== item.zMoveType) return;
 			if (item.zMoveCategory && this.getCategory(move, pokemon) !== item.zMoveCategory) return;
 			return item.zMove as string;
 		} else if (item.zMove === true) {
-			if (this.getEffectiveType(move, pokemon) === item.zMoveType) {
+			if (type === item.zMoveType) {
 				if (move.category === "Status") {
 					return move.name;
 				} else if (move.zMove?.basePower) {

@@ -201,8 +201,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		cfm: true,
 	},
 	baddreams: {
-		desc: "Causes adjacent opposing Pokemon to lose 1/8 of their maximum HP, rounded down, at the end of each turn if they are asleep.",
-		shortDesc: "Causes sleeping adjacent foes to lose 1/8 of their max HP at the end of each turn.",
+		desc: "Causes adjacent opposing Pokemon to lose 1/8 of their maximum HP, rounded down, at the end of each turn if they are asleep. This ability boosts the power of the moves Nightmare and Never-Ending Nightmare by 50%.",
+		shortDesc: "Nightmare & Never-Ending Nightmare +50%; damages sleeping foes by 1/8 HP per turn.",
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
@@ -214,9 +214,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (["Nightmare", "Never-Ending Nightmare"].includes(move.name)) return this.chainModify(1.5);
+		},
 		name: "Bad Dreams",
 		rating: 1.5,
 		num: 123,
+		cfm: true,
 	},
 	ballfetch: {
 		shortDesc: "No competitive use.",
@@ -734,7 +739,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		cfm: true,
 	},
 	desolateland: {
-		desc: "On switch-in, the weather becomes extremely harsh sunlight that prevents damaging Water-type moves from executing (except for Origin Pulse) and boosts the power of Fire-type attacks by 50%. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Delta Stream or Primordial Sea. If neither this nor Delta Stream is active, there is a 50% chance for the weather to reset at the end of the turn. If this Pokémon is no longer active, the weather turns to regular sunlight.",
+		desc: "On switch-in, the weather becomes extremely harsh sunlight that prevents damaging Water-type moves from executing (except for Origin Pulse) and boosts the power of Fire-type attacks by 50%. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Delta Stream or Primordial Sea. If neither this nor Delta Stream is active, there is a 50% chance for the weather to reset at the end of the turn. If this Pokémon is no longer active, the weather turns into regular sunlight.",
 		shortDesc: "Harsh sunlight; 50% chance to reset at turn end; turns to sunlight on end.",
 		onStart(source) {
 			this.field.setWeather('desolateland');
@@ -761,6 +766,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 			this.field.clearWeather();
+			this.field.setWeather('sunnyday', this.field.weatherData.source, this.dex.getAbility('desolateland'));
 		},
 		name: "Desolate Land",
 		rating: 5,
@@ -2484,7 +2490,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		// Multitype's type-changing itself is implemented in statuses.js
 		onUpdate(pokemon) {
 			const type = pokemon.getItem().onPlate;
-			if (!type || pokemon.baseSpecies.name !== 'Arceus') return;
+			if (!type || pokemon.baseSpecies.baseSpecies !== 'Arceus') return;
 			const multiTypes: {[k: string]: string} = {'Bug': 'tintedlens', 'Dark': 'intimidate', 'Dragon': 'multiscale',
 				'Electric': 'lightningrod', 'Fairy': 'wonderskin', 'Fire': 'moldbreaker', 'Fighting': 'scrappy',
 				'Flying': 'keeneye', 'Ghost': 'cursedbody', 'Grass': 'regenerator', 'Ground': 'sandstream',
@@ -2494,8 +2500,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const multiAbility = multiTypes[type];
 			this.add('-activate', pokemon, 'ability: Multitype');
 			pokemon.ability = pokemon.baseAbility = toID(multiAbility);
-			this.add('-ability', pokemon, multiAbility);
-			this.add('-message', pokemon.name + "'s ability changed to " + this.dex.getAbility(pokemon.baseAbility).name + " to suit its type!");
+			this.add('-message', pokemon.name + "'s Ability changed to " + this.dex.getAbility(pokemon.baseAbility).name + " to suit its type!");
 			return;
 		},
 		name: "Multitype",
@@ -3089,7 +3094,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 46,
 	},
 	primordialsea: {
-		desc: "On switch-in, the weather becomes extremely heavy rain that prevents damaging Fire-type moves from executing (except for Sacred Fire) and boosts the power of Water-type attacks by 50%. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Delta Stream or Primordial Sea. If neither this nor Delta Stream is active, there is a 50% chance for the weather to reset at the end of the turn. If this Pokémon is no longer active, the weather turns to regular rain.",
+		desc: "On switch-in, the weather becomes extremely heavy rain that prevents damaging Fire-type moves from executing (except for Sacred Fire) and boosts the power of Water-type attacks by 50%. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Delta Stream or Primordial Sea. If neither this nor Delta Stream is active, there is a 50% chance for the weather to reset at the end of the turn. If this Pokémon is no longer active, the weather turns into regular rain.",
 		shortDesc: "On switch-in, heavy rain begins until this Ability is not active in battle.",
 		onStart(source) {
 			this.field.setWeather('primordialsea');
@@ -3116,6 +3121,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 			this.field.clearWeather();
+			this.field.setWeather('raindance', this.field.weatherData.source, this.dex.getAbility('primordialsea'));
 		},
 		name: "Primordial Sea",
 		rating: 4.5,
