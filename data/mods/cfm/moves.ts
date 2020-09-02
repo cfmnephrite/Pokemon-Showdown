@@ -3274,6 +3274,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Fairy",
+		zMove: {boost: {atk: 2, spa: 2}},
 	},
 	defendorder: {
 		num: 455,
@@ -17450,11 +17451,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Stuff Cheeks",
 		pp: 10,
 		priority: 0,
-		flags: {snatch: 1},
+		flags: {snatch: 1, heal: 1},
 		onTryHit(target, source, move) {
 			const item = source.getItem();
 			if (item.isBerry && source.eatItem(true)) {
-				this.boost({def: 2}, source, null, null, false, true);
+				this.heal(target.basemaxhp / 4);
 			} else {
 				return false;
 			}
