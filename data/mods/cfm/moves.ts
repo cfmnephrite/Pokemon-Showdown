@@ -17455,7 +17455,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onTryHit(target, source, move) {
 			const item = source.getItem();
 			if (item.isBerry && source.eatItem(true)) {
-				this.heal(target.basemaxhp / 4);
+				this.heal(target.baseMaxhp / 4);
 			} else {
 				return false;
 			}
