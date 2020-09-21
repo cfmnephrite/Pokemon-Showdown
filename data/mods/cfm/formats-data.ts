@@ -1018,7 +1018,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	porygonz: {
 		isNonstandard: null,
-		tier: "CUU",
+		tier: "COU",
 		inherit: true,
 	},
 	omanyte: {
@@ -4050,7 +4050,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	hawlucha: {
 		randomBattleMoves: ["acrobatics", "closecombat", "stoneedge", "substitute", "swordsdance"],
-		tier: "CUU",
+		tier: "COU",
 		inherit: true,
 	},
 	dedenne: {
@@ -4349,7 +4349,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	lycanrocdusk: {
 		isNonstandard: null,
-		tier: "CUU",
+		tier: "COU",
 		inherit: true,
 	},
 	wishiwashi: {
@@ -4659,7 +4659,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	kommoo: {
 		randomBattleMoves: ["clangoroussoul", "clangingscales", "closecombat", "dragondance", "drainpunch", "outrage", "poisonjab"],
-		tier: "CUU",
+		tier: "COU",
 		inherit: true,
 	},
 	kommoototem: {
