@@ -661,7 +661,7 @@ export const Formats: (FormatsData | {section: string, column?: number})[] = [
 		mod: 'cfm',
 		// cfacTier: 'UU',
 		ruleset: ['[Gen 8] CFM OU'],
-		banlist: ['COU', 'Mewnium Z', 'Kommonium Z', 'Drought', 'Drizzle'],
+		banlist: ['COU', 'Drought', 'Drizzle'],
 	},
 	{
 		name: "[Gen 8] CFM RU",
