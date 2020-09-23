@@ -3274,6 +3274,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Fairy",
+		zMove: {boost: {atk: 2, spa: 2}},
 	},
 	defendorder: {
 		num: 455,
@@ -11652,10 +11653,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			const item = pokemon.getItem();
 			if (!item.naturalGift) return false;
 			move.basePower = item.naturalGift.basePower;
-			pokemon.setItem('');
-			pokemon.lastItem = item.id;
-			pokemon.usedItemThisTurn = true;
-			this.runEvent('AfterUseItem', pokemon, null, null, item);
 		},
 		secondary: null,
 		target: "normal",
@@ -17450,11 +17447,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Stuff Cheeks",
 		pp: 10,
 		priority: 0,
-		flags: {snatch: 1},
+		flags: {snatch: 1, heal: 1},
 		onTryHit(target, source, move) {
 			const item = source.getItem();
 			if (item.isBerry && source.eatItem(true)) {
-				this.boost({def: 2}, source, null, null, false, true);
+				this.heal(target.baseMaxhp / 4);
 			} else {
 				return false;
 			}

@@ -2725,7 +2725,40 @@
 "ability":["Soundproof","Bulletproof","Battle Armor"],
 "evs":{"hp":0,"atk":252,"def":0,"spa":4,"spd":0,"spe":252},
 "nature":["Hasty"],
-"moves":[["Dragon Dance"],["Clanging Scales"],["Close Combat"],["Iron Head"]]}]},
+"moves":[["Dragon Dance"],["Clanging Scales"],["Close Combat"],["Iron Head"]]},
+
+{"species":"Kommo-o",
+"gender":"",
+"item":["Salac Berry"],
+"ability":["Soundproof"],
+"evs":{"hp":4,"atk":252,"def":0,"spa":0,"spd":0,"spe":252},
+"nature":["Jolly"],
+"moves":[["Substitute"],["Belly Drum"],["Drain Punch"],["Iron Head","Shadow Claw"]]},
+
+{"species":"Kommo-o",
+"gender":"",
+"item":["Dragonium Z"],
+"ability":["Soundproof","Bulletproof","Battle Armor"],
+"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
+"nature":["Jolly"],
+"moves":[["Swords Dance"],["Dragon Dance","Iron Head"],["Close Combat"],["Outrage"]]},
+
+{"species":"Kommo-o",
+"gender":"",
+"item":["Choice Specs"],
+"ability":["Soundproof","Bulletproof","Battle Armor"],
+"evs":{"hp":0,"atk":0,"def":0,"spa":252,"spd":4,"spe":252},
+"ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
+"nature":["Jolly"],
+"moves":[["Clanging Scales"],["Flash Cannon"],["Focus Blast"],["Fire Blast","Flamethrower"]]},
+
+{"species":"Kommo-o",
+"gender":"",
+"item":["Dragonium Z"],
+"ability":["Soundproof","Bulletproof","Battle Armor"],
+"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
+"nature":["Jolly"],
+"moves":[["Dragon Dance"],["Iron Head"],["Close Combat"],["Outrage"]]}]},
 "landorustherian":{"flags":{},"sets":[
 
 {"species":"Landorus-Therian",
@@ -3162,12 +3195,22 @@
 
 {"species":"Porygon-Z",
 "gender":"",
+"item":"Life Orb",
+"ability":"Adaptability",
+"evs":{"hp":0,"atk":0,"def":0,"spa":252,"spd":4,"spe":252},
+"ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
+"nature":["Timid"],
+"moves":[["Nasty Plot"],["Tri Attack"],["Dark Pulse"],["Hidden Power Fighting"]]},
+
+{"species":"Porygon-Z",
+"gender":"",
 "item":["Choice Specs","Choice Scarf"],
 "ability":"Adaptability",
 "evs":{"hp":0,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Modest", "Timid"],
-"moves":[["Trick"],["Tri Attack", "Uproar"],["Thunderbolt"],["Ice Beam"]]}]},"raikou":{"flags":{},"sets":[
+"moves":[["Trick"],["Tri Attack", "Uproar"],["Thunderbolt"],["Ice Beam"]]}]},
+"raikou":{"flags":{},"sets":[
 
 {"species":"Raikou",
 "gender":"",
@@ -5214,39 +5257,6 @@
 "evs":{"hp":252,"atk":0,"def":4,"spa":0,"spd":252,"spe":0},
 "nature":["Sassy"],
 "moves":[["Thunder Wave"],["Flash Cannon","Heal Block","Magic Coat"],["Spikes"],["Play Rough"]]}]},
-"kommoo":{"flags":{},"sets":[
-{"species":"Kommo-o",
-"gender":"",
-"item":["Salac Berry"],
-"ability":["Soundproof"],
-"evs":{"hp":4,"atk":252,"def":0,"spa":0,"spd":0,"spe":252},
-"nature":["Jolly"],
-"moves":[["Substitute"],["Belly Drum"],["Drain Punch"],["Iron Head","Shadow Claw"]]},
-
-{"species":"Kommo-o",
-"gender":"",
-"item":["Dragonium Z"],
-"ability":["Soundproof","Bulletproof","Battle Armor"],
-"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
-"nature":["Jolly"],
-"moves":[["Swords Dance"],["Dragon Dance","Iron Head"],["Close Combat"],["Outrage"]]},
-
-{"species":"Kommo-o",
-"gender":"",
-"item":["Choice Specs"],
-"ability":["Soundproof","Bulletproof","Battle Armor"],
-"evs":{"hp":0,"atk":0,"def":0,"spa":252,"spd":4,"spe":252},
-"ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
-"nature":["Jolly"],
-"moves":[["Clanging Scales"],["Flash Cannon"],["Focus Blast"],["Fire Blast","Flamethrower"]]},
-
-{"species":"Kommo-o",
-"gender":"",
-"item":["Dragonium Z"],
-"ability":["Soundproof","Bulletproof","Battle Armor"],
-"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
-"nature":["Jolly"],
-"moves":[["Dragon Dance"],["Iron Head"],["Close Combat"],["Outrage"]]}]},
 "krookodile":{"flags":{},"sets":[
 
 {"species":"Krookodile",
@@ -5763,25 +5773,6 @@
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Calm"],
 "moves":[["Recover"],["Thunder Wave"],["Thunderbolt"],["Ice Beam"]]}]},
-"porygonz":{"flags":{},"sets":[
-
-{"species":"Porygon-Z",
-"gender":"",
-"item":"Life Orb",
-"ability":"Adaptability",
-"evs":{"hp":0,"atk":0,"def":0,"spa":252,"spd":4,"spe":252},
-"ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
-"nature":["Timid"],
-"moves":[["Nasty Plot"],["Tri Attack"],["Dark Pulse"],["Hidden Power Fighting"]]},
-
-{"species":"Porygon-Z",
-"gender":"",
-"item":["Choice Specs","Choice Scarf"],
-"ability":"Adaptability",
-"evs":{"hp":0,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
-"ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
-"nature":["Modest", "Timid"],
-"moves":[["Trick"],["Tri Attack", "Uproar"],["Thunderbolt"],["Ice Beam"]]}]},
 "primarina":{"flags":{},"sets":[
 
 {"species":"Primarina",

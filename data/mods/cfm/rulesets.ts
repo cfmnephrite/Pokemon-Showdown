@@ -1073,36 +1073,46 @@ export const Formats: {[k: string]: FormatsData} = {
 		onValidateSet(set, format) {
 			const allTiers: {[k: string]: number} = {PU: 0, NU: 1, RU: 2, UU: 3, OU: 4};
 			const currTier = format.name.substr(format.name.indexOf("CFM ") + 4);
-			const speciesRef = toID(Dex.getSpecies(set.species).baseSpecies);
-			const complexBans: {[k: string]: {[k: string]: string}} = {
+			const speciesRef = toID((function () {
+				const currSpecies = Dex.getSpecies(set.species), currItem = Dex.getItem(set.item);
+				if (currSpecies?.forme === 'Mega')
+					return currSpecies;
+				else if (currItem?.megaEvolves === currSpecies?.baseSpecies)
+					return currItem.megaStone;
+				else
+					return currSpecies?.baseSpecies;
+			})());
+			const complexBans: {[mon: string]: {tier: string, [condition: string]: string | string[]}} = {
 				// abilities - OU
-				blaziken:	{tier: 'OU', ability: 'speedboost'},
-				zapdos:		{tier: 'OU', ability: 'drizzle'},
-				moltres:	{tier: 'OU', ability: 'drought'},
-				volcarona:	{tier: 'OU', ability: 'drought'},
-				heatran:	{tier: 'OU', ability: 'magmaarmor'},
+				blaziken:		{tier: 'OU', ability: 'speedboost'},
+				zapdos:			{tier: 'OU', ability: 'drizzle'},
+				moltres:		{tier: 'OU', ability: 'drought'},
+				volcarona:		{tier: 'OU', ability: 'drought'},
+				heatran:		{tier: 'OU', ability: 'magmaarmor'},
 				// abilities - UU
-				serperior:	{tier: 'UU', ability: 'contrary'},
-				diggersby:	{tier: 'UU', ability: 'hugepower'},
-				rillaboom:	{tier: 'UU', ability: 'grassysurge'},
+				serperior:		{tier: 'UU', ability: 'contrary'},
+				diggersby:		{tier: 'UU', ability: 'hugepower'},
+				rillaboom:		{tier: 'UU', ability: 'grassysurge'},
 				// items
-				latias:		{tier: 'OU', item: 'souldew'},
-				latios:		{tier: 'OU', item: 'souldew'},
+				latias:			{tier: 'OU', item: 'souldew'},
+				latios:			{tier: 'OU', item: 'souldew'},
+				cloyster:		{tier: 'OU', items: ['kingsrock', 'razorfang']},
 				// moves
-				porygonz:	{tier: 'OU', move: 'hyperbeam'},
+				porygonz:		{tier: 'OU', move: 'hyperbeam'},
+				blastoisemega:	{tier: 'OU', move: 'shellsmash'},
 			};
 			if (!!complexBans[speciesRef] && allTiers[currTier] <= allTiers[complexBans[speciesRef].tier]) {
 				if (complexBans[speciesRef].ability === toID(set.ability)) {
 					const ability = set.ability;
-					return [`${set.name || set.species} is not allowed to run ${ability} in C${complexBans[speciesRef].tier} or below.`];
+					return [`${set.name || speciesRef} is not allowed to run ${ability} in C${complexBans[speciesRef].tier} or below.`];
 				}
-				if (complexBans[speciesRef].item === toID(set.item)) {
-					return [`${set.name || set.species} is not allowed to hold ${set.item} in C${complexBans[speciesRef].tier} or below.`];
+				if (complexBans[speciesRef].item === toID(set.item) || complexBans[speciesRef].items?.includes(toID(set.item))) {
+					return [`${set.name || speciesRef} is not allowed to hold ${set.item} in C${complexBans[speciesRef].tier} or below.`];
 				}
 				for (const move of set.moves) {
-					if (complexBans[speciesRef].move === toID(move)) {
+					if (complexBans[speciesRef].move === toID(move) || complexBans[speciesRef].moves?.includes(toID(move))) {
 						const moveName = Dex.getMove(move).name;
-						return [`${set.name || set.species} is not allowed to use ${moveName} in C${complexBans[speciesRef].tier} or below.`];
+						return [`${set.name || speciesRef} is not allowed to use ${moveName} in C${complexBans[speciesRef].tier} or below.`];
 					}
 				}
 			}
