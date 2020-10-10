@@ -14967,7 +14967,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Scorching Sands",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, defrost: 1},
+		flags: {protect: 1, mirror: 1, defrost: 1, antiair: 1},
 		thawsTarget: true,
 		secondary: {
 			chance: 30,
