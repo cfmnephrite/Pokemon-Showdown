@@ -89,7 +89,7 @@ export const Scripts: BattleScriptsData = {
 
 		// Dancer Petal Dance hack
 		// TODO: implement properly
-		const noLock = externalMove && !pokemon.volatiles.lockedmove;
+		const noLock = externalMove && !pokemon.volatiles['lockedmove'];
 
 		if (zMove) {
 			if (pokemon.illusion) {
@@ -125,13 +125,11 @@ export const Scripts: BattleScriptsData = {
 				if (this.faintMessages()) break;
 				if (dancer.fainted) continue;
 				this.add('-activate', dancer, 'ability: Dancer');
-				// @ts-ignore - the Dancer ability can't trigger on a move where target is null because it does not copy failed moves.
-				const dancersTarget = target.side !== dancer.side && pokemon.side === dancer.side ? target : pokemon;
-				// @ts-ignore
+				const dancersTarget = target!.side !== dancer.side && pokemon.side === dancer.side ? target! : pokemon;
 				this.runMove(move.id, dancer, this.getTargetLoc(dancersTarget, dancer), this.dex.getAbility('dancer'), undefined, true);
 			}
 		}
-		if (noLock && pokemon.volatiles.lockedmove) delete pokemon.volatiles.lockedmove;
+		if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
 	},
 	/**
 	 * useMove is the "inside" move caller. It handles effects of the
@@ -291,7 +289,7 @@ export const Scripts: BattleScriptsData = {
 			const originalHp = pokemon.hp;
 			this.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
 			this.runEvent('AfterMoveSecondarySelf', pokemon, target, move);
-			if (pokemon && pokemon !== target && move && move.category !== 'Status') {
+			if (pokemon && pokemon !== target && move.category !== 'Status') {
 				if (pokemon.hp <= pokemon.maxhp / 2 && originalHp > pokemon.maxhp / 2) {
 					this.runEvent('EmergencyExit', pokemon, pokemon);
 				}
@@ -362,10 +360,8 @@ export const Scripts: BattleScriptsData = {
 
 		let atLeastOneFailure!: boolean;
 		for (const step of moveSteps) {
-			// @ts-ignore
 			const hitResults: (number | boolean | "" | undefined)[] | undefined = step.call(this, targets, pokemon, move);
 			if (!hitResults) continue;
-			// @ts-ignore
 			targets = targets.filter((val, i) => hitResults[i] || hitResults[i] === 0);
 			atLeastOneFailure = atLeastOneFailure || hitResults.some(val => val === false);
 			if (!targets.length) {
@@ -698,8 +694,7 @@ export const Scripts: BattleScriptsData = {
 				// purposes of Counter, Metal Burst, and Mirror Coat.
 				damage[i] = md === true || !md ? 0 : md;
 				// Total damage dealt is accumulated for the purposes of recoil (Parental Bond).
-				// @ts-ignore
-				move.totalDamage += damage[i];
+				move.totalDamage += damage[i] as number;
 			}
 			if (move.mindBlownRecoil) {
 				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Mind Blown'), true);
@@ -729,7 +724,7 @@ export const Scripts: BattleScriptsData = {
 			} else {
 				recoilDamage = this.trunc(pokemon.maxhp / 4);
 			}
-			this.directDamage(recoilDamage, pokemon, pokemon, {id: 'strugglerecoil'} as PureEffect);
+			this.directDamage(recoilDamage, pokemon, pokemon, {id: 'strugglerecoil'} as Condition);
 		}
 
 		// smartTarget messes up targetsCopy, but smartTarget should in theory ensure that targets will never fail, anyway
@@ -819,10 +814,7 @@ export const Scripts: BattleScriptsData = {
 		damage = this.spreadDamage(damage, targets, pokemon, move);
 
 		for (const i of targets.keys()) {
-			if (!damage && damage !== 0) {
-				this.debug('damage interrupted');
-				targets[i] = false;
-			}
+			if (damage[i] === false) targets[i] = false;
 		}
 
 		// 3. onHit event happens here
@@ -911,8 +903,7 @@ export const Scripts: BattleScriptsData = {
 				this.faint(pokemon, pokemon, move);
 			}
 			if ((damage[i] || damage[i] === 0) && !target.fainted) {
-				// @ts-ignore
-				if (move.noFaint && damage[i] >= target.hp) {
+				if (move.noFaint && damage[i]! >= target.hp) {
 					damage[i] = target.hp - 1;
 				}
 			}
@@ -1092,8 +1083,7 @@ export const Scripts: BattleScriptsData = {
 	},
 
 	calcRecoilDamage(damageDealt, move) {
-		// @ts-ignore
-		return this.clampIntRange(Math.round(damageDealt * move.recoil[0] / move.recoil[1]), 1);
+		return this.clampIntRange(Math.round(damageDealt * move.recoil![0] / move.recoil![1]), 1);
 	},
 
 	zMoveTable: {
@@ -1210,7 +1200,7 @@ export const Scripts: BattleScriptsData = {
 		const item = pokemon.getItem();
 		// Mega Rayquaza
 		if (altForme?.isMega && altForme?.requiredMove &&
-			pokemon.baseMoves.includes(toID(altForme.requiredMove)) && !item.zMove) {
+			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove) {
 			return altForme.name;
 		}
 		// a hacked-in Megazard X can mega evolve into Megazard Y, but not into Megazard X

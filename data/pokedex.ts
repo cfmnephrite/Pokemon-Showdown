@@ -3674,6 +3674,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Wynaut",
 		evoLevel: 15,
 		eggGroups: ["Amorphous"],
+		canHatch: true,
 		cfmMoves: ['counter', 'curse', 'earthquake', 'irontail', 'knockoff', 'lightscreen', 'mirrorcoat', 'reflect', 'superpower', 'teleport', 'wish', 'zenheadbutt'],
 	},
 	girafarig: {
@@ -8150,7 +8151,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		prevo: "Electabuzz",
 		evoType: "trade",
-		evoItem: "Electrizer",
+		evoItem: "Electirizer",
 		eggGroups: ["Human-Like"],
 		cfmMoves: [],
 	},
@@ -8280,7 +8281,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		prevo: "Porygon2",
 		evoType: "trade",
-		evoItem: "Dubious Disk",
+		evoItem: "Dubious Disc",
 		eggGroups: ["Mineral"],
 		cfmMoves: [],
 	},
@@ -15431,6 +15432,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		evos: ["Toxtricity", "Toxtricity-Low-Key"],
 		eggGroups: ["Undiscovered"],
+		canHatch: true,
 		cfmMoves: [],
 	},
 	toxtricity: {
