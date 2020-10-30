@@ -633,6 +633,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ghost",
 		contestType: "Cute",
 	},
+	astralbarrage: {
+		num: 825,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Astral Barrage",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ghost",
+	},
 	attackorder: {
 		num: 454,
 		accuracy: 100,
@@ -2528,7 +2541,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onHit(target) {
 			const noAbilityChange = [
-				'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'zenmode',
+				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'zenmode',
 			];
 			if (noAbilityChange.includes(target.ability)) return;
 			if (target.newlySwitched || this.queue.willMove(target)) return;
@@ -2536,7 +2549,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onAfterSubDamage(damage, target) {
 			const noAbilityChange = [
-				'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'zenmode',
+				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'zenmode',
 			];
 			if (noAbilityChange.includes(target.ability)) return;
 			if (target.newlySwitched || this.queue.willMove(target)) return;
@@ -3267,8 +3280,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 95,
 		basePower: 100,
 		category: "Physical",
-		desc: "Has a 50% chance to raise the user's Defense by 2 stages.",
-		shortDesc: "50% chance to raise user's Def by 2 for each hit.",
 		name: "Diamond Storm",
 		pp: 5,
 		priority: 0,
@@ -3670,8 +3681,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
-		desc: "Lowers the user's Defense and Special Defense by 1 stage.",
-		shortDesc: "Lowers the user's Defense and Sp. Def by 1.",
 		name: "Dragon Ascent",
 		pp: 5,
 		priority: 0,
@@ -3756,6 +3765,22 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		smartTarget: true,
 		secondary: null,
 		target: "normal",
+		type: "Dragon",
+	},
+	dragonenergy: {
+		num: 820,
+		accuracy: 100,
+		basePower: 150,
+		basePowerCallback(pokemon, target, move) {
+			return move.basePower * pokemon.hp / pokemon.maxhp;
+		},
+		category: "Special",
+		name: "Dragon Energy",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
 		type: "Dragon",
 	},
 	dragonhammer: {
@@ -4104,6 +4129,31 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Electric",
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
+	},
+	eeriespell: {
+		num: 826,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Eerie Spell",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		secondary: {
+			chance: 100,
+			onHit(target) {
+				if (!target.hp) return;
+				const move = target.lastMove;
+				if (!move || move.isZ || move.isMax) return;
+
+				const ppDeducted = target.deductPP(move.id, 3);
+				if (!ppDeducted) return;
+
+				this.add('-activate', target, 'move: Eerie Spell', move.name, ppDeducted);
+			},
+		},
+		target: "normal",
+		type: "Psychic",
 	},
 	eggbomb: {
 		num: 121,
@@ -4462,10 +4512,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onTryHit(target, source) {
 			if (target === source || target.volatiles['dynamax']) return false;
 			const bannedTargetAbilities = [
-				'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant',
+				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant',
 			];
 			const bannedSourceAbilities = [
-				'battlebond', 'comatose', 'disguise', 'flowergift', 'forecast', 'illusion', 'imposter', 'multitype', 'neutralizinggas', 'powerconstruct', 'powerofalchemy', 'receiver', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'trace', 'zenmode',
+				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'flowergift', 'forecast', 'illusion', 'imposter', 'multitype', 'neutralizinggas', 'powerconstruct', 'powerofalchemy', 'receiver', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'trace', 'zenmode',
 			];
 			if (
 				bannedTargetAbilities.includes(target.ability) || bannedSourceAbilities.includes(source.ability) ||
@@ -4831,6 +4881,22 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+	},
+	fierywrath: {
+		num: 822,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Fiery Wrath",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 20,
+			volatileStatus: 'flinch',
+		},
+		target: "allAdjacentFoes",
+		type: "Dark",
 	},
 	finalgambit: {
 		num: 515,
@@ -5765,6 +5831,22 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {basePower: 180},
 		contestType: "Beautiful",
 	},
+	freezingglare: {
+		num: 821,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Freezing Glare",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 10,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Psychic",
+	},
 	frenzyplant: {
 		num: 338,
 		accuracy: 90,
@@ -5975,7 +6057,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		volatileStatus: 'gastroacid',
 		onTryHit(pokemon) {
 			const bannedAbilities = [
-				'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'zenmode',
+				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'zenmode',
 			];
 			if (bannedAbilities.includes(pokemon.ability)) {
 				return false;
@@ -6135,6 +6217,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+	},
+	glaciallance: {
+		num: 824,
+		accuracy: 100,
+		basePower: 130,
+		category: "Physical",
+		name: "Glacial Lance",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ice",
 	},
 	glaciate: {
 		num: 549,
@@ -7548,7 +7643,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	holdhands: {
-		num: 615,
+		num: 607,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -7657,7 +7752,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1},
 		onModifyMove(move, pokemon, target) {
-			switch (pokemon.effectiveWeather()) {
+			switch (target?.effectiveWeather()) {
 			case 'raindance':
 			case 'primordialsea':
 			case 'hail':
@@ -9288,8 +9383,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 75,
 		basePower: 100,
 		category: "Special",
-		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Parting Shot, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
-		shortDesc: "Traps and damages the target for 4-5 turns.",
 		name: "Magma Storm",
 		pp: 5,
 		priority: 0,
@@ -10263,7 +10356,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {},
-		noMetronome: ['afteryou', 'assist', 'banefulbunker', 'beakblast', 'belch', 'bestow', 'celebrate', 'chatter', 'copycat', 'counter', 'covet', 'craftyshield', 'destinybond', 'detect', 'diamondstorm', 'dragonascent', 'endure', 'feint', 'fleurcannon', 'flowershield', 'focuspunch', 'followme', 'freezeshock', 'helpinghand', 'holdhands', 'hyperspacefury', 'hyperspacehole', 'iceburn', 'instruct', 'kingsshield', 'lightofruin', 'matblock', 'mefirst', 'metronome', 'mimic', 'mindblown', 'mirrorcoat', 'mirrormove', 'naturepower', 'originpulse', 'photongeyser', 'plasmafists', 'precipiceblades', 'protect', 'quash', 'quickguard', 'ragepowder', 'relicsong', 'secretsword', 'shelltrap', 'sketch', 'skyattack', 'sleeptalk', 'snarl', 'snatch', 'snore', 'spectralthief', 'spikyshield', 'spotlight', 'steameruption', 'struggle', 'switcheroo', 'technoblast', 'thief', 'thousandarrows', 'thousandwaves', 'transform', 'trick', 'vcreate', 'wideguard'],
+		noMetronome: [
+			"After You", "Apple Acid", "Assist", "Astral Barrage", "Aura Wheel", "Baneful Bunker", "Beak Blast", "Behemoth Bash", "Behemoth Blade", "Belch", "Bestow", "Body Press", "Branch Poke", "Breaking Swipe", "Celebrate", "Chatter", "Clangorous Soul", "Copycat", "Counter", "Covet", "Crafty Shield", "Decorate", "Destiny Bond", "Detect", "Diamond Storm", "Double Iron Bash", "Dragon Ascent", "Dragon Energy", "Drum Beating", "Dynamax Cannon", "Endure", "Eternabeam", "False Surrender", "Feint", "Fiery Wrath", "Fleur Cannon", "Flower Shield", "Focus Punch", "Follow Me", "Freeze Shock", "Freezing Glare", "Glacial Lance", "Grav Apple", "Helping Hand", "Hold Hands", "Hyperspace Fury", "Hyperspace Hole", "Ice Burn", "Instruct", "Jungle Healing", "King's Shield", "Life Dew", "Light of Ruin", "Mat Block", "Me First", "Meteor Assault", "Metronome", "Mimic", "Mind Blown", "Mirror Coat", "Mirror Move", "Moongeist Beam", "Nature Power", "Nature's Madness", "Obstruct", "Origin Pulse", "Overdrive", "Photon Geyser", "Plasma Fists", "Precipice Blades", "Protect", "Pyro Ball", "Quash", "Quick Guard", "Rage Powder", "Relic Song", "Secret Sword", "Shell Trap", "Sketch", "Sleep Talk", "Snap Trap", "Snarl", "Snatch", "Snore", "Spectral Thief", "Spiky Shield", "Spirit Break", "Spotlight", "Steam Eruption", "Steel Beam", "Strange Steam", "Struggle", "Sunsteel Strike", "Surging Strikes", "Switcheroo", "Techno Blast", "Thief", "Thousand Arrows", "Thousand Waves", "Thunder Cage", "Thunderous Kick", "Transform", "Trick", "V-create", "Wicked Blow", "Wide Guard",
+		],
 		onHit(target, source, effect) {
 			const moves: MoveData[] = [];
 			for (const id in Moves) {
@@ -10347,7 +10442,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
-		shortDesc: "User takes 30% recoil, then restores HP equal to 50% of damage dealt.",
+		shortDesc: "User takes 25% recoil, then restores HP equal to 50% of damage dealt.",
 		name: "Mind Blown",
 		pp: 10,
 		priority: 0,
@@ -11036,8 +11131,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return this.clampIntRange(Math.floor(target.getUndynamaxedHP() / 2), 1);
 		},
 		category: "Special",
-		desc: "Deals damage to the target equal to half of its current HP, rounded down, but not less than 1 HP.",
-		shortDesc: "Does damage equal to 1/2 target's current HP.",
 		name: "Nature's Madness",
 		pp: 10,
 		priority: 0,
@@ -11246,8 +11339,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		desc: "The user recovers 3/4 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
-		shortDesc: "User recovers 75% of the damage dealt.",
 		name: "Oblivion Wing",
 		pp: 10,
 		priority: 0,
@@ -12257,8 +12348,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 120,
 		category: "Physical",
-		desc: "No additional effect.",
-		shortDesc: "No additional effect. Hits adjacent foes.",
 		name: "Precipice Blades",
 		pp: 10,
 		priority: 0,
@@ -12285,7 +12374,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onModifyMove(move, pokemon, target) {
 			const rand = this.random(20);
-			if (pokemon.side === target.side) {
+			if (pokemon.side === target?.side) {
 				move.heal = [1, 2];
 			} else {
 				if (rand < 3) move.basePower += 30;
@@ -12551,68 +12640,65 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				move.category = "Physical";
 				boostedStat = 'atk';
 			}
-			if (pokemon.species.name === 'Deoxys'){
-				move.basePower = 75;
-				move.secondaries.push({
-					chance: 10,
-					self: {
-						boosts: {
-							atk: 1,
-							def: 1,
-							spa: 1,
-							spd: 1,
-							spe: 1,
-						},
-					},
-				});
-			}
-			else if (pokemon.species.name === 'Deoxys-Attack'){
-				move.basePower = 100;
-				move.secondaries.push({
-					chance: 20,
-					self: {
-						boosts: {
-							[boostedStat]: 1,
-						},
-					},
-				});
-			}
-			else if (pokemon.species.name === 'Deoxys-Defense'){
-				move.damage = pokemon.level;
-				boostedStat = pokemon.getStat('def') > pokemon.getStat('spd') ? 'def' : 'spd';
-				move.secondaries.push({
-					chance: 20,
-					self: {
-						boosts: {
-							[boostedStat]: 1,
-						},
-					},
-				});
-			}
-			else if (pokemon.species.name === 'Deoxys-Speed') {
-				const ratio = (pokemon.getStat('spe') / target.getStat('spe'));
-				this.debug([1, 50, 100, 150, 200][(Math.floor(ratio) > 4 ? 4 : Math.floor(ratio))] + ' bp');
-				if (ratio >= 4) {
-					move.basePower = 200;
+			if (target) {
+				switch(pokemon.species.name) {
+					case 'Deoxys':
+						move.basePower = 75;
+						move.secondaries.push({
+							chance: 10,
+							self: {
+								boosts: {
+									atk: 1,
+									def: 1,
+									spa: 1,
+									spd: 1,
+									spe: 1,
+								},
+							},
+						});
+						break;
+					case 'Deoxys-Attack':
+						move.basePower = 140;
+						move.self = {boosts: {[boostedStat]: -2}};
+						break;
+					case 'Deoxys-Defense':
+						move.damage = pokemon.level;
+						boostedStat = pokemon.getStat('def') > pokemon.getStat('spd') ? 'def' : 'spd';
+						move.secondaries.push({
+							chance: 20,
+							self: {
+								boosts: {
+									[boostedStat]: 1,
+								},
+							},
+						});
+						break;
+					case 'Deoxys-Speed':
+						const ratio = (pokemon.getStat('spe') / target.getStat('spe'));
+						this.debug([1, 50, 100, 150, 200][(Math.floor(ratio) > 4 ? 4 : Math.floor(ratio))] + ' bp');
+						if (ratio >= 4) {
+							move.basePower = 200;
+						}
+						else if (ratio >= 3) {
+							move.basePower = 150;
+						}
+						else if (ratio >= 2) {
+							move.basePower = 100;
+						}
+						else if (ratio >= 1) {
+							move.basePower = 50;
+						}
+						else move.basePower = 1;
+						move.secondaries.push({
+							chance: 20,
+							self: {
+								boosts: {
+									spe: 1,
+								},
+							},
+						});
+						break;
 				}
-				else if (ratio >= 3) {
-					move.basePower = 150;
-				}
-				else if (ratio >= 2) {
-					move.basePower = 100;
-				}
-				else if (ratio >= 1) {
-					move.basePower = 50;
-				}
-				else move.basePower = 1;
-				move.secondaries.push({
-					chance: 20,
-					self: {
-						boosts: {
-							spe: 1,
-						},
-					},
-				});
 			}
 		},
 		secondary: {},
@@ -13737,10 +13823,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (target.ability === source.ability) return false;
 
 			const bannedTargetAbilities = [
-				'battlebond', 'comatose', 'disguise', 'flowergift', 'forecast', 'illusion', 'imposter', 'multitype', 'neutralizinggas', 'powerconstruct', 'powerofalchemy', 'receiver', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'trace', 'wonderguard', 'zenmode',
+				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'flowergift', 'forecast', 'illusion', 'imposter', 'multitype', 'neutralizinggas', 'powerconstruct', 'powerofalchemy', 'receiver', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'trace', 'wonderguard', 'zenmode',
 			];
 			const bannedSourceAbilities = [
-				'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange',
+				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange',
 			];
 			if (bannedTargetAbilities.includes(target.ability) || bannedSourceAbilities.includes(source.ability)) {
 				return false;
@@ -13929,7 +14015,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
-		desc: "Has a 50% chance to burn the target.",
 		shortDesc: "Ignores some weather effects; 50% chance to burn.",
 		name: "Sacred Fire",
 		pp: 10,
@@ -14197,7 +14282,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 120,
 		category: "Special",
-		shortDesc: "Has a 20% chance to burn the target.",
 		name: "Searing Shot",
 		pp: 5,
 		priority: 0,
@@ -14547,6 +14631,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onModifyMove(move, pokemon, target) {
+			if (!target) return;
 			const atk = pokemon.getStat('atk', false, true);
 			const spa = pokemon.getStat('spa', false, true);
 			const def = target.getStat('def', false, true);
@@ -14764,7 +14849,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
 		onTryHit(pokemon) {
 			const bannedAbilities = [
-				'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'simple', 'stancechange', 'truant', 'zenmode',
+				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'simple', 'stancechange', 'truant', 'zenmode',
 			];
 			if (bannedAbilities.includes(pokemon.ability)) {
 				return false;
@@ -14864,7 +14949,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, authentic: 1, mystery: 1},
 		onTryHit(target, source) {
 			const bannedAbilities = [
-				'battlebond', 'comatose', 'disguise', 'gulpmissile', 'hungerswitch', 'iceface', 'illusion', 'multitype', 'neutralizinggas', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'wonderguard', 'zenmode',
+				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'gulpmissile', 'hungerswitch', 'iceface', 'illusion', 'multitype', 'neutralizinggas', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'wonderguard', 'zenmode',
 			];
 			if (
 				target.volatiles['dynamax'] || bannedAbilities.includes(target.ability) || bannedAbilities.includes(source.ability)
@@ -16096,7 +16181,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 120,
 		category: "Special",
-		desc: "Has a 30% chance to burn the target. The target thaws out if it is frozen.",
+		desc: "Has a 30% chance to burn the target. The target thaws out if it is frozen. Power is not reduced in harsh sunlight, but still ineffective in Desolate Land.",
 		shortDesc: "30% chance to burn the target. Thaws target.",
 		name: "Steam Eruption",
 		pp: 5,
@@ -17496,8 +17581,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-		desc: "Prevents the target from switching out. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Parting Shot, Teleport, U-turn, or Volt Switch. If the target leaves the field using Baton Pass, the replacement will remain trapped. The effect ends if the user leaves the field.",
-		shortDesc: "Hits adjacent foes. Prevents them from switching.",
 		name: "Thousand Waves",
 		pp: 10,
 		priority: 0,
@@ -17590,7 +17673,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onModifyMove(move, pokemon, target) {
-			switch (pokemon.effectiveWeather()) {
+			switch (target?.effectiveWeather()) {
 			case 'raindance':
 			case 'primordialsea':
 			case 'hail':
@@ -17629,6 +17712,20 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Electric",
 		contestType: "Cool",
 	},
+	thundercage: {
+		num: 819,
+		accuracy: 90,
+		basePower: 80,
+		category: "Special",
+		name: "Thunder Cage",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+	},
 	thunderfang: {
 		num: 422,
 		accuracy: 100,
@@ -17651,6 +17748,24 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Electric",
 		zMove: {basePower: 140},
 		contestType: "Cool",
+	},
+	thunderouskick: {
+		num: 823,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Thunderous Kick",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Fighting",
 	},
 	thunderpunch: {
 		num: 9,
@@ -18885,7 +19000,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
 		onTryHit(pokemon) {
 			const bannedAbilities = [
-				'battlebond', 'comatose', 'disguise', 'insomnia', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'zenmode',
+				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'insomnia', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'zenmode',
 			];
 			if (bannedAbilities.includes(pokemon.ability)) {
 				return false;

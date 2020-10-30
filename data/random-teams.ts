@@ -495,6 +495,9 @@ export class RandomCFMTeams extends RandomTeams {
 				case 'powersplit':
 					if (hasMove['guardsplit']) rejected = true;
 					break;
+				case 'helpinghand':
+					if (hasMove['acupressure']) rejected = true;
+					break;
 				case 'wideguard':
 					if (hasMove['protect']) rejected = true;
 					break;
@@ -650,7 +653,7 @@ export class RandomCFMTeams extends RandomTeams {
 				} else if (ability === 'Intimidate') {
 					rejectAbility = (hasMove['bodyslam'] || hasMove['rest'] || abilities.includes('Reckless') && counter['recoil'] > 1);
 				} else if (ability === 'Lightning Rod') {
-					rejectAbility = species.types.includes('Ground');
+					rejectAbility = (species.types.includes('Ground') || counter.setupType === 'Physical');
 				} else if (ability === 'Limber') {
 					rejectAbility = species.types.includes('Electric');
 				} else if (ability === 'Liquid Voice') {
@@ -1102,7 +1105,7 @@ export class RandomCFMTeams extends RandomTeams {
 				// Adjust rate for species with multiple sets
 				switch (species.baseSpecies) {
 				case 'Arceus': case 'Silvally':
-					if (this.randomChance(17, 18)) continue;
+					if (this.randomChance(8, 9)) continue;
 					break;
 				case 'Castform':
 					if (this.randomChance(2, 3)) continue;

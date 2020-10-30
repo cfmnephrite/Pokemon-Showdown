@@ -176,6 +176,36 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 165,
 	},
+	asoneglastrier: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add('-ability', pokemon, 'Unnerve', pokemon.side.foe);
+		},
+		onFoeTryEatItem: false,
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source, source, this.dex.getEffect('chillingneigh'), true);
+			}
+		},
+		name: "As One (Glastrier)",
+		rating: 3.5,
+		num: 266,
+	},
+	asonespectrier: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add('-ability', pokemon, 'Unnerve', pokemon.side.foe);
+		},
+		onFoeTryEatItem: false,
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({spa: length}, source, source, this.dex.getEffect('grimneigh'), true);
+			}
+		},
+		name: "As One (Spectrier)",
+		rating: 3.5,
+		num: 267,
+	},
 	aurabreak: {
 		desc: "While this Pokémon is active on the field, all abilities that boost the power of moves are nullified. These are: Adaptability, Aerilate, Blaze, Dark Aura, Fairy Aura, Flare Boost, Galvanise, Guts, Huge Power, Iron Fist, Mega Launcher, Overgrow, Pixilate, Poison Touch, Power of Alchemy, Pure Power, Reckless, Refrigerate, Sand Force, Sheer Force, Solar Power, Solid Rock, Steelworker, Strong Jaw, Swarm, Technician, Torrent, Tough Claws, Toxic Boost, Water Bubble. Further, for Pokémon with Dark Aura & Fairy Aura: Dark/Fairy-type moves (respectively) become typeless",
 		shortDesc: "All abilities on the field that boost the power of moves are nullified.",
@@ -375,6 +405,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 167,
 	},
+	chillingneigh: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
+			}
+		},
+		name: "Chilling Neigh",
+		rating: 3,
+		num: 264,
+	},
 	chlorophyll: {
 		onModifySpe(spe, pokemon) {
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
@@ -508,6 +548,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Cotton Down",
 		rating: 2,
 		num: 238,
+	},
+	curiousmedicine: {
+		onStart(pokemon) {
+			for (const ally of pokemon.side.active) {
+				if (ally !== pokemon) {
+					ally.clearBoosts();
+					this.add('-clearboost', ally, '[from] ability: Curious Medicine', '[of] ' + pokemon);
+				}
+			}
+		},
+		name: "Curious Medicine",
+		rating: 0,
+		num: 261,
 	},
 	cursedbody: {
 		desc: "If this Pokemon is hit by an attack, there is a 30% chance that move gets disabled unless one of the attacker's moves is already disabled. This doubles to a 60% chance if that move knocks out this Pokémon.",
@@ -794,6 +847,25 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Download",
 		rating: 3.5,
 		num: 88,
+	},
+	dragonsmaw: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dragon') {
+				this.debug('Dragon\'s Maw boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dragon') {
+				this.debug('Dragon\'s Maw boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Dragon's Maw",
+		rating: 3.5,
+		num: 263,
 	},
 	drizzle: {
 		onStart(source) {
@@ -1341,6 +1413,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 229,
 		cfm: true,
+	},
+	grimneigh: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({spa: length}, source);
+			}
+		},
+		name: "Grim Neigh",
+		rating: 3,
+		num: 265,
 	},
 	gulpmissile: {
 		onDamagingHit(damage, target, source, move) {
@@ -2496,6 +2578,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Neutralizing Gas');
 			pokemon.abilityData.ending = false;
+			for (const target of this.getAllActive()) {
+				if (target.illusion) {
+					this.singleEvent('End', this.dex.getAbility('Illusion'), target.abilityData, target, pokemon, 'neutralizinggas');
+				}
+				if (target.volatiles['slowstart']) {
+					delete target.volatiles['slowstart'];
+					this.add('-end', target, 'Slow Start', '[silent]');
+				}
+			}
 		},
 		onEnd(source) {
 			// FIXME this happens before the pokemon switches out, should be the opposite order.
@@ -2916,7 +3007,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Power Spot",
-		rating: 0,
+		rating: 1,
 		num: 249,
 	},
 	prankster: {
@@ -3143,7 +3234,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!this.effectData.target.hp) return;
 			const ability = target.getAbility();
 			const bannedAbilities = [
-				'battlebond', 'comatose', 'disguise', 'flowergift', 'forecast', 'gulpmissile', 'hungerswitch', 'iceface', 'illusion', 'imposter', 'multitype', 'neutralizinggas', 'powerconstruct', 'powerofalchemy', 'receiver', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'trace', 'wonderguard', 'zenmode',
+				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'flowergift', 'forecast', 'gulpmissile', 'hungerswitch', 'iceface', 'illusion', 'imposter', 'multitype', 'neutralizinggas', 'powerconstruct', 'powerofalchemy', 'receiver', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'trace', 'wonderguard', 'zenmode',
 			];
 			if (bannedAbilities.includes(target.ability)) return;
 			this.add('-ability', this.effectData.target, ability, '[from] ability: Receiver', '[of] ' + target);
@@ -3212,10 +3303,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		onSourceModifyDamagePriority: -1,
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.abilityData.berryWeaken) {
-				target.abilityData.berryWeaken = "";
-				// Not sure if this is the correct multiplier to get 3/4 total, assuming its taking 1/2 of 1/2 (3/4)
 				return this.chainModify(0.5);
 			}
 		},
@@ -3227,10 +3317,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const weakenBerries = [
 				'Babiri Berry', 'Charti Berry', 'Chilan Berry', 'Chople Berry', 'Coba Berry', 'Colbur Berry', 'Haban Berry', 'Kasib Berry', 'Kebia Berry', 'Occa Berry', 'Passho Berry', 'Payapa Berry', 'Rindo Berry', 'Roseli Berry', 'Shuca Berry', 'Tanga Berry', 'Wacan Berry', 'Yache Berry',
 			];
-			if (weakenBerries.includes(item.name)) {
-				// Record that the pokemon ate a berry to resist an attack
-				pokemon.abilityData.berryWeaken = "true";
-			}
+			// Record if the pokemon ate a berry to resist the attack
+			pokemon.abilityData.berryWeaken = weakenBerries.includes(item.name);
 		},
 		name: "Ripen",
 		rating: 2,
@@ -4381,7 +4469,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				const target = possibleTargets[rand];
 				const ability = target.getAbility();
 				const bannedAbilities = [
-					'noability', 'battlebond', 'comatose', 'disguise', 'flowergift', 'forecast', 'gulpmissile', 'hungerswitch', 'iceface', 'illusion', 'imposter', 'multitype', 'neutralizinggas', 'powerconstruct', 'powerofalchemy', 'receiver', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'trace', 'zenmode',
+					'noability', 'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'flowergift', 'forecast', 'gulpmissile', 'hungerswitch', 'iceface', 'illusion', 'imposter', 'multitype', 'neutralizinggas', 'powerconstruct', 'powerofalchemy', 'receiver', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'trace', 'zenmode',
 				];
 				if (bannedAbilities.includes(target.ability)) {
 					possibleTargets.splice(rand, 1);
@@ -4395,6 +4483,25 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Trace",
 		rating: 2.5,
 		num: 36,
+	},
+	transistor: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('Transistor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('Transistor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Transistor",
+		rating: 3.5,
+		num: 262,
 	},
 	triage: {
 		onModifyPriority(priority, pokemon, target, move) {
