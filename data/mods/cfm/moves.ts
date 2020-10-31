@@ -18926,6 +18926,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onStart(side, source) {
 				this.add('-fieldstart', 'move: Wonder Room', '[of] ' + source);
 			},
+			onNegateImmunity: false,
 			onEffectivenessPriority: 1,
 			onEffectiveness(typeMod, target, type, move) {
 				// The effectiveness of "special typeMod" moves isn't reversed
