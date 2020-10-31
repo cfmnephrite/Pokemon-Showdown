@@ -23,30 +23,30 @@ describe('CFM - Techno Blast', function () {
 
 		// Regular Genesect - Normal-type
 		battle.makeChoices('move technoblast', 'move recover');
-		assert.ok(battle.p1.active[0].hasType('Normal'));
+		assert(battle.p1.active[0].hasType('Normal'));
 
 		// Genesect-Douse - Water-type
 		battle.makeChoices('switch 2', 'move splash');
 		assert.species(battle.p1.active[0], 'Genesect-Douse');
 		battle.makeChoices('move technoblast', 'move recover');
-		assert.ok(battle.p1.active[0].hasType('Water'));
+		assert(battle.p1.active[0].hasType('Water'));
 
 		// Genesect-Burn - Fire-type
 		battle.makeChoices('switch 3', 'move splash');
 		assert.species(battle.p1.active[0], 'Genesect-Burn');
 		battle.makeChoices('move technoblast', 'move recover');
-		assert.ok(battle.p1.active[0].hasType('Fire'));
+		assert(battle.p1.active[0].hasType('Fire'));
 
 		// Genesect-Shock - Electric-type
 		battle.makeChoices('switch 4', 'move splash');
 		assert.species(battle.p1.active[0], 'Genesect-Shock');
 		battle.makeChoices('move technoblast', 'move recover');
-		assert.ok(battle.p1.active[0].hasType('Electric'));
+		assert(battle.p1.active[0].hasType('Electric'));
 
 		// Genesect-Chill - Ice-type
 		battle.makeChoices('switch 5', 'move splash');
 		assert.species(battle.p1.active[0], 'Genesect-Chill');
 		battle.makeChoices('move technoblast', 'move recover');
-		assert.ok(battle.p1.active[0].hasType('Ice'));
+		assert(battle.p1.active[0].hasType('Ice'));
 	});
 });

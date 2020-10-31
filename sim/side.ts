@@ -7,6 +7,7 @@
 import {RequestState} from './battle';
 import {Pokemon, EffectState} from './pokemon';
 import {State} from './state';
+import {toID} from './dex';
 
 /** A single action that can be chosen. */
 export interface ChosenAction {
@@ -52,8 +53,8 @@ export class Side {
 	active: Pokemon[];
 
 	pokemonLeft: number;
-	faintedLastTurn: boolean;
-	faintedThisTurn: boolean;
+	faintedLastTurn: Pokemon | null;
+	faintedThisTurn: Pokemon | null;
 	zMoveUsed: boolean;
 
 	sideConditions: {[id: string]: EffectState};
@@ -99,8 +100,8 @@ export class Side {
 		}
 
 		this.pokemonLeft = this.pokemon.length;
-		this.faintedLastTurn = false;
-		this.faintedThisTurn = false;
+		this.faintedLastTurn = null;
+		this.faintedThisTurn = null;
 		this.zMoveUsed = false;
 
 		this.sideConditions = {};
@@ -184,7 +185,7 @@ export class Side {
 	}
 
 	addSideCondition(
-		status: string | PureEffect, source: Pokemon | 'debug' | null = null, sourceEffect: Effect | null = null
+		status: string | Condition, source: Pokemon | 'debug' | null = null, sourceEffect: Effect | null = null
 	): boolean {
 		if (this.n >= 2 && this.battle.gameType === 'multi') {
 			return this.battle.sides[this.n % 2].addSideCondition(status, source, sourceEffect);
@@ -245,7 +246,7 @@ export class Side {
 	}
 
 	addSlotCondition(
-		target: Pokemon | number, status: string | PureEffect, source: Pokemon | 'debug' | null = null,
+		target: Pokemon | number, status: string | Condition, source: Pokemon | 'debug' | null = null,
 		sourceEffect: Effect | null = null
 	) {
 		if (!source && this.battle.event && this.battle.event.target) source = this.battle.event.target;
@@ -292,7 +293,7 @@ export class Side {
 		return true;
 	}
 
-	// tslint:disable-next-line:ban-types
+	// eslint-disable-next-line @typescript-eslint/ban-types
 	send(...parts: (string | number | Function | AnyObject)[]) {
 		const sideUpdate = '|' + parts.map(part => {
 			if (typeof part !== 'function') return part;
@@ -637,7 +638,6 @@ export class Side {
 
 		this.choice.switchIns.add(slot);
 
-		// tslint:disable-next-line:no-object-literal-type-assertion
 		this.choice.actions.push({
 			choice: (this.requestState === 'switch' ? 'instaswitch' : 'switch'),
 			pokemon,
@@ -682,7 +682,6 @@ export class Side {
 			}
 
 			this.choice.switchIns.add(pos);
-			// tslint:disable-next-line:no-object-literal-type-assertion
 			this.choice.actions.push({
 				choice: 'team',
 				index,
@@ -707,7 +706,6 @@ export class Side {
 		}
 		const pokemon: Pokemon = this.active[index];
 
-		// tslint:disable-next-line:no-object-literal-type-assertion
 		this.choice.actions.push({
 			choice: 'shift',
 			pokemon,
@@ -894,7 +892,6 @@ export class Side {
 			return this.emitChoiceError(`Can't pass: Not a move or switch request`);
 		}
 
-		// tslint:disable-next-line:no-object-literal-type-assertion
 		this.choice.actions.push({
 			choice: 'pass',
 		} as ChosenAction);
@@ -941,8 +938,7 @@ export class Side {
 		// get rid of some possibly-circular references
 		this.pokemon = [];
 		this.active = [];
-		// @ts-ignore - readonly
-		this.battle = null!;
 		this.foe = null!;
+		(this as any).battle = null!;
 	}
 }

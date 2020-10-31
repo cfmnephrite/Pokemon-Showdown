@@ -19,7 +19,7 @@ describe('CFM Z-Moves', function () {
 		// First try special Zeraora
 		battle.makeChoices('move thunderbolt zmove', 'move protect');
 		assert.equal(toID(battle.log[battle.lastMoveLine].split('|')[3]), 'plasmafists');
-		assert.ok(battle.field.isTerrain('electricterrain'));
+		assert(battle.field.isTerrain('electricterrain'));
 
 		// Then physical Zeraora
 		battle.makeChoices('move protect', 'move slash zmove');
@@ -35,7 +35,7 @@ describe('CFM Z-Moves', function () {
 		// First try special Mew
 		battle.makeChoices('move psybeam zmove', 'move protect');
 		assert.equal(toID(battle.log[battle.lastMoveLine].split('|')[3]), 'genesissupernova');
-		assert.ok(battle.field.isTerrain('psychicterrain'));
+		assert(battle.field.isTerrain('psychicterrain'));
 
 		// Then physical Zeraora
 		battle.makeChoices('move protect', 'move headbutt zmove');
@@ -152,7 +152,7 @@ describe('CFM Z-Moves', function () {
 
 		// The Togekiss is now grounded, so Bulldoze hits it
 		battle.makeChoices('move bulldoze', 'move extremespeed');
-		assert.ok(!battle.log[battle.lastMoveLine + 1].startsWith('|-immune|'));
+		assert(!battle.log[battle.lastMoveLine + 1].startsWith('|-immune|'));
 	});
 
 	it("Necrozma (and only regular Necrozma) can use Prismatic Laser", function () {

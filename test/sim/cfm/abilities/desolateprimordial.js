@@ -17,7 +17,7 @@ describe('CFM - Desolate Land/Primordial Sea', function () {
 		]);
 
 		battle.makeChoices('move stealthrock', 'move originpulse');
-		assert.ok(battle.field.isWeather('desolateland'));
+		assert(battle.field.isWeather('desolateland'));
 		assert.false.ok(battle.log[battle.lastMoveLine + 1].startsWith('|-supereffective|'));
 		assert.false.fullHP(battle.p1.active[0]);
 	});
@@ -30,9 +30,9 @@ describe('CFM - Desolate Land/Primordial Sea', function () {
 			[{species: 'Swampert', ability: 'dryskin', moves: ['raindance', 'mudshot', 'protect']}],
 		]);
 
-		assert.ok(battle.field.isWeather('desolateland'));
+		assert(battle.field.isWeather('desolateland'));
 		battle.makeChoices('switch 2', 'move protect');
-		assert.ok(battle.field.isWeather('sunnyday'));
+		assert(battle.field.isWeather('sunnyday'));
 	});
 
 	it('Primordial Sea - a mon can use Sacred Fire, but not for SE damage', function () {
@@ -42,7 +42,7 @@ describe('CFM - Desolate Land/Primordial Sea', function () {
 		]);
 
 		battle.makeChoices('move leechseed', 'move sacredfire');
-		assert.ok(battle.field.isWeather('primordialsea'));
+		assert(battle.field.isWeather('primordialsea'));
 		assert.false.ok(battle.log[battle.lastMoveLine + 1].startsWith('|-supereffective|'));
 		assert.false.fullHP(battle.p1.active[0]);
 	});
@@ -55,8 +55,8 @@ describe('CFM - Desolate Land/Primordial Sea', function () {
 			[{species: 'Swampert', ability: 'dryskin', moves: ['raindance', 'mudshot', 'protect']}],
 		]);
 
-		assert.ok(battle.field.isWeather('primordialsea'));
+		assert(battle.field.isWeather('primordialsea'));
 		battle.makeChoices('switch 2', 'move protect');
-		assert.ok(battle.field.isWeather('raindance'));
+		assert(battle.field.isWeather('raindance'));
 	});
 });

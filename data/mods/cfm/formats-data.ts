@@ -543,9 +543,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "COU",
 		inherit: true,
 	},
+	slowbrogalar: {
+		isNonstandard: null,
+		tier: "CUU",
+		inherit: true,
+	},
 	slowking: {
 		isNonstandard: null,
 		tier: "CRU",
+		inherit: true,
+	},
+	slowkinggalar: {
+		isNonstandard: null,
+		tier: "COU",
 		inherit: true,
 	},
 	magnemite: {
@@ -1065,12 +1075,27 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CUU",
 		inherit: true,
 	},
+	articunogalar: {
+		isNonstandard: null,
+		tier: "COU",
+		inherit: true,
+	},
 	zapdos: {
 		isNonstandard: null,
 		tier: "COU",
 		inherit: true,
 	},
+	zapdosgalar: {
+		isNonstandard: null,
+		tier: "COU",
+		inherit: true,
+	},
 	moltres: {
+		isNonstandard: null,
+		tier: "COU",
+		inherit: true,
+	},
+	moltresgalar: {
 		isNonstandard: null,
 		tier: "COU",
 		inherit: true,
@@ -5124,7 +5149,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dracozolt: {
 		randomBattleMoves: ["boltbeak", "dragontail", "earthquake", "fireblast", "outrage"],
-		tier: "cou",
+		tier: "COU",
 		inherit: true,
 	},
 	arctozolt: {
@@ -5179,7 +5204,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zamazentacrowned: {
 		randomBattleMoves: ["behemothbash", "closecombat", "crunch", "psychicfangs"],
-		randomBattleLevel: 72,
+		randomBattleLevel: 74,
 		randomDoubleBattleMoves: ["behemothbash", "closecombat", "crunch", "playrough", "protect", "psychicfangs"],
 		tier: "CUb",
 		inherit: true,
@@ -5194,28 +5219,47 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	urshifu: {
-		randomBattleMoves: ["closecombat", "ironhead", "uturn", "wickedblow"],
-		randomBattleLevel: 80,
 		tier: "COU",
 		inherit: true,
 	},
 	urshifurapidstrike: {
-		randomBattleMoves: ["closecombat", "surgingstrikes", "thunderpunch", "uturn"],
-		randomBattleLevel: 82,
 		tier: "COU",
 		inherit: true,
 	},
 	zarude: {
-		randomBattleMoves: ["bulkup", "closecombat", "darkestlariat", "powerwhip", "uturn"],
-		randomBattleLevel: 80,
-		randomDoubleBattleMoves: ["closecombat", "darkestlariat", "junglehealing", "powerwhip", "protect", "rockslide"],
-		randomDoubleBattleLevel: 80,
-		isNonstandard: "Unobtainable",
-		tier: "Unreleased",
+		tier: "COU",
 		inherit: true,
 	},
 	zarudedada: {
 		isNonstandard: "Unobtainable",
+		inherit: true,
+	},
+	regieleki: {
+		tier: "COU",
+		inherit: true,
+	},
+	regidrago: {
+		tier: "COU",
+		inherit: true,
+	},
+	glastrier: {
+		tier: "COU",
+		inherit: true,
+	},
+	spectrier: {
+		tier: "COU",
+		inherit: true,
+	},
+	calyrex: {
+		tier: "COU",
+		inherit: true,
+	},
+	calyrexice: {
+		tier: "CUb",
+		inherit: true,
+	},
+	calyrexshadow: {
+		tier: "CUb",
 		inherit: true,
 	},
 	missingno: {

@@ -1,4 +1,4 @@
-export const Conditions: {[k: string]: PureEffectData} = {
+export const Conditions: {[k: string]: ConditionData} = {
 	brn: {
 		name: 'brn',
 		effectType: 'Status',
@@ -162,8 +162,8 @@ export const Conditions: {[k: string]: PureEffectData} = {
 		},
 		onBeforeMovePriority: 3,
 		onBeforeMove(pokemon) {
-			pokemon.volatiles.confusion.time--;
-			if (!pokemon.volatiles.confusion.time) {
+			pokemon.volatiles['confusion'].time--;
+			if (!pokemon.volatiles['confusion'].time) {
 				pokemon.removeVolatile('confusion');
 				return;
 			}
@@ -174,7 +174,7 @@ export const Conditions: {[k: string]: PureEffectData} = {
 			this.activeTarget = pokemon;
 			const damage = this.getDamage(pokemon, pokemon, 40);
 			if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
-			const activeMove = {id: toID('confused'), effectType: 'Move', type: '???'};
+			const activeMove = {id: this.toID('confused'), effectType: 'Move', type: '???'};
 			this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
 			return false;
 		},
@@ -364,8 +364,7 @@ export const Conditions: {[k: string]: PureEffectData} = {
 			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 				data.moveData.stab = 2;
 			}
-			// @ts-ignore
-			const hitMove: ActiveMove = new this.dex.Data.Move(data.moveData);
+			const hitMove = new this.dex.Data.Move(data.moveData) as Move as ActiveMove;
 
 			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
@@ -404,8 +403,7 @@ export const Conditions: {[k: string]: PureEffectData} = {
 			return success;
 		},
 		onRestart() {
-			// @ts-ignore
-			if (this.effectData.counter < this.effect.counterMax) {
+			if (this.effectData.counter < (this.effect as Condition).counterMax!) {
 				this.effectData.counter *= 3;
 			}
 			this.effectData.duration = 2;
@@ -669,6 +667,7 @@ export const Conditions: {[k: string]: PureEffectData} = {
 		noCopy: true,
 		duration: 3,
 		onStart(pokemon) {
+			pokemon.removeVolatile('minimize');
 			pokemon.removeVolatile('substitute');
 			if (pokemon.volatiles['torment']) {
 				delete pokemon.volatiles['torment'];

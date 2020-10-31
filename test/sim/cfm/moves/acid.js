@@ -16,6 +16,6 @@ describe('CFM - Acid', function () {
 			[{species: 'Ferrothorn', ability: 'ironbarbs', moves: ['stealthrock']}],
 		]);
 		battle.makeChoices('move acid', 'move stealthrock');
-		assert.ok(battle.log[battle.lastMoveLine + 1].startsWith('|-supereffective|'));
+		assert(battle.log[battle.lastMoveLine + 1].startsWith('|-supereffective|'));
 	});
 });

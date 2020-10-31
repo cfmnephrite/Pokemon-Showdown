@@ -1,4 +1,4 @@
-export const Conditions: {[k: string]: ModdedPureEffectData} = {
+export const Conditions: {[k: string]: ModdedConditionData} = {
 	brn: {
 		inherit: true,
 		onResidual(pokemon) {
@@ -16,8 +16,8 @@ export const Conditions: {[k: string]: ModdedPureEffectData} = {
 	confusion: {
 		inherit: true,
 		onBeforeMove(pokemon) {
-			pokemon.volatiles.confusion.time--;
-			if (!pokemon.volatiles.confusion.time) {
+			pokemon.volatiles['confusion'].time--;
+			if (!pokemon.volatiles['confusion'].time) {
 				pokemon.removeVolatile('confusion');
 				return;
 			}

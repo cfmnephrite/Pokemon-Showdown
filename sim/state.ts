@@ -25,7 +25,7 @@ const POSITIONS = 'abcdefghijklmnopqrstuvwx';
 // and thus can simply be reconsituted as needed.
 // NOTE: Species is not strictly immutable as some OM formats rely on an
 // onModifySpecies event - deserialization is not possible for such formats.
-type Referable = Battle | Field | Side | Pokemon | PureEffect | Ability | Item | Move | Species;
+type Referable = Battle | Field | Side | Pokemon | Condition | Ability | Item | Move | Species;
 
 // Certain fields are either redundant (transient caches, constants, duplicate
 // information) or require special treatment. These sets contain the specific
@@ -33,10 +33,9 @@ type Referable = Battle | Field | Side | Pokemon | PureEffect | Ability | Item |
 // need special treatment from these sets are then handled manually.
 
 const BATTLE = new Set([
-	'dex', 'gen', 'ruleTable', 'id', 'log', 'inherit', 'format',
-	'zMoveTable', 'teamGenerator', 'NOT_FAIL', 'FAIL', 'SILENT_FAIL',
-	'field', 'sides', 'prng', 'hints', 'deserialized', 'maxMoveTable',
-	'queue',
+	'dex', 'gen', 'ruleTable', 'id', 'log', 'inherit', 'format', 'zMoveTable', 'teamGenerator',
+	'HIT_SUBSTITUTE', 'NOT_FAIL', 'FAIL', 'SILENT_FAIL', 'field', 'sides', 'prng', 'hints',
+	'deserialized', 'maxMoveTable', 'queue',
 ]);
 const FIELD = new Set(['id', 'battle']);
 const SIDE = new Set(['battle', 'team', 'pokemon', 'choice', 'activeRequest']);
@@ -53,7 +52,7 @@ export const State = new class {
 	// due to circular module dependencies on Battle and Field instead
 	// of simply initializing it as a const. See isReferable for where this
 	// gets lazily created on demand.
-	// tslint:disable-next-line: ban-types
+	// eslint-disable-next-line @typescript-eslint/ban-types
 	REFERABLE?: Set<Function>;
 
 	serializeBattle(battle: Battle): /* Battle */ AnyObject {
@@ -147,10 +146,8 @@ export const State = new class {
 		battle.prng = new PRNG(state.prng);
 		const queue = this.deserializeWithRefs(state.queue, battle);
 		battle.queue.list = queue;
-		// @ts-ignore - readonly
-		battle.hints = new Set(state.hints);
-		// @ts-ignore - readonly
-		battle.log = state.log;
+		(battle as any).hints = new Set(state.hints);
+		(battle as any).log = state.log;
 		return battle;
 	}
 
@@ -223,8 +220,7 @@ export const State = new class {
 
 	deserializePokemon(state: /* Pokemon */ AnyObject, pokemon: Pokemon) {
 		this.deserialize(state, pokemon, POKEMON, pokemon.battle);
-		// @ts-ignore - readonly
-		pokemon.set = state.set;
+		(pokemon as any).set = state.set;
 		// baseMoveSlots and moveSlots need to point to the same objects (ie. identity, not equality).
 		// If we serialized the baseMoveSlots, replace any that match moveSlots to preserve the
 		// identity relationship requirement.
@@ -240,8 +236,7 @@ export const State = new class {
 		} else {
 			baseMoveSlots = pokemon.moveSlots.slice();
 		}
-		// @ts-ignore - readonly
-		pokemon.baseMoveSlots = baseMoveSlots;
+		(pokemon as any).baseMoveSlots = baseMoveSlots;
 		if (state.showCure === undefined) pokemon.showCure = undefined;
 	}
 
@@ -369,7 +364,7 @@ export const State = new class {
 		// NOTE: see explanation on the declaration above for why this must be defined lazily.
 		if (!this.REFERABLE) {
 			this.REFERABLE = new Set([
-				Battle, Field, Side, Pokemon, Data.PureEffect,
+				Battle, Field, Side, Pokemon, Data.Condition,
 				Data.Ability, Data.Item, Data.Move, Data.Species,
 			]);
 		}
@@ -390,7 +385,7 @@ export const State = new class {
 		// class types to be decode, so we're probably OK. We could make the reference
 		// markers more esoteric with additional sigils etc to avoid collisions, but
 		// we're making a conscious decision to favor readability over robustness.
-		if (ref.charAt(0) !== '[' && ref.slice(-1) !== ']') return undefined;
+		if (!ref.startsWith('[') && !ref.endsWith(']')) return undefined;
 
 		ref = ref.substring(1, ref.length - 1);
 		// There's only one instance of these thus they don't need an id to differentiate.
@@ -404,7 +399,7 @@ export const State = new class {
 		case 'Ability': return battle.dex.getAbility(id);
 		case 'Item': return battle.dex.getItem(id);
 		case 'Move': return battle.dex.getMove(id);
-		case 'PureEffect': return battle.dex.getEffect(id);
+		case 'Condition': return battle.dex.getEffect(id);
 		case 'Species': return battle.dex.getSpecies(id);
 		default: return undefined; // maybe we actually got unlucky and its a string
 		}

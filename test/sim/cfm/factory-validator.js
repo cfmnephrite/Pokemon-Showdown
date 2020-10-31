@@ -30,8 +30,7 @@ describe('CFM - Factory Validator', function () {
 
 					const moves = rawSet.moves.flat();
 					let i = 0;
-					while (moves.length > i)
-					{
+					while (moves.length > i) {
 						validateSets.push({...rawSet, moves: moves.splice(i, i + 4)});
 						i += 4;
 					}

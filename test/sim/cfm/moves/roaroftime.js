@@ -18,25 +18,25 @@ describe('CFM - Roar of Time', function () {
 		]);
 		battle.makeChoices('move protect', 'move roaroftime');
 		// Ferrothorn can't create Roar of Time
-		assert.ok(!battle.field.getPseudoWeather('roaroftime'));
+		assert(!battle.field.getPseudoWeather('roaroftime'));
 
 		battle.makeChoices('move roaroftime', 'move tackle');
 		// Dialga CAN create Roar of Time
-		assert.ok(battle.field.getPseudoWeather('roaroftime'));
+		assert(battle.field.getPseudoWeather('roaroftime'));
 
 		// Turns 2, 3, 4, 5 - check that Ferrothorn can't create other rooms
 		battle.makeChoices('move healpulse', 'move magicroom');
-		assert.ok(!battle.field.getPseudoWeather('magicroom'));
+		assert(!battle.field.getPseudoWeather('magicroom'));
 		battle.makeChoices('move healpulse', 'move trickroom');
-		assert.ok(!battle.field.getPseudoWeather('trickroom'));
+		assert(!battle.field.getPseudoWeather('trickroom'));
 		battle.makeChoices('move healpulse', 'move wonderroom');
-		assert.ok(!battle.field.getPseudoWeather('wonderroom'));
+		assert(!battle.field.getPseudoWeather('wonderroom'));
 		battle.makeChoices('move rocksmash', 'move tackle');
 		// Ferrothorn should move before Dialga with a resisted move - ergo, Dialga moves last with an SE one
-		assert.ok(battle.log[battle.lastMoveLine + 1].startsWith('|-supereffective|'));
+		assert(battle.log[battle.lastMoveLine + 1].startsWith('|-supereffective|'));
 
 		// Check that the field effect has expired
-		assert.ok(!battle.field.getPseudoWeather('roaroftime'));
+		assert(!battle.field.getPseudoWeather('roaroftime'));
 	});
 
 	it('Roar of Time is ended by a monster fainting or switching', function () {
@@ -47,21 +47,21 @@ describe('CFM - Roar of Time', function () {
 		]);
 		battle.makeChoices('move roaroftime', 'move recover');
 		// Roar of Time has been created
-		assert.ok(battle.field.getPseudoWeather('roaroftime'));
+		assert(battle.field.getPseudoWeather('roaroftime'));
 
 		battle.makeChoices('switch Ferrothorn', 'move recover');
 		// Dialga switched out - expect no Roar of Time
-		assert.ok(!battle.field.getPseudoWeather('roaroftime'));
+		assert(!battle.field.getPseudoWeather('roaroftime'));
 
 		// Dialga back, let's try again
 		battle.makeChoices('switch Dialga', 'move recover');
 		battle.makeChoices('move roaroftime', 'move recover');
 		// Roar of Time has been created
-		assert.ok(battle.field.getPseudoWeather('roaroftime'));
+		assert(battle.field.getPseudoWeather('roaroftime'));
 
 		battle.makeChoices('move memento', 'move recover');
 		// Dialga gone - expect no Roar of Time
-		assert.ok(!battle.field.getPseudoWeather('roaroftime'));
+		assert(!battle.field.getPseudoWeather('roaroftime'));
 	});
 
 	it('Roar of Time does not end on switch/faint if there is another viable Dialga', function () {
@@ -73,14 +73,14 @@ describe('CFM - Roar of Time', function () {
 		]);
 		battle.makeChoices('move roaroftime', 'move protect');
 		// Roar of Time has been created
-		assert.ok(battle.field.getPseudoWeather('roaroftime'));
+		assert(battle.field.getPseudoWeather('roaroftime'));
 
 		battle.makeChoices('switch Ferrothorn', 'move protect');
 		// Dialga switched out - expect Roar of Time to stay
-		assert.ok(battle.field.getPseudoWeather('roaroftime'));
+		assert(battle.field.getPseudoWeather('roaroftime'));
 
 		// Second Dialga commits sudoku as first Dialga switches back in; Roar of Time should stay
 		battle.makeChoices('switch Dialga', 'move memento');
-		assert.ok(battle.field.getPseudoWeather('roaroftime'));
+		assert(battle.field.getPseudoWeather('roaroftime'));
 	});
 });
