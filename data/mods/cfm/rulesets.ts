@@ -1137,8 +1137,8 @@ export const Formats: {[k: string]: FormatData} = {
 		onValidateSet(set, format) {
 			const allTiers: {[k: string]: number} = {PU: 0, NU: 1, RU: 2, UU: 3, OU: 4};
 			const currTier = format.name.substr(format.name.indexOf("CFM ") + 4);
-			const speciesRef = toID((function () {
-				const currSpecies = Dex.getSpecies(set.species), currItem = Dex.getItem(set.item);
+			const speciesRef = this.toID((function () {
+				const currSpecies = this.dex.getSpecies(set.species), currItem = this.dex.getItem(set.item);
 				if (currSpecies?.forme === 'Mega')
 					return currSpecies;
 				else if (currItem?.megaEvolves === currSpecies?.baseSpecies)
@@ -1166,16 +1166,16 @@ export const Formats: {[k: string]: FormatData} = {
 				blastoisemega:	{tier: 'OU', move: 'shellsmash'},
 			};
 			if (!!complexBans[speciesRef] && allTiers[currTier] <= allTiers[complexBans[speciesRef].tier]) {
-				if (complexBans[speciesRef].ability === toID(set.ability)) {
+				if (complexBans[speciesRef].ability === this.toID(set.ability)) {
 					const ability = set.ability;
 					return [`${set.name || speciesRef} is not allowed to run ${ability} in C${complexBans[speciesRef].tier} or below.`];
 				}
-				if (complexBans[speciesRef].item === toID(set.item) || complexBans[speciesRef].items?.includes(toID(set.item))) {
+				if (complexBans[speciesRef].item === this.toID(set.item) || complexBans[speciesRef].items?.includes(this.toID(set.item))) {
 					return [`${set.name || speciesRef} is not allowed to hold ${set.item} in C${complexBans[speciesRef].tier} or below.`];
 				}
 				for (const move of set.moves) {
-					if (complexBans[speciesRef].move === toID(move) || complexBans[speciesRef].moves?.includes(toID(move))) {
-						const moveName = Dex.getMove(move).name;
+					if (complexBans[speciesRef].move === this.toID(move) || complexBans[speciesRef].moves?.includes(this.toID(move))) {
+						const moveName = this.dex.getMove(move).name;
 						return [`${set.name || speciesRef} is not allowed to use ${moveName} in C${complexBans[speciesRef].tier} or below.`];
 					}
 				}
