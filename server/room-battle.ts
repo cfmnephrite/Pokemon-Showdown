@@ -833,8 +833,7 @@ export class RoomBattle extends RoomGames.RoomGame {
 							this.cfmTutorial.seenMoves[user.id].push(move);
 						Chat.parse(`/dt ${move}`, this.room, user, user.connections[0]);
 					}
-				}
-				else {
+				} else {
 					player.sendRoom(`|raw|<b>Your opponent's Pokémon:</b>`);
 					Chat.parse(`/dt ${monId}`, this.room, user, user.connections[0]);
 				}
@@ -845,8 +844,7 @@ export class RoomBattle extends RoomGames.RoomGame {
 			for (const user of this.cfmTutorial.requesters) {
 				const move = lines[2];
 				const player = this.playerTable[user.id];
-				if (!this.cfmTutorial.seenMoves[user.id].includes(move))
-				{
+				if (!this.cfmTutorial.seenMoves[user.id].includes(move)) {
 					this.cfmTutorial.seenMoves[user.id].push(move);
 					if (this.checkPlayerSide(player, lines[1]))
 						player.sendRoom(`|raw|<b>Your chosen move:</b>`);

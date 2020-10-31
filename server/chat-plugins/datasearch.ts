@@ -550,8 +550,7 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 				else if (allCFMTiers[toID(target)]) {
 					target = allCFMTiers[toID(target)];
 					cfmSearch = true;
-				}
-				else target = allTiers[toID(target)];
+				} else target = allTiers[toID(target)];
 				if (target.startsWith("CAP")) {
 					if (capSearch === isNotSearch) return {error: "A search cannot both include and exclude CAP tiers."};
 					capSearch = !isNotSearch;
@@ -2267,8 +2266,7 @@ function runLearn(target: string, cmd: string, canAll: boolean, message: string)
 		if (['cfmlearn', 'clearn', 'cl'].includes(cmd)) {
 			format = new Dex.Data.Format(format, {mod: 'cfm'});
 			formatName = 'CFM';
-		}
-		else {
+		} else {
 			if (!Dex.mod(`gen${gen}`)) return {error: `Gen ${gen} does not exist.`};
 			format = new Dex.Data.Format(format, {mod: `gen${gen}`});
 			formatName = `Gen ${gen}`;

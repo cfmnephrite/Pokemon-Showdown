@@ -18,26 +18,26 @@ describe('CFM - Spacial Rend', function () {
 		]);
 		battle.makeChoices('move healpulse', 'move spacialrend');
 		// Ferrothorn can't create Spacial Rend
-		assert.ok(battle.log[battle.lastMoveLine + 1].startsWith('|-resisted|'));
-		assert.ok(!battle.field.getPseudoWeather('spacialrend'));
+		assert(battle.log[battle.lastMoveLine + 1].startsWith('|-resisted|'));
+		assert(!battle.field.getPseudoWeather('spacialrend'));
 
 		battle.makeChoices('move spacialrend', 'move quickattack');
 		// Palkia CAN create Spacial Rend
-		assert.ok(battle.field.getPseudoWeather('spacialrend'));
-		assert.ok(battle.log[battle.lastMoveLine + 1].startsWith('|-supereffective|'));
+		assert(battle.field.getPseudoWeather('spacialrend'));
+		assert(battle.log[battle.lastMoveLine + 1].startsWith('|-supereffective|'));
 
 		// Turns 2, 3, 4, 5 - check that Ferrothorn can't create other rooms
 		battle.makeChoices('move healpulse', 'move magicroom');
-		assert.ok(!battle.field.getPseudoWeather('magicroom'));
+		assert(!battle.field.getPseudoWeather('magicroom'));
 		battle.makeChoices('move healpulse', 'move trickroom');
-		assert.ok(!battle.field.getPseudoWeather('trickroom'));
+		assert(!battle.field.getPseudoWeather('trickroom'));
 		battle.makeChoices('move healpulse', 'move wonderroom');
-		assert.ok(!battle.field.getPseudoWeather('wonderroom'));
+		assert(!battle.field.getPseudoWeather('wonderroom'));
 		battle.makeChoices('move flamethrower', 'move quickattack');
-		assert.ok(battle.log[battle.lastMoveLine + 1].startsWith('|-resisted|')); // Just to be safe
+		assert(battle.log[battle.lastMoveLine + 1].startsWith('|-resisted|')); // Just to be safe
 
 		// Check that the field effect has expired
-		assert.ok(!battle.field.getPseudoWeather('spacialrend'));
+		assert(!battle.field.getPseudoWeather('spacialrend'));
 	});
 
 	it('Spacial Rend is ended by Palkia fainting or switching', function () {
@@ -48,21 +48,21 @@ describe('CFM - Spacial Rend', function () {
 		]);
 		battle.makeChoices('move spacialrend', 'move recover');
 		// Spacial Rend has been created
-		assert.ok(battle.field.getPseudoWeather('spacialrend'));
+		assert(battle.field.getPseudoWeather('spacialrend'));
 
 		battle.makeChoices('switch Ferrothorn', 'move recover');
 		// Palkia switched out - expect no Spacial Rend
-		assert.ok(!battle.field.getPseudoWeather('spacialrend'));
+		assert(!battle.field.getPseudoWeather('spacialrend'));
 
 		// Palkia back, let's try again
 		battle.makeChoices('switch Palkia', 'move recover');
 		battle.makeChoices('move spacialrend', 'move recover');
 		// Spacial Rend has been created
-		assert.ok(battle.field.getPseudoWeather('spacialrend'));
+		assert(battle.field.getPseudoWeather('spacialrend'));
 
 		battle.makeChoices('move memento', 'move recover');
 		// Palkia gone - expect no Spacial Rend
-		assert.ok(!battle.field.getPseudoWeather('spacialrend'));
+		assert(!battle.field.getPseudoWeather('spacialrend'));
 	});
 
 	it('Spacial Rend does not end on switch/faint if there is another viable Palkia', function () {
@@ -74,14 +74,14 @@ describe('CFM - Spacial Rend', function () {
 		]);
 		battle.makeChoices('move spacialrend', 'move protect');
 		// Spacial Rend has been created
-		assert.ok(battle.field.getPseudoWeather('spacialrend'));
+		assert(battle.field.getPseudoWeather('spacialrend'));
 
 		battle.makeChoices('switch Ferrothorn', 'move protect');
 		// Palkia switched out - expect Spacial Rend to stay
-		assert.ok(battle.field.getPseudoWeather('spacialrend'));
+		assert(battle.field.getPseudoWeather('spacialrend'));
 
 		// Second Palkia commits sudoku as first Palkia switches back in; Spacial Rend should stay
 		battle.makeChoices('switch Palkia', 'move memento');
-		assert.ok(battle.field.getPseudoWeather('spacialrend'));
+		assert(battle.field.getPseudoWeather('spacialrend'));
 	});
 });

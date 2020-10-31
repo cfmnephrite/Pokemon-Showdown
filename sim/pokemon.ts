@@ -1840,8 +1840,7 @@ export class Pokemon {
 				if (['frz', 'par', 'slp'].includes(this.getStatus().id) || 'roost' in this.volatiles) return true;
 				else return false;
 			}
-		}
-		else {
+		} else {
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
 			if (this.hasAbility('levitate') && !this.battle.suppressingAttackEvents()) return null;

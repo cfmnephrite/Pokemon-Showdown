@@ -650,7 +650,7 @@ export class RandomCFMTeams extends RandomTeams {
 				} else if (ability === 'Intimidate') {
 					rejectAbility = (hasMove['bodyslam'] || hasMove['rest'] || abilities.includes('Reckless') && counter['recoil'] > 1);
 				} else if (ability === 'Lightning Rod') {
-					rejectAbility = species.types.includes('Ground');
+					rejectAbility = (species.types.includes('Ground') || counter.setupType === 'Physical');
 				} else if (ability === 'Limber') {
 					rejectAbility = species.types.includes('Electric');
 				} else if (ability === 'Liquid Voice') {
@@ -1102,7 +1102,7 @@ export class RandomCFMTeams extends RandomTeams {
 				// Adjust rate for species with multiple sets
 				switch (species.baseSpecies) {
 				case 'Arceus': case 'Silvally':
-					if (this.randomChance(17, 18)) continue;
+					if (this.randomChance(8, 9)) continue;
 					break;
 				case 'Castform':
 					if (this.randomChance(2, 3)) continue;
@@ -1294,8 +1294,8 @@ export class RandomCFMTeams extends RandomTeams {
 			shiny: typeof setData.set.shiny === 'undefined' ? this.randomChance(1, 1024) : setData.set.shiny,
 			level: setData.set.level ? setData.set.level : tier === "LC" ? 5 : 100,
 			happiness: typeof setData.set.happiness === 'undefined' ? 255 : setData.set.happiness,
-			evs: Object.assign({hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0}, setData.set.evs),
-			ivs: Object.assign({hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31}, setData.set.ivs),
+			evs: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0, ...setData.set.evs},
+			ivs: {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31, ...setData.set.ivs},
 			nature: nature || 'Serious',
 			moves: moves,
 		};

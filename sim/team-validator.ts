@@ -1875,7 +1875,9 @@ export class TeamValidator {
 
 				for (let learned of lset) {
 					// CFM - some moves can only be learned by prevolutions, not by their evolutions
-					if (learned.charAt(0) === 'X') return {type: 'cfmprevoonly'};
+					if (learned.startsWith('X'))
+						return {type: 'cfmprevoonly'};
+
 					// Every `learned` represents a single way a pokemon might
 					// learn a move. This can be handled one of several ways:
 					// `continue`

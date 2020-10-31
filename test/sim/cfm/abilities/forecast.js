@@ -18,22 +18,22 @@ describe('CFM - Forecast', function () {
 			[{species: 'Ninetales', ability: 'flashfire', moves: ['sunnyday', 'ember', 'sandstorm', 'protect']}],
 		]);
 
-		assert.ok(battle.field.isWeather('raindance'));
+		assert(battle.field.isWeather('raindance'));
 		assert.species(battle.p1.active[0], 'Castform-Rainy');
 
 		battle.makeChoices('move tackle', 'move sunnyday');
-		assert.ok(battle.field.isWeather('sunnyday'));
+		assert(battle.field.isWeather('sunnyday'));
 		assert.species(battle.p1.active[0], 'Castform-Sunny');
 
 		battle.makeChoices('move hail', 'move ember');
-		assert.ok(battle.field.isWeather('hail'));
+		assert(battle.field.isWeather('hail'));
 		assert.species(battle.p1.active[0], 'Castform-Snowy');
 		// Check that weather persists when Castform switches
 		battle.makeChoices('switch 2', 'move protect');
-		assert.ok(battle.field.isWeather('hail'));
+		assert(battle.field.isWeather('hail'));
 
 		battle.makeChoices('switch 2', 'move sandstorm');
-		assert.ok(battle.field.isWeather('sandstorm'));
+		assert(battle.field.isWeather('sandstorm'));
 		assert.species(battle.p1.active[0], 'Castform');
 	});
 
@@ -45,8 +45,8 @@ describe('CFM - Forecast', function () {
 			[{species: 'Ninetales', ability: 'flashfire', moves: ['sunnyday', 'ember', 'protect']}],
 		]);
 
-		assert.ok(battle.field.isWeather('sunnyday'));
-		assert.ok(battle.field.weatherData.duration === 0);
+		assert(battle.field.isWeather('sunnyday'));
+		assert(battle.field.weatherData.duration === 0);
 	});
 
 	it('Weather fades when Castform switches', function () {
@@ -57,8 +57,8 @@ describe('CFM - Forecast', function () {
 			[{species: 'Ninetales', ability: 'flashfire', moves: ['sunnyday', 'ember', 'protect']}],
 		]);
 
-		assert.ok(battle.field.isWeather('hail'));
+		assert(battle.field.isWeather('hail'));
 		battle.makeChoices('switch 2', 'move protect');
-		assert.ok(!battle.field.isWeather('hail'));
+		assert(!battle.field.isWeather('hail'));
 	});
 });
