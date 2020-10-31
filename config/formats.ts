@@ -17,6 +17,7 @@ New sections will be added to the bottom of the specified column.
 The column value will be ignored for repeat sections.
 */
 
+import {Dex} from '../sim';
 export const Formats: FormatList = [
 
 	// Sw/Sh Singles
@@ -1133,7 +1134,7 @@ export const Formats: FormatList = [
 			const unreleased = (pokemon: Species) => pokemon.tier === "Unreleased" && pokemon.isNonstandard === "Unobtainable";
 			if (!teamHas.abilityMap) {
 				teamHas.abilityMap = Object.create(null);
-				for (const speciesid in Dex.data.Pokedex) {
+				for (const speciesid in this.dex.data.Pokedex) {
 					const pokemon = this.dex.getSpecies(speciesid);
 					if (pokemon.isNonstandard || unreleased(pokemon)) continue;
 					if (pokemon.requiredAbility || pokemon.requiredItem || pokemon.requiredMove) continue;

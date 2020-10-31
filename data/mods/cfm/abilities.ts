@@ -2453,7 +2453,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 
 			const multiAbility = multiTypes[type];
 			this.add('-activate', pokemon, 'ability: Multitype');
-			pokemon.ability = pokemon.baseAbility = toID(multiAbility);
+			pokemon.ability = pokemon.baseAbility = this.toID(multiAbility);
 			this.add('-message', pokemon.name + "'s Ability changed to " + this.dex.getAbility(pokemon.baseAbility).name + " to suit its type!");
 			return;
 		},
