@@ -1,6 +1,7 @@
 /* eslint max-len: ["error", 240] */
 
 import {RandomTeams, TeamData} from '../../random-teams';
+import {Dex, toID} from '../../../sim/dex';
 import {PRNG, PRNGSeed} from '../../../sim/prng';
 import {Utils} from '../../../lib/utils';
 
