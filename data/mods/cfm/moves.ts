@@ -1099,9 +1099,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, magic: 1},
-		onModifyMove(move, pokemon) {
-			if (pokemon.getStat('spd') > pokemon.getStat('def')) move.category = 'Special';
-		},
 		useSourceDefensiveAsOffensive: true,
 		secondary: null,
 		target: "normal",
@@ -1117,10 +1114,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Behemoth Blade",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		onModifyMove(move, pokemon) {
-			if (pokemon.getStat('spa') > pokemon.getStat('atk')) move.category = 'Special';
-		},
+		flags: {contact: 1, protect: 1, mirror: 1, magic: 1},
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
@@ -11839,9 +11833,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, magic: 1},
-		onModifyMove(move, pokemon) {
-			if (pokemon.getStat('atk') > pokemon.getStat('spa')) move.category = 'Physical';
-		},
 		ignoreAbility: true,
 		secondary: null,
 		target: "normal",
@@ -12408,9 +12399,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 1,
 		priority: 0,
 		flags: {magic: 1},
-		onModifyMove(move, pokemon) {
-			if (pokemon.getStat('atk') > pokemon.getStat('spa')) move.category = 'Physical';
-		},
 		ignoreAbility: true,
 		isZ: 'ultranecroziumz',
 		zMoveSpecialUser: "Necrozma",

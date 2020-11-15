@@ -1993,9 +1993,11 @@ export class Battle {
 	}
 
 	getCategory(move: string | Move, source: Pokemon | null = null) {
-		let output = this.dex.getMove(move).category || 'Physical';
-		if (source && this.dex.getMove(move).flags['magic']) {
-			if (output === 'Physical' && source.getStat('spa') > source.getStat('atk')) output = 'Special';
+		const dexMove = this.dex.getMove(move);
+		let output = dexMove.category || 'Physical';
+		if (source && dexMove.flags['magic']) {
+			if (dexMove.id === 'behemothbash' && source.getStat('spd') > source.getStat('def')) output = 'Special';
+			else if (output === 'Physical' && source.getStat('spa') > source.getStat('atk')) output = 'Special';
 			else if (output === 'Special' && source.getStat('atk') > source.getStat('spa')) output = 'Physical';
 		}
 		return output;
