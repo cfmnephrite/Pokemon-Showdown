@@ -2137,7 +2137,8 @@ export class Battle {
 			// Body press really wants to use the def stat,
 			// so it switches stats to compensate for Wonder Room.
 			// Of course, the game thus miscalculates the boosts...
-			if ('wonderroom' in this.field.pseudoWeather && this.format.mod !== 'cfm') {
+			if (('wonderroom' in this.field.pseudoWeather && this.format.mod !== 'cfm') ||
+				(this.format.mod === 'cfm' && move.id === 'behemothbash')) {
 				if (attackStat === 'def') {
 					attackStat = 'spd';
 				} else if (attackStat === 'spd') {
