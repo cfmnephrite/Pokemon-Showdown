@@ -19,7 +19,7 @@ describe('CFM - Snap Trap', function () {
 		battle.setPlayer('p2', {team: [{species: 'Carnivine', ability: 'flashfire', evs: {hp: 20}, moves: ['sleeptalk', 'roar', 'snaptrap']}]});
 		battle.makeChoices('move superfang', 'move snaptrap');
 		assert(battle.log[battle.lastMoveLine + 1].startsWith('|-supereffective|'));
-		
+
 		assert(battle.p1.active[0].volatiles['snaptrap']);
 		assert.equal(battle.p2.active[0].hp, battle.p2.active[0].maxhp * (5 / 8)); // Heals
 		assert.trapped(() => battle.makeChoices('switch pikachu', 'move sleeptalk'));
