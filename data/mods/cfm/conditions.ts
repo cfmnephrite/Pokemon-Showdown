@@ -790,7 +790,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	// CFM type changing mons
 	unown: {
 		name: 'Unown',
-		onStart(pokemon) {
+		onType(types, pokemon) {
 			if (pokemon.hpType) {
 				pokemon.setType(pokemon.hpType);
 			}
@@ -798,21 +798,21 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	},
 	kecleon: {
 		name: 'Kecleon',
-		onStart(pokemon) {
+		onType(types, pokemon) {
 			if (pokemon.ability === 'colorchange') {
-				const types = [];
-				types.push(this.dex.getMove(pokemon.moveSlots[0].move).type);
+				const colorChangeTypes = [];
+				colorChangeTypes.push(this.dex.getMove(pokemon.moveSlots[0].move).type);
 				if (pokemon.moveSlots[1] &&
 				this.dex.getMove(pokemon.moveSlots[0].move).type !== this.dex.getMove(pokemon.moveSlots[1].move).type) {
-					types.push(this.dex.getMove(pokemon.moveSlots[1].move).type);
+					colorChangeTypes.push(this.dex.getMove(pokemon.moveSlots[1].move).type);
 				}
-				pokemon.setType(types);
+				pokemon.setType(colorChangeTypes);
 			}
 		},
 	},
 	solgaleo: {
 		name: 'Solgaleo',
-		onStart(pokemon) {
+		onType(types, pokemon) {
 			if (pokemon.ability === 'fullmetalbody') {
 				pokemon.setType(['Psychic', 'Fire', 'Steel']);
 			}
@@ -820,10 +820,20 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	},
 	lunala: {
 		name: 'Lunala',
-		onStart(pokemon) {
+		onType(types, pokemon) {
 			if (pokemon.ability === 'shadowshield') {
 				pokemon.setType(['Psychic', 'Fairy', 'Ghost']);
 			}
+		},
+	},
+
+	// Carnivine's special resistance to Bug/Flying-type attacks
+	carnivine: {
+		name: 'Carnivine',
+		onEffectiveness(typeMod, target, type, move) {
+			if (['Bug', 'Flying'].includes(this.getEffectiveType(move)) &&
+				target?.moveSlots?.map(moveSlot => moveSlot.id).includes(this.toID('snaptrap')))
+				return Math.min(-1, typeMod);
 		},
 	},
 

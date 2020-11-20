@@ -768,7 +768,6 @@ export const Formats: FormatList = [
 		name: "[CFM] Custom Game",
 
 		mod: 'cfm',
-		searchShow: false,
 		maxLevel: 9999,
 		battle: {trunc: Math.trunc},
 		defaultLevel: 100,

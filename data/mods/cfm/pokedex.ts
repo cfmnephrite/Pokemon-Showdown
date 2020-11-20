@@ -8039,9 +8039,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	carnivine: {
 		num: 455,
 		name: "Carnivine",
-		types: ["Grass", "Dark"],
-		baseStats: {hp: 94, atk: 128, def: 72, spa: 102, spd: 82, spe: 46},
-		abilities: {0: "Strong Jaw", 1: "Aftermath", H: "Pressure"},
+		types: ["Grass"],
+		baseStats: {hp: 95, atk: 110, def: 90, spa: 75, spd: 90, spe: 40},
+		abilities: {0: "Corrosion", 1: "Stakeout", H: "Strong Jaw"},
 		heightm: 1.4,
 		weightkg: 27,
 		color: "Green",

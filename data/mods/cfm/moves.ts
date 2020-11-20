@@ -13633,7 +13633,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			duration: 5,
 			onStart(target, source) {
-				this.add('-fieldstart', 'move: Temporal Storm', '[of] ' + source);
+				this.add('-fieldstart', 'move: Temporal Storm', '[silent]');
 				this.add('-message', "Dialga's Roar of Time creates a temporal upheaval!");
 			},
 			// Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
@@ -13648,7 +13648,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 			onEnd() {
-				this.add('-fieldend', 'move: Temporal Storm');
+				this.add('-fieldend', 'Temporal Storm', '[silent]');
 				this.add('-message', 'Time returned to normal.');
 			},
 		},
@@ -15469,17 +15469,51 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	snaptrap: {
 		num: 779,
-		accuracy: 100,
-		basePower: 35,
+		accuracy: 95,
+		basePower: 60,
 		category: "Physical",
 		name: "Snap Trap",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		volatileStatus: 'partiallytrapped',
+		flags: {contact: 1, protect: 1, mirror: 1, omnitype: 1},
+		onModifyMove(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
+		volatileStatus: 'snaptrap',
+		condition: {
+			duration: 5,
+			durationCallback(target, source) {
+				if (source?.hasItem('gripclaw')) return 8;
+				return this.random(5, 7);
+			},
+			onStart(target) {
+				this.add('-start', target, 'move: Snap Trap');
+			},
+			onResidualOrder: 11,
+			onResidual(pokemon) {
+				const target = this.effectData.source.side.active[pokemon.volatiles['snaptrap'].sourcePosition];
+				if (!target || target.fainted || target.hp <= 0) {
+					this.debug('Nothing to snap onto');
+					return;
+				}
+				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+				if (damage) {
+					this.heal(damage, target, pokemon);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Snap Trap', '[silent]');
+				this.add('-message', `${target.name} broke free from Snap Trap!`);
+			},
+			onTrapPokemon(pokemon) {
+				if (this.effectData.source?.isActive) pokemon.tryTrap();
+			},
+		},
 		secondary: null,
 		target: "normal",
-		type: "Grass",
+		type: "Normal",
 	},
 	snarl: {
 		num: 555,
@@ -15724,7 +15758,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			duration: 5,
 			onStart(target, source) {
-				this.add('-fieldstart', 'move: Spacial Disturbance', '[of] ' + source);
+				this.add('-fieldstart', 'move: Spacial Disturbance', '[silent]');
 				this.add('-message', "Palkia's Spacial Rend distorted the fabric of space!");
 			},
 			// Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
@@ -15747,7 +15781,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return -typeMod;
 			},
 			onEnd() {
-				this.add('-fieldend', 'move: Spacial Disturbance');
+				this.add('-fieldend', 'move: Spacial Disturbance', '[silent]');
 				this.add('-message', 'Space returned to normal.');
 			},
 		},
@@ -16670,6 +16704,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (target.volatiles['partiallytrapped']) {
 					this.add('-end', target, target.volatiles['partiallytrapped'].sourceEffect, '[partiallytrapped]', '[silent]');
 					delete target.volatiles['partiallytrapped'];
+				}
+				if (target.volatiles['snaptrap']) {
+					this.add('-end', target, target.volatiles['snaptrap'].sourceEffect, '[snaptrap]', '[silent]');
+					delete target.volatiles['snaptrap'];
 				}
 			},
 			onTryPrimaryHitPriority: -1,
