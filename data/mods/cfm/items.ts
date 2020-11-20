@@ -1087,11 +1087,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	deepseascale: {
 		name: "Deep Sea Scale",
 		spritenum: 93,
+		shortDesc: "If held by a Clamperl, its Def and Sp. Def are doubled.",
 		fling: {
 			basePower: 30,
 		},
 		onModifySpDPriority: 2,
 		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.name === 'Clamperl') {
+				return this.chainModify(2);
+			}
+		},
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
 			if (pokemon.baseSpecies.name === 'Clamperl') {
 				return this.chainModify(2);
 			}

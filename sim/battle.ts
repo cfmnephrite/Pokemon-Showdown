@@ -1993,9 +1993,11 @@ export class Battle {
 	}
 
 	getCategory(move: string | Move, source: Pokemon | null = null) {
-		let output = this.dex.getMove(move).category || 'Physical';
-		if (source && this.dex.getMove(move).flags['magic']) {
-			if (output === 'Physical' && source.getStat('spa') > source.getStat('atk')) output = 'Special';
+		const dexMove = this.dex.getMove(move);
+		let output = dexMove.category || 'Physical';
+		if (source && dexMove.flags['magic']) {
+			if (dexMove.id === 'behemothbash' && source.getStat('spd') > source.getStat('def')) output = 'Special';
+			else if (output === 'Physical' && source.getStat('spa') > source.getStat('atk')) output = 'Special';
 			else if (output === 'Special' && source.getStat('atk') > source.getStat('spa')) output = 'Physical';
 		}
 		return output;
@@ -2137,7 +2139,8 @@ export class Battle {
 			// Body press really wants to use the def stat,
 			// so it switches stats to compensate for Wonder Room.
 			// Of course, the game thus miscalculates the boosts...
-			if ('wonderroom' in this.field.pseudoWeather && this.format.mod !== 'cfm') {
+			if (('wonderroom' in this.field.pseudoWeather && this.format.mod !== 'cfm') ||
+				(this.format.mod === 'cfm' && move.id === 'behemothbash')) {
 				if (attackStat === 'def') {
 					attackStat = 'spd';
 				} else if (attackStat === 'spd') {

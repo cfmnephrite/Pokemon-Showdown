@@ -31,7 +31,7 @@ describe('CFM - Team Validator', function () {
 	it('CFM complex bans', function () {
 		// abilities - OU
 		let team = [
-			{species: 'blaziken', ability: "speedboost", moves: ['fireblast'], evs: {hp: 1}},
+			{species: 'moltres', ability: "drought", moves: ['fireblast'], evs: {hp: 1}},
 		];
 		let illegal = TeamValidator.get('gen8cfmou').validateTeam(team);
 		assert(illegal);
@@ -45,7 +45,7 @@ describe('CFM - Team Validator', function () {
 
 		// items
 		team = [
-			{species: 'latios', ability: "magicbounce", moves: ['psychic'], item: "souldew", evs: {hp: 1}},
+			{species: 'cloyster', ability: "skilllink", moves: ['iciclespear'], item: "kingsrock", evs: {hp: 1}},
 		];
 		illegal = TeamValidator.get('gen8cfmou').validateTeam(team);
 		assert(illegal);

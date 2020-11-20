@@ -4923,7 +4923,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	eldegoss: {
 		randomBattleMoves: ["charm", "gigadrain", "pollenpuff", "rapidspin", "sleeppowder", "synthesis"],
-		tier: "COU",
+		tier: "CPU",
 		inherit: true,
 	},
 	wooloo: {

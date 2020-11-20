@@ -655,12 +655,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		cfm: true,
 	},
 	dauntlessshield: {
+		shortDesc: "On switch-in, this Pokemon's higher defensive stat is raised by 1 stage.",
 		onStart(pokemon) {
-			this.boost({def: 1}, pokemon);
+			this.boost({[pokemon.storedStats.spd > pokemon.storedStats.def ? 'spd' : 'def']: 1}, pokemon);
 		},
 		name: "Dauntless Shield",
 		rating: 3.5,
 		num: 235,
+		cfm: true,
 	},
 	dazzling: {
 		onFoeTryMove(target, source, move) {
@@ -1883,12 +1885,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 22,
 	},
 	intrepidsword: {
+		shortDesc: "On switch-in, this Pokemon's higher offensive stat is raised by 1 stage.",
 		onStart(pokemon) {
-			this.boost({atk: 1}, pokemon);
+			this.boost({[pokemon.storedStats.spa > pokemon.storedStats.atk ? 'spa' : 'atk']: 1}, pokemon);
 		},
 		name: "Intrepid Sword",
 		rating: 4,
 		num: 234,
+		cfm: true,
 	},
 	ironbarbs: {
 		onDamagingHitOrder: 1,
