@@ -3781,11 +3781,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			return move.basePower * pokemon.hp / pokemon.maxhp;
 		},
-		category: "Special",
+		category: "Physical",
 		name: "Dragon Energy",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, magic: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa') > pokemon.getStat('atk')) move.category = 'Special';
+		},
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Dragon",
@@ -17760,7 +17763,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	thundercage: {
 		num: 819,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 80,
 		category: "Special",
 		name: "Thunder Cage",

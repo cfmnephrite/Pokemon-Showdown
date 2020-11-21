@@ -846,7 +846,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			pokemon.moveSlots.forEach(moveSlot => {
 				if (moveSlot.id === 'powergem')
 					hasPowerGem = true;
-			})
+			});
 			if (hasPowerGem) {
 				return this.chainModify(1.2);
 			}
