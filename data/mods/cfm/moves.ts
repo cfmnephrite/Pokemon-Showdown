@@ -17466,6 +17466,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, dance: 1},
 		volatileStatus: 'confusion',
+		onTryMove(attacker, defender, move) {
+			this.boost({spe: 1}, attacker, attacker, move);
+		},
 		secondary: null,
 		target: "allAdjacent",
 		type: "Normal",

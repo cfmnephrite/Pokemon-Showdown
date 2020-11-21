@@ -135,7 +135,7 @@ describe('CFM Z-Moves', function () {
 		battle.makeChoices('move thousandarrows zmove', 'move protect');
 		assert.equal(toID(battle.log[battle.lastMoveLine].split('|')[3]), 'landswrath');
 
-		// Then other Fire move - should get Inferno
+		// Then other Ground move - should get Tectonic Rage
 		battle.makeChoices('move protect', 'move mudslap zmove');
 		assert.equal(toID(battle.log[battle.lastMoveLine].split('|')[3]), 'tectonicrage');
 	});

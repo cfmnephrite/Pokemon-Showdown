@@ -690,7 +690,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifySpAPriority: 5,
-		onModifySpA(atk, pokemon) {
+		onModifySpA(spa, pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
 				return this.chainModify(0.5);
 			}
