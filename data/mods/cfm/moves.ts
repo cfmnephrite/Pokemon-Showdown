@@ -15493,9 +15493,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onResidualOrder: 11,
 			onResidual(pokemon) {
-				const target = this.effectData.source.side.active[pokemon.volatiles['snaptrap'].sourcePosition];
+				const source = this.effectData.source;
+				const target = source.side.active[pokemon.volatiles['snaptrap'].sourcePosition];
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to snap onto');
+					return;
+				}
+				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
+					delete pokemon.volatiles['snaptrap'];
+					this.add('-end', pokemon, 'Snap Trap', '[silent]');
 					return;
 				}
 				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
@@ -18961,7 +18967,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return 5;
 			},
 			onStart(side, source) {
-				this.add('-fieldstart', 'move: Wonder Room', '[of] ' + source);
+				this.add('-fieldstart', 'move: Wonder Room', '[silent]');
+				this.add('-message', "Wonder Room created an area where type effectiveness is inverted!");
 			},
 			onNegateImmunity: false,
 			onEffectivenessPriority: 1,
@@ -18978,7 +18985,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			// Swapping defenses implemented in sim/pokemon.js:Pokemon#calculateStat and Pokemon#getStat
 			onResidualOrder: 24,
 			onEnd() {
-				this.add('-fieldend', 'move: Wonder Room');
+				this.add('-fieldend', 'Wonder Room', '[silent]');
+				this.add('-message', 'Wonder Room wore off and type effectiveness returned to normal.');
 			},
 		},
 		secondary: null,

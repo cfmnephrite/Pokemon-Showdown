@@ -16,13 +16,19 @@ describe('CFM - Snap Trap', function () {
 			{species: 'Milotic', ability: 'furcoat', evs: {hp: 20}, moves: ['snaptrap', 'superfang']},
 			{species: 'Pikachu', ability: 'static', moves: ['thunder']},
 		]});
-		battle.setPlayer('p2', {team: [{species: 'Carnivine', ability: 'flashfire', evs: {hp: 20}, moves: ['sleeptalk', 'roar', 'snaptrap']}]});
+		battle.setPlayer('p2', {team: [
+			{species: 'Carnivine', ability: 'flashfire', evs: {hp: 20}, moves: ['sleeptalk', 'roar', 'snaptrap']},
+			{species: 'Pikachu', ability: 'static', moves: ['thunder', 'protect']},
+		]});
 		battle.makeChoices('move superfang', 'move snaptrap');
 		assert(battle.log[battle.lastMoveLine + 1].startsWith('|-supereffective|'));
 
 		assert(battle.p1.active[0].volatiles['snaptrap']);
 		assert.equal(battle.p2.active[0].hp, battle.p2.active[0].maxhp * (5 / 8)); // Heals
 		assert.trapped(() => battle.makeChoices('switch pikachu', 'move sleeptalk'));
+
+		battle.makeChoices('move superfang', 'switch pikachu');
+		assert(!battle.p1.active[0].volatiles['snaptrap']); // Snap Trap ends upon the "snap trapper" switching
 	});
 
 	it('Snap Trap Carnivine resists Bug and Flying', function () {
