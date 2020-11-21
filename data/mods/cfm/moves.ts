@@ -3422,17 +3422,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	disarmingvoice: {
 		num: 574,
-		accuracy: true,
+		accuracy: 100,
 		basePower: 40,
 		category: "Special",
 		name: "Disarming Voice",
+		shortDesc: "Usually goes first.",
 		pp: 15,
-		priority: 0,
+		priority: 1,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Cute",
+		cfm: true
 	},
 	discharge: {
 		num: 435,
@@ -3571,7 +3573,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	doublehit: {
 		num: 458,
-		accuracy: true,
+		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
@@ -3608,7 +3610,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	doublekick: {
 		num: 24,
-		accuracy: true,
+		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
@@ -3627,7 +3629,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	doubleslap: {
 		num: 3,
-		accuracy: true,
+		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
@@ -3986,7 +3988,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	dualchop: {
 		num: 530,
-		accuracy: true,
+		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
@@ -4005,7 +4007,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	dualwingbeat: {
 		num: 814,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
 		name: "Dual Wingbeat",
@@ -6083,7 +6085,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	geargrind: {
 		num: 544,
-		accuracy: true,
+		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
 		name: "Gear Grind",
@@ -14979,8 +14981,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	skittersmack: {
 		num: 806,
-		accuracy: 90,
-		basePower: 70,
+		accuracy: 100,
+		basePower: 80,
 		category: "Physical",
 		name: "Skitter Smack",
 		pp: 10,
@@ -14994,6 +14996,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Bug",
+		cfm: true
 	},
 	skullbash: {
 		num: 130,
@@ -15579,17 +15582,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	snipeshot: {
 		num: 745,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 60,
 		category: "Special",
 		name: "Snipe Shot",
+		shortDesc: "Always results in a critical hit. Cannot be redirected.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		critRatio: 2,
+		willCrit: true,
 		tracksTarget: true,
 		secondary: null,
 		target: "normal",
 		type: "Water",
+		cfm: true
 	},
 	snore: {
 		num: 173,
@@ -18142,21 +18147,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	tripleaxel: {
 		num: 813,
 		accuracy: 90,
-		basePower: 20,
-		basePowerCallback(pokemon, target, move) {
-			return 20 * move.hit;
-		},
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Axel",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		multihit: 3,
-		multiaccuracy: true,
 		secondary: null,
 		target: "normal",
 		type: "Ice",
-		zMove: {basePower: 120},
+		zMove: {basePower: 175},
 	},
 	triplekick: {
 		num: 167,

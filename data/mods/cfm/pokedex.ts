@@ -9480,7 +9480,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Unfezant",
 		types: ["Normal", "Flying"],
 		baseStats: {hp: 80, atk: 115, def: 70, spa: 70, spd: 55, spe: 95},
-		abilities: {0: "Big Pecks", 1: "Super Luck", H: "Gale Wings"},
+		abilities: {0: "Big Pecks", 1: "Super Luck", H: "Keen Eye"},
 		heightm: 1.2,
 		weightkg: 29,
 		levitates: true,
