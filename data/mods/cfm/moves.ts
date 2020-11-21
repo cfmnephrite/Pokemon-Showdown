@@ -3422,17 +3422,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	disarmingvoice: {
 		num: 574,
-		accuracy: true,
+		accuracy: 100,
 		basePower: 40,
 		category: "Special",
 		name: "Disarming Voice",
+		shortDesc: "Usually goes first.",
 		pp: 15,
-		priority: 0,
+		priority: 1,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Cute",
+		cfm: true,
 	},
 	discharge: {
 		num: 435,
@@ -3571,7 +3573,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	doublehit: {
 		num: 458,
-		accuracy: true,
+		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
@@ -3608,7 +3610,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	doublekick: {
 		num: 24,
-		accuracy: true,
+		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
@@ -3627,7 +3629,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	doubleslap: {
 		num: 3,
-		accuracy: true,
+		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
@@ -3779,11 +3781,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			return move.basePower * pokemon.hp / pokemon.maxhp;
 		},
-		category: "Special",
+		category: "Physical",
 		name: "Dragon Energy",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, magic: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa') > pokemon.getStat('atk')) move.category = 'Special';
+		},
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Dragon",
@@ -3986,7 +3991,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	dualchop: {
 		num: 530,
-		accuracy: true,
+		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
@@ -4005,7 +4010,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	dualwingbeat: {
 		num: 814,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
 		name: "Dual Wingbeat",
@@ -6083,7 +6088,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	geargrind: {
 		num: 544,
-		accuracy: true,
+		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
 		name: "Gear Grind",
@@ -14979,8 +14984,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	skittersmack: {
 		num: 806,
-		accuracy: 90,
-		basePower: 70,
+		accuracy: 100,
+		basePower: 80,
 		category: "Physical",
 		name: "Skitter Smack",
 		pp: 10,
@@ -14994,6 +14999,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Bug",
+		cfm: true,
 	},
 	skullbash: {
 		num: 130,
@@ -15493,9 +15499,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onResidualOrder: 11,
 			onResidual(pokemon) {
-				const target = this.effectData.source.side.active[pokemon.volatiles['snaptrap'].sourcePosition];
+				const source = this.effectData.source;
+				const target = source.side.active[pokemon.volatiles['snaptrap'].sourcePosition];
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to snap onto');
+					return;
+				}
+				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
+					delete pokemon.volatiles['snaptrap'];
+					this.add('-end', pokemon, 'Snap Trap', '[silent]');
 					return;
 				}
 				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
@@ -15573,17 +15585,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	snipeshot: {
 		num: 745,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 60,
 		category: "Special",
 		name: "Snipe Shot",
+		shortDesc: "Always results in a critical hit. Cannot be redirected.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		critRatio: 2,
+		willCrit: true,
 		tracksTarget: true,
 		secondary: null,
 		target: "normal",
 		type: "Water",
+		cfm: true,
 	},
 	snore: {
 		num: 173,
@@ -17455,6 +17469,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, dance: 1},
 		volatileStatus: 'confusion',
+		onTryMove(attacker, defender, move) {
+			this.boost({spe: 1}, attacker, attacker, move);
+		},
 		secondary: null,
 		target: "allAdjacent",
 		type: "Normal",
@@ -17746,7 +17763,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	thundercage: {
 		num: 819,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 80,
 		category: "Special",
 		name: "Thunder Cage",
@@ -18136,21 +18153,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	tripleaxel: {
 		num: 813,
 		accuracy: 90,
-		basePower: 20,
-		basePowerCallback(pokemon, target, move) {
-			return 20 * move.hit;
-		},
+		basePower: 30,
 		category: "Physical",
 		name: "Triple Axel",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		multihit: 3,
-		multiaccuracy: true,
 		secondary: null,
 		target: "normal",
 		type: "Ice",
-		zMove: {basePower: 120},
+		zMove: {basePower: 175},
 	},
 	triplekick: {
 		num: 167,
@@ -18961,7 +18974,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return 5;
 			},
 			onStart(side, source) {
-				this.add('-fieldstart', 'move: Wonder Room', '[of] ' + source);
+				this.add('-fieldstart', 'move: Wonder Room', '[silent]');
+				this.add('-message', "Wonder Room created an area where type effectiveness is inverted!");
 			},
 			onNegateImmunity: false,
 			onEffectivenessPriority: 1,
@@ -18978,7 +18992,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			// Swapping defenses implemented in sim/pokemon.js:Pokemon#calculateStat and Pokemon#getStat
 			onResidualOrder: 24,
 			onEnd() {
-				this.add('-fieldend', 'move: Wonder Room');
+				this.add('-fieldend', 'Wonder Room', '[silent]');
+				this.add('-message', 'Wonder Room wore off and type effectiveness returned to normal.');
 			},
 		},
 		secondary: null,

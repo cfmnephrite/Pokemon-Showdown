@@ -690,7 +690,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifySpAPriority: 5,
-		onModifySpA(atk, pokemon) {
+		onModifySpA(spa, pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
 				return this.chainModify(0.5);
 			}
@@ -850,19 +850,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 88,
 	},
 	dragonsmaw: {
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Dragon') {
-				this.debug('Dragon\'s Maw boost');
-				return this.chainModify(1.5);
-			}
+		desc: "While this Pokémon is active, the power of Dragon-type moves used by any active Pokémon is multiplied by 1.33. This Pokémon's Normal-type moves become Dragon-type.",
+		shortDesc: "This Pokémon's Normal moves become Dragon; all Dragon moves on the field +33%.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, "Dragon's Maw");
 		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Dragon') {
-				this.debug('Dragon\'s Maw boost');
-				return this.chainModify(1.5);
-			}
+		onModifyMovePriority: -1,
+		onModifyMove(move, pokemon) {
+			const noBoost = ['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'];
+			if (!this.field.auraBreak() && move.type === 'Normal' && !noBoost.includes(move.id) && !move.isZ)
+				move.type = 'Dragon';
+		},
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
+			if (target === source || move.category === 'Status' || move.type !== 'Dragon' || this.field.auraBreak()) return;
+			if (!move.auraBooster) move.auraBooster = this.effectData.target;
+			if (move.auraBooster !== this.effectData.target) return;
+			return this.chainModify(1.33);
 		},
 		name: "Dragon's Maw",
 		rating: 3.5,
@@ -4487,19 +4491,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 36,
 	},
 	transistor: {
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Electric') {
-				this.debug('Transistor boost');
-				return this.chainModify(1.5);
-			}
+		desc: "While this Pokémon is active, the power of Electric-type moves used by any active Pokémon is multiplied by 1.33. This Pokémon's Normal-type moves become Electric-type.",
+		shortDesc: "This Pokémon's Normal moves become Electric; all Electric moves on the field +33%.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Transistor');
 		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Electric') {
-				this.debug('Transistor boost');
-				return this.chainModify(1.5);
-			}
+		onModifyMovePriority: -1,
+		onModifyMove(move, pokemon) {
+			const noBoost = ['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball'];
+			if (!this.field.auraBreak() && move.type === 'Normal' && !noBoost.includes(move.id) && !move.isZ)
+				move.type = 'Electric';
+		},
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
+			if (target === source || move.category === 'Status' || move.type !== 'Electric' || this.field.auraBreak()) return;
+			if (!move.auraBooster) move.auraBooster = this.effectData.target;
+			if (move.auraBooster !== this.effectData.target) return;
+			return this.chainModify([0x1547, 0x1000]);
 		},
 		name: "Transistor",
 		rating: 3.5,
