@@ -4261,9 +4261,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	stantler: {
 		num: 234,
 		name: "Stantler",
-		types: ["Normal"],
+		types: ["Normal", "Ice"],
 		baseStats: {hp: 80, atk: 100, def: 70, spa: 85, spd: 75, spe: 95},
-		abilities: {0: "Intimidate", 1: "Moxie", H: "Sap Sipper"},
+		abilities: {0: "Intimidate", 1: "Slush Rush", H: "Sap Sipper"},
 		heightm: 1.4,
 		weightkg: 71.2,
 		color: "Brown",

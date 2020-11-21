@@ -3434,7 +3434,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 		contestType: "Cute",
-		cfm: true
+		cfm: true,
 	},
 	discharge: {
 		num: 435,
@@ -14996,7 +14996,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Bug",
-		cfm: true
+		cfm: true,
 	},
 	skullbash: {
 		num: 130,
@@ -15594,7 +15594,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Water",
-		cfm: true
+		cfm: true,
 	},
 	snore: {
 		num: 173,
