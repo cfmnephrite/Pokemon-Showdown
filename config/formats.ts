@@ -765,9 +765,32 @@ export const Formats: FormatList = [
 		banlist: ['CNU'],
 	},
 	{
+		name: "[Gen 8] CFM ZU",
+
+		mod: 'cfm',
+		// cfacTier: 'ZU',
+		ruleset: ['[Gen 8] CFM PU'],
+		banlist: ['CPU'],
+	},
+	{
+		name: "[Gen 8] CFM LC",
+
+		mod: 'cfm',
+		// cfacTier: 'LC',
+		maxLevel: 5,
+		ruleset: ['Little Cup', 'Standard'],
+		banlist: [
+			'Corsola-Galar', 'Cutiefly', 'Drifloon', 'Gastly', 'Rufflet', 'Scyther', 'Sneasel', 'Swirlix', 'Tangela',
+			'Vulpix-Alola', 'Vulpix', 'Clamperl', 'Murkrow', 'Misdreavus', "Farfetch'd-Galar", 'Wooper', 'Dewpider',
+			'Chlorophyll', 'Moody', 'Shadow Tag', 'Arena Trap',
+			'Baton Pass',
+		],
+	},
+	{
 		name: "[CFM] Custom Game",
 
 		mod: 'cfm',
+		searchShow: false,
 		maxLevel: 9999,
 		battle: {trunc: Math.trunc},
 		defaultLevel: 100,
