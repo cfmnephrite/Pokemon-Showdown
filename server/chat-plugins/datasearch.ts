@@ -442,7 +442,8 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 		cag: 'CAG', cub: 'CUb',
 		cou: 'COU', cuu: 'CUU',
 		cru: 'CRU', cnu: 'CNU',
-		cpu: 'CPU', clc: 'CLC',
+		cpu: 'CPU', czu: 'CZU',
+		clc: 'CLC',
 	});
 	const allDoublesTiers: {[k: string]: TierTypes.Singles | TierTypes.Other} = Object.assign(Object.create(null), {
 		doublesubers: 'DUber', doublesuber: 'DUber', duber: 'DUber', dubers: 'DUber',
@@ -456,7 +457,8 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 		cag: 'CAG', cub: 'CUb', cuber: 'CUb', cubers: 'CUb',
 		cou: 'COU', cuu: 'CUU',
 		cru: 'CRU', cnu: 'CNU',
-		cpu: 'CPU', clc: 'CLC',
+		cpu: 'CPU', czu: 'CZU',
+		clc: 'CLC',
 	});
 	const allTypes = Object.create(null);
 	for (const i in Dex.data.TypeChart) {
