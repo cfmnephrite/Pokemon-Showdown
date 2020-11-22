@@ -28412,7 +28412,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			doublekick: ["8L0", "7L1", "6L16", "5L16", "4L16", "3L16"],
 			doubleteam: ["7M", "6M", "5M", "4M", "3M"],
 			dualchop: ["7T", "6T", "5T"],
-			dynamicpunch: ["3T"],
 			echoedvoice: ["7M", "6M", "5M"],
 			ember: ["8L1", "7L1", "6L1", "5L1", "4L1", "3L1"],
 			endure: ["8M", "4M", "3T"],
@@ -73694,7 +73693,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			agility: ["8M"],
 			aurasphere: ["8L55"],
-			behemothblade: ["8M", "8L88"],
+			behemothbash: ["8M", "8L88"],
 			bite: ["8L1"],
 			bulkup: ["8M"],
 			calmmind: ["8M"],

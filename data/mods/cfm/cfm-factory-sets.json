@@ -5735,7 +5735,7 @@
 "evs":{ "hp":0,"atk":0,"def":4,"spa":252,"spd":0,"spe":252},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Timid"],
-"moves":[["Hypnosis"],["Nasty Plot"],["Hyper Voice", "Hurricane"],["Shadow Ball","Nightmare"]]},
+"moves":[["Hypnosis"],["Nasty Plot"],["Hyper Voice", "Hurricane"],["Nightmare"]]},
 
 {"species":"Noctowl",
 "gender":"",
@@ -5753,7 +5753,7 @@
 "evs":{ "hp":0,"atk":0,"def":4,"spa":252,"spd":0,"spe":252},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Timid"],
-"moves":[["Trick"],["Shadow Ball"],["Hyper Voice"],["Defog", "Moonblast"]]}]},
+"moves":[["Trick"],["Nightmare"],["Hyper Voice"],["Defog", "Moonblast"]]}]},
 "porygon2":{"flags":{},"sets":[
 
 {"species":"Porygon2",

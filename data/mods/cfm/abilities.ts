@@ -854,6 +854,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokémon's Normal moves become Dragon; all Dragon moves on the field +33%.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, "Dragon's Maw");
+			this.add('-message', `${pokemon.name}'s Dragon's Maw boosts the power of Dragon moves!`);
 		},
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
@@ -4495,6 +4496,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokémon's Normal moves become Electric; all Electric moves on the field +33%.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Transistor');
+			this.add('-message', `${pokemon.name}'s Transistor boosts the power of Electric moves!`);
 		},
 		onModifyMovePriority: -1,
 		onModifyMove(move, pokemon) {
