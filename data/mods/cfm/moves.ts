@@ -4308,18 +4308,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	electroweb: {
 		num: 527,
-		accuracy: 95,
-		basePower: 55,
+		accuracy: 100,
+		basePower: 90,
 		category: "Special",
 		name: "Electroweb",
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
-			chance: 100,
-			boosts: {
-				spe: -1,
-			},
+			chance: 50,
+			status: 'par',
 		},
 		target: "allAdjacentFoes",
 		type: "Electric",
