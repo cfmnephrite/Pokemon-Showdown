@@ -1166,6 +1166,7 @@ export const Formats: {[k: string]: FormatData} = {
 				// moves
 				porygonz:		{tier: 'OU', move: 'hyperbeam'},
 				blastoisemega:	{tier: 'OU', move: 'shellsmash'},
+				snorlax:		{tier: 'UU', move: 'hyperbeam'},
 			};
 			if (!!complexBans[speciesRef] && allTiers[currTier] <= allTiers[complexBans[speciesRef].tier]) {
 				if (complexBans[speciesRef].ability === this.toID(set.ability)) {
