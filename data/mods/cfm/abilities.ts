@@ -1055,7 +1055,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	flashfire: {
 		desc: "This Pokemon is immune to Fire-type moves, and the higher of its Sp. Attack or Attack is raised by 1 when hit by a Fire-type move.",
-		shortDesc: "If hit by a Fire-type attack; grants immunity, boosts higher of SpA/Atk.",
+		shortDesc: "If hit by a Fire-type attack: grants immunity, boosts higher of SpA/Atk.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
 				if (!this.boost({[target.storedStats.atk > target.storedStats.spa ? 'atk' : 'spa']: 1})) {
@@ -4374,7 +4374,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 140,
 	},
 	teravolt: {
-		shortDesc: "This Pokémon's moves ignore hindering weather, terrain and target Abilities.",
+		shortDesc: `This Pokémon's moves ignore hindering weather, terrain and target Abilities.\nIf hit by an Electric-type attack; grants immunity, boosts higher of SpA/Atk when hit.`,
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Teravolt');
 		},
@@ -4382,6 +4382,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			move.ignoreAbility = true;
 			move.ignoreWeather = true;
 		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				if (!this.boost({[target.storedStats.atk > target.storedStats.spa ? 'atk' : 'spa']: 1})) {
+					this.add('-immune', target, '[from] ability: Teravolt');
+				}
+				return null;
+			}
+		},
+		isUnbreakable: true,
 		name: "Teravolt",
 		rating: 3.5,
 		num: 164,
@@ -4544,7 +4553,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 54,
 	},
 	turboblaze: {
-		shortDesc: "This Pokémon's moves ignore hindering weather, terrain and target Abilities.",
+		shortDesc: `This Pokémon's moves ignore hindering weather, terrain and target Abilities.\nIf hit by a Fire-type attack: grants immunity, boosts higher of SpA/Atk.`,
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Turboblaze');
 		},
@@ -4552,6 +4561,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			move.ignoreAbility = true;
 			move.ignoreWeather = true;
 		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				if (!this.boost({[target.storedStats.atk > target.storedStats.spa ? 'atk' : 'spa']: 1})) {
+					this.add('-immune', target, '[from] ability: Turboblaze');
+				}
+				return null;
+			}
+		},
+		isUnbreakable: true,
 		name: "Turboblaze",
 		rating: 3.5,
 		num: 163,
