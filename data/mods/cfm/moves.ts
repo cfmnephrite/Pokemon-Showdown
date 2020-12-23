@@ -98,6 +98,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Poison",
 		zMove: {basePower: 140},
 		contestType: "Clever",
+		cfm: true,
 	},
 	acidarmor: {
 		num: 151,
@@ -177,7 +178,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "Raises a random stat by 2 stages as long as the stat is not already at stage 6. The user can choose to use this move on itself or an adjacent ally. Fails if no stat stage can be raised or if used on an ally with a substitute.",
+		desc: "Raises a random (except Evasion) stat by 2 stages as long as the stat is not already at stage 6. The user can choose to use this move on itself or an adjacent ally. Fails if no stat stage can be raised or if used on an ally with a substitute.",
 		shortDesc: "Raises a random stat (except Evasion) of user or ally by 2.",
 		name: "Acupressure",
 		pp: 30,
@@ -205,6 +206,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {effect: 'crit2'},
 		contestType: "Tough",
+		cfm: true,
 	},
 	aerialace: {
 		num: 332,
@@ -240,6 +242,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: true,
 	},
 	afteryou: {
 		num: 495,
@@ -318,6 +321,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Flying",
 		zMove: {basePower: 160},
 		contestType: "Cool",
+		cfm: true,
 	},
 	alloutpummeling: {
 		num: 624,
@@ -493,6 +497,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Water",
 		zMove: {basePower: 180},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	armthrust: {
 		num: 292,
@@ -667,6 +672,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Bug",
 		zMove: {basePower: 180},
 		contestType: "Clever",
+		cfm: true,
 	},
 	attract: {
 		num: 213,
@@ -736,6 +742,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fighting",
 		zMove: {basePower: 175},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	aurawheel: {
 		num: 783,
@@ -887,7 +894,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Physical",
 		desc: "Power doubles if the user was hit by the target this turn.",
 		shortDesc: "Power doubles if user is damaged by the target.",
-		// @ts-ignore
 		cfmDesc: "No longer has negative priority; no longer a contact move.",
 		name: "Avalanche",
 		pp: 10,
@@ -897,6 +903,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	babydolleyes: {
 		num: 608,
@@ -1173,6 +1180,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {basePower: 100},
 		contestType: "Cute",
+		cfm: true,
 	},
 	bide: {
 		num: 117,
@@ -1314,6 +1322,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	blazekick: {
 		num: 299,
@@ -1334,6 +1343,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fire",
 		zMove: {basePower: 180},
 		contestType: "Cool",
+		cfm: true,
 	},
 	blizzard: {
 		num: 59,
@@ -1354,6 +1364,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	block: {
 		num: 335,
@@ -1407,6 +1418,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	bodypress: {
 		num: 776,
@@ -1479,6 +1491,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	boneclub: {
 		num: 125,
@@ -1487,6 +1500,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Physical",
 		desc: "Has a 10% chance to flinch the target.",
 		shortDesc: "10% chance to flinch the target.",
+		cfmDesc: "Can hit airborne targets but cannot hit them for super-effective damage",
 		name: "Bone Club",
 		pp: 20,
 		priority: 0,
@@ -1498,6 +1512,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
+		cfm: true,
 	},
 	bonemerang: {
 		num: 155,
@@ -1505,6 +1520,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 50,
 		category: "Physical",
 		name: "Bonemerang",
+		cfmDesc: "Can hit airborne targets but cannot hit them for super-effective damage",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, antiair: 1},
@@ -1513,6 +1529,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
+		cfm: true,
 	},
 	bonerush: {
 		num: 198,
@@ -1520,6 +1537,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 25,
 		category: "Physical",
 		name: "Bone Rush",
+		cfmDesc: "Can hit airborne targets but cannot hit them for super-effective damage",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, antiair: 1},
@@ -1529,6 +1547,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ground",
 		zMove: {basePower: 140},
 		contestType: "Tough",
+		cfm: true,
 	},
 	boomburst: {
 		num: 586,
@@ -1587,6 +1606,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cute",
+		cfm: true,
 	},
 	branchpoke: {
 		num: 785,
@@ -1828,6 +1848,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ground",
 		zMove: {basePower: 160},
 		contestType: "Tough",
+		cfm: true,
 	},
 	bulletpunch: {
 		num: 418,
@@ -2077,6 +2098,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	charm: {
 		num: 204,
@@ -2116,6 +2138,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Flying",
 		zMove: {basePower: 180},
 		contestType: "Cute",
+		cfm: true,
 	},
 	chipaway: {
 		num: 498,
@@ -2167,6 +2190,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
+		cfm: true,
 	},
 	clangingscales: {
 		num: 691,
@@ -2358,6 +2382,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: true,
 	},
 	confide: {
 		num: 590,
@@ -2541,6 +2566,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Core Enforcer",
+		cfmDesc: "Physical; Z-Move BP: 180",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -2565,6 +2591,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dragon",
 		zMove: {basePower: 180},
 		contestType: "Tough",
+		cfm: true,
 	},
 	corkscrewcrash: {
 		num: 638,
@@ -2805,6 +2832,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Water",
 		zMove: {basePower: 175},
 		contestType: "Tough",
+		cfm: true,
 	},
 	craftyshield: {
 		num: 578,
@@ -2859,6 +2887,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fairy",
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
+		cfm: true,
 	},
 	crosschop: {
 		num: 238,
@@ -2874,6 +2903,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: true,
 	},
 	crosspoison: {
 		num: 440,
@@ -2913,6 +2943,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dark",
 		contestType: "Tough",
+		cfm: true,
 	},
 	crushclaw: {
 		num: 306,
@@ -2954,6 +2985,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fighting",
 		zMove: {basePower: 180},
 		contestType: "Tough",
+		cfm: true,
 	},
 	curse: {
 		num: 174,
@@ -3028,6 +3060,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dark",
 		zMove: {basePower: 175},
 		contestType: "Cool",
+		cfm: true,
 	},
 	darkpulse: {
 		num: 399,
@@ -3045,6 +3078,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "any",
 		type: "Dark",
 		contestType: "Cool",
+		cfm: true,
 	},
 	darkvoid: {
 		num: 464,
@@ -3264,6 +3298,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fighting",
 		zMove: {boost: {evasion: 1}},
 		contestType: "Cool",
+		cfm: true,
 	},
 	devastatingdrake: {
 		num: 652,
@@ -3303,6 +3338,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Rock",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	dig: {
 		num: 91,
@@ -3427,6 +3463,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Special",
 		name: "Disarming Voice",
 		shortDesc: "Usually goes first.",
+		cfmDesc: "+1 Priority",
 		pp: 15,
 		priority: 1,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
@@ -3519,6 +3556,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {basePower: 180},
 		contestType: "Cute",
+		cfm: true,
 	},
 	doomdesire: {
 		num: 353,
@@ -3588,6 +3626,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {basePower: 160},
 		contestType: "Cool",
+		cfm: true,
 	},
 	doubleironbash: {
 		num: 742,
@@ -3682,6 +3721,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	dragonascent: {
 		num: 620,
@@ -3739,6 +3779,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Cool",
+		cfm: true,
 	},
 	dragondance: {
 		num: 349,
@@ -3810,6 +3851,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dragon",
 		zMove: {basePower: 200},
 		contestType: "Tough",
+		cfm: true,
 	},
 	dragonpulse: {
 		num: 406,
@@ -3832,6 +3874,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dragon",
 		zMove: {basePower: 175},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	dragonrage: {
 		num: 82,
@@ -3864,6 +3907,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
+		cfm: true,
 	},
 	dragontail: {
 		num: 525,
@@ -3918,6 +3962,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return move.basePower;
 		},
 		category: "Special",
+		desc: "The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "User recovers 50% of the damage dealt.",
 		name: "Dream Eater",
 		pp: 15,
 		priority: 0,
@@ -3928,6 +3974,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		zMove: {basePower: 140},
 		contestType: "Clever",
+		cfm: true,
 	},
 	drillpeck: {
 		num: 65,
@@ -3949,6 +3996,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: true,
 	},
 	drillrun: {
 		num: 529,
@@ -3970,6 +4018,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
+		cfm: true,
 	},
 	drumbeating: {
 		num: 778,
@@ -4021,6 +4070,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Flying",
+		cfm: true,
 	},
 	dynamaxcannon: {
 		num: 744,
@@ -4193,6 +4243,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cute",
+		cfm: true,
 	},
 	electricterrain: {
 		num: 604,
@@ -4251,6 +4302,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Electric",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
+		cfm: true,
 	},
 	electrify: {
 		num: 582,
@@ -4311,6 +4363,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
+		desc: "Has a 50% chance to paralyse the target.",
+		shortDesc: "50% chance to paralyse the target.",
 		name: "Electroweb",
 		pp: 10,
 		priority: 0,
@@ -4322,6 +4376,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Electric",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	embargo: {
 		num: 373,
@@ -4943,6 +4998,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	firefang: {
 		num: 424,
@@ -4966,6 +5022,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fire",
 		zMove: {basePower: 140},
 		contestType: "Cool",
+		cfm: true,
 	},
 	firelash: {
 		num: 680,
@@ -4987,6 +5044,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Cute",
+		cfm: true,
 	},
 	firepledge: {
 		num: 519,
@@ -5076,6 +5134,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fire",
 		zMove: {basePower: 160},
 		contestType: "Tough",
+		cfm: true,
 	},
 	firespin: {
 		num: 83,
@@ -5160,6 +5219,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ground",
 		zMove: {basePower: 200},
 		contestType: "Tough",
+		cfm: true,
 	},
 	flail: {
 		num: 175,
@@ -5342,6 +5402,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	flatter: {
 		num: 260,
@@ -5380,6 +5441,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	fling: {
 		num: 374,
@@ -5537,6 +5599,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		zMove: {boost: {def: 1}},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	fly: {
 		num: 19,
@@ -5613,6 +5676,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: true,
 	},
 	focusenergy: {
 		num: 116,
@@ -5824,8 +5888,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
-		desc: "Has a 20% chance to paralyze the target.",
-		shortDesc: "20% paralyze.",
+		desc: "Has a 20% chance to paralyse the target.",
+		shortDesc: "20% chance to paralyse the target.",
 		name: "Freeze Shock",
 		pp: 10,
 		priority: 0,
@@ -5838,6 +5902,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ice",
 		zMove: {basePower: 180},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	freezingglare: {
 		num: 821,
@@ -5871,6 +5936,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cool",
+		cfm: true,
 	},
 	frostbreath: {
 		num: 524,
@@ -5928,6 +5994,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: true,
 	},
 	furycutter: {
 		num: 210,
@@ -5975,6 +6042,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: true,
 	},
 	fusionbolt: {
 		num: 559,
@@ -5994,6 +6062,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: true,
 	},
 	fusionflare: {
 		num: 558,
@@ -6013,6 +6082,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	futuresight: {
 		num: 248,
@@ -6099,6 +6169,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Steel",
 		zMove: {basePower: 180},
 		contestType: "Clever",
+		cfm: true,
 	},
 	gearup: {
 		num: 674,
@@ -6176,6 +6247,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fairy",
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	gigadrain: {
 		num: 202,
@@ -6210,6 +6282,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: true,
 	},
 	gigavolthavoc: {
 		num: 646,
@@ -6263,6 +6336,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ice",
 		zMove: {basePower: 180},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	glare: {
 		num: 137,
@@ -6405,6 +6479,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		zMove: {basePower: 175},
 		contestType: "Clever",
+		cfm: true,
 	},
 	grassyglide: {
 		num: 803,
@@ -6780,6 +6855,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dark",
 		zMove: {basePower: 200},
 		contestType: "Cool",
+		cfm: true,
 	},
 	gunkshot: {
 		num: 441,
@@ -6812,6 +6888,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "any",
 		type: "Flying",
 		contestType: "Clever",
+		cfm: true,
 	},
 	gyroball: {
 		num: 360,
@@ -6933,6 +7010,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 70,
 		category: "Physical",
 		name: "Headbutt",
+		cfmDesc: "Type changes to match the user's primary type",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, omnitype: 1, antiair: 1},
@@ -6948,6 +7026,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: true,
 	},
 	headcharge: {
 		num: 543,
@@ -7608,10 +7687,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	highhorsepower: {
 		num: 667,
-		accuracy: 95,
-		basePower: 95,
+		accuracy: 100,
+		basePower: 85,
 		category: "Physical",
 		name: "High Horsepower",
+		cfmDesc: "Can hit airborne targets but cannot hit them for super-effective damage",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, antiair: 1},
@@ -7619,6 +7699,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
+		cfm: true,
 	},
 	highjumpkick: {
 		num: 136,
@@ -7717,6 +7798,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {basePower: 200},
 		contestType: "Cool",
+		cfm: true,
 	},
 	hornleech: {
 		num: 532,
@@ -7804,6 +7886,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	hydropump: {
 		num: 56,
@@ -7852,6 +7935,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: true,
 	},
 	hyperfang: {
 		num: 158,
@@ -7876,6 +7960,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: true,
 	},
 	hyperspacefury: {
 		num: 621,
@@ -8063,6 +8148,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ice",
 		zMove: {basePower: 140},
 		contestType: "Cool",
+		cfm: true,
 	},
 	icehammer: {
 		num: 665,
@@ -8087,6 +8173,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Tough",
+		cfm: true,
 	},
 	icepunch: {
 		num: 8,
@@ -8105,6 +8192,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ice",
 		zMove: {basePower: 160},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	iceshard: {
 		num: 420,
@@ -8139,6 +8227,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ice",
 		zMove: {basePower: 180},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	iciclespear: {
 		num: 333,
@@ -8250,6 +8339,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	infernooverdrive: {
 		num: 640,
@@ -8414,6 +8504,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
+		cfm: true,
 	},
 	irontail: {
 		num: 231,
@@ -8435,6 +8526,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
+		cfm: true,
 	},
 	jawlock: {
 		num: 746,
@@ -8460,6 +8552,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Special",
 		desc: "This move's type depends on the user's held Plate.",
 		shortDesc: "Type varies based on the held Plate.",
+		cfmDesc: "Becomes a Physical move if the user's Attack is higher than its Sp. Attack",
 		name: "Judgment",
 		pp: 10,
 		priority: 0,
@@ -8657,6 +8750,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Ground",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	laserfocus: {
 		num: 673,
@@ -8762,6 +8856,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 40,
 		category: "Physical",
 		shortDesc: "Usually goes first.",
+		cfmDesc: "+1 Priority",
 		name: "Leafage",
 		pp: 40,
 		priority: 1,
@@ -8770,6 +8865,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
+		cfm: true,
 	},
 	leafblade: {
 		num: 348,
@@ -8806,6 +8902,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		zMove: {basePower: 200},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	leaftornado: {
 		num: 536,
@@ -8841,6 +8938,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Bug",
 		zMove: {basePower: 140},
 		contestType: "Clever",
+		cfm: true,
 	},
 	leechseed: {
 		num: 73,
@@ -9259,6 +9357,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		zMove: {basePower: 175},
 		contestType: "Clever",
+		cfm: true,
 	},
 	machpunch: {
 		num: 183,
@@ -10111,6 +10210,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		zMove: {basePower: 120},
 		contestType: "Clever",
+		cfm: true,
 	},
 	megahorn: {
 		num: 224,
@@ -10145,6 +10245,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {basePower: 175},
 		contestType: "Cool",
+		cfm: true,
 	},
 	megapunch: {
 		num: 5,
@@ -10173,6 +10274,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: true,
 	},
 	memento: {
 		num: 262,
@@ -10356,6 +10458,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
+		cfm: true,
 	},
 	metronome: {
 		num: 118,
@@ -10718,6 +10821,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dragon",
 		zMove: {basePower: 175},
 		contestType: "Clever",
+		cfm: true,
 	},
 	mistyexplosion: {
 		num: 802,
@@ -10819,6 +10923,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	moongeistbeam: {
 		num: 714,
@@ -10924,6 +11029,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ground",
 		zMove: {basePower: 140},
 		contestType: "Cute",
+		cfm: true,
 	},
 	mudshot: {
 		num: 341,
@@ -11014,6 +11120,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Tough",
+		cfm: true,
 	},
 	multiattack: {
 		num: 718,
@@ -11036,6 +11143,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+		cfm: true,
 	},
 	mysticalfire: {
 		num: 595,
@@ -11057,6 +11165,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	nastyplot: {
 		num: 417,
@@ -11082,7 +11191,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Physical",
 		desc: "The type and power of this move depend on the user's held Berry, and the Berry is lost. Fails if the user is not holding a Berry, if the user has the Klutz Ability, or if Embargo or Magic Room is in effect for the user.",
-		shortDesc: "Power and type depends on the user's Berry.",
+		shortDesc: "Power and type depends on the user's Berry. Berry is not consumed after use.",
 		name: "Natural Gift",
 		pp: 15,
 		priority: 0,
@@ -11104,6 +11213,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {basePower: 160},
 		contestType: "Clever",
+		cfm: true,
 	},
 	naturepower: {
 		num: 267,
@@ -11175,6 +11285,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		zMove: {basePower: 160},
 		contestType: "Clever",
+		cfm: true,
 	},
 	neverendingnightmare: {
 		num: 636,
@@ -11212,6 +11323,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dark",
 		zMove: {basePower: 180},
 		contestType: "Cool",
+		cfm: true,
 	},
 	nightmare: {
 		num: 171,
@@ -11241,6 +11353,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
+		cfm: true,
 	},
 	nightshade: {
 		num: 101,
@@ -11272,6 +11385,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dark",
 		zMove: {basePower: 180},
 		contestType: "Cool",
+		cfm: true,
 	},
 	nobleroar: {
 		num: 568,
@@ -11450,6 +11564,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Water",
 		zMove: {basePower: 160},
 		contestType: "Tough",
+		cfm: true,
 	},
 	octolock: {
 		num: 753,
@@ -11539,6 +11654,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 85,
 		basePower: 120,
 		category: "Special",
+		desc: "Ignores the target's ability. Ignores the damage reduction to Water-type attacks caused by Sunny Day and Hail. Can be used in Desolate Land, but cannot strike for super-effective damage.",
 		shortDesc: "Ignores the target's ability and some weather effects.",
 		name: "Origin Pulse",
 		pp: 10,
@@ -11550,6 +11666,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Water",
 		zMove: {basePower: 190},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	outrage: {
 		num: 200,
@@ -11608,6 +11725,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	painsplit: {
 		num: 220,
@@ -11647,6 +11765,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Clever",
+		cfm: true,
 	},
 	partingshot: {
 		num: 575,
@@ -11827,6 +11946,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ghost",
 		zMove: {basePower: 140},
 		contestType: "Cool",
+		cfm: true,
 	},
 	photongeyser: {
 		num: 722,
@@ -11885,6 +12005,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+		cfm: true,
 	},
 	playnice: {
 		num: 589,
@@ -11922,6 +12043,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cute",
+		cfm: true,
 	},
 	pluck: {
 		num: 365,
@@ -11972,6 +12094,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Poison",
 		zMove: {basePower: 140},
 		contestType: "Clever",
+		cfm: true,
 	},
 	poisongas: {
 		num: 139,
@@ -12057,6 +12180,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Clever",
+		cfm: true,
 	},
 	pollenpuff: {
 		num: 676,
@@ -12191,6 +12315,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Rock",
 		zMove: {basePower: 175},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	powersplit: {
 		num: 471,
@@ -12349,6 +12474,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
+		cfm: true,
 	},
 	precipiceblades: {
 		num: 619,
@@ -12421,6 +12547,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Protect",
+		cfmDesc: "A much rarer move!",
 		pp: 10,
 		priority: 4,
 		flags: {},
@@ -12463,6 +12590,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
+		cfm: true,
 	},
 	psybeam: {
 		num: 60,
@@ -12532,6 +12660,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		cfm: true,
 	},
 	psychicfangs: {
 		num: 706,
@@ -12624,6 +12753,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Special",
+		desc: "Only usable by Deoxys, and effect changes to match forme. Physical or Special depending on the higher offensive stat. Deoxys-Attack: 140BP, 90% Accurate; harsly lowers the higher offensive stat; Deoxys-Defense: deals damage equal to the user's level; 20% chance to boost the higher defensive stat; Deoxys-Speed: damage is calculated with the same formula as Electro Ball; Deoxys: 75BP, 10% chance to boost all stats.",
 		shortDesc: "Only usable by Deoxys; effect depends on forme.",
 		name: "Psycho Boost",
 		pp: 10,
@@ -12705,6 +12835,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		cfm: true,
 	},
 	psychocut: {
 		num: 427,
@@ -12720,6 +12851,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
+		cfm: true,
 	},
 	psychoshift: {
 		num: 375,
@@ -12766,6 +12898,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	psystrike: {
 		num: 540,
@@ -12788,6 +12921,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
+		cfm: true,
 	},
 	psywave: {
 		num: 149,
@@ -12805,6 +12939,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		cfm: true,
 	},
 	pulverizingpancake: {
 		num: 701,
@@ -13219,6 +13354,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Water",
 		zMove: {basePower: 160},
 		contestType: "Cool",
+		cfm: true,
 	},
 	razorwind: {
 		num: 13,
@@ -13506,6 +13642,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	revenge: {
 		num: 279,
@@ -13662,6 +13799,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	rockblast: {
 		num: 350,
@@ -13697,6 +13835,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {basePower: 140},
 		contestType: "Tough",
+		cfm: true,
 	},
 	rockpolish: {
 		num: 397,
@@ -13735,6 +13874,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Rock",
 		zMove: {basePower: 160},
 		contestType: "Tough",
+		cfm: true,
 	},
 	rocksmash: {
 		num: 249,
@@ -13755,6 +13895,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fighting",
 		zMove: {basePower: 120},
 		contestType: "Tough",
+		cfm: true,
 	},
 	rockthrow: {
 		num: 88,
@@ -13809,6 +13950,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
+		cfm: true,
 	},
 	roleplay: {
 		num: 272,
@@ -13868,6 +14010,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		cfm: true,
 	},
 	rollout: {
 		num: 205,
@@ -14015,6 +14158,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
+		desc: "Has a 50% chance to burn the target. Ignores the damage reduction to Fire-type attacks caused by Rain Dance and Hail. Can be used in Primodrial Sea, but cannot strike for super-effective damage.",
 		shortDesc: "Ignores some weather effects; 50% chance to burn.",
 		name: "Sacred Fire",
 		pp: 10,
@@ -14028,6 +14172,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	sacredsword: {
 		num: 533,
@@ -14170,6 +14315,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Special",
 		desc: "Has a 30% chance to burn the target. The target thaws out if it is frozen. This move does not have reduced in power in harsh sunlight.",
 		shortDesc: "30% chance to burn the target. Not weakened in Sun.",
+		cfmDesc: "A much rarer move! Power is not reduced in Sunny Day.",
 		name: "Scald",
 		pp: 15,
 		priority: 0,
@@ -14188,6 +14334,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
+		cfm: true,
 	},
 	scaleshot: {
 		num: 799,
@@ -14234,6 +14381,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 70,
 		category: "Special",
 		name: "Scorching Sands",
+		cfmDesc: "Can hit airborne targets but cannot hit them for super-effective damage",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, defrost: 1, antiair: 1},
@@ -14244,6 +14392,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Ground",
+		cfm: true,
 	},
 	scratch: {
 		num: 10,
@@ -14398,6 +14547,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
+		cfm: true,
 	},
 	seedflare: {
 		num: 465,
@@ -14419,6 +14569,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		zMove: {basePower: 180},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	seismictoss: {
 		num: 69,
@@ -14468,6 +14619,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Clever",
+		cfm: true,
 	},
 	shadowbone: {
 		num: 708,
@@ -14487,6 +14639,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
+		cfm: true,
 	},
 	shadowclaw: {
 		num: 421,
@@ -14509,6 +14662,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ghost",
 		zMove: {basePower: 160},
 		contestType: "Cool",
+		cfm: true,
 	},
 	shadowforce: {
 		num: 467,
@@ -14528,6 +14682,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ghost",
 		zMove: {basePower: 180},
 		contestType: "Cool",
+		cfm: true,
 	},
 	shadowpunch: {
 		num: 325,
@@ -14547,6 +14702,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ghost",
 		zMove: {basePower: 175},
 		contestType: "Clever",
+		cfm: true,
 	},
 	shadowsneak: {
 		num: 425,
@@ -14620,6 +14776,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ice",
 		zMove: {basePower: 200},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	shellsidearm: {
 		num: 801,
@@ -14734,6 +14891,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "self",
 		type: "Fire",
 		contestType: "Tough",
+		cfm: true,
 	},
 	shiftgear: {
 		num: 508,
@@ -14760,6 +14918,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 40,
 		category: "Special",
 		shortDesc: "Usually goes first.",
+		cfmDesc: "A much rarer move! +1 Priority",
 		name: "Shock Wave",
 		pp: 20,
 		priority: 1,
@@ -14769,6 +14928,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Electric",
 		zMove: {basePower: 100},
 		contestType: "Cool",
+		cfm: true,
 	},
 	shoreup: {
 		num: 659,
@@ -15225,6 +15385,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {basePower: 180},
 		contestType: "Tough",
+		cfm: true,
 	},
 	slash: {
 		num: 163,
@@ -15246,6 +15407,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {basePower: 175},
 		contestType: "Cool",
+		cfm: true,
 	},
 	sleeppowder: {
 		num: 79,
@@ -15480,6 +15642,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 60,
 		category: "Physical",
 		name: "Snap Trap",
+		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Parting Shot, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move. The damage dealt each turn is absorbed by the user of the move, restoring their HP.",
+		shortDesc: "Traps and damages the target for 4-5 turns. Damage dealt heals the user.",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, omnitype: 1},
@@ -15527,6 +15691,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Normal",
+		cfm: true,
 	},
 	snarl: {
 		num: 555,
@@ -15681,6 +15846,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Cool",
+		cfm: true,
 	},
 	solarblade: {
 		num: 669,
@@ -15703,6 +15869,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		zMove: {basePower: 160},
 		contestType: "Cool",
+		cfm: true,
 	},
 	sonicboom: {
 		num: 49,
@@ -15805,6 +15972,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		zMove: {basePower: 180},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	spark: {
 		num: 209,
@@ -15848,6 +16016,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacent",
 		type: "Water",
 		contestType: "Tough",
+		cfm: true,
 	},
 	spectralthief: {
 		num: 712,
@@ -15905,6 +16074,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Bug",
 		zMove: {basePower: 160},
 		contestType: "Clever",
+		cfm: true,
 	},
 	spikecannon: {
 		num: 131,
@@ -15923,6 +16093,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Steel",
 		zMove: {basePower: 100},
 		contestType: "Cool",
+		cfm: true,
 	},
 	spikes: {
 		num: 191,
@@ -16198,6 +16369,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Stealth Rock",
+		cfmDesc: "A much rarer move!",
 		pp: 20,
 		priority: 0,
 		flags: {reflectable: 1},
@@ -16218,6 +16390,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Rock",
 		zMove: {boost: {def: 1}},
 		contestType: "Cool",
+		cfm: true,
 	},
 	steameruption: {
 		num: 592,
@@ -16226,6 +16399,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Special",
 		desc: "Has a 30% chance to burn the target. The target thaws out if it is frozen. Power is not reduced in harsh sunlight, but still ineffective in Desolate Land.",
 		shortDesc: "30% chance to burn the target. Thaws target.",
+		cfmDesc: "Power is not weakened in Sunny Day.",
 		name: "Steam Eruption",
 		pp: 5,
 		priority: 0,
@@ -16245,6 +16419,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Water",
 		zMove: {basePower: 190},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	steamroller: {
 		num: 537,
@@ -16263,6 +16438,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Steel",
 		zMove: {basePower: 190},
 		contestType: "Tough",
+		cfm: true,
 	},
 	steelbeam: {
 		num: 796,
@@ -16325,6 +16501,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Steel",
 		zMove: {basePower: 160},
 		contestType: "Cool",
+		cfm: true,
 	},
 	stickyweb: {
 		num: 564,
@@ -16332,7 +16509,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		desc: "Sets up a hazard on the opposing side of the field, lowering the Speed by 1 stage of each opposing Pokemon that switches in, unless it is a Flying-type Pokemon or has the Levitate Ability. Fails if the effect is already active on the opposing side or the user is not a Bug type. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
-		shortDesc: "Lowers Speed of grounded foes by 1 on switch-in.",
+		shortDesc: "Lowers Speed of grounded foes by 1 on switch-in. Fails if the user isn't Bug-type or Masquerain.",
+		cfmDesc: "Can only be used by Bug-types and Masquerain. Fails otherwise.",
 		name: "Sticky Web",
 		pp: 20,
 		priority: 0,
@@ -16362,6 +16540,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Bug",
 		zMove: {boost: {spe: 1}},
 		contestType: "Tough",
+		cfm: true,
 	},
 	stockpile: {
 		num: 254,
@@ -16464,6 +16643,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		category: "Physical",
 		name: "Stomping Tantrum",
+		cfmDesc: "Can hit airborne targets but cannot hit them for super-effective damage",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, antiair: 1},
@@ -16471,6 +16651,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
+		cfm: true,
 	},
 	stoneedge: {
 		num: 444,
@@ -16493,6 +16674,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
+		cfm: true,
 	},
 	storedpower: {
 		num: 500,
@@ -16688,6 +16870,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fighting",
 		zMove: {basePower: 175},
 		contestType: "Cool",
+		cfm: true,
 	},
 	substitute: {
 		num: 164,
@@ -17129,6 +17312,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		zMove: {basePower: 175},
 		contestType: "Clever",
+		cfm: true,
 	},
 	synthesis: {
 		num: 235,
@@ -17213,6 +17397,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {basePower: 140},
 		contestType: "Cute",
+		cfm: true,
 	},
 	tailwhip: {
 		num: 39,
@@ -17291,6 +17476,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {basePower: 175},
 		contestType: "Tough",
+		cfm: true,
 	},
 	tarshot: {
 		num: 749,
@@ -17444,6 +17630,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: true,
 	},
 	tectonicrage: {
 		num: 630,
@@ -17466,6 +17653,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Teeter Dance",
+		shortDesc: "Confuses adjacent Pokemon. Boosts the user's Speed by one stage.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, dance: 1},
@@ -17478,6 +17666,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {boost: {spa: 1}},
 		contestType: "Cute",
+		cfm: true,
 	},
 	telekinesis: {
 		num: 477,
@@ -17798,6 +17987,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Electric",
 		zMove: {basePower: 140},
 		contestType: "Cool",
+		cfm: true,
 	},
 	thunderouskick: {
 		num: 823,
@@ -17834,6 +18024,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Electric",
 		zMove: {basePower: 160},
 		contestType: "Cool",
+		cfm: true,
 	},
 	thundershock: {
 		num: 84,
@@ -17952,6 +18143,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Toxic",
+		cfmDesc: "A much rarer move!",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
@@ -17962,6 +18154,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Poison",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
+		cfm: true,
 	},
 	toxicthread: {
 		num: 672,
@@ -17990,6 +18183,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Poison",
 		zMove: {basePower: 160},
 		contestType: "Tough",
+		cfm: true,
 	},
 	transform: {
 		num: 144,
@@ -18157,6 +18351,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 30,
 		category: "Physical",
 		name: "Triple Axel",
+		shortDesc: "Hits the target three times.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -18165,6 +18360,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ice",
 		zMove: {basePower: 175},
+		cfm: true,
 	},
 	triplekick: {
 		num: 167,
@@ -18172,6 +18368,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 30,
 		category: "Physical",
 		name: "Triple Kick",
+		shortDesc: "Hits the target three times.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -18181,6 +18378,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fighting",
 		zMove: {basePower: 175},
 		contestType: "Cool",
+		cfm: true,
 	},
 	tropkick: {
 		num: 688,
@@ -18203,6 +18401,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		zMove: {basePower: 180},
 		contestType: "Cute",
+		cfm: true,
 	},
 	trumpcard: {
 		num: 376,
@@ -18259,6 +18458,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Bug",
 		zMove: {basePower: 180},
 		contestType: "Cool",
+		cfm: true,
 	},
 	twinkletackle: {
 		num: 656,
@@ -18333,6 +18533,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {basePower: 200},
 		contestType: "Cute",
+		cfm: true,
 	},
 	vacuumwave: {
 		num: 410,
@@ -18365,6 +18566,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Cool",
+		cfm: true,
 	},
 	venomdrench: {
 		num: 599,
@@ -18875,6 +19077,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Electric",
 		zMove: {basePower: 175},
 		contestType: "Tough",
+		cfm: true,
 	},
 	willowisp: {
 		num: 261,
@@ -19126,6 +19329,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Bug",
 		zMove: {basePower: 175},
 		contestType: "Cool",
+		cfm: true,
 	},
 	yawn: {
 		num: 281,

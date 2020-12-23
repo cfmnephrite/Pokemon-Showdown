@@ -792,6 +792,7 @@ interface EffectData {
 	infiltrates?: boolean;
 	isNonstandard?: Nonstandard | null;
 	shortDesc?: string;
+	cfmDesc?: string; // CFM modified
 	cfm?: boolean; // CFM modified
 	ate?: string; // For calculating Z Move types
 }
