@@ -4251,6 +4251,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "5 turns. Electric boosted by 30%; Ground-types not immune; can't use Rest.",
+		cfmDesc: "For 5 turns: all Electric moves boosted by 30%; Ground-types can be hit by Electric attacks for resisted damage; Pokémon can be put to sleep, but cannot use Rest.",
 		name: "Electric Terrain",
 		pp: 10,
 		priority: 0,
@@ -6506,6 +6507,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "5 turns. Grass boosted by 30%; grounded Pokémon recover HP; Grass-types cannot be poisoned.",
+		cfmDesc: "For 5 turns: all Grass moves boosted by 30%; all grounded Pokémon recover 1/16 HP per turn; grounded Grass-types and Pokémon with Grassy Surge recover an additional 1/16 and cannot be poisoned.",
 		name: "Grassy Terrain",
 		pp: 10,
 		priority: 0,
@@ -10849,6 +10851,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "5 turns. +Fairy power; grounded Pokémon cannot be statused.",
+		cfmDesc: "For 5 turns: all Fairy moves boosted by 30%; all grounded Pokémon or Pokémon with Misty Surge are protected from status effects.",
 		name: "Misty Terrain",
 		pp: 10,
 		priority: 0,
@@ -11127,7 +11130,25 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 120,
 		category: "Special",
-		shortDesc: "Changes to match Silvally's held memory.",
+		shortDesc: "Changes to a different move to match Silvally's held memory.",
+		cfmDesc: `If Silvally has RKS System and is holding Memory, this move changes to:
+Bug: 		Leech Life or Tail Glow, depending on the higher offensive stat
+Dark: 		Sucker Punch
+Dragon:		Dragon Dance
+Electric:	Volt Switch
+Fairy:		Wish
+Fighting:	Sacred Sword
+Fire:		Blaze Kick or Fire Spin, depending on the higher offensive stat
+Flying:		Drill Peck or Gust, depending on the higher offensive stat
+Ghost:		Destiny Bond
+Grass:		Sleep Powder
+Ground:		Drill Run
+Ice:		Icicle Crash or Freeze-Dry, depending on the higher offensive stat
+Poison:		Toxic
+Psychic:	Synchronoise
+Rock:		Stealth Rock
+Steel:		Metal Burst
+Water:		Scald`,
 		name: "Multi-Attack",
 		pp: 10,
 		priority: 0,
@@ -12689,7 +12710,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "5 turns: Psychic power boosted by 30%; Grounded: priority-safe.",
+		shortDesc: "5 turns: Psychic power boosted by 30%; Grounded/Psychic Surge Pokémon: priority-safe.",
+		cfmDesc: "For 5 turns: all Psychic moves boosted by 30%; all grounded Pokémon or Pokémon with Psychic Surge are protected from priority attacks.",
 		name: "Psychic Terrain",
 		pp: 10,
 		priority: 0,

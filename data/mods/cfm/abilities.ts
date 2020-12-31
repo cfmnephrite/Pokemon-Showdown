@@ -872,6 +872,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Dragon's Maw",
 		rating: 3.5,
 		num: 263,
+		cfm: true,
 	},
 	drizzle: {
 		onStart(source) {
@@ -936,6 +937,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		// Implemented in statuses.js
 		rating: 1.5,
 		num: 48,
+		cfm: true,
 	},
 	effectspore: {
 		onDamagingHit(damage, target, source, move) {
@@ -957,6 +959,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	electricsurge: {
 		desc: "On switch-in, this Pokemon summons Electric Terrain. While Electric Terrain is active: all Electric-type moves boosted by 25%; Pokemon may be put to sleep, but no Pokemon may use Rest; Ground-types becomes susceptible to Electric-type attacks, but they are resisted.",
 		shortDesc: "On switch-in, this Pokemon summons Electric Terrain.",
+		cfmDesc: "On switch-in, summons Electric Terrain for 5 turns: all Electric moves boosted by 30%; Ground-types can be hit by Electric attacks for resisted damage; Pokémon can be put to sleep, but cannot use Rest.",
 		onStart(source) {
 			this.field.setTerrain('electricterrain');
 		},
@@ -1307,6 +1310,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Gale Wings",
 		rating: 3,
 		num: 177,
+		cfm: true,
 	},
 	galvanize: {
 		shortDesc: "Normal-type moves become Electric; all Electric-type moves boosted by 20%.",
@@ -1411,6 +1415,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	grassysurge: {
 		desc: "On switch-in, this Pokemon summons Grassy Terrain. While Grassy Terrain is active: all Grass-type moves boosted by 25%; all grounded Pokemon recover 1/16th HP per turn; grounded Grass-types, or Pokemon with Grassy Surge, recover 1/8th HP per turn; Grass-types cannot be poisoned (does not cure any existing status).",
 		shortDesc: "On switch-in, this Pokemon summons Grassy Terrain.",
+		cfmDesc: "On switch-in, summons Grassy Terrain for 5 turns: all Grass moves boosted by 30%; all grounded Pokémon recover 1/16 HP per turn; grounded Grass-types and Pokémon with Grassy Surge recover an additional 1/16 and cannot be poisoned.",
 		onStart(source) {
 			this.field.setTerrain('grassyterrain');
 		},
@@ -2084,7 +2089,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	liquidooze: {
 		onSourceTryHeal(damage, target, source, effect) {
 			this.debug("Heal is occurring: " + target + " <- " + source + " :: " + effect.id);
-			const canOoze = ['drain', 'leechseed', 'strengthsap'];
+			const canOoze = ['drain', 'leechseed', 'strengthsap', 'snaptrap'];
 			if (canOoze.includes(effect.id)) {
 				this.damage(damage);
 				return 0;
@@ -2164,6 +2169,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	magician: {
 		desc: "If this Pokemon has no item, it is immune to Knock Off, Trick, Switcheroo, Thief, Covet, Bestow. If this Pokemon has no item, it will attempt to steal its target's item with every attack.",
 		shortDesc: "If itemless: steals the target's item; else: avoids Knock Off, Trick etc.",
+		cfmDesc: "X",
 		onTryHit(target, source, move) {
 			if (move.target !== 'self' && move.flags['magician']) {
 				this.add('-immune', target, '[from] ability: Magician');
@@ -2348,6 +2354,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	mistysurge: {
 		desc: "On switch-in, this Pokemon summons Misty Terrain. While Misty Terrain is active: all Fairy-type moves boosted by 25%; grounded Pokemon, or Pokemon with Misty Surge, are protected from status conditions (does not cure existing conditions).",
 		shortDesc: "On switch-in, this Pokemon summons Misty Terrain.",
+		cfmDesc: "On switch-in, summons Misty Terrain for 5 turns: all Fairy moves boosted by 30%; all grounded Pokémon or Pokémon with Misty Surge are protected from status effects.",
 		onStart(source) {
 			this.field.setTerrain('mistyterrain');
 		},
@@ -3028,6 +3035,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Prankster",
 		rating: 4,
 		num: 158,
+		cfm: true,
 	},
 	pressure: {
 		onStart(pokemon) {
@@ -3043,7 +3051,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	primordialsea: {
 		desc: "On switch-in, the weather becomes extremely heavy rain that prevents damaging Fire-type moves from executing (except for Sacred Fire) and boosts the power of Water-type attacks by 50%. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Delta Stream or Primordial Sea. If neither this nor Delta Stream is active, there is a 50% chance for the weather to reset at the end of the turn. If this Pokémon is no longer active, the weather turns into regular rain.",
-		shortDesc: "On switch-in, heavy rain begins until this Ability is not active in battle.",
+		shortDesc: "On switch-in, heavy rain begins. Changes to regular rain if this Ability is no longer active in battle.",
 		onStart(source) {
 			this.field.setWeather('primordialsea');
 		},
@@ -3089,6 +3097,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Prism Armor",
 		rating: 3,
 		num: 232,
+		cfm: true,
 	},
 	propellertail: {
 		onModifyMove(move) {
@@ -3116,6 +3125,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	psychicsurge: {
 		desc: "On switch-in, this Pokemon summons Psychic Terrain. While Psychic Terrain is active: all Psychic-type moves boosted by 25%; grounded Pokemon, or Pokemon with Psychic Surge, are protected from priority moves.",
 		shortDesc: "On switch-in, this Pokemon summons Psychic Terrain.",
+		cfmDesc: "On switch-in, summons Psychic Terrain for 5 turns: all Psychic moves boosted by 30%; all grounded Pokémon or Pokémon with Psychic Surge are protected from priority attacks.",
 		onStart(source) {
 			this.field.setTerrain('psychicterrain');
 		},
@@ -3158,7 +3168,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	queenlymajesty: {
 		onFoeTryMove(target, source, move) {
-			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+			const targetAllExceptions = ['perishsong', 'rototiller'];
 			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
 				return;
 			}
@@ -3342,9 +3352,29 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Rivalry",
 		rating: 0,
 		num: 79,
+		cfm: true,
 	},
 	rkssystem: {
 		shortDesc: "Boosts Type: Null in exchange for HP; boosts Silvally according to held Memory.",
+		cfmDesc: `Type: Null: boosts the higher offensive stat by 50%; loses 1/6 HP for every attack using that stat.
+Silvally: stats are boosted on switch-in depending on the Memory:
+	Bug:		+1 Atk / -2 Def / +1 SpA
+	Dark:		+1 Atk / +1 SpA / -2 SpD
+	Dragon:		+1 Atk / -1 Def / +1 SpA / -1 SpD
+	Electric:	-1 Atk / -1 Def / +2 Spe
+	Fairy:		-2 Atk / +2 SpD
+	Fighting:	+2 Atk / -2 SpD
+	Fire:		+1 Atk / -2 Def / +1 SpA
+	Flying:		+1 higher of Atk/Sp. Atk / -2 Def / +1 Spe
+	Ghost:		+1 higher of Atk/Sp. Atk / -2 Def / +1 SpD
+	Grass:		-3 Atk / +1 Def / +1 SpA / +1 SpD
+	Ground:		+1 Atk / +1 Def / -1 SpA / -1 SpD
+	Ice:		+2 higher of Atk/Sp. Atk / -1 Def / -1 SpD
+	Poison:		+1 Def / -1 SpA / +1 SpD / -1 Spe
+	Psychic:	-2 Def / +2 SpA
+	Rock:		+1 Atk / +2 Def / -3 SpA
+	Steel:		+3 Def / -3 Spe
+	Water:		-1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		// RKS System's type-changing itself is implemented in statuses.js
 		onStart(pokemon) {
 			const type = pokemon.getItem().onMemory;
@@ -3404,7 +3434,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				break;
 			case 'Grass':
 				this.boost({atk:-3, def:1, spa:1, spd:1});
-				move = this.dex.getMove('spore');
+				move = this.dex.getMove('sleeppowder');
 				break;
 			case 'Ground':
 				this.boost({atk:1, def:1, spa:-1, spd:-1});
@@ -3470,9 +3500,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "RKS System",
 		rating: 4,
 		num: 225,
+		cfm: true,
 	},
 	rockhead: {
+		desc: "This Pokémon not take any recoil damage, including damage due to Rocky Helmet, Iron Barbs, Rough Skin and Aftermath. Recoil and 'head' moves have a +1 chance for a critical hit.",
 		shortDesc: "This Pokémon not take any recoil damage; recoil and 'head' moves: +1 crit chance.",
+		cfmDesc: "X",
 		onModifyCritRatio(critRatio) {
 			if (this.activeMove && (this.activeMove.id.includes("head") || this.activeMove.recoil)) {
 				this.activeMove.rockHead = true;
@@ -3489,6 +3522,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Rock Head",
 		rating: 3,
 		num: 69,
+		cfm: true,
 	},
 	roughskin: {
 		onDamagingHitOrder: 1,
@@ -3596,6 +3630,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Sap Sipper",
 		rating: 3,
 		num: 157,
+		cfm: true,
 	},
 	schooling: {
 		shortDesc: "If Wishiwashi-Solo, changes to School Forme if below 50% max HP and recovers HP.",
@@ -3828,7 +3863,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 92,
 	},
 	slowstart: {
-		shortDesc: "Crippled for three turns; then heals, cures status, +1 Atk/SpA/Spe.",
+		shortDesc: "-75% Atk/SpA/Spe for five turns; then heals 50%, cures status, +1 Atk/SpA/Spe.",
 		onStart(pokemon) {
 			pokemon.addVolatile('slowstart');
 		},
@@ -3836,7 +3871,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			delete pokemon.volatiles['slowstart'];
 		},
 		condition: {
-			duration: 3,
+			duration: 5,
 			onStart(target) {
 				this.add('-start', target, 'ability: Slow Start');
 			},
@@ -3861,6 +3896,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Slow Start",
 		rating: -1,
 		num: 112,
+		cfm: true,
 	},
 	slushrush: {
 		onModifySpe(spe, pokemon) {
@@ -3947,6 +3983,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Solid Rock",
 		rating: 3,
 		num: 116,
+		cfm: true,
 	},
 	soulheart: {
 		shortDesc: "This Pokémon recovers 25% HP when another Pokémon faints.",
@@ -3958,6 +3995,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Soul-Heart",
 		rating: 3.5,
 		num: 220,
+		cfm: true,
 	},
 	soundproof: {
 		onTryHit(target, source, move) {
@@ -4028,6 +4066,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Stall",
 		rating: -1,
 		num: 100,
+		cfm: true,
 	},
 	stalwart: {
 		onModifyMove(move) {
@@ -4085,6 +4124,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Steadfast",
 		rating: 1,
 		num: 80,
+		cfm: true,
 	},
 	steamengine: {
 		onDamagingHit(damage, target, source, move) {
@@ -4177,6 +4217,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Storm Drain",
 		rating: 3,
 		num: 114,
+		cfm: true,
 	},
 	strongjaw: {
 		onBasePowerPriority: 19,
@@ -4225,6 +4266,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Suction Cups",
 		rating: 1,
 		num: 21,
+		cfm: true,
 	},
 	superluck: {
 		onModifyCritRatio(critRatio) {
@@ -4235,14 +4277,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 105,
 	},
 	surgesurfer: {
+		shortDesc: "If any terrain is active, this Pokemon's Speed is doubled.",
 		onModifySpe(spe) {
-			if (this.field.isTerrain('electricterrain')) {
+			if (this.field.isTerrain('electricterrain') || this.field.isTerrain('grassyterrain') ||
+				this.field.isTerrain('mistyterrain') || this.field.isTerrain('psychicterrain')) {
 				return this.chainModify(2);
 			}
 		},
 		name: "Surge Surfer",
 		rating: 3,
 		num: 207,
+		cfm: true,
 	},
 	swarm: {
 		desc: "When this Pokemon has 1/3 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Bug-type attack.",
@@ -4338,6 +4383,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Tangled Feet",
 		rating: 1,
 		num: 77,
+		cfm: true,
 	},
 	tanglinghair: {
 		onDamagingHit(damage, target, source, move) {
@@ -4374,7 +4420,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 140,
 	},
 	teravolt: {
-		shortDesc: `This Pokémon's moves ignore hindering weather, terrain and target Abilities.\nIf hit by an Electric-type attack; grants immunity, boosts higher of SpA/Atk when hit.`,
+		shortDesc: `This Pokémon's moves ignore hindering weather, terrain and target Abilities.\nIf hit by an Electric-type attack; grants immunity, boosts higher of Atk/SpA when hit.`,
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Teravolt');
 		},
@@ -4394,6 +4440,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Teravolt",
 		rating: 3.5,
 		num: 164,
+		cfm: true,
 	},
 	thickfat: {
 		onSourceModifyAtkPriority: 6,
@@ -4450,6 +4497,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Tough Claws",
 		rating: 3.5,
 		num: 181,
+		cfm: true,
 	},
 	toxicboost: {
 		shortDesc: "Boosts Attack by 50% when poisoned; reduces poison damage to 1/16 HP.",
@@ -4467,6 +4515,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Toxic Boost",
 		rating: 2.5,
 		num: 137,
+		cfm: true,
 	},
 	trace: {
 		onStart(pokemon) {
@@ -4523,6 +4572,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Transistor",
 		rating: 3.5,
 		num: 262,
+		cfm: true,
 	},
 	triage: {
 		onModifyPriority(priority, pokemon, target, move) {
@@ -4573,6 +4623,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Turboblaze",
 		rating: 3.5,
 		num: 163,
+		cfm: true,
 	},
 	unaware: {
 		name: "Unaware",
@@ -4687,7 +4738,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 72,
 	},
 	voltabsorb: {
-		shortDesc: "Restores 1/4 HP when hit by an Electric move; restores 1/16 HP per turn in E. Terrain.",
+		shortDesc: "Restores 1/4 HP when hit by an Electric move; restores 1/16 HP per turn in Electric Terrain.",
 		onResidualOrder: 5,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
@@ -4705,6 +4756,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Volt Absorb",
 		rating: 3.5,
 		num: 10,
+		cfm: true,
 	},
 	wanderingspirit: {
 		onDamagingHit(damage, target, source, move) {
@@ -4744,6 +4796,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Water Absorb",
 		rating: 3.5,
 		num: 11,
+		cfm: true,
 	},
 	waterbubble: {
 		desc: "This Pokemon's attacking stat is doubled while using a Water-type attack. If a Pokemon uses a Fire-type attack against this Pokemon, that Pokemon's attacking stat is halved when calculating the damage to this Pokemon. This Pokemon cannot be burned. Gaining this Ability while burned cures it.",
@@ -4790,6 +4843,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Water Compaction",
 		rating: 1.5,
 		num: 195,
+		cfm: true,
 	},
 	waterveil: {
 		shortDesc: "Cannot be poisoned; any attempt to poison this Pokémon raises higher of SpD/Def.",
@@ -4810,6 +4864,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Water Veil",
 		rating: 2,
 		num: 41,
+		cfm: true,
 	},
 	weakarmor: {
 		onDamagingHit(damage, target, source, move) {
@@ -4839,6 +4894,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "White Smoke",
 		rating: 2,
 		num: 73,
+		cfm: true,
 	},
 	wimpout: {
 		onEmergencyExit(target) {
@@ -4878,6 +4934,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Wonder Guard",
 		rating: 5,
 		num: 25,
+		cfm: true,
 	},
 	wonderskin: {
 		onModifyAccuracyPriority: 10,
