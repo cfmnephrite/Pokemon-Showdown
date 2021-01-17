@@ -1191,6 +1191,8 @@ type ModdedSpeciesData = SpeciesData | Partial<Omit<SpeciesData, 'name'>> & {
 	inherit: true,
 	levitates?: boolean,
 	cfmMoves?: string[],
+	cfmMoveSpecialDesc?: {[k: string]: string}
+	cfmMoveSpecialZDesc?: {[k: string]: string}
 };
 
 interface SpeciesFormatsData {

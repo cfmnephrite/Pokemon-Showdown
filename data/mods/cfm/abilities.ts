@@ -2457,6 +2457,24 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	multitype: {
 		desc: "Arceus changes to the forme corresponding to its held Plate or Z-Crystal. Its ability changes from Multitype to an ability depending on its type: Bug - Tinted Lens; Dark - Intimidate; Dragon - Multiscale; Electric - Lightning Rod; Fairy - Wonder Skin; Fighting - Scrappy; Fire - Mold Breaker; Flying - Keen Eye; Ghost - Cursed Body; Grass - Regenerator; Ground - Sand Stream; Ice - Snow Warning; Poison - Poison Point; Psychic - Inner Focus; Rock:	Solid Rock; Steel - Bulletproof; Water - Water Absorb",
 		shortDesc: "Arceus: type changes to match Plate or Z-Crystal; changes Ability.",
+		cfmDesc: `Arceus's type changes to match its Plate or Z-Crystal. Ability also changes to:
+Bug: Tinted Lens
+Dark: Intimidate
+Dragon: Multiscale
+Electric: Lightning Rod
+Fairy: Wonder Skin
+Fire: Mold Breaker
+Fighting: Scrappy
+Flying: Keen Eye
+Ghost: Cursed Body
+Grass: Regenerator
+Ground: Sand Stream
+Ice: Snow Warning
+Poison: Posion Point
+Psychic: Inner Focus
+Rock: Solid Rock
+Steel: Bulletproof
+Water: Water Absorb`,
 		// Multitype's type-changing itself is implemented in statuses.js
 		onUpdate(pokemon) {
 			const type = pokemon.getItem().onPlate;
@@ -3358,23 +3376,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Boosts Type: Null in exchange for HP; boosts Silvally according to held Memory.",
 		cfmDesc: `Type: Null: boosts the higher offensive stat by 50%; loses 1/6 HP for every attack using that stat.
 Silvally: stats are boosted on switch-in depending on the Memory:
-	Bug:		+1 Atk / -2 Def / +1 SpA
-	Dark:		+1 Atk / +1 SpA / -2 SpD
-	Dragon:		+1 Atk / -1 Def / +1 SpA / -1 SpD
-	Electric:	-1 Atk / -1 Def / +2 Spe
-	Fairy:		-2 Atk / +2 SpD
-	Fighting:	+2 Atk / -2 SpD
-	Fire:		+1 Atk / -2 Def / +1 SpA
-	Flying:		+1 higher of Atk/Sp. Atk / -2 Def / +1 Spe
-	Ghost:		+1 higher of Atk/Sp. Atk / -2 Def / +1 SpD
-	Grass:		-3 Atk / +1 Def / +1 SpA / +1 SpD
-	Ground:		+1 Atk / +1 Def / -1 SpA / -1 SpD
-	Ice:		+2 higher of Atk/Sp. Atk / -1 Def / -1 SpD
-	Poison:		+1 Def / -1 SpA / +1 SpD / -1 Spe
-	Psychic:	-2 Def / +2 SpA
-	Rock:		+1 Atk / +2 Def / -3 SpA
-	Steel:		+3 Def / -3 Spe
-	Water:		-1 Atk / +1 Def / +1 SpA / -1 Spe`,
+Bug: +1 Atk / -2 Def / +1 SpA
+Dark: +1 Atk / +1 SpA / -2 SpD
+Dragon: +1 Atk / -1 Def / +1 SpA / -1 SpD
+Electric: -1 Atk / -1 Def / +2 Spe
+Fairy: -2 Atk / +2 SpD
+Fighting: +2 Atk / -2 SpD
+Fire: +1 Atk / -2 Def / +1 SpA
+Flying: +1 higher of Atk/Sp. Atk / -2 Def / +1 Spe
+Ghost: +1 higher of Atk/Sp. Atk / -2 Def / +1 SpD
+Grass: -3 Atk / +1 Def / +1 SpA / +1 SpD
+Ground: +1 Atk / +1 Def / -1 SpA / -1 SpD
+Ice: +2 higher of Atk/Sp. Atk / -1 Def / -1 SpD
+Poison: +1 Def / -1 SpA / +1 SpD / -1 Spe
+Psychic: 2 Def / +2 SpA
+Rock: +1 Atk / +2 Def / -3 SpA
+Steel: +3 Def / -3 Spe
+Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		// RKS System's type-changing itself is implemented in statuses.js
 		onStart(pokemon) {
 			const type = pokemon.getItem().onMemory;

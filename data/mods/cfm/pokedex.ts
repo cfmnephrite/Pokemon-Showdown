@@ -1162,7 +1162,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Mankey",
 		evoLevel: 28,
 		eggGroups: ["Field"],
-		cfmMoves: ["bulkup", "closecombat", "encore", "firepunch", "icepunch", "irontail", "nightslash", "rockslide", "taunt", "throatchop", "thunderpunch", "uturn"],
+		cfmMoves: ["bulkup", "closecombat", "encore", "firepunch", "icepunch", "irontail", "megapunch", "rockslide", "seedbomb", "throatchop", "thunderpunch", "uturn"],
 	},
 	growlithe: {
 		num: 58,
@@ -1958,6 +1958,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 26,
 		eggGroups: ["Human-Like"],
 		cfmMoves: ["bellydrum", "darkpulse", "dreameater", "expandingforce", "focusblast", "hypnosis", "knockoff", "nastyplot", "nightmare", "psychic", "psyshock", "wish", "zenheadbutt"],
+		cfmMoveSpecialDesc: {"hypnosis": "If the user is Drowzee/Hypno, this move never misses"},
 	},
 	krabby: {
 		num: 98,
@@ -2904,6 +2905,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Dragonite"],
 		eggGroups: ["Water 1", "Dragon"],
 		cfmMoves: ["aquatail", "coil", "dragondance", "dragonpulse", "dragonrush", "dragontail", "extremespeed", "fireblast", "haze", "hydropump", "thunder", "thunderwave"],
+		cfmMoveSpecialDesc: {"coil": "This move is forgotten upon evolution: Dragonite *cannot* learn Coil."},
 	},
 	dragonite: {
 		num: 149,
@@ -2948,6 +2950,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Pink",
 		eggGroups: ["Undiscovered"],
 		cfmMoves: ["defog", "genesissupernova", "nastyplot", "psychic", "psyshock", "shockwave", "softboiled", "stealthrock", "swordsdance", "toxic", "willowisp", "zenheadbutt"],
+		cfmMoveSpecialZDesc: {"genesissupernova": "Summons Psychic Terrain. Can be used by Mew with Mewnium Z and any attacking Psychic move. Physical or Special depending on the move selected."},
 	},
 	chikorita: {
 		num: 152,
@@ -3732,6 +3735,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		cosmeticFormes: ["Unown-B", "Unown-C", "Unown-D", "Unown-E", "Unown-F", "Unown-G", "Unown-H", "Unown-I", "Unown-J", "Unown-K", "Unown-L", "Unown-M", "Unown-N", "Unown-O", "Unown-P", "Unown-Q", "Unown-R", "Unown-S", "Unown-T", "Unown-U", "Unown-V", "Unown-W", "Unown-X", "Unown-Y", "Unown-Z", "Unown-Exclamation", "Unown-Question"],
 		formeOrder: ["Unown", "Unown-B", "Unown-C", "Unown-D", "Unown-E", "Unown-F", "Unown-G", "Unown-H", "Unown-I", "Unown-J", "Unown-K", "Unown-L", "Unown-M", "Unown-N", "Unown-O", "Unown-P", "Unown-Q", "Unown-R", "Unown-S", "Unown-T", "Unown-U", "Unown-V", "Unown-W", "Unown-X", "Unown-Y", "Unown-Z", "Unown-Exclamation", "Unown-Question"],
 		cfmMoves: ["darkpulse", "dazzlinggleam", "energyball", "hiddenpower", "icebeam", "mysticalfire", "psychic", "psyshock", "shadowball", "teleport", "thunderbolt", "trick"],
+		cfmMoveSpecialDesc: {"hiddenpower": `If used by Unown: 100BP; Unown's type changes to match its Hidden Power.`},
 	},
 	wobbuffet: {
 		num: 202,
@@ -3747,6 +3751,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 		canHatch: true,
 		cfmMoves: ["counter", "curse", "earthquake", "irontail", "knockoff", "lightscreen", "mirrorcoat", "reflect", "superpower", "teleport", "wish", "zenheadbutt"],
+		cfmMoveSpecialDesc: {"curse": "Only compatible with Telepathy."},
 	},
 	girafarig: {
 		num: 203,
@@ -6569,6 +6574,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Salamence"],
 		eggGroups: ["Dragon"],
 		cfmMoves: ["dracometeor", "dragonclaw", "dragondance", "dragonpulse", "dragonrush", "fireblast", "firefang", "headsmash", "hydropump", "protect", "shellsmash", "wish"],
+		cfmMoveSpecialDesc: {"shellsmash": "This move is forgotten upon evolution: Salamence *cannot* learn Shell Smash."},
 	},
 	salamence: {
 		num: 373,
@@ -8274,6 +8280,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoMove: "Ancient Power",
 		eggGroups: ["Bug"],
 		cfmMoves: ["bugbuzz", "dracometeor", "dragondance", "dragonpulse", "dragonrush", "earthquake", "heatwave", "hypnosis", "irontail", "leechlife", "outrage", "quiverdance"],
+		cfmMoveSpecialDesc: {"quiverdance": "Not compatible with Tinted Lens."},
 	},
 	leafeon: {
 		num: 470,
@@ -9092,7 +9099,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 4,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
-		cfmMoves: ["fireblast", "icebeam", "icepunch", "psyshock", "scald", "searingshot", "taunt", "thunderbolt", "thunderpunch", "vcreate", "wildcharge", "zenheadbutt"],
+		cfmMoves: ["fireblast", "icebeam", "icepunch", "psyshock", "scald", "searingshot", "taunt", "thunderbolt", "thunderpunch", "uturn", "wildcharge", "zenheadbutt"],
+		cfmMoveSpecialZDesc: {"vcreate": "Can be used by Victini via Firium Z and Searing Shot. Physical or Special depending on the higher offensive stat."},
 	},
 	snivy: {
 		num: 495,
@@ -10682,6 +10690,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evos: ["Ferrothorn"],
 		eggGroups: ["Grass", "Mineral"],
 		cfmMoves: ["bulldoze", "bulletseed", "ironhead", "knockoff", "leechseed", "pinmissile", "protect", "rapidspin", "spikecannon", "spikes", "spikyshield", "stealthrock"],
+		cfmMoveSpecialDesc: {"rapidspin": "This move is forgotten upon evolution: Ferrothorn *cannot* learn Rapid Spin."},
 	},
 	ferrothorn: {
 		num: 598,
@@ -11563,6 +11572,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		otherFormes: ["Genesect-Douse", "Genesect-Shock", "Genesect-Burn", "Genesect-Chill"],
 		formeOrder: ["Genesect", "Genesect-Douse", "Genesect-Shock", "Genesect-Burn", "Genesect-Chill"],
 		cfmMoves: ["blazekick", "chargebeam", "extremespeed", "fireblast", "flashcannon", "hyperbeam", "ironhead", "shiftgear", "shockwave", "technoblast", "wildcharge", "xscissor"],
+		cfmMoveSpecialDesc: {"technoblast": "Changes type depending on Genesect's forme. Drives are *not* necessary to change forme - select the desired forme in Teambuilder. Boosted by Mega Launcher."},
 	},
 	genesectdouse: {
 		num: 649,
@@ -12891,6 +12901,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		 // forme 2 = 10% with Power Constructor ,forme 3 = 50% with Power Construct
 		formeOrder: ["Zygarde", "Zygarde-10%", "Zygarde-10%", "Zygarde", "Zygarde-Complete"],
 		cfmMoves: ["coil", "coreenforcer", "dracometeor", "dragontail", "extremespeed", "flamethrower", "focusblast", "irontail", "land'swrath", "sludgewave", "stoneedge", "thousandarrows"],
+		cfmMoveSpecialZDesc: {"landswrath": "Traps and grounds the target. Can be used by Zygarde with Groundium Z and either Thousand Arrows or Thousand Waves."},
 	},
 	zygarde10: {
 		num: 718,
@@ -13467,7 +13478,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Lycanroc-Midnight", "Lycanroc-Dusk"],
 		formeOrder: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk"],
-		cfmMoves: ["accelerock", "drillrun", "firefang", "hyperfang", "icefang", "quickattack", "splinteredstormshards", "stompingtantrum", "stoneedge", "swordsdance", "takedown", "thunderfang"],
+		cfmMoves: ["accelerock", "drillrun", "firefang", "hyperfang", "icefang", "quickattack", "stealthrock", "stompingtantrum", "stoneedge", "swordsdance", "takedown", "thunderfang"],
+		cfmMoveSpecialZDesc: {"splinteredstormshards": "Removes all terrains. Can be used by Lycanroc with Lycanium Z and any Physical Rock-type move."},
 	},
 	lycanrocmidnight: {
 		num: 745,
@@ -13484,7 +13496,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 25,
 		evoCondition: "during the night",
 		eggGroups: ["Field"],
-		cfmMoves: ["drillrun", "firepunch", "honeclaws", "icepunch", "knockoff", "slash", "splinteredstormshards", "stompingtantrum", "stoneedge", "suckerpunch", "swordsdance", "thunderpunch"],
+		cfmMoves: ["drillrun", "firepunch", "honeclaws", "icepunch", "knockoff", "slash", "stealthrock", "stompingtantrum", "stoneedge", "suckerpunch", "swordsdance", "thunderpunch"],
+		cfmMoveSpecialZDesc: {"splinteredstormshards": "Removes all terrains. Can be used by Lycanroc with Lycanium Z and any Physical Rock-type move."},
 	},
 	lycanrocdusk: {
 		num: 745,
@@ -13501,7 +13514,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 25,
 		evoCondition: "from a special Rockruff",
 		eggGroups: ["Field"],
-		cfmMoves: ["accelerock", "drillrun", "firefang", "hyperfang", "icefang", "splinteredstormshards", "stompingtantrum", "stoneedge", "submission", "swordsdance", "takedown", "thunderfang"],
+		cfmMoves: ["accelerock", "drillrun", "firefang", "hyperfang", "icefang", "stealthrock", "stompingtantrum", "stoneedge", "submission", "swordsdance", "takedown", "thunderfang"],
+		cfmMoveSpecialZDesc: {"splinteredstormshards": "Removes all terrains. Can be used by Lycanroc with Lycanium Z and any Physical Rock-type move."},
 	},
 	wishiwashi: {
 		num: 746,
@@ -13957,6 +13971,22 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 			"Silvally-Fire", "Silvally-Water", "Silvally-Grass", "Silvally-Electric", "Silvally-Psychic", "Silvally-Ice", "Silvally-Dragon", "Silvally-Dark", "Silvally-Fairy",
 		],
 		cfmMoves: ["darkpulse", "dragonclaw", "dragonpulse", "explosion", "hyperbeam", "multiattack", "partingshot", "psyshock", "razorwind", "recover", "taunt", "wildcharge"],
+		cfmMoveSpecialDesc: {"multiattack": `Changes to a different move if Silvally is holding a Memory:
+Bug: Leech Life, or if SpA is higher than Atk, Tail Glow
+Dark: Sucker Punch
+Dragon: Dragon Dance
+Electric: Volt Switch
+Fairy: Wish
+Fighting: Sacred Sword
+Fire: Blaze Kick, or if SpA is higher than Atk, Fire Spin
+Flying: Drill Peck, or if SpA is higher than Atk, Gust
+Ghost: Destiny Bond
+Ice: Icicle Crash, or if SpA is higher than Atk, Freeze-Dry
+Poison: Toxic
+Psychic: Synchronoise
+Rock: Stealth Rock
+Steel: Metal Burst
+Water: Scald`},
 	},
 	silvallybug: {
 		num: 773,
@@ -14889,7 +14919,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 44.5,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
-		cfmMoves: ["calmmind", "closecombat", "firepunch", "focusblast", "grassknot", "nightslash", "paraboliccharge", "plasmafists", "shadowclaw", "shockwave", "slash", "wildcharge"],
+		cfmMoves: ["calmmind", "closecombat", "firepunch", "focusblast", "grassknot", "nightslash", "paraboliccharge", "shadowclaw", "shockwave", "slash", "taunt", "wildcharge"],
+		cfmMoveSpecialZDesc: {"plasmafists": "Summons Electric Terrain. Can be used by Zeraora with Electrium Z and any attacking Electric move. Physical or Special depending on the move selected."},
 	},
 	meltan: {
 		num: 808,
