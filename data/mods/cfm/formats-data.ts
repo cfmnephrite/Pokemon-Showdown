@@ -3830,7 +3830,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	delphox: {
 		isNonstandard: null,
-		tier: "CRU",
+		tier: "CUU",
 		inherit: true,
 	},
 	froakie: {
