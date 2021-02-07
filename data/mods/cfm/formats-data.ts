@@ -550,7 +550,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	slowking: {
 		isNonstandard: null,
-		tier: "CPU",
+		tier: "CUU",
 		inherit: true,
 	},
 	slowkinggalar: {
