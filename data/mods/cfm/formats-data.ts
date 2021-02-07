@@ -1422,7 +1422,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	qwilfish: {
 		randomBattleMoves: ["destinybond", "liquidation", "spikes", "taunt", "thunderwave", "toxic", "toxicspikes"],
-		tier: "CRU",
+		tier: "CPU",
 		inherit: true,
 	},
 	shuckle: {
