@@ -50,7 +50,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	blastoise: {
 		randomBattleMoves: ["aurasphere", "hydropump", "icebeam", "rapidspin", "scald", "shellsmash"],
-		tier: "CPU",
+		tier: "CRU",
 		inherit: true,
 	},
 	blastoisemega: {
@@ -1691,7 +1691,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	linoone: {
 		randomBattleMoves: ["bellydrum", "extremespeed", "stompingtantrum", "throatchop"],
-		tier: "CPU",
+		tier: "CRU",
 		inherit: true,
 	},
 	linoonegalar: {
@@ -2579,7 +2579,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mothim: {
 		isNonstandard: null,
-		tier: "CPU",
+		tier: "CRU",
 		inherit: true,
 	},
 	combee: {
