@@ -3747,7 +3747,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	kyurem: {
 		randomBattleMoves: ["dracometeor", "earthpower", "focusblast", "freezedry", "icebeam", "outrage"],
-		tier: "CUU",
+		tier: "COU",
 		inherit: true,
 	},
 	kyuremblack: {
