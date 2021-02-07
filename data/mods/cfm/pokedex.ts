@@ -8607,7 +8607,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Palkia",
 		types: ["Dragon", "Psychic"],
 		gender: "N",
-		baseStats: {hp: 90, atk: 120, def: 70, spa: 150, spd: 120, spe: 130},
+		baseStats: {hp: 90, atk: 130, def: 70, spa: 150, spd: 120, spe: 120},
 		abilities: {0: "Limber", H: "Storm Drain"},
 		heightm: 4.2,
 		weightkg: 336,

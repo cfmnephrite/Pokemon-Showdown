@@ -2833,13 +2833,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
-			if (['Pikachu', 'Pichu-Spiky-eared'].includes(pokemon.baseSpecies.baseSpecies)) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || pokemon.species.name === 'Pichu-Spiky-eared') {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
-			if (['Pikachu', 'Pichu-Spiky-eared'].includes(pokemon.baseSpecies.baseSpecies)) {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || pokemon.species.name === 'Pichu-Spiky-eared') {
 				return this.chainModify(2);
 			}
 		},

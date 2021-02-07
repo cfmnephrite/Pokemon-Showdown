@@ -53884,7 +53884,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			gearup: ["8L1", "7L1"],
 			gravity: ["7T", "6T", "5T"],
 			hiddenpower: ["7M", "6M", "5M"],
-			hyperbeam: ["8M", "8L56", "7M", "7L72", "6M", "6L72", "5M", "5L72"],
 			irondefense: ["8M", "7T", "6T", "5T"],
 			lockon: ["8L36", "7L60", "6L60", "5L60"],
 			magiccoat: ["7T", "6T", "5T"],
