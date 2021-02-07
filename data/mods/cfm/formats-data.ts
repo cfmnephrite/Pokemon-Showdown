@@ -3335,7 +3335,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	cofagrigus: {
 		randomBattleMoves: ["memento", "shadowball", "willowisp"],
-		tier: "CRU",
+		tier: "CNU",
 		inherit: true,
 	},
 	runerigus: {
@@ -5104,7 +5104,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	frosmoth: {
 		randomBattleMoves: ["bugbuzz", "dazzlinggleam", "gigadrain", "icebeam", "quiverdance"],
-		tier: "CRU",
+		tier: "CNU",
 		inherit: true,
 	},
 	stonjourner: {
@@ -5127,7 +5127,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	indeedeef: {
 		randomBattleMoves: ["aromatherapy", "calmmind", "hypervoice", "mysticalfire", "psychic"],
-		tier: "CRU",
+		tier: "CNU",
 		inherit: true,
 	},
 	morpeko: {
