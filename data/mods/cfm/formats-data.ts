@@ -1077,7 +1077,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	articunogalar: {
 		isNonstandard: null,
-		tier: "COU",
+		tier: "CRU",
 		inherit: true,
 	},
 	zapdos: {
