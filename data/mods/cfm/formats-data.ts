@@ -5029,7 +5029,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	centiskorch: {
 		randomBattleMoves: ["coil", "firelash", "knockoff", "leechlife", "powerwhip"],
-		tier: "CUU",
+		tier: "CNU",
 		inherit: true,
 	},
 	clobbopus: {
