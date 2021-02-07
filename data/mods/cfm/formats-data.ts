@@ -4075,7 +4075,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	hawlucha: {
 		randomBattleMoves: ["acrobatics", "closecombat", "stoneedge", "substitute", "swordsdance"],
-		tier: "CRU",
+		tier: "COU",
 		inherit: true,
 	},
 	dedenne: {
