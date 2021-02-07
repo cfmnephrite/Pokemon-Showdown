@@ -1484,7 +1484,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	corsola: {
 		randomBattleMoves: ["lightscreen", "reflect", "recover", "scald", "stealthrock"],
-		tier: "CZU",
+		tier: "CNU",
 		inherit: true,
 	},
 	corsolagalar: {
@@ -2261,7 +2261,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	glalie: {
 		randomBattleMoves: ["earthquake", "freezedry", "iceshard", "spikes", "taunt"],
-		tier: "CZU",
+		tier: "CNU",
 		inherit: true,
 	},
 	glaliemega: {
