@@ -911,7 +911,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	electivire: {
 		isNonstandard: null,
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	magby: {
@@ -1363,7 +1363,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mismagius: {
 		isNonstandard: null,
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	unown: {
@@ -1402,7 +1402,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	gligar: {
 		isNonstandard: null,
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	gliscor: {
@@ -1441,7 +1441,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	sneasel: {
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	weavile: {
@@ -2177,7 +2177,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	milotic: {
 		randomBattleMoves: ["dragontail", "icebeam", "recover", "rest", "scald", "sleeptalk"],
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	castform: {
@@ -2777,12 +2777,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	abomasnowmega: {
 		isNonstandard: null,
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	rotom: {
 		randomBattleMoves: ["nastyplot", "shadowball", "storedpower", "thunderbolt"],
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	rotomheat: {
@@ -2817,7 +2817,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mesprit: {
 		isNonstandard: null,
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	azelf: {
@@ -3423,7 +3423,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	swanna: {
 		isNonstandard: null,
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	vanillite: {
@@ -3515,7 +3515,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	klinklang: {
 		randomBattleMoves: ["geargrind", "shiftgear", "substitute", "wildcharge"],
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	tynamo: {
@@ -4489,7 +4489,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	passimian: {
 		randomBattleMoves: ["closecombat", "earthquake", "gunkshot", "knockoff", "rockslide", "uturn"],
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	wimpod: {
