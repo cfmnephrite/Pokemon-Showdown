@@ -152,7 +152,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	arbok: {
 		isNonstandard: null,
-		tier: "CPU",
+		tier: "CZU",
 		inherit: true,
 	},
 	pichu: {
@@ -419,7 +419,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	politoed: {
 		isNonstandard: null,
-		tier: "CPU",
+		tier: "CZU",
 		inherit: true,
 	},
 	abra: {
@@ -675,7 +675,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	hypno: {
 		isNonstandard: null,
-		tier: "CPU",
+		tier: "CZU",
 		inherit: true,
 	},
 	krabby: {
@@ -2130,7 +2130,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	whiscash: {
 		randomBattleMoves: ["dragondance", "earthquake", "liquidation", "stoneedge", "zenheadbutt"],
-		tier: "CPU",
+		tier: "CZU",
 		inherit: true,
 	},
 	corphish: {
@@ -3190,7 +3190,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	throh: {
 		randomBattleMoves: ["bulkup", "circlethrow", "icepunch", "payback", "rest", "sleeptalk", "stormthrow"],
-		tier: "CPU",
+		tier: "CZU",
 		inherit: true,
 	},
 	sawk: {
@@ -3859,7 +3859,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	diggersby: {
 		randomBattleMoves: ["bodyslam", "earthquake", "swordsdance", "uturn", "wildcharge"],
-		tier: "CPU",
+		tier: "CZU",
 		inherit: true,
 	},
 	fletchling: {
@@ -4080,7 +4080,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dedenne: {
 		isNonstandard: null,
-		tier: "CPU",
+		tier: "CZU",
 		inherit: true,
 	},
 	carbink: {
@@ -4284,7 +4284,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	gumshoos: {
 		isNonstandard: null,
-		tier: "CPU",
+		tier: "CZU",
 		inherit: true,
 	},
 	gumshoostotem: {
@@ -4484,7 +4484,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	oranguru: {
 		randomBattleMoves: ["nastyplot", "focusblast", "psychic", "thunderbolt", "trickroom"],
-		tier: "CPU",
+		tier: "CZU",
 		inherit: true,
 	},
 	passimian: {
@@ -4879,7 +4879,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	greedent: {
 		randomBattleMoves: ["bodyslam", "crunch", "earthquake", "seedbomb", "superpower", "swordsdance", "wildcharge"],
-		tier: "CPU",
+		tier: "CZU",
 		inherit: true,
 	},
 	rookidee: {
@@ -4958,7 +4958,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	carkol: {
-		tier: "CPU",
+		tier: "CZU",
 		inherit: true,
 	},
 	coalossal: {
@@ -5058,7 +5058,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	hattrem: {
-		tier: "CPU",
+		tier: "CZU",
 		inherit: true,
 	},
 	hatterene: {
