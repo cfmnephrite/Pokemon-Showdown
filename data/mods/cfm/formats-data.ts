@@ -1407,7 +1407,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	gliscor: {
 		isNonstandard: null,
-		tier: "CUU",
+		tier: "COU",
 		inherit: true,
 	},
 	snubbull: {
