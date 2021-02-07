@@ -108,7 +108,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	pidgeotmega: {
 		isNonstandard: null,
-		tier: "CUU",
+		tier: "COU",
 		inherit: true,
 	},
 	rattata: {
