@@ -3369,7 +3369,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	garbodor: {
 		randomBattleMoves: ["drainpunch", "gunkshot", "painsplit", "spikes", "toxicspikes"],
-		tier: "CNU",
+		tier: "CZU",
 		inherit: true,
 	},
 	zorua: {
@@ -4622,7 +4622,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	komala: {
 		isNonstandard: null,
-		tier: "CNU",
+		tier: "CZU",
 		inherit: true,
 	},
 	turtonator: {
