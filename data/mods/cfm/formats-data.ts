@@ -370,7 +370,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	perrserker: {
 		randomBattleMoves: ["closecombat", "crunch", "gunkshot", "ironhead", "playrough", "swordsdance", "uturn"],
-		tier: "CNU",
+		tier: "CPU",
 		inherit: true,
 	},
 	psyduck: {
@@ -1417,7 +1417,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	granbull: {
 		isNonstandard: null,
-		tier: "CNU",
+		tier: "CPU",
 		inherit: true,
 	},
 	qwilfish: {
@@ -1474,7 +1474,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	piloswine: {
-		tier: "CNU",
+		tier: "CPU",
 		inherit: true,
 	},
 	mamoswine: {
@@ -2168,7 +2168,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	armaldo: {
 		isNonstandard: null,
-		tier: "CNU",
+		tier: "CPU",
 		inherit: true,
 	},
 	feebas: {
@@ -4316,7 +4316,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	crabominable: {
 		isNonstandard: null,
-		tier: "CNU",
+		tier: "CPU",
 		inherit: true,
 	},
 	oricorio: {
