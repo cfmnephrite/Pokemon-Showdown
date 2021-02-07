@@ -3712,7 +3712,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	tornadustherian: {
 		isNonstandard: null,
-		tier: "CUb",
+		tier: "COU",
 		inherit: true,
 	},
 	thundurus: {
