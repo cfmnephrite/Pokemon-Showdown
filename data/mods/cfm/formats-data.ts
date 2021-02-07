@@ -1492,7 +1492,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	cursola: {
-		tier: "CUU",
+		tier: "CRU",
 		inherit: true,
 	},
 	remoraid: {
@@ -4461,7 +4461,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	bewear: {
 		randomBattleMoves: ["closecombat", "darkestlariat", "doubleedge", "icepunch", "swordsdance"],
-		tier: "CUU",
+		tier: "CRU",
 		inherit: true,
 	},
 	bounsweet: {
@@ -5122,7 +5122,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	indeedee: {
 		randomBattleMoves: ["calmmind", "hypervoice", "mysticalfire", "psychic", "trick"],
-		tier: "CUU",
+		tier: "CRU",
 		inherit: true,
 	},
 	indeedeef: {
