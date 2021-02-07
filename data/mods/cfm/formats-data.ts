@@ -4991,7 +4991,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	cramorant: {
 		randomBattleMoves: ["defog", "hurricane", "icebeam", "roost", "scald", "surf"],
-		tier: "CRU",
+		tier: "CZU",
 		inherit: true,
 	},
 	cramorantgulping: {
