@@ -142,7 +142,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	fearow: {
 		isNonstandard: null,
-		tier: "CRU",
+		tier: "CUU",
 		inherit: true,
 	},
 	ekans: {
@@ -1245,7 +1245,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	xatu: {
 		randomBattleMoves: ["heatwave", "lightscreen", "psychic", "reflect", "roost", "thunderwave", "uturn"],
-		tier: "CRU",
+		tier: "CUU",
 		inherit: true,
 	},
 	mareep: {
@@ -1663,7 +1663,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	swampert: {
 		isNonstandard: null,
-		tier: "CRU",
+		tier: "CUU",
 		inherit: true,
 	},
 	swampertmega: {
@@ -3269,7 +3269,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	krookodile: {
 		isNonstandard: null,
-		tier: "CRU",
+		tier: "CUU",
 		inherit: true,
 	},
 	darumaka: {
@@ -3282,11 +3282,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	darmanitan: {
 		randomBattleMoves: ["earthquake", "flareblitz", "rockslide", "superpower", "uturn"],
-		tier: "CRU",
+		tier: "CUU",
 		inherit: true,
 	},
 	darmanitanzen: {
-		tier: "CRU",
+		tier: "CUU",
 		inherit: true,
 	},
 	darmanitangalar: {
@@ -4190,7 +4190,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zygarde10: {
 		isNonstandard: null,
-		tier: "CRU",
+		tier: "CUU",
 		inherit: true,
 	},
 	zygardecomplete: {
@@ -4870,7 +4870,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	inteleon: {
 		randomBattleMoves: ["airslash", "darkpulse", "hydropump", "icebeam", "scald", "snipeshot", "uturn"],
-		tier: "CRU",
+		tier: "CUU",
 		inherit: true,
 	},
 	skwovet: {
@@ -5050,7 +5050,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	polteageist: {
 		randomBattleMoves: ["gigadrain", "shadowball", "shellsmash", "storedpower", "strengthsap"],
-		tier: "CRU",
+		tier: "CUU",
 		inherit: true,
 	},
 	hatenna: {
