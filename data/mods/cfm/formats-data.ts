@@ -1130,7 +1130,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mew: {
 		randomBattleMoves: ["closecombat", "megahorn", "powerwhip", "psychicfangs", "swordsdance", "uturn"],
-		tier: "CUU",
+		tier: "COU",
 		inherit: true,
 	},
 	chikorita: {
