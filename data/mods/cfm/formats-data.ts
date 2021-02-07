@@ -5235,7 +5235,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	regieleki: {
-		tier: "COU",
+		tier: "CUb",
 		inherit: true,
 	},
 	regidrago: {
