@@ -1092,7 +1092,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	moltres: {
 		isNonstandard: null,
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	moltresgalar: {
@@ -2787,7 +2787,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	rotomheat: {
 		randomBattleMoves: ["overheat", "thunderbolt", "trick", "voltswitch", "willowisp"],
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	rotomwash: {
@@ -5227,7 +5227,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	zarude: {
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	zarudedada: {
@@ -5239,11 +5239,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	regidrago: {
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	glastrier: {
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	spectrier: {
