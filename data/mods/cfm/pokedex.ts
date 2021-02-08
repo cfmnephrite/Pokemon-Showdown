@@ -108,7 +108,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Dragon"],
 		otherFormes: ["Charizard-Mega-X", "Charizard-Mega-Y"],
 		formeOrder: ["Charizard", "Charizard-Mega-X", "Charizard-Mega-Y"],
-		cfmMoves: ["blastburn", "blazekick", "dragonclaw", "fireblast", "firespin", "focusblast", "hurricane", "overheat", "razorwind", "roost", "solarbeam", "thunderpunch"],
+		cfmMoves: ["blastburn", "blazekick", "dracometeor", "dragonclaw", "fireblast", "firespin", "focusblast", "hurricane", "overheat", "razorwind", "solarbeam", "thunderpunch"],
 	},
 	charizardmegax: {
 		num: 6,
