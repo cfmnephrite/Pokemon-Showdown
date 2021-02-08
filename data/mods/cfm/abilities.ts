@@ -3652,7 +3652,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 	},
 	schooling: {
 		shortDesc: "If Wishiwashi-Solo, changes to School Forme if below 50% max HP and recovers HP.",
-		onUpdate(pokemon) {
+		onResidual(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.hp > pokemon.maxhp / 2) return;
 			if (pokemon.transformed || !pokemon.hp) return;
 			this.add('-message', pokemon.name + " called out for assistance!");
