@@ -1789,7 +1789,7 @@
 "ability":"Beast Boost",
 "evs":{"hp":0,"atk":252,"def":0,"spa":4,"spd":0,"spe":252},
 "nature":["Hasty"],
-"moves":[["Autotomize"],["Acrobatics"],["Earthquake"],["Fire Blast"]]},
+"moves":[["Agility"],["Acrobatics"],["Earthquake"],["Fire Blast"]]},
 
 {"species":"Celesteela",
 "gender":"",
@@ -1805,7 +1805,7 @@
 "ability":"Beast Boost",
 "evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
 "nature":["Adamant"],
-"moves":[["Autotomize"],["Earthquake"],["Iron Head"],["Fly"]]}]},
+"moves":[["Agility"],["Earthquake"],["Iron Head"],["Fly"]]}]},
 "chansey":{"flags":{},"sets":[
 
 {"species":"Chansey",
