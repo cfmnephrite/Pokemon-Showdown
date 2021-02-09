@@ -792,6 +792,7 @@ interface EffectData {
 	infiltrates?: boolean;
 	isNonstandard?: Nonstandard | null;
 	shortDesc?: string;
+	cfmDesc?: string; // CFM modified
 	cfm?: boolean; // CFM modified
 	ate?: string; // For calculating Z Move types
 }
@@ -1190,6 +1191,8 @@ type ModdedSpeciesData = SpeciesData | Partial<Omit<SpeciesData, 'name'>> & {
 	inherit: true,
 	levitates?: boolean,
 	cfmMoves?: string[],
+	cfmMoveSpecialDesc?: {[k: string]: string},
+	cfmMoveSpecialZDesc?: {[k: string]: string},
 };
 
 interface SpeciesFormatsData {
