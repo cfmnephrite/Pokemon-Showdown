@@ -1522,19 +1522,21 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 	const mod = cfmSearch ? Dex.mod('cfm') : Dex.mod('gen' + maxGen);
 
 	const getFullLearnsetOfPokemon = (species: Species) => {
+		const illegalMoves: string[] = [];
 		let usedSpecies: Species = Utils.deepClone(species);
 		let usedSpeciesLearnset: LearnsetData = Utils.deepClone(mod.getLearnsetData(usedSpecies.id));
 		if (!usedSpeciesLearnset.learnset || cfmSearch) {
 			usedSpecies = Utils.deepClone(mod.getSpecies(usedSpecies.baseSpecies));
 			usedSpeciesLearnset.learnset = Utils.deepClone(mod.getLearnsetData(usedSpecies.id).learnset || {});
 		}
-		const lsetData = new Set(Object.keys(usedSpeciesLearnset.learnset!));
+		const lsetData = new Set(Object.keys(getLearnsetDataCfmXFilter(usedSpeciesLearnset.learnset!, illegalMoves)));
 
 		while (usedSpecies.prevo) {
 			usedSpecies = Utils.deepClone(mod.getSpecies(usedSpecies.prevo));
 			usedSpeciesLearnset = Utils.deepClone(mod.getLearnsetData(usedSpecies.id));
 			for (const move in usedSpeciesLearnset.learnset) {
-				lsetData.add(move);
+				if (!illegalMoves.includes(move))
+					lsetData.add(move);
 			}
 		}
 
@@ -1828,6 +1830,17 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 		resultsStr += "No moves found.";
 	}
 	return {reply: resultsStr};
+}
+
+function getLearnsetDataCfmXFilter(learnsetData: {[moveid: string]: MoveSource[]},
+	illegalMoves: string[] = []): {[moveid: string]: MoveSource[]} {
+	for (const [move, methods] of Object.entries(learnsetData)) {
+		if (methods.length === 1 && methods[0] === 'X') {
+			illegalMoves.push(move);
+			delete learnsetData[move];
+		}
+	}
+	return learnsetData;
 }
 
 function runItemsearch(target: string, cmd: string, canAll: boolean, message: string) {
