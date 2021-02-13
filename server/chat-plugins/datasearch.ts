@@ -1038,7 +1038,7 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 			}
 			if (matched) continue;
 
-			const validatorArg = cfmSearch ? `gen8cfmtesting` : (nationalSearch ? `gen8nationaldexag` : `gen${maxGen}ou`);
+			const validatorArg = cfmSearch ? `gen8cfmou` : (nationalSearch ? `gen8nationaldexag` : `gen${maxGen}ou`);
 			const validator = TeamValidator.get(validatorArg);
 			const pokemonSource = validator.allSources();
 			for (const move of Object.keys(alts.moves).map(x => Dex.getMove(x))) {
@@ -1534,7 +1534,7 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 		while (usedSpecies.prevo) {
 			usedSpecies = Utils.deepClone(mod.getSpecies(usedSpecies.prevo));
 			usedSpeciesLearnset = Utils.deepClone(mod.getLearnsetData(usedSpecies.id));
-			for (const move in usedSpeciesLearnset.learnset) {
+			for (const move in getLearnsetDataCfmXFilter(usedSpeciesLearnset.learnset!, illegalMoves)) {
 				if (!illegalMoves.includes(move))
 					lsetData.add(move);
 			}

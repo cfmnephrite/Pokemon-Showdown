@@ -68391,7 +68391,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			echoedvoice: ["7M"],
 			endeavor: ["7T"],
 			endure: ["8M"],
-			extremespeed: ["8L1", "7L1"],
 			facade: ["8M", "7M"],
 			firefang: ["8M"],
 			frustration: ["7M"],
