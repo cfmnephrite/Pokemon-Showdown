@@ -17,8 +17,8 @@ export type ModdedItemData = ItemData | Partial<Omit<ItemData, 'name'>> & {
 	onCustap?: (this: Battle, pokemon: Pokemon) => void,
 
 	// CFM - Pulverising Pancake can only be used by Snorlax off of a physical Normal-type move
-	zMoveCategory?: string;
-	zMoveSpecialMoves?: {[k: string]: string};
+	zMoveCategory?: string,
+	zMoveSpecialMoves?: {[k: string]: string},
 };
 
 export class Item extends BasicEffect implements Readonly<BasicEffect> {

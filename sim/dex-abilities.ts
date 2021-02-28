@@ -13,10 +13,10 @@ export interface AbilityData extends Partial<Ability>, AbilityEventMethods, Even
 }
 
 export type ModdedAbilityData = AbilityData | Partial<AbilityData> & {
-	inherit: true;
-	cfmDesc?: string; // CFM modified
-	cfm?: boolean; // CFM modified
-	ate?: string; // For calculating Z Move types
+	inherit: true,
+	cfmDesc?: string, // CFM modified
+	cfm?: boolean, // CFM modified
+	ate?: string, // For calculating Z Move types
 };
 
 export class Ability extends BasicEffect implements Readonly<BasicEffect> {
@@ -29,7 +29,7 @@ export class Ability extends BasicEffect implements Readonly<BasicEffect> {
 	readonly isPermanent?: boolean;
 	readonly isUnbreakable?: boolean;
 
-	/* 
+	/**
 		DUMBNESS
 	*/
 	readonly ate?: string; // For calculating Z Move types

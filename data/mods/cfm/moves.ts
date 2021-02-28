@@ -762,11 +762,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				},
 			},
 		},
-		onTryMove(pokemon, target, move) {
-			if (pokemon.baseSpecies.name === 'Morpeko') {
+		onTry(source) {
+			if (source.species.baseSpecies === 'Morpeko') {
 				return;
 			}
-			this.add('-fail', pokemon, 'move: Aura Wheel');
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Aura Wheel');
 			this.hint("Only a Pokemon whose form is Morpeko or Morpeko-Hangry can use this move.");
 			return null;
 		},
@@ -809,8 +810,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1},
 		sideCondition: 'auroraveil',
-		onTryHitSide() {
-			if (!this.field.isWeather('hail')) return false;
+		onTry() {
+			return this.field.isWeather('hail');
 		},
 		condition: {
 			duration: 5,
@@ -828,7 +829,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					}
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Aurora Veil weaken');
-						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
+						if (target.side.active.length > 1) return this.chainModify([2732, 4096]);
 						return this.chainModify(0.5);
 					}
 				}
@@ -936,8 +937,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {},
 		stallingMove: true,
 		volatileStatus: 'banefulbunker',
-		onTryHit(target, source, move) {
-			return !!this.queue.willAct() && this.runEvent('StallMove', target);
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
 			pokemon.addVolatile('stall');
@@ -1035,6 +1036,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 40,
 		priority: 0,
 		flags: {},
+		self: {
+			onHit(source) {
+				source.skipBeforeSwitchOutEventFlag = true;
+			},
+		},
 		selfSwitch: 'copyvolatile',
 		secondary: null,
 		target: "self",
@@ -1681,11 +1687,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onTryHit(pokemon) {
 			// will shatter screens through sub, before you hit
-			if (pokemon.runImmunity('Fighting')) {
-				pokemon.side.removeSideCondition('reflect');
-				pokemon.side.removeSideCondition('lightscreen');
-				pokemon.side.removeSideCondition('auroraveil');
-			}
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
 		},
 		secondary: null,
 		target: "normal",
@@ -2214,17 +2218,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	clangoroussoul: {
 		num: 775,
-		accuracy: true,
+		accuracy: 100,
 		basePower: 0,
 		category: "Status",
 		name: "Clangorous Soul",
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, sound: 1, dance: 1},
+		onTry(source) {
+			if (source.hp <= (source.maxhp * 33 / 100) || source.maxhp === 1) return false;
+		},
 		onTryHit(pokemon, target, move) {
-			if (pokemon.hp <= (pokemon.maxhp * 33 / 100) || pokemon.maxhp === 1) {
-				return false;
-			}
 			if (!this.boost(move.boosts as SparseBoostsTable)) return null;
 			delete move.boosts;
 		},
@@ -2507,11 +2511,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {authentic: 1},
 		onHit(target, source) {
-			if (!target.lastMove) {
+			if (!target.lastMoveUsed) {
 				return false;
 			}
 			const possibleTypes = [];
-			const attackType = target.lastMove.type;
+			const attackType = target.lastMoveUsed.type;
 			for (const type in this.dex.data.TypeChart) {
 				if (source.hasType(type)) continue;
 				const typeCheck = this.dex.data.TypeChart[type].damageTaken[attackType];
@@ -2572,18 +2576,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onHit(target) {
-			const noAbilityChange = [
-				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'zenmode',
-			];
-			if (noAbilityChange.includes(target.ability)) return;
+			if (target.getAbility().isPermanent) return;
 			if (target.newlySwitched || this.queue.willMove(target)) return;
 			target.addVolatile('gastroacid');
 		},
 		onAfterSubDamage(damage, target) {
-			const noAbilityChange = [
-				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'zenmode',
-			];
-			if (noAbilityChange.includes(target.ability)) return;
+			if (target.getAbility().isPermanent) return;
 			if (target.newlySwitched || this.queue.willMove(target)) return;
 			target.addVolatile('gastroacid');
 		},
@@ -2848,7 +2846,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {},
 		stallingMove: true,
 		volatileStatus: 'craftyshield',
-		onTryHit(target, source, move) {
+		onTry(source, target) {
 			return !!this.queue.willAct() && this.runEvent('StallMove', target);
 		},
 		onHit(pokemon) {
@@ -3093,11 +3091,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
 		status: 'slp',
-		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Dark') || move.hasBounced) {
+		onTry(source, target, move) {
+			if (source.hasType('Dark') || move.hasBounced) {
 				return;
 			}
-			this.add('-fail', pokemon, 'move: Dark Void');
+			this.add('-fail', source, 'move: Dark Void');
 			this.add('-hint', "Only Dark-type Pokémon can use this move!");
 			return null;
 		},
@@ -3328,13 +3326,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('spa') > pokemon.getStat('atk')) move.category = 'Special';
 		},
-		secondary: {
+		self: {
 			chance: 50,
-			self: {
-				boosts: {
-					def: 2,
-				},
+			boosts: {
+				def: 2,
 			},
+		},
+		secondary: {
+			// Sheer Force negates the self even though it is not secondary
 		},
 		target: "allAdjacentFoes",
 		type: "Rock",
@@ -3418,19 +3417,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						if (!moveSlot.pp) {
 							this.debug('Move out of PP');
 							return false;
-						} else {
-							if (effect.id === 'cursedbody') {
-								this.add('-start', pokemon, 'Disable', moveSlot.move, '[from] ability: Cursed Body', '[of] ' + source);
-							} else {
-								this.add('-start', pokemon, 'Disable', moveSlot.move);
-							}
-							this.effectData.move = pokemon.lastMove.id;
-							return;
 						}
 					}
 				}
-				// this can happen if Disable works on a Z-move
-				return false;
+				if (effect.effectType === 'Ability') {
+					this.add('-start', pokemon, 'Disable', pokemon.lastMove.name, '[from] ability: Cursed Body', '[of] ' + source);
+				} else {
+					this.add('-start', pokemon, 'Disable', pokemon.lastMove.name);
+				}
+				this.effectData.move = pokemon.lastMove.id;
 			},
 			onResidualOrder: 14,
 			onEnd(pokemon) {
@@ -3588,7 +3583,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				},
 			});
 			this.add('-start', source, 'Doom Desire');
-			return null;
+			return this.NOT_FAIL;
 		},
 		secondary: null,
 		target: "normal",
@@ -4204,12 +4199,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			chance: 100,
 			onHit(target) {
 				if (!target.hp) return;
-				const move = target.lastMove;
-				if (!move || move.isZ || move.isMax) return;
+				let move: Move | ActiveMove | null = target.lastMove;
+				if (!move || move.isZ) return;
+				if (move.isMax && move.baseMove) move = this.dex.getMove(move.baseMove);
 
 				const ppDeducted = target.deductPP(move.id, 3);
 				if (!ppDeducted) return;
-
 				this.add('-activate', target, 'move: Eerie Spell', move.name, ppDeducted);
 			},
 		},
@@ -4521,8 +4516,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {},
 		stallingMove: true,
 		volatileStatus: 'endure',
-		onTryHit(pokemon) {
-			return this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
 			pokemon.addVolatile('stall');
@@ -4576,15 +4571,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
 		onTryHit(target, source) {
 			if (target === source || target.volatiles['dynamax']) return false;
-			const bannedTargetAbilities = [
-				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant',
-			];
-			const bannedSourceAbilities = [
-				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'flowergift', 'forecast', 'illusion', 'imposter', 'multitype', 'neutralizinggas', 'powerconstruct', 'powerofalchemy', 'receiver', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'trace', 'zenmode',
+
+			const additionalBannedSourceAbilities = [
+				// Zen Mode included here for compatability with Gen 5-6
+				'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
 			];
 			if (
-				bannedTargetAbilities.includes(target.ability) || bannedSourceAbilities.includes(source.ability) ||
-				target.ability === source.ability
+				target.ability === source.ability ||
+				target.getAbility().isPermanent || target.ability === 'truant' ||
+				source.getAbility().isPermanent || additionalBannedSourceAbilities.includes(source.ability)
 			) {
 				return false;
 			}
@@ -4627,7 +4622,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 160,
 		category: "Special",
 		name: "Eternabeam",
-		pp: 10,
+		pp: 5,
 		priority: 0,
 		flags: {recharge: 1, protect: 1, mirror: 1},
 		self: {
@@ -4799,12 +4794,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 3,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onTry(pokemon, target) {
-			if (pokemon.activeMoveActions > 1) {
-				this.attrLastMove('[still]');
-				this.add('-fail', pokemon);
+		onTry(source) {
+			if (source.activeMoveActions > 1) {
 				this.hint("Fake Out only works on your first turn out.");
-				return null;
+				return false;
 			}
 		},
 		secondary: {
@@ -4855,7 +4848,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 40,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		noFaint: true,
+		onDamagePriority: -20,
+		onDamage(damage, target, source, effect) {
+			if (damage >= target.hp) return target.hp - 1;
+		},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -5067,7 +5063,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			for (const action of this.queue.list as MoveAction[]) {
 				if (
-					!action.move || !action.pokemon || !action.pokemon.isActive ||
+					!action.move || !action.pokemon?.isActive ||
 					action.pokemon.fainted || action.maxMove || action.zmove
 				) {
 					continue;
@@ -5162,12 +5158,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 2,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onTry(pokemon, target) {
-			if (pokemon.activeMoveActions > 1) {
-				this.add('-fail', pokemon);
-				this.attrLastMove('[still]');
+		onTry(source) {
+			if (source.activeMoveActions > 1) {
 				this.hint("First Impression only works on your first turn out.");
-				return null;
+				return false;
 			}
 		},
 		secondary: null,
@@ -5478,11 +5472,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					move.secondaries.push({volatileStatus: item.fling.volatileStatus});
 				}
 			}
-			source.setItem('');
-			source.lastItem = item.id;
-			source.usedItemThisTurn = true;
-			this.add("-enditem", source, item.name, '[from] move: Fling');
-			this.runEvent('AfterUseItem', source, null, null, item);
+			source.addVolatile('fling');
+		},
+		condition: {
+			onUpdate(pokemon) {
+				const item = pokemon.getItem();
+				pokemon.setItem('');
+				pokemon.lastItem = item.id;
+				pokemon.usedItemThisTurn = true;
+				this.add('-enditem', pokemon, item.name, '[from] move: Fling');
+				this.runEvent('AfterUseItem', pokemon, null, null, item);
+				pokemon.removeVolatile('fling');
+			},
 		},
 		secondary: null,
 		target: "normal",
@@ -5515,7 +5516,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHit(target, source) {
 			let success = false;
 			if (this.field.isTerrain('grassyterrain')) {
-				success = !!this.heal(this.modify(target.baseMaxhp, 0.667)); // TODO: find out the real value
+				success = !!this.heal(this.modify(target.baseMaxhp, 0.667));
 			} else {
 				success = !!this.heal(Math.ceil(target.baseMaxhp * 0.5));
 			}
@@ -5542,7 +5543,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {},
 		stallingMove: true,
 		volatileStatus: 'flowershield',
-		onTryHit(target, source, move) {
+		onTry(source, target) {
 			return !!this.queue.willAct() && this.runEvent('StallMove', target);
 		},
 		onHit(pokemon) {
@@ -5584,7 +5585,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 			onHit(target, source, move) {
-				if (move.isZPowered && move.flags['contact'] && !source.status && source.runStatusImmunity('powder')) {
+				if (move.isZ && move.flags['contact'] && !source.status && source.runStatusImmunity('powder')) {
 					const r = this.random(100);
 					if (r < 11) {
 						source.setStatus('slp', target);
@@ -5738,6 +5739,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					pokemon.volatiles['focuspunch'].lostFocus = true;
 				}
 			},
+			onTryAddVolatile(status, pokemon) {
+				if (status.id === 'flinch') return null;
+			},
 		},
 		secondary: null,
 		target: "normal",
@@ -5754,8 +5758,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 2,
 		flags: {},
 		volatileStatus: 'followme',
-		onTryHit(target) {
-			if (target.side.active.length < 2) return false;
+		onTry(source) {
+			return source.side.active.length > 1;
 		},
 		condition: {
 			duration: 1,
@@ -6118,7 +6122,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				},
 			});
 			this.add('-start', source, 'move: Future Sight');
-			return null;
+			return this.NOT_FAIL;
 		},
 		secondary: null,
 		target: "normal",
@@ -6135,11 +6139,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
 		volatileStatus: 'gastroacid',
-		onTryHit(pokemon) {
-			const bannedAbilities = [
-				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'zenmode',
-			];
-			if (bannedAbilities.includes(pokemon.ability)) {
+		onTryHit(target) {
+			if (target.getAbility().isPermanent) {
 				return false;
 			}
 		},
@@ -6148,6 +6149,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onStart(pokemon) {
 				this.add('-endability', pokemon);
 				this.singleEvent('End', pokemon.getAbility(), pokemon.abilityData, pokemon, pokemon, 'gastroacid');
+			},
+			onCopy(pokemon) {
+				if (pokemon.getAbility().isPermanent) pokemon.removeVolatile('gastroacid');
 			},
 		},
 		secondary: null,
@@ -6185,9 +6189,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHitSide(side, source, move) {
 			const targets = [];
 			for (const pokemon of side.active) {
-				if (pokemon.hasAbility(['plus', 'minus'])) {
+				if (
+					pokemon.hasAbility(['plus', 'minus']) &&
+					(!pokemon.volatiles['maxguard'] ||
+					  this.runEvent('TryHit', pokemon, source, move))
+				  ) {
 					targets.push(pokemon);
-				}
+				  }
 			}
 			if (!targets.length) return false;
 			let didSomething = false;
@@ -6422,7 +6430,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			for (const action of this.queue.list as MoveAction[]) {
 				if (
-					!action.move || !action.pokemon || !action.pokemon.isActive ||
+					!action.move || !action.pokemon?.isActive ||
 					action.pokemon.fainted || action.maxMove || action.zmove
 				) {
 					continue;
@@ -6548,6 +6556,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onResidual() {
 				this.eachEvent('Terrain');
 			},
+			onTerrainPriority: 1,
 			onTerrain(pokemon) {
 				if ((pokemon.isGrounded() || pokemon.hasAbility('grassysurge')) && !pokemon.isSemiInvulnerable()) {
 					const healfrac = pokemon.hasType('Grass') ? 8 : 16;
@@ -6644,7 +6653,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onModifyAccuracy(accuracy) {
 				if (typeof accuracy !== 'number') return;
-				return accuracy * 5 / 3;
+				return this.chainModify([6840, 4096]);
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
@@ -6656,7 +6665,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			// groundedness implemented in battle.engine.js:BattlePokemon#isGrounded
 			onBeforeMovePriority: 6,
 			onBeforeMove(pokemon, target, move) {
-				if (move.flags['gravity']) {
+				if (move.flags['gravity'] && !move.isZ) {
+					this.add('cant', pokemon, 'move: Gravity', move);
+					return false;
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (move.flags['gravity'] && !move.isZ) {
 					this.add('cant', pokemon, 'move: Gravity', move);
 					return false;
 				}
@@ -7107,8 +7122,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				return 5;
 			},
-			onStart(pokemon) {
+			onStart(pokemon, source) {
 				this.add('-start', pokemon, 'move: Heal Block');
+				source.moveThisTurnResult = true;
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
@@ -7124,6 +7140,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return false;
 				}
 			},
+			onModifyMove(move, pokemon, target) {
+				if (move.flags['heal'] && !move.isZ && !move.isMax) {
+					this.add('cant', pokemon, 'move: Heal Block', move);
+					return false;
+				}
+			},
 			onResidualOrder: 17,
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'move: Heal Block');
@@ -7131,6 +7153,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onTryHeal(damage, target, source, effect) {
 				if ((effect?.id === 'zpower') || this.effectData.isZ) return damage;
 				return false;
+			},
+			onRestart(target, source) {
+				this.add('-fail', target, 'move: Heal Block'); // Succeeds to supress downstream messages
+				if (!source.moveThisTurnResult) {
+					source.moveThisTurnResult = false;
+				}
 			},
 		},
 		secondary: null,
@@ -7732,7 +7760,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 40,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		noFaint: true,
+		onDamagePriority: -20,
+		onDamage(damage, target, source, effect) {
+			if (damage >= target.hp) return target.hp - 1;
+		},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -7979,16 +8010,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {mirror: 1, authentic: 1},
 		breaksProtect: true,
-		onTry(pokemon) {
-			if (pokemon.species.name === 'Hoopa-Unbound') {
+		onTry(source) {
+			if (source.species.name === 'Hoopa-Unbound') {
 				return;
 			}
 			this.hint("Only a Pokemon whose form is Hoopa Unbound can use this move.");
-			if (pokemon.species.name === 'Hoopa') {
-				this.add('-fail', pokemon, 'move: Hyperspace Fury', '[forme]');
+			if (source.species.name === 'Hoopa') {
+				this.attrLastMove('[still]');
+				this.add('-fail', source, 'move: Hyperspace Fury', '[forme]');
 				return null;
 			}
-			this.add('-fail', pokemon, 'move: Hyperspace Fury');
+			this.attrLastMove('[still]');
+			this.add('-fail', source, 'move: Hyperspace Fury');
 			return null;
 		},
 		self: {
@@ -8423,7 +8456,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			const lastMove = target.lastMove;
 			const moveIndex = target.moves.indexOf(lastMove.id);
 			const noInstruct = [
-				'assist', 'beakblast', 'bide', 'celebrate', 'copycat', 'dynamaxcannon', 'focuspunch', 'iceball', 'instruct', 'kingsshield', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'outrage', 'petaldance', 'rollout', 'shelltrap', 'sketch', 'sleeptalk', 'thrash', 'transform',
+				'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'copycat', 'dynamaxcannon', 'focuspunch', 'iceball', 'instruct', 'kingsshield', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'obstruct', 'outrage', 'petaldance', 'rollout', 'shelltrap', 'sketch', 'sleeptalk', 'struggle', 'thrash', 'transform', 'uproar',
 			];
 			if (
 				noInstruct.includes(lastMove.id) || lastMove.isZ || lastMove.isMax ||
@@ -8539,7 +8572,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Physical",
 		name: "Jaw Lock",
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
 		onHit(target, source, move) {
@@ -8659,7 +8692,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {},
 		stallingMove: true,
 		volatileStatus: 'kingsshield',
-		onTryHit(pokemon) {
+		onPrepareHit(pokemon) {
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
@@ -8821,10 +8854,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onTry(pokemon, target) {
-			if (pokemon.moveSlots.length < 2) return false; // Last Resort fails unless the user knows at least 2 moves
+		onTry(source) {
+			if (source.moveSlots.length < 2) return false; // Last Resort fails unless the user knows at least 2 moves
 			let hasLastResort = false; // User must actually have Last Resort for it to succeed
-			for (const moveSlot of pokemon.moveSlots) {
+			for (const moveSlot of source.moveSlots) {
 				if (moveSlot.id === 'lastresort') {
 					hasLastResort = true;
 					continue;
@@ -9103,7 +9136,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (target !== source && target.side === this.effectData.target && this.getCategory(move, source) === 'Special') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Light Screen weaken');
-						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
+						if (target.side.active.length > 1) return this.chainModify([2732, 4096]);
 						return this.chainModify(0.5);
 					}
 				}
@@ -9533,9 +9566,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHitSide(side, source, move) {
 			const targets = [];
 			for (const pokemon of side.active) {
-				if (pokemon.hasAbility(['plus', 'minus'])) {
+				if (
+					pokemon.hasAbility(['plus', 'minus']) &&
+					(!pokemon.volatiles['maxguard'] ||
+					  this.runEvent('TryHit', pokemon, source, move))
+				  ) {
 					targets.push(pokemon);
-				}
+				  }
 			}
 			if (!targets.length) return false;
 			let didSomething = false;
@@ -9560,10 +9597,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1, gravity: 1},
 		volatileStatus: 'magnetrise',
+		onTry(source, target, move) {
+			if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
+
+			// Additional Gravity check for Z-move variant
+			if (this.field.getPseudoWeather('Gravity')) {
+				this.add('cant', source, 'move: Gravity', move);
+				return null;
+			}
+		},
 		condition: {
 			duration: 5,
 			onStart(target) {
-				if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
 				this.add('-start', target, 'Magnet Rise');
 			},
 			onImmunity(type) {
@@ -9653,11 +9698,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {snatch: 1, nonsky: 1},
 		stallingMove: true,
 		sideCondition: 'matblock',
-		onTryHitSide(side, source) {
+		onTry(source) {
 			if (source.activeMoveActions > 1) {
 				this.hint("Mat Block only works on your first turn out.");
 				return false;
 			}
+			return !!this.queue.willAct();
 		},
 		condition: {
 			duration: 1,
@@ -9694,7 +9740,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		name: "Max Airstream",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -9716,7 +9762,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		name: "Max Darkness",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -9738,7 +9784,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Max Flare",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -9758,7 +9804,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		name: "Max Flutterby",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -9780,7 +9826,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		name: "Max Geyser",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -9800,7 +9846,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Max Guard",
-		pp: 5,
+		pp: 10,
 		priority: 4,
 		flags: {},
 		isMax: true,
@@ -9822,7 +9868,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (move.isMax && move.breaksProtect) return;
 				/** moves blocked by Max Guard but not Protect */
 				const overrideBypassProtect = [
-					'block', 'flowershield', 'gearup', 'magneticflux', 'phantomforce', 'psychup', 'teatime', 'transform',
+					'block', 'flowershield', 'gearup', 'magneticflux', 'phantomforce', 'psychup', 'shadowforce', 'teatime', 'transform',
 				];
 				const blockedByMaxGuard = (this.dex.getMove(move.id).flags['protect'] ||
 						move.isZ || move.isMax || overrideBypassProtect.includes(move.id));
@@ -9855,7 +9901,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		name: "Max Hailstorm",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -9875,7 +9921,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		name: "Max Knuckle",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -9897,7 +9943,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		name: "Max Lightning",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -9917,7 +9963,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		name: "Max Mindstorm",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -9937,7 +9983,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		name: "Max Ooze",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -9959,7 +10005,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		name: "Max Overgrowth",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -9979,7 +10025,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		name: "Max Phantasm",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -10001,7 +10047,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		name: "Max Quake",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -10023,7 +10069,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		name: "Max Rockfall",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -10043,7 +10089,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		name: "Max Starfall",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -10063,7 +10109,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		name: "Max Steelspike",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -10085,7 +10131,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		name: "Max Strike",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -10107,7 +10153,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 10,
 		category: "Physical",
 		name: "Max Wyrmwind",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {},
 		isMax: true,
@@ -10324,39 +10370,26 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		damageCallback(pokemon) {
-			if (!pokemon.volatiles['metalburst']) return 0;
-			return pokemon.volatiles['metalburst'].damage || 1;
+			const lastDamagedBy = pokemon.getLastDamagedBy(true);
+			if (lastDamagedBy !== undefined) {
+				return (lastDamagedBy.damage * 1.5) || 1;
+			}
+			return 0;
 		},
 		category: "Physical",
 		name: "Metal Burst",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		beforeTurnCallback(pokemon) {
-			pokemon.addVolatile('metalburst');
-		},
 		onTryHit(target, source, move) {
-			if (!source.volatiles['metalburst']) return false;
-			if (source.volatiles['metalburst'].position === null) return false;
+			const lastDamagedBy = source.getLastDamagedBy(true);
+			if (lastDamagedBy === undefined || !lastDamagedBy.thisTurn) return false;
 		},
-		condition: {
-			duration: 1,
-			noCopy: true,
-			onStart(target, source, move) {
-				this.effectData.position = null;
-				this.effectData.damage = 0;
-			},
-			onRedirectTargetPriority: -1,
-			onRedirectTarget(target, source, source2) {
-				if (source !== this.effectData.target) return;
-				return source.side.foe.active[this.effectData.position];
-			},
-			onDamagingHit(damage, target, source, effect) {
-				if (source.side !== target.side) {
-					this.effectData.position = source.position;
-					this.effectData.damage = 1.5 * damage;
-				}
-			},
+		onModifyTarget(targetRelayVar, source, target, move) {
+			const lastDamagedBy = source.getLastDamagedBy(true);
+			if (lastDamagedBy?.position !== undefined) {
+				targetRelayVar.target = source.side.foe.active[lastDamagedBy.position];
+			}
 		},
 		secondary: null,
 		target: "scripted",
@@ -10729,7 +10762,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {},
 		onTryHit(target, pokemon) {
 			const move = target.lastMove;
-			if (!move || !move.flags['mirror'] || move.isZ || move.isMax) {
+			if (!move?.flags['mirror'] || move.isZ || move.isMax) {
 				return false;
 			}
 			this.useMove(move.id, pokemon, target);
@@ -11096,7 +11129,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onBasePower(basePower, attacker, defender, move) {
 				if (move.type === 'Electric') {
 					this.debug('mud sport weaken');
-					return this.chainModify([0x548, 0x1000]);
+					return this.chainModify([1352, 4096]);
 				}
 			},
 			onResidualOrder: 21,
@@ -11440,9 +11473,9 @@ Water:		Scald`,
 		priority: 0,
 		flags: {snatch: 1},
 		volatileStatus: 'noretreat',
-		onTryHit(target, source, move) {
-			if (target.volatiles['noretreat']) return false;
-			if (target.volatiles['trapped']) {
+		onTry(source, target, move) {
+			if (source.volatiles['noretreat']) return false;
+			if (source.volatiles['trapped']) {
 				delete move.volatileStatus;
 			}
 		},
@@ -11499,7 +11532,7 @@ Water:		Scald`,
 	},
 	obstruct: {
 		num: 792,
-		accuracy: true,
+		accuracy: 100,
 		basePower: 0,
 		category: "Status",
 		name: "Obstruct",
@@ -11508,7 +11541,7 @@ Water:		Scald`,
 		flags: {},
 		stallingMove: true,
 		volatileStatus: 'obstruct',
-		onTryHit(pokemon) {
+		onPrepareHit(pokemon) {
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
@@ -12218,11 +12251,14 @@ Water:		Scald`,
 		onTryHit(target, source, move) {
 			if (source.side === target.side) {
 				move.basePower = 0;
+				move.infiltrates = true;
 			}
 		},
 		onHit(target, source) {
 			if (source.side === target.side) {
-				this.heal(Math.floor(target.baseMaxhp * 0.5));
+				if (!this.heal(Math.floor(target.baseMaxhp * 0.5))) {
+					this.add('-immune', target);
+				}
 			}
 		},
 		secondary: null,
@@ -12239,10 +12275,10 @@ Water:		Scald`,
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onTry(pokemon, target) {
+		onTry(source, target) {
 			if (!target.item || target.hasAbility('Klutz')) {
 				this.attrLastMove('[still]');
-				this.add('-fail', pokemon);
+				this.add('-fail', source);
 				return null;
 			}
 		},
@@ -12697,11 +12733,9 @@ Water:		Scald`,
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
 		onTryHit(pokemon) {
 			// will shatter screens through sub, before you hit
-			if (pokemon.runImmunity('Psychic')) {
-				pokemon.side.removeSideCondition('reflect');
-				pokemon.side.removeSideCondition('lightscreen');
-				pokemon.side.removeSideCondition('auroraveil');
-			}
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
 		},
 		secondary: null,
 		target: "normal",
@@ -12892,7 +12926,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onPrepareHit(target, source, move) {
+		onTryHit(target, source, move) {
 			if (!source.status) return false;
 			move.status = source.status;
 		},
@@ -13033,7 +13067,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		basePower: 40,
 		basePowerCallback(pokemon, target, move) {
 			// You can't get here unless the pursuit succeeds
-			if (target.beingCalledBack) {
+			if (target.beingCalledBack || target.switchFlag) {
 				this.debug('Pursuit damage boost');
 				return move.basePower * 2;
 			}
@@ -13058,7 +13092,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 			}
 		},
 		onModifyMove(move, source, target) {
-			if (target?.beingCalledBack) move.accuracy = true;
+			if (target?.beingCalledBack || target?.switchFlag) move.accuracy = true;
 		},
 		onTryHit(target, pokemon) {
 			target.side.removeSideCondition('pursuit');
@@ -13158,7 +13192,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		priority: 3,
 		flags: {snatch: 1},
 		sideCondition: 'quickguard',
-		onTryHitSide(side, source) {
+		onTry() {
 			return !!this.queue.willAct();
 		},
 		onHitSide(side, source) {
@@ -13259,8 +13293,8 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		priority: 2,
 		flags: {powder: 1},
 		volatileStatus: 'ragepowder',
-		onTryHit(target) {
-			if (target.side.active.length < 2) return false;
+		onTry(source) {
+			return source.side.active.length > 1;
 		},
 		condition: {
 			duration: 1,
@@ -13470,7 +13504,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 				if (target !== source && target.side === this.effectData.target && this.getCategory(move, source) === 'Physical') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Reflect weaken');
-						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
+						if (target.side.active.length > 1) return this.chainModify([2732, 4096]);
 						return this.chainModify(0.5);
 					}
 				}
@@ -13581,16 +13615,17 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
-		onTryMove(pokemon, target, move) {
-			if (pokemon.hp === pokemon.maxhp) {
-				this.add('-fail', pokemon, 'heal');
+		onTry(source, target, move) {
+			if (source.hp === source.maxhp) {
+				this.add('-fail', source, 'heal');
 				return null;
 			}
-			if (pokemon.status === 'slp') {
-				this.add('-fail', pokemon);
+			if (source.status === 'slp') return false;
+			if (source.hasAbility(['insomnia', 'vitalspirit'])) {
+				this.add('-fail', source, '[from] ability: ' + source.getAbility().name, '[of] ' + source);
 				return null;
 			}
-			if (pokemon.hasAbility('comatose'))
+			if (source.hasAbility('comatose'))
 				move.heal = [1, 2];
 		},
 		onHit(target, source, move) {
@@ -13657,7 +13692,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		pp: 15,
 		priority: 0,
 		flags: {},
-		onTryHit(target, source) {
+		onTry(source, target) {
 			this.add('-anim', source, 'Quiver Dance', target);
 			this.attrLastMove('[still]');
 		},
@@ -13994,13 +14029,13 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		onTryHit(target, source) {
 			if (target.ability === source.ability) return false;
 
-			const bannedTargetAbilities = [
-				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'flowergift', 'forecast', 'illusion', 'imposter', 'multitype', 'neutralizinggas', 'powerconstruct', 'powerofalchemy', 'receiver', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'trace', 'wonderguard', 'zenmode',
+			const additionalBannedTargetAbilities = [
+				// Zen Mode included here for compatability with Gen 5-6
+				'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard', 'zenmode',
 			];
-			const bannedSourceAbilities = [
-				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange',
-			];
-			if (bannedTargetAbilities.includes(target.ability) || bannedSourceAbilities.includes(source.ability)) {
+
+			if (target.getAbility().isPermanent || additionalBannedTargetAbilities.includes(target.ability) ||
+				source.getAbility().isPermanent) {
 				return false;
 			}
 		},
@@ -14169,7 +14204,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		onTry(target, source, move) {
+		onTry(source, target, move) {
 			for (const action of this.queue.list as MoveAction[]) {
 				if (!action.pokemon || !action.move || action.maxMove || action.zmove) continue;
 				if (action.move.id === 'round') {
@@ -14878,7 +14913,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		flags: {},
 		stallingMove: true,
 		volatileStatus: 'shelltrap',
-		onTryHit(target, source, move) {
+		onTry(source, target) {
 			return !!this.queue.willAct() && this.runEvent('StallMove', target);
 		},
 		onHit(pokemon) {
@@ -14913,7 +14948,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 				return this.NOT_FAIL;
 			},
 			onHit(target, source, move) {
-				if (move.isZPowered && move.flags['contact']) {
+				if (move.isZ && move.flags['contact']) {
 					source.trySetStatus('brn', target);
 				}
 			},
@@ -15038,11 +15073,8 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
-		onTryHit(pokemon) {
-			const bannedAbilities = [
-				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'simple', 'stancechange', 'truant', 'zenmode',
-			];
-			if (bannedAbilities.includes(pokemon.ability)) {
+		onTryHit(target) {
+			if (target.getAbility().isPermanent || target.ability === 'simple' || target.ability === 'truant') {
 				return false;
 			}
 		},
@@ -15123,6 +15155,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 			source.baseMoveSlots[sketchIndex] = sketchedMove;
 			this.add('-activate', source, 'move: Sketch', move.name);
 		},
+		noSketch: true,
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -15139,11 +15172,11 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		priority: 0,
 		flags: {protect: 1, mirror: 1, authentic: 1, mystery: 1},
 		onTryHit(target, source) {
-			const bannedAbilities = [
-				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'gulpmissile', 'hungerswitch', 'iceface', 'illusion', 'multitype', 'neutralizinggas', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'wonderguard', 'zenmode',
-			];
+			const additionalBannedAbilities = ['hungerswitch', 'illusion', 'neutralizinggas', 'wonderguard'];
 			if (
-				target.volatiles['dynamax'] || bannedAbilities.includes(target.ability) || bannedAbilities.includes(source.ability)
+				target.volatiles['dynamax'] ||
+				target.getAbility().isPermanent || source.getAbility().isPermanent ||
+				additionalBannedAbilities.includes(target.ability) || additionalBannedAbilities.includes(source.ability)
 			) {
 				return false;
 			}
@@ -15158,13 +15191,11 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 			}
 			this.singleEvent('End', sourceAbility, source.abilityData, source);
 			this.singleEvent('End', targetAbility, target.abilityData, target);
-			if (targetAbility.id !== sourceAbility.id) {
-				source.ability = targetAbility.id;
-				target.ability = sourceAbility.id;
-				source.abilityData = {id: this.toID(source.ability), target: source};
-				target.abilityData = {id: this.toID(target.ability), target: target};
-				if (target.side !== source.side) target.volatileStaleness = 'external';
-			}
+			source.ability = targetAbility.id;
+			target.ability = sourceAbility.id;
+			source.abilityData = {id: this.toID(source.ability), target: source};
+			target.abilityData = {id: this.toID(target.ability), target: target};
+			if (target.side !== source.side) target.volatileStaleness = 'external';
 			this.singleEvent('Start', targetAbility, source.abilityData, source);
 			this.singleEvent('Start', sourceAbility, target.abilityData, target);
 		},
@@ -15279,8 +15310,10 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 				this.add('-end', target, 'Sky Drop', '[interrupt]');
 			}
 		},
+		onTry(source, target) {
+			return !target.fainted;
+		},
 		onTryHit(target, source, move) {
-			if (target.fainted) return false;
 			if (source.removeVolatile(move.id)) {
 				if (target !== source.volatiles['twoturnmove'].source) return false;
 
@@ -15466,8 +15499,8 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		priority: 0,
 		flags: {},
 		sleepUsable: true,
-		onTryHit(pokemon) {
-			if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose')) return false;
+		onTry(source) {
+			return source.status === 'slp' || source.hasAbility('comatose');
 		},
 		onHit(pokemon) {
 			const noSleepTalk = [
@@ -15760,7 +15793,8 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 			onStart(pokemon) {
 				this.add('-singleturn', pokemon, 'Snatch');
 			},
-			onAnyTryMove(source, target, move) {
+			onAnyPrepareHitPriority: -1,
+			onAnyPrepareHit(source, target, move) {
 				const snatchUser = this.effectData.source;
 				if (snatchUser.isSkyDropped()) return;
 				if (!move || move.isZ || move.isMax || !move.flags['snatch'] || move.sourceEffect === 'snatch') {
@@ -15806,8 +15840,8 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
 		sleepUsable: true,
-		onTryHit(target, source) {
-			if (source.status !== 'slp' && !source.hasAbility('comatose')) return false;
+		onTry(source) {
+			return source.status === 'slp' || source.hasAbility('comatose');
 		},
 		secondary: {
 			chance: 30,
@@ -16172,8 +16206,8 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		flags: {},
 		stallingMove: true,
 		volatileStatus: 'spikyshield',
-		onTryHit(target, source, move) {
-			return !!this.queue.willAct() && this.runEvent('StallMove', target);
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
 			pokemon.addVolatile('stall');
@@ -16229,7 +16263,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		basePower: 75,
 		category: "Physical",
 		name: "Spirit Break",
-		pp: 10,
+		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		secondary: {
@@ -16263,7 +16297,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		accuracy: 100,
 		basePower: 0,
 		basePowerCallback(pokemon) {
-			if (!pokemon.volatiles['stockpile'] || !pokemon.volatiles['stockpile'].layers) return false;
+			if (!pokemon.volatiles['stockpile']?.layers) return false;
 			return pokemon.volatiles['stockpile'].layers * 100;
 		},
 		category: "Special",
@@ -16271,10 +16305,8 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
-		onTry(pokemon) {
-			if (!pokemon.volatiles['stockpile']) {
-				return false;
-			}
+		onTry(source) {
+			return !!source.volatiles['stockpile'];
 		},
 		onAfterMove(pokemon) {
 			pokemon.removeVolatile('stockpile');
@@ -16294,12 +16326,12 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 		onHit(target) {
-			const move = target.lastMove;
-			if (!move || move.isZ || move.isMax) return false;
+			let move: Move | ActiveMove | null = target.lastMove;
+			if (!move || move.isZ) return false;
+			if (move.isMax && move.baseMove) move = this.dex.getMove(move.baseMove);
 
 			const ppDeducted = target.deductPP(move.id, 4);
 			if (!ppDeducted) return false;
-
 			this.add("-activate", target, 'move: Spite', move.name, ppDeducted);
 		},
 		secondary: null,
@@ -16317,6 +16349,13 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		pp: 40,
 		priority: 0,
 		flags: {gravity: 1},
+		onTry(source, target, move) {
+			// Additional Gravity check for Z-move variant
+			if (this.field.getPseudoWeather('Gravity')) {
+				this.add('cant', source, 'move: Gravity', move);
+				return null;
+			}
+		},
 		onTryHit(target, source) {
 			this.add('-nothing');
 		},
@@ -16499,8 +16538,8 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onTryHit() {
-			if (this.field.isTerrain('')) return false;
+		onTry() {
+			return !this.field.isTerrain('');
 		},
 		onHit() {
 			this.field.clearTerrain();
@@ -16567,6 +16606,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 			},
 		},
 		secondary: null,
+		pressureTarget: "self",
 		target: "foeSide",
 		type: "Bug",
 		zMove: {boost: {spe: 1}},
@@ -16582,8 +16622,8 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1},
-		onTryHit(pokemon) {
-			if (pokemon.volatiles['stockpile'] && pokemon.volatiles['stockpile'].layers >= 3) return false;
+		onTry(source) {
+			if (source.volatiles['stockpile'] && source.volatiles['stockpile'].layers >= 3) return false;
 		},
 		volatileStatus: 'stockpile',
 		condition: {
@@ -16669,7 +16709,10 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		accuracy: 100,
 		basePower: 75,
 		basePowerCallback(pokemon, target, move) {
-			if (pokemon.moveLastTurnResult === false) return move.basePower * 2;
+			if (pokemon.moveLastTurnResult === false) {
+				this.debug('doubling Stomping Tantrum BP due to previous move failure');
+				return move.basePower * 2;
+			}
 			return move.basePower;
 		},
 		category: "Physical",
@@ -16960,6 +17003,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 				target.volatiles['substitute'].hp -= damage;
 				source.lastDamage = damage;
 				if (target.volatiles['substitute'].hp <= 0) {
+					if (move.ohko) this.add('-ohko');
 					target.removeVolatile('substitute');
 				} else {
 					this.add('-activate', target, 'move: Substitute', '[damage]');
@@ -17012,9 +17056,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 			const action = this.queue.willMove(target);
 			const move = action?.choice === 'move' ? action.move : null;
 			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
-				this.add('-fail', source);
-				this.attrLastMove('[still]');
-				return null;
+				return false;
 			}
 		},
 		secondary: null,
@@ -17185,8 +17227,8 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
-		onTryHit(pokemon) {
-			if (!pokemon.volatiles['stockpile'] || !pokemon.volatiles['stockpile'].layers) return false;
+		onTry(source) {
+			return !!source.volatiles['stockpile'];
 		},
 		onHit(pokemon) {
 			const healAmount = [0.25, 0.5, 1];
@@ -17264,7 +17306,8 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		onHit(target, source, move) {
 			const yourItem = target.takeItem(source);
 			const myItem = source.takeItem();
-			if (target.item || source.item || (!yourItem && !myItem)) {
+			const orbUser = ([382, 383].includes(target.baseSpecies.num) || [382, 383].includes(source.baseSpecies.num));
+			if (target.item || source.item || (!yourItem && !myItem) || (!yourItem && orbUser) || (!myItem && orbUser)) {
 				if (yourItem) target.item = yourItem.id;
 				if (myItem) source.item = myItem.id;
 				return false;
@@ -17515,7 +17558,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		basePower: 0,
 		category: "Status",
 		name: "Tar Shot",
-		pp: 20,
+		pp: 15,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
 		volatileStatus: 'tarshot',
@@ -17616,7 +17659,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 				if (this.runEvent('Invulnerability', active, source, move) === false) {
 					this.add('-miss', source, active);
 					result = true;
-				} else {
+				} else if (this.runEvent('TryHit', active, source, move)) {
 					const item = active.getItem();
 					if (active.hp && item.isBerry) {
 						// bypasses Unnerve
@@ -17711,6 +17754,14 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, gravity: 1, mystery: 1},
 		volatileStatus: 'telekinesis',
+		onTry(source, target, move) {
+			// Additional Gravity check for Z-move variant
+			if (this.field.getPseudoWeather('Gravity')) {
+				this.attrLastMove('[still]');
+				this.add('cant', source, 'move: Gravity', move);
+				return null;
+			}
+		},
 		condition: {
 			duration: 3,
 			onStart(target) {
@@ -17910,6 +17961,12 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 			},
 			onBeforeMovePriority: 6,
 			onBeforeMove(pokemon, target, move) {
+				if (!move.isZ && !move.isMax && move.flags['sound']) {
+					this.add('cant', pokemon, 'move: Throat Chop');
+					return false;
+				}
+			},
+			onModifyMove(move, pokemon, target) {
 				if (!move.isZ && !move.isMax && move.flags['sound']) {
 					this.add('cant', pokemon, 'move: Throat Chop');
 					return false;
@@ -18278,7 +18335,8 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		onHit(target, source, move) {
 			const yourItem = target.takeItem(source);
 			const myItem = source.takeItem();
-			if (target.item || source.item || (!yourItem && !myItem)) {
+			const orbUser = ([382, 383].includes(target.baseSpecies.num) || [382, 383].includes(source.baseSpecies.num));
+			if (target.item || source.item || (!yourItem && !myItem) || (!yourItem && orbUser) || (!myItem && orbUser)) {
 				if (yourItem) target.item = yourItem.id;
 				if (myItem) source.item = myItem.id;
 				return false;
@@ -18839,12 +18897,14 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 			onEnd(targetSide) {
 				this.add('-sideend', targetSide, 'Water Pledge');
 			},
-			onModifyMove(move) {
+			onModifyMove(move, pokemon) {
 				if (move.secondaries && move.id !== 'secretpower') {
 					this.debug('doubling secondary chance');
 					for (const secondary of move.secondaries) {
+						if (pokemon.hasAbility('serenegrace') && secondary.volatileStatus === 'flinch') continue;
 						if (secondary.chance) secondary.chance *= 2;
 					}
+					if (move.self?.chance) move.self.chance *= 2;
 				}
 			},
 		},
@@ -18914,7 +18974,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 			onBasePower(basePower, attacker, defender, move) {
 				if (move.type === 'Fire') {
 					this.debug('water sport weaken');
-					return this.chainModify([0x548, 0x1000]);
+					return this.chainModify([1352, 4096]);
 				}
 			},
 			onResidualOrder: 21,
@@ -19053,7 +19113,7 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		priority: 3,
 		flags: {snatch: 1},
 		sideCondition: 'wideguard',
-		onTryHitSide(side, source) {
+		onTry() {
 			return !!this.queue.willAct();
 		},
 		onHitSide(side, source) {
@@ -19285,11 +19345,15 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
-		onTryHit(pokemon) {
-			const bannedAbilities = [
-				'asoneglastrier', 'asonespectrier', 'battlebond', 'comatose', 'disguise', 'insomnia', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'zenmode',
-			];
-			if (bannedAbilities.includes(pokemon.ability)) {
+		onTryImmunity(target) {
+			// Truant and Insomnia have special treatment; they fail before
+			// checking accuracy and will double Stomping Tantrum's BP
+			if (target.ability === 'truant' || target.ability === 'insomnia') {
+				return false;
+			}
+		},
+		onTryHit(target) {
+			if (target.getAbility().isPermanent) {
 				return false;
 			}
 		},

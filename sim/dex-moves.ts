@@ -266,8 +266,8 @@ export type ModdedMoveData = MoveData | Partial<Omit<MoveData, 'name'>> & {
 	igniteBoosted?: boolean,
 	gen?: number,
 
-	cfmDesc?: string; // CFM modified
-	cfm?: boolean; // CFM modified
+	cfmDesc?: string, // CFM modified
+	cfm?: boolean, // CFM modified
 };
 
 export interface Move extends Readonly<BasicEffect & MoveData> {

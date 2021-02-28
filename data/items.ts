@@ -1,4 +1,4 @@
-export const Items: {[itemid: string]: ModdedItemData} = {
+export const Items: {[itemid: string]: ItemData} = {
 	abomasite: {
 		name: "Abomasite",
 		spritenum: 575,
@@ -6,11 +6,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Abomasnow",
 		itemUser: ["Abomasnow"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 674,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	absolite: {
 		name: "Absolite",
@@ -19,11 +20,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Absol",
 		itemUser: ["Absol"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 677,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	absorbbulb: {
 		name: "Absorb Bulb",
@@ -82,11 +84,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Aerodactyl",
 		itemUser: ["Aerodactyl"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 672,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	aggronite: {
 		name: "Aggronite",
@@ -95,11 +98,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Aggron",
 		itemUser: ["Aggron"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 667,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	aguavberry: {
 		name: "Aguav Berry",
@@ -163,22 +167,23 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Alakazam",
 		itemUser: ["Alakazam"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 679,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	aloraichiumz: {
 		name: "Aloraichium Z",
 		spritenum: 655,
 		onTakeItem: false,
 		zMove: "Stoked Sparksurfer",
-		zMoveType: "Electric",
-		zMoveCategory: "Special",
+		zMoveFrom: "Thunderbolt",
 		itemUser: ["Raichu-Alola"],
 		num: 803,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	altarianite: {
 		name: "Altarianite",
@@ -187,11 +192,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Altaria",
 		itemUser: ["Altaria"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 755,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	ampharosite: {
 		name: "Ampharosite",
@@ -200,11 +206,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Ampharos",
 		itemUser: ["Ampharos"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 658,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	apicotberry: {
 		name: "Apicot Berry",
@@ -233,6 +240,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 104,
 		gen: 4,
+		isNonstandard: "Past",
 	},
 	aspearberry: {
 		name: "Aspear Berry",
@@ -282,11 +290,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Audino",
 		itemUser: ["Audino"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 757,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	babiriberry: {
 		name: "Babiri Berry",
@@ -319,11 +328,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Banette",
 		itemUser: ["Banette"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 668,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	beastball: {
 		name: "Beast Ball",
@@ -339,11 +349,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Beedrill",
 		itemUser: ["Beedrill"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 770,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	belueberry: {
 		name: "Belue Berry",
@@ -356,6 +367,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat: false,
 		num: 183,
 		gen: 3,
+		isNonstandard: "Past",
 	},
 	berryjuice: {
 		name: "Berry Juice",
@@ -472,11 +484,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Blastoise",
 		itemUser: ["Blastoise"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 661,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	blazikenite: {
 		name: "Blazikenite",
@@ -485,11 +498,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Blaziken",
 		itemUser: ["Blaziken"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 664,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	blueorb: {
 		name: "Blue Orb",
@@ -509,6 +523,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Kyogre"],
 		num: 535,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	blukberry: {
 		name: "Bluk Berry",
@@ -568,6 +583,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 558,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	bugmemory: {
 		name: "Bug Memory",
@@ -594,6 +610,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Bug",
 		num: 787,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	burndrive: {
 		name: "Burn Drive",
@@ -617,11 +634,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Camerupt",
 		itemUser: ["Camerupt"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 767,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	cellbattery: {
 		name: "Cell Battery",
@@ -662,11 +680,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Charizard",
 		itemUser: ["Charizard"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 660,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	charizarditey: {
 		name: "Charizardite Y",
@@ -675,11 +694,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Charizard",
 		itemUser: ["Charizard"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 678,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	chartiberry: {
 		name: "Charti Berry",
@@ -905,6 +925,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 100,
 		gen: 3,
+		isNonstandard: "Past",
 	},
 	cloversweet: {
 		name: "Clover Sweet",
@@ -974,6 +995,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat: false,
 		num: 175,
 		gen: 3,
+		isNonstandard: "Past",
 	},
 	coverfossil: {
 		name: "Cover Fossil",
@@ -983,6 +1005,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 572,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	crackedpot: {
 		name: "Cracked Pot",
@@ -1038,6 +1061,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 562,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	darkmemory: {
 		name: "Dark Memory",
@@ -1064,6 +1088,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Dark",
 		num: 791,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	dawnstone: {
 		name: "Dawn Stone",
@@ -1083,22 +1108,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Decidueye"],
 		num: 798,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	deepseascale: {
 		name: "Deep Sea Scale",
 		spritenum: 93,
-		shortDesc: "If held by a Clamperl, its Def and Sp. Def are doubled.",
 		fling: {
 			basePower: 30,
 		},
 		onModifySpDPriority: 2,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.name === 'Clamperl') {
-				return this.chainModify(2);
-			}
-		},
-		onModifyDefPriority: 2,
-		onModifyDef(def, pokemon) {
 			if (pokemon.baseSpecies.name === 'Clamperl') {
 				return this.chainModify(2);
 			}
@@ -1145,11 +1164,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Diancie",
 		itemUser: ["Diancie"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 764,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	diveball: {
 		name: "Dive Ball",
@@ -1166,6 +1186,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 102,
 		gen: 3,
+		isNonstandard: "Past",
 	},
 	dousedrive: {
 		name: "Douse Drive",
@@ -1201,6 +1222,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Dragon",
 		num: 311,
 		gen: 4,
+		isNonstandard: "Unobtainable",
 	},
 	dragonfang: {
 		name: "Dragon Fang",
@@ -1229,6 +1251,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 561,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	dragonmemory: {
 		name: "Dragon Memory",
@@ -1264,6 +1287,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Dragon",
 		num: 790,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	dreadplate: {
 		name: "Dread Plate",
@@ -1284,6 +1308,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Dark",
 		num: 312,
 		gen: 4,
+		isNonstandard: "Unobtainable",
 	},
 	dreamball: {
 		name: "Dream Ball",
@@ -1312,6 +1337,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat: false,
 		num: 182,
 		gen: 3,
+		isNonstandard: "Past",
 	},
 	duskball: {
 		name: "Dusk Ball",
@@ -1348,6 +1374,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Ground",
 		num: 305,
 		gen: 4,
+		isNonstandard: "Unobtainable",
 	},
 	eeviumz: {
 		name: "Eevium Z",
@@ -1358,6 +1385,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Eevee"],
 		num: 805,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	ejectbutton: {
 		name: "Eject Button",
@@ -1433,6 +1461,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 550,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	electricmemory: {
 		name: "Electric Memory",
@@ -1480,9 +1509,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMove: true,
 		zMoveType: "Electric",
 		forcedForme: "Arceus-Electric",
-		zMoveSpecialMoves: {"Zeraora": "Plasma Fists", "Zekrom": "Bolt Strike"},
 		num: 779,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	energypowder: {
 		name: "Energy Powder",
@@ -1560,6 +1589,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Fairy",
 		num: 793,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	fairygem: {
 		name: "Fairy Gem",
@@ -1573,6 +1603,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 715,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	fairymemory: {
 		name: "Fairy Memory",
@@ -1608,6 +1639,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 553,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	fightingmemory: {
 		name: "Fighting Memory",
@@ -1634,6 +1666,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Fighting",
 		num: 782,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	figyberry: {
 		name: "Figy Berry",
@@ -1673,6 +1706,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 548,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	firememory: {
 		name: "Fire Memory",
@@ -1706,9 +1740,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMove: true,
 		zMoveType: "Fire",
 		forcedForme: "Arceus-Fire",
-		zMoveSpecialMoves: {"Victini": "V-Create", "Reshiram": "Blue Flare"},
 		num: 777,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	fistplate: {
 		name: "Fist Plate",
@@ -1729,6 +1763,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Fighting",
 		num: 303,
 		gen: 4,
+		isNonstandard: "Unobtainable",
 	},
 	flameorb: {
 		name: "Flame Orb",
@@ -1764,6 +1799,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Fire",
 		num: 298,
 		gen: 4,
+		isNonstandard: "Unobtainable",
 	},
 	floatstone: {
 		name: "Float Stone",
@@ -1776,7 +1812,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 539,
 		gen: 5,
-		shortDesc: "Halves weight; prevents an airborne holder from becoming grounded.",
 	},
 	flowersweet: {
 		name: "Flower Sweet",
@@ -1799,6 +1834,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 556,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	flyingmemory: {
 		name: "Flying Memory",
@@ -1825,6 +1861,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Flying",
 		num: 785,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	focusband: {
 		name: "Focus Band",
@@ -1937,11 +1974,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Gallade",
 		itemUser: ["Gallade"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 756,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	ganlonberry: {
 		name: "Ganlon Berry",
@@ -1969,11 +2007,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Garchomp",
 		itemUser: ["Garchomp"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 683,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	gardevoirite: {
 		name: "Gardevoirite",
@@ -1982,11 +2021,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Gardevoir",
 		itemUser: ["Gardevoir"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 657,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	gengarite: {
 		name: "Gengarite",
@@ -1995,11 +2035,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Gengar",
 		itemUser: ["Gengar"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 656,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	ghostgem: {
 		name: "Ghost Gem",
@@ -2013,6 +2054,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 560,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	ghostmemory: {
 		name: "Ghost Memory",
@@ -2039,6 +2081,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Ghost",
 		num: 789,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	glalitite: {
 		name: "Glalitite",
@@ -2047,11 +2090,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Glalie",
 		itemUser: ["Glalie"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 763,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	goldbottlecap: {
 		name: "Gold Bottle Cap",
@@ -2075,6 +2119,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 551,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	grassmemory: {
 		name: "Grass Memory",
@@ -2101,6 +2146,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Grass",
 		num: 780,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	grassyseed: {
 		name: "Grassy Seed",
@@ -2189,6 +2235,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 555,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	groundmemory: {
 		name: "Ground Memory",
@@ -2213,9 +2260,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMove: true,
 		zMoveType: "Ground",
 		forcedForme: "Arceus-Ground",
-		zMoveSpecialMoves: {"Zygarde": "Land's Wrath"},
 		num: 784,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	gyaradosite: {
 		name: "Gyaradosite",
@@ -2224,11 +2271,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Gyarados",
 		itemUser: ["Gyarados"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 676,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	habanberry: {
 		name: "Haban Berry",
@@ -2310,6 +2358,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 101,
 		gen: 3,
+		isNonstandard: "Past",
 	},
 	heracronite: {
 		name: "Heracronite",
@@ -2318,11 +2367,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Heracross",
 		itemUser: ["Heracross"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 680,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	hondewberry: {
 		name: "Hondew Berry",
@@ -2343,11 +2393,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Houndoom",
 		itemUser: ["Houndoom"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 666,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	iapapaberry: {
 		name: "Iapapa Berry",
@@ -2386,6 +2437,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 552,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	icememory: {
 		name: "Ice Memory",
@@ -2430,6 +2482,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Ice",
 		num: 302,
 		gen: 4,
+		isNonstandard: "Unobtainable",
 	},
 	iciumz: {
 		name: "Icium Z",
@@ -2441,6 +2494,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Ice",
 		num: 781,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	icyrock: {
 		name: "Icy Rock",
@@ -2460,6 +2514,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Incineroar"],
 		num: 799,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	insectplate: {
 		name: "Insect Plate",
@@ -2480,6 +2535,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Bug",
 		num: 308,
 		gen: 4,
+		isNonstandard: "Unobtainable",
 	},
 	ironball: {
 		name: "Iron Ball",
@@ -2518,6 +2574,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Steel",
 		num: 313,
 		gen: 4,
+		isNonstandard: "Unobtainable",
 	},
 	jabocaberry: {
 		name: "Jaboca Berry",
@@ -2546,6 +2603,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 710,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	kasibberry: {
 		name: "Kasib Berry",
@@ -2634,11 +2692,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Kangaskhan",
 		itemUser: ["Kangaskhan"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 675,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	kingsrock: {
 		name: "King's Rock",
@@ -2672,6 +2731,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Kommo-o", "Kommo-o-Totem"],
 		num: 926,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	laggingtail: {
 		name: "Lagging Tail",
@@ -2701,6 +2761,34 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 206,
 		gen: 3,
+	},
+	latiasite: {
+		name: "Latiasite",
+		spritenum: 629,
+		megaStone: "Latias-Mega",
+		megaEvolves: "Latias",
+		itemUser: ["Latias"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 684,
+		gen: 6,
+		isNonstandard: "Past",
+	},
+	latiosite: {
+		name: "Latiosite",
+		spritenum: 630,
+		megaStone: "Latios-Mega",
+		megaEvolves: "Latios",
+		itemUser: ["Latios"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 685,
+		gen: 6,
+		isNonstandard: "Past",
 	},
 	laxincense: {
 		name: "Lax Incense",
@@ -2837,13 +2925,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || pokemon.species.name === 'Pichu-Spiky-eared') {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || pokemon.species.name === 'Pichu-Spiky-eared') {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
 				return this.chainModify(2);
 			}
 		},
@@ -2868,11 +2956,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Lopunny",
 		itemUser: ["Lopunny"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 768,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	loveball: {
 		name: "Love Ball",
@@ -2897,11 +2986,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Lucario",
 		itemUser: ["Lucario"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 673,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	luckypunch: {
 		name: "Lucky Punch",
@@ -2917,6 +3007,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Chansey"],
 		num: 256,
 		gen: 2,
+		isNonstandard: "Past",
 	},
 	lumberry: {
 		name: "Lum Berry",
@@ -2968,6 +3059,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Lunala", "Necrozma-Dawn-Wings"],
 		num: 922,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	lureball: {
 		name: "Lure Ball",
@@ -3008,6 +3100,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk"],
 		num: 925,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	machobrace: {
 		name: "Macho Brace",
@@ -3082,6 +3175,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat: false,
 		num: 176,
 		gen: 3,
+		isNonstandard: "Past",
 	},
 	mail: {
 		name: "Mail",
@@ -3092,6 +3186,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 0,
 		gen: 2,
+		isNonstandard: "Past",
 	},
 	manectite: {
 		name: "Manectite",
@@ -3100,11 +3195,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Manectric",
 		itemUser: ["Manectric"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 682,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	marangaberry: {
 		name: "Maranga Berry",
@@ -3134,6 +3230,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Marshadow"],
 		num: 802,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	masterball: {
 		name: "Master Ball",
@@ -3149,11 +3246,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Mawile",
 		itemUser: ["Mawile"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 681,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	meadowplate: {
 		name: "Meadow Plate",
@@ -3174,6 +3272,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Grass",
 		num: 301,
 		gen: 4,
+		isNonstandard: "Unobtainable",
 	},
 	medichamite: {
 		name: "Medichamite",
@@ -3182,11 +3281,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Medicham",
 		itemUser: ["Medicham"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 665,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	mentalherb: {
 		name: "Mental Herb",
@@ -3233,11 +3333,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Metagross",
 		itemUser: ["Metagross"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 758,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	metalcoat: {
 		name: "Metal Coat",
@@ -3313,10 +3414,39 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 658,
 		onTakeItem: false,
 		zMove: "Genesis Supernova",
-		zMoveType: "Psychic",
+		zMoveFrom: "Psychic",
 		itemUser: ["Mew"],
 		num: 806,
 		gen: 7,
+		isNonstandard: "Past",
+	},
+	mewtwonitex: {
+		name: "Mewtwonite X",
+		spritenum: 600,
+		megaStone: "Mewtwo-Mega-X",
+		megaEvolves: "Mewtwo",
+		itemUser: ["Mewtwo"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 662,
+		gen: 6,
+		isNonstandard: "Past",
+	},
+	mewtwonitey: {
+		name: "Mewtwonite Y",
+		spritenum: 601,
+		megaStone: "Mewtwo-Mega-Y",
+		megaEvolves: "Mewtwo",
+		itemUser: ["Mewtwo"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 663,
+		gen: 6,
+		isNonstandard: "Past",
 	},
 	micleberry: {
 		name: "Micle Berry",
@@ -3357,6 +3487,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMoveFrom: "Play Rough",
 		itemUser: ["Mimikyu", "Mimikyu-Busted", "Mimikyu-Totem", "Mimikyu-Busted-Totem"],
 		num: 924,
+		isNonstandard: "Past",
 		gen: 7,
 	},
 	mindplate: {
@@ -3378,6 +3509,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Psychic",
 		num: 307,
 		gen: 4,
+		isNonstandard: "Unobtainable",
 	},
 	miracleseed: {
 		name: "Miracle Seed",
@@ -3474,6 +3606,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat: false,
 		num: 166,
 		gen: 3,
+		isNonstandard: "Past",
 	},
 	nestball: {
 		name: "Nest Ball",
@@ -3515,6 +3648,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat: false,
 		num: 178,
 		gen: 3,
+		isNonstandard: "Past",
 	},
 	normalgem: {
 		name: "Normal Gem",
@@ -3538,6 +3672,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMoveType: "Normal",
 		num: 776,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	occaberry: {
 		name: "Occa Berry",
@@ -3586,6 +3721,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 103,
 		gen: 3,
+		isNonstandard: "Past",
 	},
 	oranberry: {
 		name: "Oran Berry",
@@ -3629,6 +3765,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat: false,
 		num: 180,
 		gen: 3,
+		isNonstandard: "Past",
 	},
 	parkball: {
 		name: "Park Ball",
@@ -3751,11 +3888,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Pidgeot",
 		itemUser: ["Pidgeot"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 762,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	pikaniumz: {
 		name: "Pikanium Z",
@@ -3766,6 +3904,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Pikachu"],
 		num: 794,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	pikashuniumz: {
 		name: "Pikashunium Z",
@@ -3775,6 +3914,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMoveFrom: "Thunderbolt",
 		itemUser: ["Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner"],
 		num: 836,
+		isNonstandard: "Past",
 		gen: 7,
 	},
 	pinapberry: {
@@ -3796,11 +3936,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Pinsir",
 		itemUser: ["Pinsir"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 671,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	pixieplate: {
 		name: "Pixie Plate",
@@ -3830,6 +3971,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 573,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	poisonbarb: {
 		name: "Poison Barb",
@@ -3859,6 +4001,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 554,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	poisonmemory: {
 		name: "Poison Memory",
@@ -3885,6 +4028,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Poison",
 		num: 783,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	pokeball: {
 		name: "Poke Ball",
@@ -4016,6 +4160,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Primarina"],
 		num: 800,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	prismscale: {
 		name: "Prism Scale",
@@ -4098,6 +4243,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 557,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	psychicmemory: {
 		name: "Psychic Memory",
@@ -4147,6 +4293,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Psychic",
 		num: 786,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	qualotberry: {
 		name: "Qualot Berry",
@@ -4209,6 +4356,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat: false,
 		num: 177,
 		gen: 3,
+		isNonstandard: "Past",
 	},
 	rarebone: {
 		name: "Rare Bone",
@@ -4274,6 +4422,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 327,
 		gen: 4,
+		isNonstandard: "Past",
 	},
 	razzberry: {
 		name: "Razz Berry",
@@ -4286,6 +4435,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat: false,
 		num: 164,
 		gen: 3,
+		isNonstandard: "Past",
 	},
 	reapercloth: {
 		name: "Reaper Cloth",
@@ -4336,6 +4486,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Groudon"],
 		num: 534,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	repeatball: {
 		name: "Repeat Ball",
@@ -4399,6 +4550,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 559,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	rockincense: {
 		name: "Rock Incense",
@@ -4440,6 +4592,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Rock",
 		num: 788,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	rockyhelmet: {
 		name: "Rocky Helmet",
@@ -4481,6 +4634,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 99,
 		gen: 3,
+		isNonstandard: "Past",
 	},
 	roseincense: {
 		name: "Rose Incense",
@@ -4575,11 +4729,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Sableye",
 		itemUser: ["Sableye"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 754,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	sachet: {
 		name: "Sachet",
@@ -4623,6 +4778,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 711,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	salacberry: {
 		name: "Salac Berry",
@@ -4650,11 +4806,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Salamence",
 		itemUser: ["Salamence"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 769,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	sceptilite: {
 		name: "Sceptilite",
@@ -4663,11 +4820,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Sceptile",
 		itemUser: ["Sceptile"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 753,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	scizorite: {
 		name: "Scizorite",
@@ -4676,11 +4834,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Scizor",
 		itemUser: ["Scizor"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 670,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	scopelens: {
 		name: "Scope Lens",
@@ -4731,11 +4890,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Sharpedo",
 		itemUser: ["Sharpedo"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 759,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	shedshell: {
 		name: "Shed Shell",
@@ -4873,6 +5033,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 105,
 		gen: 4,
+		isNonstandard: "Past",
 	},
 	skyplate: {
 		name: "Sky Plate",
@@ -4893,6 +5054,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Flying",
 		num: 306,
 		gen: 4,
+		isNonstandard: "Unobtainable",
 	},
 	slowbronite: {
 		name: "Slowbronite",
@@ -4901,11 +5063,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Slowbro",
 		itemUser: ["Slowbro"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 760,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	smoothrock: {
 		name: "Smooth Rock",
@@ -4921,11 +5084,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 656,
 		onTakeItem: false,
 		zMove: "Pulverizing Pancake",
-		zMoveType: "Normal",
-		zMoveCategory: "Physical",
+		zMoveFrom: "Giga Impact",
 		itemUser: ["Snorlax"],
 		num: 804,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	snowball: {
 		name: "Snowball",
@@ -4968,6 +5131,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Solgaleo", "Necrozma-Dusk-Mane"],
 		num: 921,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	souldew: {
 		name: "Soul Dew",
@@ -5014,6 +5178,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat: false,
 		num: 179,
 		gen: 3,
+		isNonstandard: "Past",
 	},
 	splashplate: {
 		name: "Splash Plate",
@@ -5034,6 +5199,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Water",
 		num: 299,
 		gen: 4,
+		isNonstandard: "Unobtainable",
 	},
 	spookyplate: {
 		name: "Spooky Plate",
@@ -5054,6 +5220,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Ghost",
 		num: 310,
 		gen: 4,
+		isNonstandard: "Unobtainable",
 	},
 	sportball: {
 		name: "Sport Ball",
@@ -5109,11 +5276,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Steelix",
 		itemUser: ["Steelix"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 761,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	steelgem: {
 		name: "Steel Gem",
@@ -5127,6 +5295,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 563,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	steelmemory: {
 		name: "Steel Memory",
@@ -5153,6 +5322,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Steel",
 		num: 792,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	stick: {
 		name: "Stick",
@@ -5168,6 +5338,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Farfetch\u2019d"],
 		num: 259,
 		gen: 2,
+		isNonstandard: "Past",
 	},
 	stickybarb: {
 		name: "Sticky Barb",
@@ -5210,6 +5381,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Rock",
 		num: 309,
 		gen: 4,
+		isNonstandard: "Unobtainable",
 	},
 	strawberrysweet: {
 		name: "Strawberry Sweet",
@@ -5236,11 +5408,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Swampert",
 		itemUser: ["Swampert"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 752,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	sweetapple: {
 		name: "Sweet Apple",
@@ -5296,6 +5469,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Tapu Koko", "Tapu Lele", "Tapu Bulu", "Tapu Fini"],
 		num: 801,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	tartapple: {
 		name: "Tart Apple",
@@ -5398,6 +5572,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Poison",
 		num: 304,
 		gen: 4,
+		isNonstandard: "Unobtainable",
 	},
 	tr00: {
 		name: "TR00",
@@ -6321,11 +6496,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Tyranitar",
 		itemUser: ["Tyranitar"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 669,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	ultraball: {
 		name: "Ultra Ball",
@@ -6341,9 +6517,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMove: "Light That Burns the Sky",
 		zMoveFrom: "Photon Geyser",
 		itemUser: ["Necrozma-Ultra"],
-		zMoveSpecialMoves: {"Necrozma": "Prismatic Laser"},
 		num: 923,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	upgrade: {
 		name: "Up-Grade",
@@ -6371,11 +6547,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Venusaur",
 		itemUser: ["Venusaur"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.species.name) return false;
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
 		num: 659,
 		gen: 6,
+		isNonstandard: "Past",
 	},
 	wacanberry: {
 		name: "Wacan Berry",
@@ -6413,6 +6590,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 549,
 		gen: 5,
+		isNonstandard: "Past",
 	},
 	watermemory: {
 		name: "Water Memory",
@@ -6448,6 +6626,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Water",
 		num: 778,
 		gen: 7,
+		isNonstandard: "Past",
 	},
 	watmelberry: {
 		name: "Watmel Berry",
@@ -6460,6 +6639,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat: false,
 		num: 181,
 		gen: 3,
+		isNonstandard: "Past",
 	},
 	waveincense: {
 		name: "Wave Incense",
@@ -6505,6 +6685,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onEat: false,
 		num: 167,
 		gen: 3,
+		isNonstandard: "Past",
 	},
 	whippeddream: {
 		name: "Whipped Dream",
@@ -6652,6 +6833,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Electric",
 		num: 300,
 		gen: 4,
+		isNonstandard: "Unobtainable",
 	},
 	zoomlens: {
 		name: "Zoom Lens",
@@ -6668,5 +6850,299 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 276,
 		gen: 4,
+	},
+
+	// Gen 2 items
+
+	berserkgene: {
+		name: "Berserk Gene",
+		spritenum: 388,
+		onUpdate(pokemon) {
+			this.boost({atk: 2});
+			pokemon.addVolatile('confusion');
+			pokemon.setItem('');
+		},
+		num: 0,
+		gen: 2,
+		isNonstandard: "Past",
+	},
+	berry: {
+		name: "Berry",
+		spritenum: 319,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Poison",
+		},
+		onResidualOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(10);
+		},
+		num: 155,
+		gen: 2,
+		isNonstandard: "Past",
+	},
+	bitterberry: {
+		name: "Bitter Berry",
+		spritenum: 334,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Ground",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['confusion']) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			pokemon.removeVolatile('confusion');
+		},
+		num: 156,
+		gen: 2,
+		isNonstandard: "Past",
+	},
+	burntberry: {
+		name: "Burnt Berry",
+		spritenum: 13,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Ice",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'frz') {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			if (pokemon.status === 'frz') {
+				pokemon.cureStatus();
+			}
+		},
+		num: 153,
+		gen: 2,
+		isNonstandard: "Past",
+	},
+	goldberry: {
+		name: "Gold Berry",
+		spritenum: 448,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Psychic",
+		},
+		onResidualOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(30);
+		},
+		num: 158,
+		gen: 2,
+		isNonstandard: "Past",
+	},
+	iceberry: {
+		name: "Ice Berry",
+		spritenum: 381,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Grass",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			if (pokemon.status === 'brn') {
+				pokemon.cureStatus();
+			}
+		},
+		num: 152,
+		gen: 2,
+		isNonstandard: "Past",
+	},
+	mintberry: {
+		name: "Mint Berry",
+		spritenum: 65,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Water",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'slp') {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			if (pokemon.status === 'slp') {
+				pokemon.cureStatus();
+			}
+		},
+		num: 150,
+		gen: 2,
+		isNonstandard: "Past",
+	},
+	miracleberry: {
+		name: "Miracle Berry",
+		spritenum: 262,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Flying",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status || pokemon.volatiles['confusion']) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			pokemon.cureStatus();
+			pokemon.removeVolatile('confusion');
+		},
+		num: 157,
+		gen: 2,
+		isNonstandard: "Past",
+	},
+	mysteryberry: {
+		name: "Mystery Berry",
+		spritenum: 244,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Fighting",
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.hp) return;
+			const moveSlot = pokemon.lastMove && pokemon.getMoveData(pokemon.lastMove.id);
+			if (moveSlot && moveSlot.pp === 0) {
+				pokemon.addVolatile('leppaberry');
+				pokemon.volatiles['leppaberry'].moveSlot = moveSlot;
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			let moveSlot;
+			if (pokemon.volatiles['leppaberry']) {
+				moveSlot = pokemon.volatiles['leppaberry'].moveSlot;
+				pokemon.removeVolatile('leppaberry');
+			} else {
+				let pp = 99;
+				for (const possibleMoveSlot of pokemon.moveSlots) {
+					if (possibleMoveSlot.pp < pp) {
+						moveSlot = possibleMoveSlot;
+						pp = moveSlot.pp;
+					}
+				}
+			}
+			moveSlot.pp += 5;
+			if (moveSlot.pp > moveSlot.maxpp) moveSlot.pp = moveSlot.maxpp;
+			this.add('-activate', pokemon, 'item: Mystery Berry', moveSlot.move);
+		},
+		num: 154,
+		gen: 2,
+		isNonstandard: "Past",
+	},
+	pinkbow: {
+		name: "Pink Bow",
+		spritenum: 444,
+		onBasePower(basePower, user, target, move) {
+			if (move.type === 'Normal') {
+				return basePower * 1.1;
+			}
+		},
+		num: 251,
+		gen: 2,
+		isNonstandard: "Past",
+	},
+	polkadotbow: {
+		name: "Polkadot Bow",
+		spritenum: 444,
+		onBasePower(basePower, user, target, move) {
+			if (move.type === 'Normal') {
+				return basePower * 1.1;
+			}
+		},
+		num: 251,
+		gen: 2,
+		isNonstandard: "Past",
+	},
+	przcureberry: {
+		name: "PRZ Cure Berry",
+		spritenum: 63,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Fire",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'par') {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			if (pokemon.status === 'par') {
+				pokemon.cureStatus();
+			}
+		},
+		num: 149,
+		gen: 2,
+		isNonstandard: "Past",
+	},
+	psncureberry: {
+		name: "PSN Cure Berry",
+		spritenum: 333,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Electric",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+				pokemon.cureStatus();
+			}
+		},
+		num: 151,
+		gen: 2,
+		isNonstandard: "Past",
+	},
+
+	// CAP items
+
+	crucibellite: {
+		name: "Crucibellite",
+		spritenum: 577,
+		megaStone: "Crucibelle-Mega",
+		megaEvolves: "Crucibelle",
+		itemUser: ["Crucibelle"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1,
+		gen: 6,
+		isNonstandard: "CAP",
 	},
 };

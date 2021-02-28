@@ -55,14 +55,12 @@ export const Scripts: BattleScriptsData = {
 			// false indicates that this counts as a move failing for the purpose of calculating Stomping Tantrum's base power
 			// null indicates the opposite, as the Pokemon didn't have an option to choose anything
 			pokemon.moveThisTurnResult = willTryMove;
-			this.send('tutorialMove', `${pokemon.side.id}\n${move.id}`);
 			return;
 		}
 		if (move.beforeMoveCallback) {
 			if (move.beforeMoveCallback.call(this, pokemon, target, move)) {
 				this.clearActiveMove(true);
 				pokemon.moveThisTurnResult = false;
-				this.send('tutorialMove', `${pokemon.side.id}\n${move.id}`);
 				return;
 			}
 		}
@@ -76,7 +74,6 @@ export const Scripts: BattleScriptsData = {
 					this.add('cant', pokemon, 'nopp', move);
 					this.clearActiveMove(true);
 					pokemon.moveThisTurnResult = false;
-					this.send('tutorialMove', `${pokemon.side.id}\n${move.id}`);
 					return;
 				}
 			} else {
@@ -101,7 +98,6 @@ export const Scripts: BattleScriptsData = {
 		if (this.activeMove) move = this.activeMove;
 		this.singleEvent('AfterMove', move, null, pokemon, target, move);
 		this.runEvent('AfterMove', pokemon, target, move);
-		this.send('tutorialMove', `${pokemon.side.id}\n${move.id}`);
 
 		// Dancer's activation order is completely different from any other event, so it's handled separately
 		if (move.flags['dance'] && moveDidSomething && !move.isExternal) {
@@ -1093,53 +1089,47 @@ export const Scripts: BattleScriptsData = {
 
 	getZMove(move, pokemon, skipChecks) {
 		const item = pokemon.getItem();
-		const type = this.getEffectiveType(move, pokemon);
 		if (!skipChecks) {
 			if (pokemon.side.zMoveUsed) return;
 			if (!item.zMove) return;
+			if (item.itemUser && !item.itemUser.includes(pokemon.species.name)) return;
 			const moveData = pokemon.getMoveData(move);
 			// Draining the PP of the base move prevents the corresponding Z-move from being used.
 			if (!moveData?.pp) return;
 		}
-		if (item.zMoveSpecialMoves && !!item.zMoveSpecialMoves[pokemon.baseSpecies.baseSpecies] &&
-				!item.itemUser?.includes(pokemon.species.name)) {
-			const zMove = this.dex.getMove(item.zMoveSpecialMoves[pokemon.baseSpecies.baseSpecies]);
-			if (zMove.zMoveSpecialMoveFrom?.includes(move.name) ||
-			zMove.zMoveSpecialType === type) return zMove.name;
-		}
-		if (typeof item.zMove === 'string') {
-			if (item.itemUser && !item.itemUser.includes(pokemon.species.name)) return;
-			if (item.zMoveFrom && move.name !== item.zMoveFrom) return;
-			if (item.zMoveType && type !== item.zMoveType) return;
-			if (item.zMoveCategory && this.getCategory(move, pokemon) !== item.zMoveCategory) return;
-			return item.zMove;
+
+		if (item.zMoveFrom) {
+			if (move.name === item.zMoveFrom) return item.zMove as string;
 		} else if (item.zMove === true) {
-			if (type === item.zMoveType) {
+			if (move.type === item.zMoveType) {
 				if (move.category === "Status") {
 					return move.name;
 				} else if (move.zMove?.basePower) {
-					return this.zMoveTable[this.getEffectiveType(move, pokemon)];
+					return this.zMoveTable[move.type];
 				}
 			}
 		}
 	},
 
 	getActiveZMove(move, pokemon) {
+		if (pokemon) {
+			const item = pokemon.getItem();
+			if (move.name === item.zMoveFrom) {
+				const zMove = this.dex.getActiveMove(item.zMove as string);
+				zMove.isZOrMaxPowered = true;
+				return zMove;
+			}
+		}
+
 		if (move.category === 'Status') {
 			const zMove = this.dex.getActiveMove(move);
 			zMove.isZ = true;
 			zMove.isZOrMaxPowered = true;
 			return zMove;
 		}
-
-		// Get what the Z Move is supposed to be from the held item
-		const zMoveName = this.getZMove(move, pokemon, true) || this.zMoveTable[move.type];
-		const zMove = this.dex.getActiveMove(this.dex.getActiveMove(zMoveName));
-
-		// Non-unique Z Moves don't have a fixed BP or category
+		const zMove = this.dex.getActiveMove(this.zMoveTable[move.type]);
 		zMove.basePower = move.zMove!.basePower!;
 		zMove.category = move.category;
-
 		// copy the priority for Quick Guard
 		zMove.priority = move.priority;
 		zMove.isZOrMaxPowered = true;
@@ -1153,6 +1143,7 @@ export const Scripts: BattleScriptsData = {
 		) return;
 		const item = pokemon.getItem();
 		if (!item.zMove) return;
+		if (item.itemUser && !item.itemUser.includes(pokemon.species.name)) return;
 		let atLeastOne = false;
 		let mustStruggle = true;
 		const zMoves: ZMoveOptions = [];
