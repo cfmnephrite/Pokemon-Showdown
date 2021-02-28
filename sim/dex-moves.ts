@@ -242,12 +242,32 @@ export interface MoveData extends EffectData, MoveEventMethods, HitEffect {
 	noSketch?: boolean;
 	stallingMove?: boolean;
 	baseMove?: string;
+
+	// CFM - have to be here because of dumbness
+	// Power of Alchemy boost
+	poaBoosted?: boolean;
+	// RKS boost (Type: Null)
+	rksBoosted?: boolean;
+	// Rock head - modified crit rate
+	rockHead?: boolean;
+	// Solar Power - boosts moves using higher offensive stat in sunlight
+	solarPowerBoosted?: boolean;
+	// Mold Breaker et al make moves also ignore weather
+	ignoreWeather?: boolean;
+
+	// Special Z Moves
+	zMoveSpecialUser?: string;
+	zMoveSpecialType?: string;
+	zMoveSpecialMoveFrom?: string[];
 }
 
 export type ModdedMoveData = MoveData | Partial<Omit<MoveData, 'name'>> & {
 	inherit: true,
 	igniteBoosted?: boolean,
 	gen?: number,
+
+	cfmDesc?: string; // CFM modified
+	cfm?: boolean; // CFM modified
 };
 
 export interface Move extends Readonly<BasicEffect & MoveData> {
