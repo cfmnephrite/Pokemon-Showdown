@@ -1901,7 +1901,7 @@ export class TeamValidator {
 							babyOnly = '';
 							continue;
 						} else
-							return {type: 'invalid'}; // Will do for now...
+							return ` can't learn ${move.name}.`;
 							// return {type: `${species.id} : ${checkingPrevo} : ${JSON.stringify(setSources)}`};
 							// return {type: babyOnly ? 'cfmprevoonly' : 'invalid'};
 					}

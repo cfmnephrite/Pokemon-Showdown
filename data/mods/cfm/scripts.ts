@@ -1,4 +1,4 @@
-import type {Dex} from '../sim/dex';
+import type {Dex} from '../../../sim/dex';
 
 const CHOOSABLE_TARGETS = new Set(['normal', 'any', 'adjacentAlly', 'adjacentAllyOrSelf', 'adjacentFoe']);
 

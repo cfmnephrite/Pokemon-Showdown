@@ -1006,7 +1006,7 @@ export class RandomCFMTeams extends RandomTeams {
 			} else if (item === 'Light Ball') {
 				bst += baseStats.atk + baseStats.spa;
 			}
-			level = 70 + Math.floor(((600 - Utils.clampIntRange(bst, 300, 600)) / 10.34));
+			level = 70 + Math.floor(600 - bst / 10.34);
 		}
 
 		// Prepare optimal HP
@@ -1240,7 +1240,7 @@ export class RandomCFMTeams extends RandomTeams {
 		const priorityPool = [];
 		for (const curSet of setList) {
 			const item = this.dex.getItem(curSet.item);
-			if (teamData.megaCount > 0 && item.megaStone) continue; // reject 2+ mega stones
+			if (teamData.megaCount! > 0 && item.megaStone) continue; // reject 2+ mega stones
 			if (teamData.zCount && teamData.zCount > 0 && item.zMove) continue; // reject 2+ Z stones
 			if (itemsMax[item.id] && teamData.has[item.id] >= itemsMax[item.id]) continue;
 
@@ -1366,7 +1366,7 @@ export class RandomCFMTeams extends RandomTeams {
 			if (teamData.baseFormes[species.baseSpecies]) continue;
 
 			// Limit the number of Megas to one
-			if (teamData.megaCount >= 1 && speciesFlags.megaOnly) continue;
+			if (teamData.megaCount! >= 1 && speciesFlags.megaOnly) continue;
 
 			const set = this.randomFactorySet(species, teamData, chosenTier);
 			if (!set) continue;
@@ -1374,7 +1374,7 @@ export class RandomCFMTeams extends RandomTeams {
 			const itemData = this.dex.getItem(set.item);
 
 			// Actually limit the number of Megas to one
-			if (teamData.megaCount >= 1 && itemData.megaStone) continue;
+			if (teamData.megaCount! >= 1 && itemData.megaStone) continue;
 
 			// Limit the number of Z moves to one
 			if (teamData.zCount && teamData.zCount >= 1 && itemData.zMove) continue;
@@ -1428,7 +1428,7 @@ export class RandomCFMTeams extends RandomTeams {
 
 			teamData.baseFormes[species.baseSpecies] = 1;
 
-			if (itemData.megaStone) teamData.megaCount++;
+			if (itemData.megaStone) teamData.megaCount!++;
 			if (itemData.zMove) {
 				if (!teamData.zCount) teamData.zCount = 0;
 				teamData.zCount++;
