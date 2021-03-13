@@ -16512,19 +16512,16 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 	},
 	steelbeam: {
 		num: 796,
-		accuracy: 95,
+		accuracy: 90,
 		basePower: 140,
 		category: "Special",
 		name: "Steel Beam",
+		desc: "If the target lost HP, the user takes recoil damage equal to 1/2 the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 1/2 recoil.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		mindBlownRecoil: true,
-		onAfterMove(pokemon, target, move) {
-			if (move.mindBlownRecoil && !move.multihit) {
-				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Steel Beam'), true);
-			}
-		},
+		recoil: [1, 2],
 		secondary: null,
 		target: "normal",
 		type: "Steel",
