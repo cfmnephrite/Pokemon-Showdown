@@ -5106,7 +5106,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	stonjourner: {
 		randomBattleMoves: ["earthquake", "heatcrash", "rockpolish", "stoneedge"],
-		tier: "CPU",
+		tier: "CNU",
 		inherit: true,
 	},
 	eiscue: {
@@ -5236,7 +5236,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	regidrago: {
-		tier: "CUU",
+		tier: "COU",
 		inherit: true,
 	},
 	glastrier: {

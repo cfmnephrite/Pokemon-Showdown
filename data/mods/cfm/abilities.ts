@@ -2200,7 +2200,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	magician: {
 		desc: "If this Pokemon has no item, it is immune to Knock Off, Trick, Switcheroo, Thief, Covet, Bestow. If this Pokemon has no item, it will attempt to steal its target's item with every attack.",
 		shortDesc: "If itemless: steals the target's item; else: avoids Knock Off, Trick etc.",
-		cfmDesc: "X",
 		onTryHit(target, source, move) {
 			if (move.target !== 'self' && move.flags['magician']) {
 				this.add('-immune', target, '[from] ability: Magician');
@@ -3574,7 +3573,6 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 	rockhead: {
 		desc: "This Pokémon not take any recoil damage, including damage due to Rocky Helmet, Iron Barbs, Rough Skin and Aftermath. Recoil and 'head' moves have a +1 chance for a critical hit.",
 		shortDesc: "This Pokémon not take any recoil damage; recoil and 'head' moves: +1 crit chance.",
-		cfmDesc: "X",
 		onModifyCritRatio(critRatio) {
 			if (this.activeMove && (this.activeMove.id.includes("head") || this.activeMove.recoil)) {
 				this.activeMove.rockHead = true;

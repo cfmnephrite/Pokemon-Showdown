@@ -28458,7 +28458,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			mudsport: ["7E", "6E", "5E"],
 			nastyplot: ["7E", "6E", "5E", "4E"],
 			naturalgift: ["8T", "4M"],
-			nightmare: ["7V", "3T"],
+			nightmare: ["X"],
 			powdersnow: ["7L7", "6L7", "5L7", "4L7", "3L11"],
 			present: ["8M", "7E", "6E", "5E", "4E"],
 			protect: ["X"],
