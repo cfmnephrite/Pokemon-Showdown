@@ -183,7 +183,7 @@
     {
       "files": [
         "./config/*.ts", "./data/**/*.ts", "./lib/*.ts", "./server/**/*.ts", "./sim/**/*.ts",
-        "./tools/set-import/*.ts",  "./tools/modlog/*.ts", "./translations/**/*.ts"
+        "./tools/set-import/*.ts", "./tools/modlog/*.ts", "./translations/**/*.ts"
       ],
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
@@ -283,6 +283,8 @@
         "@typescript-eslint/quotes": "off",
         "semi": "off",
         "@typescript-eslint/semi": ["error", "always"],
+        "func-call-spacing": "off",
+        "@typescript-eslint/func-call-spacing": "error",
 
         // whitespace
         "@typescript-eslint/type-annotation-spacing": "error",
@@ -304,6 +306,12 @@
         "mocha": true
       },
       "files": ["test/**/*.js"]
+    },
+    {
+      "files": ["build"],
+      "rules": {
+        "no-var": "off"
+      }
     }
   ]
 }

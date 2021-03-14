@@ -4,8 +4,7 @@
  * Written by bumbadadabum, based on the original plugin as written by Codelegend, SilverTactic, DanielCranham
  */
 
-import {FS} from '../../lib/fs';
-import {Utils} from '../../lib/utils';
+import {FS, Utils} from '../../lib';
 
 Punishments.roomPunishmentTypes.set('GIVEAWAYBAN', 'banned from giveaways');
 
@@ -82,7 +81,7 @@ class Giveaway {
 
 	checkJoined(user: User) {
 		for (const ip in this.joined) {
-			if (user.latestIp === ip) return ip;
+			if (user.latestIp === ip && !Config.noipchecks) return ip;
 			if (user.previousIDs.includes(this.joined[ip])) return this.joined[ip];
 		}
 		return false;
@@ -90,7 +89,7 @@ class Giveaway {
 
 	kickUser(user: User) {
 		for (const ip in this.joined) {
-			if (user.latestIp === ip || user.previousIDs.includes(this.joined[ip])) {
+			if (user.latestIp === ip && !Config.noipchecks || user.previousIDs.includes(this.joined[ip])) {
 				user.sendTo(
 					this.room,
 					`|uhtmlchange|giveaway${this.gaNumber}${this.phase}|<div class="broadcast-blue">${this.generateReminder()}</div>`
@@ -103,7 +102,7 @@ class Giveaway {
 	checkExcluded(user: User) {
 		return (
 			user === this.giver ||
-			this.giver.ips.includes(user.latestIp) ||
+			!Config.noipchecks && this.giver.ips.includes(user.latestIp) ||
 			this.giver.previousIDs.includes(toID(user))
 		);
 	}
@@ -350,7 +349,7 @@ export class QuestionGiveaway extends Giveaway {
 
 	checkExcluded(user: User) {
 		if (user === this.host) return true;
-		if (this.host.ips.includes(user.latestIp)) return true;
+		if (this.host.ips.includes(user.latestIp) && !Config.noipchecks) return true;
 		if (this.host.previousIDs.includes(toID(user))) return true;
 		return super.checkExcluded(user);
 	}
@@ -425,7 +424,7 @@ export class LotteryGiveaway extends Giveaway {
 		if (this.phase !== 'pending') return user.sendTo(this.room, "The join phase of the lottery giveaway has ended.");
 		if (!this.checkJoined(user)) return user.sendTo(this.room, "You have not joined the lottery giveaway.");
 		for (const ip in this.joined) {
-			if (ip === user.latestIp || this.joined[ip] === user.id) {
+			if (ip === user.latestIp && !Config.noipchecks || this.joined[ip] === user.id) {
 				delete this.joined[ip];
 			}
 		}
@@ -645,7 +644,7 @@ const cmds: ChatCommands = {
 		tid = toID(tid);
 		if (isNaN(parseInt(tid)) || tid.length < 5 || tid.length > 6) return this.errorReply("Invalid TID");
 		const targetUser = Users.get(giver);
-		if (!targetUser || !targetUser.connected) return this.errorReply(`User '${giver}' is not online.`);
+		if (!targetUser?.connected) return this.errorReply(`User '${giver}' is not online.`);
 		if (!user.can('warn', null, room) && !(user.can('show', null, room) && user === targetUser)) {
 			return this.errorReply("/qg - Access denied.");
 		}
@@ -704,7 +703,7 @@ const cmds: ChatCommands = {
 		tid = toID(tid);
 		if (isNaN(parseInt(tid)) || tid.length < 5 || tid.length > 6) return this.errorReply("Invalid TID");
 		const targetUser = Users.get(giver);
-		if (!targetUser || !targetUser.connected) return this.errorReply(`User '${giver}' is not online.`);
+		if (!targetUser?.connected) return this.errorReply(`User '${giver}' is not online.`);
 		if (!user.can('warn', null, room) && !(user.can('show', null, room) && user === targetUser)) {
 			return this.errorReply("/lg - Access denied.");
 		}
@@ -771,7 +770,7 @@ const cmds: ChatCommands = {
 				return this.errorReply("Please enter a valid amount. For a GTS giveaway, you need to give away at least 20 mons, and no more than 100.");
 			}
 			const targetUser = Users.get(giver);
-			if (!targetUser || !targetUser.connected) return this.errorReply(`User '${giver}' is not online.`);
+			if (!targetUser?.connected) return this.errorReply(`User '${giver}' is not online.`);
 			this.checkCan('warn', null, room);
 			if (!targetUser.autoconfirmed) {
 				return this.errorReply(`User '${targetUser.name}' needs to be autoconfirmed to host a giveaway.`);

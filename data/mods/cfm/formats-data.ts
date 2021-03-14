@@ -5045,9 +5045,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 		inherit: true,
 	},
-	sinisteaantique: {
-		tier: "LC",
-	},
 	polteageist: {
 		randomBattleMoves: ["gigadrain", "shadowball", "shellsmash", "storedpower", "strengthsap"],
 		tier: "CUU",
@@ -5109,7 +5106,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	stonjourner: {
 		randomBattleMoves: ["earthquake", "heatcrash", "rockpolish", "stoneedge"],
-		tier: "CPU",
+		tier: "CNU",
 		inherit: true,
 	},
 	eiscue: {
@@ -5192,7 +5189,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zaciancrowned: {
 		randomBattleMoves: ["behemothblade", "closecombat", "crunch", "playrough", "psychicfangs", "swordsdance"],
-		randomBattleLevel: 72,
+		randomBattleLevel: 66,
 		randomDoubleBattleMoves: ["behemothblade", "closecombat", "playrough", "protect", "psychicfangs", "swordsdance"],
 		tier: "CUb",
 		inherit: true,
@@ -5239,7 +5236,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	regidrago: {
-		tier: "CUU",
+		tier: "COU",
 		inherit: true,
 	},
 	glastrier: {
