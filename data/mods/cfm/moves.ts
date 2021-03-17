@@ -16261,14 +16261,14 @@ Speed: BP varies depending on the relative speeds of user and target, like Elect
 	spiritbreak: {
 		num: 789,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 100,
 		category: "Physical",
 		name: "Spirit Break",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		secondary: {
-			chance: 100,
+			chance: 50,
 			boosts: {
 				spa: -1,
 			},
