@@ -1216,8 +1216,8 @@ export const Formats: {[k: string]: FormatData} = {
 		name: 'CFM Complex Bans',
 		desc: "Implements CFM's complex bans",
 		onValidateSet(set, format) {
-			const allTiers: {[k: string]: number} = {PU: 0, NU: 1, RU: 2, UU: 3, OU: 4};
-			const currTier = format.name.substr(format.name.indexOf("CFM ") + 4);
+			const allTiers: {[k: string]: number} = {PU: 0, NU: 1, RU: 2, UU: 3, OU: 4, Ub: 5};
+			const currTier = format.name.substr(format.name.indexOf("CFM "), 6).substr(-2);
 			// eslint-disable-next-line @typescript-eslint/no-this-alias
 			const tv = this;
 			const speciesRef = this.toID((function () {
@@ -1245,6 +1245,7 @@ export const Formats: {[k: string]: FormatData} = {
 				latios:			{tier: 'OU', item: 'souldew'},
 				cloyster:		{tier: 'OU', items: ['kingsrock', 'razorfang']},
 				// moves
+				arceus:			{tier: 'Ub', move: 'hyperbeam'},
 				porygonz:		{tier: 'OU', move: 'hyperbeam'},
 				blastoisemega:	{tier: 'OU', move: 'shellsmash'},
 				mew:			{tier: 'OU', move: 'batonpass'},

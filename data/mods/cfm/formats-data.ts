@@ -2887,7 +2887,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	arceus: {
 		isNonstandard: null,
-		tier: "CAG",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceusbug: {
