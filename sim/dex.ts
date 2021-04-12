@@ -989,7 +989,7 @@ export class ModdedDex {
 					// doubles tiers
 					'duber', 'dou', 'dbl', 'duu', 'dnu',
 					// CFM tiers
-					'cub', 'cou', 'cuu', 'cru', 'cnu', 'cpu', 'czu', 'clc',
+					'cag', 'cub', 'cou', 'cuu', 'cru', 'cnu', 'cpu', 'czu', 'clc',
 					// custom tags -- nduubl is used for national dex teambuilder formatting
 					'mega', 'nduubl',
 					// illegal/nonstandard reasons

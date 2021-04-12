@@ -2887,7 +2887,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	arceus: {
 		isNonstandard: null,
-		tier: "CAG",
+		tier: "CUb",
 		inherit: true,
 	},
 	arceusbug: {
@@ -3210,7 +3210,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	leavanny: {
 		isNonstandard: null,
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	venipede: {
@@ -3460,7 +3460,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	escavalier: {
 		randomBattleMoves: ["closecombat", "drillrun", "ironhead", "knockoff", "megahorn", "swordsdance"],
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	foongus: {
@@ -5111,7 +5111,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	eiscue: {
 		randomBattleMoves: ["bellydrum", "iciclecrash", "liquidation", "zenheadbutt"],
-		tier: "CPU",
+		tier: "CZU",
 		inherit: true,
 	},
 	eiscuenoice: {

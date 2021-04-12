@@ -812,7 +812,8 @@ export const Formats: FormatList = [
 
 		mod: 'cfm',
 		// cfacTier: 'Uber',
-		ruleset: ['Obtainable', 'Mega Rayquaza Clause', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Standard'],
+		ruleset: ['Obtainable', 'CFM Complex Bans', 'Mega Rayquaza Clause', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Standard'],
+		banlist: ['CAG'],
 	},
 	{
 		name: "[Gen 8] CFM OU",
@@ -820,7 +821,7 @@ export const Formats: FormatList = [
 		mod: 'cfm',
 		// cfacTier: 'OU',
 		ruleset: ['Obtainable', 'Baton Pass Clause', 'CFM Complex Bans', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Standard'],
-		banlist: ['CUb', 'Power Construct', 'Arena Trap', 'Shadow Tag'],
+		banlist: ['CUb', 'CAG', 'Power Construct', 'Arena Trap', 'Shadow Tag'],
 	},
 	{
 		name: "[Gen 8] CFM UU",
