@@ -5,6 +5,7 @@ const TeamValidator = require('../../../.sim-dist/team-validator').TeamValidator
 const factorySets = require('../../../data/mods/cfm/cfm-factory-sets');
 
 describe('CFM - Factory Validator', function () {
+	this.timeout(30000);
 	it('CFM should be a valid format', function () {
 		try {
 			Dex.getRuleTable(Dex.getFormat('gen8cfmou'));
@@ -14,9 +15,8 @@ describe('CFM - Factory Validator', function () {
 		}
 	});
 	it('Validate all factory sets', function () {
-		let illegalSets = `\nCFM FACTORY ILLEGAL SETS\n\n`,
-			illegalSetsFound = false;
-		const tiers = {'Uber': 'ubers', 'OU': 'ou', 'UU': 'uu', 'RU': 'ru', 'NU': 'nu', 'PU': 'pu'};
+		let illegalSets = `\nCFM FACTORY ILLEGAL SETS\n\n`, illegalSetsFound = false, i = 0;
+		const tiers = {'Uber': 'ubers', 'OU': 'ou', 'UU': 'uu', 'RU': 'ru', 'NU': 'nu', 'PU': 'pu', 'ZU': 'zu'};
 		for (const tier in factorySets) {
 			illegalSets += `\\\\ ${tier} \\\\\n\n`;
 			for (const mon in factorySets[tier]) {
@@ -29,10 +29,8 @@ describe('CFM - Factory Validator', function () {
 					}
 
 					const moves = rawSet.moves.flat();
-					let i = 0;
-					while (moves.length > i) {
+					for (i = 0; i < moves.length; i += 4) {
 						validateSets.push({...rawSet, moves: moves.splice(i, i + 4)});
-						i += 4;
 					}
 
 					let team, illegal = null;

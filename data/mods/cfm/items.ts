@@ -2847,9 +2847,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Pikachu"],
+		itemUser: ["Pikachu", "Pichu-Spiky-eared"],
 		num: 236,
 		gen: 2,
+		shortDesc: "If held by a Pikachu or Spiky-eared Pichu, its Attack and Sp. Atk are doubled.",
 	},
 	lightclay: {
 		name: "Light Clay",
