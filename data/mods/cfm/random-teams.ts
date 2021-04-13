@@ -1307,17 +1307,19 @@ export class RandomCFMTeams extends RandomTeams {
 
 		// The teams generated depend on the tier choice in such a way that
 		// no exploitable information is leaked from rolling the tier in getTeam(p1).
-		const availableTiers = ['Uber', 'OU', 'UU', 'RU', 'NU', 'PU'];
+		const availableTiers = ['Uber', 'OU', 'UU', 'RU', 'NU', 'PU', 'ZU'];
 		if (!this.factoryTier) this.factoryTier = this.sample(availableTiers);
 		const chosenTier = this.factoryTier;
 
 		const tierValues: {[k: string]: number} = {
-			Uber: 5,
-			OU: 4, UUBL: 4,
-			UU: 3, RUBL: 3,
-			RU: 2, NUBL: 2,
-			NU: 1, PUBL: 1,
-			PU: 0,
+			AG:		8,
+			Uber:	7,
+			OU:		6,
+			UU:		5,
+			RU:		4,
+			NU:		3,
+			PU:		2,
+			ZU:		1
 		};
 
 		const pokemon = [];
