@@ -12818,7 +12818,7 @@ Water:		Scald`,
 Normal: 75BP; 10% chance to raise all the user's stats
 Attack: 140BP; Special or Physical depending on the higher offensive stat; harshly lowers the higher offensive stat
 Defense: 0BP; deals damage equal to the user's level; 20% chance to raise the higher defensive stat
-Speed: BP varies depending on the relative speeds of user and target, like Electro Ball; 20% chance to raise the user's Speed`,
+Speed: BP depends on the relative speeds of user and target, like Electro Ball; 20% chance to raise the user's Speed`,
 		name: "Psycho Boost",
 		pp: 10,
 		priority: 0,

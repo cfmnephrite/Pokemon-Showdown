@@ -3,7 +3,6 @@
 import {RandomTeams, TeamData} from '../../random-teams';
 import {Dex, toID} from '../../../sim/dex';
 import {PRNG, PRNGSeed} from '../../../sim/prng';
-import {Utils} from '../../../lib/utils';
 
 export class RandomCFMTeams extends RandomTeams {
 	randomFactorySets: AnyObject;
@@ -1319,7 +1318,7 @@ export class RandomCFMTeams extends RandomTeams {
 			RU:		4,
 			NU:		3,
 			PU:		2,
-			ZU:		1
+			ZU:		1,
 		};
 
 		const pokemon = [];
