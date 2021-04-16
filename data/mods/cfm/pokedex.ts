@@ -13333,7 +13333,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelExtra",
 		evoCondition: "at Mount Lanakila",
 		eggGroups: ["Water 3"],
-		cfmMoves: [],
+		cfmMoves: ['amnesia', 'avalanche', 'bulkup', 'bulldoze', 'closecombat', 'crabhammer', 'dizzypunch', 'drainpunch', 'icehammer', 'irondefense', 'stoneedge', 'thunderpunch'],
 	},
 	oricorio: {
 		num: 741,
@@ -13834,7 +13834,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelMove",
 		evoMove: "Stomp",
 		eggGroups: ["Grass"],
-		cfmMoves: [],
+		cfmMoves: ['grasswhistle', 'highjumpkick', 'knockoff', 'playrough', 'powerwhip', 'rapidspin', 'solarbeam', 'solarblade', 'taunt', 'tripleaxel', 'tropkick', 'zenheadbutt'],
 	},
 	comfey: {
 		num: 764,
@@ -16301,7 +16301,7 @@ Water: Scald`},
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Eternatus-Eternamax"],
 		formeOrder: ["Eternatus", "Eternatus-Eternamax"],
-		cfmMoves: [],
+		cfmMoves: ['crosspoison', 'dracometeor', 'dragondance', 'dragonpulse', 'dragontail', 'dynamaxcannon', 'eternabeam', 'flamethrower', 'poisontail', 'recover', 'sludgewave', 'toxic'],
 	},
 	eternatuseternamax: {
 		num: 890,
