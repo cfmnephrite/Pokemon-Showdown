@@ -61,6 +61,7 @@ for (mon of Object.keys(dex).filter(key => dex[key].cfmMoves.length)) {
 		monAbilities[key] = {
 			...abilityData,
 			new:	!Object.values(oldDex[mon].abilities).includes(name),
+			id:		name.replace(/[^0-9a-z]/gi, "").toLowerCase(),
 			key:	key,
 			last:	dexMonAb.indexOf(name) === (dexMonAb.length - 1)
 		};
