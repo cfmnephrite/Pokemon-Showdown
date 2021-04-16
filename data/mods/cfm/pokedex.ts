@@ -2288,7 +2288,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster"],
 		otherFormes: ["Kangaskhan-Mega"],
 		formeOrder: ["Kangaskhan", "Kangaskhan-Mega"],
-		cfmMoves: [],
+		cfmMoves: ['cometpunch', 'counter', 'fakeout', 'firepunch', 'gigaimpact', 'icepunch', 'rest', 'submission', 'suckerpunch', 'thunderpunch', 'wish', 'workup'],
 	},
 	kangaskhanmega: {
 		num: 115,
@@ -2304,7 +2304,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Monster"],
 		requiredItem: "Kangaskhanite",
-		cfmMoves: [],
+		cfmMoves: ['bodyslam', 'drainpunch', 'fakeout', 'firepunch', 'gigaimpact', 'icepunch', 'megapunch', 'poweruppunch', 'seismictoss', 'submission', 'suckerpunch', 'thunderpunch'],
 	},
 	horsea: {
 		num: 116,
@@ -2530,7 +2530,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 88.4,
 		color: "Brown",
 		eggGroups: ["Field"],
-		cfmMoves: [],
+		cfmMoves: ['bodyslam', 'closecombat', 'earthquake', 'fireblast', 'fissure', 'horndrill', 'hyperbeam', 'rockclimb', 'rockslide', 'throatchop', 'wildcharge', 'zenheadbutt'],
 	},
 	magikarp: {
 		num: 129,
