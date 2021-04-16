@@ -13952,7 +13952,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Silvally"],
 		eggGroups: ["Undiscovered"],
-		cfmMoves: [],
+		cfmMoves: ['airslash', 'dragonclaw', 'irondefense', 'pursuit', 'raindance', 'razorwind', 'roar', 'shadowclaw', 'sunnyday', 'swordsdance', 'thunderwave', 'uturn'],
+		cfmAbilitySpecialDesc: {"rkssystem": "Type: Null: boosts the higher offensive stat by 50%; loses 1/6 HP for every attack using that stat."},
 	},
 	silvally: {
 		num: 773,
@@ -13973,6 +13974,24 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 			"Silvally-Fire", "Silvally-Water", "Silvally-Grass", "Silvally-Electric", "Silvally-Psychic", "Silvally-Ice", "Silvally-Dragon", "Silvally-Dark", "Silvally-Fairy",
 		],
 		cfmMoves: ["darkpulse", "dragonclaw", "dragonpulse", "explosion", "hyperbeam", "multiattack", "partingshot", "psyshock", "razorwind", "recover", "taunt", "wildcharge"],
+		cfmAbilitySpecialDesc: {"rkssystem": `Silvally: stats are boosted on switch-in depending on the Memory:
+Bug: +1 Atk / -2 Def / +1 SpA
+Dark: +1 Atk / +1 SpA / -2 SpD
+Dragon: +1 Atk / -1 Def / +1 SpA / -1 SpD
+Electric: -1 Atk / -1 Def / +2 Spe
+Fairy: -2 Atk / +2 SpD
+Fighting: +2 Atk / -2 SpD
+Fire: +1 Atk / -2 Def / +1 SpA
+Flying: +1 higher of Atk/Sp. Atk / -2 Def / +1 Spe
+Ghost: +1 higher of Atk/Sp. Atk / -2 Def / +1 SpD
+Grass: -3 Atk / +1 Def / +1 SpA / +1 SpD
+Ground: +1 Atk / +1 Def / -1 SpA / -1 SpD
+Ice: +2 higher of Atk/Sp. Atk / -1 Def / -1 SpD
+Poison: +1 Def / -1 SpA / +1 SpD / -1 Spe
+Psychic: 2 Def / +2 SpA
+Rock: +1 Atk / +2 Def / -3 SpA
+Steel: +3 Def / -3 Spe
+Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`},
 		cfmMoveSpecialDesc: {"multiattack": `Changes to a different move if Silvally is holding a Memory:
 Bug: Leech Life, or if SpA is higher than Atk, Tail Glow
 Dark: Sucker Punch
