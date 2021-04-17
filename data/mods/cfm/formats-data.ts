@@ -941,7 +941,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	tauros: {
 		isNonstandard: null,
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	magikarp: {
@@ -5216,11 +5216,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	urshifu: {
-		tier: "COU",
+		tier: "CUb",
 		inherit: true,
 	},
 	urshifurapidstrike: {
-		tier: "COU",
+		tier: "CUb",
 		inherit: true,
 	},
 	zarude: {
