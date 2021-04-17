@@ -25,7 +25,7 @@ export type ModdedSpeciesData = SpeciesData | Partial<Omit<SpeciesData, 'name'>>
 	cfmMoves?: string[],
 	cfmMoveSpecialDesc?: {[k: string]: string},
 	cfmAbilitySpecialDesc?: {[k: string]: string},
-	cfmMoveSpecialZDesc?: {[k: string]: string},
+	cfmMoveSpecialZDesc?: string,
 };
 
 export interface SpeciesFormatsData {
