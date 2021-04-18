@@ -418,7 +418,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		otherFormes: ["Raticate-Alola", "Raticate-Alola-Totem"],
 		formeOrder: ["Raticate", "Raticate-Alola", "Raticate-Alola-Totem"],
-		cfmMoves: ["facade", "firefang", "honeclaws", "icefang", "shadowclaw", "submssion", "suckerpunch", "swordsdance", "taunt", "thunderfang", "uturn", "zenheadbutt"],
+		cfmMoves: ["facade", "firefang", "honeclaws", "icefang", "shadowclaw", "submission", "suckerpunch", "swordsdance", "taunt", "thunderfang", "uturn", "zenheadbutt"],
 	},
 	raticatealola: {
 		num: 20,
@@ -1031,7 +1031,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Diglett-Alola",
 		evoLevel: 26,
 		eggGroups: ["Field"],
-		cfmMoves: ["agilty", "fissure", "headbutt", "highhorsepower", "honeclaws", "ironhead", "nightslash", "rockslide", "slash", "stealthrock", "stoneedge"],
+		cfmMoves: ["agility", "fissure", "headbutt", "highhorsepower", "honeclaws", "ironhead", "nightslash", "rockslide", "slash", "stealthrock", "stoneedge", "suckerpunch"],
 	},
 	meowth: {
 		num: 52,
@@ -1509,7 +1509,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Graveler-Alola",
 		evoType: "trade",
 		eggGroups: ["Mineral"],
-		cfmMoves: ["chargebeam", "fireblast", "firepunch", "headsmash", "icepunch", "megapunch", "powergem", "rockpolish", "scorchingsands", "seedbomb", "suckerpunch", "voltackle"],
+		cfmMoves: ["chargebeam", "fireblast", "firepunch", "headsmash", "icepunch", "megapunch", "powergem", "rockpolish", "scorchingsands", "seedbomb", "suckerpunch", "volttackle"],
 	},
 	ponyta: {
 		num: 77,
@@ -1957,7 +1957,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Drowzee",
 		evoLevel: 26,
 		eggGroups: ["Human-Like"],
-		cfmMoves: ["bellydrum", "darkpulse", "dreameater", "expandingforce", "focusblast", "hypnosis", "knockoff", "nastyplot", "nightmare", "psychic", "psyshock", "wish", "zenheadbutt"],
+		cfmMoves: ["bellydrum", "darkpulse", "dreameater", "expandingforce", "focusblast", "hypnosis", "knockoff", "nastyplot", "nightmare", "psyshock", "wish", "zenheadbutt"],
 		cfmMoveSpecialDesc: {"hypnosis": "If the user is Drowzee/Hypno, this move never misses"},
 	},
 	krabby: {
@@ -2288,7 +2288,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster"],
 		otherFormes: ["Kangaskhan-Mega"],
 		formeOrder: ["Kangaskhan", "Kangaskhan-Mega"],
-		cfmMoves: [],
+		cfmMoves: ['cometpunch', 'counter', 'fakeout', 'firepunch', 'gigaimpact', 'icepunch', 'rest', 'submission', 'suckerpunch', 'thunderpunch', 'wish', 'workup'],
 	},
 	kangaskhanmega: {
 		num: 115,
@@ -2304,7 +2304,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Monster"],
 		requiredItem: "Kangaskhanite",
-		cfmMoves: [],
+		cfmMoves: ['bodyslam', 'drainpunch', 'fakeout', 'firepunch', 'gigaimpact', 'icepunch', 'megapunch', 'poweruppunch', 'seismictoss', 'submission', 'suckerpunch', 'thunderpunch'],
 	},
 	horsea: {
 		num: 116,
@@ -2359,7 +2359,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Goldeen",
 		evoLevel: 33,
 		eggGroups: ["Water 2"],
-		cfmMoves: ["aquajet", "aquatail", "drillrun", "flipturn", "haze", "hydropump", "iciclespear", "knockoff", "megahorn", "muddywater", "posionjab", "swordsdance"],
+		cfmMoves: ["aquajet", "aquatail", "drillrun", "flipturn", "haze", "hydropump", "iciclespear", "knockoff", "megahorn", "muddywater", "poisonjab", "swordsdance"],
 	},
 	staryu: {
 		num: 120,
@@ -2530,7 +2530,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 88.4,
 		color: "Brown",
 		eggGroups: ["Field"],
-		cfmMoves: [],
+		cfmMoves: ['bodyslam', 'closecombat', 'earthquake', 'fireblast', 'fissure', 'horndrill', 'hyperbeam', 'rockclimb', 'rockslide', 'throatchop', 'wildcharge', 'zenheadbutt'],
 	},
 	magikarp: {
 		num: 129,
@@ -2783,7 +2783,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelFriendship",
 		eggGroups: ["Monster"],
 		canHatch: true,
-		cfmMoves: [],
+		cfmMoves: ['bodyslam', 'counter', 'crunch', 'curse', 'firepunch', 'highhorsepower', 'hyperbeam', 'icepunch', 'megapunch', 'metronome', 'rockclimb', 'thunderpunch'],
+		cfmMoveSpecialZDesc: "pulverizingpancake",
 	},
 	articuno: {
 		num: 144,
@@ -2949,8 +2950,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Pink",
 		eggGroups: ["Undiscovered"],
-		cfmMoves: ["defog", "genesissupernova", "nastyplot", "psychic", "psyshock", "shockwave", "softboiled", "stealthrock", "swordsdance", "toxic", "willowisp", "zenheadbutt"],
-		cfmMoveSpecialZDesc: {"genesissupernova": "Summons Psychic Terrain. Can be used by Mew with Mewnium Z and any attacking Psychic move. Physical or Special depending on the move selected."},
+		cfmMoves: ["defog", "metronome", "nastyplot", "psychic", "psyshock", "shockwave", "softboiled", "stealthrock", "swordsdance", "toxic", "willowisp", "zenheadbutt"],
+		cfmMoveSpecialZDesc: "genesissupernova",
 	},
 	chikorita: {
 		num: 152,
@@ -3541,7 +3542,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Skiploom",
 		evoLevel: 27,
 		eggGroups: ["Fairy", "Grass"],
-		cfmMoves: ["acrobatics", "bounce", "encore", "grassyterrain", "growth", "razorwind", "seedbomb", "sleeppower", "strengthsap", "swordsdance", "weatherball"],
+		cfmMoves: ["acrobatics", "bounce", "cottonspore", "encore", "grassyterrain", "growth", "razorwind", "seedbomb", "sleeppowder", "strengthsap", "swordsdance", "weatherball"],
 	},
 	aipom: {
 		num: 190,
@@ -3763,7 +3764,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 41.5,
 		color: "Yellow",
 		eggGroups: ["Field"],
-		cfmMoves: ["batonpass", "crunch", "darkpulse", "dreameater", "focusblast", "jumpkick", "nastyplot", "psychic", "psyshock", "suckerpunch"],
+		cfmMoves: ["batonpass", "crunch", "darkpulse", "dreameater", "focusblast", "highhorsepower", "jumpkick", "nastyplot", "psychic", "psyshock", "suckerpunch", "swordsdance"],
 	},
 	pineco: {
 		num: 204,
@@ -3790,7 +3791,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Pineco",
 		evoLevel: 31,
 		eggGroups: ["Bug"],
-		cfmMoves: ["headsmash", "ironhead", "protect", "rapidspin", "seedbomb", "spikecannon", "stealthrock", "streamroller", "thunderwave", "toxic", "uturn", "wildcharge"],
+		cfmMoves: ["headsmash", "ironhead", "protect", "rapidspin", "seedbomb", "spikecannon", "stealthrock", "steamroller", "thunderwave", "toxic", "uturn", "wildcharge"],
 	},
 	dunsparce: {
 		num: 206,
@@ -4316,7 +4317,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 20,
 		evoCondition: "with an Atk stat equal to its Def stat",
 		eggGroups: ["Human-Like"],
-		cfmMoves: ["bulkup", "counter", "fakeout", "foresign", "machpunch", "pursuit", "rapidspin", "rockslide", "rocksmash", "rollingkick", "suckerpunch", "triplekick"],
+		cfmMoves: ["bulkup", "counter", "fakeout", "foresight", "machpunch", "pursuit", "rapidspin", "rockslide", "rocksmash", "rollingkick", "suckerpunch", "triplekick"],
 	},
 	smoochum: {
 		num: 238,
@@ -4576,7 +4577,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Dragon"],
 		otherFormes: ["Sceptile-Mega"],
 		formeOrder: ["Sceptile", "Sceptile-Mega"],
-		cfmMoves: ["detect", "dragonclaw", "dragondance", "dragonpulse", "focusblast", "frenzyplant", "leafage", "leafblade", "leafstorm", "rockslide", "thunderpunch", "weatherball"],
+		cfmMoves: ['crosschop', 'detect', 'focusblast', 'frenzyplant', 'grassyglide', 'leafage', 'leafblade', 'leafstorm', 'nightslash', 'psychocut', 'swordsdance', 'thunderpunch'],
 	},
 	sceptilemega: {
 		num: 254,
@@ -4592,7 +4593,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Sceptilite",
-		cfmMoves: [],
+		cfmMoves: ['dragonclaw', 'dragondance', 'dragonpulse', 'focusblast', 'grasswhistle', 'growth', 'pursuit', 'seedbomb', 'solarbeam', 'solarblade', 'synthesis', 'weatherball'],
 	},
 	torchic: {
 		num: 255,
@@ -5384,7 +5385,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Purple",
 		eggGroups: ["Human-Like"],
 		requiredItem: "Sablenite",
-		cfmMoves: ["calmmind", "darkpulse", "fakeout", "focusblast", "foulplay", "knockoff", "foulplay", "knockoff", "lowkick", "metalburst", "recover", "shadowball", "taunt", "willowisp"],
+		cfmMoves: ["calmmind", "darkpulse", "fakeout", "focusblast", "foulplay", "knockoff", "lowkick", "metalburst", "recover", "shadowball", "taunt", "willowisp"],
 	},
 	mawile: {
 		num: 303,
@@ -5598,7 +5599,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Gray",
 		eggGroups: ["Bug", "Human-Like"],
-		cfmMoves: ["batonpass", "dazzlingbleam", "defog", "encore", "firepunch", "lunge", "memento", "mysticalfire", "playrough", "poweruppunch", "tailglow", "taunt"],
+		cfmMoves: ["batonpass", "dazzlinggleam", "defog", "encore", "firepunch", "lunge", "memento", "mysticalfire", "playrough", "poweruppunch", "tailglow", "taunt"],
 	},
 	illumise: {
 		num: 314,
@@ -5700,7 +5701,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Water 2"],
 		requiredItem: "Sharpedonite",
-		cfmMoves: ["agility", "crunch", "darkpulse", "destinybond", "hydropump", "nightslash", "icefang", "posionjab", "psychicfangs", "scald", "taunt", "thunderfang"],
+		cfmMoves: ["agility", "crunch", "darkpulse", "destinybond", "hydropump", "nightslash", "icefang", "poisonjab", "psychicfangs", "scald", "taunt", "thunderfang"],
 	},
 	wailmer: {
 		num: 320,
@@ -5713,7 +5714,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Wailord"],
 		eggGroups: ["Field", "Water 2"],
-		cfmMoves: ["avalanche", "curse", "earthquake", "fissure", "hydropump", "raindance", "rocksmash", "splash", "waterfall", "waterspout", "zenheadbutt"],
+		cfmMoves: ["avalanche", "curse", "earthquake", "fissure", "hydropump", "raindance", "rocksmash", "selfdestruct", "splash", "waterfall", "waterspout", "zenheadbutt"],
 	},
 	wailord: {
 		num: 321,
@@ -5965,7 +5966,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 52.5,
 		color: "Black",
 		eggGroups: ["Field", "Dragon"],
-		cfmMoves: ["coil", "darkpulse", "fireblast", "glare", "nastyplot", "nigthslash", "poisontail", "sludgebomb", "suckerpunch", "switcheroo", "swordsdance", "venoshock"],
+		cfmMoves: ["coil", "darkpulse", "fireblast", "glare", "nastyplot", "nightslash", "poisontail", "sludgebomb", "suckerpunch", "switcheroo", "swordsdance", "venoshock"],
 	},
 	lunatone: {
 		num: 337,
@@ -6592,7 +6593,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Dragon"],
 		otherFormes: ["Salamence-Mega"],
 		formeOrder: ["Salamence", "Salamence-Mega"],
-		cfmMoves: ["defog", "dracometeor", "dragonclaw", "dragondance", "dragonpulse", "dragonrush", "dragontail", "fireblast", "hydropump", "infer", "irontail", "roost"],
+		cfmMoves: ["defog", "dracometeor", "dragonclaw", "dragondance", "dragonpulse", "dragonrush", "dragontail", "fireblast", "hydropump", "inferno", "irontail", "roost"],
 	},
 	salamencemega: {
 		num: 373,
@@ -6700,7 +6701,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 175,
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
-		cfmMoves: ["autotomise", "avalanche", "blizzard", "chargebeam", "focusblast", "icebeam", "iciclecrash", "rockpolish", "superpower", "thunder", "thunderbolt", "thunderwave"],
+		cfmMoves: ["autotomize", "avalanche", "blizzard", "chargebeam", "focusblast", "icebeam", "iciclecrash", "rockpolish", "superpower", "thunder", "thunderbolt", "thunderwave"],
 	},
 	registeel: {
 		num: 379,
@@ -6841,7 +6842,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Red Orb",
-		cfmMoves: ["bulldoze", "chargebeam", "dragontail", "fireblast", "fissure", "hunderpunch", "inferno", "overheat", "precipiceblades", "rockslide", "stealthrock", "swordsdance"],
+		cfmMoves: ["bulldoze", "chargebeam", "dragontail", "fireblast", "fissure", "inferno", "overheat", "precipiceblades", "rockslide", "stealthrock", "swordsdance", "thunderpunch"],
 	},
 	rayquaza: {
 		num: 384,
@@ -8627,7 +8628,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 430,
 		color: "Brown",
 		eggGroups: ["Undiscovered"],
-		cfmMoves: ["fireblast", "flareblitz", "flashcannon", "incinerate", "inferno", "ironhead", "magmastorm", "roar", "scald", "solarbeam", "taunt", "tealthrock"],
+		cfmMoves: ["fireblast", "flareblitz", "flashcannon", "incinerate", "inferno", "ironhead", "magmastorm", "roar", "scald", "solarbeam", "stealthrock", "taunt"],
 	},
 	regigigas: {
 		num: 486,
@@ -9102,7 +9103,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
 		cfmMoves: ["fireblast", "icebeam", "icepunch", "psyshock", "scald", "searingshot", "taunt", "thunderbolt", "thunderpunch", "uturn", "wildcharge", "zenheadbutt"],
-		cfmMoveSpecialZDesc: {"vcreate": "Can be used by Victini via Firium Z and Searing Shot. Physical or Special depending on the higher offensive stat."},
+		cfmMoveSpecialZDesc: "vcreate",
 	},
 	snivy: {
 		num: 495,
@@ -10754,7 +10755,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Klang",
 		evoLevel: 49,
 		eggGroups: ["Mineral"],
-		cfmMoves: ["chargebeam", "doubleedge", "explosion", "flashcannon", "geargrind", "rocksmash", "shiftgear", "thunder", "vicegrip", "voltswitch", "wildcharge", "zapcannon"],
+		cfmMoves: ["chargebeam", "doubleedge", "explosion", "flashcannon", "geargrind", "rocksmash", "shiftgear", "thunder", "visegrip", "voltswitch", "wildcharge", "zapcannon"],
 	},
 	tynamo: {
 		num: 602,
@@ -12622,7 +12623,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Gray",
 		eggGroups: ["Mineral"],
-		cfmMoves: ["autotomise", "defog", "drainingkiss", "flashcannon", "ironhead", "lightscreen", "playrough", "reflect", "spikes", "switcheroo", "swordsdance", "thunderwave"],
+		cfmMoves: ["autotomize", "defog", "drainingkiss", "flashcannon", "ironhead", "lightscreen", "playrough", "reflect", "spikes", "switcheroo", "swordsdance", "thunderwave"],
 	},
 	phantump: {
 		num: 708,
@@ -12650,7 +12651,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Phantump",
 		evoType: "trade",
 		eggGroups: ["Grass", "Amorphous"],
-		cfmMoves: ["bulldoze", "destinybond", "forest'scurse", "honeclaws", "hornleech", "phantomforce", "rockslide", "shadowclaw", "superpower", "synthesis", "willowisp", "woodhammer"],
+		cfmMoves: ["bulldoze", "destinybond", "forestscurse", "honeclaws", "hornleech", "phantomforce", "rockslide", "shadowclaw", "superpower", "synthesis", "willowisp", "woodhammer"],
 	},
 	pumpkaboo: {
 		num: 710,
@@ -12902,8 +12903,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		otherFormes: ["Zygarde-10%", "Zygarde-Complete"],
 		 // forme 2 = 10% with Power Constructor ,forme 3 = 50% with Power Construct
 		formeOrder: ["Zygarde", "Zygarde-10%", "Zygarde-10%", "Zygarde", "Zygarde-Complete"],
-		cfmMoves: ["coil", "coreenforcer", "dracometeor", "dragontail", "extremespeed", "flamethrower", "focusblast", "irontail", "land'swrath", "sludgewave", "stoneedge", "thousandarrows"],
-		cfmMoveSpecialZDesc: {"landswrath": "Traps and grounds the target. Can be used by Zygarde with Groundium Z and either Thousand Arrows or Thousand Waves."},
+		cfmMoves: ["coil", "coreenforcer", "dracometeor", "extremespeed", "flamethrower", "focusblast", "glare", "irontail", "sludgewave", "stoneedge", "thousandarrows", "thousandwaves"],
+		cfmMoveSpecialZDesc: "landswrath",
 	},
 	zygarde10: {
 		num: 718,
@@ -13201,7 +13202,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Trumbeak",
 		evoLevel: 28,
 		eggGroups: ["Flying"],
-		cfmMoves: ["agility", "beakblast", "boomburst", "bravebird", "focusblast", "furyattack", "heatwave", "hurricane", "inferno", "rillpeck", "rocksmash", "swordsdance"],
+		cfmMoves: ["agility", "beakblast", "boomburst", "bravebird", "drillpeck", "focusblast", "furyattack", "heatwave", "hurricane", "inferno", "rocksmash", "swordsdance"],
 	},
 	yungoos: {
 		num: 734,
@@ -13272,7 +13273,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 20,
 		evos: ["Vikavolt"],
 		eggGroups: ["Bug"],
-		cfmMoves: ["bugbuzz", "chargebeam", "crunch", "irondefense", "leechlife", "poisonjab", "thunderwave", "uturn", "vicegrip", "volttackle", "wildcharge", "xscissor"],
+		cfmMoves: ["bugbuzz", "chargebeam", "crunch", "irondefense", "leechlife", "poisonjab", "thunderwave", "uturn", "visegrip", "volttackle", "wildcharge", "xscissor"],
 	},
 	vikavolt: {
 		num: 738,
@@ -13290,7 +13291,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 		otherFormes: ["Vikavolt-Totem"],
 		formeOrder: ["Vikavolt", "Vikavolt-Totem"],
-		cfmMoves: ["bugbuzz", "chargebeam", "crunch", "energyball", "guillotine", "leechlife", "poisonjab", "thunder", "uturn", "vicegrip", "volttackle", "zapcannon"],
+		cfmMoves: ["bugbuzz", "chargebeam", "crunch", "energyball", "guillotine", "leechlife", "poisonjab", "thunder", "uturn", "visegrip", "volttackle", "zapcannon"],
 	},
 	vikavolttotem: {
 		num: 738,
@@ -13333,7 +13334,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelExtra",
 		evoCondition: "at Mount Lanakila",
 		eggGroups: ["Water 3"],
-		cfmMoves: [],
+		cfmMoves: ['amnesia', 'avalanche', 'bulkup', 'bulldoze', 'closecombat', 'crabhammer', 'dizzypunch', 'drainpunch', 'icehammer', 'irondefense', 'stoneedge', 'thunderpunch'],
 	},
 	oricorio: {
 		num: 741,
@@ -13481,7 +13482,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		otherFormes: ["Lycanroc-Midnight", "Lycanroc-Dusk"],
 		formeOrder: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk"],
 		cfmMoves: ["accelerock", "drillrun", "firefang", "hyperfang", "icefang", "quickattack", "stealthrock", "stompingtantrum", "stoneedge", "swordsdance", "takedown", "thunderfang"],
-		cfmMoveSpecialZDesc: {"splinteredstormshards": "Removes all terrains. Can be used by Lycanroc with Lycanium Z and any Physical Rock-type move."},
+		cfmMoveSpecialZDesc: "splinteredstormshards",
 	},
 	lycanrocmidnight: {
 		num: 745,
@@ -13499,7 +13500,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoCondition: "during the night",
 		eggGroups: ["Field"],
 		cfmMoves: ["drillrun", "firepunch", "honeclaws", "icepunch", "knockoff", "slash", "stealthrock", "stompingtantrum", "stoneedge", "suckerpunch", "swordsdance", "thunderpunch"],
-		cfmMoveSpecialZDesc: {"splinteredstormshards": "Removes all terrains. Can be used by Lycanroc with Lycanium Z and any Physical Rock-type move."},
+		cfmMoveSpecialZDesc: "splinteredstormshards",
 	},
 	lycanrocdusk: {
 		num: 745,
@@ -13517,7 +13518,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoCondition: "from a special Rockruff",
 		eggGroups: ["Field"],
 		cfmMoves: ["accelerock", "drillrun", "firefang", "hyperfang", "icefang", "stealthrock", "stompingtantrum", "stoneedge", "submission", "swordsdance", "takedown", "thunderfang"],
-		cfmMoveSpecialZDesc: {"splinteredstormshards": "Removes all terrains. Can be used by Lycanroc with Lycanium Z and any Physical Rock-type move."},
+		cfmMoveSpecialZDesc: "splinteredstormshards",
 	},
 	wishiwashi: {
 		num: 746,
@@ -13834,7 +13835,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelMove",
 		evoMove: "Stomp",
 		eggGroups: ["Grass"],
-		cfmMoves: [],
+		cfmMoves: ['grasswhistle', 'highjumpkick', 'knockoff', 'playrough', 'powerwhip', 'rapidspin', 'solarbeam', 'solarblade', 'taunt', 'tripleaxel', 'tropkick', 'zenheadbutt'],
 	},
 	comfey: {
 		num: 764,
@@ -13952,7 +13953,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		evos: ["Silvally"],
 		eggGroups: ["Undiscovered"],
-		cfmMoves: [],
+		cfmMoves: ['airslash', 'dragonclaw', 'irondefense', 'pursuit', 'raindance', 'razorwind', 'roar', 'shadowclaw', 'sunnyday', 'swordsdance', 'thunderwave', 'uturn'],
+		cfmAbilitySpecialDesc: {"rkssystem": "Type: Null: boosts the higher offensive stat by 50%; loses 1/6 HP for every attack using that stat."},
 	},
 	silvally: {
 		num: 773,
@@ -13973,6 +13975,24 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 			"Silvally-Fire", "Silvally-Water", "Silvally-Grass", "Silvally-Electric", "Silvally-Psychic", "Silvally-Ice", "Silvally-Dragon", "Silvally-Dark", "Silvally-Fairy",
 		],
 		cfmMoves: ["darkpulse", "dragonclaw", "dragonpulse", "explosion", "hyperbeam", "multiattack", "partingshot", "psyshock", "razorwind", "recover", "taunt", "wildcharge"],
+		cfmAbilitySpecialDesc: {"rkssystem": `Silvally: stats are boosted on switch-in depending on the Memory:
+Bug: +1 Atk / -2 Def / +1 SpA
+Dark: +1 Atk / +1 SpA / -2 SpD
+Dragon: +1 Atk / -1 Def / +1 SpA / -1 SpD
+Electric: -1 Atk / -1 Def / +2 Spe
+Fairy: -2 Atk / +2 SpD
+Fighting: +2 Atk / -2 SpD
+Fire: +1 Atk / -2 Def / +1 SpA
+Flying: +1 higher of Atk/Sp. Atk / -2 Def / +1 Spe
+Ghost: +1 higher of Atk/Sp. Atk / -2 Def / +1 SpD
+Grass: -3 Atk / +1 Def / +1 SpA / +1 SpD
+Ground: +1 Atk / +1 Def / -1 SpA / -1 SpD
+Ice: +2 higher of Atk/Sp. Atk / -1 Def / -1 SpD
+Poison: +1 Def / -1 SpA / +1 SpD / -1 Spe
+Psychic: 2 Def / +2 SpA
+Rock: +1 Atk / +2 Def / -3 SpA
+Steel: +3 Def / -3 Spe
+Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`},
 		cfmMoveSpecialDesc: {"multiattack": `Changes to a different move if Silvally is holding a Memory:
 Bug: Leech Life, or if SpA is higher than Atk, Tail Glow
 Dark: Sucker Punch
@@ -14539,7 +14559,7 @@ Water: Scald`},
 		levitates: true,
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
-		cfmMoves: [],
+		cfmMoves: ['bravebird', 'calmmind', 'dazzlinggleam', 'defog', 'doubleslap', 'lightscreen', 'reflect', 'roost', 'shockwave', 'skyattack', 'steelwing', 'wildcharge'],
 	},
 	tapulele: {
 		num: 786,
@@ -14553,7 +14573,7 @@ Water: Scald`},
 		levitates: true,
 		color: "Pink",
 		eggGroups: ["Undiscovered"],
-		cfmMoves: [],
+		cfmMoves: ['doubleslap', 'focusblast', 'lightscreen', 'moonblast', 'psychic', 'psychocut', 'psyshock', 'reflect', 'shadowball', 'taunt', 'teleport', 'zenheadbutt'],
 	},
 	tapubulu: {
 		num: 787,
@@ -14561,13 +14581,13 @@ Water: Scald`},
 		types: ["Grass", "Fairy"],
 		gender: "N",
 		baseStats: {hp: 70, atk: 130, def: 115, spa: 85, spd: 95, spe: 75},
-		abilities: {0: "Grassy Surge", 1: "Telepathy", H: "Chlorophyll"},
+		abilities: {0: "Grassy Surge", 1: "Telepathy", H: "Sap Sipper"},
 		heightm: 1.9,
 		weightkg: 45.5,
 		levitates: true,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
-		cfmMoves: [],
+		cfmMoves: ['closecombat', 'dazzlinggleam', 'doubleslap', 'highhorsepower', 'leafage', 'seedbomb', 'solarbeam', 'stoneedge', 'synthesis', 'taunt', 'woodhammer', 'zenheadbutt'],
 	},
 	tapufini: {
 		num: 788,
@@ -14575,13 +14595,13 @@ Water: Scald`},
 		types: ["Water", "Fairy"],
 		gender: "N",
 		baseStats: {hp: 70, atk: 75, def: 115, spa: 95, spd: 130, spe: 85},
-		abilities: {0: "Misty Surge", 1: "Telepathy", H: "Storm Drain"},
+		abilities: {0: "Misty Surge", 1: "Telepathy", H: "Rain Dish"},
 		heightm: 1.3,
 		weightkg: 21.2,
 		levitates: true,
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
-		cfmMoves: [],
+		cfmMoves: ['blizzard', 'defog', 'doubleslap', 'hydropump', 'icebeam', 'knockoff', 'lightscreen', 'reflect', 'scald', 'taunt', 'trick', 'wonderroom'],
 	},
 	cosmog: {
 		num: 789,
@@ -14712,7 +14732,7 @@ Water: Scald`},
 		levitates: true,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
-		cfmMoves: ["acrobatics", "aeroblast", "agility", "autotomise", "bulldoze", "explosion", "fireblast", "flashcannon", "heavyslam", "ironhead", "rockslide", "seedbomb"],
+		cfmMoves: ["acrobatics", "aeroblast", "agility", "autotomize", "bulldoze", "explosion", "fireblast", "flashcannon", "heavyslam", "ironhead", "rockslide", "seedbomb"],
 	},
 	kartana: {
 		num: 798,
@@ -14755,7 +14775,8 @@ Water: Scald`},
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Necrozma-Dusk-Mane", "Necrozma-Dawn-Wings", "Necrozma-Ultra"],
 		formeOrder: ["Necrozma", "Necrozma-Dusk-Mane", "Necrozma-Dawn-Wings", "Necrozma-Ultra"],
-		cfmMoves: [],
+		cfmMoves: ['cosmicpower', 'darkpulse', 'dragondance', 'expandingforce', 'heatwave', 'hyperbeam', 'moonlight', 'nightslash', 'photongeyser', 'psychocut', 'psyshock', 'stealthrock'],
+		cfmMoveSpecialZDesc: "prismaticlaser",
 	},
 	necrozmaduskmane: {
 		num: 800,
@@ -14872,7 +14893,7 @@ Water: Scald`},
 		name: "Naganadel",
 		types: ["Poison", "Dragon"],
 		gender: "N",
-		baseStats: {hp: 73, atk: 97, def: 73, spa: 137, spd: 73, spe: 127},
+		baseStats: {hp: 71, atk: 89, def: 73, spa: 137, spd: 73, spe: 127},
 		abilities: {0: "Beast Boost", H: "Static"},
 		heightm: 3.6,
 		weightkg: 150,
@@ -14882,7 +14903,7 @@ Water: Scald`},
 		evoType: "levelMove",
 		evoMove: "Dragon Pulse",
 		eggGroups: ["Undiscovered"],
-		cfmMoves: [],
+		cfmMoves: ['crosspoison', 'dracometeor', 'dragonclaw', 'dragondance', 'dragonpulse', 'dragonrush', 'fireblast', 'gigaimpact', 'gunkshot', 'nastyplot', 'sludgewave', 'swordsdance'],
 	},
 	stakataka: {
 		num: 805,
@@ -14922,7 +14943,7 @@ Water: Scald`},
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
 		cfmMoves: ["calmmind", "closecombat", "firepunch", "focusblast", "grassknot", "nightslash", "paraboliccharge", "shadowclaw", "shockwave", "slash", "taunt", "wildcharge"],
-		cfmMoveSpecialZDesc: {"plasmafists": "Summons Electric Terrain. Can be used by Zeraora with Electrium Z and any attacking Electric move. Physical or Special depending on the move selected."},
+		cfmMoveSpecialZDesc: "plasmafists",
 	},
 	meltan: {
 		num: 808,
@@ -15908,7 +15929,7 @@ Water: Scald`},
 		eggGroups: ["Fairy", "Amorphous"],
 		cosmeticFormes: ["Alcremie-Ruby-Cream", "Alcremie-Matcha-Cream", "Alcremie-Mint-Cream", "Alcremie-Lemon-Cream", "Alcremie-Salted-Cream", "Alcremie-Ruby-Swirl", "Alcremie-Caramel-Swirl", "Alcremie-Rainbow-Swirl"],
 		formeOrder: ["Alcremie", "Alcremie-Ruby-Cream", "Alcremie-Matcha-Cream", "Alcremie-Mint-Cream", "Alcremie-Lemon-Cream", "Alcremie-Salted-Cream", "Alcremie-Ruby-Swirl", "Alcremie-Caramel-Swirl", "Alcremie-Rainbow-Swirl"],
-		cfmMoves: ["calmmind", "dazzlinggleam", "decorate", "drainingkiss", "drainpunch", "façade", "gigadrain", "hyperbeam", "mysticalfire", "playrough", "psyshock", "trickroom"],
+		cfmMoves: ["calmmind", "dazzlinggleam", "decorate", "drainingkiss", "drainpunch", "facade", "gigadrain", "hyperbeam", "mysticalfire", "playrough", "psyshock", "trickroom"],
 	},
 	falinks: {
 		num: 870,
@@ -16156,7 +16177,7 @@ Water: Scald`},
 		weightkg: 40,
 		color: "White",
 		eggGroups: ["Mineral", "Dragon"],
-		cfmMoves: [],
+		cfmMoves: ['autotomize', 'dracometeor', 'dragonclaw', 'dragonpulse', 'hyperbeam', 'irontail', 'irontail', 'lockon', 'mirrorshot', 'nightslash', 'steelbeam', 'zapcannon'],
 	},
 	dreepy: {
 		num: 885,
@@ -16272,7 +16293,7 @@ Water: Scald`},
 		name: "Eternatus",
 		types: ["Poison", "Dragon"],
 		gender: "N",
-		baseStats: {hp: 140, atk: 85, def: 95, spa: 145, spd: 95, spe: 130},
+		baseStats: {hp: 130, atk: 85, def: 95, spa: 145, spd: 95, spe: 130},
 		abilities: {0: "Pressure"},
 		heightm: 20,
 		weightkg: 950,
@@ -16281,7 +16302,7 @@ Water: Scald`},
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Eternatus-Eternamax"],
 		formeOrder: ["Eternatus", "Eternatus-Eternamax"],
-		cfmMoves: [],
+		cfmMoves: ['crosspoison', 'dracometeor', 'dragondance', 'dragonpulse', 'dragontail', 'dynamaxcannon', 'eternabeam', 'flamethrower', 'poisontail', 'recover', 'sludgewave', 'toxic'],
 	},
 	eternatuseternamax: {
 		num: 890,
