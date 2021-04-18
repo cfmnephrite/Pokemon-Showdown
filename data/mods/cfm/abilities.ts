@@ -4805,11 +4805,12 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 			if (move.flags['punch']) {
 				delete move.flags['protect'];
 				move.infiltrates = true;
-			},
+			}
+		},
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['punch'] && !this.field.auraBreak()) {
 				return this.chainModify(1.2);
-			},
+			}
 		},
 		name: "Unseen Fist",
 		rating: 2,

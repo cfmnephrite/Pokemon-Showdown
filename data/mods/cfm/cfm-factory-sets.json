@@ -8583,6 +8583,15 @@
 "evs":{ "hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
 "moves":[["Facade"],["Brave Bird"],["U-Turn"],["Quick Attack", "Steel Wing"]]}]},
+"tauros":{"flags":{},"sets":[
+
+{"species":"Tauros",
+"gender":"",
+"item":"Life Orb",
+"ability":"Sheer Force",
+"evs":{"hp":0,"atk":252,"def":0,"spa":4,"spd":0,"spe":252},
+"nature":["Naive"],
+"moves":[["Body Slam", "Hyper Beam"],["Earthquake"],["Fire Blast"],["Iron Tail","Zen Headbutt"]]}]},
 "togetic":{"flags":{},"sets":[
 
 {"species":"Togetic",
@@ -10467,15 +10476,6 @@
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Bold"],
 "moves":[["Giga Drain"],["Hidden Power Fire"],["Sleep Powder"],["Leech Seed"]]}]},
-"tauros":{"flags":{},"sets":[
-
-{"species":"Tauros",
-"gender":"",
-"item":"Life Orb",
-"ability":"Sheer Force",
-"evs":{"hp":0,"atk":252,"def":0,"spa":4,"spd":0,"spe":252},
-"nature":["Naive"],
-"moves":[["Body Slam"],["Earthquake"],["Fire Blast"],["Iron Tail","Zen Headbutt"]]}]},
 "torterra":{"flags":{},"sets":[
 
 {"species":"Torterra",
