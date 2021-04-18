@@ -24,16 +24,14 @@ function getMovesFromAThatAreNotInB(learnsetA, learnsetB) {
 // "Sprite key" from mon id
 function getSpriteSrc(id) {
 	let output = 'abra';
-	if (id === 'oricoriopau')
-		output = xyAniUrl('oricorio-pau');
-	else if (id === 'pichuspikyeared')
+	if (id === 'pichuspikyeared')
 		output = 'https://cdn.bulbagarden.net/upload/b/bb/Spiky-eared_Pichu_DP_1.png';
 	else if (dex[id].forme)
 		output = xyAniUrl(dex[id].name.toLowerCase());
 	else
 		output = xyAniUrl(id);
 
-	return output;
+	return output.replace(/'|’/g, "");
 }
 
 // Sums stats
@@ -56,15 +54,56 @@ for (mon of Object.keys(dex).filter(key => dex[key].cfmMoves.length)) {
 	// Abilities have to be overwritten
 	let monAbilities = {};
 	for (const [key, name] of Object.entries(dex[mon].abilities)) {
-		let dexMonAb = Object.values(dex[mon].abilities), abilityData = Object.values(abilities).find(ability => ability.name === name);
+		let dexMonAb = Object.values(dex[mon].abilities),
+		abilityData = Object.values(abilities).find(ability => ability.name === name),
+		abilityId = name.replace(/[^0-9a-z]/gi, "").toLowerCase();
 
 		monAbilities[key] = {
 			...abilityData,
-			new:	!Object.values(oldDex[mon].abilities).includes(name),
-			id:		name.replace(/[^0-9a-z]/gi, "").toLowerCase(),
-			key:	key,
-			last:	dexMonAb.indexOf(name) === (dexMonAb.length - 1)
+			desc:			(dex[mon].cfmAbilitySpecialDesc || {})[abilityId] || abilityData.cfmDesc || abilityData.desc || abilityData.shortDesc || '',
+			new:			!Object.values(oldDex[mon].abilities).includes(name),
+			specialForMon:	!!(dex[mon].cfmAbilitySpecialDesc || {})[abilityId],
+			id:				abilityId,
+			last:			dexMonAb.indexOf(name) === (dexMonAb.length - 1),
+			key
 		};
+	}
+
+	// Calculate moves
+	let monMoves = [],
+	newMoves = getMovesFromAThatAreNotInB(learnset, oldLearnset),
+	lostMoves = getMovesFromAThatAreNotInB(oldLearnset, learnset);
+	for (const move of (dex[mon].cfmMoves).sort()) {
+		let dexMove = moves[move];
+		if (!dexMove)
+			console.log(`No move ${move} for ${mon}.`);
+		else {
+			monMoves.push({
+				...dexMove,
+				id: move,
+				new: newMoves.includes(move),
+				lost: lostMoves.includes(move),
+				specialForMon: !!(dex[mon].cfmMoveSpecialDesc || {})[move],
+				desc: (dex[mon].cfmMoveSpecialDesc || {})[move] || dexMove.cfmDesc || dexMove.shortDesc || dexMove.desc || ''
+			});
+		}
+	}
+
+	if (monMoves.length != (mon === 'pikachu' ? 11 : 12))
+		console.log(`${mon} has ${monMoves.length} moves`);
+
+	// Custom Z Move, if applicable
+	let specialZMove = null;
+	if (dex[mon].cfmMoveSpecialZDesc) {
+		let dexMove = moves[dex[mon].cfmMoveSpecialZDesc];
+
+		specialZMove = {
+			...dexMove,
+			cfm: true,
+			name: `Z-Move: ${dexMove.name}`,
+			specialZMove: true,
+			desc: dexMove.cfmDesc || ''
+		}
 	}
 
 	let gen = 1;
@@ -83,21 +122,26 @@ for (mon of Object.keys(dex).filter(key => dex[key].cfmMoves.length)) {
 	if (dex[mon].num > 809)
 		gen++;
 
+	let num = dex[mon].num;
+	if (num < 100)
+		num = `0${num}`;
+	if (num < 10)
+		num = `0${num}`;
+
 	outputMons.dex.push({
 		...dex[mon],
-		cfmMoves: dex[mon].cfmMoves.sort(),
 		id: mon,
-		gen: gen,
+		gen,
+		num,
 		abilities: monAbilities,
 		bst: sumStats(dex[mon].baseStats),
 		oldBst: sumStats(oldDex[mon].baseStats),
 		statsChanged: (JSON.stringify(dex[mon].baseStats) !== JSON.stringify(oldDex[mon].baseStats)),
 		oldStats: oldDex[mon].baseStats,
 		tier: tiers[formatsData[mon].tier] || formatsData[mon].tier,
-		learnset,
-		newMoves: getMovesFromAThatAreNotInB(learnset, oldLearnset),
-		lostMoves: getMovesFromAThatAreNotInB(oldLearnset, learnset),
 		spriteSrc: getSpriteSrc(mon),
+		monMoves,
+		specialZMove,
 		active: false
 	});
 }

@@ -6,6 +6,7 @@ dateStr = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}-${d.getHours()}-${d
 
 if (fs.existsSync(path)) {
 	execSync('git checkout master', {cwd: path});
+	execSync('git pull', {cwd: path});
 	console.log('Checked out...')
 
 	execSync('node cfm_data_to_site_assets.js');
