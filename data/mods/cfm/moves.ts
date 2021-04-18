@@ -16534,6 +16534,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		secondary: null,
 		target: "normal",
 		type: "Steel",
+		cfm: true,
 	},
 	steelroller: {
 		num: 798,

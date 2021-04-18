@@ -4577,7 +4577,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Dragon"],
 		otherFormes: ["Sceptile-Mega"],
 		formeOrder: ["Sceptile", "Sceptile-Mega"],
-		cfmMoves: ["detect", "dragonclaw", "dragondance", "dragonpulse", "focusblast", "frenzyplant", "leafage", "leafblade", "leafstorm", "rockslide", "thunderpunch", "weatherball"],
+		cfmMoves: ['crosschop', 'detect', 'focusblast', 'frenzyplant', 'grassyglide', 'leafage', 'leafblade', 'leafstorm', 'nightslash', 'psychocut', 'swordsdance', 'thunderpunch'],
 	},
 	sceptilemega: {
 		num: 254,
@@ -4593,7 +4593,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Sceptilite",
-		cfmMoves: [],
+		cfmMoves: ['dragonclaw', 'dragondance', 'dragonpulse', 'focusblast', 'grasswhistle', 'growth', 'pursuit', 'seedbomb', 'solarbeam', 'solarblade', 'synthesis', 'weatherball'],
 	},
 	torchic: {
 		num: 255,
@@ -16177,7 +16177,7 @@ Water: Scald`},
 		weightkg: 40,
 		color: "White",
 		eggGroups: ["Mineral", "Dragon"],
-		cfmMoves: [],
+		cfmMoves: ['autotomize', 'dracometeor', 'dragonclaw', 'dragonpulse', 'hyperbeam', 'irontail', 'irontail', 'lockon', 'mirrorshot', 'nightslash', 'steelbeam', 'zapcannon'],
 	},
 	dreepy: {
 		num: 885,
