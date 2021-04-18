@@ -218,9 +218,9 @@ assert.false = function (value, message) {
 	});
 };
 assert.true = function (value, message) {
-	if (!!value) return;
+	if (value) return;
 	throw new AssertionError({
-		actual: !!value,
+		actual: `!!{value}`,
 		expected: true,
 		operator: '===',
 		message: message,

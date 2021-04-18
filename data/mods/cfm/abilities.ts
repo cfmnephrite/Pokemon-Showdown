@@ -4151,8 +4151,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		},
 		onUpdate(pokemon) {
 			if (!pokemon.abilityData.stalwartUsed) {
-				let moveVolatile;
-				for (moveVolatile of ['Encore', 'Attract', 'Disable', 'Torment']) {
+				for (const moveVolatile of ['Encore', 'Attract', 'Disable', 'Torment']) {
 					if (pokemon.volatiles[moveVolatile.toLowerCase()]) {
 						this.add('-activate', pokemon, 'ability: Stalwart');
 						pokemon.removeVolatile(moveVolatile.toLowerCase());
