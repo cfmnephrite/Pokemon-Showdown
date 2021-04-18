@@ -4140,14 +4140,38 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		cfm: true,
 	},
 	stalwart: {
+		shortDesc: "Prevents move redirection; cures the effects of Encore, Attract, Disable, Torment once per switch-in.",
 		onModifyMove(move) {
 			// this doesn't actually do anything because ModifyMove happens after the tracksTarget check
 			// the actual implementation is in Battle#getTarget
 			move.tracksTarget = true;
 		},
+		onStart(pokemon) {
+			pokemon.abilityData.stalwartUsed = false;
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.abilityData.stalwartUsed) {
+				let moveVolatile;
+				for (moveVolatile of ['Encore', 'Attract', 'Disable', 'Torment']) {
+					if (pokemon.volatiles[moveVolatile.toLowerCase()]) {
+						this.add('-activate', pokemon, 'ability: Stalwart');
+						pokemon.removeVolatile(moveVolatile.toLowerCase());
+						this.add('-end', pokemon, `move: ${moveVolatile}`, '[from] ability: Stalwart');
+						pokemon.abilityData.stalwartUsed = true;
+					}
+				}
+				if (pokemon.volatiles['taunt']) {
+					this.add('-activate', pokemon, 'ability: Stalwart');
+					pokemon.removeVolatile('taunt');
+					// Taunt's volatile already sends the -end message when removed
+					pokemon.abilityData.stalwartUsed = true;
+				}
+			}
+		},
 		name: "Stalwart",
 		rating: 0,
 		num: 242,
+		cfm: true,
 	},
 	stamina: {
 		shortDesc: "Boosts higher of Defence and Sp. Def when hit by a damaging move.",

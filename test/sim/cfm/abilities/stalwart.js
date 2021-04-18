@@ -1,0 +1,38 @@
+'use strict';
+
+const {strictEqual} = require('./../../../assert');
+const assert = require('./../../../assert');
+const common = require('./../../../common');
+
+let battle, move;
+
+describe('CFM - Stalwart', function () {
+	afterEach(function () {
+		battle.destroy();
+	});
+
+	for (move of ['Disable', 'Encore', 'Taunt', 'Torment', 'Attract'])
+	{
+		let moveId = move.toLowerCase();
+
+		it(`Stalwart stops ${move}, but only once`, function () {
+			battle = common.mod('cfm').createBattle([
+				[{species: 'Duraludon', gender: "F", ability: 'stalwart', moves: ['quickattack', 'splash']},
+				{species: 'Magikarp', gender: "F", ability: 'stalwart', moves: ['splash']}],
+				[{species: 'Sableye', gender: "M", ability: 'stall', moves: [moveId, 'splash']}],
+			]);
+			battle.makeChoices('move quickattack', `move ${moveId}`);
+			assert(!battle.p1.active[0].volatiles[moveId]);
+			battle.makeChoices('move quickattack', `move ${moveId}`);
+			assert(battle.p1.active[0].volatiles[moveId]);
+
+			// Switch out and back in
+			battle.makeChoices('switch Magikarp', 'move splash');
+			battle.makeChoices('switch Duraludon', 'move splash');
+			battle.makeChoices('move quickattack', `move ${moveId}`);
+			assert(!battle.p1.active[0].volatiles[moveId]);
+			battle.makeChoices('move quickattack', `move ${moveId}`);
+			assert(battle.p1.active[0].volatiles[moveId]);
+		});
+	}
+});
