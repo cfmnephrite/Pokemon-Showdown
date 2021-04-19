@@ -5,17 +5,31 @@
  * @author jetou
  */
 
-// @ts-ignore Needed for FS
-if (!global.Config) global.Config = {nofswriting: false};
+if (!global.Config) {
+	let hasSQLite = true;
+	try {
+		require.resolve('better-sqlite3');
+	} catch (e) {
+		hasSQLite = false;
+	}
+	global.Config = {
+		nofswriting: false,
+		usesqlitemodlog: hasSQLite,
+		usesqlite: hasSQLite,
+	};
+}
 
-var _fs = require('../../.lib-dist/fs');
 
+var _lib = require('../../.lib-dist');
+var _modlog = require('../../.server-dist/modlog');
 var _iptools = require('../../.server-dist/ip-tools');
+
+const Database = Config.usesqlite ? require('better-sqlite3') : null;
 
 
 
 /** The number of modlog entries to write to the database on each transaction */
-const ENTRIES_TO_BUFFER = 100;
+const ENTRIES_TO_BUFFER = 25000;
 
 const IP_ONLY_ACTIONS = new Set([
 	'SHAREDIP', 'UNSHAREDIP', 'UNLOCKIP', 'UNLOCKRANGE', 'RANGEBAN', 'RANGELOCK',
@@ -342,14 +356,25 @@ function toID(text) {
 	let line = modernizeLog(raw);
 	if (!line) return;
 
-	const log = {action: 'NULL', isGlobal};
 	const timestamp = parseBrackets(line, '[');
-	log.time = Math.floor(new Date(timestamp).getTime());
 	line = line.slice(timestamp.length + 3);
+	const [roomID, ...bonus] = parseBrackets(line, '(').split(' ');
 
-	const [roomid, ...bonus] = parseBrackets(line, '(').split(' ');
-	log.roomID = roomid;
-	if (bonus.length) log.visualRoomID = `${roomid} ${bonus.join(' ')}`;
+	const log = {
+		action: 'NULL',
+		roomID,
+		visualRoomID: '',
+		userid: null,
+		autoconfirmedID: null,
+		alts: [],
+		ip: null,
+		isGlobal,
+		loggedBy: null,
+		note: '',
+		time: Math.floor(new Date(timestamp).getTime()) || Date.now(),
+	};
+
+	if (bonus.length) log.visualRoomID = `${log.roomID} ${bonus.join(' ')}`;
 	line = line.slice((log.visualRoomID || log.roomID).length + 3);
 	const actionColonIndex = line.indexOf(':');
 	const action = line.slice(0, actionColonIndex);
@@ -410,19 +435,19 @@ function toID(text) {
 		}
 	}
 
-	let regex = /by .*:/;
+	let regex = /\bby .*:/;
 	let actionTakerIndex = _optionalChain([regex, 'access', _6 => _6.exec, 'call', _7 => _7(line), 'optionalAccess', _8 => _8.index]);
 	if (actionTakerIndex === undefined) {
 		actionTakerIndex = line.indexOf('by ');
-		regex = /by .*/;
+		regex = /\bby .*/;
 	}
 	if (actionTakerIndex !== -1) {
 		const colonIndex = line.indexOf(': ');
 		const actionTaker = line.slice(actionTakerIndex + 3, colonIndex > actionTakerIndex ? colonIndex : undefined);
 		if (toID(actionTaker).length < 19) {
-			log.loggedBy = toID(actionTaker) || undefined;
+			log.loggedBy = toID(actionTaker) || null;
 			if (colonIndex > actionTakerIndex) line = line.slice(colonIndex);
-			line = line.replace(regex, '');
+			line = line.replace(regex, ' ');
 		}
 	}
 	if (line) log.note = line.replace(/^\s?:\s?/, '').trim();
@@ -433,12 +458,166 @@ function toID(text) {
 	let result = `[${new Date(log.time || Date.now()).toJSON()}] (${(log.visualRoomID || log.roomID || 'global').replace(/^global-/, '')}) ${log.action}`;
 	if (log.userid) result += `: [${log.userid}]`;
 	if (log.autoconfirmedID) result += ` ac: [${log.autoconfirmedID}]`;
-	if (log.alts) result += ` alts: [${log.alts.join('], [')}]`;
-	if (log.ip) result += ` [${log.ip}]`;
+	if (log.alts.length) result += ` alts: [${log.alts.join('], [')}]`;
+	if (log.ip) {
+		if (!log.userid) result += `:`;
+		result += ` [${log.ip}]`;
+	}
 	if (log.loggedBy) result += `${result.endsWith(']') ? '' : ':'} by ${log.loggedBy}`;
 	if (log.note) result += `: ${log.note}`;
 	return result + `\n`;
 } exports.rawifyLog = rawifyLog;
+
+ class ModlogConverterSQLite {
+	
+	
+	 __init() {this.isTesting = null}
+
+	constructor(databaseFile, textLogDir, isTesting) {;ModlogConverterSQLite.prototype.__init.call(this);
+		this.databaseFile = databaseFile;
+		this.textLogDir = textLogDir;
+		if (isTesting || Config.nofswriting) {
+			this.isTesting = {files: new Map(), db: isTesting || new Database(':memory:')};
+		}
+	}
+
+	async toTxt() {
+		const database = _optionalChain([this, 'access', _9 => _9.isTesting, 'optionalAccess', _10 => _10.db]) || new Database(this.databaseFile, {fileMustExist: true});
+		const roomids = database.prepare('SELECT DISTINCT roomid FROM modlog').all();
+		const globalEntries = [];
+		for (const {roomid} of roomids) {
+			if (!Config.nofswriting) console.log(`Reading ${roomid}...`);
+			const results = database.prepare(
+				`SELECT *, (SELECT group_concat(userid, ',') FROM alts WHERE alts.modlog_id = modlog.modlog_id) as alts ` +
+				`FROM modlog WHERE roomid = ? ORDER BY timestamp ASC`
+			).all(roomid);
+
+			const trueRoomID = roomid.replace(/^global-/, '');
+
+			let entriesLogged = 0;
+			let entries = [];
+
+			const insertEntries = async () => {
+				if (roomid === 'global') return;
+				entriesLogged += entries.length;
+				if (!Config.nofswriting && (entriesLogged % ENTRIES_TO_BUFFER === 0 || entriesLogged < ENTRIES_TO_BUFFER)) {
+					process.stdout.clearLine(0);
+					process.stdout.cursorTo(0);
+					process.stdout.write(`Wrote ${entriesLogged} entries from '${trueRoomID}'`);
+				}
+				await this.writeFile(`${this.textLogDir}/modlog_${trueRoomID}.txt`, entries.join(''));
+				entries = [];
+			};
+
+			for (const result of results) {
+				const entry = {
+					action: result.action,
+					roomID: _optionalChain([result, 'access', _11 => _11.roomid, 'optionalAccess', _12 => _12.replace, 'call', _13 => _13(/^global-/, '')]),
+					visualRoomID: result.visual_roomid,
+					userid: result.userid,
+					autoconfirmedID: result.autoconfirmed_userid,
+					alts: _optionalChain([result, 'access', _14 => _14.alts, 'optionalAccess', _15 => _15.split, 'call', _16 => _16(',')]),
+					ip: result.ip,
+					isGlobal: _optionalChain([result, 'access', _17 => _17.roomid, 'optionalAccess', _18 => _18.startsWith, 'call', _19 => _19('global-')]) || result.roomid === 'global',
+					loggedBy: result.action_taker_userid,
+					note: result.note,
+					time: result.timestamp,
+				};
+
+				const rawLog = rawifyLog(entry);
+				entries.push(rawLog);
+				if (entry.isGlobal) {
+					globalEntries.push(rawLog);
+				}
+				if (entries.length === ENTRIES_TO_BUFFER) await insertEntries();
+			}
+			await insertEntries();
+			if (entriesLogged) process.stdout.write('\n');
+		}
+		if (!Config.nofswriting) console.log(`Writing the global modlog...`);
+		await this.writeFile(`${this.textLogDir}/modlog_global.txt`, globalEntries.join(''));
+	}
+
+	async writeFile(path, text) {
+		if (this.isTesting) {
+			const old = this.isTesting.files.get(path);
+			return this.isTesting.files.set(path, `${old || ''}${text}`);
+		}
+		return _lib.FS.call(void 0, path).append(text);
+	}
+} exports.ModlogConverterSQLite = ModlogConverterSQLite;
+
+ class ModlogConverterTxt {
+	
+	
+
+	
+	 __init2() {this.isTesting = null}
+	constructor(databaseFile, textLogDir, isTesting, useFTSExtension) {;ModlogConverterTxt.prototype.__init2.call(this);
+		this.databaseFile = databaseFile;
+		this.textLogDir = textLogDir;
+		if (isTesting || Config.nofswriting) {
+			this.isTesting = {
+				files: isTesting || new Map(),
+			};
+		}
+
+		this.modlog = new (0, _modlog.Modlog)(this.textLogDir, this.isTesting ? ':memory:' : this.databaseFile);
+	}
+
+	async toSQLite() {
+		const files = this.isTesting ? [...this.isTesting.files.keys()] : await _lib.FS.call(void 0, this.textLogDir).readdir();
+		// Read global modlog last to avoid inserting duplicate data to database
+		if (files.includes('modlog_global.txt')) {
+			files.splice(files.indexOf('modlog_global.txt'), 1);
+			files.push('modlog_global.txt');
+		}
+
+		const globalEntries = [];
+
+		for (const file of files) {
+			if (file === 'README.md') continue;
+			const roomid = file.slice(7, -4);
+			const lines = this.isTesting ?
+				_optionalChain([this, 'access', _20 => _20.isTesting, 'access', _21 => _21.files, 'access', _22 => _22.get, 'call', _23 => _23(file), 'optionalAccess', _24 => _24.split, 'call', _25 => _25('\n')]) || [] :
+				_lib.FS.call(void 0, `${this.textLogDir}/${file}`).createReadStream().byLine();
+
+			let entriesLogged = 0;
+			let lastLine = undefined;
+			let entries = [];
+
+
+			const insertEntries = (alwaysShowProgress) => {
+				this.modlog.writeSQL(entries);
+				entriesLogged += entries.length;
+				if (!Config.nofswriting && (
+					alwaysShowProgress ||
+					entriesLogged % ENTRIES_TO_BUFFER === 0 ||
+					entriesLogged < ENTRIES_TO_BUFFER
+				)) {
+					process.stdout.clearLine(0);
+					process.stdout.cursorTo(0);
+					process.stdout.write(`Inserted ${entriesLogged} entries from '${roomid}'`);
+				}
+				entries = [];
+			};
+
+			for await (const line of lines) {
+				const entry = parseModlog(line, lastLine, roomid === 'global');
+				lastLine = line;
+				if (!entry) continue;
+				if (roomid !== 'global') entries.push(entry);
+				if (entry.isGlobal) {
+					globalEntries.push(entry);
+				}
+				if (entries.length === ENTRIES_TO_BUFFER) insertEntries();
+			}
+			insertEntries(true);
+			if (entriesLogged) process.stdout.write('\n');
+		}
+		return this.modlog.database;
+	}
+} exports.ModlogConverterTxt = ModlogConverterTxt;
 
  class ModlogConverterTest {
 	
@@ -450,7 +629,7 @@ function toID(text) {
 	}
 
 	async toTxt() {
-		const files = await _fs.FS.call(void 0, this.inputDir).readdir();
+		const files = await _lib.FS.call(void 0, this.inputDir).readdir();
 		// Read global modlog last to avoid inserting duplicate data to database
 		if (files.includes('modlog_global.txt')) {
 			files.splice(files.indexOf('modlog_global.txt'), 1);
@@ -475,11 +654,11 @@ function toID(text) {
 					process.stdout.cursorTo(0);
 					process.stdout.write(`Wrote ${entriesLogged} entries from '${roomid}'`);
 				}
-				await _fs.FS.call(void 0, `${this.outputDir}/modlog_${roomid}.txt`).append(entries.join(''));
+				await _lib.FS.call(void 0, `${this.outputDir}/modlog_${roomid}.txt`).append(entries.join(''));
 				entries = [];
 			};
 
-			const readStream = _fs.FS.call(void 0, `${this.inputDir}/${file}`).createReadStream();
+			const readStream = _lib.FS.call(void 0, `${this.inputDir}/${file}`).createReadStream();
 			for await (const line of readStream.byLine()) {
 				const entry = parseModlog(line, lastLine, roomid === 'global');
 				lastLine = line;
@@ -496,7 +675,7 @@ function toID(text) {
 		}
 
 		if (!Config.nofswriting) console.log(`Writing the global modlog...`);
-		await _fs.FS.call(void 0, `${this.outputDir}/modlog_global.txt`).append(globalEntries.join(''));
+		await _lib.FS.call(void 0, `${this.outputDir}/modlog_global.txt`).append(globalEntries.join(''));
 	}
 } exports.ModlogConverterTest = ModlogConverterTest;
 
@@ -510,6 +689,18 @@ function toID(text) {
 			await converter.toTxt();
 			console.log("\nDone!");
 			process.exit();
+		} else if (from === 'sqlite' && to === 'txt') {
+			const converter = new ModlogConverterSQLite(databasePath, textLogDirectoryPath);
+			await converter.toTxt();
+			console.log("\nDone!");
+			process.exit();
+		} else if (from === 'txt' && to === 'sqlite') {
+			const converter = new ModlogConverterTxt(databasePath, textLogDirectoryPath);
+			await converter.toSQLite();
+			console.log("\nDone!");
+			process.exit();
 		}
 	},
 }; exports.ModlogConverter = ModlogConverter;
+
+ //# sourceMappingURL=sourceMaps/converter.js.map
