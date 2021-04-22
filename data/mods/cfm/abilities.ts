@@ -4778,19 +4778,22 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		num: 127,
 	},
 	unseenfist: {
+		shortDesc: "Punch moves: 1.2x damage, ignore protect/substitute/screens",
 		onModifyMove(move) {
 			if (move.flags['punch']) {
 				delete move.flags['protect'];
 				move.infiltrates = true;
-			},
+			}
+		},
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['punch'] && !this.field.auraBreak()) {
 				return this.chainModify(1.2);
-			},
+			}
 		},
 		name: "Unseen Fist",
 		rating: 2,
 		num: 260,
+		cfm: true,
 	},
 	victorystar: {
 		onAnyModifyAccuracyPriority: -1,

@@ -5136,18 +5136,72 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	firespin: {
 		num: 83,
-		accuracy: 85,
-		basePower: 35,
+		accuracy: 100,
+		basePower: 40,
+		basePowerCallback(pokemon, target, move) {
+			// You can't get here unless the pursuit succeeds
+			if (target.beingCalledBack || target.switchFlag) {
+				this.debug('Pursuit damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
 		category: "Special",
+		desc: "If an opposing Pokemon switches out this turn, this move hits that Pokemon before it leaves the field, even if it was not the original target. If the user moves after an opponent using Parting Shot, U-turn, or Volt Switch, but not Baton Pass, it will hit that opponent before it leaves the field. Power doubles and no accuracy check is done if the user hits an opponent switching out, and the user's turn is over; if an opponent faints from this, the replacement Pokemon does not become active until the end of the turn.",
+		shortDesc: "Power doubles if the target is switching out.",
 		name: "Fire Spin",
-		pp: 15,
+		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		volatileStatus: 'partiallytrapped',
+		beforeTurnCallback(pokemon) {
+			for (const side of this.sides) {
+				if (side === pokemon.side) continue;
+				side.addSideCondition('firespin', pokemon);
+				const data = side.getSideConditionData('firespin');
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
+			}
+		},
+		onModifyMove(move, source, target) {
+			if (target?.beingCalledBack || target?.switchFlag) move.accuracy = true;
+		},
+		onTryHit(target, pokemon) {
+			target.side.removeSideCondition('firespin');
+		},
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				this.debug('Pursuit start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectData.sources) {
+					if (!this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon, 'move: Pursuit');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.runMove('firespin', source, this.getTargetLoc(pokemon, source));
+				}
+			},
+		},
 		secondary: null,
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	firstimpression: {
 		num: 660,
@@ -17185,6 +17239,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
+		shortDesc: "Always results in a critical hit. Hits twice",
 		name: "Surging Strikes",
 		pp: 5,
 		priority: 0,
@@ -17196,6 +17251,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Water",
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
+		cfm: true,
 	},
 	swagger: {
 		num: 207,
