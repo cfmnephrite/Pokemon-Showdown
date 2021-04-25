@@ -65,7 +65,7 @@ function getScavsRoom(room?: Room) {
 
 class Ladder {
 	file: string;
-	data: AnyObject;
+	data: {[userid: string]: AnyObject};
 	constructor(file: string) {
 		this.file = file;
 		this.data = {};
@@ -101,26 +101,27 @@ class Ladder {
 		FS(this.file).writeUpdate(() => JSON.stringify(this.data));
 	}
 
+	visualize(sortBy: string): Promise<({rank: number} & AnyObject)[]>;
+	visualize(sortBy: string, userid: ID): Promise<({rank: number} & AnyObject) | undefined>;
 	visualize(sortBy: string, userid?: ID) {
 		// return a promise for async sorting - make this less exploitable
 		return new Promise((resolve, reject) => {
 			let lowestScore = Infinity;
 			let lastPlacement = 1;
 
-			const ladder: AnyObject[] = Object.keys(this.data)
-				.filter(k => this.data[k][sortBy])
-				.sort((a, b) => this.data[b][sortBy] - this.data[a][sortBy])
-				.map((u, i) => {
-					const chunk = this.data[u];
-					if (chunk[sortBy] !== lowestScore) {
-						lowestScore = chunk[sortBy];
-						lastPlacement = i + 1;
-					}
-					return {
-						rank: lastPlacement,
-						...chunk,
-					};
-				}); // identify ties
+			const ladder = Utils.sortBy(
+				Object.entries(this.data).filter(([u, bit]) => sortBy in bit),
+				([u, bit]) => -bit[sortBy]
+			).map(([u, chunk], i) => {
+				if (chunk[sortBy] !== lowestScore) {
+					lowestScore = chunk[sortBy];
+					lastPlacement = i + 1;
+				}
+				return {
+					rank: lastPlacement,
+					...chunk,
+				} as {rank: number} & AnyObject;
+			}); // identify ties
 			if (userid) {
 				const rank = ladder.find(entry => toID(entry.name) === userid);
 				resolve(rank);
@@ -525,18 +526,16 @@ export class ScavengerHunt extends Rooms.RoomGame {
 
 	// returns whether or not the next action should be stopped
 	runEvent(event_id: string, ...args: any[]) {
-		let events = this.mods['on' + event_id];
+		const events = this.mods['on' + event_id];
 		if (!events) return;
 
-		events = events.sort((a, b) => b.priority - a.priority);
+		Utils.sortBy(events, event => -event.priority);
 		let result = undefined;
 
-		if (events) {
-			for (const event of events) {
-				const subResult = event.exec.call(this, ...args) as any;
-				if (subResult === true) return true;
-				result = subResult;
-			}
+		for (const event of events) {
+			const subResult = event.exec.call(this, ...args) as any;
+			if (subResult === true) return true;
+			result = subResult;
 		}
 
 		return result === false ? true : result;
@@ -736,8 +735,10 @@ export class ScavengerHunt extends Rooms.RoomGame {
 		if (!reset) {
 			const sliceIndex = this.gameType === 'official' ? 5 : 3;
 
+			const hosts = Utils.escapeHTML(Chat.toListString(this.hosts.map(h => h.name)));
+
 			this.announce(
-				`The ${this.gameType ? `${this.gameType} ` : ""}scavenger hunt was ended ${(endedBy ? "by " + Utils.escapeHTML(endedBy.name) : "automatically")}.<br />` +
+				`The ${this.gameType ? `${this.gameType} ` : ""}scavenger hunt by ${hosts} was ended ${(endedBy ? "by " + Utils.escapeHTML(endedBy.name) : "automatically")}.<br />` +
 				`${this.completed.slice(0, sliceIndex).map((p, i) => `${formatOrder(i + 1)} place: <em>${Utils.escapeHTML(p.name)}</em> <span style="color: lightgreen;">[${p.time}]</span>.<br />`).join("")}${this.completed.length > sliceIndex ? `Consolation Prize: ${this.completed.slice(sliceIndex).map(e => `<em>${Utils.escapeHTML(e.name)}</em> <span style="color: lightgreen;">[${e.time}]</span>`).join(', ')}<br />` : ''}<br />` +
 				`<details style="cursor: pointer;"><summary>Solution: </summary><br />${this.questions.map((q, i) => `${i + 1}) ${Chat.formatText(q.hint)} <span style="color: lightgreen">[<em>${Utils.escapeHTML(q.answer.join(' / '))}</em>]</span>`).join("<br />")}</details>`
 			);
@@ -1429,7 +1430,7 @@ const ScavengerCommands: ChatCommands = {
 
 		const elapsedMsg = Chat.toDurationString(Date.now() - game.startTime, {hhmmss: true});
 		const gameTypeMsg = game.gameType ? `<em>${game.gameType}</em> ` : '';
-		const hostersMsg = Chat.toListString(game.hosts.map(h => h.name));
+		const hostersMsg = Utils.escapeHTML(Chat.toListString(game.hosts.map(h => h.name)));
 		const hostMsg = game.hosts.some(h => h.id === game.staffHostId) ?
 			'' : Utils.html` (started by - ${game.staffHostName})`;
 		const finishers = Utils.html`${game.completed.map(u => u.name).join(', ')}`;
@@ -1689,6 +1690,7 @@ const ScavengerCommands: ChatCommands = {
 		}
 		if (!target && this.cmd !== 'queuerecycled') {
 			if (this.cmd === 'queue') {
+				// Necessary for broadcasting: this.runBroadcast();
 				const commandHandler = ScavengerCommands.viewqueue as ChatHandler;
 				commandHandler.call(this, target, room, user, this.connection, this.cmd, this.message);
 				return;
