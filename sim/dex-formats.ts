@@ -677,6 +677,8 @@ export class DexFormats {
 					'uber', 'ou', 'uubl', 'uu', 'rubl', 'ru', 'nubl', 'nu', 'publ', 'pu', 'zu', 'nfe', 'lc', 'cap', 'caplc', 'capnfe', 'ag',
 					// doubles tiers
 					'duber', 'dou', 'dbl', 'duu', 'dnu',
+					// CFM tiers
+					'cag', 'cub', 'cou', 'cuu', 'cru', 'cnu', 'cpu', 'czu', 'clc',
 					// custom tags -- nduubl is used for national dex teambuilder formatting
 					'mega', 'nduubl',
 					// illegal/nonstandard reasons

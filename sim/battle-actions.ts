@@ -173,6 +173,7 @@ export class BattleActions {
 		pokemon.isStarted = true;
 		if (!pokemon.fainted) {
 			this.battle.singleEvent('Start', pokemon.getAbility(), pokemon.abilityData, pokemon);
+			this.battle.send('tutorialPkmn', `${pokemon.species}\n${pokemon.side.id}\n${JSON.stringify(pokemon.moveSlots.map(moveSlot => moveSlot.id))}`);
 			this.battle.singleEvent('Start', pokemon.getItem(), pokemon.itemData, pokemon);
 		}
 		if (this.battle.gen === 4) {
@@ -1560,7 +1561,8 @@ export class BattleActions {
 			// Body press really wants to use the def stat,
 			// so it switches stats to compensate for Wonder Room.
 			// Of course, the game thus miscalculates the boosts...
-			if ('wonderroom' in this.battle.field.pseudoWeather) {
+			if (('wonderroom' in this.battle.field.pseudoWeather && this.battle.format.mod !== 'cfm') ||
+				(this.battle.format.mod === 'cfm' && move.id === 'behemothbash')) {
 				if (attackStat === 'def') {
 					attackStat = 'spd';
 				} else if (attackStat === 'spd') {

@@ -263,7 +263,7 @@ export interface MoveData extends EffectData, MoveEventMethods, HitEffect {
 	zMoveSpecialMoveFrom?: string[];
 }
 
-export type ModdedMoveData = MoveData | Partial<Omit<MoveData, 'name'>> & {
+export type ModdedMoveData = MoveData | Partial<MoveData> & {
 	inherit: true,
 	igniteBoosted?: boolean,
 	settleBoosted?: boolean,
