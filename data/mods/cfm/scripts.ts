@@ -1,7 +1,3 @@
-import type {Dex} from '../../../sim/dex';
-
-const CHOOSABLE_TARGETS = new Set(['normal', 'any', 'adjacentAlly', 'adjacentAllyOrSelf', 'adjacentFoe']);
-
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 8,
 	/**
@@ -266,7 +262,8 @@ export const Scripts: ModdedBattleScriptsData = {
 					for (const effectid of [
 						'banefulbunker', 'kingsshield', 'obstruct', 'protect', 'spikyshield', 'flowershield', 'shelltrap', 'craftyshield',
 					]) {
-						if (target.removeVolatile(effectid)) broke = true;
+						if (target.removeVolatile(effectid))
+							broke = true;
 					}
 					if (this.battle.gen >= 6 || !target.isAlly(pokemon)) {
 						for (const effectid of ['matblock', 'quickguard', 'wideguard']) {
@@ -274,11 +271,11 @@ export const Scripts: ModdedBattleScriptsData = {
 						}
 					}
 					if (broke) {
-						if (move.id === 'feint') {
+						if (move.id === 'feint')
 							this.battle.add('-activate', target, 'move: Feint');
-						} else {
+						else if (this.dex.moves.get(move.id).breaksProtect)
 							this.battle.add('-activate', target, 'move: ' + move.name, '[broken]');
-						}
+	
 						if (this.battle.gen >= 6) delete target.volatiles['stall'];
 					}
 				}

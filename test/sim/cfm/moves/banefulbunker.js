@@ -17,7 +17,7 @@ describe('CFM - Baneful Bunker', function () {
 			{species: 'Toxapex', ability: 'poisonpoint', moves: ['banefulbunker', 'memento']},
 		]});
 		battle.setPlayer('p2', {team: [
-			{species: 'Hypno', ability: 'baddreams', moves: ['psybeam', 'splash', 'hypervoice']},
+			{species: 'Hypno', ability: 'baddreams', evs: {spe: 4}, moves: ['psybeam', 'splash', 'hypervoice']},
 			{species: 'Hypno', ability: 'baddreams', moves: ['psybeam', 'splash', 'nuzzle']},
 		]});
 		battle.makeChoices("move banefulbunker, move banefulbunker", "move hypervoice, move splash");
