@@ -1508,7 +1508,7 @@ export class BattleActions {
 			return move.damage;
 		}
 
-		const category = this.battle.getCategory(move);
+		const category = this.battle.getCategory(move, pokemon);
 		const defensiveCategory = move.defensiveCategory || category;
 
 		let basePower: number | false | null = move.basePower;
