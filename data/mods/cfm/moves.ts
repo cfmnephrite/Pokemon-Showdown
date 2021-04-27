@@ -26,6 +26,8 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 
 */
 
+import { consoleips } from "../../../config/config-example";
+
 export const Moves: {[moveid: string]: ModdedMoveData} = {
 	"10000000voltthunderbolt": {
 		num: 719,
@@ -15719,10 +15721,10 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			onStart(target) {
 				this.add('-start', target, 'move: Snap Trap');
 			},
-			onResidualOrder: 11,
+			onResidualOrder: 8,
 			onResidual(pokemon) {
-				const source = this.effectData.source;
-				const target = source.side.active[pokemon.volatiles['snaptrap'].sourcePosition];
+				const source = this.effectData.source,
+				target = this.getAtSlot(pokemon.volatiles['snaptrap'].sourceSlot);
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to snap onto');
 					return;
