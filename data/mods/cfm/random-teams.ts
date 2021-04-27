@@ -1311,7 +1311,6 @@ export class RandomCFMTeams extends RandomTeams {
 		const chosenTier = this.factoryTier;
 
 		const tierValues: {[k: string]: number} = {
-			AG:		8,
 			Uber:	7,
 			OU:		6,
 			UU:		5,
