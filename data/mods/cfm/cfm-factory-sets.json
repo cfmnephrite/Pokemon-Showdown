@@ -9150,7 +9150,7 @@
 "evs":{"hp":0,"atk":0,"def":4,"spa":252,"spd":0,"spe":252},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Timid"],
-"moves":[["Rapid Spin"],["Freeze-Dry"],["Hidden Power Ground", "Hidden Power Fighting"],["Sheer Cold"]]},
+"moves":[["Rapid Spin"],["Freeze-Dry"],["Hidden Power Fighting"],["Sheer Cold"]]},
 
 {"species":"Cryogonal",
 "gender":"",
@@ -9159,7 +9159,7 @@
 "evs":{"hp":0,"atk":0,"def":4,"spa":252,"spd":0,"spe":252},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Timid"],
-"moves":[["Rapid Spin"],["Freeze-Dry"],["Hidden Power Ground", "Hidden Power Fighting"],["Recover"]]}]},
+"moves":[["Rapid Spin"],["Freeze-Dry"],["Hidden Power Fighting"],["Recover"]]}]},
 "dedenne":{"flags":{},"sets":[
 
 {"species":"Dedenne",

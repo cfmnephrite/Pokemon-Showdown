@@ -2404,7 +2404,7 @@ function runLearn(target: string, cmd: string, canAll: boolean, message: string)
 	}
 	if (!formatName) {
 		if (['cfmlearn', 'clearn', 'cl'].includes(cmd)) {
-			format = new Dex.Format({ ...format, mod: 'cfm'});
+			format = new Dex.Format({...format, mod: 'cfm'});
 			formatName = 'CFM';
 		} else {
 			if (!Dex.mod(`gen${gen}`)) return {error: `Gen ${gen} does not exist.`};

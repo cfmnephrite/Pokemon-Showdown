@@ -6,7 +6,7 @@ const TeamValidator = require('../../../.sim-dist/team-validator').TeamValidator
 describe('CFM - Team Validator', function () {
 	it('CFM should be a valid format', function () {
 		try {
-			Dex.getRuleTable(Dex.getFormat('gen8cfmou'));
+			Dex.formats.getRuleTable(Dex.formats.get('gen8cfmou'));
 		} catch (e) {
 			e.message = `gen8cfmou: ${e.message}`;
 			throw e;
