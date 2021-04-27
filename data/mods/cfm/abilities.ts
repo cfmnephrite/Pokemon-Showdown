@@ -1764,10 +1764,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 246,
 	},
 	illuminate: {
-		shortDesc: "Reduces the accuracy of incoming super-effective moves by 33%.",
+		shortDesc: "Reduces the accuracy of incoming super-effective attacks by 33%.",
 		onModifyAccuracyPriority: 10,
 		onModifyAccuracy(accuracy, target, source, move) {
-			if (this.dex.getEffectiveness(move.type, target) > 0 && typeof accuracy === 'number'){
+			if (move.category !== 'Status' && this.dex.getEffectiveness(move.type, target) > 0
+				&& typeof accuracy === 'number') {
 				this.debug('Illuminate - decreasing accuracy');
 				return accuracy * 0.67;
 			}
