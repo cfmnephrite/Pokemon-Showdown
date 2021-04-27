@@ -1767,8 +1767,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Reduces the accuracy of incoming super-effective attacks by 33%.",
 		onModifyAccuracyPriority: 10,
 		onModifyAccuracy(accuracy, target, source, move) {
-			if (move.category !== 'Status' && this.dex.getEffectiveness(move.type, target) > 0
-				&& typeof accuracy === 'number') {
+			if (move.category !== 'Status' && this.dex.getEffectiveness(move.type, target) > 0 &&
+				typeof accuracy === 'number') {
 				this.debug('Illuminate - decreasing accuracy');
 				return accuracy * 0.67;
 			}
@@ -4149,19 +4149,15 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		},
 		onUpdate(pokemon) {
 			if (!pokemon.abilityData.stalwartUsed) {
-				for (const moveVolatile of ['Encore', 'Attract', 'Disable', 'Torment']) {
+				for (const moveVolatile of ['Encore', 'Attract', 'Disable', 'Torment', 'Taunt']) {
 					if (pokemon.volatiles[moveVolatile.toLowerCase()]) {
 						this.add('-activate', pokemon, 'ability: Stalwart');
 						pokemon.removeVolatile(moveVolatile.toLowerCase());
-						this.add('-end', pokemon, `move: ${moveVolatile}`, '[from] ability: Stalwart');
+						// Taunt's volatile already sends the -end message when removed
+						if (moveVolatile !== 'Taunt')
+							this.add('-end', pokemon, `move: ${moveVolatile}`, '[from] ability: Stalwart');
 						pokemon.abilityData.stalwartUsed = true;
 					}
-				}
-				if (pokemon.volatiles['taunt']) {
-					this.add('-activate', pokemon, 'ability: Stalwart');
-					pokemon.removeVolatile('taunt');
-					// Taunt's volatile already sends the -end message when removed
-					pokemon.abilityData.stalwartUsed = true;
 				}
 			}
 		},

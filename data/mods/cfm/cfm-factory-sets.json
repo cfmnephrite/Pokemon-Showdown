@@ -343,31 +343,6 @@
 "evs":{"hp":248,"atk":0,"def":8,"spa":0,"spd":252,"spe":0},
 "nature":["Calm"],
 "moves":[["Recover"],["Stealth Rock"],["Psycho Boost"],["Thunder Wave"]]}]},
-"deoxysspeed":{"flags":{},"sets":[
-
-{"species":"Deoxys-Speed",
-"gender":"",
-"item":"Life Orb",
-"ability":"Limber",
-"evs":{"hp":0,"atk":0,"def":4,"spa":252,"spd":0,"spe":252},
-"nature":["Timid"],
-"moves":[["Psycho Boost"],["Shadow Ball"],["Fire Blast"],["Stealth Rock", "Nasty Plot"]]},
-
-{"species":"Deoxys-Speed",
-"gender":"",
-"item":"Focus Sash",
-"ability":"Limber",
-"evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
-"nature":["Jolly"],
-"moves":[["Stealth Rock"],["Taunt"],["Psycho Boost"],["Knock Off"]]},
-
-{"species":"Deoxys-Speed",
-"gender":"",
-"item":"Light Clay",
-"ability":"Limber",
-"evs":{"hp":252,"atk":0,"def":4,"spa":0,"spd":0,"spe":252},
-"nature":["Timid"],
-"moves":[["Stealth Rock"],["Taunt"],["Reflect"],["Light Screen"]]}]},
 "dialga":{"flags":{},"sets":[
 
 {"species":"Dialga",
