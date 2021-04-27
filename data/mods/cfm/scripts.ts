@@ -275,7 +275,7 @@ export const Scripts: ModdedBattleScriptsData = {
 							this.battle.add('-activate', target, 'move: Feint');
 						else if (this.dex.moves.get(move.id).breaksProtect)
 							this.battle.add('-activate', target, 'move: ' + move.name, '[broken]');
-	
+
 						if (this.battle.gen >= 6) delete target.volatiles['stall'];
 					}
 				}

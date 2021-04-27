@@ -25,9 +25,6 @@ snatch: Can be stolen from the original user and instead used by another Pokemon
 sound: Has no effect on Pokemon with the Soundproof Ability.
 
 */
-
-import { consoleips } from "../../../config/config-example";
-
 export const Moves: {[moveid: string]: ModdedMoveData} = {
 	"10000000voltthunderbolt": {
 		num: 719,
@@ -15724,7 +15721,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			onResidualOrder: 8,
 			onResidual(pokemon) {
 				const source = this.effectData.source,
-				target = this.getAtSlot(pokemon.volatiles['snaptrap'].sourceSlot);
+					target = this.getAtSlot(pokemon.volatiles['snaptrap'].sourceSlot);
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to snap onto');
 					return;

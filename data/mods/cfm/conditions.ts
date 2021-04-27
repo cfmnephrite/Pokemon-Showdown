@@ -811,10 +811,10 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onType(types, pokemon) {
 			if (pokemon.ability === 'colorchange') {
 				const colorChangeTypes = [];
-				colorChangeTypes.push(this.dex.getMove(pokemon.moveSlots[0].move).type);
+				colorChangeTypes.push(this.dex.moves.get(pokemon.moveSlots[0].move).type);
 				if (pokemon.moveSlots[1] &&
-				this.dex.getMove(pokemon.moveSlots[0].move).type !== this.dex.getMove(pokemon.moveSlots[1].move).type) {
-					colorChangeTypes.push(this.dex.getMove(pokemon.moveSlots[1].move).type);
+				this.dex.moves.get(pokemon.moveSlots[0].move).type !== this.dex.moves.get(pokemon.moveSlots[1].move).type) {
+					colorChangeTypes.push(this.dex.moves.get(pokemon.moveSlots[1].move).type);
 				}
 				pokemon.setType(colorChangeTypes);
 			}

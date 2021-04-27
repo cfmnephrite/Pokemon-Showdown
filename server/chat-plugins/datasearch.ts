@@ -544,7 +544,6 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 	let fullyEvolvedSearch = null;
 	let singleTypeSearch = null;
 	let randomOutput = 0;
-	let maxGen = 0;
 
 	// CFM search mode
 	let cfmSearch = (message.substr(0, 4).toLowerCase() === '/cds' ? true : null);
@@ -1277,7 +1276,7 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 	let sort: string | null = null;
 	const targetMons: {name: string, shouldBeExcluded: boolean}[] = [];
 	let nationalSearch = null;
-	let cfmSearch: boolean | null = null;
+	const cfmSearch: boolean | null = null;
 	let randomOutput = 0;
 	for (const arg of splitTarget) {
 		const orGroup: MoveOrGroup = {
