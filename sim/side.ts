@@ -178,7 +178,7 @@ export class Side {
 		// if (this.battle.gameType === 'multitriples' && this.battle.turn % 3 !== [1, 1, 2, 2, 0, 0][this.side.n]) {
 		//		return false;
 		// }
-		return !this.dynamaxUsed;
+		return !this.dynamaxUsed && this.battle.format.mod !== 'cfm';
 	}
 
 	getChoice() {

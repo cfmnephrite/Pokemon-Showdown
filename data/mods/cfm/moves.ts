@@ -16011,6 +16011,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 					return null;
 				}
 			},
+			onNegateImmunity: false,
 			onEffectivenessPriority: 1,
 			onEffectiveness(typeMod, target, type, move) {
 				// The effectiveness of "special typeMod" moves isn't reversed
