@@ -720,7 +720,7 @@ export const Formats: FormatList = [
 		desc: `Randomized CFM teams for CFM tiers.`,
 
 		mod: 'cfm',
-		team: 'randomFactory',
+		team: 'randomCFMFactory',
 		ruleset: ['Obtainable', 'Sleep Clause Mod', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Mega Rayquaza Clause'],
 	},
 	{
