@@ -2668,6 +2668,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
+		shortDesc: "30% chance to paralyze adjacent Pokemon.",
 		name: "Cotton Spore",
 		pp: 15,
 		priority: 0,
@@ -2676,9 +2677,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			chance: 30,
 			status: 'par',
 		},
-		target: "allAdjacentFoes",
+		target: "allAdjacent",
 		type: "Grass",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	counter: {
 		num: 68,
@@ -7879,11 +7881,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 140,
 		category: "Physical",
-		shortDesc: "Lowers the user's Attack by 2. High crit chance.",
+		shortDesc: "Lowers the user's Attack by 2. High crit chance. Fire if used by Rapidash.",
 		name: "Horn Drill",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				atk: -2,
+			},
+		},
+		onModifyType(move, pokemon) {
+			if (pokemon.species.name === 'Rapidash') {
+				move.type = 'Fire';
+			}
+		},
 		critRatio: 2,
 		secondary: null,
 		target: "normal",
@@ -17618,12 +17630,12 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	tarshot: {
 		num: 749,
 		accuracy: 100,
-		basePower: 0,
-		category: "Status",
+		basePower: 80,
+		category: "Special", 
 		name: "Tar Shot",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1},
 		volatileStatus: 'tarshot',
 		condition: {
 			onStart(pokemon) {
@@ -17643,6 +17655,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		secondary: null,
 		target: "normal",
 		type: "Rock",
+		cfm: true,
 	},
 	taunt: {
 		num: 269,

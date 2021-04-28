@@ -871,7 +871,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mrrime: {
 		randomBattleMoves: ["focusblast", "icebeam", "nastyplot", "psychic", "rapidspin", "shadowball", "slackoff", "thunderbolt"],
-		tier: "CPU",
+		tier: "CNU",
 		inherit: true,
 	},
 	scyther: {
@@ -4958,12 +4958,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	carkol: {
-		tier: "CZU",
+		tier: "CPU",
 		inherit: true,
 	},
 	coalossal: {
 		randomBattleMoves: ["earthquake", "fireblast", "rapidspin", "spikes", "stealthrock", "stoneedge"],
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	applin: {
@@ -5087,7 +5087,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	falinks: {
 		randomBattleMoves: ["closecombat", "megahorn", "noretreat", "poisonjab", "rockslide", "throatchop"],
-		tier: "CPU",
+		tier: "CRU",
 		inherit: true,
 	},
 	pincurchin: {
@@ -5179,7 +5179,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dragapult: {
 		randomBattleMoves: ["dragondance", "dragondarts", "fireblast", "phantomforce", "psychicfangs", "shadowball", "uturn"],
-		tier: "COU",
+		tier: "CUb",
 		inherit: true,
 	},
 	zacian: {

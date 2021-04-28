@@ -3748,16 +3748,10 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		cfm: true,
 	},
 	screencleaner: {
+		shortDesc: "Ends opponent's Reflect, Light Screen, and Aurora Veil on switch in.",
 		onStart(pokemon) {
 			let activated = false;
 			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil']) {
-				if (pokemon.side.getSideCondition(sideCondition)) {
-					if (!activated) {
-						this.add('-activate', pokemon, 'ability: Screen Cleaner');
-						activated = true;
-					}
-					pokemon.side.removeSideCondition(sideCondition);
-				}
 				if (pokemon.side.foe.getSideCondition(sideCondition)) {
 					if (!activated) {
 						this.add('-activate', pokemon, 'ability: Screen Cleaner');
@@ -4222,15 +4216,24 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		cfm: true,
 	},
 	steamengine: {
-		onDamagingHit(damage, target, source, move) {
-			if (['Water', 'Fire'].includes(move.type)) {
-				this.boost({spe: 6});
-			}
-		},
-		name: "Steam Engine",
-		rating: 2,
-		num: 243,
-	},
+        shortDesc: "One time immunity to Fire or Water that raises speed by 6.",
+        onStart(pokemon) {
+            pokemon.abilityData.steamEngineUsed = false;
+        },
+        onTryHit(target, source, move) {
+            if (!target.abilityData.steamEngineUsed && target !== source && ['Fire', 'Water'].includes(move.type)) {
+					target.abilityData.steamEngineUsed = true;
+                    if (!this.boost({spe: 6})) {
+                        this.add('-immune', target, '[from] ability: Steam Engine');
+                    }
+                return null;
+            }
+        },
+        name: "Steam Engine",
+        rating: 2,
+        num: 243,
+        cfm: true,
+    },
 	steelworker: {
 		shortDesc: "This Pokemon's attacking stat is multiplied by 1.5 while using a Steel-type attack.",
 		onBasePowerPriority: 8,
