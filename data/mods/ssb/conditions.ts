@@ -9,7 +9,7 @@ for (const row of usergroupData) {
 	if (!toID(row)) continue;
 
 	const cells = row.split(',');
-	if (cells.length !== 2) throw new Error(`Invalid entry when parsing usergroups.csv`);
+	if (cells.length > 3) throw new Error(`Invalid entry when parsing usergroups.csv`);
 	usergroups[toID(cells[0])] = cells[1].trim() || ' ';
 }
 
@@ -347,7 +347,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 			this.add(`c|${getName('Cake')}|AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`);
 			// h innate
 			if (pokemon.illusion) return;
-			const typeList = Object.keys(this.dex.data.TypeChart);
+			const typeList = [...this.dex.types.names()];
 			this.prng.shuffle(typeList);
 			const firstType = typeList[0];
 			this.prng.shuffle(typeList);
@@ -369,7 +369,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 		onResidual(pokemon) {
 			if (pokemon.illusion) return;
 			if (pokemon.activeTurns) {
-				const typeList = Object.keys(this.dex.data.TypeChart);
+				const typeList = [...this.dex.types.names()];
 				this.prng.shuffle(typeList);
 				const firstType = typeList[0];
 				this.prng.shuffle(typeList);
@@ -768,9 +768,14 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 			this.add(`c|${getName('instruct')}|yall suck im going home`);
 		},
 		innateName: "Last Laugh",
-		desc: "Upon fainting to an opponent's direct attack, this Pokemon deals damage to all Pokemon that have made contact with it equal to 50% of their max HP. This damage cannot KO Pokemon.",
-		shortDesc: "Upon foe KOing user, deal 50% of their max HP to all foes that this Pokemon contacted.",
-		// Extinction Level Event Innate
+		desc: "Upon fainting to an opponent's direct attack, this Pokemon deals damage to all Pokemon that have made contact with it equal to 50% of their max HP. This damage cannot KO Pokemon. Moves deal 10x more if already made contact through this ability.",
+		shortDesc: "50% of their max HP to all who contacted the user upon KO. Do 10x more if contacted.",
+		// Innate
+		onBasePower(basePower, pokemon, target) {
+			if (target?.m.marked) {
+				return this.chainModify(10);
+			}
+		},
 		onSourceHit(target, source, move) {
 			if (source.illusion) return;
 			if (!move || !target) return;
@@ -783,7 +788,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (target.illusion) return;
-			if (move.flags['contact']) {
+			if (this.checkMoveMakesContact(move, source, target)) {
 				if (!source.m.marked) this.add('-message', `${source.name} was marked by an unknown being...`);
 				source.m.marked = true;
 			}
@@ -1326,16 +1331,6 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 		noCopy: true,
 		onStart(source) {
 			this.add(`c|${getName('PiraTe Princess')}|Ahoy! o/`);
-
-			// Easter Egg
-			const activeMon = this.toID(
-				source.side.foe.active[0].illusion ? source.side.foe.active[0].illusion.name : source.side.foe.active[0].name
-			);
-			if (activeMon === 'kaijubunny') {
-				this.add(`c|${getName('PiraTe Princess')}|~shame`);
-				this.add(`raw|<img src="https://i.imgur.com/pxsDOuK.gif" height="165" width="220">`);
-				this.add(`c|${getName('Kaiju Bunny')}|WHY MUST YOU DO THIS TO ME`);
-			}
 		},
 		onSwitchOut() {
 			this.add(`c|${getName('PiraTe Princess')}|brb making tea`);
@@ -1862,7 +1857,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 			if (this.field.isWeather('heavyhailstorm')) this.eachEvent('Weather');
 		},
 		onWeather(target, source, effect) {
-			if (target.side === this.effectData.source.side) return;
+			if (target.isAlly(this.effectData.source)) return;
 			// Hail is stronger from Heavy Hailstorm
 			if (!target.hasType('Ice')) this.damage(target.baseMaxhp / 8);
 		},
@@ -1992,7 +1987,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 			this.add('-message', 'The Storm Surge receded.');
 		},
 		onModifySpe() {
-			return this.chainModify(0.5);
+			return this.chainModify(0.75);
 		},
 	},
 	// Kipkluif, needs to end in mod to not trigger aelita/andrew's effect
@@ -2075,7 +2070,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 			if (source && target === source) return;
 			if (target.species.id !== 'miniorblue') return;
 			let showMsg = false;
-			let i: BoostName;
+			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
 					delete boost[i];
@@ -2105,7 +2100,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 				return;
 			}
 
-			if ((source.side === dazzlingHolder.side || move.target === 'all') && move.priority > 0.1) {
+			if ((source.isAlly(dazzlingHolder) || move.target === 'all') && move.priority > 0.1) {
 				this.attrLastMove('[still]');
 				this.add('message', 'Minior dazzles!');
 				this.add('cant', target, move, '[of] ' + dazzlingHolder);
@@ -2172,9 +2167,10 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 			for (const side of this.sides) {
 				const keys = Object.keys(side.sideConditions);
 				for (const key of keys) {
+					if (key.endsWith('mod') || key.endsWith('clause')) continue;
 					side.removeSideCondition(key);
 					if (!silentRemove.includes(key)) {
-						this.add('-sideend', side, this.dex.getEffect(key).name, '[from] ability: Turbulence');
+						this.add('-sideend', side, this.dex.conditions.get(key).name, '[from] ability: Turbulence');
 					}
 				}
 			}
@@ -2243,14 +2239,14 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 			return 5;
 		},
 		onAnyModifyDamage(damage, source, target, move) {
-			if (target !== source && target.side === this.effectData.target) {
+			if (target !== source && this.effectData.target.hasAlly(target)) {
 				if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
 						(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
 					return;
 				}
 				if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 					this.debug('Aurora Veil weaken');
-					if (target.side.active.length > 1) return this.chainModify([2732, 4096]);
+					if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
 					return this.chainModify(0.5);
 				}
 			}
@@ -2278,10 +2274,10 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 			return 5;
 		},
 		onAnyModifyDamage(damage, source, target, move) {
-			if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Special') {
+			if (target !== source && this.effectData.target.hasAlly(target) && this.getCategory(move) === 'Special') {
 				if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 					this.debug('Light Screen weaken');
-					if (target.side.active.length > 1) return this.chainModify([2732, 4096]);
+					if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
 					return this.chainModify(0.5);
 				}
 			}
@@ -2303,10 +2299,10 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 		name: "Mist",
 		duration: 5,
 		onBoost(boost, target, source, effect) {
-			if (effect.effectType === 'Move' && effect.infiltrates && target.side !== source.side) return;
+			if (effect.effectType === 'Move' && effect.infiltrates && !target.isAlly(source)) return;
 			if (source && target !== source) {
 				let showMsg = false;
-				let i: BoostName;
+				let i: BoostID;
 				for (i in boost) {
 					if (boost[i]! < 0) {
 						delete boost[i];
@@ -2341,10 +2337,10 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 			return 5;
 		},
 		onAnyModifyDamage(damage, source, target, move) {
-			if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Physical') {
+			if (target !== source && this.effectData.target.hasAlly(target) && this.getCategory(move) === 'Physical') {
 				if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 					this.debug('Reflect weaken');
-					if (target.side.active.length > 1) return this.chainModify([2732, 4096]);
+					if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
 					return this.chainModify(0.5);
 				}
 			}
@@ -2373,7 +2369,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 		},
 		onSetStatus(status, target, source, effect) {
 			if (!effect || !source) return;
-			if (effect.effectType === 'Move' && effect.infiltrates && target.side !== source.side) return;
+			if (effect.effectType === 'Move' && effect.infiltrates && !target.isAlly(source)) return;
 			if (target !== source) {
 				this.debug('interrupting setStatus');
 				if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
@@ -2384,7 +2380,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 		},
 		onTryAddVolatile(status, target, source, effect) {
 			if (!effect || !source) return;
-			if (effect.effectType === 'Move' && effect.infiltrates && target.side !== source.side) return;
+			if (effect.effectType === 'Move' && effect.infiltrates && !target.isAlly(source)) return;
 			if ((status.id === 'confusion' || status.id === 'yawn') && target !== source) {
 				if (effect.effectType === 'Move' && !effect.secondaries) this.add('-activate', target, 'move: Safeguard');
 				return null;

@@ -185,7 +185,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				return;
 			}
 			this.activeTarget = pokemon;
-			const damage = this.getDamage(pokemon, pokemon, 40);
+			const damage = this.actions.getDamage(pokemon, pokemon, 40);
 			if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
 			const activeMove = {id: this.toID('confused'), effectType: 'Move', type: '???'};
 			this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
@@ -288,13 +288,13 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			this.effectData.move = effect.id;
 			target.addVolatile(effect.id);
 			let moveTarget: Pokemon | null = source;
-			if (effect.sourceEffect && this.dex.getMove(effect.id).target === 'normal') {
+			if (effect.sourceEffect && this.dex.moves.get(effect.id).target === 'normal') {
 				// this move was called by another move such as metronome and needs a random target to be determined now
 				// won't randomly choose an empty slot if there's at least one valid target
 				moveTarget = this.getRandomTarget(target, effect.id);
 			}
 			// if there are no valid targets, randomly choose one later
-			target.volatiles[effect.id].targetLoc = this.getTargetLoc(moveTarget || target, target);
+			target.volatiles[effect.id].targetLoc = target.getLocOf(moveTarget || target);
 			this.attrLastMove('[still]');
 			// Run side-effects normally associated with hitting (e.g., Protean, Libero)
 			this.runEvent('PrepareHit', target, source, effect);
@@ -372,7 +372,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onEnd(target) {
 			const data = this.effectData;
 			// time's up; time to hit! :D
-			const move = this.dex.getMove(data.move);
+			const move = this.dex.moves.get(data.move);
 			if (target.fainted || target === data.source) {
 				this.hint(`${move.name} did not hit because the target is ${(target.fainted ? 'fainted' : 'the user')}.`);
 				return;
@@ -393,7 +393,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 
-			this.trySpreadMoveHit([target], data.source, hitMove, true);
+			this.actions.trySpreadMoveHit([target], data.source, hitMove, true);
 		},
 	},
 	healreplacement: {
@@ -811,10 +811,10 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onType(types, pokemon) {
 			if (pokemon.ability === 'colorchange') {
 				const colorChangeTypes = [];
-				colorChangeTypes.push(this.dex.getMove(pokemon.moveSlots[0].move).type);
+				colorChangeTypes.push(this.dex.moves.get(pokemon.moveSlots[0].move).type);
 				if (pokemon.moveSlots[1] &&
-				this.dex.getMove(pokemon.moveSlots[0].move).type !== this.dex.getMove(pokemon.moveSlots[1].move).type) {
-					colorChangeTypes.push(this.dex.getMove(pokemon.moveSlots[1].move).type);
+				this.dex.moves.get(pokemon.moveSlots[0].move).type !== this.dex.moves.get(pokemon.moveSlots[1].move).type) {
+					colorChangeTypes.push(this.dex.moves.get(pokemon.moveSlots[1].move).type);
 				}
 				pokemon.setType(colorChangeTypes);
 			}
