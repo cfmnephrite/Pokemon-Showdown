@@ -76225,6 +76225,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	clobbopus: {
 		learnset: {
 			attract: ["8M"],
+			aquajet: ["8L5"],
 			bind: ["8L10"],
 			bodyslam: ["8M"],
 			brickbreak: ["8M", "8L20"],
@@ -76237,7 +76238,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			dive: ["8M"],
 			endure: ["8M"],
 			facade: ["8M"],
-			feint: ["8L5"],
+			feint: ["8L1"],
 			focusblast: ["8M"],
 			frustration: ["8T"],
 			hiddenpower: ["8T"],
@@ -76262,6 +76263,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			sleeptalk: ["8M"],
 			snore: ["8M"],
 			soak: ["8E"],
+			stormthrow: ["8L50"],
 			submission: ["8L30"],
 			substitute: ["8M"],
 			suckerpunch: ["8E"],
@@ -76274,6 +76276,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	grapploct: {
 		learnset: {
 			attract: ["8M"],
+			aquajet: ["8L5"],
 			bind: ["8L1"],
 			bodyslam: ["8M"],
 			brickbreak: ["8M", "8L20"],
@@ -76295,6 +76298,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			hiddenpower: ["8T"],
 			hydropump: ["8M"],
 			hyperbeam: ["X"],
+			icehammer: ["8L60"],
 			icepunch: ["8M"],
 			leer: ["8L1"],
 			liquidation: ["8M"],
@@ -76317,6 +76321,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			sleeptalk: ["8M"],
 			snore: ["8M"],
 			stompingtantrum: ["8M"],
+			stormthrow: ["8L55"],
 			submission: ["8L30"],
 			substitute: ["8M"],
 			superpower: ["8M", "8L45"],

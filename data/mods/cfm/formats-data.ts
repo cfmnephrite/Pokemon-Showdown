@@ -5038,7 +5038,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	grapploct: {
 		randomBattleMoves: ["brutalswing", "closecombat", "icepunch", "octolock", "suckerpunch"],
-		tier: "CPU",
+		tier: "CNU",
 		inherit: true,
 	},
 	sinistea: {
