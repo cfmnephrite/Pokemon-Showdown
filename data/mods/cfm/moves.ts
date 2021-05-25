@@ -5189,13 +5189,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					if (source.canMegaEvo || source.canUltraBurst) {
 						for (const [actionIndex, action] of this.queue.entries()) {
 							if (action.pokemon === source && action.choice === 'megaEvo') {
-								this.runMegaEvo(source);
+								this.actions.runMegaEvo(source);
 								this.queue.list.splice(actionIndex, 1);
 								break;
 							}
 						}
 					}
-					this.runMove('firespin', source, this.getTargetLoc(pokemon, source));
+					this.actions.runMove('firespin', source, source.getLocOf(pokemon));
 				}
 			},
 		},

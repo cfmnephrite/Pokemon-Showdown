@@ -7647,6 +7647,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Cursed Body", 1: "Infiltrator", H: "Competitive"},
 		heightm: 0.9,
 		weightkg: 4.4,
+		levitates: true,
 		color: "Purple",
 		prevo: "Misdreavus",
 		evoType: "useItem",
