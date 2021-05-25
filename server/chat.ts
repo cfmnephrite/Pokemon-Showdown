@@ -760,7 +760,7 @@ export class CommandContext extends MessageContext {
 		}
 		this.roomlog(`(${msg})`);
 	}
-	globalModlog(action: string, user: string | User | null, note?: string | null, ip?: string) {
+	globalModlog(action: string, user: string | User | null = null, note: string | null = null, ip?: string) {
 		const entry: PartialModlogEntry = {
 			action,
 			isGlobal: true,
@@ -1187,7 +1187,7 @@ export class CommandContext extends MessageContext {
 				// autoclose tags
 				'p', 'li', 'dt', 'dd', 'option', 'tr', 'th', 'td', 'thead', 'tbody', 'tfoot', 'colgroup',
 				// PS custom element
-				'psicon',
+				'psicon', 'youtube',
 			];
 			const stack = [];
 			for (const tag of tags) {
@@ -1378,6 +1378,7 @@ export const Chat = new class {
 	basePages!: PageTable;
 	pages!: PageTable;
 	readonly destroyHandlers: (() => void)[] = [];
+	readonly renameHandlers: Rooms.RenameHandler[] = [];
 	/** The key is the name of the plugin. */
 	readonly plugins: {[k: string]: ChatPlugin} = {};
 	/** Will be empty except during hotpatch */
@@ -1707,7 +1708,7 @@ export const Chat = new class {
 				const base = commandTable[entry];
 				if (!base) continue;
 				if (!base.aliases) base.aliases = [];
-				base.aliases.push(cmd);
+				if (!base.aliases.includes(cmd)) base.aliases.push(cmd);
 				continue;
 			}
 			if (typeof entry !== 'function') continue;
@@ -1731,7 +1732,6 @@ export const Chat = new class {
 					if (baseEntry.isPrivate) entry.isPrivate = baseEntry.isPrivate;
 				}
 			}
-
 			// This is usually the same as `entry.name`, but some weirdness like
 			// `commands.a = b` could screw it up. This should make it consistent.
 			entry.cmd = cmd;
@@ -1757,6 +1757,7 @@ export const Chat = new class {
 		if (plugin.punishmentfilter) Chat.punishmentfilters.push(plugin.punishmentfilter);
 		if (plugin.nicknamefilter) Chat.nicknamefilters.push(plugin.nicknamefilter);
 		if (plugin.statusfilter) Chat.statusfilters.push(plugin.statusfilter);
+		if (plugin.onRenameRoom) Chat.renameHandlers.push(plugin.onRenameRoom);
 		Chat.plugins[name] = plugin;
 	}
 	loadPlugins(oldPlugins?: {[k: string]: ChatPlugin}) {
@@ -1819,6 +1820,12 @@ export const Chat = new class {
 	destroy() {
 		for (const handler of Chat.destroyHandlers) {
 			handler();
+		}
+	}
+
+	handleRoomRename(oldID: RoomID, newID: RoomID, room: Room) {
+		for (const handler of Chat.renameHandlers) {
+			handler(oldID, newID, room);
 		}
 	}
 
@@ -1920,14 +1927,17 @@ export const Chat = new class {
 		const results: AnnotatedChatHandler[] = [];
 		for (const cmd in table) {
 			const handler = table[cmd];
-			if (Array.isArray(handler) || !handler || typeof handler === 'string') continue;
+			if (Array.isArray(handler) || !handler || ['string', 'boolean'].includes(typeof handler)) {
+				continue;
+			}
 			if (typeof handler === 'object') {
 				results.push(...this.allCommands(handler));
 				continue;
 			}
 			results.push(handler as AnnotatedChatHandler);
 		}
-		return results;
+		if (table !== Chat.commands) return results;
+		return results.filter((handler, i) => results.indexOf(handler) === i);
 	}
 
 	/**
@@ -1942,7 +1952,7 @@ export const Chat = new class {
 	 */
 	validateRegex(word: string) {
 		word = word.trim();
-		if (word.endsWith('|') || word.startsWith('|')) {
+		if ((word.endsWith('|') && !word.endsWith('\\|')) || word.startsWith('|')) {
 			throw new Chat.ErrorMessage(`Your regex was rejected because it included an unterminated |.`);
 		}
 		try {
@@ -2148,7 +2158,7 @@ export const Chat = new class {
 		buf += '</span> ';
 		if (gen >= 3) {
 			buf += '<span style="float:left;min-height:26px">';
-			if (species.abilities['1'] && (gen >= 4 || Dex.getAbility(species.abilities['1']).gen === 3)) {
+			if (species.abilities['1'] && (gen >= 4 || Dex.abilities.get(species.abilities['1']).gen === 3)) {
 				buf += '<span class="col twoabilitycol">' + species.abilities['0'] + '<br />' + species.abilities['1'] + '</span>';
 			} else {
 				buf += '<span class="col abilitycol">' + species.abilities['0'] + '</span>';

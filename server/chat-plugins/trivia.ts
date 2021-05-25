@@ -94,10 +94,10 @@ interface TriviaQuestion {
 	type?: string;
 }
 
-type TriviaRank = [number, number, number];
+type TriviaScores = [number, number, number];
 
 interface TriviaLeaderboard {
-	[k: string]: TriviaRank;
+	[userid: string]: TriviaScores;
 }
 
 interface TriviaGame {
@@ -106,9 +106,10 @@ interface TriviaGame {
 	length: keyof typeof LENGTHS | number;
 	category: string;
 	creator?: string;
+	givesPoints?: boolean;
 }
 
-type TriviaLadder = TriviaRank[][];
+type TriviaLadder = ID[][];
 
 interface TriviaData {
 	/** category:questions */
@@ -116,8 +117,8 @@ interface TriviaData {
 	submissions?: {[k: string]: TriviaQuestion[]};
 	leaderboard?: TriviaLeaderboard;
 	altLeaderboard?: TriviaLeaderboard;
-	ladder?: TriviaLadder;
-	history?: (TriviaGame & {scores?: Map<ID, number>})[];
+	/* `scores` key is a user ID */
+	history?: (TriviaGame & {scores?: {[k: string]: number}})[];
 	moveEventQuestions?: boolean;
 }
 
@@ -313,26 +314,26 @@ class Ladder {
 	}
 
 	computeCachedLadder() {
-		const leaders = Object.keys(this.leaderboard);
+		const leaders = Object.entries(this.leaderboard);
 		const ladder: TriviaLadder = [];
 		const ranks: TriviaLeaderboard = {};
-		for (const leader of leaders) {
+		for (const [leader] of leaders) {
 			ranks[leader] = [0, 0, 0];
 		}
 		for (let i = 0; i < 3; i++) {
-			leaders.sort((a, b) => this.leaderboard[b][i] - this.leaderboard[a][i]);
+			Utils.sortBy(leaders, ([userid, scores]) => -scores[i]);
 
 			let max = Infinity;
 			let rank = -1;
-			for (const leader of leaders) {
-				const score = this.leaderboard[leader][i];
+			for (const [leader, scores] of leaders) {
+				const score = scores[i];
 				if (max !== score) {
 					rank++;
 					max = score;
 				}
 				if (i === 0 && rank < 15) {
 					if (!ladder[rank]) ladder[rank] = [];
-					ladder[rank].push(leader as unknown as TriviaRank);
+					ladder[rank].push(leader as ID);
 				}
 				ranks[leader][i] = rank + 1;
 			}
@@ -414,9 +415,9 @@ export class Trivia extends Rooms.RoomGame {
 	askedAt: number[];
 	hasModifiedData: boolean;
 	constructor(
-		room: Room, mode: string, category: string,
+		room: Room, mode: string, category: string, givesPoints: boolean,
 		length: keyof typeof LENGTHS | number, questions: TriviaQuestion[], creator: string,
-		isRandomMode = false, isSubGame = false
+		isRandomMode = false, isSubGame = false,
 	) {
 		super(room, isSubGame);
 		this.playerTable = {};
@@ -443,6 +444,7 @@ export class Trivia extends Rooms.RoomGame {
 			length: length,
 			category: category,
 			creator: creator,
+			givesPoints: givesPoints,
 		};
 
 		this.questions = questions;
@@ -582,9 +584,11 @@ export class Trivia extends Rooms.RoomGame {
 	 * Handles setup that shouldn't be done from the constructor.
 	 */
 	init() {
+		const signupsMessage = this.game.givesPoints ?
+			`Signups for a new Trivia game have begun!` : `Signups for a new unranked trivia game have begun!`;
 		broadcast(
 			this.room,
-			this.room.tr`Signups for a new trivia game have begun!`,
+			this.room.tr(signupsMessage),
 			this.room.tr`Mode: ${this.game.mode} | Category: ${this.game.category} | Cap: ${this.getDisplayableCap()}<br />` +
 			this.room.tr`Enter /trivia join to sign up for the trivia game.`
 		);
@@ -805,28 +809,30 @@ export class Trivia extends Rooms.RoomGame {
 		buffer += '<br />' + this.getWinningMessage(winners);
 		broadcast(this.room, this.room.tr`The answering period has ended!`, buffer);
 
-		for (const userid in this.playerTable) {
-			const player = this.playerTable[userid];
-			if (!player.points) continue;
+		if (this.game.givesPoints) {
+			for (const userid in this.playerTable) {
+				const player = this.playerTable[userid];
+				if (!player.points) continue;
 
-			for (const leaderboard of [triviaData.leaderboard!, triviaData.altLeaderboard!]) {
-				if (!leaderboard[userid]) {
-					leaderboard[userid] = [0, 0, 0];
+				for (const leaderboard of [triviaData.leaderboard!, triviaData.altLeaderboard!]) {
+					if (!leaderboard[userid]) {
+						leaderboard[userid] = [0, 0, 0];
+					}
+					const rank = leaderboard[userid];
+					rank[1] += player.points;
+					rank[2] += player.correctAnswers;
 				}
-				const rank = leaderboard[userid];
-				rank[1] += player.points;
-				rank[2] += player.correctAnswers;
 			}
-		}
 
-		const prizes = this.getPrizes();
-		triviaData.leaderboard![winners[0].id][0] += prizes[0];
-		for (let i = 0; i < winners.length; i++) {
-			triviaData.altLeaderboard![winners[i].id][0] += prizes[i];
-		}
+			const prizes = this.getPrizes();
+			triviaData.leaderboard![winners[0].id][0] += prizes[0];
+			for (let i = 0; i < winners.length; i++) {
+				triviaData.altLeaderboard![winners[i].id][0] += prizes[i];
+			}
 
-		cachedLadder.invalidateCache();
-		cachedAltLadder.invalidateCache();
+			cachedLadder.invalidateCache();
+			cachedAltLadder.invalidateCache();
+		}
 
 		for (const i in this.playerTable) {
 			const player = this.playerTable[i];
@@ -834,7 +840,7 @@ export class Trivia extends Rooms.RoomGame {
 			if (!user) continue;
 			user.sendTo(
 				this.room.roomid,
-				this.room.tr`You gained ${player.points} and answered ` +
+				(this.game.givesPoints ? this.room.tr`You gained ${player.points} and answered ` : this.room.tr`You answered `) +
 				this.room.tr`${player.correctAnswers} questions correctly.`
 			);
 		}
@@ -852,7 +858,8 @@ export class Trivia extends Rooms.RoomGame {
 		if (!triviaData.history) triviaData.history = [];
 		if (typeof this.game.length === 'number') this.game.length = `${this.game.length} questions`;
 
-		const scores = new Map(this.getTopPlayers().map(player => [player.player.id, player.player.points]));
+		const scores = Object.fromEntries(this.getTopPlayers({max: null})
+			.map(player => [player.player.id, player.player.points]));
 		triviaData.history.push({
 			...this.game,
 			length: typeof this.game.length === 'number' ? `${this.game.length} questions` : this.game.length,
@@ -878,16 +885,23 @@ export class Trivia extends Rooms.RoomGame {
 			if ((options.requirePoints && !player.points) || !user) continue;
 			ranks.push({id: userid, player, name: user.name});
 		}
-		ranks.sort((a, b) => b.player.points - a.player.points ||
-				a.player.lastQuestion - b.player.lastQuestion ||
-				hrtimeToNanoseconds(a.player.answeredAt) - hrtimeToNanoseconds(b.player.answeredAt));
+		Utils.sortBy(ranks, ({player}) => (
+			[-player.points, player.lastQuestion, hrtimeToNanoseconds(player.answeredAt)]
+		));
 		return options.max === null ? ranks : ranks.slice(0, options.max);
 	}
 
 	getWinningMessage(winners: TopPlayer[]) {
 		const prizes = this.getPrizes();
 		const [p1, p2, p3] = winners;
-		const initialPart = this.room.tr`${Utils.escapeHTML(p1.name)} won the game with a final score of <strong>${p1.player.points}</strong>, and `;
+
+		let initialPart = this.room.tr`${Utils.escapeHTML(p1.name)} won the game with a final score of <strong>${p1.player.points}</strong>`;
+		if (!this.game.givesPoints) {
+			return `${initialPart}.`;
+		} else {
+			initialPart += this.room.tr`, and `;
+		}
+
 		switch (winners.length) {
 		case 1:
 			return this.room.tr`${initialPart}their leaderboard score has increased by <strong>${prizes[0]}</strong> points!`;
@@ -903,8 +917,9 @@ export class Trivia extends Rooms.RoomGame {
 	getStaffEndMessage(winners: TopPlayer[], mapper: (k: TopPlayer) => string) {
 		let message = "";
 		const winnerParts: ((k: TopPlayer) => string)[] = [
-			winner => this.room.tr`User ${mapper(winner)} won the game of ${this.game.mode} ` +
-				this.room.tr`mode trivia under the ${this.game.category} category with ` +
+			winner => this.room.tr`User ${mapper(winner)} won the game of ` +
+				(this.game.givesPoints ? this.room.tr`ranked ` : this.room.tr`unranked `) +
+				this.room.tr`${this.game.mode} mode trivia under the ${this.game.category} category with ` +
 				this.room.tr`a cap of ${this.getDisplayableCap()} ` +
 				this.room.tr`with ${winner.player.points} points and ` +
 				this.room.tr`${winner.player.correctAnswers} correct answers`,
@@ -1047,8 +1062,8 @@ export class TimerModeTrivia extends Trivia {
 
 		let winner = cap.questions && this.questionNumber >= cap.questions;
 
-		for (const i in this.playerTable) {
-			const player = this.playerTable[i];
+		for (const userid in this.playerTable) {
+			const player = this.playerTable[userid];
 			if (!player.isCorrect) {
 				player.clearAnswer();
 				continue;
@@ -1060,7 +1075,7 @@ export class TimerModeTrivia extends Trivia {
 			player.incrementPoints(points, this.questionNumber);
 
 			const pointBuffer = innerBuffer.get(points) || [];
-			pointBuffer.push([Utils.escapeHTML(player.name), playerAnsweredAt]);
+			pointBuffer.push([player.name, playerAnsweredAt]);
 
 			if (cap.points && player.points >= cap.points) {
 				winner = true;
@@ -1074,13 +1089,12 @@ export class TimerModeTrivia extends Trivia {
 			if (!players.length) continue;
 
 			rowAdded = true;
-			const sanitizedPlayerArray = players
-				.sort((a, b) => a[1] - b[1])
-				.map(a => a[0]);
+			const playerNames = Utils.sortBy(players, ([name, answeredAt]) => answeredAt)
+				.map(([name]) => name);
 			buffer += (
 				'<tr style="background-color: #6688AA">' +
 				`<td style="text-align: center">${pointValue}</td>` +
-				`<td>${sanitizedPlayerArray.join(', ')}</td>` +
+				Utils.html`<td>${playerNames.join(', ')}</td>` +
 				'</tr>'
 			);
 		}
@@ -1133,21 +1147,20 @@ export class NumberModeTrivia extends Trivia {
 		this.phase = INTERMISSION_PHASE;
 
 		let buffer;
-		const innerBuffer = Object.keys(this.playerTable)
-			.filter(id => !!this.playerTable[id].isCorrect)
-			.map(id => {
-				const player = this.playerTable[id];
-				return [Utils.escapeHTML(player.name), hrtimeToNanoseconds(player.currentAnsweredAt)];
-			})
-			.sort((a, b) => (a[1] as number) - (b[1] as number));
+		const innerBuffer = Utils.sortBy(
+			Object.values(this.playerTable)
+				.filter(player => !!player.isCorrect)
+				.map(player => [player.name, hrtimeToNanoseconds(player.currentAnsweredAt)]),
+			([player, answeredAt]) => answeredAt
+		);
 
 		const points = this.calculatePoints(innerBuffer.length);
 		if (points) {
 			const cap = this.getCap();
 			// We add 1 questionNumber because it starts at 0
 			let winner = cap.questions && this.questionNumber >= cap.questions;
-			for (const i in this.playerTable) {
-				const player = this.playerTable[i];
+			for (const userid in this.playerTable) {
+				const player = this.playerTable[userid];
 				if (player.isCorrect) player.incrementPoints(points, this.questionNumber);
 
 				if (cap.points && player.points >= cap.points) {
@@ -1157,15 +1170,15 @@ export class NumberModeTrivia extends Trivia {
 				player.clearAnswer();
 			}
 
-			const players = innerBuffer.map(arr => arr[0]).join(', ');
+			const players = Utils.escapeHTML(innerBuffer.map(([playerName]) => playerName).join(', '));
 			buffer = this.room.tr`Correct: ${players}` + `<br />` +
 				this.room.tr`Answer(s): ${this.curAnswers.join(', ')}<br />` +
 				`${Chat.plural(innerBuffer, this.room.tr`Each of them gained <strong>${points}</strong> point(s)!`, this.room.tr`They gained <strong>${points}</strong> point(s)!`)}`;
 
 			if (winner) return this.win(buffer);
 		} else {
-			for (const i in this.playerTable) {
-				const player = this.playerTable[i];
+			for (const userid in this.playerTable) {
+				const player = this.playerTable[userid];
 				player.clearAnswer();
 			}
 
@@ -1204,11 +1217,8 @@ export class TriumvirateModeTrivia extends Trivia {
 	tallyAnswers() {
 		if (this.isPaused) return;
 		this.phase = INTERMISSION_PHASE;
-		const correctPlayers = Object.keys(this.playerTable)
-			.filter(id => this.playerTable[id].isCorrect)
-			.map(id => this.playerTable[id]);
-		correctPlayers.sort((a, b) =>
-			(hrtimeToNanoseconds(a.currentAnsweredAt) > hrtimeToNanoseconds(b.currentAnsweredAt) ? 1 : -1));
+		const correctPlayers = Object.values(this.playerTable).filter(p => p.isCorrect);
+		Utils.sortBy(correctPlayers, p => hrtimeToNanoseconds(p.currentAnsweredAt));
 
 		const cap = this.getCap();
 		let winner = cap.questions && this.questionNumber >= cap.questions;
@@ -1300,14 +1310,14 @@ export class Mastermind extends Rooms.RoomGame {
 	}
 
 	formatPlayerList() {
-		return Object.values(this.playerTable)
-			.sort((a, b) => (this.leaderboard.get(b.id) || 0) - (this.leaderboard.get(a.id) || 0))
-			.map(player => {
-				const isFinalist = this.currentRound instanceof MastermindFinals && player.id in this.currentRound.playerTable;
-				const name = isFinalist ? Utils.html`<strong>${player.name}</strong>` : Utils.escapeHTML(player.name);
-				return `${name} (${this.leaderboard.get(player.id) || "0"})`;
-			})
-			.join(', ');
+		return Utils.sortBy(
+			Object.values(this.playerTable),
+			player => -(this.leaderboard.get(player.id) || 0)
+		).map(player => {
+			const isFinalist = this.currentRound instanceof MastermindFinals && player.id in this.currentRound.playerTable;
+			const name = isFinalist ? Utils.html`<strong>${player.name}</strong>` : Utils.escapeHTML(player.name);
+			return `${name} (${this.leaderboard.get(player.id) || "0"})`;
+		}).join(', ');
 	}
 
 	/**
@@ -1388,7 +1398,7 @@ export class Mastermind extends Rooms.RoomGame {
 			let smallBuf;
 			if (second && third) {
 				const secondPlace = Utils.escapeHTML(second.name);
-				const thirdPlace = Utils.escapeHTML(second.name);
+				const thirdPlace = Utils.escapeHTML(third.name);
 				smallBuf = `<br />${this.room.tr`${secondPlace} and ${thirdPlace} were runners-up with ${second.player.points} and ${third.player.points} points, respectively.`}`;
 			} else if (second) {
 				const secondPlace = Utils.escapeHTML(second.name);
@@ -1408,12 +1418,17 @@ export class Mastermind extends Rooms.RoomGame {
 	getTopPlayers(n: number) {
 		if (n < 0) return [];
 
-		const sortedPlayerIDs = [...this.leaderboard]
-			.sort((a, b) => b[1] - a[1]) // sort by number of points
-			.map(entry => entry[0]); // convert to an array of IDs
+		const sortedPlayerIDs = Utils.sortBy([...this.leaderboard], ([userid, score]) => score)
+			.map(([userid]) => userid);
 
-		const cutoff = this.leaderboard.get(sortedPlayerIDs[n - 1])!; // The number of points required to be in the top n
-		return sortedPlayerIDs.filter(id => this.leaderboard.get(id)! >= cutoff);
+		if (sortedPlayerIDs.length <= n) return sortedPlayerIDs;
+
+		/** The number of points required to be in the top n */
+		const cutoff = this.leaderboard.get(sortedPlayerIDs[n - 1])!;
+		while (n < sortedPlayerIDs.length && this.leaderboard.get(sortedPlayerIDs[n])! === cutoff) {
+			n++;
+		}
+		return sortedPlayerIDs.slice(0, n);
 	}
 
 	end(user: User) {
@@ -1457,7 +1472,7 @@ export class Mastermind extends Rooms.RoomGame {
 
 export class MastermindRound extends FirstModeTrivia {
 	constructor(room: Room, category: string, questions: TriviaQuestion[], playerID?: ID) {
-		super(room, 'first', category, 'infinite', questions, 'Automatically Created', false, true);
+		super(room, 'first', category, false, 'infinite', questions, 'Automatically Created', false, true);
 
 		this.playerCap = 1;
 		this.minPlayers = 0;
@@ -1552,8 +1567,11 @@ export class MastermindFinals extends MastermindRound {
 const triviaCommands: ChatCommands = {
 	sortednew: 'new',
 	newsorted: 'new',
+	unrankednew: 'new',
+	newunranked: 'new',
 	new(target, room, user, connection, cmd) {
 		const randomizeQuestionOrder = !cmd.includes('sorted');
+		const givesPoints = !cmd.includes('unranked');
 
 		room = this.requireRoom('trivia' as RoomID);
 		this.checkCan('show', null, room);
@@ -1621,10 +1639,11 @@ const triviaCommands: ChatCommands = {
 			// in the order they were added to the Trivia question "database".
 			questions = questions.reverse();
 		}
-		room.game = new _Trivia(room, mode, category, length, questions, user.name, isRandomMode);
+		room.game = new _Trivia(room, mode, category, givesPoints, length, questions, user.name, isRandomMode);
 	},
 	newhelp: [
 		`/trivia new [mode], [category], [length] - Begin a new Trivia game.`,
+		`/trivia unrankednew [mode], [category], [length] - Begin a new Trivia game that does not award leaderboard points.`,
 		`/trivia sortednew [mode], [category], [length] — Begin a new Trivia game in which the question order is not randomized.`,
 		`Requires: + % @ # &`,
 	],
@@ -1935,7 +1954,7 @@ const triviaCommands: ChatCommands = {
 				indices.splice(i, 1);
 			}
 
-			indices.sort((a, b) => Number(a) - Number(b));
+			Utils.sortBy(indices, Number);
 			indices = indices.filter((entry, index) => !index || indices[index - 1] !== entry);
 
 			const indicesLen = indices.length;
@@ -2076,8 +2095,11 @@ const triviaCommands: ChatCommands = {
 		}
 		user.lastCommand = '';
 
-		triviaData.questions![destinationCategory] = triviaData.questions![destinationCategory]
-			.concat(triviaData.questions![sourceCategory]);
+		for (const q of triviaData.questions![sourceCategory]) {
+			q.category = destinationCategory;
+			triviaData.questions![destinationCategory].push(q);
+		}
+
 		triviaData.questions![sourceCategory] = [];
 
 		this.modlog(`TRIVIAQUESTION MIGRATE`, null, `${sourceCategoryName} to ${destinationCategoryName}`);
@@ -2341,7 +2363,7 @@ const triviaCommands: ChatCommands = {
 		const lastGame = triviaData.history?.[triviaData.history.length - 1];
 		if (!lastGame?.scores) throw new Chat.ErrorMessage(`There are no scores recorded for the last Trivia game.`);
 
-		const scores = [...lastGame.scores].map(([userid, score]) => `${userid} (${score})`).join(', ');
+		const scores = Object.entries(lastGame.scores).map(([userid, score]) => `${userid} (${score})`).join(', ');
 		this.sendReplyBox(`The scores for the last Trivia game are: ${scores}`);
 	},
 	lastofficialscorehelp: [`/trivia lastofficialscore - View the scores from the last Trivia game. Intended for bots.`],
@@ -2458,6 +2480,7 @@ const triviaCommands: ChatCommands = {
 			`</ul></details>` +
 			`<details><summary><strong>Game commands</strong></summary><ul>` +
 				`<li><code>/trivia new [mode], [category], [length]</code> - Begin signups for a new Trivia game. Requires: + % @ # &</li>` +
+				`<li><code>/trivia unrankednew [mode], [category], [length]</code> - Begin a new Trivia game that does not award leaderboard points. Requires: + % @ # &</li>` +
 				`<li><code>/trivia sortednew [mode], [category], [length]</code> — Begin a new Trivia game in which the question order is not randomized. Requires: + % @ # &</li>` +
 				`<li><code>/trivia join</code> - Join a game of Trivia or Mastermind during signups.</li>` +
 				`<li><code>/trivia start</code> - Begin the game once enough users have signed up. Requires: + % @ # &</li>` +
@@ -2619,8 +2642,8 @@ const mastermindCommands: ChatCommands = {
 			`<code>/mastermind finals [length in seconds]</code>: starts the Mastermind finals. Requires: + % @ # &`,
 			`<code>/mastermind kick [user]</code>: kicks a user from the current game of Mastermind. Requires: % @ # &`,
 			`<code>/mastermind join</code>: joins the current game of Mastermind.`,
-			`<code>/mastermind answer [answer]</code>: answers a question in a round of Mastermind.`,
-			`<code>/mastermind pass</code>: passes on the current question. Must be the player of the current round of Mastermind.`,
+			`<code>/mastermind answer OR /mma [answer]</code>: answers a question in a round of Mastermind.`,
+			`<code>/mastermind pass OR /mmp</code>: passes on the current question. Must be the player of the current round of Mastermind.`,
 		];
 		return this.sendReplyBox(
 			`<strong>Mastermind</strong> is a game in which each player tries to score as many points as possible in a timed round where only they can answer, ` +
@@ -2634,6 +2657,8 @@ export const commands: ChatCommands = {
 	mm: mastermindCommands,
 	mastermind: mastermindCommands,
 	mastermindhelp: mastermindCommands.mastermindhelp,
+	mma: mastermindCommands.answer,
+	mmp: mastermindCommands.pass,
 	trivia: triviaCommands,
 	ta: triviaCommands.answer,
 	triviahelp: triviaCommands.triviahelp,

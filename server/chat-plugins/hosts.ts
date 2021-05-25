@@ -46,7 +46,7 @@ export const pages: PageTable = {
 
 		const openProxies = [...IPTools.singleIPOpenProxies];
 		const proxyHosts = [...IPTools.proxyHosts];
-		openProxies.sort(IPTools.ipSort);
+		Utils.sortBy(openProxies, IPTools.ipToNumber);
 		proxyHosts.sort();
 		IPTools.sortRanges();
 
@@ -135,9 +135,12 @@ export const pages: PageTable = {
 		} else {
 			buf += `<div class="ladder"><table><tr><th>IP</th><th>Reason</th></tr>`;
 			const sortedSharedIPBlacklist = [...Punishments.sharedIpBlacklist];
-			sortedSharedIPBlacklist.sort((a, b) => IPTools.ipSort(a[0], b[0]));
-
-			for (const [reason, ip] of sortedSharedIPBlacklist) {
+			Utils.sortBy(sortedSharedIPBlacklist, ([ipOrRange]) => (
+				IPTools.ipRegex.test(ipOrRange) ?
+					IPTools.ipToNumber(ipOrRange) :
+					IPTools.stringToRange(ipOrRange)!.minIP
+			));
+			for (const [ip, reason] of sortedSharedIPBlacklist) {
 				buf += `<tr><td>${ip}</td><td>${reason}</td></tr>`;
 			}
 			buf += `</table></div>`;
@@ -156,7 +159,7 @@ export const pages: PageTable = {
 		} else {
 			buf += `<div class="ladder"><table><tr><th>IP</th><th>Location</th></tr>`;
 			const sortedSharedIPs = [...Punishments.sharedIps];
-			sortedSharedIPs.sort((a, b) => IPTools.ipSort(a[0], b[0]));
+			Utils.sortBy(sortedSharedIPs, ([ip]) => IPTools.ipToNumber(ip));
 
 			for (const [ip, location] of sortedSharedIPs) {
 				buf += `<tr><td>${ip}</td><td>${location}</td></tr>`;
@@ -450,7 +453,17 @@ export const commands: ChatCommands = {
 			if (Punishments.isBlacklistedSharedIp(ip)) {
 				return this.errorReply(`This IP is already blacklisted from being marked as shared.`);
 			}
-			if (ip.endsWith('*')) { // range
+			// this works because we test ipRangeRegex above, which works for both ranges AND single ips.
+			// so we know here this is one of the two.
+			// If it doesn't work as a single IP, it's a range.
+			if (!IPTools.ipRegex.test(ip)) {
+				// if it doesn't end with *, it doesn't function as a range in IPTools#stringToRange, only as a single IP.
+				// that's valid behavior, but it's detrimental here.
+				if (!ip.endsWith('*')) {
+					this.errorReply(`That looks like a range, but it is invalid.`);
+					this.errorReply(`Append * to the end of the range and try again.`);
+					return;
+				}
 				if (!user.can('bypassall')) {
 					return this.errorReply(`Only Administrators can add ranges.`);
 				}

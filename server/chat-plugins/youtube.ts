@@ -226,7 +226,7 @@ export class YoutubeInterface {
 		if (id.includes('?')) id = id.split('?')[0];
 		return id;
 	}
-	async generateVideoDisplay(link: string, fullInfo = true) {
+	async generateVideoDisplay(link: string, fullInfo = false) {
 		if (!Config.youtubeKey) {
 			throw new Chat.ErrorMessage(`This server does not support YouTube commands. If you're the owner, you can enable them by setting up Config.youtubekey.`);
 		}
@@ -339,7 +339,7 @@ export const Twitch = new class {
 			throw new Chat.ErrorMessage(`Error retrieving twitch channel: ${e.message}`);
 		}
 		const data = JSON.parse(res);
-		(data.channels as AnyObject[]).sort((a, b) => b.followers - a.followers);
+		Utils.sortBy(data.channels as AnyObject[], c => -c.followers);
 		return data?.channels?.[0] as TwitchChannel | undefined;
 	}
 	visualizeChannel(info: TwitchChannel) {
@@ -565,7 +565,7 @@ export const commands: ChatCommands = {
 		async video(target, room, user) {
 			room = this.requireRoom('youtube' as RoomID);
 			this.checkCan('mute', null, room);
-			const buffer = await YouTube.generateVideoDisplay(target);
+			const buffer = await YouTube.generateVideoDisplay(target, true);
 			this.runBroadcast();
 			this.sendReplyBox(buffer);
 		},

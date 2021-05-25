@@ -9,6 +9,7 @@
  * @license MIT
  */
 import {Utils} from '../../lib';
+import {RoomSection, RoomSections} from './room-settings';
 
 /* eslint no-else-return: "error" */
 
@@ -101,6 +102,11 @@ export function runPromote(
 
 export function runCrisisDemote(userid: ID) {
 	const from = [];
+	const section = Users.globalAuth.sectionLeaders.get(userid);
+	if (section) {
+		from.push(`Section Leader (${RoomSections.sectionNames[section] || section})`);
+		Users.globalAuth.deleteSection(userid);
+	}
 	const globalGroup = Users.globalAuth.get(userid);
 	if (globalGroup && globalGroup !== ' ') {
 		from.push(globalGroup);
@@ -121,7 +127,6 @@ export function runCrisisDemote(userid: ID) {
 }
 
 export const commands: ChatCommands = {
-
 	roomowner(target, room, user) {
 		room = this.requireRoom();
 		if (!room.persist) {
@@ -253,6 +258,9 @@ export const commands: ChatCommands = {
 						targetUser.updateIdentity(subRoom.roomid);
 					}
 				}
+				if (targetUser.trusted && !Users.isTrusted(targetUser.id)) {
+					targetUser.trusted = '';
+				}
 			}
 		}
 		room.saveSettings();
@@ -371,6 +379,10 @@ export const commands: ChatCommands = {
 		if (group !== ' ' || Users.isTrusted(targetId)) {
 			buffer.push(`Global auth: ${group === ' ' ? 'trusted' : group}`);
 		}
+		const sectionLeader = Users.globalAuth.sectionLeaders.get(targetId);
+		if (sectionLeader) {
+			buffer.push(`Section leader: ${RoomSections.sectionNames[sectionLeader]}`);
+		}
 		for (const curRoom of Rooms.rooms.values()) {
 			if (curRoom.settings.isPrivate) continue;
 			if (!curRoom.auth.has(targetId)) continue;
@@ -409,6 +421,25 @@ export const commands: ChatCommands = {
 
 		buffer.unshift(`${targetUsername} user auth:`);
 		connection.popup(buffer.join("\n\n"));
+	},
+
+	sectionleaders(target, room, user, connection) {
+		const usernames = Users.globalAuth.usernames;
+		const buffer = [];
+		const sections: {[k in RoomSection]: Set<string>} = Object.create(null);
+		for (const [id, username] of usernames) {
+			const sectionid = Users.globalAuth.sectionLeaders.get(id);
+			if (!sectionid) continue;
+			if (!sections[sectionid]) sections[sectionid] = new Set();
+			sections[sectionid].add(username);
+		}
+		let sectionid: RoomSection;
+		for (sectionid in sections) {
+			if (!sections[sectionid].size) continue;
+			buffer.push(`**${RoomSections.sectionNames[sectionid]}**:\n` + Utils.sortBy([...sections[sectionid]]).join(', '));
+		}
+		if (!buffer.length) throw new Chat.ErrorMessage(`There are no Section Leaders currently.`);
+		connection.popup(buffer.join(`\n\n`));
 	},
 
 	async autojoin(target, room, user, connection) {
@@ -808,7 +839,7 @@ export const commands: ChatCommands = {
 			name = targetUser.getLastName();
 			userid = targetUser.getLastId();
 
-			if (targetUser.locked && !week && !month) {
+			if (targetUser.locked && !targetUser.locked.startsWith('#') && !week && !month) {
 				return this.privateModAction(`${name} would be locked by ${user.name} but was already locked.`);
 			}
 		} else {
@@ -1288,7 +1319,13 @@ export const commands: ChatCommands = {
 			if (targetUser) targetUser.popup(`You were promoted to ${groupName} by ${user.name}.`);
 		}
 
-		if (targetUser) targetUser.updateIdentity();
+		if (targetUser) {
+			targetUser.updateIdentity();
+			Rooms.global.checkAutojoin(targetUser);
+			if (targetUser.trusted && !Users.isTrusted(targetUser.id)) {
+				targetUser.trusted = '';
+			}
+		}
 	},
 	promotehelp: [`/promote [username], [group] - Promotes the user to the specified group. Requires: &`],
 
@@ -1352,6 +1389,57 @@ export const commands: ChatCommands = {
 	trustuserhelp: [
 		`/trustuser [username] - Trusts the user (makes them immune to locks). Requires: &`,
 		`/untrustuser [username] - Removes the trusted user status from the user. Requires: &`,
+	],
+
+	desectionleader: 'sectionleader',
+	sectionleader(target, room, user, connection, cmd) {
+		this.checkCan('gdeclare');
+		room = this.requireRoom();
+		const demoting = cmd === 'desectionleader';
+		if (!target || (target.split(',').length < 2 && !demoting)) return this.parse(`/help sectionleader`);
+
+		const [targetStr, sectionid] = this.splitOne(target);
+		this.splitTarget(targetStr);
+		const targetUser = this.targetUser;
+		const userid = toID(this.targetUsername);
+		const section = demoting ? Users.globalAuth.sectionLeaders.get(userid)! : room.validateSection(sectionid);
+		const name = targetUser ? targetUser.name : this.targetUsername;
+		if (Users.globalAuth.sectionLeaders.has(targetUser?.id || userid) && !demoting) {
+			throw new Chat.ErrorMessage(`${name} is already a Section Leader of ${RoomSections.sectionNames[section]}.`);
+		} else if (!Users.globalAuth.sectionLeaders.has(targetUser?.id || userid) && demoting) {
+			throw new Chat.ErrorMessage(`${name} is not a Section Leader.`);
+		}
+		const staffRoom = Rooms.get('staff');
+		if (!demoting) {
+			Users.globalAuth.setSection(userid, section);
+			this.addGlobalModAction(`${name} was appointed Section Leader of ${RoomSections.sectionNames[section]} by ${user.name}.`);
+			this.globalModlog(`SECTION LEADER`, userid, section);
+			if (!staffRoom?.auth.has(userid)) this.parse(`/msgroom staff,/forceroompromote ${userid},▸`);
+			targetUser?.popup(`You were appointed Section Leader of ${RoomSections.sectionNames[section]} by ${user.name}.`);
+		} else {
+			const group = Users.globalAuth.get(userid);
+			Users.globalAuth.deleteSection(userid);
+			this.privateGlobalModAction(`${name} was demoted from Section Leader of ${RoomSections.sectionNames[section]} by ${user.name}.`);
+			if (group === ' ') this.sendReply(`They are also no longer manually trusted. If they should be, use '/trustuser'.`);
+			this.globalModlog(`DESECTION LEADER`, userid, section);
+			if (staffRoom?.auth.getDirect(userid) as any === '\u25B8') this.parse(`/msgroom staff,/roomdeauth ${userid}`);
+			targetUser?.popup(`You were demoted from Section Leader of ${RoomSections.sectionNames[section]} by ${user.name}.`);
+		}
+
+		if (targetUser) {
+			targetUser.updateIdentity();
+			Rooms.global.checkAutojoin(targetUser);
+			if (targetUser.trusted && !Users.isTrusted(targetUser.id)) {
+				targetUser.trusted = '';
+			}
+		}
+	},
+	sectionleaderhelp: [
+		`/sectionleader [target user], [sectionid] - Appoints [target user] Section Leader.`,
+		`/desectionleader [target user] - Demotes [target user] from Section Leader.`,
+		`Valid sections: ${RoomSections.sections.join(', ')}`,
+		`If you want to change which section someone leads, demote them and then re-promote them in the desired section.`,
+		`Requires: &`,
 	],
 
 	globaldemote: 'demote',
@@ -1447,7 +1535,7 @@ export const commands: ChatCommands = {
 		}
 		this.globalModlog(`GLOBALDECLARE`, null, target);
 	},
-	globaldeclarehelp: [`/globaldeclare [message] - Anonymously announces a message to all rooms on the site. Requires: &`],
+	globaldeclarehelp: [`/globaldeclare [message] - Anonymously sends a private message to all the users on the site. Requires: &`],
 
 	cdeclare: 'chatdeclare',
 	chatdeclare(target, room, user) {
@@ -1515,49 +1603,53 @@ export const commands: ChatCommands = {
 	],
 
 	fr: 'forcerename',
+	ofr: 'forcerename',
+	offlineforcerename: 'forcerename',
 	forcerename(target, room, user) {
 		if (!target) return this.parse('/help forcerename');
 
 		const reason = this.splitTarget(target, true);
+		const offline = this.cmd.startsWith('o');
 		const targetUser = this.targetUser;
-		const targetID = toID(this.targetUsername);
-		if (!targetUser) {
+		const targetID = this.targetUser?.id || toID(this.targetUsername);
+		// && !offline because maybe we're trying to disallow the name after they namechanged
+		if (!targetUser && !offline) {
 			this.splitTarget(target);
 			if (this.targetUser) {
 				return this.errorReply(`User has already changed their name to '${this.targetUser.name}'.`);
 			}
-			return this.errorReply(`User '${target}' not found.`);
+			return this.errorReply(`User '${target}' not found. (use /offlineforcerename to rename anyway.)`);
 		}
 		this.checkCan('forcerename', targetID);
 		const {publicReason, privateReason} = this.parseSpoiler(reason);
 
-		Monitor.forceRenames.set(targetUser.id, (Monitor.forceRenames.get(targetUser.id) || 0) + 1);
+		Monitor.forceRenames.set(targetID, (Monitor.forceRenames.get(targetID) || 0) + 1);
 
 		let forceRenameMessage;
-		if (targetUser.connected) {
+		if (targetUser?.connected) {
 			forceRenameMessage = `was forced to choose a new name by ${user.name}${(publicReason ? `: ${publicReason}` : ``)}`;
 			this.globalModlog('FORCERENAME', targetUser, reason);
 			Ladders.cancelSearches(targetUser);
 			targetUser.send(`|nametaken||${user.name} considers your name inappropriate${(publicReason ? `: ${publicReason}` : ``)}`);
 		} else {
-			forceRenameMessage = `would be forced to choose a new name by ${user.name} but is offline${(publicReason ? `: ${publicReason}` : ``)}`;
+			forceRenameMessage = `was forced to choose a new name by ${user.name} while offline${(publicReason ? `: ${publicReason}` : ``)}`;
 			this.globalModlog('FORCERENAME OFFLINE', targetUser, `${publicReason} ${privateReason}`);
 		}
 		Monitor.forceRenames.set(targetID, (Monitor.forceRenames.get(targetID) || 0) + 1);
 
-		if (room?.roomid !== 'staff') this.privateModAction(`${targetUser.name} ${forceRenameMessage}`);
+		if (room?.roomid !== 'staff') this.privateModAction(`${targetUser?.name || targetID} ${forceRenameMessage}`);
 		const roomMessage = this.pmTarget ? `<PM:${this.pmTarget.id}>` :
 			room && room.roomid !== 'staff' ? `«<a href="/${room.roomid}" target="_blank">${room.roomid}</a>» ` :
 			'';
-		const rankMessage = targetUser.getAccountStatusString();
+		const rankMessage = targetUser?.getAccountStatusString() || "";
 		Rooms.global.notifyRooms(
 			['staff'],
-			`|html|${roomMessage}` + Utils.html`<span class="username">${targetUser.name}</span> ${rankMessage} ${forceRenameMessage}`
+			`|html|${roomMessage}` + Utils.html`<span class="username">${targetUser?.name || targetID}</span> ${rankMessage} ${forceRenameMessage}`
 		);
 
-		targetUser.resetName(true);
-		if (Punishments.namefilterwhitelist.has(targetUser.id)) {
-			Punishments.unwhitelistName(targetUser.id);
+		targetUser?.resetName(true);
+		if (Punishments.namefilterwhitelist.has(targetID)) {
+			Punishments.unwhitelistName(targetID);
 		}
 		return true;
 	},
@@ -1587,7 +1679,9 @@ export const commands: ChatCommands = {
 			return this.errorReply(`${this.inputUsername} has already changed their name to ${targetUser.name}. To namelock anyway, use /forcenamelock.`);
 		}
 		this.checkCan('forcerename', userid);
-		if (targetUser?.namelocked) return this.errorReply(`User '${targetUser.name}' is already namelocked.`);
+		if (targetUser?.namelocked && !week) {
+			return this.errorReply(`User '${targetUser.name}' is already namelocked.`);
+		}
 		const {privateReason, publicReason} = this.parseSpoiler(target);
 		const reasonText = publicReason ? ` (${publicReason})` : `.`;
 		this.privateGlobalModAction(`${targetUser?.name || userid} was ${week ? 'week' : ''}namelocked by ${user.name}${reasonText}`);
