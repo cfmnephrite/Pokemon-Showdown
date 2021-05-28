@@ -15958,7 +15958,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Solar Beam",
 		pp: 10,
 		priority: 0,
-		flags: {charge: 1, protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1},
 		onBasePower(basePower, pokemon, target) {
 			if (!this.field.isWeather(['sunnyday', 'desolateland'])) {
 				this.debug('weakened by weather');
