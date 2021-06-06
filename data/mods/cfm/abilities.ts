@@ -3751,6 +3751,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		cfm: true,
 	},
 	screencleaner: {
+		shortDesc: "Ends opponent's Reflect, Light Screen, and Aurora Veil on switch in.",
 		onStart(pokemon) {
 			let activated = false;
 			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil']) {
@@ -4216,14 +4217,23 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		cfm: true,
 	},
 	steamengine: {
-		onDamagingHit(damage, target, source, move) {
-			if (['Water', 'Fire'].includes(move.type)) {
-				this.boost({spe: 6});
+		shortDesc: "One time immunity to Fire or Water that raises speed by 6.",
+		onStart(pokemon) {
+			pokemon.abilityData.steamEngineUsed = false;
+		},
+		onTryHit(target, source, move) {
+			if (!target.abilityData.steamEngineUsed && target !== source && ['Fire', 'Water'].includes(move.type)) {
+				target.abilityData.steamEngineUsed = true;
+				if (!this.boost({spe: 6})) {
+					this.add('-immune', target, '[from] ability: Steam Engine');
+				}
+				return null;
 			}
 		},
 		name: "Steam Engine",
 		rating: 2,
 		num: 243,
+		cfm: true,
 	},
 	steelworker: {
 		shortDesc: "This Pokemon's attacking stat is multiplied by 1.5 while using a Steel-type attack.",
@@ -4791,6 +4801,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		num: 127,
 	},
 	unseenfist: {
+		shortDesc: "Punch moves: 1.2x damage, ignore protect/substitute/screens",
 		onModifyMove(move) {
 			if (move.flags['punch']) {
 				delete move.flags['protect'];
@@ -4805,6 +4816,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		name: "Unseen Fist",
 		rating: 2,
 		num: 260,
+		cfm: true,
 	},
 	victorystar: {
 		onAnyModifyAccuracyPriority: -1,

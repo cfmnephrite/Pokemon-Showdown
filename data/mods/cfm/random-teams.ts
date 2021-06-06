@@ -2282,7 +2282,12 @@ export class RandomTeams {
 		};
 
 		const pokemon = [];
-		const pokemonPool = Object.keys(this.randomCFMFactorySets[chosenTier]);
+		let pokemonPool = [];
+		try {
+			pokemonPool = Object.keys(this.randomCFMFactorySets[chosenTier]);
+		} catch (error) {
+			pokemonPool = Object.keys(this.randomCFMFactorySets['OU']);
+		}
 
 		const typePool = this.dex.types.names();
 		const type = this.sample(typePool);
