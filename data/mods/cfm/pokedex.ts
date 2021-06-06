@@ -8054,7 +8054,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 27,
 		color: "Green",
 		eggGroups: ["Grass"],
-		cfmMoves: ["acid", "focusblast", "leafstorm", "nastyplot", "poisonfang", "psychicfangs", "pursuit", "sleeppowder", "snaptrap", "strengthsap", "thunderfang", "toxic"],
+		cfmMoves: ["acid", "focusblast", "leafstorm", "nastyplot", "poisonfang", "poisonpowder", "psychicfangs", "pursuit", "sleeppowder", "snaptrap", "strengthsap", "thunderfang"],
 		cfmMoveSpecialDesc: {"snaptrap": "Changes to the user's primary type. Traps and damages the target for 4-5 turns. Damage dealt heals the user. If Carnivine: Bug and Flying-type attacks become resisted."},
 	},
 	finneon: {
