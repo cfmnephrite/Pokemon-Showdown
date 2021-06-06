@@ -8299,7 +8299,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Leaf Stone",
 		eggGroups: ["Field"],
-		cfmMoves: [],
+		cfmMoves: ["doublekick", "grassyglide", "irontail", "knockoff", "leafage", "leafblade", "naturalgift", "seedbomb", "synthesis", "wish", "yawn", "zenheadbutt"],
 	},
 	glaceon: {
 		num: 471,
@@ -8315,7 +8315,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Ice Stone",
 		eggGroups: ["Field"],
-		cfmMoves: [],
+		cfmMoves: ["blizzard", "frostbreath", "freezedry", "grassknot", "iciclecrash", "shadowball", "weatherball", "storedpower", "waterpulse", "tripleaxel", "hail", "auroraveil"],
 	},
 	gliscor: {
 		num: 472,
@@ -8364,7 +8364,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoItem: "Dubious Disc",
 		eggGroups: ["Mineral"],
-		cfmMoves: [],
+		cfmMoves: ["hyperbeam", "uproar", "darkpulse", "thunderbolt", "icebeam", "nastyplot", "sharpen", "lastresort", "shockwave", "wonderroom", "trickroom", "shadowball"],
 	},
 	gallade: {
 		num: 475,

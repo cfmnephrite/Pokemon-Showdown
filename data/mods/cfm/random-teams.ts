@@ -2285,7 +2285,7 @@ export class RandomTeams {
 		let pokemonPool = [];
 		try {
 			pokemonPool = Object.keys(this.randomCFMFactorySets[chosenTier]);
-		} catch(error) {
+		} catch (error) {
 			pokemonPool = Object.keys(this.randomCFMFactorySets['OU']);
 		}
 

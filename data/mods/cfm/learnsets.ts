@@ -18876,7 +18876,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 		learnset: {
 			aquatail: ["7T", "6T", "5T", "4T"],
 			attract: ["8M", "7M", "6M", "5M", "4M"],
-			auroraveil: ["7M", "7S2"],
+			auroraveil: ["X"],
 			avalanche: ["8M", "4M"],
 			babydolleyes: ["8L15", "7L9"],
 			barrier: ["7L29", "6L29", "5L78", "4L78"],
@@ -18950,7 +18950,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			tailwhip: ["8L1", "7L1", "6L1", "6S1", "5L1", "5S0", "4L1"],
 			takedown: ["8L1"],
 			toxic: ["X"],
-			tripleaxel: ["8T"],
+			tripleaxel: ["X"],
 			waterpulse: ["7T", "6T", "4M"],
 			weatherball: ["8M"],
 			workup: ["8M", "7M", "5M"],
