@@ -17617,7 +17617,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		num: 749,
 		accuracy: 100,
 		basePower: 80,
-		category: "Special", 
+		category: "Special",
 		name: "Tar Shot",
 		pp: 15,
 		priority: 0,
