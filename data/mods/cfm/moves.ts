@@ -2671,6 +2671,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
+		shortDesc: "30% chance to paralyze adjacent Pokemon.",
 		name: "Cotton Spore",
 		pp: 15,
 		priority: 0,
@@ -2679,9 +2680,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			chance: 30,
 			status: 'par',
 		},
-		target: "allAdjacentFoes",
+		target: "allAdjacent",
 		type: "Grass",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	counter: {
 		num: 68,
@@ -5136,18 +5138,72 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	firespin: {
 		num: 83,
-		accuracy: 85,
-		basePower: 35,
+		accuracy: 100,
+		basePower: 40,
+		basePowerCallback(pokemon, target, move) {
+			// You can't get here unless the pursuit succeeds
+			if (target.beingCalledBack || target.switchFlag) {
+				this.debug('Pursuit damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
 		category: "Special",
+		desc: "If an opposing Pokemon switches out this turn, this move hits that Pokemon before it leaves the field, even if it was not the original target. If the user moves after an opponent using Parting Shot, U-turn, or Volt Switch, but not Baton Pass, it will hit that opponent before it leaves the field. Power doubles and no accuracy check is done if the user hits an opponent switching out, and the user's turn is over; if an opponent faints from this, the replacement Pokemon does not become active until the end of the turn.",
+		shortDesc: "Power doubles if the target is switching out.",
 		name: "Fire Spin",
-		pp: 15,
+		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		volatileStatus: 'partiallytrapped',
+		beforeTurnCallback(pokemon) {
+			for (const side of this.sides) {
+				if (side === pokemon.side) continue;
+				side.addSideCondition('firespin', pokemon);
+				const data = side.getSideConditionData('firespin');
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
+			}
+		},
+		onModifyMove(move, source, target) {
+			if (target?.beingCalledBack || target?.switchFlag) move.accuracy = true;
+		},
+		onTryHit(target, pokemon) {
+			target.side.removeSideCondition('firespin');
+		},
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				this.debug('Pursuit start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectData.sources) {
+					if (!this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon, 'move: Pursuit');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.actions.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.actions.runMove('firespin', source, source.getLocOf(pokemon));
+				}
+			},
+		},
 		secondary: null,
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	firstimpression: {
 		num: 660,
@@ -7808,11 +7864,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 140,
 		category: "Physical",
-		shortDesc: "Lowers the user's Attack by 2. High crit chance.",
+		shortDesc: "Lowers the user's Attack by 2. High crit chance. Fire if used by Rapidash.",
 		name: "Horn Drill",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				atk: -2,
+			},
+		},
+		onModifyType(move, pokemon) {
+			if (pokemon.species.name === 'Rapidash') {
+				move.type = 'Fire';
+			}
+		},
 		critRatio: 2,
 		secondary: null,
 		target: "normal",
@@ -15892,7 +15958,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Solar Beam",
 		pp: 10,
 		priority: 0,
-		flags: {charge: 1, protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1},
 		onBasePower(basePower, pokemon, target) {
 			if (!this.field.isWeather(['sunnyday', 'desolateland'])) {
 				this.debug('weakened by weather');
@@ -17180,6 +17246,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
+		shortDesc: "Always results in a critical hit. Hits twice",
 		name: "Surging Strikes",
 		pp: 5,
 		priority: 0,
@@ -17191,6 +17258,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Water",
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
+		cfm: true,
 	},
 	swagger: {
 		num: 207,
@@ -17548,12 +17616,12 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	tarshot: {
 		num: 749,
 		accuracy: 100,
-		basePower: 0,
-		category: "Status",
+		basePower: 80,
+		category: "Special", 
 		name: "Tar Shot",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1},
 		volatileStatus: 'tarshot',
 		condition: {
 			onStart(pokemon) {
@@ -17573,6 +17641,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		secondary: null,
 		target: "normal",
 		type: "Rock",
+		cfm: true,
 	},
 	taunt: {
 		num: 269,
