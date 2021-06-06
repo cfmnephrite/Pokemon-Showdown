@@ -7864,7 +7864,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 140,
 		category: "Physical",
-		shortDesc: "Lowers the user's Attack by 2. High crit chance. Fire if used by Rapidash.",
+		shortDesc: "Lowers the user's Attack by 2. High crit chance. Fire-type if used by Rapidash.",
 		name: "Horn Drill",
 		pp: 5,
 		priority: 0,

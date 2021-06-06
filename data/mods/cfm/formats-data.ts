@@ -5087,7 +5087,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	falinks: {
 		randomBattleMoves: ["closecombat", "megahorn", "noretreat", "poisonjab", "rockslide", "throatchop"],
-		tier: "CRU",
+		tier: "CUU",
 		inherit: true,
 	},
 	pincurchin: {
