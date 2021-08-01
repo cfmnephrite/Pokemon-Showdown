@@ -124,39 +124,39 @@ export const Tags: {[id: string]: TagData} = {
 
 	// CFM Tiers
 	cag: {
-		name: "CFM AG",
+		name: "CAG",
 		speciesFilter: species => species.tier === 'CAG',
 	},
 	cub: {
-		name: "CFM Ubers",
+		name: "CUb",
 		speciesFilter: species => species.tier === 'CUb',
 	},
 	cou: {
-		name: "CFM OU",
+		name: "COU",
 		speciesFilter: species => species.tier === 'COU',
 	},
 	cuu: {
-		name: "CFM UU",
+		name: "CUU",
 		speciesFilter: species => species.tier === 'CUU',
 	},
 	cru: {
-		name: "CFM RU",
+		name: "CRU",
 		speciesFilter: species => species.tier === 'CRU',
 	},
 	cnu: {
-		name: "CFM NU",
+		name: "CNU",
 		speciesFilter: species => species.tier === 'CNU',
 	},
 	cpu: {
-		name: "CFM PU",
+		name: "CPU",
 		speciesFilter: species => species.tier === 'CPU',
 	},
 	czu: {
-		name: "CFM ZU",
+		name: "CZU",
 		speciesFilter: species => species.tier === 'CZU',
 	},
 	clc: {
-		name: "CFM LC",
+		name: "CLC",
 		speciesFilter: species => species.tier === 'CLC',
 	},
 

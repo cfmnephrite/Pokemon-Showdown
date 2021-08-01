@@ -440,17 +440,14 @@ export const commands: Chat.ChatCommands = {
 		this.checkBroadcast();
 		const {format, dex, targets} = this.splitFormat(target);
 
-		if (['clearn', 'cl'].includes(cmd))
-			var formatid = 'cfm';
-		else	
-			var formatid = format ? format.id : dex.currentMod;
+		const formatid = format ? format.id : dex.currentMod;
 		if (cmd === 'learn5') targets.unshift('level5');
 
 		const response = await runSearch({
 			target: targets.join(','),
 			cmd: 'learn',
 			canAll: !this.broadcastMessage || checkCanAll(room),
-			message: formatid,
+			message: ['clearn', 'cl'].includes(cmd) ? 'cfm' : formatid,
 		});
 		if (!response.error && !this.runBroadcast()) return;
 		if (response.error) {
@@ -612,10 +609,13 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 			}
 
 			if (toID(target) in allTiers) {
+				target = allTiers[toID(target)];
 				if (cfmSearch)
 					target = allCFMTiers[toID(target)] || allCFMTiers[toID("c" + target)];
-				else
-					target = allTiers[toID(target)];
+				else if (target.startsWith("CAP")) {
+					if (capSearch === isNotSearch) return {error: "A search cannot both include and exclude CAP tiers."};
+					capSearch = !isNotSearch;
+				}
 				const invalid = validParameter("tiers", target, isNotSearch, target);
 				if (invalid) return {error: invalid};
 				tierSearch = tierSearch || !isNotSearch;

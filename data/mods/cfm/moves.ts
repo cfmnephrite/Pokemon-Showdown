@@ -705,14 +705,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 			onUpdate(pokemon) {
-				if (this.effectData.source && !this.effectData.source.isActive && pokemon.volatiles['attract']) {
+				if (this.effectState.source && !this.effectState.source.isActive && pokemon.volatiles['attract']) {
 					this.debug('Removing Attract volatile on ' + pokemon);
 					pokemon.removeVolatile('attract');
 				}
 			},
 			onBeforeMovePriority: 2,
 			onBeforeMove(pokemon, target, move) {
-				this.add('-activate', pokemon, 'move: Attract', '[of] ' + this.effectData.source);
+				this.add('-activate', pokemon, 'move: Attract', '[of] ' + this.effectState.source);
 				if (this.randomChance(1, 2)) {
 					this.add('cant', pokemon, 'Attract');
 					return false;
@@ -821,7 +821,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && this.effectData.target.hasAlly(target)) {
+				if (target !== source && this.effectState.target.hasAlly(target)) {
 					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
 							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
 						return;
@@ -1209,20 +1209,20 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			duration: 3,
 			onLockMove: 'bide',
 			onStart(pokemon) {
-				this.effectData.totalDamage = 0;
+				this.effectState.totalDamage = 0;
 				this.add('-start', pokemon, 'move: Bide');
 			},
 			onDamagePriority: -101,
 			onDamage(damage, target, source, move) {
 				if (!move || move.effectType !== 'Move' || !source) return;
-				this.effectData.totalDamage += damage;
-				this.effectData.lastDamageSource = source;
+				this.effectState.totalDamage += damage;
+				this.effectState.lastDamageSource = source;
 			},
 			onBeforeMove(pokemon, target, move) {
-				if (this.effectData.duration === 1) {
+				if (this.effectState.duration === 1) {
 					this.add('-end', pokemon, 'move: Bide');
-					target = this.effectData.lastDamageSource;
-					if (!target || !this.effectData.totalDamage) {
+					target = this.effectState.lastDamageSource;
+					if (!target || !this.effectState.totalDamage) {
 						this.attrLastMove('[still]');
 						this.add('-fail', pokemon);
 						return false;
@@ -1239,7 +1239,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						id: 'bide' as ID,
 						name: "Bide",
 						accuracy: true,
-						damage: this.effectData.totalDamage * 2,
+						damage: this.effectState.totalDamage * 2,
 						category: "Physical",
 						priority: 1,
 						flags: {contact: 1, protect: 1},
@@ -2063,7 +2063,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			duration: 2,
 			onRestart(pokemon) {
-				this.effectData.duration = 2;
+				this.effectState.duration = 2;
 			},
 			onBasePowerPriority: 9,
 			onBasePower(basePower, attacker, defender, move) {
@@ -2375,13 +2375,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			duration: 2,
 			onStart() {
-				this.effectData.multiplier = 1;
+				this.effectState.multiplier = 1;
 			},
 			onRestart() {
-				if (this.effectData.multiplier < 4) {
-					this.effectData.multiplier <<= 1;
+				if (this.effectState.multiplier < 4) {
+					this.effectState.multiplier <<= 1;
 				}
-				this.effectData.duration = 2;
+				this.effectState.duration = 2;
 			},
 		},
 		secondary: null,
@@ -2709,18 +2709,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			duration: 1,
 			noCopy: true,
 			onStart(target, source, move) {
-				this.effectData.slot = null;
-				this.effectData.damage = 0;
+				this.effectState.slot = null;
+				this.effectState.damage = 0;
 			},
 			onRedirectTargetPriority: -1,
 			onRedirectTarget(target, source, source2) {
-				if (source !== this.effectData.target || !this.effectData.slot) return;
-				return this.getAtSlot(this.effectData.slot);
+				if (source !== this.effectState.target || !this.effectState.slot) return;
+				return this.getAtSlot(this.effectState.slot);
 			},
 			onDamagingHit(damage, target, source, move) {
 				if (source.side !== target.side && this.getCategory(move, source) === 'Physical') {
-					this.effectData.position = source.position;
-					this.effectData.damage = 2 * damage;
+					this.effectState.position = source.position;
+					this.effectState.damage = 2 * damage;
 				}
 			},
 		},
@@ -3410,7 +3410,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					this.queue.willMove(pokemon) ||
 					(pokemon === this.activePokemon && this.activeMove && !this.activeMove.isExternal)
 				) {
-					this.effectData.duration--;
+					this.effectState.duration--;
 				}
 				if (!pokemon.lastMove) {
 					this.debug('pokemon hasn\'t moved yet');
@@ -3429,7 +3429,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				} else {
 					this.add('-start', pokemon, 'Disable', pokemon.lastMove.name);
 				}
-				this.effectData.move = pokemon.lastMove.id;
+				this.effectState.move = pokemon.lastMove.id;
 			},
 			onResidualOrder: 14,
 			onEnd(pokemon) {
@@ -3437,14 +3437,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onBeforeMovePriority: 7,
 			onBeforeMove(attacker, defender, move) {
-				if (!move.isZ && move.id === this.effectData.move) {
+				if (!move.isZ && move.id === this.effectState.move) {
 					this.add('cant', attacker, 'Disable', move);
 					return false;
 				}
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id === this.effectData.move) {
+					if (moveSlot.id === this.effectState.move) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -4158,13 +4158,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			duration: 2,
 			onStart() {
-				this.effectData.multiplier = 1;
+				this.effectState.multiplier = 1;
 			},
 			onRestart() {
-				if (this.effectData.duration !== 2) {
-					this.effectData.duration = 2;
-					if (this.effectData.multiplier < 5) {
-						this.effectData.multiplier++;
+				if (this.effectState.duration !== 2) {
+					this.effectState.duration = 2;
+					if (this.effectState.multiplier < 5) {
+						this.effectState.multiplier++;
 					}
 				}
 			},
@@ -4453,19 +4453,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					// it failed
 					return false;
 				}
-				this.effectData.move = move.id;
+				this.effectState.move = move.id;
 				this.add('-start', target, 'Encore');
 				if (!this.queue.willMove(target)) {
-					this.effectData.duration++;
+					this.effectState.duration++;
 				}
 			},
 			onOverrideAction(pokemon, target, move) {
-				if (move.id !== this.effectData.move) return this.effectData.move;
+				if (move.id !== this.effectState.move) return this.effectState.move;
 			},
 			onResidualOrder: 13,
 			onResidual(target) {
-				if (target.moves.includes(this.effectData.move) &&
-					target.moveSlots[target.moves.indexOf(this.effectData.move)].pp <= 0) {
+				if (target.moves.includes(this.effectState.move) &&
+					target.moveSlots[target.moves.indexOf(this.effectState.move)].pp <= 0) {
 					// early termination if you run out of PP
 					target.removeVolatile('encore');
 				}
@@ -4474,11 +4474,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-end', target, 'Encore');
 			},
 			onDisableMove(pokemon) {
-				if (!this.effectData.move || !pokemon.hasMove(this.effectData.move)) {
+				if (!this.effectState.move || !pokemon.hasMove(this.effectState.move)) {
 					return;
 				}
 				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id !== this.effectData.move) {
+					if (moveSlot.id !== this.effectState.move) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -5178,7 +5178,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.debug('Pursuit start');
 				let alreadyAdded = false;
 				pokemon.removeVolatile('destinybond');
-				for (const source of this.effectData.sources) {
+				for (const source of this.effectState.sources) {
 					if (!this.queue.cancelMove(source) || !source.hp) continue;
 					if (!alreadyAdded) {
 						this.add('-activate', pokemon, 'move: Pursuit');
@@ -5818,10 +5818,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onFoeRedirectTargetPriority: 1,
 			onFoeRedirectTarget(target, source, source2, move) {
-				if (!this.effectData.target.isSkyDropped() && this.validTarget(this.effectData.target, source, move.target)) {
+				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					if (move.smartTarget) move.smartTarget = false;
 					this.debug("Follow Me redirected target of move");
-					return this.effectData.target;
+					return this.effectState.target;
 				}
 			},
 		},
@@ -6066,13 +6066,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			duration: 2,
 			onStart() {
-				this.effectData.multiplier = 1;
+				this.effectState.multiplier = 1;
 			},
 			onRestart() {
-				if (this.effectData.multiplier < 4) {
-					this.effectData.multiplier <<= 1;
+				if (this.effectState.multiplier < 4) {
+					this.effectState.multiplier <<= 1;
 				}
-				this.effectData.duration = 2;
+				this.effectState.duration = 2;
 			},
 		},
 		secondary: null,
@@ -6194,7 +6194,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			// Ability suppression implemented in Pokemon.ignoringAbility() within sim/pokemon.js
 			onStart(pokemon) {
 				this.add('-endability', pokemon);
-				this.singleEvent('End', pokemon.getAbility(), pokemon.abilityData, pokemon, pokemon, 'gastroacid');
+				this.singleEvent('End', pokemon.getAbility(), pokemon.abilityState, pokemon, pokemon, 'gastroacid');
 			},
 			onCopy(pokemon) {
 				if (pokemon.getAbility().isPermanent) pokemon.removeVolatile('gastroacid');
@@ -6607,7 +6607,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 			onEnd() {
-				if (!this.effectData.duration) this.eachEvent('Terrain');
+				if (!this.effectState.duration) this.eachEvent('Terrain');
 				this.add('-fieldend', 'move: Grassy Terrain');
 			},
 		},
@@ -7193,7 +7193,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-end', pokemon, 'move: Heal Block');
 			},
 			onTryHeal(damage, target, source, effect) {
-				if ((effect?.id === 'zpower') || this.effectData.isZ) return damage;
+				if ((effect?.id === 'zpower') || this.effectState.isZ) return damage;
 				return false;
 			},
 			onRestart(target, source) {
@@ -7455,17 +7455,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			duration: 1,
 			onStart(target, source) {
-				this.effectData.multiplier = 1.5;
+				this.effectState.multiplier = 1.5;
 				this.add('-singleturn', target, 'Helping Hand', '[of] ' + source);
 			},
 			onRestart(target, source) {
-				this.effectData.multiplier *= 1.5;
+				this.effectState.multiplier *= 1.5;
 				this.add('-singleturn', target, 'Helping Hand', '[of] ' + source);
 			},
 			onBasePowerPriority: 10,
 			onBasePower(basePower) {
-				this.debug('Boosting from Helping Hand: ' + this.effectData.multiplier);
-				return this.chainModify(this.effectData.multiplier);
+				this.debug('Boosting from Helping Hand: ' + this.effectState.multiplier);
+				return this.chainModify(this.effectState.multiplier);
 			},
 		},
 		secondary: null,
@@ -8160,12 +8160,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			duration: 2,
 			onLockMove: 'iceball',
 			onStart() {
-				this.effectData.hitCount = 1;
+				this.effectState.hitCount = 1;
 			},
 			onRestart() {
-				this.effectData.hitCount++;
-				if (this.effectData.hitCount < 5) {
-					this.effectData.duration = 2;
+				this.effectState.hitCount++;
+				if (this.effectState.hitCount < 5) {
+					this.effectState.duration = 2;
 				}
 			},
 			onResidual(target) {
@@ -8370,7 +8370,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-start', target, 'move: Imprison');
 			},
 			onFoeDisableMove(pokemon) {
-				for (const moveSlot of this.effectData.source.moveSlots) {
+				for (const moveSlot of this.effectState.source.moveSlots) {
 					if (moveSlot.id === 'struggle') continue;
 					pokemon.disableMove(moveSlot.id, 'hidden');
 				}
@@ -8378,7 +8378,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onFoeBeforeMovePriority: 4,
 			onFoeBeforeMove(attacker, defender, move) {
-				if (move.id !== 'struggle' && this.effectData.source.hasMove(move.id) && !move.isZ && !move.isMax) {
+				if (move.id !== 'struggle' && this.effectState.source.hasMove(move.id) && !move.isZ && !move.isMax) {
 					this.add('cant', attacker, 'move: Imprison', move);
 					return false;
 				}
@@ -8865,7 +8865,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 			onRestart(pokemon) {
-				this.effectData.duration = 2;
+				this.effectState.duration = 2;
 				this.add('-start', pokemon, 'move: Laser Focus');
 			},
 			onModifyCritRatio(critRatio) {
@@ -9188,7 +9188,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && this.effectData.target.hasAlly(target) && this.getCategory(move) === 'Special') {
+				if (target !== source && this.effectState.target.hasAlly(target) && this.getCategory(move) === 'Special') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Light Screen weaken');
 						if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
@@ -9272,10 +9272,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			duration: 2,
 			onSourceInvulnerabilityPriority: 1,
 			onSourceInvulnerability(target, source, move) {
-				if (move && source === this.effectData.target && target === this.effectData.source) return 0;
+				if (move && source === this.effectState.target && target === this.effectState.source) return 0;
 			},
 			onSourceAccuracy(accuracy, target, source, move) {
-				if (move && source === this.effectData.target && target === this.effectData.source) return true;
+				if (move && source === this.effectState.target && target === this.effectState.source) return true;
 			},
 		},
 		secondary: null,
@@ -9495,7 +9495,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onStart(target, source, effect) {
 				this.add('-singleturn', target, 'move: Magic Coat');
 				if (effect?.effectType === 'Move') {
-					this.effectData.pranksterBoosted = effect.pranksterBoosted;
+					this.effectState.pranksterBoosted = effect.pranksterBoosted;
 				}
 			},
 			onTryHitPriority: 2,
@@ -9505,7 +9505,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				const newMove = this.dex.getActiveMove(move.id);
 				newMove.hasBounced = true;
-				newMove.pranksterBoosted = this.effectData.pranksterBoosted;
+				newMove.pranksterBoosted = this.effectState.pranksterBoosted;
 				this.actions.useMove(newMove, target, source);
 				return null;
 			},
@@ -9516,7 +9516,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				const newMove = this.dex.getActiveMove(move.id);
 				newMove.hasBounced = true;
 				newMove.pranksterBoosted = false;
-				this.actions.useMove(newMove, this.effectData.target, source);
+				this.actions.useMove(newMove, this.effectState.target, source);
 				return null;
 			},
 		},
@@ -9571,7 +9571,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
 			onResidualOrder: 25,
 			onEnd() {
-				this.add('-fieldend', 'move: Magic Room', '[of] ' + this.effectData.source);
+				this.add('-fieldend', 'move: Magic Room', '[of] ' + this.effectState.source);
 			},
 		},
 		secondary: null,
@@ -10780,18 +10780,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			duration: 1,
 			noCopy: true,
 			onStart(target, source, move) {
-				this.effectData.slot = null;
-				this.effectData.damage = 0;
+				this.effectState.slot = null;
+				this.effectState.damage = 0;
 			},
 			onRedirectTargetPriority: -1,
 			onRedirectTarget(target, source, source2) {
-				if (source !== this.effectData.target || !this.effectData.slot) return;
-				return this.getAtSlot(this.effectData.slot);
+				if (source !== this.effectState.target || !this.effectState.slot) return;
+				return this.getAtSlot(this.effectState.slot);
 			},
 			onDamagingHit(damage, target, source, move) {
 				if (!source.isAlly(target) && this.getCategory(move) === 'Special') {
-					this.effectData.slot = source.getSlot();
-					this.effectData.damage = 2 * damage;
+					this.effectState.slot = source.getSlot();
+					this.effectState.damage = 2 * damage;
 				}
 			},
 		},
@@ -11694,7 +11694,7 @@ Water:		Scald`,
 			},
 			onResidualOrder: 11,
 			onResidual(pokemon) {
-				const source = this.effectData.source;
+				const source = this.effectState.source;
 				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
 					delete pokemon.volatiles['octolock'];
 					this.add('-end', pokemon, 'Octolock', '[partiallytrapped]', '[silent]');
@@ -11703,7 +11703,7 @@ Water:		Scald`,
 				this.boost({def: -1, spd: -1}, pokemon, source, this.dex.getActiveMove('octolock'));
 			},
 			onTrapPokemon(pokemon) {
-				if (this.effectData.source && this.effectData.source.isActive) pokemon.tryTrap();
+				if (this.effectState.source && this.effectState.source.isActive) pokemon.tryTrap();
 			},
 		},
 		secondary: null,
@@ -13159,7 +13159,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 				this.debug('Pursuit start');
 				let alreadyAdded = false;
 				pokemon.removeVolatile('destinybond');
-				for (const source of this.effectData.sources) {
+				for (const source of this.effectState.sources) {
 					if (!this.queue.cancelMove(source) || !source.hp) continue;
 					if (!alreadyAdded) {
 						this.add('-activate', pokemon, 'move: Pursuit');
@@ -13360,7 +13360,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			},
 			onFoeRedirectTargetPriority: 1,
 			onFoeRedirectTarget(target, source, source2, move) {
-				const ragePowderUser = this.effectData.target;
+				const ragePowderUser = this.effectState.target;
 				if (ragePowderUser.isSkyDropped()) return;
 
 				if (source.runStatusImmunity('powder') && this.validTarget(ragePowderUser, source, move.target)) {
@@ -13558,7 +13558,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && this.effectData.target.hasAlly(target) && this.getCategory(move) === 'Physical') {
+				if (target !== source && this.effectState.target.hasAlly(target) && this.getCategory(move) === 'Physical') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Reflect weaken');
 						if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
@@ -13689,7 +13689,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			if (!target.hasAbility('comatose')) {
 				if (!target.setStatus('slp', source, move)) return false;
 				const timer = target.hasAbility('earlybird') ? 1 : 3;
-				target.statusData.time = timer;
+				target.statusState.time = timer;
 				this.heal(target.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
 			}
 		},
@@ -14159,12 +14159,12 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			duration: 2,
 			onLockMove: 'rollout',
 			onStart() {
-				this.effectData.hitCount = 1;
+				this.effectState.hitCount = 1;
 			},
 			onRestart() {
-				this.effectData.hitCount++;
-				if (this.effectData.hitCount < 5) {
-					this.effectData.duration = 2;
+				this.effectState.hitCount++;
+				if (this.effectState.hitCount < 5) {
+					this.effectState.duration = 2;
 				}
 			},
 			onResidual(target) {
@@ -14200,7 +14200,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			},
 			onTypePriority: -1,
 			onType(types, pokemon) {
-				this.effectData.typeWas = types;
+				this.effectState.typeWas = types;
 				return types.filter(type => type !== 'Flying');
 			},
 		},
@@ -15246,15 +15246,15 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			} else {
 				this.add('-activate', source, 'move: Skill Swap', targetAbility, sourceAbility, '[of] ' + target);
 			}
-			this.singleEvent('End', sourceAbility, source.abilityData, source);
-			this.singleEvent('End', targetAbility, target.abilityData, target);
+			this.singleEvent('End', sourceAbility, source.abilityState, source);
+			this.singleEvent('End', targetAbility, target.abilityState, target);
 			source.ability = targetAbility.id;
 			target.ability = sourceAbility.id;
-			source.abilityData = {id: this.toID(source.ability), target: source};
-			target.abilityData = {id: this.toID(target.ability), target: target};
+			source.abilityState = {id: this.toID(source.ability), target: source};
+			target.abilityState = {id: this.toID(target.ability), target: target};
 			if (!target.isAlly(source)) target.volatileStaleness = 'external';
-			this.singleEvent('Start', targetAbility, source.abilityData, source);
-			this.singleEvent('Start', sourceAbility, target.abilityData, target);
+			this.singleEvent('Start', targetAbility, source.abilityState, source);
+			this.singleEvent('Start', sourceAbility, target.abilityState, target);
 		},
 		secondary: null,
 		target: "normal",
@@ -15398,16 +15398,16 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		condition: {
 			duration: 2,
 			onAnyDragOut(pokemon) {
-				if (pokemon === this.effectData.target || pokemon === this.effectData.source) return false;
+				if (pokemon === this.effectState.target || pokemon === this.effectState.source) return false;
 			},
 			onFoeTrapPokemonPriority: -15,
 			onFoeTrapPokemon(defender) {
-				if (defender !== this.effectData.source) return;
+				if (defender !== this.effectState.source) return;
 				defender.trapped = true;
 			},
 			onFoeBeforeMovePriority: 12,
 			onFoeBeforeMove(attacker, defender, move) {
-				if (attacker === this.effectData.source) {
+				if (attacker === this.effectState.source) {
 					attacker.activeMoveActions--;
 					this.debug('Sky drop nullifying.');
 					return null;
@@ -15415,15 +15415,15 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			},
 			onRedirectTargetPriority: 99,
 			onRedirectTarget(target, source, source2) {
-				if (source !== this.effectData.target) return;
-				if (this.effectData.source.fainted) return;
-				return this.effectData.source;
+				if (source !== this.effectState.target) return;
+				if (this.effectState.source.fainted) return;
+				return this.effectState.source;
 			},
 			onAnyInvulnerability(target, source, move) {
-				if (target !== this.effectData.target && target !== this.effectData.source) {
+				if (target !== this.effectState.target && target !== this.effectState.source) {
 					return;
 				}
-				if (source === this.effectData.target && target === this.effectData.source) {
+				if (source === this.effectState.target && target === this.effectState.source) {
 					return;
 				}
 				if (['gust', 'twister', 'skyuppercut', 'thunder', 'hurricane', 'smackdown', 'thousandarrows'].includes(move.id)) {
@@ -15432,10 +15432,10 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 				return false;
 			},
 			onAnyBasePower(basePower, target, source, move) {
-				if (target !== this.effectData.target && target !== this.effectData.source) {
+				if (target !== this.effectState.target && target !== this.effectState.source) {
 					return;
 				}
-				if (source === this.effectData.target && target === this.effectData.source) {
+				if (source === this.effectState.target && target === this.effectState.source) {
 					return;
 				}
 				if (move.id === 'gust' || move.id === 'twister') {
@@ -15786,7 +15786,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-				const source = this.effectData.source,
+				const source = this.effectState.source,
 					target = this.getAtSlot(pokemon.volatiles['snaptrap'].sourceSlot);
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to snap onto');
@@ -15807,7 +15807,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 				this.add('-message', `${target.name} broke free from Snap Trap!`);
 			},
 			onTrapPokemon(pokemon) {
-				if (this.effectData.source?.isActive) pokemon.tryTrap();
+				if (this.effectState.source?.isActive) pokemon.tryTrap();
 			},
 		},
 		secondary: null,
@@ -15853,7 +15853,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			},
 			onAnyPrepareHitPriority: -1,
 			onAnyPrepareHit(source, target, move) {
-				const snatchUser = this.effectData.source;
+				const snatchUser = this.effectState.source;
 				if (snatchUser.isSkyDropped()) return;
 				if (!move || move.isZ || move.isMax || !move.flags['snatch'] || move.sourceEffect === 'snatch') {
 					return;
@@ -16233,18 +16233,18 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'Spikes');
-				this.effectData.layers = 1;
+				this.effectState.layers = 1;
 			},
 			onRestart(side) {
-				if (this.effectData.layers >= 3) return false;
+				if (this.effectState.layers >= 3) return false;
 				this.add('-sidestart', side, 'Spikes');
-				this.effectData.layers++;
+				this.effectState.layers++;
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasItem('heavydutyboots')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
-				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 			},
 		},
 		secondary: null,
@@ -16482,9 +16482,9 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			},
 			onFoeRedirectTargetPriority: 2,
 			onFoeRedirectTarget(target, source, source2, move) {
-				if (this.validTarget(this.effectData.target, source, move.target)) {
+				if (this.validTarget(this.effectState.target, source, move.target)) {
 					this.debug("Spotlight redirected target of move");
-					return this.effectData.target;
+					return this.effectState.target;
 				}
 			},
 		},
@@ -16661,7 +16661,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasItem('heavydutyboots')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
-				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
+				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
 			},
 		},
 		secondary: null,
@@ -16688,34 +16688,34 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		condition: {
 			noCopy: true,
 			onStart(target) {
-				this.effectData.layers = 1;
-				this.effectData.def = 0;
-				this.effectData.spd = 0;
-				this.add('-start', target, 'stockpile' + this.effectData.layers);
+				this.effectState.layers = 1;
+				this.effectState.def = 0;
+				this.effectState.spd = 0;
+				this.add('-start', target, 'stockpile' + this.effectState.layers);
 				const [curDef, curSpD] = [target.boosts.def, target.boosts.spd];
 				this.boost({def: 1, spd: 1}, target, target);
-				if (curDef !== target.boosts.def) this.effectData.def--;
-				if (curSpD !== target.boosts.spd) this.effectData.spd--;
+				if (curDef !== target.boosts.def) this.effectState.def--;
+				if (curSpD !== target.boosts.spd) this.effectState.spd--;
 			},
 			onRestart(target) {
-				if (this.effectData.layers >= 3) return false;
-				this.effectData.layers++;
-				this.add('-start', target, 'stockpile' + this.effectData.layers);
+				if (this.effectState.layers >= 3) return false;
+				this.effectState.layers++;
+				this.add('-start', target, 'stockpile' + this.effectState.layers);
 				const curDef = target.boosts.def;
 				const curSpD = target.boosts.spd;
 				this.boost({def: 1, spd: 1}, target, target);
-				if (curDef !== target.boosts.def) this.effectData.def--;
-				if (curSpD !== target.boosts.spd) this.effectData.spd--;
+				if (curDef !== target.boosts.def) this.effectState.def--;
+				if (curSpD !== target.boosts.spd) this.effectState.spd--;
 			},
 			onEnd(target) {
-				if (this.effectData.def || this.effectData.spd) {
+				if (this.effectState.def || this.effectState.spd) {
 					const boosts: SparseBoostsTable = {};
-					if (this.effectData.def) boosts.def = this.effectData.def;
-					if (this.effectData.spd) boosts.spd = this.effectData.spd;
+					if (this.effectState.def) boosts.def = this.effectState.def;
+					if (this.effectState.spd) boosts.spd = this.effectState.spd;
 					this.boost(boosts, target, target);
 				}
 				this.add('-end', target, 'Stockpile');
-				if (this.effectData.def !== this.effectData.layers * -1 || this.effectData.spd !== this.effectData.layers * -1) {
+				if (this.effectState.def !== this.effectState.layers * -1 || this.effectState.spd !== this.effectState.layers * -1) {
 					this.hint("In Gen 7, Stockpile keeps track of how many times it successfully altered each stat individually.");
 				}
 			},
@@ -17031,7 +17031,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		condition: {
 			onStart(target) {
 				this.add('-start', target, 'Substitute');
-				this.effectData.hp = Math.floor(target.maxhp / 4);
+				this.effectState.hp = Math.floor(target.maxhp / 4);
 				if (target.volatiles['partiallytrapped']) {
 					this.add('-end', target, target.volatiles['partiallytrapped'].sourceEffect, '[partiallytrapped]', '[silent]');
 					delete target.volatiles['partiallytrapped'];
@@ -17657,7 +17657,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			duration: 3,
 			onStart(target) {
 				if (target.activeTurns && !this.queue.willMove(target)) {
-					this.effectData.duration++;
+					this.effectState.duration++;
 				}
 				this.add('-start', target, 'move: Taunt');
 			},
@@ -19281,13 +19281,13 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		condition: {
 			duration: 2,
 			onStart(pokemon, source) {
-				this.effectData.hp = source.maxhp / 2;
+				this.effectState.hp = source.maxhp / 2;
 			},
 			onResidualOrder: 4,
 			onEnd(target) {
 				if (target && !target.fainted) {
-					const damage = this.heal(this.effectData.hp, target, target);
-					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
+					const damage = this.heal(this.effectState.hp, target, target);
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectState.source.name);
 				}
 			},
 		},
@@ -19517,7 +19517,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			onResidualOrder: 19,
 			onEnd(target) {
 				this.add('-end', target, 'move: Yawn', '[silent]');
-				target.trySetStatus('slp', this.effectData.source);
+				target.trySetStatus('slp', this.effectState.source);
 			},
 		},
 		secondary: null,

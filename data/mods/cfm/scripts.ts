@@ -88,7 +88,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			if (zMove) {
 				if (pokemon.illusion) {
-					this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
+					this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
 				}
 				this.battle.add('-zpower', pokemon);
 				pokemon.side.zMoveUsed = true;

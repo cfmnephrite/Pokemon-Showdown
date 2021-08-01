@@ -46,7 +46,7 @@ describe('CFM - Forecast', function () {
 		]);
 
 		assert(battle.field.isWeather('sunnyday'));
-		assert(battle.field.weatherData.duration === 0);
+		assert(battle.field.weatherState.duration === 0);
 	});
 
 	it('Weather fades when Castform switches', function () {
