@@ -12,7 +12,12 @@ export interface AbilityData extends Partial<Ability>, AbilityEventMethods, Poke
 	name: string;
 }
 
-export type ModdedAbilityData = AbilityData | Partial<AbilityData> & {inherit: true};
+export type ModdedAbilityData = AbilityData | Partial<AbilityData> & {
+	inherit: true,
+	cfmDesc?: string, // CFM modified
+	cfm?: boolean, // CFM modified
+	ate?: string, // For calculating Z Move types
+};
 
 export class Ability extends BasicEffect implements Readonly<BasicEffect> {
 	declare readonly effectType: 'Ability';
@@ -20,9 +25,13 @@ export class Ability extends BasicEffect implements Readonly<BasicEffect> {
 	/** Rating from -1 Detrimental to +5 Essential; see `data/abilities.ts` for details. */
 	readonly rating: number;
 	readonly suppressWeather: boolean;
-	declare readonly condition?: ConditionData;
+	declare readonly condition?: Partial<ConditionData>;
 	declare readonly isPermanent?: boolean;
 	declare readonly isBreakable?: boolean;
+	/**
+		DUMBNESS
+	*/
+	declare readonly ate?: string; // For calculating Z Move types
 
 	constructor(data: AnyObject) {
 		super(data);

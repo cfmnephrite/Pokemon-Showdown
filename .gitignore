@@ -1,4 +1,6 @@
 /config/*
+!/config/config.js
+!/config/usergroups.csv
 !/config/formats.ts
 /logs/*
 /test/modlogs

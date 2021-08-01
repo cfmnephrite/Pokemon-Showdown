@@ -83,6 +83,7 @@ export const commands: Chat.ChatCommands = {
 	ds8: 'dexsearch',
 	dsearch: 'dexsearch',
 	nds: 'dexsearch',
+	cds: 'dexsearch',
 	async dexsearch(target, room, user, connection, cmd, message) {
 		this.checkBroadcast();
 		if (!target) return this.parse('/help dexsearch');
@@ -268,6 +269,7 @@ export const commands: Chat.ChatCommands = {
 	ms8: 'movesearch',
 	msearch: 'movesearch',
 	nms: 'movesearch',
+	cms: 'movesearch',
 	async movesearch(target, room, user, connection, cmd, message) {
 		this.checkBroadcast();
 		if (!target) return this.parse('/help movesearch');
@@ -284,6 +286,7 @@ export const commands: Chat.ChatCommands = {
 			}
 		}
 		if (cmd === 'nms') target += ', natdex';
+		if (cmd === 'cms') target += ', cfm';
 		const response = await runSearch({
 			target,
 			cmd: 'movesearch',
@@ -422,6 +425,9 @@ export const commands: Chat.ChatCommands = {
 	bw2learn: 'learn',
 	oraslearn: 'learn',
 	usumlearn: 'learn',
+	cfmlearn: 'learn',
+	clearn: 'learn',
+	cl: 'learn',
 	async learn(target, room, user, connection, cmd, message) {
 		if (!target) return this.parse('/help learn');
 		if (target.length > 300) throw new Chat.ErrorMessage(`Query too long.`);
@@ -492,6 +498,13 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 		nfe: 'NFE',
 		lc: 'LC',
 		cap: 'CAP', caplc: 'CAP LC', capnfe: 'CAP NFE',
+
+		// CFM Singles
+		cag: 'CAG', cub: 'CUb',
+		cou: 'COU', cuu: 'CUU',
+		cru: 'CRU', cnu: 'CNU',
+		cpu: 'CPU', czu: 'CZU',
+		clc: 'CLC',
 	});
 	const allDoublesTiers: {[k: string]: TierTypes.Singles | TierTypes.Other} = Object.assign(Object.create(null), {
 		doublesubers: 'DUber', doublesuber: 'DUber', duber: 'DUber', dubers: 'DUber',
@@ -499,6 +512,14 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 		doublesbl: 'DBL', dbl: 'DBL',
 		doublesuu: 'DUU', duu: 'DUU',
 		doublesnu: '(DUU)', dnu: '(DUU)',
+	});
+	const allCFMTiers: {[k: string]: string} = Object.assign(Object.create(null), {
+		// CFM Singles
+		cag: 'CAG', cub: 'CUb', cuber: 'CUb', cubers: 'CUb',
+		cou: 'COU', cuu: 'CUU',
+		cru: 'CRU', cnu: 'CNU',
+		cpu: 'CPU', czu: 'CZU',
+		clc: 'CLC',
 	});
 	const allTypes = Object.create(null);
 	for (const type of mod.types.all()) {
@@ -538,6 +559,9 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 	let fullyEvolvedSearch = null;
 	let singleTypeSearch = null;
 	let randomOutput = 0;
+
+	// CFM search mode
+	let cfmSearch = (message.substr(0, 4).toLowerCase() === '/cds' ? true : null);
 	const validParameter = (cat: string, param: string, isNotSearch: boolean, input: string) => {
 		const uniqueTraits = ['colors', 'gens'];
 		for (const group of searches) {
@@ -584,7 +608,11 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 			}
 
 			if (toID(target) in allTiers) {
-				target = allTiers[toID(target)];
+				if (cfmSearch) target = allCFMTiers[toID(target)] || allCFMTiers[toID("c" + target)];
+				else if (allCFMTiers[toID(target)]) {
+					target = allCFMTiers[toID(target)];
+					cfmSearch = true;
+				} else target = allTiers[toID(target)];
 				if (target.startsWith("CAP")) {
 					if (capSearch === isNotSearch) return {error: "A search cannot both include and exclude CAP tiers."};
 					capSearch = !isNotSearch;
@@ -1216,6 +1244,9 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 		'authentic', 'bite', 'bullet', 'charge', 'contact', 'dance', 'defrost', 'gravity', 'highcrit', 'mirror',
 		'multihit', 'ohko', 'powder', 'protect', 'pulse', 'punch', 'recharge', 'reflectable', 'secondary',
 		'snatch', 'sound', 'zmove', 'maxmove', 'gmaxmove', 'protection',
+
+		// CFM flags
+		'magic', 'omnitype', 'antiair', 'specialTypeMod', 'magician',
 	];
 	const allStatus = ['psn', 'tox', 'brn', 'par', 'frz', 'slp'];
 	const allVolatileStatus = ['flinch', 'confusion', 'partiallytrapped'];
@@ -1245,6 +1276,7 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 	let sort: string | null = null;
 	const targetMons: {name: string, shouldBeExcluded: boolean}[] = [];
 	let nationalSearch = null;
+	const cfmSearch: boolean | null = null;
 	let randomOutput = 0;
 	for (const arg of splitTarget) {
 		const orGroup: MoveOrGroup = {
@@ -1611,19 +1643,21 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 	}
 
 	const getFullLearnsetOfPokemon = (species: Species) => {
+		const illegalMoves: string[] = [];
 		let usedSpecies: Species = Utils.deepClone(species);
 		let usedSpeciesLearnset: LearnsetData = Utils.deepClone(mod.species.getLearnset(usedSpecies.id));
-		if (!usedSpeciesLearnset) {
+		if (!usedSpeciesLearnset.learnset || cfmSearch) {
 			usedSpecies = Utils.deepClone(mod.species.get(usedSpecies.baseSpecies));
-			usedSpeciesLearnset = Utils.deepClone(mod.species.getLearnset(usedSpecies.id) || {});
+			usedSpeciesLearnset.learnset = Utils.deepClone(mod.species.getLearnset(usedSpecies.id)?.learnset || {});
 		}
-		const lsetData = new Set(Object.keys(usedSpeciesLearnset));
+		const lsetData = new Set(Object.keys(getLearnsetDataCfmXFilter(usedSpeciesLearnset.learnset!, illegalMoves)));
 
 		while (usedSpecies.prevo) {
 			usedSpecies = Utils.deepClone(mod.species.get(usedSpecies.prevo));
 			usedSpeciesLearnset = Utils.deepClone(mod.species.getLearnset(usedSpecies.id));
-			for (const move in usedSpeciesLearnset) {
-				lsetData.add(move);
+			for (const move in getLearnsetDataCfmXFilter(usedSpeciesLearnset.learnset!, illegalMoves)) {
+				if (!illegalMoves.includes(move))
+					lsetData.add(move);
 			}
 		}
 
@@ -1927,6 +1961,17 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 	}
 	if (isTest) return {results, reply: resultsStr};
 	return {reply: resultsStr};
+}
+
+function getLearnsetDataCfmXFilter(learnsetData: {[moveid: string]: MoveSource[]},
+	illegalMoves: string[] = []): {[moveid: string]: MoveSource[]} {
+	for (const [move, methods] of Object.entries(learnsetData)) {
+		if (methods.length === 1 && methods[0] === 'X') {
+			illegalMoves.push(move);
+			delete learnsetData[move];
+		}
+	}
+	return learnsetData;
 }
 
 function runItemsearch(target: string, cmd: string, canAll: boolean, message: string) {

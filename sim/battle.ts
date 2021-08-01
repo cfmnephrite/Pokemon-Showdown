@@ -2049,6 +2049,28 @@ export class Battle {
 		return tr((tr(value * modifier) + 2048 - 1) / 4096);
 	}
 
+	getCategory(move: string | Move, source: Pokemon | null = null) {
+		const dexMove = this.dex.moves.get(move);
+		let output = dexMove.category || 'Physical';
+		if (source && dexMove.flags['magic']) {
+			if (dexMove.id === 'behemothbash' && source.getStat('spd') > source.getStat('def')) output = 'Special';
+			else if (output === 'Physical' && source.getStat('spa') > source.getStat('atk')) output = 'Special';
+			else if (output === 'Special' && source.getStat('atk') > source.getStat('spa')) output = 'Physical';
+		}
+		return output;
+	}
+
+	getEffectiveType(move: string | Move, pokemon: Pokemon | null = null): string {
+		// For calculating Z Moves - calculates what the effective type of a move should be not taking Aura Break into account
+		if (typeof move === 'string') move = this.dex.moves.get(move);
+		if (['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast',
+			'weatherball'].includes(move.id) || pokemon === null) return move.type;
+		else if (pokemon.getAbility().ate && move.type === 'Normal') return pokemon.getAbility().ate!;
+		else if (move.flags['omnitype'] || (pokemon.hasAbility('powerofalchemy') &&
+		move.id === pokemon.moveSlots[0].id)) return pokemon.getTypes()[0];
+		else return move.type;
+	}
+
 	/** Given a table of base stats and a pokemon set, return the actual stats. */
 	spreadModify(baseStats: StatsTable, set: PokemonSet): StatsTable {
 		const modStats: SparseStatsTable = {atk: 10, def: 10, spa: 10, spd: 10, spe: 10};
@@ -2082,10 +2104,6 @@ export class Battle {
 			stats[s] = tr(tr(stat * 90, 16) / 100);
 		}
 		return stats;
-	}
-
-	getCategory(move: string | Move) {
-		return this.dex.moves.get(move).category || 'Physical';
 	}
 
 	randomizer(baseDamage: number) {
