@@ -440,7 +440,10 @@ export const commands: Chat.ChatCommands = {
 		this.checkBroadcast();
 		const {format, dex, targets} = this.splitFormat(target);
 
-		const formatid = format ? format.id : dex.currentMod;
+		if (['clearn', 'cl'].includes(cmd))
+			var formatid = 'cfm';
+		else	
+			var formatid = format ? format.id : dex.currentMod;
 		if (cmd === 'learn5') targets.unshift('level5');
 
 		const response = await runSearch({
@@ -1642,16 +1645,16 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 		const illegalMoves: string[] = [];
 		let usedSpecies: Species = Utils.deepClone(species);
 		let usedSpeciesLearnset: LearnsetData = Utils.deepClone(mod.species.getLearnset(usedSpecies.id));
-		if (!usedSpeciesLearnset.learnset || cfmSearch) {
+		if (!usedSpeciesLearnset || cfmSearch) {
 			usedSpecies = Utils.deepClone(mod.species.get(usedSpecies.baseSpecies));
-			usedSpeciesLearnset.learnset = Utils.deepClone(mod.species.getLearnset(usedSpecies.id)?.learnset || {});
+			usedSpeciesLearnset = Utils.deepClone(mod.species.getLearnset(usedSpecies.id)?.learnset || {});
 		}
-		const lsetData = new Set(Object.keys(getLearnsetDataCfmXFilter(usedSpeciesLearnset.learnset!, illegalMoves)));
+		const lsetData = new Set(getLearnsetDataCfmXFilter(usedSpeciesLearnset, illegalMoves));
 
 		while (usedSpecies.prevo) {
 			usedSpecies = Utils.deepClone(mod.species.get(usedSpecies.prevo));
 			usedSpeciesLearnset = Utils.deepClone(mod.species.getLearnset(usedSpecies.id));
-			for (const move in getLearnsetDataCfmXFilter(usedSpeciesLearnset.learnset!, illegalMoves)) {
+			for (const move of getLearnsetDataCfmXFilter(usedSpeciesLearnset, illegalMoves)) {
 				if (!illegalMoves.includes(move))
 					lsetData.add(move);
 			}
@@ -1959,15 +1962,16 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 	return {reply: resultsStr};
 }
 
-function getLearnsetDataCfmXFilter(learnsetData: {[moveid: string]: MoveSource[]},
-	illegalMoves: string[] = []): {[moveid: string]: MoveSource[]} {
+function getLearnsetDataCfmXFilter(learnsetData: LearnsetData,
+	illegalMoves: string[] = []): string[] {
+	const allowedMoves = [];
 	for (const [move, methods] of Object.entries(learnsetData)) {
-		if (methods.length === 1 && methods[0] === 'X') {
+		if (methods.length === 1 && methods[0] === 'X')
 			illegalMoves.push(move);
-			delete learnsetData[move];
-		}
+		else
+			allowedMoves.push(move);
 	}
-	return learnsetData;
+	return allowedMoves;
 }
 
 function runItemsearch(target: string, cmd: string, canAll: boolean, message: string) {
@@ -2425,6 +2429,7 @@ function runLearn(target: string, cmd: string, canAll: boolean, formatid: string
 	} else {
 		gen = Dex.forFormat(format).gen;
 	}
+	if (format.mod === 'cfm') formatName = 'CFM';
 	const validator = TeamValidator.get(format);
 
 	const species = validator.dex.species.get(targets.shift());
