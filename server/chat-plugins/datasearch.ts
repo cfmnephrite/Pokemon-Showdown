@@ -122,6 +122,7 @@ export const commands: Chat.ChatCommands = {
 			target = targArray.join(',');
 		}
 		if (cmd === 'nds') target += ', natdex';
+		if (cmd === 'cds') target += ', mod=cfm';
 		const response = await runSearch({
 			target,
 			cmd: 'dexsearch',
@@ -286,7 +287,7 @@ export const commands: Chat.ChatCommands = {
 			}
 		}
 		if (cmd === 'nms') target += ', natdex';
-		if (cmd === 'cms') target += ', cfm';
+		if (cmd === 'cms') target += ', mod=cfm';
 		const response = await runSearch({
 			target,
 			cmd: 'movesearch',
@@ -487,7 +488,9 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 		return {error: `You can't run searches for multiple mods.`};
 	}
 
+	// CFM search mode
 	const mod = Dex.mod(usedMod || 'base');
+	const cfmSearch = (usedMod === 'cfm');
 	const allTiers: {[k: string]: TierTypes.Singles | TierTypes.Other} = Object.assign(Object.create(null), {
 		anythinggoes: 'AG', ag: 'AG',
 		uber: 'Uber', ubers: 'Uber', ou: 'OU',
@@ -560,8 +563,6 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 	let singleTypeSearch = null;
 	let randomOutput = 0;
 
-	// CFM search mode
-	let cfmSearch = (message.substr(0, 4).toLowerCase() === '/cds' ? true : null);
 	const validParameter = (cat: string, param: string, isNotSearch: boolean, input: string) => {
 		const uniqueTraits = ['colors', 'gens'];
 		for (const group of searches) {
@@ -608,15 +609,10 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 			}
 
 			if (toID(target) in allTiers) {
-				if (cfmSearch) target = allCFMTiers[toID(target)] || allCFMTiers[toID("c" + target)];
-				else if (allCFMTiers[toID(target)]) {
-					target = allCFMTiers[toID(target)];
-					cfmSearch = true;
-				} else target = allTiers[toID(target)];
-				if (target.startsWith("CAP")) {
-					if (capSearch === isNotSearch) return {error: "A search cannot both include and exclude CAP tiers."};
-					capSearch = !isNotSearch;
-				}
+				if (cfmSearch)
+					target = allCFMTiers[toID(target)] || allCFMTiers[toID("c" + target)];
+				else
+					target = allTiers[toID(target)];
 				const invalid = validParameter("tiers", target, isNotSearch, target);
 				if (invalid) return {error: invalid};
 				tierSearch = tierSearch || !isNotSearch;

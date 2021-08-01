@@ -547,6 +547,7 @@ export const commands: Chat.ChatCommands = {
 		if (!this.runBroadcast()) return;
 		const gen = parseInt(cmd.substr(-1));
 		if (gen) target += `, gen${gen}`;
+		if (cmd === 'cfm') target += `, cfm`;
 
 		const {dex, format, targets} = this.splitFormat(target, true);
 
