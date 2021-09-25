@@ -470,7 +470,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		onStart(battle, source, effect) {
+		onFieldStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (effect.id === 'primordialsea') {
 					this.add('-activate', source, 'ability: Primordial Sea');
@@ -518,7 +518,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				return 0;
 			}
 		},
-		onStart(battle, source, effect) {
+		onFieldStart(battle, source, effect) {
 			this.add('-weather', 'PrimordialSea', '[from] ability: ' + effect, '[of] ' + source);
 		},
 		onResidualOrder: 1,
@@ -551,7 +551,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		onStart(battle, source, effect) {
+		onFieldStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (effect.id === 'desolateland') {
 					this.add('-activate', source, 'ability: Desolate Land');
@@ -603,7 +603,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				return 0;
 			}
 		},
-		onStart(battle, source, effect) {
+		onFieldStart(battle, source, effect) {
 			this.add('-weather', 'DesolateLand', '[from] ability: ' + effect, '[of] ' + source);
 		},
 		onImmunity(type, pokemon) {
@@ -637,7 +637,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				return this.modify(spd, 1.5);
 			}
 		},
-		onStart(battle, source, effect) {
+		onFieldStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'Sandstorm', '[from] ability: ' + effect, '[of] ' + source);
@@ -678,7 +678,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		onStart(battle, source, effect) {
+		onFieldStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5 || effect.id === 'forecast') this.effectState.duration = 0;
 				this.add('-weather', 'Hail', '[from] ability: ' + effect, '[of] ' + source);
@@ -710,7 +710,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				return 0;
 			}
 		},
-		onStart(battle, source, effect) {
+		onFieldStart(battle, source, effect) {
 			this.add('-weather', 'DeltaStream', '[from] ability: ' + effect, '[of] ' + source);
 		},
 		onResidualOrder: 1,

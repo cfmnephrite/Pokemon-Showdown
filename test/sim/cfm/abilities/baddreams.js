@@ -18,7 +18,7 @@ describe('CFM - Bad Dreams', function () {
 		battle.makeChoices('move nightmare', 'move nightmare');
 		assert(battle.p1.active[0].hp > battle.p1.active[0].maxhp / 2); // W/o Bad Dreams, does less than 50%
 		assert(battle.p2.active[0].hp < battle.p2.active[0].maxhp / 2); // With, does more
-	});
+	}).timeout(10000);
 
 	it('The power of Never-Ending Nightmare is boosted by 50%', function () {
 		battle = common.mod('cfm').createBattle([
@@ -28,5 +28,5 @@ describe('CFM - Bad Dreams', function () {
 		battle.makeChoices('move nightmare zmove', 'move nightmare zmove');
 		assert(battle.p1.active[0].hp > 0.4 * battle.p1.active[0].maxhp); // W/o Bad Dreams, does less than 60%
 		assert(battle.p2.active[0].hp < 0.3 * battle.p2.active[0].maxhp); // With, does more than 70%
-	});
+	}).timeout(10000);
 });

@@ -43,8 +43,8 @@ describe('CFM - Flower Gift', function () {
 		]);
 
 		assert(battle.field.isWeather('sunnyday'));
-		assert(battle.field.weatherData.duration === 0);
-	});
+		assert.equal(battle.field.weatherState.duration, 0);
+	}).timeout(10000);
 
 	it('Weather fades when Cherrim switches', function () {
 		battle = common.mod('cfm').createBattle([

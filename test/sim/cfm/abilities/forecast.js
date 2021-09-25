@@ -46,8 +46,8 @@ describe('CFM - Forecast', function () {
 		]);
 
 		assert(battle.field.isWeather('sunnyday'));
-		assert(battle.field.weatherState.duration === 0);
-	});
+		assert.equal(battle.field.weatherState.duration, 0);
+	}).timeout(10000);
 
 	it('Weather fades when Castform switches', function () {
 		battle = common.mod('cfm').createBattle([

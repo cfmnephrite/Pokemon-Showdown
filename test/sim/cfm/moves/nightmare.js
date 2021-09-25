@@ -25,5 +25,5 @@ describe('CFM - Nightmare', function () {
 		assert.equal(battle.p1.active[0].status, 'slp');
 		assert.fullHP(battle.p1.active[0]); // No Nightmare effect
 		assert.equal(battle.p2.active[0].hp, nightmareHp); // Magikarp has woken up and no longer has Nightmare
-	});
+	}).timeout(10000);
 });
