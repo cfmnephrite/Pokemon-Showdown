@@ -1,7 +1,4 @@
 // Note: These are the rules that formats use
-
-import {Utils} from "../lib";
-
 // The list of formats is stored in config/formats.js
 export const Rulesets: {[k: string]: FormatData} = {
 
@@ -25,40 +22,102 @@ export const Rulesets: {[k: string]: FormatData} = {
 		],
 		banlist: ['Soul Dew'],
 	},
-	flatrules: {
+	standardgbu: {
 		effectType: 'ValidatorRule',
-		name: 'Flat Rules',
-		desc: "The in-game Flat Rules: Adjust Level Down 50, Species Clause, Item Clause, -Mythical, -Restricted Legendary, Bring 6 Pick 3-6 depending on game type.",
-		ruleset: ['Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Adjust Level Down = 50', 'Picked Team Size = Auto', 'Cancel Mod'],
-		banlist: ['Mythical', 'Restricted Legendary'],
-	},
-	limittworestricted: {
-		effectType: 'ValidatorRule',
-		name: 'Limit Two Restricted',
-		desc: "Limit two restricted Pokémon (flagged with * in the rules list)",
-		onValidateTeam(team) {
-			const restrictedSpecies = [];
-			for (const set of team) {
-				const species = this.dex.species.get(set.species);
-				if (this.ruleTable.isRestrictedSpecies(species)) restrictedSpecies.push(species.name);
-			}
-			if (restrictedSpecies.length > 2) {
-				return [`You can only use up to two restricted Pok\u00E9mon (you have: ${restrictedSpecies.join(', ')})`];
+		name: 'Standard GBU',
+		desc: "The standard ruleset for all official in-game Pok&eacute;mon tournaments and Battle Spot",
+		ruleset: ['Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Cancel Mod'],
+		banlist: ['Battle Bond',
+			'Mewtwo', 'Mew',
+			'Lugia', 'Ho-Oh', 'Celebi',
+			'Kyogre', 'Groudon', 'Rayquaza', 'Jirachi', 'Deoxys',
+			'Dialga', 'Palkia', 'Giratina', 'Phione', 'Manaphy', 'Darkrai', 'Shaymin', 'Arceus',
+			'Victini', 'Reshiram', 'Zekrom', 'Kyurem', 'Keldeo', 'Meloetta', 'Genesect',
+			'Xerneas', 'Yveltal', 'Zygarde', 'Diancie', 'Hoopa', 'Volcanion',
+			'Cosmog', 'Cosmoem', 'Solgaleo', 'Lunala', 'Necrozma', 'Magearna', 'Marshadow', 'Zeraora',
+			'Meltan', 'Melmetal', 'Zacian', 'Zamazenta', 'Eternatus', 'Zarude', 'Calyrex',
+		],
+		onValidateSet(set, format) {
+			if (this.gen < 7 && this.toID(set.item) === 'souldew') {
+				return [`${set.name || set.species} has Soul Dew, which is banned in ${format.name}.`];
 			}
 		},
 	},
-	limitonerestricted: {
+	minimalgbu: {
 		effectType: 'ValidatorRule',
-		name: 'Limit One Restricted',
-		desc: "Limit one restricted Pokémon (flagged with * in the rules list)",
+		name: 'Minimal GBU',
+		desc: "The standard ruleset for official tournaments, but two Restricted Legendaries are allowed",
+		ruleset: ['Obtainable', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Team Preview', 'Cancel Mod'],
+		banlist: ['Battle Bond',
+			'Mew',
+			'Celebi',
+			'Jirachi', 'Deoxys',
+			'Phione', 'Manaphy', 'Darkrai', 'Shaymin', 'Arceus',
+			'Victini', 'Keldeo', 'Meloetta', 'Genesect',
+			'Diancie', 'Hoopa', 'Volcanion',
+			'Magearna', 'Marshadow', 'Zeraora',
+			'Meltan', 'Melmetal', 'Zarude',
+		],
+		restricted: [
+			'Mewtwo',
+			'Lugia', 'Ho-Oh',
+			'Kyogre', 'Groudon', 'Rayquaza',
+			'Dialga', 'Palkia', 'Giratina',
+			'Reshiram', 'Zekrom', 'Kyurem',
+			'Xerneas', 'Yveltal', 'Zygarde',
+			'Cosmog', 'Cosmoem', 'Solgaleo', 'Lunala', 'Necrozma',
+			'Zacian', 'Zamazenta', 'Eternatus', 'Calyrex',
+		],
+		onValidateSet(set, format) {
+			if (this.gen < 7 && this.toID(set.item) === 'souldew') {
+				return [`${set.name || set.species} has Soul Dew, which is banned in ${format.name}.`];
+			}
+		},
 		onValidateTeam(team) {
-			const restrictedSpecies = [];
+			let n = 0;
 			for (const set of team) {
 				const species = this.dex.species.get(set.species);
-				if (this.ruleTable.isRestrictedSpecies(species)) restrictedSpecies.push(species.name);
+				if (this.ruleTable.isRestrictedSpecies(species)) n++;
+				if (n > 2) return [`You can only use up to two restricted legendary Pok\u00E9mon.`];
 			}
-			if (restrictedSpecies.length > 1) {
-				return [`You can only use one restricted Pok\u00E9mon (you have: ${restrictedSpecies.join(', ')})`];
+		},
+	},
+	singlerestrictedgbu: {
+		effectType: 'ValidatorRule',
+		name: 'Single Restricted GBU',
+		desc: "The standard ruleset for official tournaments, but one Restricted Legendary is allowed",
+		ruleset: ['Obtainable', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Team Preview', 'Cancel Mod'],
+		banlist: ['Battle Bond',
+			'Mew',
+			'Celebi',
+			'Jirachi', 'Deoxys',
+			'Phione', 'Manaphy', 'Darkrai', 'Shaymin', 'Arceus',
+			'Victini', 'Keldeo', 'Meloetta', 'Genesect',
+			'Diancie', 'Hoopa', 'Volcanion',
+			'Magearna', 'Marshadow', 'Zeraora',
+			'Meltan', 'Melmetal', 'Zarude',
+		],
+		restricted: [
+			'Mewtwo',
+			'Lugia', 'Ho-Oh',
+			'Kyogre', 'Groudon', 'Rayquaza',
+			'Dialga', 'Palkia', 'Giratina',
+			'Reshiram', 'Zekrom', 'Kyurem',
+			'Xerneas', 'Yveltal', 'Zygarde',
+			'Cosmog', 'Cosmoem', 'Solgaleo', 'Lunala', 'Necrozma',
+			'Zacian', 'Zamazenta', 'Eternatus', 'Calyrex',
+		],
+		onValidateSet(set, format) {
+			if (this.gen < 7 && this.toID(set.item) === 'souldew') {
+				return [`${set.name || set.species} has Soul Dew, which is banned in ${format.name}.`];
+			}
+		},
+		onValidateTeam(team) {
+			let n = 0;
+			for (const set of team) {
+				const species = this.dex.species.get(set.species);
+				if (this.ruleTable.isRestrictedSpecies(species)) n++;
+				if (n > 1) return [`You can only use up to one restricted legendary Pok\u00E9mon.`];
 			}
 		},
 	},
@@ -179,7 +238,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 	obtainablemisc: {
 		effectType: 'ValidatorRule',
 		name: 'Obtainable Misc',
-		desc: "Validate all obtainability things that aren't moves/abilities (Hidden Power type, gender, IVs, events, duplicate moves).",
+		desc: "Validate all obtainability things that aren't moves/abilities (Hidden Power type, gender, stats, etc).",
 		// Mostly hardcoded in team-validator.ts
 		onChangeSet(set) {
 			const species = this.dex.species.get(set.species);
@@ -195,8 +254,6 @@ export const Rulesets: {[k: string]: FormatData} = {
 			}
 
 			// limit one of each move
-			// repealing this will not actually let you USE multiple moves, because of a cart bug:
-			// https://twitter.com/DaWoblefet/status/1396217830006132737
 			if (set.moves) {
 				const hasMove: {[k: string]: true} = {};
 				for (const moveId of set.moves) {
@@ -233,34 +290,6 @@ export const Rulesets: {[k: string]: FormatData} = {
 			const species = this.dex.species.get(set.species || set.name);
 			if ((!sinnohDex.includes(species.baseSpecies) || species.gen > 4) && !this.ruleTable.has('+' + species.id)) {
 				return [`${species.name} is not in the Sinnoh Pokédex.`];
-			}
-		},
-	},
-	oldunovapokedex: {
-		effectType: 'ValidatorRule',
-		name: 'Old Unova Pokedex',
-		desc: "Only allows Pok&eacute;mon native to the Unova region as of the original Black/White games",
-		onValidateSet(set, format) {
-			const species = this.dex.species.get(set.species || set.name);
-			const isUnova = (species.num >= 494 && species.num <= 649) &&
-				!['Black', 'White', 'Therian', 'Resolute'].includes(species.forme) && species.gen <= 5;
-			if (!isUnova && !this.ruleTable.has('+' + species.id)) {
-				return [`${species.baseSpecies} is not in the Old Unova Pokédex.`];
-			}
-		},
-	},
-	newunovapokedex: {
-		effectType: 'ValidatorRule',
-		name: 'New Unova Pokedex',
-		desc: "Only allows Pok&eacute;mon native to the Unova region as of the Black 2/White 2 games",
-		onValidateSet(set, format) {
-			const unovaDex = [
-				"Victini", "Snivy", "Servine", "Serperior", "Tepig", "Pignite", "Emboar", "Oshawott", "Dewott", "Samurott", "Patrat", "Watchog", "Purrloin", "Liepard", "Pidove", "Tranquill", "Unfezant", "Unfezant", "Sewaddle", "Swadloon", "Leavanny", "Sunkern", "Sunflora", "Lillipup", "Herdier", "Stoutland", "Mareep", "Flaaffy", "Ampharos", "Psyduck", "Golduck", "Azurill", "Marill", "Azumarill", "Riolu", "Lucario", "Dunsparce", "Audino", "Pansage", "Simisage", "Pansear", "Simisear", "Panpour", "Simipour", "Venipede", "Whirlipede", "Scolipede", "Koffing", "Weezing", "Magnemite", "Magneton", "Magnezone", "Growlithe", "Arcanine", "Magby", "Magmar", "Magmortar", "Elekid", "Electabuzz", "Electivire", "Rattata", "Raticate", "Zubat", "Golbat", "Crobat", "Grimer", "Muk", "Woobat", "Swoobat", "Roggenrola", "Boldore", "Gigalith", "Onix", "Steelix", "Timburr", "Gurdurr", "Conkeldurr", "Drilbur", "Excadrill", "Skitty", "Delcatty", "Buneary", "Lopunny", "Cottonee", "Whimsicott", "Petilil", "Lilligant", "Munna", "Musharna", "Cleffa", "Clefairy", "Clefable", "Eevee", "Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sandile", "Krokorok", "Krookodile", "Darumaka", "Darmanitan", "Basculin", "Basculin", "Trubbish", "Garbodor", "Minccino", "Cinccino", "Rufflet", "Braviary", "Vullaby", "Mandibuzz", "Sandshrew", "Sandslash", "Dwebble", "Crustle", "Scraggy", "Scrafty", "Maractus", "Sigilyph", "Trapinch", "Vibrava", "Flygon", "Yamask", "Cofagrigus", "Tirtouga", "Carracosta", "Archen", "Archeops", "Klink", "Klang", "Klinklang", "Budew", "Roselia", "Roserade", "Gothita", "Gothorita", "Gothitelle", "Solosis", "Duosion", "Reuniclus", "Combee", "Vespiquen", "Emolga", "Heracross", "Pinsir", "Blitzle", "Zebstrika", "Buizel", "Floatzel", "Zorua", "Zoroark", "Ducklett", "Swanna", "Karrablast", "Escavalier", "Shelmet", "Accelgor", "Deerling", "Sawsbuck", "Foongus", "Amoonguss", "Castform", "Nosepass", "Probopass", "Aron", "Lairon", "Aggron", "Baltoy", "Claydol", "Larvesta", "Volcarona", "Joltik", "Galvantula", "Ferroseed", "Ferrothorn", "Tynamo", "Eelektrik", "Eelektross", "Frillish", "Jellicent", "Alomomola", "Axew", "Fraxure", "Haxorus", "Zangoose", "Seviper", "Elgyem", "Beheeyem", "Litwick", "Lampent", "Chandelure", "Heatmor", "Durant", "Cubchoo", "Beartic", "Cryogonal", "Tornadus", "Thundurus", "Landorus", "Skorupi", "Drapion", "Skarmory", "Numel", "Camerupt", "Spoink", "Grumpig", "Drifloon", "Drifblim", "Shuppet", "Banette", "Wingull", "Pelipper", "Lunatone", "Solrock", "Absol", "Tangela", "Tangrowth", "Mienfoo", "Mienshao", "Gligar", "Gliscor", "Pawniard", "Bisharp", "Cobalion", "Terrakion", "Virizion", "Tympole", "Palpitoad", "Seismitoad", "Stunfisk", "Shuckle", "Mantyke", "Mantine", "Remoraid", "Octillery", "Corsola", "Staryu", "Starmie", "Wailmer", "Wailord", "Lapras", "Spheal", "Sealeo", "Walrein", "Swablu", "Altaria", "Vulpix", "Ninetales", "Bronzor", "Bronzong", "Sneasel", "Weavile", "Delibird", "Vanillite", "Vanillish", "Vanilluxe", "Swinub", "Piloswine", "Mamoswine", "Ditto", "Beldum", "Metang", "Metagross", "Seel", "Dewgong", "Throh", "Sawk", "Bouffalant", "Druddigon", "Golett", "Golurk", "Deino", "Zweilous", "Hydreigon", "Slakoth", "Vigoroth", "Slaking", "Corphish", "Crawdaunt", "Igglybuff", "Jigglypuff", "Wigglytuff", "Lickitung", "Lickilicky", "Yanma", "Yanmega", "Tropius", "Carnivine", "Croagunk", "Toxicroak", "Larvitar", "Pupitar", "Tyranitar", "Reshiram", "Zekrom", "Kyurem", "Keldeo", "Meloetta", "Genesect",
-			];
-			const species = this.dex.species.get(set.species || set.name);
-			const isUnova = unovaDex.includes(species.baseSpecies) && species.gen <= 5;
-			if (!isUnova && !this.ruleTable.has('+' + species.id)) {
-				return [`${species.baseSpecies} is not in the New Unova Pokédex.`];
 			}
 		},
 	},
@@ -365,72 +394,19 @@ export const Rulesets: {[k: string]: FormatData} = {
 			}
 		},
 	},
-	forcemonotype: {
-		effectType: 'ValidatorRule',
-		name: 'Force Monotype',
-		hasValue: true,
-		onValidateRule(value) {
-			if (!this.dex.types.get(value).exists) throw new Error(`Misspelled type "${value}"`);
-			if (!this.dex.types.isName(value)) throw new Error(`Incorrectly capitalized type "${value}"`);
-		},
-		onValidateSet(set) {
-			const species = this.dex.species.get(set.species);
-			const type = this.ruleTable.valueRules.get('forcemonotype')!;
-			if (!species.types.includes(type)) {
-				return [`${set.species} must have type ${type}`];
-			}
-		},
-	},
-	evlimits: {
-		effectType: 'ValidatorRule',
-		name: 'EV Limits',
-		desc: "Require EVs to be in specific ranges, such as: \"EV Limits = Atk 0-124 / Def 100-252\"",
-		hasValue: true,
-		onValidateRule(value) {
-			if (!value) throw new Error(`To remove EV limits, use "! EV Limits"`);
-
-			const slashedParts = value.split('/');
-			const UINT_REGEX = /^[0-9]{1,4}$/;
-			return slashedParts.map(slashedPart => {
-				const parts = slashedPart.replace('-', ' - ').replace(/ +/g, ' ').trim().split(' ');
-				const [stat, low, hyphen, high] = parts;
-				if (parts.length !== 4 || !UINT_REGEX.test(low) || hyphen !== '-' || !UINT_REGEX.test(high)) {
-					throw new Error(`EV limits should be in the format "EV Limits = Atk 0-124 / Def 100-252"`);
-				}
-				const statid = this.dex.toID(stat) as StatID;
-				if (!this.dex.stats.ids().includes(statid)) {
-					throw new Error(`Unrecognized stat name "${stat}" in "${value}"`);
-				}
-				return `${statid} ${low}-${high}`;
-			}).join(' / ');
-		},
-		onValidateSet(set) {
-			const limits = this.ruleTable.valueRules.get('evlimits')!;
-			const problems = [];
-
-			for (const limit of limits.split(' / ')) {
-				const [statid, range] = limit.split(' ') as [StatID, string];
-				const [low, high] = range.split('-').map(num => parseInt(num));
-				const ev = set.evs[statid];
-
-				if (ev < low || ev > high) {
-					problems.push(`${set.name || set.species}'s ${this.dex.stats.names[statid]} EV (${ev}) must be ${low}-${high}`);
-				}
-			}
-			return problems;
-		},
-	},
 	teampreview: {
 		effectType: 'Rule',
 		name: 'Team Preview',
 		desc: "Allows each player to see the Pok&eacute;mon on their opponent's team before they choose their lead Pok&eacute;mon",
-		onTeamPreview() {
+		onBegin() {
 			this.add('clearpoke');
 			for (const pokemon of this.getAllPokemon()) {
 				const details = pokemon.details.replace(', shiny', '')
-					.replace(/(Arceus|Gourgeist|Pumpkaboo|Xerneas|Silvally|Zacian|Zamazenta|Urshifu)(-[a-zA-Z?-]+)?/g, '$1-*');
+					.replace(/(Arceus|Gourgeist|Pumpkaboo|Silvally|Urshifu)(-[a-zA-Z?-]+)?/g, '$1-*');
 				this.add('poke', pokemon.side.id, details, '');
 			}
+		},
+		onTeamPreview() {
 			this.makeRequest('teampreview');
 		},
 	},
@@ -438,19 +414,32 @@ export const Rulesets: {[k: string]: FormatData} = {
 		effectType: 'Rule',
 		name: 'One vs One',
 		desc: "Only allows one Pok&eacute;mon in battle",
-		ruleset: ['Picked Team Size = 1'],
+		onValidateTeam(team, format) {
+			if (format.gameType !== 'singles') {
+				return [`One vs One is for singles formats.`, `(Use Two vs Two in doubles)`];
+			}
+		},
+		onStart() {
+			if (this.format.gameType === 'singles') (this.format as any).teamLength = {battle: 1};
+		},
 	},
 	twovstwo: {
 		effectType: 'Rule',
 		name: 'Two vs Two',
 		desc: "Only allows two Pok&eacute;mon in battle",
-		ruleset: ['Picked Team Size = 2'],
+		onValidateTeam(team, format) {
+			if (format.gameType === 'triples') {
+				return [`Two vs Two is for non-triples formats.`];
+			}
+		},
+		onStart() {
+			if (this.format.gameType !== 'triples') (this.format as any).teamLength = {battle: 2};
+		},
 	},
 	littlecup: {
 		effectType: 'ValidatorRule',
 		name: 'Little Cup',
 		desc: "Only allows Pok&eacute;mon that can evolve and don't have any prior evolutions",
-		ruleset: ['Max Level = 5'],
 		onValidateSet(set) {
 			const species = this.dex.species.get(set.species || set.name);
 			if (species.prevo && this.dex.species.get(species.prevo).gen <= this.gen) {
@@ -458,6 +447,10 @@ export const Rulesets: {[k: string]: FormatData} = {
 			}
 			if (!species.nfe) {
 				return [set.species + " doesn't have an evolution family."];
+			}
+			// Temporary hack for LC past-gen formats and other mashups
+			if (set.level > 5) {
+				return [`${set.species} can't be above level 5 in Little Cup formats.`];
 			}
 		},
 	},
@@ -489,7 +482,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 			this.add('rule', 'Species Clause: Limit one of each Pokémon');
 		},
 		onValidateTeam(team, format) {
-			const speciesTable = new Set<number>();
+			const speciesTable: Set<number> = new Set();
 			for (const set of team) {
 				const species = this.dex.species.get(set.species);
 				if (speciesTable.has(species.num)) {
@@ -504,7 +497,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 		name: 'Nickname Clause',
 		desc: "Prevents teams from having more than one Pok&eacute;mon with the same nickname",
 		onValidateTeam(team, format) {
-			const nameTable = new Set<string>();
+			const nameTable: Set<string> = new Set();
 			for (const set of team) {
 				const name = set.name;
 				if (name) {
@@ -527,7 +520,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 			this.add('rule', 'Item Clause: Limit one of each item');
 		},
 		onValidateTeam(team) {
-			const itemTable = new Set<string>();
+			const itemTable: Set<string> = new Set();
 			for (const set of team) {
 				const item = this.toID(set.item);
 				if (!item) continue;
@@ -1049,21 +1042,6 @@ export const Rulesets: {[k: string]: FormatData} = {
 			return -typeMod;
 		},
 	},
-
-	minsourcegen: {
-		effectType: 'ValidatorRule',
-		name: "Min Source Gen",
-		desc: "Pokemon must be obtained from this generation or later.",
-		hasValue: 'positive-integer',
-		onValidateRule(value) {
-			const minSourceGen = parseInt(value);
-			if (minSourceGen > this.dex.gen) {
-				// console.log(this.ruleTable);
-				throw new Error(`Invalid generation ${minSourceGen}${this.ruleTable.blame('minsourcegen')} for a Gen ${this.dex.gen} format`);
-			}
-		},
-	},
-
 	stabmonsmovelegality: {
 		effectType: 'ValidatorRule',
 		name: 'STABmons Move Legality',
@@ -1071,41 +1049,35 @@ export const Rulesets: {[k: string]: FormatData} = {
 		checkCanLearn(move, species, setSources, set) {
 			const nonstandard = move.isNonstandard === 'Past' && !this.ruleTable.has('standardnatdex');
 			if (!nonstandard && !move.isZ && !move.isMax && !this.ruleTable.isRestricted(`move:${move.id}`)) {
-				const speciesTypes: string[] = [];
-				const moveTypes: string[] = [];
-				for (let i = this.dex.gen; i >= species.gen && i >= move.gen; i--) {
-					const dex = this.dex.forGen(i);
-					moveTypes.push(dex.moves.get(move.name).type);
-
-					const pokemon = dex.species.get(species.name);
-					if (pokemon.forme || pokemon.otherFormes) {
-						const baseSpecies = dex.species.get(pokemon.baseSpecies);
-						const originalForme = dex.species.get(pokemon.changesFrom || pokemon.name);
-						speciesTypes.push(...originalForme.types);
-						if (baseSpecies.otherFormes) {
-							for (const formeName of baseSpecies.otherFormes) {
-								if (baseSpecies.prevo) {
-									const prevo = dex.species.get(baseSpecies.prevo);
-									if (prevo.evos.includes(formeName)) continue;
-								}
-								const forme = dex.species.get(formeName);
-								if (forme.changesFrom === originalForme.name && !forme.battleOnly) {
-									speciesTypes.push(...forme.types);
-								}
+				const dex = this.dex;
+				let types: string[];
+				if (species.forme || species.otherFormes) {
+					const baseSpecies = dex.species.get(species.baseSpecies);
+					const originalForme = dex.species.get(species.changesFrom || species.name);
+					types = originalForme.types;
+					if (baseSpecies.otherFormes) {
+						for (const formeName of baseSpecies.otherFormes) {
+							if (baseSpecies.prevo) {
+								const prevo = dex.species.get(baseSpecies.prevo);
+								if (prevo.evos.includes(formeName)) continue;
+							}
+							const forme = dex.species.get(formeName);
+							if (forme.changesFrom === originalForme.name && !forme.battleOnly) {
+								types = types.concat(forme.types);
 							}
 						}
-					} else {
-						speciesTypes.push(...pokemon.types);
 					}
-
-					let prevo = pokemon.prevo;
-					while (prevo) {
-						const prevoSpecies = dex.species.get(prevo);
-						speciesTypes.push(...prevoSpecies.types);
-						prevo = prevoSpecies.prevo;
-					}
+				} else {
+					types = species.types;
 				}
-				if (moveTypes.some(m => speciesTypes.includes(m))) return null;
+
+				let prevo = species.prevo;
+				while (prevo) {
+					const prevoSpecies = dex.species.get(prevo);
+					types = types.concat(prevoSpecies.types);
+					prevo = prevoSpecies.prevo;
+				}
+				if (types.includes(move.type)) return null;
 			}
 			return this.checkCanLearn(move, species, setSources, set);
 		},
@@ -1129,35 +1101,6 @@ export const Rulesets: {[k: string]: FormatData} = {
 			return this.checkCanLearn(move, species, setSources, set);
 		},
 	},
-	sketchmonsmovelegality: {
-		effectType: 'ValidatorRule',
-		name: 'Sketchmons Move Legality',
-		desc: "Pok&eacute;mon can learn one of any move they don't normally learn.",
-		checkCanLearn(move, species, lsetData, set) {
-			const problem = this.checkCanLearn(move, species, lsetData, set);
-			if (!problem) return null;
-			if (move.isZ || move.isMax || this.ruleTable.isRestricted(`move:${move.id}`)) return problem;
-			if ((set as any).sketchMove) {
-				return ` already has ${(set as any).sketchMove} as a sketched move.\n(${species.name} doesn't learn ${move.name}.)`;
-			}
-			(set as any).sketchMove = move.name;
-			return null;
-		},
-		onValidateTeam(team) {
-			const sketches = new Utils.Multiset<string>();
-			for (const set of team) {
-				if ((set as any).sketchMove) {
-					sketches.add((set as any).sketchMove);
-				}
-			}
-			const overSketched = [...sketches.entries()].filter(([moveName, count]) => count > 1);
-			if (overSketched.length) {
-				return overSketched.map(([moveName, count]) => (
-					`You are limited to 1 of ${moveName} by Sketch Clause.\n(You have sketched ${moveName} ${count} times.)`
-				));
-			}
-		},
-	},
 	allowtradeback: {
 		effectType: 'ValidatorRule',
 		name: 'Allow Tradeback',
@@ -1167,7 +1110,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 	allowavs: {
 		effectType: 'ValidatorRule',
 		name: 'Allow AVs',
-		desc: "Tells formats with the 'gen7letsgo' mod to take Awakening Values into consideration when calculating stats",
+		desc: "Tells formats with the 'letsgo' mod to take Awakening Values into consideration when calculating stats",
 		// implemented in TeamValidator#validateStats
 	},
 	nfeclause: {
@@ -1202,7 +1145,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 			this.add('rule', 'Forme Clause: Limit one of each forme of a Pokémon');
 		},
 		onValidateTeam(team) {
-			const formeTable = new Set<string>();
+			const formeTable: Set<string> = new Set();
 			for (const set of team) {
 				let species = this.dex.species.get(set.species);
 				if (species.name !== species.baseSpecies) {
@@ -1282,11 +1225,73 @@ export const Rulesets: {[k: string]: FormatData} = {
 			return newSpecies;
 		},
 	},
+
+	// CFM Rules
+	cfmcomplexbans: {
+		effectType: 'Rule',
+		name: 'CFM Complex Bans',
+		desc: "Implements CFM's complex bans",
+		onValidateSet(set, format) {
+			const allTiers: {[k: string]: number} = {PU: 0, NU: 1, RU: 2, UU: 3, OU: 4, Ub: 5};
+			const currTier = format.name.substr(format.name.indexOf("CFM "), 6).substr(-2);
+			// eslint-disable-next-line @typescript-eslint/no-this-alias
+			const tv = this;
+			const speciesRef = this.toID((function () {
+				const currSpecies = tv.dex.species.get(set.species), currItem = tv.dex.items.get(set.item);
+				if (currSpecies?.forme === 'Mega')
+					return currSpecies;
+				else if (currItem?.megaEvolves === currSpecies?.baseSpecies)
+					return currItem.megaStone;
+				else
+					return currSpecies?.baseSpecies;
+			})());
+			const complexBans: {[mon: string]: {tier: string, [condition: string]: string | string[]}} = {
+				// abilities - OU
+				zapdos:			{tier: 'OU', ability: 'drizzle'},
+				moltres:		{tier: 'OU', ability: 'drought'},
+				volcarona:		{tier: 'OU', ability: 'drought'},
+				heatran:		{tier: 'OU', ability: 'magmaarmor'},
+				// abilities - UU
+				blaziken:		{tier: 'UU', ability: 'speedboost'},
+				serperior:		{tier: 'UU', ability: 'contrary'},
+				diggersby:		{tier: 'UU', ability: 'hugepower'},
+				rillaboom:		{tier: 'UU', ability: 'grassysurge'},
+				// items
+				latias:			{tier: 'OU', item: 'souldew'},
+				latios:			{tier: 'OU', item: 'souldew'},
+				cloyster:		{tier: 'OU', items: ['kingsrock', 'razorfang']},
+				// moves
+				arceus:			{tier: 'Ub', move: 'hyperbeam'},
+				porygonz:		{tier: 'OU', move: 'hyperbeam'},
+				blastoisemega:	{tier: 'OU', move: 'shellsmash'},
+				mew:			{tier: 'OU', move: 'batonpass'},
+				snorlax:		{tier: 'UU', move: 'hyperbeam'},
+			};
+			if (!!complexBans[speciesRef] && allTiers[currTier] <= allTiers[complexBans[speciesRef].tier]) {
+				if (complexBans[speciesRef].ability === this.toID(set.ability)) {
+					const ability = set.ability;
+					return [`${set.name || speciesRef} is not allowed to run ${ability} in C${complexBans[speciesRef].tier} or below.`];
+				}
+				if (complexBans[speciesRef].item === this.toID(set.item) ||
+					complexBans[speciesRef].items?.includes(this.toID(set.item))) {
+					return [`${set.name || speciesRef} is not allowed to hold ${set.item} in C${complexBans[speciesRef].tier} or below.`];
+				}
+				for (const move of set.moves) {
+					if (complexBans[speciesRef].move === this.toID(move) ||
+						complexBans[speciesRef].moves?.includes(this.toID(move))) {
+						const moveName = this.dex.moves.get(move).name;
+						return [`${set.name || speciesRef} is not allowed to use ${moveName} in C${complexBans[speciesRef].tier} or below.`];
+					}
+				}
+			}
+		},
+	},
+
 	teamtypepreview: {
 		effectType: 'Rule',
 		name: 'Team Type Preview',
 		desc: "Allows each player to see the Pok&eacute;mon on their opponent's team and those Pok&eacute;mon's types before they choose their lead Pok&eacute;mon",
-		onTeamPreview() {
+		onBegin() {
 			for (const side of this.sides) {
 				for (const pokemon of side.pokemon) {
 					const details = pokemon.details.replace(', shiny', '')
@@ -1303,6 +1308,8 @@ export const Rulesets: {[k: string]: FormatData} = {
 				}
 				this.add(`${buf}</span>`);
 			}
+		},
+		onTeamPreview() {
 			this.makeRequest('teampreview');
 		},
 	},
@@ -1358,134 +1365,42 @@ export const Rulesets: {[k: string]: FormatData} = {
 			return problems;
 		},
 	},
-	pickedteamsize: {
-		effectType: 'Rule',
-		name: 'Picked Team Size',
-		desc: "Team size (number of pokemon) that can be brought out of Team Preview",
-		hasValue: 'positive-integer',
-		// hardcoded in sim/side
-		onValidateRule() {
-			if (!this.ruleTable.has('teampreview')) {
-				throw new Error(`The "Picked Team Size" rule${this.ruleTable.blame('pickedteamsize')} requires Team Preview.`);
-			}
-		},
-	},
-	minteamsize: {
+	cuplevellimit: {
 		effectType: 'ValidatorRule',
-		name: "Min Team Size",
-		desc: "Minimum team size (number of pokemon) that can be brought into Team Preview (or into the battle, in formats without Team Preview)",
-		hasValue: 'positive-integer',
-		// hardcoded in sim/team-validator
-	},
-	evlimit: {
-		effectType: 'ValidatorRule',
-		name: "EV Limit",
-		desc: "Maximum total EVs on each pokemon.",
-		hasValue: 'integer',
-		// hardcoded in sim/team-validator
-	},
-	maxteamsize: {
-		effectType: 'ValidatorRule',
-		name: "Max Team Size",
-		desc: "Maximum team size (number of pokemon) that can be brought into Team Preview (or into the battle, in formats without Team Preview)",
-		hasValue: 'positive-integer',
-		// hardcoded in sim/team-validator
-	},
-	maxmovecount: {
-		effectType: 'ValidatorRule',
-		name: "Max Move Count",
-		desc: "Max number of moves allowed on a single pokemon (defaults to 4 in a normal game)",
-		hasValue: 'positive-integer',
-		// hardcoded in sim/team-validator
-	},
-	maxtotallevel: {
-		effectType: 'Rule',
-		name: 'Max Total Level',
+		name: 'Cup Level Limit',
 		desc: "Teams are restricted to a total maximum Level limit and Pokemon are restricted to a set range of Levels",
-		hasValue: 'positive-integer',
-		onValidateTeam(team) {
-			const pickedTeamSize = this.ruleTable.pickedTeamSize || team.length;
-			const maxTotalLevel = this.ruleTable.maxTotalLevel;
-			if (maxTotalLevel === null) throw new Error("No maxTotalLevel specified.");
-
+		onValidateTeam(team, format) {
+			if (!format.teamLength?.battle) return;
+			if (!format.cupLevelLimit) return;
 			const teamLevels = [];
 			for (const set of team) {
 				teamLevels.push(set.level);
 			}
-			teamLevels.sort((a, b) => a - b);
-
-			let totalLowestLevels = 0;
-			for (let i = 0; i < pickedTeamSize; i++) {
-				totalLowestLevels += teamLevels[i];
+			teamLevels.sort((a, b) => b - a);
+			let combinedLowestLevels = 0;
+			let i;
+			for (i = 0; i < format.teamLength.battle; i++) {
+				combinedLowestLevels += teamLevels.pop()!;
 			}
-			if (totalLowestLevels > maxTotalLevel) {
-				const thePokemon = pickedTeamSize === team.length ?
-					`all ${team.length} Pokémon` : `the ${pickedTeamSize} lowest-leveled Pokémon`;
+			if (combinedLowestLevels > format.cupLevelLimit.total) {
 				return [
-					`The combined levels of ${thePokemon} of your team is ${totalLowestLevels}, above the format's total level limit of ${maxTotalLevel}${this.ruleTable.blame('maxtotallevel')}.`,
-				];
-			}
-
-			let minTotalWithHighestLevel = teamLevels[teamLevels.length - 1];
-			for (let i = 0; i < pickedTeamSize - 1; i++) {
-				minTotalWithHighestLevel += teamLevels[i];
-			}
-			if (minTotalWithHighestLevel > maxTotalLevel) {
-				return [
-					`Your highest level Pokémon is unusable, because there's no way to create a team with it whose total level is less than the format's total level limit of ${maxTotalLevel}${this.ruleTable.blame('maxtotallevel')}.`,
+					`The combined levels of the ${format.teamLength.battle} lowest Leveled Pokemon of your team is ${combinedLowestLevels}, above the format's maximum combined level of ${format.cupLevelLimit.total}.`,
 				];
 			}
 		},
-		onValidateRule(value) {
-			const ruleTable = this.ruleTable;
-			const maxTotalLevel = ruleTable.maxTotalLevel!;
-			const maxTeamSize = ruleTable.pickedTeamSize || ruleTable.maxTeamSize;
-			const maxTeamSizeBlame = ruleTable.pickedTeamSize ? ruleTable.blame('pickedteamsize') : ruleTable.blame('maxteamsize');
-			if (maxTotalLevel >= ruleTable.maxLevel * maxTeamSize) {
-				throw new Error(`A Max Total Level of ${maxTotalLevel}${ruleTable.blame('maxtotallevel')} is too high (and will have no effect) with ${maxTeamSize}${maxTeamSizeBlame} Pokémon at max level ${ruleTable.maxLevel}${ruleTable.blame('maxlevel')}`);
+		onValidateSet(set, format) {
+			if (!format.cupLevelLimit) return;
+			if (set.level < format.cupLevelLimit.range[0]) {
+				return [
+					`${set.name || set.species} is Level ${set.level}, below the format's minimum Level of ${format.cupLevelLimit.range[0]}.`,
+				];
 			}
-			if (maxTotalLevel <= ruleTable.minLevel * maxTeamSize) {
-				throw new Error(`A Max Total Level of ${maxTotalLevel}${ruleTable.blame('maxtotallevel')} is too low with ${maxTeamSize}${maxTeamSizeBlame} Pokémon at min level ${ruleTable.minLevel}${ruleTable.blame('minlevel')}`);
+			if (set.level > format.cupLevelLimit.range[1]) {
+				return [
+					`${set.name || set.species} is Level ${set.level}, above the format's maximum Level of ${format.cupLevelLimit.range[1]}.`,
+				];
 			}
 		},
-		// hardcoded in sim/side
-	},
-	minlevel: {
-		effectType: 'ValidatorRule',
-		name: 'Min Level',
-		desc: "Minimum level of brought Pokémon",
-		hasValue: 'positive-integer',
-		// hardcoded in sim/team-validator
-	},
-	maxlevel: {
-		effectType: 'ValidatorRule',
-		name: 'Max Level',
-		desc: "Maximum level of brought Pokémon (if you're using both this and Adjust Level, this will control what level moves you have access to)",
-		hasValue: 'positive-integer',
-		// hardcoded in sim/team-validator
-	},
-	defaultlevel: {
-		effectType: 'ValidatorRule',
-		name: 'Default Level',
-		desc: "Default level of brought Pokémon (normally should be equal to Max Level, except Custom Games have a very high max level but still default to 100)",
-		hasValue: 'positive-integer',
-		// hardcoded in sim/team-validator
-	},
-	adjustlevel: {
-		effectType: 'ValidatorRule',
-		name: 'Adjust Level',
-		desc: "All Pokémon will be set to exactly this level (but unlike Max Level and Min Level, it will still be able to learn moves from above this level) (when using this, Max Level is the level of the pokemon before it's level-adjusted down)",
-		hasValue: 'positive-integer',
-		mutuallyExclusiveWith: 'adjustleveldown',
-		// hardcoded in sim/team-validator
-	},
-	adjustleveldown: {
-		effectType: 'ValidatorRule',
-		name: 'Adjust Level Down',
-		desc: "Any Pokémon above this level will be set to this level (but unlike Max Level, it will still be able to learn moves from above this level)",
-		hasValue: 'positive-integer',
-		mutuallyExclusiveWith: 'adjustlevel',
-		// hardcoded in sim/team-validator
 	},
 	stadiumitemsclause: {
 		effectType: 'ValidatorRule',
@@ -1498,103 +1413,5 @@ export const Rulesets: {[k: string]: FormatData} = {
 		name: "Nintendo Cup 2000 Move Legality",
 		desc: "Prevents Pok\u00e9mon from having moves that would only be obtainable in Pok\u00e9mon Crystal.",
 		// Implemented in mods/gen2/rulesets.ts
-	},
-	nintendocup1997movelegality: {
-		effectType: 'ValidatorRule',
-		name: "Nintendo Cup 1997 Move Legality",
-		desc: "Bans move combinations on Pok\u00e9mon that weren't legal in Nintendo Cup 1997.",
-		// Implemented in mods/gen1jpn/rulesets.ts
-	},
-	noswitching: {
-		effectType: 'Rule',
-		name: 'No Switching',
-		desc: 'All Pok\u00e9mon are trapped (cannot switch naturally, but can as the effect of an item, move, or Ability).',
-		onBegin() {
-			this.add('rule', 'No Switching: All Pok\u00e9mon are trapped');
-		},
-		onTrapPokemon(pokemon) {
-			pokemon.trapped = true;
-		},
-	},
-	chimera1v1rule: {
-		effectType: 'Rule',
-		name: 'Chimera 1v1 Rule',
-		desc: "Validation and battle effects for Chimera 1v1.",
-		ruleset: ['Team Preview', 'Picked Team Size = 6'],
-		onValidateSet(set) {
-			if (!set.item) return;
-			const item = this.dex.items.get(set.item);
-			if (item.itemUser && !this.ruleTable.has(`+item:${item.id}`)) {
-				return [`${set.species}'s item ${item.name} is banned.`];
-			}
-		},
-		onValidateRule() {
-			const table = this.ruleTable;
-			if ((table.pickedTeamSize || table.minTeamSize) < 6) {
-				throw new Error(
-					`Custom rules that could allow the active team size to be reduced below 6 (Min Team Size < 6, Picked Team Size < 6) could prevent the Chimera from being fully defined, and are incompatible with Chimera 1v1.`
-				);
-			}
-			const gameType = this.format.gameType;
-			if (gameType === 'doubles' || gameType === 'triples') {
-				throw new Error(
-					`The game type '${gameType}' cannot be 1v1 because sides can have multiple active Pok\u00e9mon, so it is incompatible with Chimera 1v1.`
-				);
-			}
-		},
-		onBeforeSwitchIn(pokemon) {
-			const allies = pokemon.side.pokemon.splice(1);
-			pokemon.side.pokemonLeft = 1;
-			const newSpecies = this.dex.deepClone(pokemon.baseSpecies);
-			newSpecies.abilities = allies[1].baseSpecies.abilities;
-			newSpecies.baseStats = allies[2].baseSpecies.baseStats;
-			newSpecies.bst = allies[2].baseSpecies.bst;
-			pokemon.item = allies[0].item;
-			pokemon.ability = pokemon.baseAbility = allies[1].ability;
-			pokemon.set.evs = allies[2].set.evs;
-			pokemon.set.nature = allies[2].set.nature;
-			pokemon.set.ivs = allies[2].set.ivs;
-			pokemon.hpType = (pokemon as any).baseHpType = allies[2].baseHpType;
-			pokemon.moveSlots = (pokemon as any).baseMoveSlots = [
-				...allies[3].baseMoveSlots.slice(0, 2), ...allies[4].baseMoveSlots.slice(2),
-			].filter((move, index, moveSlots) => moveSlots.find(othermove => othermove.id === move.id) === move);
-			// so all HP-related properties get re-initialized in setSpecies
-			pokemon.maxhp = 0;
-			pokemon.setSpecies(newSpecies, null);
-		},
-	},
-	bonustyperule: {
-		name: "Bonus Type Rule",
-		effectType: "Rule",
-		desc: `Pok&eacute;mon can be nicknamed the name of a type to have that type added onto their current ones.`,
-		onBegin() {
-			this.add('rule', 'Bonus Type Rule: Pok\u00e9mon can be nicknamed the name of a type to have that type added onto their current ones.');
-		},
-		onModifySpeciesPriority: 1,
-		onModifySpecies(species, target, source, effect) {
-			if (!target) return; // Chat command
-			if (effect && ['imposter', 'transform'].includes(effect.id)) return;
-			const typesSet = new Set(species.types);
-			const bonusType = this.dex.types.get(target.set.name);
-			if (bonusType.exists) typesSet.add(bonusType.name);
-			return {...species, types: [...typesSet]};
-		},
-		onSwitchIn(pokemon) {
-			this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
-		},
-		onAfterMega(pokemon) {
-			this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
-		},
-	},
-	firstbloodrule: {
-		effectType: "Rule",
-		name: "First Blood Rule",
-		desc: `The first team to have a Pok&eacute;mon faint loses.`,
-		onBegin() {
-			this.add('rule', 'First Blood Rule: The first team to have a Pok\u00e9mon faint loses.');
-		},
-		onFaint(target) {
-			this.lose(target.side);
-		},
 	},
 };
