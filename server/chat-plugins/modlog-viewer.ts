@@ -29,7 +29,7 @@ const ALIASES: {[k: string]: string} = {
 
 function getMoreButton(
 	roomid: ModlogID, searchCmd: string,
-	lines: number, maxLines: number, onlyPunishments: boolean
+	lines: number, maxLines: number, onlyPunishments: boolean, onlyNotes: boolean,
 ) {
 	let newLines = 0;
 	for (const increase of MORE_BUTTON_INCREMENTS) {
@@ -41,7 +41,11 @@ function getMoreButton(
 	if (!newLines || lines < maxLines) {
 		return ''; // don't show a button if no more pre-set increments are valid or if the amount of results is already below the max
 	} else {
-		return Utils.html`<br /><div style="text-align:center"><button class="button" name="send" value="/${onlyPunishments ? 'punish' : 'mod'}log room=${roomid}, ${searchCmd}, ${LINES_SEPARATOR}${newLines}" title="View more results">Older results<br />&#x25bc;</button></div>`;
+		let cmd = `/modlog`;
+		if (onlyNotes) cmd = `/modnotes`;
+		if (onlyPunishments) cmd = `/punishlog`;
+
+		return Utils.html`<br /><div style="text-align:center"><button class="button" name="send" value="${cmd} room=${roomid}, ${searchCmd}, ${LINES_SEPARATOR}${newLines}" title="View more results">Older results<br />&#x25bc;</button></div>`;
 	}
 }
 
@@ -52,7 +56,7 @@ function getRoomID(id: string) {
 
 function prettifyResults(
 	resultArray: ModlogEntry[], roomid: ModlogID, search: ModlogSearch, searchCmd: string,
-	addModlogLinks: boolean, hideIps: boolean, maxLines: number, onlyPunishments: boolean
+	addModlogLinks: boolean, hideIps: boolean, maxLines: number, onlyPunishments: boolean, onlyNotes: boolean
 ) {
 	if (resultArray === null) {
 		return "|popup|The modlog query crashed.";
@@ -70,18 +74,17 @@ function prettifyResults(
 	}
 	const scope = onlyPunishments ? 'punishment-related ' : '';
 	let searchString = ``;
-	if (search.anyField) searchString += `containing ${search.anyField} `;
 	const excludes = search.note.filter(s => s.isExclusion).map(s => s.search) || [];
 	const includes = search.note.filter(s => !s.isExclusion).map(s => s.search) || [];
 	if (includes.length) searchString += `with a note including any of: ${includes.join(', ')} `;
 	if (excludes.length) searchString += `with a note that does not include any of: ${excludes.join(', ')} `;
-	for (const u of search.user) searchString += `${u.isExclusion ? 'not' : ''} taken against ${u.search} `;
+	for (const u of search.user) searchString += `${u.isExclusion ? 'not ' : ''}taken against ${u.search} `;
 	for (const ip of search.ip) {
-		searchString += `${ip.isExclusion ? 'not' : ''}taken against a user on the IP ${ip.search} `;
+		searchString += `${ip.isExclusion ? 'not ' : ''}taken against a user on the IP ${ip.search} `;
 	}
-	for (const action of search.action) searchString += `${action.isExclusion ? 'not' : ''} of the type ${action.search} `;
+	for (const action of search.action) searchString += `${action.isExclusion ? 'not ' : ''}of the type ${action.search} `;
 	for (const actionTaker of search.actionTaker) {
-		searchString += `${actionTaker.isExclusion ? 'not' : ''} taken by ${actionTaker.search} `;
+		searchString += `${actionTaker.isExclusion ? 'not ' : ''}taken by ${actionTaker.search} `;
 	}
 	if (!resultArray.length) {
 		return `|popup|No ${scope}moderator actions ${searchString}found on ${roomName}.`;
@@ -133,13 +136,13 @@ function prettifyResults(
 			`|pagehtml|<div class="pad"><p>The last ${Chat.count(lines, `${scope}lines`)} of the Moderator Log of ${roomName}.`;
 	}
 	preamble += `</p><p>[${dateString}]<br /><small>[${timestamp}] \u2190 current server time</small>`;
-	const moreButton = getMoreButton(roomid, searchCmd, lines, maxLines, onlyPunishments);
+	const moreButton = getMoreButton(roomid, searchCmd, lines, maxLines, onlyPunishments, onlyNotes);
 	return `${preamble}${resultString}${moreButton}</div>`;
 }
 
 async function getModlog(
 	connection: Connection, roomid: ModlogID = 'global', search: ModlogSearch,
-	searchCmd: string, maxLines = 20, onlyPunishments = false, timed = false
+	searchCmd: string, maxLines = 20, onlyPunishments = false, timed = false, onlyNotes = false,
 ) {
 	const targetRoom = Rooms.search(roomid);
 	const user = connection.user;
@@ -187,8 +190,10 @@ async function getModlog(
 
 		search.user[i] = userSearch;
 	}
+	if (onlyNotes) search.action.push({search: 'NOTE'});
 
 	const response = await Rooms.Modlog.search(roomid, search, maxLines, onlyPunishments);
+	if (!response) return connection.popup(`The moderator log is currently disabled.`);
 
 	connection.send(
 		prettifyResults(
@@ -199,7 +204,8 @@ async function getModlog(
 			addModlogLinks,
 			hideIps,
 			maxLines,
-			onlyPunishments
+			onlyPunishments,
+			onlyNotes,
 		)
 	);
 	if (timed) connection.popup(`The modlog query took ${response.duration} ms to complete.`);
@@ -222,7 +228,7 @@ export const commands: Chat.ChatCommands = {
 		const onlyPunishments = cmd.startsWith('pl') || cmd.startsWith('punishlog');
 		let lines;
 		const possibleParam = cmd.slice(2);
-		const targets = target.split(',');
+		const targets = target.split(',').map(f => f.trim()).filter(Boolean);
 		const search: ModlogSearch = {note: [], user: [], ip: [], action: [], actionTaker: []};
 
 		switch (possibleParam) {
@@ -233,26 +239,28 @@ export const commands: Chat.ChatCommands = {
 			targets.unshift(`ip=${targets.shift()}`);
 			break;
 		}
-		if (cmd === 'modnotes') targets.unshift(`action=NOTE`);
 
 		for (const [i, option] of targets.entries()) {
 			let [param, value] = option.split('=').map(part => part.trim());
 			if (!value) {
 				// If no specific parameter is specified, we should search all fields
 				value = param.trim();
-				if (i === 0 && targets.length > 1) {
+				if (i === 0 && value) {
 					// they might mean a roomid, as per the old format of /modlog
 					param = 'room';
+					// if the room exists, they probably mean a roomid. otherwise, assume they're misusing it.
+					// we except gdrivers+ from this because drivers can access deleted room modlogs
+					if (!Rooms.search(toID(value)) && !user.can('lock')) {
+						return this.parse(`/help modlog`);
+					}
 				} else {
-					param = 'any';
+					this.errorReply(`You must specify a search type and search value.`);
+					return this.parse(`/help modlog`);
 				}
 			}
 			const isExclusion = param.endsWith('!');
 			param = toID(param);
 			switch (param) {
-			case 'any':
-				search.anyField = value;
-				break;
 			case 'note': case 'text':
 				if (!search.note) search.note = [];
 				search.note.push({search: value, isExclusion});
@@ -278,7 +286,7 @@ export const commands: Chat.ChatCommands = {
 				break;
 			default:
 				this.errorReply(`Invalid modlog parameter: '${param}'.`);
-				return this.errorReply(`Please specify 'room', 'note', 'user', 'ip', 'action', 'staff', 'any', or 'lines'.`);
+				return this.errorReply(`Please specify 'room', 'note', 'user', 'ip', 'action', 'staff', or 'lines'.`);
 			}
 		}
 
@@ -308,18 +316,17 @@ export const commands: Chat.ChatCommands = {
 			target.replace(/^\s?([^,=]*),\s?/, '').replace(/,?\s*(room|lines)\s*=[^,]*,?/g, ''),
 			lines,
 			onlyPunishments,
-			cmd === 'timedmodlog'
+			cmd === 'timedmodlog',
+			cmd === 'modnotes',
 		);
 	},
 	modloghelp() {
 		this.sendReplyBox(
 			`<code>/modlog [comma-separated list of parameters]</code>: searches the moderator log, defaulting to the current room unless specified otherwise.<br />` +
-			`If an unnamed parameter is specified, <code>/modlog</code> will search all fields at once.<br />` +
 			`You can replace the <code>=</code> in a parameter with a <code>!=</code> to exclude entries that match that parameter.<br />` +
 			`<details><summary><strong>Parameters</strong></summary>` +
 			`<ul>` +
 			`<li><code>room=[room]</code> - searches a room's modlog</li>` +
-			`<li><code>any=[text]</code> - searches for modlog entries containing the specified text in any field</li>` +
 			`<li><code>userid=[user]</code> - searches for a username (or fragment of one)</li>` +
 			`<li><code>note=[text]</code> - searches the contents of notes/reasons</li>` +
 			`<li><code>ip=[IP address]</code> - searches for an IP address (or fragment of one)</li>` +
@@ -340,7 +347,7 @@ export const commands: Chat.ChatCommands = {
 	},
 	mls: 'modlogstats',
 	modlogstats(target, room, user) {
-		this.checkCan('globalban');
+		this.checkCan('lock');
 		target = toID(target);
 		if (!target) return this.parse(`/help modlogstats`);
 		return this.parse(`/join view-modlogstats-${target}`);
@@ -350,7 +357,7 @@ export const commands: Chat.ChatCommands = {
 
 export const pages: Chat.PageTable = {
 	async modlogstats(query, user) {
-		this.checkCan('globalban');
+		this.checkCan('lock');
 		const target = toID(query.shift());
 		if (!target || target.length > 18) {
 			return this.errorReply(`Invalid userid - must be between 1 and 18 characters long.`);
@@ -363,7 +370,7 @@ export const pages: Chat.PageTable = {
 				isExact: true,
 			}], note: [], ip: [], action: [], actionTaker: [],
 		}, 1000);
-		if (!entries.results.length) {
+		if (!entries?.results.length) {
 			return this.errorReply(`No data found.`);
 		}
 		const punishmentTable = new Utils.Multiset();

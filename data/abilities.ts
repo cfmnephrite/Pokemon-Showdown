@@ -324,7 +324,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onModifyMovePriority: -1,
 		onModifyMove(move, attacker) {
-			if (move.id === 'watershuriken' && attacker.species.name === 'Greninja-Ash') {
+			if (move.id === 'watershuriken' && attacker.species.name === 'Greninja-Ash' &&
+				!attacker.transformed) {
 				move.multihit = 3;
 			}
 		},
@@ -831,7 +832,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!['mimikyu', 'mimikyutotem'].includes(target.species.id) || target.transformed) {
 				return;
 			}
-			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
 			if (hitSub) return;
 
 			if (!target.runImmunity(move.type)) return;
@@ -843,7 +844,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return;
 			}
 
-			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
 			if (hitSub) return;
 
 			if (!target.runImmunity(move.type)) return;
@@ -1720,7 +1721,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onCriticalHit(target, type, move) {
 			if (!target) return;
 			if (move.category !== 'Physical' || target.species.id !== 'eiscue' || target.transformed) return;
-			if (target.volatiles['substitute'] && !(move.flags['authentic'] || move.infiltrates)) return;
+			if (target.volatiles['substitute'] && !(move.flags['bypasssub'] || move.infiltrates)) return;
 			if (!target.runImmunity(move.type)) return;
 			return false;
 		},
@@ -1728,7 +1729,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!target) return;
 			if (move.category !== 'Physical' || target.species.id !== 'eiscue' || target.transformed) return;
 
-			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
 			if (hitSub) return;
 
 			if (!target.runImmunity(move.type)) return;
@@ -2648,6 +2649,7 @@ Water: Water Absorb`,
 	neutralizinggas: {
 		// Ability suppression implemented in sim/pokemon.ts:Pokemon#ignoringAbility
 		onPreStart(pokemon) {
+			if (pokemon.transformed) return;
 			this.add('-ability', pokemon, 'Neutralizing Gas');
 			pokemon.abilityState.ending = false;
 			for (const target of this.getAllActive()) {
@@ -2661,6 +2663,12 @@ Water: Water Absorb`,
 			}
 		},
 		onEnd(source) {
+			if (source.transformed) return;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon !== source && pokemon.hasAbility('Neutralizing Gas')) {
+					return;
+				}
+			}
 			this.add('-end', source, 'ability: Neutralizing Gas');
 
 			// FIXME this happens before the pokemon switches out, should be the opposite order.
@@ -2675,6 +2683,8 @@ Water: Water Absorb`,
 			this.speedSort(sortedActive);
 			for (const pokemon of sortedActive) {
 				if (pokemon !== source) {
+					if (pokemon.getAbility().isPermanent) continue; // does not interact with e.g Ice Face, Zen Mode
+
 					// Will be suppressed by Pokemon#ignoringAbility if needed
 					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
 				}
@@ -2819,7 +2829,7 @@ Water: Water Absorb`,
 		onPrepareHit(source, target, move) {
 			if (move.category === 'Status' || move.selfdestruct || (move.multihit && move.multihit !== 2)) return;
 			if (['endeavor', 'fling', 'iceball', 'rollout'].includes(move.id)) return;
-			if (!move.selfdestruct && !move.flags['charge'] && !move.spreadHit && !move.isZ && !move.isMax) {
+			if (!move.flags['charge'] && !move.selfdestruct && !move.flags['charge'] && !move.spreadHit && !move.isZ && !move.isMax) {
 				move.multihit = (move.multihit === 2 ? 4 : 2);
 				move.multihitType = 'parentalbond';
 			}

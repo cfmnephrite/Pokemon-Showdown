@@ -515,7 +515,7 @@ export class Battle {
 			return relayVar;
 		}
 		if (eventid !== 'End' && effect.effectType === 'Ability' && (target instanceof Pokemon) && target.ignoringAbility()) {
-			this.debug(eventid + ' handler suppressed by Gastro Acid');
+			this.debug(eventid + ' handler suppressed by Gastro Acid or Neutralizing Gas');
 			return relayVar;
 		}
 		if (
@@ -786,7 +786,7 @@ export class Battle {
 			} else if (eventid !== 'End' && effect.effectType === 'Ability' &&
 					(effectHolder instanceof Pokemon) && effectHolder.ignoringAbility()) {
 				if (eventid !== 'Update') {
-					this.debug(eventid + ' handler suppressed by Gastro Acid');
+					this.debug(eventid + ' handler suppressed by Gastro Acid or Neutralizing Gas');
 				}
 				continue;
 			}
@@ -2053,7 +2053,8 @@ export class Battle {
 		const dexMove = this.dex.moves.get(move);
 		let output = dexMove.category || 'Physical';
 		if (source && dexMove.flags['magic']) {
-			if (dexMove.id === 'behemothbash' && source.getStat('spd') > source.getStat('def')) output = 'Special';
+			if (dexMove.overrideOffensiveStat === 'def' && source.getStat('spd') > source.getStat('def')) output = 'Special';
+			else if (dexMove.overrideOffensiveStat === 'spd' && source.getStat('def') > source.getStat('spd')) output = 'Physical';
 			else if (output === 'Physical' && source.getStat('spa') > source.getStat('atk')) output = 'Special';
 			else if (output === 'Special' && source.getStat('atk') > source.getStat('spa')) output = 'Physical';
 		}
@@ -2104,6 +2105,12 @@ export class Battle {
 			stats[s] = tr(tr(stat * 90, 16) / 100);
 		}
 		return stats;
+	}
+
+	finalModify(relayVar: number) {
+		relayVar = this.modify(relayVar, this.event.modifier);
+		this.event.modifier = 1;
+		return relayVar;
 	}
 
 	randomizer(baseDamage: number) {
