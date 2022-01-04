@@ -28,9 +28,12 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 		},
 		onModifySpe(spe, pokemon) {
+			// Paralysis occurs after all other Speed modifiers, so evaluate all modifiers up to this point first
+			spe = this.finalModify(spe);
 			if (!pokemon.hasAbility('quickfeet')) {
-				return this.chainModify(0.33);
+				spe = Math.floor(spe * 33 / 100);
 			}
+			return spe;
 		},
 		onBeforeMovePriority: 1,
 		onBeforeMove(pokemon) {
@@ -112,8 +115,13 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				pokemon.setStatus('');
 			}
 		},
-		onHit(target, source, move) {
-			if (move.thawsTarget || move.type === 'Fire' && move.category !== 'Status') {
+		onAfterMoveSecondary(target, source, move) {
+			if (move.thawsTarget) {
+				target.cureStatus();
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Fire' && move.category !== 'Status') {
 				target.cureStatus();
 			}
 		},
@@ -394,6 +402,12 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 
 			this.actions.trySpreadMoveHit([target], data.source, hitMove, true);
+			if (data.source.isActive && data.source.hasItem('lifeorb') && this.gen >= 5) {
+				this.singleEvent('AfterMoveSecondarySelf', data.source.getItem(), data.source.itemState, data.source, target, data.source.getItem());
+			}
+			this.activeMove = null;
+
+			this.checkWin();
 		},
 	},
 	healreplacement: {
@@ -484,12 +498,12 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				this.add('-weather', 'RainDance');
 			}
 		},
-		onResidualOrder: 1,
-		onResidual() {
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
 			this.add('-weather', 'RainDance', '[upkeep]');
 			this.eachEvent('Weather');
 		},
-		onEnd() {
+		onFieldEnd() {
 			this.add('-weather', 'none');
 		},
 	},
@@ -521,12 +535,12 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onFieldStart(battle, source, effect) {
 			this.add('-weather', 'PrimordialSea', '[from] ability: ' + effect, '[of] ' + source);
 		},
-		onResidualOrder: 1,
-		onResidual() {
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
 			this.add('-weather', 'PrimordialSea', '[upkeep]');
 			this.eachEvent('Weather');
 		},
-		onEnd() {
+		onFieldEnd() {
 			this.add('-weather', 'none');
 		},
 	},
@@ -569,12 +583,12 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			if (pokemon.hasItem('utilityumbrella')) return;
 			if (type === 'frz') return false;
 		},
-		onResidualOrder: 1,
-		onResidual() {
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
 			this.add('-weather', 'SunnyDay', '[upkeep]');
 			this.eachEvent('Weather');
 		},
-		onEnd() {
+		onFieldEnd() {
 			this.add('-weather', 'none');
 		},
 	},
@@ -610,12 +624,12 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			if (pokemon.hasItem('utilityumbrella')) return;
 			if (type === 'frz') return false;
 		},
-		onResidualOrder: 1,
-		onResidual() {
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
 			this.add('-weather', 'DesolateLand', '[upkeep]');
 			this.eachEvent('Weather');
 		},
-		onEnd() {
+		onFieldEnd() {
 			this.add('-weather', 'none', '[silent]');
 		},
 	},
@@ -645,15 +659,15 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				this.add('-weather', 'Sandstorm');
 			}
 		},
-		onResidualOrder: 1,
-		onResidual() {
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
 			this.add('-weather', 'Sandstorm', '[upkeep]');
 			if (this.field.isWeather('sandstorm')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
 			this.damage(target.baseMaxhp / 16);
 		},
-		onEnd() {
+		onFieldEnd() {
 			this.add('-weather', 'none');
 		},
 	},
@@ -686,15 +700,15 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				this.add('-weather', 'Hail');
 			}
 		},
-		onResidualOrder: 1,
-		onResidual() {
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
 			this.add('-weather', 'Hail', '[upkeep]');
 			if (this.field.isWeather('hail')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
 			this.damage(target.baseMaxhp / 16);
 		},
-		onEnd() {
+		onFieldEnd() {
 			this.add('-weather', 'none');
 		},
 	},
@@ -713,12 +727,12 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onFieldStart(battle, source, effect) {
 			this.add('-weather', 'DeltaStream', '[from] ability: ' + effect, '[of] ' + source);
 		},
-		onResidualOrder: 1,
-		onResidual() {
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
 			this.add('-weather', 'DeltaStream', '[upkeep]');
 			this.eachEvent('Weather');
 		},
-		onEnd() {
+		onFieldEnd() {
 			this.add('-weather', 'none');
 		},
 	},
@@ -801,9 +815,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	unown: {
 		name: 'Unown',
 		onType(types, pokemon) {
-			if (pokemon.hpType) {
-				pokemon.setType(pokemon.hpType);
-			}
+			return pokemon.hpType ? [pokemon.hpType] : types;
 		},
 	},
 	kecleon: {
@@ -816,24 +828,26 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				this.dex.moves.get(pokemon.moveSlots[0].move).type !== this.dex.moves.get(pokemon.moveSlots[1].move).type) {
 					colorChangeTypes.push(this.dex.moves.get(pokemon.moveSlots[1].move).type);
 				}
-				pokemon.setType(colorChangeTypes);
+				return colorChangeTypes.length ? colorChangeTypes : types;
 			}
 		},
 	},
 	solgaleo: {
 		name: 'Solgaleo',
 		onType(types, pokemon) {
-			if (pokemon.ability === 'fullmetalbody') {
-				pokemon.setType(['Psychic', 'Fire', 'Steel']);
-			}
+			if (pokemon.ability === 'fullmetalbody')
+				types.push('Steel');
+
+			return types;
 		},
 	},
 	lunala: {
 		name: 'Lunala',
 		onType(types, pokemon) {
-			if (pokemon.ability === 'shadowshield') {
-				pokemon.setType(['Psychic', 'Fairy', 'Ghost']);
-			}
+			if (pokemon.ability === 'shadowshield')
+				types.push('Ghost');
+
+			return types;
 		},
 	},
 
