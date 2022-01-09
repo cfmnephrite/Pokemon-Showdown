@@ -249,7 +249,7 @@
 "ability":"Speed Boost",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["Baton Pass"],["Detect"],["Swords Dance"],["Flare Blitz"]]},
+"moves":[["Swords Dance"],["Detect"],["Low Kick"],["Flare Blitz"]]},
 
 {"species":"Blaziken",
 "gender":"",
