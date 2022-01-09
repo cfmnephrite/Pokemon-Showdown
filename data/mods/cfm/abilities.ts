@@ -179,6 +179,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
+		isBreakable: true,
 		name: "Aroma Veil",
 		rating: 2,
 		num: 165,
@@ -233,7 +234,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Aura Break');
 		},
-		isUnbreakable: true,
 		name: "Aura Break",
 		rating: 1,
 		num: 188,
@@ -307,6 +307,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({def:-1, spe:2}, target, source, null, true);
 			}
 		},
+		isBreakable: true,
 		name: "Battle Armor",
 		rating: 1,
 		num: 4,
@@ -390,6 +391,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
+		isBreakable: true,
 		name: "Big Pecks",
 		rating: 0.5,
 		num: 145,
@@ -416,6 +418,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
+		isBreakable: true,
 		name: "Bulletproof",
 		rating: 3,
 		num: 171,
@@ -463,6 +466,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add("-fail", target, "unboost", "[from] ability: Clear Body", "[of] " + target);
 			}
 		},
+		isBreakable: true,
 		name: "Clear Body",
 		rating: 2,
 		num: 29,
@@ -504,7 +508,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		// Permanent sleep "status" implemented in the relevant sleep-checking effects
 		isPermanent: true,
-		isUnbreakable: true,
 		name: "Comatose",
 		rating: 4,
 		num: 213,
@@ -553,6 +556,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				boost[i]! *= -1;
 			}
 		},
+		isBreakable: true,
 		name: "Contrary",
 		rating: 4.5,
 		num: 126,
@@ -643,6 +647,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-immune', target, '[from] ability: Damp');
 			return false;
 		},
+		isBreakable: true,
 		name: "Damp",
 		rating: 1,
 		num: 6,
@@ -677,7 +682,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify(1.33);
 		},
-		isUnbreakable: true,
+		isBreakable: true,
 		name: "Dark Aura",
 		ate: "Dark",
 		rating: 3.5,
@@ -708,6 +713,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return false;
 			}
 		},
+		isBreakable: true,
 		name: "Dazzling",
 		rating: 2.5,
 		num: 219,
@@ -775,7 +781,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.field.clearWeather();
 		},
 		name: "Delta Stream",
-		isUnbreakable: true,
 		rating: 4,
 		num: 191,
 		cfm: true,
@@ -857,6 +862,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
 		},
+		isBreakable: true,
 		isPermanent: true,
 		name: "Disguise",
 		rating: 3.5,
@@ -959,6 +965,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		isBreakable: true,
 		name: "Dry Skin",
 		rating: 3,
 		num: 87,
@@ -1039,7 +1046,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify(1.33);
 		},
-		isUnbreakable: true,
+		isBreakable: true,
 		name: "Fairy Aura",
 		ate: "Fairy",
 		rating: 3.5,
@@ -1055,6 +1062,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.chainModify(typeMod === 2 ? 0.5 : 0.75);
 			}
 		},
+		isBreakable: true,
 		name: "Filter",
 		rating: 3,
 		num: 111,
@@ -1102,6 +1110,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
+		isBreakable: true,
 		name: "Flash Fire",
 		rating: 3.5,
 		num: 18,
@@ -1185,6 +1194,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
+		isBreakable: true,
 		name: "Flower Veil",
 		rating: 0,
 		num: 166,
@@ -1197,6 +1207,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.flags['contact']) mod /= 2;
 			return this.chainModify(mod);
 		},
+		isBreakable: true,
 		name: "Fluffy",
 		rating: 3.5,
 		num: 218,
@@ -1292,6 +1303,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.chainModify(0.75);
 			}
 		},
+		isBreakable: true,
 		rating: 0,
 		num: 132,
 	},
@@ -1322,7 +1334,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add("-fail", target, "unboost", "[from] ability: Full Metal Body", "[of] " + target);
 			}
 		},
-		isUnbreakable: true,
 		name: "Full Metal Body",
 		rating: 2,
 		num: 230,
@@ -1332,6 +1343,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifyDef(def) {
 			return this.chainModify(2);
 		},
+		isBreakable: true,
 		name: "Fur Coat",
 		rating: 4,
 		num: 169,
@@ -1443,6 +1455,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifyDef(pokemon) {
 			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
 		},
+		isBreakable: true,
 		name: "Grass Pelt",
 		rating: 0.5,
 		num: 179,
@@ -1560,6 +1573,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-immune', target, '[from] ability: Heatproof');
 			return false;
 		},
+		isBreakable: true,
 		name: "Heatproof",
 		rating: 2,
 		num: 85,
@@ -1570,6 +1584,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifyWeight(weighthg) {
 			return weighthg * 2;
 		},
+		isBreakable: true,
 		name: "Heavy Metal",
 		rating: 0,
 		num: 134,
@@ -1579,11 +1594,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			if (this.field.isTerrain('grassyterrain')) return;
-			this.heal(pokemon.maxhp / 16);
-		},
-		onTerrain(pokemon) {
-			if (!this.field.isTerrain('grassyterrain')) return;
 			this.heal(pokemon.maxhp / 16);
 		},
 		name: "Honey Gather",
@@ -1673,6 +1683,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				},
 			});
 		},
+		isBreakable: true,
 		name: "Hyper Cutter",
 		rating: 1.5,
 		num: 52,
@@ -1749,6 +1760,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.formeChange('Eiscue', this.effect, true);
 			}
 		},
+		isBreakable: true,
 		isPermanent: true,
 		name: "Ice Face",
 		rating: 3,
@@ -1760,6 +1772,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
+		isBreakable: true,
 		name: "Ice Scales",
 		rating: 4,
 		num: 246,
@@ -1809,7 +1822,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onFaint(pokemon) {
 			pokemon.illusion = null;
 		},
-		isUnbreakable: true,
 		name: "Illusion",
 		rating: 4.5,
 		num: 149,
@@ -1830,6 +1842,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.boost({[target.storedStats.spa > target.storedStats.atk ? 'spa' : 'atk']:1}, target);
 			return false;
 		},
+		isBreakable: true,
 		name: "Immunity",
 		rating: 2,
 		num: 17,
@@ -1890,6 +1903,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', '[of] ' + target);
 			}
 		},
+		isBreakable: true,
 		name: "Inner Focus",
 		rating: 1.5,
 		num: 39,
@@ -1909,6 +1923,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 			return false;
 		},
+		isBreakable: true,
 		name: "Insomnia",
 		rating: 2,
 		num: 15,
@@ -2006,6 +2021,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifyMove(move) {
 			move.ignoreEvasion = true;
 		},
+		isBreakable: true,
 		name: "Keen Eye",
 		rating: 0.5,
 		num: 51,
@@ -2036,6 +2052,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.cureStatus();
 			}
 		},
+		isBreakable: true,
 		name: "Leaf Guard",
 		rating: 0.5,
 		num: 102,
@@ -2064,6 +2081,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifyWeight(weighthg) {
 			return this.trunc(weighthg / 2);
 		},
+		isBreakable: true,
 		name: "Light Metal",
 		rating: 1,
 		num: 135,
@@ -2090,13 +2108,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.effectState.target;
 			}
 		},
+		isBreakable: true,
 		name: "Lightning Rod",
 		rating: 3,
 		num: 31,
 		cfm: true,
 	},
 	limber: {
-		shortDesc: "This Pokémon cannot be paralysed or have its Speed reduced.",
+		shortDesc: "This Pokémon's speed cannot be reduced and it cannot be paralysed'.",
 		onBoost(boost, target, source, effect) {
 			if (boost.spe && boost.spe < 0) {
 				delete boost.spe;
@@ -2119,6 +2138,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 			return false;
 		},
+		isBreakable: true,
 		name: "Limber",
 		rating: 2,
 		num: 7,
@@ -2190,6 +2210,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		condition: {
 			duration: 1,
 		},
+		isBreakable: true,
 		rating: 4,
 		num: 156,
 	},
@@ -2239,6 +2260,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.flags['contact']) mod /= 2;
 			return this.chainModify(mod);
 		},
+		isBreakable: true,
 		name: "Magma Armor",
 		rating: 1,
 		num: 40,
@@ -2268,6 +2290,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
+		isBreakable: true,
 		name: "Marvel Scale",
 		rating: 2.5,
 		num: 63,
@@ -2384,6 +2407,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		isBreakable: true,
 		name: "Mirror Armor",
 		rating: 2,
 		num: 240,
@@ -2458,6 +2482,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
+		isBreakable: true,
 		name: "Motor Drive",
 		rating: 3,
 		num: 78,
@@ -2487,6 +2512,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
+		isBreakable: true,
 		name: "Multiscale",
 		rating: 3.5,
 		num: 136,
@@ -2758,6 +2784,7 @@ Water: Water Absorb`,
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Oblivious', '[of] ' + target);
 			}
 		},
+		isBreakable: true,
 		name: "Oblivious",
 		rating: 1.5,
 		num: 12,
@@ -2773,6 +2800,7 @@ Water: Water Absorb`,
 				return null;
 			}
 		},
+		isBreakable: true,
 		name: "Overcoat",
 		rating: 2,
 		num: 142,
@@ -2819,6 +2847,7 @@ Water: Water Absorb`,
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Tempo', '[of] ' + target);
 			}
 		},
+		isBreakable: true,
 		name: "Own Tempo",
 		rating: 1.5,
 		num: 20,
@@ -2885,6 +2914,7 @@ Water: Water Absorb`,
 			}
 			return false;
 		},
+		isBreakable: true,
 		name: "Pastel Veil",
 		rating: 2,
 		num: 257,
@@ -3171,7 +3201,6 @@ Water: Water Absorb`,
 				return this.chainModify(0.67);
 			}
 		},
-		isUnbreakable: true,
 		name: "Prism Armor",
 		rating: 3,
 		num: 232,
@@ -3226,6 +3255,7 @@ Water: Water Absorb`,
 				return this.chainModify(0.5);
 			}
 		},
+		isBreakable: true,
 		name: "Punk Rock",
 		rating: 3.5,
 		num: 244,
@@ -3258,6 +3288,7 @@ Water: Water Absorb`,
 				return false;
 			}
 		},
+		isBreakable: true,
 		name: "Queenly Majesty",
 		rating: 2.5,
 		num: 214,
@@ -3685,6 +3716,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				return this.chainModify([3277, 4096]);
 			}
 		},
+		isBreakable: true,
 		name: "Sand Veil",
 		rating: 1.5,
 		num: 8,
@@ -3707,6 +3739,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 					'spa' : 'atk']: 1}, this.effectState.target);
 			}
 		},
+		isBreakable: true,
 		name: "Sap Sipper",
 		rating: 3,
 		num: 157,
@@ -3802,7 +3835,6 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				return this.chainModify(0.5);
 			}
 		},
-		isUnbreakable: true,
 		name: "Shadow Shield",
 		rating: 3.5,
 		num: 231,
@@ -3859,6 +3891,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 	},
 	shellarmor: {
 		onCriticalHit: false,
+		isBreakable: true,
 		name: "Shell Armor",
 		rating: 1,
 		num: 75,
@@ -3868,6 +3901,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 			this.debug('Shield Dust prevent secondary');
 			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
 		},
+		isBreakable: true,
 		name: "Shield Dust",
 		rating: 2,
 		num: 19,
@@ -3912,7 +3946,6 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 			return null;
 		},
 		isPermanent: true,
-		isUnbreakable: true,
 		name: "Shields Down",
 		rating: 3,
 		num: 197,
@@ -3925,6 +3958,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				boost[i]! *= 2;
 			}
 		},
+		isBreakable: true,
 		name: "Simple",
 		rating: 4,
 		num: 86,
@@ -4011,6 +4045,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				return this.chainModify([3277, 4096]);
 			}
 		},
+		isBreakable: true,
 		name: "Snow Cloak",
 		rating: 1.5,
 		num: 81,
@@ -4060,6 +4095,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				return this.chainModify(1.2);
 			}
 		},
+		isBreakable: true,
 		name: "Solid Rock",
 		rating: 3,
 		num: 116,
@@ -4089,6 +4125,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				this.add('-immune', this.effectState.target, '[from] ability: Soundproof');
 			}
 		},
+		isBreakable: true,
 		name: "Soundproof",
 		rating: 1.5,
 		num: 43,
@@ -4291,13 +4328,14 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 	},
 	stickyhold: {
 		onTakeItem(item, pokemon, source) {
-			if (this.suppressingAttackEvents(pokemon) || !pokemon.hp || pokemon.item === 'stickybarb') return;
 			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if (!pokemon.hp || pokemon.item === 'stickybarb') return;
 			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
 				this.add('-activate', pokemon, 'ability: Sticky Hold');
 				return false;
 			}
 		},
+		isBreakable: true,
 		name: "Sticky Hold",
 		rating: 2,
 		num: 60,
@@ -4323,6 +4361,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				return this.effectState.target;
 			}
 		},
+		isBreakable: true,
 		name: "Storm Drain",
 		rating: 3,
 		num: 114,
@@ -4372,6 +4411,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				}
 			}
 		},
+		isBreakable: true,
 		name: "Suction Cups",
 		rating: 1,
 		num: 21,
@@ -4430,6 +4470,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				return null;
 			}
 		},
+		isBreakable: true,
 		rating: 2,
 		num: 175,
 	},
@@ -4490,6 +4531,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				ability: pokemon.getAbility(),
 			});
 		},
+		isBreakable: true,
 		name: "Tangled Feet",
 		rating: 1,
 		num: 77,
@@ -4525,6 +4567,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				return null;
 			}
 		},
+		isBreakable: true,
 		name: "Telepathy",
 		rating: 0,
 		num: 140,
@@ -4546,7 +4589,6 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				return null;
 			}
 		},
-		isUnbreakable: true,
 		name: "Teravolt",
 		rating: 3.5,
 		num: 164,
@@ -4567,6 +4609,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				return this.chainModify(0.5);
 			}
 		},
+		isBreakable: true,
 		name: "Thick Fat",
 		rating: 3.5,
 		num: 47,
@@ -4728,7 +4771,6 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				return null;
 			}
 		},
-		isUnbreakable: true,
 		name: "Turboblaze",
 		rating: 3.5,
 		num: 163,
@@ -4751,6 +4793,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				boosts['accuracy'] = 0;
 			}
 		},
+		isBreakable: true,
 		rating: 4,
 		num: 109,
 	},
@@ -4853,6 +4896,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 			}
 			return false;
 		},
+		isBreakable: true,
 		name: "Vital Spirit",
 		rating: 2,
 		num: 72,
@@ -4873,6 +4917,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				return null;
 			}
 		},
+		isBreakable: true,
 		name: "Volt Absorb",
 		rating: 3.5,
 		num: 10,
@@ -4918,6 +4963,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				return null;
 			}
 		},
+		isBreakable: true,
 		name: "Water Absorb",
 		rating: 3.5,
 		num: 11,
@@ -4951,6 +4997,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 			}
 			return false;
 		},
+		isBreakable: true,
 		name: "Water Bubble",
 		rating: 4.5,
 		num: 199,
@@ -4986,6 +5033,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 			this.boost({[target.storedStats.def > target.storedStats.spd ? 'def' : 'spd']:1}, target);
 			return false;
 		},
+		isBreakable: true,
 		name: "Water Veil",
 		rating: 2,
 		num: 41,
@@ -5016,6 +5064,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				this.add("-fail", target, "unboost", "[from] ability: White Smoke", "[of] " + target);
 			}
 		},
+		isBreakable: true,
 		name: "White Smoke",
 		rating: 2,
 		num: 73,
@@ -5056,6 +5105,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				return null;
 			}
 		},
+		isBreakable: true,
 		name: "Wonder Guard",
 		rating: 5,
 		num: 25,
@@ -5069,6 +5119,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				return 50;
 			}
 		},
+		isBreakable: true,
 		name: "Wonder Skin",
 		rating: 2,
 		num: 147,
