@@ -4310,7 +4310,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onEffectiveness(typeMod, target, type, move) {
 				if (move && move.type === 'Electric' && type === 'Ground') return -1;
 			},
-			onStart(battle, source, effect) {
+			onFieldStart(battle, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Electric Terrain', '[from] ability: ' + effect, '[of] ' + source);
 				} else {
@@ -10989,7 +10989,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return this.chainModify(1.30);
 				}
 			},
-			onStart(battle, source, effect) {
+			onFieldStart(battle, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Misty Terrain', '[from] ability: ' + effect, '[of] ' + source);
 				} else {
@@ -12859,7 +12859,7 @@ Water:		Scald`,
 					return this.chainModify(1.30);
 				}
 			},
-			onStart(battle, source, effect) {
+			onFieldStart(battle, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Psychic Terrain', '[from] ability: ' + effect, '[of] ' + source);
 				} else {
@@ -16254,11 +16254,11 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		sideCondition: 'spikes',
 		condition: {
 			// this is a side condition
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'Spikes');
 				this.effectState.layers = 1;
 			},
-			onRestart(side) {
+			onSideRestart(side) {
 				if (this.effectState.layers >= 3) return false;
 				this.add('-sidestart', side, 'Spikes');
 				this.effectState.layers++;
@@ -16530,7 +16530,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		sideCondition: 'stealthrock',
 		condition: {
 			// this is a side condition
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Stealth Rock');
 			},
 			onSwitchIn(pokemon) {
@@ -16677,7 +16677,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			return null;
 		},
 		condition: {
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
 			onSwitchIn(pokemon) {
