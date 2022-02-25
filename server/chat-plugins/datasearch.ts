@@ -106,6 +106,7 @@ export const commands: Chat.ChatCommands = {
 				target = split.join(',');
 			}
 		}
+		if (cmd === 'cds') target += ', mod=cfm';
 		if (!target.includes('mod=')) {
 			const dex = this.extractFormat(room?.settings.defaultFormat || room?.battle?.format).dex;
 			if (dex) target += `, mod=${dex.currentMod}`;
@@ -133,7 +134,6 @@ export const commands: Chat.ChatCommands = {
 			target = targArray.join(',');
 		}
 		if (cmd === 'nds') target += ', natdex';
-		if (cmd === 'cds') target += ', mod=cfm';
 		const response = await runSearch({
 			target,
 			cmd: 'dexsearch',
@@ -297,12 +297,12 @@ export const commands: Chat.ChatCommands = {
 				target = split.join(',');
 			}
 		}
+		if (cmd === 'cms') target += ', mod=cfm';
 		if (!target.includes('mod=')) {
 			const dex = this.extractFormat(room?.settings.defaultFormat || room?.battle?.format).dex;
 			if (dex) target += `, mod=${dex.currentMod}`;
 		}
 		if (cmd === 'nms') target += ', natdex';
-		if (cmd === 'cms') target += ', mod=cfm';
 		const response = await runSearch({
 			target,
 			cmd: 'movesearch',

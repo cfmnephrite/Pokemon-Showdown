@@ -4180,10 +4180,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		condition: {
 			duration: 2,
-			onStart() {
+			onFieldStart() {
 				this.effectState.multiplier = 1;
 			},
-			onRestart() {
+			onFieldRestart() {
 				if (this.effectState.duration !== 2) {
 					this.effectState.duration = 2;
 					if (this.effectState.multiplier < 5) {
@@ -4317,9 +4317,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					this.add('-fieldstart', 'move: Electric Terrain');
 				}
 			},
-			onResidualOrder: 21,
-			onResidualSubOrder: 2,
-			onEnd() {
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
 				this.add('-fieldend', 'move: Electric Terrain');
 			},
 		},
@@ -6683,7 +6683,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				return 5;
 			},
-			onStart() {
+			onFieldStart() {
 				this.add('-fieldstart', 'move: Gravity');
 				for (const pokemon of this.getAllActive()) {
 					let applies = false;
@@ -6738,8 +6738,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return false;
 				}
 			},
-			onResidualOrder: 22,
-			onEnd() {
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 2,
+			onFieldEnd() {
 				this.add('-fieldend', 'move: Gravity');
 			},
 		},
@@ -9582,15 +9583,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				return 5;
 			},
-			onStart(target, source) {
+			onFieldStart(target, source) {
 				this.add('-fieldstart', 'move: Magic Room', '[of] ' + source);
 			},
-			onRestart(target, source) {
+			onFieldRestart(target, source) {
 				this.field.removePseudoWeather('magicroom');
 			},
 			// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
-			onResidualOrder: 25,
-			onEnd() {
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 6,
+			onFieldEnd() {
 				this.add('-fieldend', 'move: Magic Room', '[of] ' + this.effectState.source);
 			},
 		},
@@ -10996,9 +10998,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					this.add('-fieldstart', 'move: Misty Terrain');
 				}
 			},
-			onResidualOrder: 21,
-			onResidualSubOrder: 2,
-			onEnd(side) {
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
 				this.add('-fieldend', 'Misty Terrain');
 			},
 		},
@@ -11189,7 +11191,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pseudoWeather: 'mudsport',
 		condition: {
 			duration: 5,
-			onStart(side, source) {
+			onFieldStart(side, source) {
 				this.add('-fieldstart', 'move: Mud Sport', '[of] ' + source);
 			},
 			onBasePowerPriority: 1,
@@ -11199,8 +11201,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return this.chainModify([1352, 4096]);
 				}
 			},
-			onResidualOrder: 21,
-			onEnd() {
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
 				this.add('-fieldend', 'move: Mud Sport');
 			},
 		},
@@ -12866,9 +12869,9 @@ Water:		Scald`,
 					this.add('-fieldstart', 'move: Psychic Terrain');
 				}
 			},
-			onResidualOrder: 21,
-			onResidualSubOrder: 2,
-			onEnd() {
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
 				this.add('-fieldend', 'move: Psychic Terrain');
 			},
 		},
@@ -13914,7 +13917,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		},
 		condition: {
 			duration: 5,
-			onStart(target, source) {
+			onFieldStart(target, source) {
 				this.add('-fieldstart', 'move: Temporal Storm', '[silent]');
 				this.add('-message', "Dialga's Roar of Time creates a temporal upheaval!");
 			},
@@ -13929,7 +13932,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 					return null;
 				}
 			},
-			onEnd() {
+			onFieldEnd() {
 				this.add('-fieldend', 'Temporal Storm', '[silent]');
 				this.add('-message', 'Time returned to normal.');
 			},
@@ -16080,7 +16083,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		},
 		condition: {
 			duration: 5,
-			onStart(target, source) {
+			onFieldStart(target, source) {
 				this.add('-fieldstart', 'move: Spacial Disturbance', '[silent]');
 				this.add('-message', "Palkia's Spacial Rend distorted the fabric of space!");
 			},
@@ -16104,7 +16107,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 				if (move && !this.dex.getImmunity(move, type)) return 1;
 				return -typeMod;
 			},
-			onEnd() {
+			onFieldEnd() {
 				this.add('-fieldend', 'move: Spacial Disturbance', '[silent]');
 				this.add('-message', 'Space returned to normal.');
 			},
@@ -18502,15 +18505,16 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 				}
 				return 5;
 			},
-			onStart(target, source) {
+			onFieldStart(target, source) {
 				this.add('-fieldstart', 'move: Trick Room', '[of] ' + source);
 			},
-			onRestart(target, source) {
+			onFieldRestart(target, source) {
 				this.field.removePseudoWeather('trickroom');
 			},
 			// Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
-			onResidualOrder: 23,
-			onEnd() {
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
 				this.add('-fieldend', 'move: Trick Room');
 			},
 		},
@@ -19055,7 +19059,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		pseudoWeather: 'watersport',
 		condition: {
 			duration: 5,
-			onStart(side, source) {
+			onFieldStart(side, source) {
 				this.add('-fieldstart', 'move: Water Sport', '[of] ' + source);
 			},
 			onBasePowerPriority: 1,
@@ -19065,8 +19069,9 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 					return this.chainModify([1352, 4096]);
 				}
 			},
-			onResidualOrder: 21,
-			onEnd() {
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
 				this.add('-fieldend', 'move: Water Sport');
 			},
 		},
@@ -19373,7 +19378,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 				this.add('-fieldstart', 'move: Wonder Room', '[silent]');
 				this.add('-message', "Wonder Room created an area where type effectiveness is inverted!");
 			},
-			onRestart(target, source) {
+			onFieldRestart(target, source) {
 				this.field.removePseudoWeather('wonderroom');
 			},
 			// Swapping defenses partially implemented in sim/pokemon.js:Pokemon#calculateStat and Pokemon#getStat
