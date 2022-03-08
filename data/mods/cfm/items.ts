@@ -2519,7 +2519,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Dragon",
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (move.category === 'Physical' && source.hp && source.isActive) {
+			if (move.category === 'Physical' && source.hp && source.isActive && !source.hasAbility('magicguard')) {
 				if (target.eatItem()) {
 					this.damage(source.baseMaxhp / (target.hasAbility('ripen') ? 4 : 8), source, target);
 				}
@@ -4480,7 +4480,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Dark",
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (move.category === 'Special' && source.hp && source.isActive) {
+			if (move.category === 'Special' && source.hp && source.isActive && !source.hasAbility('magicguard')) {
 				if (target.eatItem()) {
 					this.damage(source.baseMaxhp / (target.hasAbility('ripen') ? 4 : 8), source, target);
 				}

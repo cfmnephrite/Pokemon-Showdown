@@ -523,10 +523,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, distance: 1},
-		onHit(pokemon, source, move) {
+		onHit(target, source, move) {
 			this.add('-activate', source, 'move: Aromatherapy');
 			let success = false;
-			for (const ally of pokemon.side.pokemon) {
+			const allies = [...target.side.pokemon, ...target.side.allySide?.pokemon || []];
+			for (const ally of allies) {
 				if (ally !== source && ((ally.hasAbility('sapsipper')) ||
 						(ally.volatiles['substitute'] && !move.infiltrates))) {
 					continue;
@@ -5592,6 +5593,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (success && !target.isAlly(source)) {
 				target.staleness = 'external';
 			}
+			if (!success) {
+				this.add('-fail', target, 'heal');
+				return this.NOT_FAIL;
+			}
 			return success;
 		},
 		secondary: null,
@@ -7149,11 +7154,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, sound: 1, distance: 1, bypasssub: 1},
-		onHit(pokemon, source) {
+		onHit(target, source) {
 			this.add('-activate', source, 'move: Heal Bell');
-			const side = pokemon.side;
 			let success = false;
-			for (const ally of side.pokemon) {
+			const allies = [...target.side.pokemon, ...target.side.allySide?.pokemon || []];
+			for (const ally of allies) {
 				if (ally !== source && ally.hasAbility('soundproof')) continue;
 				if (ally.cureStatus()) success = true;
 			}
@@ -7305,6 +7310,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 			if (success && !target.isAlly(source)) {
 				target.staleness = 'external';
+			}
+			if (!success) {
+				this.add('-fail', target, 'heal');
+				return this.NOT_FAIL;
 			}
 			return success;
 		},
@@ -11071,7 +11080,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				factor = 0.25;
 				break;
 			}
-			return !!this.heal(this.modify(pokemon.maxhp, factor));
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
 		},
 		secondary: null,
 		target: "self",
@@ -11102,7 +11116,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				factor = 0.25;
 				break;
 			}
-			return !!this.heal(this.modify(pokemon.maxhp, factor));
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
 		},
 		secondary: null,
 		target: "self",
@@ -12330,6 +12349,7 @@ Water:		Scald`,
 			if (source.isAlly(target)) {
 				if (!this.heal(Math.floor(target.baseMaxhp * 0.5))) {
 					this.add('-immune', target);
+					return this.NOT_FAIL;
 				}
 			}
 		},
@@ -13128,7 +13148,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, heal: 1},
 		onHit(target, source) {
-			if (!target.cureStatus()) return false;
+			if (!target.cureStatus()) return this.NOT_FAIL;
 			this.heal(Math.ceil(source.maxhp * 0.5), source);
 		},
 		secondary: null,
@@ -15087,7 +15107,12 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			if (this.field.isWeather('sandstorm')) {
 				factor = 0.667;
 			}
-			return !!this.heal(this.modify(pokemon.maxhp, factor));
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
 		},
 		secondary: null,
 		target: "self",
@@ -17319,9 +17344,10 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		},
 		onHit(pokemon) {
 			const healAmount = [0.25, 0.5, 1];
-			const healedBy = this.heal(this.modify(pokemon.maxhp, healAmount[(pokemon.volatiles['stockpile'].layers - 1)]));
+			const success = !!this.heal(this.modify(pokemon.maxhp, healAmount[(pokemon.volatiles['stockpile'].layers - 1)]));
+			if (!success) this.add('-fail', pokemon, 'heal');
 			pokemon.removeVolatile('stockpile');
-			return !!healedBy;
+			return success || this.NOT_FAIL;
 		},
 		secondary: null,
 		target: "self",
@@ -17498,7 +17524,12 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 				factor = 0.25;
 				break;
 			}
-			return !!this.heal(this.modify(pokemon.maxhp, factor));
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
 		},
 		secondary: null,
 		target: "self",

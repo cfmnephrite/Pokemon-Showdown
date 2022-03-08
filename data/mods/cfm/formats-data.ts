@@ -397,10 +397,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CLC",
 		inherit: true,
 	},
+	growlithehisui: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
 	arcanine: {
 		randomBattleMoves: ["closecombat", "crunch", "extremespeed", "flareblitz", "morningsun", "roar", "wildcharge", "willowisp"],
 		tier: "CRU",
 		inherit: true,
+	},
+	arcaninehisui: {
+		isNonstandard: "Future",
+		tier: "Illegal",
 	},
 	poliwag: {
 		isNonstandard: null,
@@ -692,10 +700,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CLC",
 		inherit: true,
 	},
+	voltorbhisui: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
 	electrode: {
 		isNonstandard: null,
 		tier: "CZU",
 		inherit: true,
+	},
+	electrodehisui: {
+		isNonstandard: "Future",
+		tier: "Illegal",
 	},
 	exeggcute: {
 		isNonstandard: null,
@@ -1163,6 +1179,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CPU",
 		inherit: true,
 	},
+	typhlosionhisui: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
 	totodile: {
 		isNonstandard: null,
 		tier: "CLC",
@@ -1425,6 +1445,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CPU",
 		inherit: true,
 	},
+	qwilfishhisui: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
 	shuckle: {
 		randomBattleMoves: ["encore", "infestation", "knockoff", "stealthrock", "stickyweb", "toxic"],
 		tier: "CNU",
@@ -1443,6 +1467,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sneasel: {
 		tier: "CRU",
 		inherit: true,
+	},
+	sneaselhisui: {
+		isNonstandard: "Future",
+		tier: "Illegal",
 	},
 	weavile: {
 		randomBattleMoves: ["iceshard", "iciclecrash", "lowkick", "swordsdance", "throatchop"],
@@ -2830,10 +2858,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CUb",
 		inherit: true,
 	},
+	dialgaorigin: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
 	palkia: {
 		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
+	},
+	palkiaorigin: {
+		isNonstandard: "Future",
+		tier: "Illegal",
 	},
 	heatran: {
 		isNonstandard: null,
@@ -3024,6 +3060,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		tier: "CNU",
 		inherit: true,
+	},
+	samurotthisui: {
+		isNonstandard: "Future",
+		tier: "Illegal",
 	},
 	patrat: {
 		isNonstandard: null,
@@ -3247,6 +3287,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CPU",
 		inherit: true,
 	},
+	lilliganthisui: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
 	basculin: {
 		randomBattleMoves: ["aquajet", "crunch", "headsmash", "liquidation", "psychicfangs"],
 		tier: "CNU",
@@ -3256,6 +3300,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["aquajet", "crunch", "headsmash", "liquidation", "psychicfangs"],
 		tier: "CNU",
 		inherit: true,
+	},
+	basculinwhitestriped: {
+		isNonstandard: "Future",
+		tier: "Illegal",
 	},
 	sandile: {
 		isNonstandard: null,
@@ -3377,10 +3425,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CLC",
 		inherit: true,
 	},
+	zoruahisui: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
 	zoroark: {
 		isNonstandard: null,
 		tier: "CRU",
 		inherit: true,
+	},
+	zoroarkhisui: {
+		isNonstandard: "Future",
+		tier: "Illegal",
 	},
 	minccino: {
 		tier: "CLC",
@@ -3647,6 +3703,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["bravebird", "bulkup", "closecombat", "crushclaw", "defog", "rockslide"],
 		tier: "CRU",
 		inherit: true,
+	},
+	braviaryhisui: {
+		isNonstandard: "Future",
+		tier: "Illegal",
 	},
 	vullaby: {
 		tier: "CLC",
@@ -4096,10 +4156,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 		inherit: true,
 	},
+	sliggoohisui: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
 	goodra: {
 		randomBattleMoves: ["earthquake", "fireblast", "irontail", "outrage", "powerwhip"],
 		tier: "CRU",
 		inherit: true,
+	},
+	goodrahisui: {
+		isNonstandard: "Future",
+		tier: "Illegal",
 	},
 	klefki: {
 		isNonstandard: null,
@@ -4159,6 +4227,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["avalanche", "earthquake", "rapidspin", "recover"],
 		tier: "CNU",
 		inherit: true,
+	},
+	avalugghisui: {
+		isNonstandard: "Future",
+		tier: "Illegal",
 	},
 	noibat: {
 		tier: "CLC",
@@ -4235,6 +4307,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["leafblade", "shadowsneak", "spiritshackle", "swordsdance", "uturn"],
 		tier: "CRU",
 		inherit: true,
+	},
+	decidueyehisui: {
+		isNonstandard: "Future",
+		tier: "Illegal",
 	},
 	litten: {
 		tier: "CLC",
@@ -5258,6 +5334,42 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	calyrexshadow: {
 		tier: "CUb",
 		inherit: true,
+	},
+	wyrdeer: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	kleavor: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	ursaluna: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	basculegion: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	basculegionf: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	sneasler: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	overqwil: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	enamorus: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	enamorustherian: {
+		isNonstandard: "Future",
+		tier: "Illegal",
 	},
 	missingno: {
 		isNonstandard: "Custom",
