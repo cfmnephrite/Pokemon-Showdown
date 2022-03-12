@@ -1723,7 +1723,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	linoonegalar: {
-		tier: "CZU",
+		tier: "CPU",
 		inherit: true,
 	},
 	obstagoon: {
