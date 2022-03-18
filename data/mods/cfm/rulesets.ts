@@ -1783,11 +1783,14 @@ export const Rulesets: {[k: string]: FormatData} = {
 				moltres:		{tier: 'OU', ability: 'drought'},
 				volcarona:		{tier: 'OU', ability: 'drought'},
 				heatran:		{tier: 'OU', ability: 'magmaarmor'},
+				mew:		    {tier: 'OU', ability: 'illusion'},
+				cinderace:      {tier: 'OU', ability: 'libero'},
 				// abilities - UU
 				blaziken:		{tier: 'UU', ability: 'speedboost'},
 				serperior:		{tier: 'UU', ability: 'contrary'},
 				diggersby:		{tier: 'UU', ability: 'hugepower'},
 				rillaboom:		{tier: 'UU', ability: 'grassysurge'},
+				arctozolt:      {tier: 'UU', ability: 'slushrush'},
 				// items
 				latias:			{tier: 'OU', item: 'souldew'},
 				latios:			{tier: 'OU', item: 'souldew'},
@@ -1796,7 +1799,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 				arceus:			{tier: 'Ub', move: 'hyperbeam'},
 				porygonz:		{tier: 'OU', move: 'hyperbeam'},
 				blastoisemega:	{tier: 'OU', move: 'shellsmash'},
-				mew:			{tier: 'OU', move: 'batonpass'},
+				alakazammega:   {tier: 'OU', move: 'nastyplot'},
 				snorlax:		{tier: 'UU', move: 'hyperbeam'},
 			};
 			if (!!complexBans[speciesRef] && allTiers[currTier] <= allTiers[complexBans[speciesRef].tier]) {

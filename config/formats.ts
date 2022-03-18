@@ -853,7 +853,7 @@ export const Formats: FormatList = [
 		mod: 'cfm',
 		// cfacTier: 'Uber',
 		ruleset: ['CFM Complex Bans', 'Baton Pass Clause', 'Mega Rayquaza Clause', 'Standard'],
-		banlist: ['CAG'],
+		banlist: ['CAG', 'Baton Pass'],
 	},
 	{
 		name: "[Gen 8] CFM OU",
@@ -861,7 +861,7 @@ export const Formats: FormatList = [
 		mod: 'cfm',
 		// cfacTier: 'OU',
 		ruleset: ['CFM Complex Bans', 'Baton Pass Clause', 'Standard'],
-		banlist: ['CUb', 'CAG', 'Power Construct', 'Arena Trap', 'Shadow Tag'],
+		banlist: ['CUb', 'CAG', 'Power Construct', 'Arena Trap', 'Shadow Tag', 'Baton Pass'],
 	},
 	{
 		name: "[Gen 8] CFM UU",

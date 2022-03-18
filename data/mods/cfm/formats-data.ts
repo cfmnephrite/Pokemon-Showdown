@@ -573,7 +573,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	magneton: {
 		isNonstandard: null,
-		tier: "CUU",
+		tier: "CRU",
 		inherit: true,
 	},
 	magnezone: {
@@ -753,7 +753,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	hitmonlee: {
 		randomBattleMoves: ["fakeout", "highjumpkick", "machpunch", "poisonjab", "rapidspin", "stoneedge", "throatchop"],
-		tier: "CRU",
+		tier: "CNU",
 		inherit: true,
 	},
 	hitmonchan: {
@@ -1989,7 +1989,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	manectricmega: {
 		isNonstandard: null,
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	plusle: {
@@ -3654,7 +3654,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	stunfiskgalar: {
 		randomBattleMoves: ["curse", "earthquake", "painsplit", "rockslide", "stealthrock"],
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	mienfoo: {
@@ -4722,7 +4722,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	mimikyubusted: {
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	mimikyutotem: {
@@ -4898,7 +4898,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zeraora: {
 		randomBattleMoves: ["bulkup", "closecombat", "grassknot", "plasmafists", "playrough", "voltswitch"],
-		tier: "CUU",
+		tier: "COU",
 		inherit: true,
 	},
 	meltan: {
@@ -4933,7 +4933,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	cinderace: {
 		randomBattleMoves: ["courtchange", "gunkshot", "highjumpkick", "ironhead", "pyroball", "uturn", "zenheadbutt"],
-		tier: "CUb",
+		tier: "CRU",
 		inherit: true,
 	},
 	sobble: {
@@ -5182,7 +5182,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	stonjourner: {
 		randomBattleMoves: ["earthquake", "heatcrash", "rockpolish", "stoneedge"],
-		tier: "CNU",
+		tier: "CPU",
 		inherit: true,
 	},
 	eiscue: {
@@ -5217,7 +5217,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	copperajah: {
 		randomBattleMoves: ["curse", "earthquake", "heavyslam", "ironhead", "powerwhip", "playrough", "rockslide", "stealthrock"],
-		tier: "CRU",
+		tier: "CNU",
 		inherit: true,
 	},
 	dracozolt: {
@@ -5316,7 +5316,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	glastrier: {
-		tier: "CUU",
+		tier: "CRU",
 		inherit: true,
 	},
 	spectrier: {

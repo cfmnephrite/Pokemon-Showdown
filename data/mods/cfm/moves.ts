@@ -4221,23 +4221,23 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
+		shortDesc: "Inverts the targets stat changes",
 		name: "Eerie Spell",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
-		secondary: {
-			chance: 100,
-			onHit(target) {
-				if (!target.hp) return;
-				let move: Move | ActiveMove | null = target.lastMove;
-				if (!move || move.isZ) return;
-				if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
-
-				const ppDeducted = target.deductPP(move.id, 3);
-				if (!ppDeducted) return;
-				this.add('-activate', target, 'move: Eerie Spell', move.name, ppDeducted);
-			},
+		onHit(target) {
+			let success = false;
+			let i: BoostID;
+			for (i in target.boosts) {
+				if (target.boosts[i] === 0) continue;
+				target.boosts[i] = -target.boosts[i];
+				success = true;
+			}
+			if (!success) return false;
+			this.add('-invertboost', target, '[from] move: Eerie Spell');
 		},
+		secondary: null,
 		target: "normal",
 		type: "Psychic",
 	},
@@ -7894,7 +7894,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 140,
 		category: "Physical",
-		shortDesc: "Lowers the user's Attack by 2. High crit chance. Fire-type if used by Rapidash.",
+		shortDesc: "Lowers the user's Attack by 2. High crit chance. Fire/Psychic type if used by Rapidash/Rapidash-G.",
 		name: "Horn Drill",
 		pp: 5,
 		priority: 0,
@@ -7907,6 +7907,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onModifyType(move, pokemon) {
 			if (pokemon.species.name === 'Rapidash') {
 				move.type = 'Fire';
+			}
+			if (pokemon.species.name === 'Rapidash-Galar') {
+				move.type = 'Psychic';
 			}
 		},
 		critRatio: 2,
@@ -10675,7 +10678,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Mind Blown",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, heal: 1},
 		drain: [1, 2],
 		hasCrashDamage: true,
 		onPrepareHit(target, source, move) {
@@ -16293,9 +16296,14 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasItem('heavydutyboots')) return;
-				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
-				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+				if (pokemon.hasItem('heavydutyboots')) {
+					const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+					this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 48);
+				}
+				if (!pokemon.hasItem('heavydutyboots')) {
+					const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+					this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+				}
 			},
 		},
 		secondary: null,
@@ -16562,9 +16570,14 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 				this.add('-sidestart', side, 'move: Stealth Rock');
 			},
 			onSwitchIn(pokemon) {
-				if (pokemon.hasItem('heavydutyboots')) return;
-				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 12);
+				if (pokemon.hasItem('heavydutyboots')) {
+					const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+					this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 24);
+				}
+				if (!pokemon.hasItem('heavydutyboots')) {
+					const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+					this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 12);
+				}
 			},
 		},
 		secondary: null,
@@ -17941,7 +17954,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Terrain Pulse",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, pulse: 1, mirror: 1},
 		onModifyType(move, pokemon) {
 			if (!pokemon.isGrounded()) return;
 			switch (this.field.terrain) {

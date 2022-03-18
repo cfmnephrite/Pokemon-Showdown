@@ -343,6 +343,23 @@
 "evs":{"hp":248,"atk":0,"def":8,"spa":0,"spd":252,"spe":0},
 "nature":["Calm"],
 "moves":[["Recover"],["Stealth Rock"],["Psycho Boost"],["Thunder Wave"]]}]},
+"deoxysspeed":{"flags":{},"sets":[
+
+{"species":"Deoxys-Speed",
+"gender":"",
+"item":"Life Orb",
+"ability":"Limber",
+"evs":{"hp":100,"atk":0,"def":0,"spa":252,"spd":0,"spe":156},
+"nature":["Modest"],
+"moves":[["Hyper Beam"],["Shadow Ball"],["Fire Blast","Focus Blast"],["Ice Beam"]]},
+
+{"species":"Deoxys-Speed",
+"gender":"",
+"item":"Light Clay",
+"ability":"Limber",
+"evs":{"hp":4,"atk":0,"def":252,"spa":0,"spd":252,"spe":0},
+"nature":["Timid"],
+"moves":[["Stealth Rock"],["Taunt"],["Reflect"],["Light Screen"]]}]},
 "dialga":{"flags":{},"sets":[
 
 {"species":"Dialga",

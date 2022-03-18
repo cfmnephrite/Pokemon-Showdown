@@ -2098,7 +2098,7 @@ export class Battle {
 		if (nature.plus) {
 			s = nature.plus;
 			const stat = this.ruleTable.has('overflowstatmod') ? Math.min(stats[s], 595) : stats[s];
-			stats[s] = tr(tr(stat * 110, 16) / 100);
+			stats[s] = Math.floor(stat * 1.1);
 		}
 		if (nature.minus) {
 			s = nature.minus;

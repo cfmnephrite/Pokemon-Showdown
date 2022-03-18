@@ -584,10 +584,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 238,
 	},
 	curiousmedicine: {
-		onStart(pokemon) {
-			for (const ally of pokemon.adjacentAllies()) {
-				ally.clearBoosts();
-				this.add('-clearboost', ally, '[from] ability: Curious Medicine', '[of] ' + pokemon);
+		shortDesc: "Clears all stat changes on switch in.",
+		onStart(source) {
+			this.add('-clearallboost');
+			for (const pokemon of this.getAllActive()) {
+				pokemon.clearBoosts();
 			}
 		},
 		name: "Curious Medicine",
@@ -1054,7 +1055,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		cfm: true,
 	},
 	filter: {
-		shortDesc: "Reduces super-effective damage taken by 25%; 50% if 2x super-effective.",
+		shortDesc: "This Pokémon receives 3/4 damage from supereffective attacks, 1/2 damage if 4x super-effective.",
 		onSourceModifyDamage(damage, source, target, move) {
 			const typeMod = target.getMoveHitData(move).typeMod;
 			if (typeMod > 0) {
@@ -3194,11 +3195,14 @@ Water: Water Absorb`,
 	},
 	prismarmor: {
 		desc: "This Pokemon receives 3/4 damage from supereffective attacks. Moongeist Beam, Sunsteel Strike, and the Mold Breaker, Teravolt, and Turboblaze Abilities cannot ignore this Ability.",
-		shortDesc: "This Pokemon receives 33% reduced damage from supereffective attacks.",
+		shortDesc: "3/4 damage on super effective hits, immune to secondary effects",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Prism Armor neutralize');
-				return this.chainModify(0.67);
+				return this.chainModify(0.75);
+			}
+			if (move.secondaries && !this.field.auraBreak()) {
+				delete move.secondaries;
 			}
 		},
 		name: "Prism Armor",
@@ -4081,7 +4085,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		cfm: true,
 	},
 	solidrock: {
-		shortDesc: "This Pokémon receives 3/4 damage from supereffective attacks; Rock +20%.",
+		shortDesc: "Receives 3/4 damage from supereffective attacks; Rock moves +20% damage",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Solid Rock neutralize');
