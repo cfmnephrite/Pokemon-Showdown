@@ -15,7 +15,7 @@ describe('CFM - Factory Validator', function () {
 		}
 	});
 	it('Validate all factory sets', function () {
-		let illegalSets = `\nCFM FACTORY ILLEGAL SETS\n\n`, illegalSetsFound = false, i = 0;
+		let illegalSets = `\nCFM FACTORY ILLEGAL SETS\n\n`, illegalSetsFound = false;
 		const tiers = {'Uber': 'ubers', 'OU': 'ou', 'UU': 'uu', 'RU': 'ru', 'NU': 'nu', 'PU': 'pu', 'ZU': 'zu'};
 		for (const tier in factorySets) {
 			illegalSets += `\\\\ ${tier} \\\\\n\n`;

@@ -1,5 +1,24 @@
+import {getCategoryCFM} from './cfm-helpers';
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 8,
+	natureModify(stats: StatsTable, set: PokemonSet): StatsTable {
+		// Natures are calculated with 16-bit truncation.
+		// This only affects Eternatus-Eternamax in Pure Hackmons.
+		const tr = this.trunc;
+		const nature = this.dex.natures.get(set.nature);
+		let s: StatIDExceptHP;
+		if (nature.plus) {
+			s = nature.plus;
+			const stat = this.ruleTable.has('overflowstatmod') ? Math.min(stats[s], 595) : stats[s];
+			stats[s] = Math.floor(stat * 1.1);
+		}
+		if (nature.minus) {
+			s = nature.minus;
+			const stat = this.ruleTable.has('overflowstatmod') ? Math.min(stats[s], 728) : stats[s];
+			stats[s] = Math.floor(stat * 0.9);
+		}
+		return stats;
+	},
 
 	/**
 	 * runMove is the "outside" move caller. It handles deducting PP,
@@ -135,16 +154,16 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 
 		getZMove(move, pokemon, skipChecks) {
-			const getEffectiveType = (move: string | Move, pokemon: Pokemon | null = null): string => {
-				// For calculating Z Moves - calculates what the effective type of a move should be not taking Aura Break into account
-				if (typeof move === 'string') move = this.dex.moves.get(move);
-				if (['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast',
-					'weatherball'].includes(move.id) || pokemon === null) return move.type;
-				else if (pokemon.getAbility().ate && move.type === 'Normal') return pokemon.getAbility().ate!;
-				else if (move.flags['omnitype'] || (pokemon.hasAbility('powerofalchemy') &&
-				move.id === pokemon.moveSlots[0].id)) return pokemon.getTypes()[0];
-				else return move.type;
-			}, item = pokemon.getItem(), type = getEffectiveType(move, pokemon);
+			const getEffectiveType = (_move: string | Move, _pokemon: Pokemon | null = null): string => {
+					// For calculating Z Moves - calculates what the effective type of a _move should be not taking Aura Break into account
+					if (typeof _move === 'string') _move = this.dex.moves.get(_move);
+					if (['hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'technoblast',
+						'weatherball'].includes(_move.id) || _pokemon === null) return _move.type;
+					else if (_pokemon.getAbility().ate && _move.type === 'Normal') return _pokemon.getAbility().ate!;
+					else if (_move.flags['omnitype'] || (_pokemon.hasAbility('powerofalchemy') &&
+					_move.id === _pokemon.moveSlots[0].id)) return _pokemon.getTypes()[0];
+					else return _move.type;
+				}, item = pokemon.getItem(), type = getEffectiveType(move, pokemon);
 			if (!skipChecks) {
 				if (pokemon.side.zMoveUsed) return;
 				if (!item.zMove) return;
@@ -162,7 +181,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (item.itemUser && !item.itemUser.includes(pokemon.species.name)) return;
 				if (item.zMoveFrom && move.name !== item.zMoveFrom) return;
 				if (item.zMoveType && type !== item.zMoveType) return;
-				if (item.zMoveCategory && this.battle.getCategory(move, pokemon) !== item.zMoveCategory) return;
+				if (item.zMoveCategory && getCategoryCFM(move, pokemon) !== item.zMoveCategory) return;
 				return item.zMove;
 			} else if (item.zMove === true) {
 				if (type === item.zMoveType) {

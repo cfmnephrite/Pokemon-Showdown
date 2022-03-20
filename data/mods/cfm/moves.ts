@@ -25,6 +25,7 @@ snatch: Can be stolen from the original user and instead used by another Pokemon
 sound: Has no effect on Pokemon with the Soundproof Ability.
 
 */
+import {getCategoryCFM} from './cfm-helpers';
 export const Moves: {[moveid: string]: ModdedMoveData} = {
 	"10000000voltthunderbolt": {
 		num: 719,
@@ -823,8 +824,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onAnyModifyDamage(damage, source, target, move) {
 				if (target !== source && this.effectState.target.hasAlly(target)) {
-					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
-							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
+					if ((target.side.getSideCondition('reflect') && getCategoryCFM(move, source) === 'Physical') ||
+							(target.side.getSideCondition('lightscreen') && getCategoryCFM(move, source) === 'Special')) {
 						return;
 					}
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
@@ -2719,7 +2720,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return this.getAtSlot(this.effectState.slot);
 			},
 			onDamagingHit(damage, target, source, move) {
-				if (source.side !== target.side && this.getCategory(move, source) === 'Physical') {
+				if (source.side !== target.side && getCategoryCFM(move, source) === 'Physical') {
 					this.effectState.position = source.position;
 					this.effectState.damage = 2 * damage;
 				}
@@ -9222,7 +9223,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && this.effectState.target.hasAlly(target) && this.getCategory(move) === 'Special') {
+				if (target !== source && this.effectState.target.hasAlly(target) && getCategoryCFM(move, source) === 'Special') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Light Screen weaken');
 						if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
@@ -10820,7 +10821,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return this.getAtSlot(this.effectState.slot);
 			},
 			onDamagingHit(damage, target, source, move) {
-				if (!source.isAlly(target) && this.getCategory(move) === 'Special') {
+				if (!source.isAlly(target) && getCategoryCFM(move, source) === 'Special') {
 					this.effectState.slot = source.getSlot();
 					this.effectState.damage = 2 * damage;
 				}
@@ -13602,7 +13603,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && this.effectState.target.hasAlly(target) && this.getCategory(move) === 'Physical') {
+				if (target !== source && this.effectState.target.hasAlly(target) && getCategoryCFM(move, source) === 'Physical') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Reflect weaken');
 						if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);

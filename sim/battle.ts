@@ -2050,18 +2050,6 @@ export class Battle {
 		return tr((tr(value * modifier) + 2048 - 1) / 4096);
 	}
 
-	getCategory(move: string | Move, source: Pokemon | null = null) {
-		const dexMove = this.dex.moves.get(move);
-		let output = dexMove.category || 'Physical';
-		if (source && dexMove.flags['magic']) {
-			if (dexMove.overrideOffensiveStat === 'def' && source.getStat('spd') > source.getStat('def')) output = 'Special';
-			else if (dexMove.overrideOffensiveStat === 'spd' && source.getStat('def') > source.getStat('spd')) output = 'Physical';
-			else if (output === 'Physical' && source.getStat('spa') > source.getStat('atk')) output = 'Special';
-			else if (output === 'Special' && source.getStat('atk') > source.getStat('spa')) output = 'Physical';
-		}
-		return output;
-	}
-
 	/** Given a table of base stats and a pokemon set, return the actual stats. */
 	spreadModify(baseStats: StatsTable, set: PokemonSet): StatsTable {
 		const modStats: SparseStatsTable = {atk: 10, def: 10, spa: 10, spd: 10, spe: 10};
@@ -2087,7 +2075,7 @@ export class Battle {
 		if (nature.plus) {
 			s = nature.plus;
 			const stat = this.ruleTable.has('overflowstatmod') ? Math.min(stats[s], 595) : stats[s];
-			stats[s] = Math.floor(stat * 1.1);
+			stats[s] = tr(tr(stat * 110, 16) / 100);
 		}
 		if (nature.minus) {
 			s = nature.minus;
@@ -2101,6 +2089,10 @@ export class Battle {
 		relayVar = this.modify(relayVar, this.event.modifier);
 		this.event.modifier = 1;
 		return relayVar;
+	}
+
+	getCategory(move: string | Move) {
+		return this.dex.moves.get(move).category || 'Physical';
 	}
 
 	randomizer(baseDamage: number) {
