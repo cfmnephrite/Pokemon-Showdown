@@ -497,7 +497,7 @@ export class Pokemon {
 		let stat = this.storedStats[statName];
 
 		// Wonder Room swaps defenses before calculating anything else
-		if ('wonderroom' in this.battle.field.pseudoWeather && this.battle.format.mod !== 'cfm') {
+		if ('wonderroom' in this.battle.field.pseudoWeather) {
 			if (statName === 'def') {
 				stat = this.storedStats['spd'];
 			} else if (statName === 'spd') {
@@ -534,7 +534,7 @@ export class Pokemon {
 
 		// Download ignores Wonder Room's effect, but this results in
 		// stat stages being calculated on the opposite defensive stat
-		if (unmodified && 'wonderroom' in this.battle.field.pseudoWeather && this.battle.format.mod !== 'cfm') {
+		if (unmodified && 'wonderroom' in this.battle.field.pseudoWeather) {
 			if (statName === 'def') {
 				statName = 'spd';
 			} else if (statName === 'spd') {
@@ -568,7 +568,7 @@ export class Pokemon {
 
 	getActionSpeed() {
 		let speed = this.getStat('spe', false, false);
-		if (this.battle.field.getPseudoWeather('trickroom') || this.battle.field.getPseudoWeather('roaroftime')) {
+		if (this.battle.field.getPseudoWeather('trickroom')) {
 			speed = 10000 - speed;
 		}
 		return this.battle.trunc(speed, 13);
@@ -1906,17 +1906,9 @@ export class Pokemon {
 		if ('smackdown' in this.volatiles) return true;
 		const item = (this.ignoringItem() ? '' : this.item);
 		if (item === 'ironball') return true;
-		if (this.battle.dex.currentMod === 'cfm'){
-			if (item === 'floatstone') return false;
-			if (!negateImmunity && this.species.levitates){
-				if (['frz', 'par', 'slp'].includes(this.getStatus().id) || 'roost' in this.volatiles) return true;
-				else return false;
-			}
-		} else {
-			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
-			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
-			if (this.hasAbility('levitate') && !this.battle.suppressingAbility()) return null;
-		}
+		// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
+		if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
+		if (this.hasAbility('levitate') && !this.battle.suppressingAbility()) return null;
 		if ('magnetrise' in this.volatiles) return false;
 		if ('telekinesis' in this.volatiles) return false;
 		return item !== 'airballoon';
@@ -1969,9 +1961,6 @@ export class Pokemon {
 			typeMod = this.battle.singleEvent('Effectiveness', move, null, this, type, move, typeMod);
 			totalTypeMod += this.battle.runEvent('Effectiveness', this, type, move, typeMod);
 		}
-		if (this.battle.dex.currentMod === 'cfm' && move.type === 'Ground' && !this.isGrounded() && totalTypeMod > 0)
-			totalTypeMod = 0;
-
 		return totalTypeMod;
 	}
 
@@ -1984,10 +1973,8 @@ export class Pokemon {
 		if (this.fainted) return false;
 
 		const negateImmunity = !this.battle.runEvent('NegateImmunity', this, type);
-		// CFM - anti-air moves are Ground-type moves that can hit levitating mons for at most neutral damage
-		const antiAirMove = this.battle.activeMove ? this.battle.dex.moves.get(this.battle.activeMove.id).flags['antiair'] : true;
 		const notImmune = type === 'Ground' ?
-			(this.isGrounded(negateImmunity) || antiAirMove) :
+			this.isGrounded(negateImmunity) :
 			negateImmunity || this.battle.dex.getImmunity(type, this);
 		if (notImmune) return true;
 		if (!message) return false;

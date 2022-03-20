@@ -1527,7 +1527,7 @@ export class BattleActions {
 			return move.damage;
 		}
 
-		const category = this.battle.getCategory(move, source);
+		const category = this.battle.getCategory(move);
 
 		let basePower: number | false | null = move.basePower;
 		if (move.basePowerCallback) {
@@ -1577,9 +1577,9 @@ export class BattleActions {
 		const attacker = move.overrideOffensivePokemon === 'target' ? target : source;
 		const defender = move.overrideDefensivePokemon === 'source' ? source : target;
 
-		const isPhysical = category === 'Physical';
-		let attackStat: StatIDExceptHP = move.overrideOffensiveStat ? (isPhysical ? 'def' : 'spd') : (isPhysical ? 'atk' : 'spa');
-		let defenseStat: StatIDExceptHP = move.overrideDefensiveStat || (isPhysical ? 'def' : 'spd');
+		const isPhysical = move.category === 'Physical';
+		let attackStat: StatIDExceptHP = move.overrideOffensiveStat || (isPhysical ? 'atk' : 'spa');
+		const defenseStat: StatIDExceptHP = move.overrideDefensiveStat || (isPhysical ? 'def' : 'spd');
 
 		const statTable = {atk: 'Atk', def: 'Def', spa: 'SpA', spd: 'SpD', spe: 'Spe'};
 

@@ -32,6 +32,143 @@ export const Scripts: ModdedBattleScriptsData = {
 	 * Dancer.
 	 */
 	actions: {
+		/**
+		 * 0 is a success dealing 0 damage, such as from False Swipe at 1 HP.
+		 *
+		 * Normal PS return value rules apply:
+		 * undefined = success, null = silent failure, false = loud failure
+		 */
+		 getDamage(
+			source: Pokemon, target: Pokemon, move: string | number | ActiveMove,
+			suppressMessages = false
+		): number | undefined | null | false {
+			if (typeof move === 'string') move = this.dex.getActiveMove(move);
+	
+			if (typeof move === 'number') {
+				const basePower = move;
+				move = new Dex.Move({
+					basePower,
+					type: '???',
+					category: 'Physical',
+					willCrit: false,
+				}) as ActiveMove;
+				move.hit = 0;
+			}
+	
+			if (!move.ignoreImmunity || (move.ignoreImmunity !== true && !move.ignoreImmunity[move.type])) {
+				if (!target.runImmunity(move.type, !suppressMessages)) {
+					return false;
+				}
+			}
+	
+			if (move.ohko) return target.maxhp;
+			if (move.damageCallback) return move.damageCallback.call(this.battle, source, target);
+			if (move.damage === 'level') {
+				return source.level;
+			} else if (move.damage) {
+				return move.damage;
+			}
+	
+			const category = getCategoryCFM(move, source);
+	
+			let basePower: number | false | null = move.basePower;
+			if (move.basePowerCallback) {
+				basePower = move.basePowerCallback.call(this.battle, source, target, move);
+			}
+			if (!basePower) return basePower === 0 ? undefined : basePower;
+			basePower = this.battle.clampIntRange(basePower, 1);
+	
+			let critMult;
+			let critRatio = this.battle.runEvent('ModifyCritRatio', source, target, move, move.critRatio || 0);
+			if (this.battle.gen <= 5) {
+				critRatio = this.battle.clampIntRange(critRatio, 0, 5);
+				critMult = [0, 16, 8, 4, 3, 2];
+			} else {
+				critRatio = this.battle.clampIntRange(critRatio, 0, 4);
+				if (this.battle.gen === 6) {
+					critMult = [0, 16, 8, 2, 1];
+				} else {
+					critMult = [0, 24, 8, 2, 1];
+				}
+			}
+	
+			const moveHit = target.getMoveHitData(move);
+			moveHit.crit = move.willCrit || false;
+			if (move.willCrit === undefined) {
+				if (critRatio) {
+					moveHit.crit = this.battle.randomChance(1, critMult[critRatio]);
+				}
+			}
+	
+			if (moveHit.crit) {
+				moveHit.crit = this.battle.runEvent('CriticalHit', target, null, move);
+			}
+	
+			// happens after crit calculation
+			basePower = this.battle.runEvent('BasePower', source, target, move, basePower, true);
+	
+			if (!basePower) return 0;
+			basePower = this.battle.clampIntRange(basePower, 1);
+			// Hacked Max Moves have 0 base power, even if you Dynamax
+			if ((!source.volatiles['dynamax'] && move.isMax) || (move.isMax && this.dex.moves.get(move.baseMove).isMax)) {
+				basePower = 0;
+			}
+	
+			const level = source.level;
+	
+			const attacker = move.overrideOffensivePokemon === 'target' ? target : source;
+			const defender = move.overrideDefensivePokemon === 'source' ? source : target;
+
+			const isPhysical = category === 'Physical';
+			let attackStat: StatIDExceptHP = move.overrideOffensiveStat ? (isPhysical ? 'def' : 'spd') : (isPhysical ? 'atk' : 'spa');
+			const defenseStat: StatIDExceptHP = move.overrideDefensiveStat || (isPhysical ? 'def' : 'spd');
+	
+			const statTable = {atk: 'Atk', def: 'Def', spa: 'SpA', spd: 'SpD', spe: 'Spe'};
+	
+			let atkBoosts = attacker.boosts[attackStat];
+			let defBoosts = defender.boosts[defenseStat];
+	
+			let ignoreNegativeOffensive = !!move.ignoreNegativeOffensive;
+			let ignorePositiveDefensive = !!move.ignorePositiveDefensive;
+	
+			if (moveHit.crit) {
+				ignoreNegativeOffensive = true;
+				ignorePositiveDefensive = true;
+			}
+			const ignoreOffensive = !!(move.ignoreOffensive || (ignoreNegativeOffensive && atkBoosts < 0));
+			const ignoreDefensive = !!(move.ignoreDefensive || (ignorePositiveDefensive && defBoosts > 0));
+	
+			if (ignoreOffensive) {
+				this.battle.debug('Negating (sp)atk boost/penalty.');
+				atkBoosts = 0;
+			}
+			if (ignoreDefensive) {
+				this.battle.debug('Negating (sp)def boost/penalty.');
+				defBoosts = 0;
+			}
+	
+			let attack = attacker.calculateStat(attackStat, atkBoosts);
+			let defense = defender.calculateStat(defenseStat, defBoosts);
+	
+			attackStat = (category === 'Physical' ? 'atk' : 'spa');
+	
+			// Apply Stat Modifiers
+			attack = this.battle.runEvent('Modify' + statTable[attackStat], source, target, move, attack);
+			defense = this.battle.runEvent('Modify' + statTable[defenseStat], target, source, move, defense);
+	
+			if (this.battle.gen <= 4 && ['explosion', 'selfdestruct'].includes(move.id) && defenseStat === 'def') {
+				defense = this.battle.clampIntRange(Math.floor(defense / 2), 1);
+			}
+	
+			const tr = this.battle.trunc;
+	
+			// int(int(int(2 * L / 5 + 2) * A * P / D) / 50);
+			const baseDamage = tr(tr(tr(tr(2 * level / 5 + 2) * basePower * attack) / defense) / 50);
+	
+			// Calculate damage modifiers separately (order differs between generations)
+			return this.modifyDamage(baseDamage, source, target, move, suppressMessages);
+		},
+
 		runMove(
 			moveOrMoveName: Move | string, pokemon: Pokemon, targetLoc: number, sourceEffect?: Effect | null,
 			zMove?: string, externalMove?: boolean, maxMove?: string, originalTarget?: Pokemon
@@ -316,4 +453,144 @@ export const Scripts: ModdedBattleScriptsData = {
 			return undefined;
 		},
 	},
+	pokemon: {
+		calculateStat(statName: StatIDExceptHP, boost: number, modifier?: number) {
+			statName = toID(statName) as StatIDExceptHP;
+			// @ts-ignore - type checking prevents 'hp' from being passed, but we're paranoid
+			if (statName === 'hp') throw new Error("Please read `maxhp` directly");
+
+			// base stat
+			let stat = this.storedStats[statName];
+
+			// DOESN'T SWAP DEFENCES IN CFM
+			// Wonder Room swaps defenses before calculating anything else
+			// if ('wonderroom' in this.battle.field.pseudoWeather) {
+			// 	if (statName === 'def') {
+			// 		stat = this.storedStats['spd'];
+			// 	} else if (statName === 'spd') {
+			// 		stat = this.storedStats['def'];
+			// 	}
+			// }
+
+			// stat boosts
+			let boosts: SparseBoostsTable = {};
+			const boostName = statName as BoostID;
+			boosts[boostName] = boost;
+			boosts = this.battle.runEvent('ModifyBoost', this, null, null, boosts);
+			boost = boosts[boostName]!;
+			const boostTable = [1, 1.5, 2, 2.5, 3, 3.5, 4];
+			if (boost > 6) boost = 6;
+			if (boost < -6) boost = -6;
+			if (boost >= 0) {
+				stat = Math.floor(stat * boostTable[boost]);
+			} else {
+				stat = Math.floor(stat / boostTable[-boost]);
+			}
+
+			// stat modifier
+			return this.battle.modify(stat, (modifier || 1));
+		},
+
+		getStat(statName: StatIDExceptHP, unboosted?: boolean, unmodified?: boolean) {
+			statName = toID(statName) as StatIDExceptHP;
+			// @ts-ignore - type checking prevents 'hp' from being passed, but we're paranoid
+			if (statName === 'hp') throw new Error("Please read `maxhp` directly");
+
+			// base stat
+			let stat = this.storedStats[statName];
+
+			// DOESN'T SWAP DEFENCES IN CFM
+			// Download ignores Wonder Room's effect, but this results in
+			// stat stages being calculated on the opposite defensive stat
+			// if (unmodified && 'wonderroom' in this.battle.field.pseudoWeather) {
+			// 	if (statName === 'def') {
+			// 		statName = 'spd';
+			// 	} else if (statName === 'spd') {
+			// 		statName = 'def';
+			// 	}
+			// }
+
+			// stat boosts
+			if (!unboosted) {
+				const boosts = this.battle.runEvent('ModifyBoost', this, null, null, {...this.boosts});
+				let boost = boosts[statName];
+				const boostTable = [1, 1.5, 2, 2.5, 3, 3.5, 4];
+				if (boost > 6) boost = 6;
+				if (boost < -6) boost = -6;
+				if (boost >= 0) {
+					stat = Math.floor(stat * boostTable[boost]);
+				} else {
+					stat = Math.floor(stat / boostTable[-boost]);
+				}
+			}
+
+			// stat modifier effects
+			if (!unmodified) {
+				const statTable: {[s in StatIDExceptHP]: string} = {atk: 'Atk', def: 'Def', spa: 'SpA', spd: 'SpD', spe: 'Spe'};
+				stat = this.battle.runEvent('Modify' + statTable[statName], this, null, null, stat);
+			}
+
+			if (statName === 'spe' && stat > 10000 && !this.battle.format.battle?.trunc) stat = 10000;
+			return stat;
+		},
+
+		getActionSpeed() {
+			let speed = this.getStat('spe', false, false);
+			if (this.battle.field.getPseudoWeather('trickroom') || this.battle.field.getPseudoWeather('roaroftime')) {
+				speed = 10000 - speed;
+			}
+			return this.battle.trunc(speed, 13);
+		},
+
+		isGrounded(negateImmunity = false) {
+			if ('gravity' in this.battle.field.pseudoWeather) return true;
+			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
+			if ('smackdown' in this.volatiles) return true;
+			const item = (this.ignoringItem() ? '' : this.item);
+			if (item === 'ironball') return true;
+			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
+			if (this.species.levitates && !('roost' in this.volatiles)) return false;
+			if (['frz', 'par', 'slp'].includes(this.getStatus().id) && item !== 'floatstone') return true;
+			if ('magnetrise' in this.volatiles) return false;
+			if ('telekinesis' in this.volatiles) return false;
+			return item !== 'airballoon';
+		},
+
+		runEffectiveness(move: ActiveMove) {
+			let totalTypeMod = 0;
+			for (const type of this.getTypes()) {
+				let typeMod = this.battle.dex.getEffectiveness(move, type);
+				typeMod = this.battle.singleEvent('Effectiveness', move, null, this, type, move, typeMod);
+				totalTypeMod += this.battle.runEvent('Effectiveness', this, type, move, typeMod);
+			}
+			if (move.type === 'Ground' && !this.isGrounded() && totalTypeMod > 0)
+				totalTypeMod = 0;
+
+			return totalTypeMod;
+		},
+
+		/** false = immune, true = not immune */
+		runImmunity(type: string, message?: string | boolean) {
+			if (!type || type === '???') return true;
+			if (!this.battle.dex.types.isName(type)) {
+				throw new Error("Use runStatusImmunity for " + type);
+			}
+			if (this.fainted) return false;
+
+			const negateImmunity = !this.battle.runEvent('NegateImmunity', this, type);
+			// CFM - anti-air moves are Ground-type moves that can hit levitating mons for at most neutral damage
+			const antiAirMove = this.battle.activeMove ? this.battle.dex.moves.get(this.battle.activeMove.id).flags['antiair'] : true;
+			const notImmune = type === 'Ground' ?
+				(this.isGrounded(negateImmunity) || antiAirMove) :
+				negateImmunity || this.battle.dex.getImmunity(type, this);
+			if (notImmune) return true;
+			if (!message) return false;
+			if (notImmune === null) {
+				this.battle.add('-immune', this, '[from] ability: Levitate');
+			} else {
+				this.battle.add('-immune', this);
+			}
+			return false;
+		}
+	}
 };

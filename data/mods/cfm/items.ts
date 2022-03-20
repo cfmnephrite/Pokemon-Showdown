@@ -1767,7 +1767,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 539,
 		gen: 5,
-		shortDesc: "Halves weight; prevents an airborne holder from becoming grounded.",
+		shortDesc: "Halves weight; prevents an airborne holder from becoming grounded by status.",
 	},
 	flowersweet: {
 		name: "Flower Sweet",
