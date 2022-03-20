@@ -640,7 +640,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onEffectiveness(typeMod, target, type, move) {
-			if (this.getEffectiveType(move) === 'Fire' && typeMod > 0)
+			if (move.type === 'Fire' && typeMod > 0)
 				return -1;
 		},
 		onSetStatus(status, target, source, effect) {

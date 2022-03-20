@@ -855,7 +855,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	carnivine: {
 		name: 'Carnivine',
 		onEffectiveness(typeMod, target, type, move) {
-			if (['Bug', 'Flying'].includes(this.getEffectiveType(move)) &&
+			if (['Bug', 'Flying'].includes(move.type) &&
 				target?.moveSlots?.map(moveSlot => moveSlot.id).includes(this.toID('snaptrap')))
 				return Math.min(-1, typeMod);
 		},
