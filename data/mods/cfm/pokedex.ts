@@ -276,7 +276,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 7,
 		evos: ["Beedrill"],
 		eggGroups: ["Bug"],
-		cfmMoves: ["agility", "batonpass", "defog", "infestation", "irondefense", "nightshade", "poisonjab", "rest", "skittersmack", "sleeptalk", "sunnyday", "toxic"],
+		cfmMoves: ["agility", "curse", "defog", "infestation", "irondefense", "nightshade", "poisonjab", "rest", "skittersmack", "sleeptalk", "sunnyday", "toxic"],
 	},
 	beedrill: {
 		num: 15,
@@ -969,7 +969,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Venonat",
 		evoLevel: 31,
 		eggGroups: ["Bug"],
-		cfmMoves: ["batonpass", "bugbuzz", "defog", "gigadrain", "leechlife", "poisonfang", "powder", "quiverdance", "sleeppowder", "sludgewave", "toxic", "uturn"],
+		cfmMoves: ["bugbuzz", "defog", "gigadrain", "leechlife", "poisonfang", "powder", "quiverdance", "sleeppowder", "sludgewave", "stunspore", "toxic", "uturn"],
 	},
 	diglett: {
 		num: 50,
@@ -3208,7 +3208,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Sentret",
 		evoLevel: 15,
 		eggGroups: ["Field"],
-		cfmMoves: ["batonpass", "blizzard", "bodyslam", "calmmind", "coil", "dynamicpunch", "focusblast", "hypervoice", "knockoff", "suckerpunch", "thunder", "uturn"],
+		cfmMoves: ["agility", "blizzard", "bodyslam", "calmmind", "coil", "dynamicpunch", "focusblast", "hypervoice", "knockoff", "suckerpunch", "thunder", "uturn"],
 	},
 	hoothoot: {
 		num: 163,
@@ -3859,7 +3859,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 41.5,
 		color: "Yellow",
 		eggGroups: ["Field"],
-		cfmMoves: ["batonpass", "crunch", "darkpulse", "dreameater", "focusblast", "highhorsepower", "jumpkick", "nastyplot", "psychic", "psyshock", "suckerpunch", "swordsdance"],
+		cfmMoves: ["crunch", "darkpulse", "dreameater", "focusblast", "highhorsepower", "jumpkick", "nastyplot", "psychic", "psyshock", "suckerpunch", "swordsdance", "zenheadbutt"],
 	},
 	pineco: {
 		num: 204,
@@ -5716,7 +5716,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 4.2,
 		color: "Yellow",
 		eggGroups: ["Fairy"],
-		cfmMoves: ["agility", "batonpass", "chargebeam", "encore", "grassknot", "nastyplot", "nuzzle", "shockwave", "switcheroo", "thunder", "voltswitch", "wish"],
+		cfmMoves: ["agility", "chargebeam", "encore", "grassknot", "nastyplot", "nuzzle", "raindance", "shockwave", "switcheroo", "thunder", "voltswitch", "wish"],
 	},
 	volbeat: {
 		num: 313,
@@ -5955,7 +5955,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 5,
 		color: "Brown",
 		eggGroups: ["Field", "Human-Like"],
-		cfmMoves: ["batonpass", "boomburst", "darkpulse", "firepunch", "icepunch", "knockoff", "nastyplot", "rapidspin", "suckerpunch", "superpower", "synchronoise", "thunderpunch"],
+		cfmMoves: ["boomburst", "darkpulse", "firepunch", "icepunch", "knockoff", "nastyplot", "rapidspin", "suckerpunch", "superpower", "synchronoise", "thunderpunch", "uturn"],
 	},
 	trapinch: {
 		num: 328,
@@ -6637,7 +6637,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoItem: "Deep Sea Tooth",
 		eggGroups: ["Water 1"],
-		cfmMoves: ["aquatail", "batonpass", "coil", "crunch", "hydropump", "icefang", "liquidation", "pursuit", "scald", "shellsmash", "suckerpunch", "superfang"],
+		cfmMoves: ["aquajet", "aquatail", "coil", "crunch", "hydropump", "icefang", "liquidation", "pursuit", "raindance", "scald", "shellsmash", "suckerpunch"],
 	},
 	gorebyss: {
 		num: 368,
@@ -6652,7 +6652,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 		evoItem: "Deep Sea Scale",
 		eggGroups: ["Water 1"],
-		cfmMoves: ["agility", "aquajet", "aquatail", "batonpass", "calmmind", "dreameater", "gigadrain", "hydropump", "psyshock", "scald", "shellsmash", "zenheadbutt"],
+		cfmMoves: ["agility", "aquajet", "aquatail", "calmmind", "dreameater", "gigadrain", "hydropump", "psyshock", "raindance", "scald", "shellsmash", "zenheadbutt"],
 	},
 	relicanth: {
 		num: 369,
@@ -10817,7 +10817,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "White",
 		eggGroups: ["Field"],
-		cfmMoves: ["batonpass", "bulkup", "chargebeam", "encore", "hypervoice", "knockoff", "pursuit", "quickattack", "shockwave", "taunt", "thunder", "volttackle"],
+		cfmMoves: ["airslash", "bulkup", "chargebeam", "encore", "hypervoice", "knockoff", "pursuit", "quickattack", "shockwave", "taunt", "thunder", "volttackle"],
 	},
 	karrablast: {
 		num: 588,
@@ -11484,7 +11484,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 33,
 		color: "Gray",
 		eggGroups: ["Bug"],
-		cfmMoves: ["batonpass", "bugbuzz", "chargebeam", "crunch", "flashcannon", "guillotine", "honeclaws", "ironhead", "rockslide", "superpower", "thunderfang", "xscissor"],
+		cfmMoves: ["bugbuzz", "chargebeam", "crunch", "firstimpression", "flashcannon", "guillotine", "honeclaws", "ironhead", "rockslide", "superpower", "thunderfang", "xscissor"],
 	},
 	deino: {
 		num: 633,

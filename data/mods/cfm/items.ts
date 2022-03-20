@@ -2286,7 +2286,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	heavydutyboots: {
 		name: "Heavy-Duty Boots",
 		spritenum: 715,
-		shortDesc: "Halves damage from Stealth Rock and Spikes, immunity to Sticky Web",
+		shortDesc: "Halves damage from Stealth Rock and Spikes; grants immunity to Sticky Web.",
 		fling: {
 			basePower: 80,
 		},

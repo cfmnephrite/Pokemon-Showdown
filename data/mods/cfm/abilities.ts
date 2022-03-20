@@ -584,7 +584,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 238,
 	},
 	curiousmedicine: {
-		shortDesc: "Clears all stat changes on switch in.",
+		shortDesc: "Clears all stat changes on switch-in.",
 		onStart(source) {
 			this.add('-clearallboost');
 			for (const pokemon of this.getAllActive()) {
@@ -594,6 +594,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Curious Medicine",
 		rating: 0,
 		num: 261,
+		cfm: true,
 	},
 	cursedbody: {
 		desc: "If this Pokemon is hit by an attack, there is a 30% chance that move gets disabled unless one of the attacker's moves is already disabled. This doubles to a 60% chance if that move knocks out this Pokémon.",
@@ -3194,14 +3195,14 @@ Water: Water Absorb`,
 		cfm: true,
 	},
 	prismarmor: {
-		desc: "This Pokemon receives 3/4 damage from supereffective attacks. Moongeist Beam, Sunsteel Strike, and the Mold Breaker, Teravolt, and Turboblaze Abilities cannot ignore this Ability.",
-		shortDesc: "3/4 damage on super effective hits, immune to secondary effects",
+		desc: "This Pokemon receives 3/4 damage from supereffective attacks and is affected by the secondary effect of another Pokemon's attack. Moongeist Beam, Sunsteel Strike, and the Mold Breaker, Teravolt, and Turboblaze Abilities cannot ignore this Ability.",
+		shortDesc: "3/4 damage on super effective hits; immune to secondary effects.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Prism Armor neutralize');
 				return this.chainModify(0.75);
 			}
-			if (move.secondaries && !this.field.auraBreak()) {
+			if (move.secondaries) {
 				delete move.secondaries;
 			}
 		},
@@ -3798,7 +3799,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		cfm: true,
 	},
 	screencleaner: {
-		shortDesc: "Ends opponent's Reflect, Light Screen, and Aurora Veil on switch in.",
+		shortDesc: "Clears opponent(s)'s Reflect, Light Screen, and Aurora Veil on switch-in.",
 		onStart(pokemon) {
 			let activated = false;
 			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil']) {
@@ -4085,7 +4086,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		cfm: true,
 	},
 	solidrock: {
-		shortDesc: "Receives 3/4 damage from supereffective attacks; Rock moves +20% damage",
+		shortDesc: "Receives 3/4 damage from supereffective attacks; Rock moves boosted by 20%.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Solid Rock neutralize');

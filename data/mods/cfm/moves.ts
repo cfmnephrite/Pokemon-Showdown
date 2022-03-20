@@ -4240,6 +4240,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
+		cfm: true,
 	},
 	eggbomb: {
 		num: 121,
@@ -10678,7 +10679,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Mind Blown",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, heal: 1},
+		flags: {protect: 1, mirror: 1},
 		drain: [1, 2],
 		hasCrashDamage: true,
 		onPrepareHit(target, source, move) {
@@ -16296,14 +16297,9 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasItem('heavydutyboots')) {
-					const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
-					this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 48);
-				}
-				if (!pokemon.hasItem('heavydutyboots')) {
-					const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
-					this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
-				}
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectState.layers] *
+					pokemon.maxhp / 24 * (1 + +(pokemon.hasItem('heavydutyboots'))));
 			},
 		},
 		secondary: null,
@@ -16570,14 +16566,8 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 				this.add('-sidestart', side, 'move: Stealth Rock');
 			},
 			onSwitchIn(pokemon) {
-				if (pokemon.hasItem('heavydutyboots')) {
-					const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-					this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 24);
-				}
-				if (!pokemon.hasItem('heavydutyboots')) {
-					const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-					this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 12);
-				}
+				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 12 * (1 + +(pokemon.hasItem('heavydutyboots'))));
 			},
 		},
 		secondary: null,
@@ -16722,8 +16712,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
 			onSwitchIn(pokemon) {
-				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasItem('heavydutyboots')) return;
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
 			},
