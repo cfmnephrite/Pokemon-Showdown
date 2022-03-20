@@ -21,25 +21,52 @@ describe('CFM - Factory Validator', function () {
 			illegalSets += `\\\\ ${tier} \\\\\n\n`;
 			for (const mon in factorySets[tier]) {
 				for (const subSet in factorySets[tier][mon]["sets"]) {
-					const rawSet		= factorySets[tier][mon]["sets"][subSet];
-					const validateSets	= [];
+					const rawSet			= factorySets[tier][mon]["sets"][subSet];
+					const setsToValidate	= [];
 
-					for (const field of ['nature', 'item', 'ability']) {
-						if (typeof rawSet[field] === 'object') rawSet[field] = rawSet[field][0];
+					if (Array.isArray(rawSet['nature']))
+						rawSet['nature'] = rawSet['nature'][0];
+
+					for (const field of ['item', 'ability']) {
+						if (!Array.isArray(rawSet[field]))
+							rawSet[field] = [rawSet[field]];
 					}
 
-					const moves = rawSet.moves.flat();
-					for (i = 0; i < moves.length; i += 4) {
-						validateSets.push({...rawSet, moves: moves.splice(i, i + 4)});
-					}
-
-					let team, illegal = null;
-					for (const validateSet of validateSets) {
-						team = [validateSet];
-						illegal = TeamValidator.get(`gen8cfm${tiers[tier]}`).validateTeam(team);
-						if (illegal) {
+					// Check moves for duplicates
+					const allMoves = rawSet.moves.flat(), duplicateMoves = [];
+					allMoves.forEach(move => {
+						if (!duplicateMoves.includes(move) && allMoves.filter(m => m === move).length > 1) {
+							duplicateMoves.push(move);
 							illegalSetsFound = true;
-							illegalSets += `${tier} - ${mon} : ${illegal}\n`;
+							illegalSets += `${tier} - ${mon} : ${mon} has multiple copies of ${move}.\n`;
+						}
+					});
+
+					// Create set for each item/ability/move assortment
+					let i = 4;
+					for (const item of rawSet['item']) {
+						for (const ability of rawSet['ability']) {
+							setsToValidate.push({...rawSet, item, ability, moves: allMoves.slice(0, 4)});
+							while (i < allMoves.length) {
+								setsToValidate.push({...rawSet, item, ability,
+									moves: allMoves.slice(i, i + 4),
+								});
+								i += 4;
+							}
+						}
+					}
+
+					let illegalMsgs = null;
+					for (const setToValidate of setsToValidate) {
+						illegalMsgs = TeamValidator.get(`gen8cfm${tiers[tier]}`).validateSet(setToValidate);
+
+						for (const illegalMsg of (illegalMsgs || [])) {
+							if (!(illegalMsg.includes("multiple copies") ||
+								illegalMsg.includes("incompatible with Hidden Power") ||
+								illegalMsg.includes("hiddenpowerfairy"))) {
+								illegalSetsFound = true;
+								illegalSets += `${tier} - ${mon} : ${illegalMsg}\n`;
+							}
 						}
 					}
 				}

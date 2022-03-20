@@ -1743,15 +1743,6 @@
 "gender":"",
 "item":"Leftovers",
 "ability":"Natural Cure",
-"evs":{"hp":248,"atk":0,"def":0,"spa":0,"spd":148,"spe":108},
-"ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
-"nature":["Bold"],
-"moves":[["Baton Pass"],["Nasty Plot"],["Giga Drain"],["Recover"]]},
-
-{"species":"Celebi",
-"gender":"",
-"item":"Leftovers",
-"ability":"Natural Cure",
 "evs":{"hp":252,"atk":0,"def":156,"spa":0,"spd":84,"spe":16},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Calm"],
@@ -3080,12 +3071,12 @@
 "ability":"Trace",
 "evs":{"hp":0,"atk":0,"def":232,"spa":0,"spd":124,"spe":152},
 "nature":["Impish"],
-"moves":[["Defog","Taunt","Stealth Rock"],["Soft-Boiled"],["Will-O-Wisp","Toxic"],["Knock Off"]]},
+"moves":[["Defog","Taunt"],["Soft-Boiled"],["Will-O-Wisp","Toxic"],["Stealth Rock"]]},
 
 {"species":"Mew",
 "gender":"",
 "item":["Psychium Z","Life Orb"],
-"ability":["Illusion","Trace"],
+"ability":"Trace",
 "evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
 "nature":["Jolly"],
 "moves":[["Swords Dance"],["Zen Headbutt"],["Drain Punch","Superpower"],["Sucker Punch"]]},
@@ -3093,7 +3084,7 @@
 {"species":"Mew",
 "gender":"",
 "item":["Mewnium Z","Life Orb"],
-"ability":["Illusion","Trace"],
+"ability":"Trace",
 "evs":{"hp":0,"atk":0,"def":0,"spa":252,"spd":4,"spe":252},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Timid"],
@@ -3102,7 +3093,7 @@
 {"species":"Mew",
 "gender":"",
 "item":["Choice Specs","Choice Scarf"],
-"ability":"Illusion",
+"ability":"Trace",
 "evs":{"hp":0,"atk":0,"def":0,"spa":252,"spd":4,"spe":252},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Timid","Modest"],
@@ -4153,7 +4144,50 @@
 "ability":"Static",
 "evs":{"hp":252,"atk":0,"def":168,"spa":68,"spd":0,"spe":20},
 "nature":["Bold"],
-"moves":[["Thunderbolt"],["Roost"],["Defog"],["Heat Wave"]]}]}
+"moves":[["Thunderbolt"],["Roost"],["Defog"],["Heat Wave"]]}]},
+"zeraora":{"flags":{},"sets":[
+
+{"species":"Zeraora",
+"gender":"M",
+"item":["Life Orb","Electrium Z"],
+"ability":"Tough Claws",
+"evs":{"hp":4,"atk":252,"def":0,"spa":0,"spd":0,"spe":252},
+"nature":["Jolly"],
+"moves":[["Slash","Wild Charge"],["Fire Punch","Night Slash"],["Close Combat"],["Bulk Up"]]},
+
+{"species":"Zeraora",
+"gender":"M",
+"item":["Choice Band"],
+"ability":"Tough Claws",
+"evs":{"hp":0,"atk":252,"def":0,"spa":4,"spd":0,"spe":252},
+"nature":["Hasty"],
+"moves":[["Slash","Wild Charge"],["Fire Punch","Night Slash"],["Close Combat"],["Volt Switch"]]},
+
+{"species":"Zeraora",
+"gender":"M",
+"item":["Leftovers","Big Root"],
+"ability":"Tough Claws",
+"evs":{"hp":252,"atk":4,"def":0,"spa":0,"spd":0,"spe":252},
+"nature":["Timid"],
+"moves":[["Calm Mind"],["Bulk Up"],["Drain Punch"],["Parabolic Charge"]]},
+
+{"species":"Zeraora",
+"gender":"M",
+"item":["Life Orb"],
+"ability":"Lightning Rod",
+"evs":{"hp":4,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
+"ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
+"nature":["Timid"],
+"moves":[["Parabolic Charge"],["Hidden Power Ice","Shock Wave"],["Focus Blast","Grass Knot"],["Calm Mind"]]},
+
+{"species":"Zeraora",
+"gender":"M",
+"item":["Life Orb","Electrium Z"],
+"ability":"Lightning Rod",
+"evs":{"hp":4,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
+"ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
+"nature":["Timid"],
+"moves":[["Thunderbolt"],["Hidden Power Ice","Shock Wave"],["Focus Blast","Grass Knot"],["Calm Mind"]]}]}
 },
 
 "UU":{
@@ -4492,15 +4526,6 @@
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Timid", "Modest"],
 "moves":[["Leaf Storm"],["Moonblast"],["Earth Power","Hidden Power Fire"],["U-Turn", "Healing Wish", "Trick"]]},
-
-{"species":"Celebi",
-"gender":"",
-"item":"Leftovers",
-"ability":"Natural Cure",
-"evs":{"hp":248,"atk":0,"def":0,"spa":0,"spd":148,"spe":108},
-"ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
-"nature":["Bold"],
-"moves":[["Baton Pass"],["Nasty Plot"],["Giga Drain"],["Recover"]]},
 
 {"species":"Celebi",
 "gender":"",
@@ -5588,7 +5613,7 @@
 "ability":"Regenerator",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["Baton Pass"],["Substitute"],["High Jump Kick"],["Knock Off"]]}]},
+"moves":[["Poison Jab"],["Substitute"],["High Jump Kick"],["Knock Off"]]}]},
 "mismagius":{"flags":{},"sets":[
 
 {"species":"Mismagius",
@@ -6300,7 +6325,7 @@
 "evs":{"hp":244,"atk":0,"def":252,"spa":0,"spd":12,"spe":0},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Calm"],
-"moves":[["Wish"],["Heal Bell"],["Moonblast", "Hyper Voice"],["Baton Pass"]]},
+"moves":[["Wish"],["Heal Bell"],["Moonblast", "Hyper Voice"],["Calm Mind", "Copycat"]]},
 
 {"species":"Sylveon",
 "gender":"",
@@ -6309,7 +6334,7 @@
 "evs":{"hp":244,"atk":0,"def":0,"spa":252,"spd":0,"spe":12},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Modest"],
-"moves":[["Hyper Voice", "Moonblast"],["Psyshock"],["Shadow Ball","Hidden Power Fire"],["Baton Pass"]]}]},
+"moves":[["Hyper Voice", "Moonblast"],["Psyshock"],["Shadow Ball","Hidden Power Fire"],["Copycat", "Misty Explosion"]]}]},
 "snorlax":{"flags":{},"sets":[
 
 {"species":"Snorlax",
@@ -6435,7 +6460,7 @@
 "evs":{"hp":248,"atk":0,"def":8,"spa":0,"spd":252,"spe":0},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Calm"],
-"moves":[["Toxic","Baton Pass"],["Wish"],["Heal Bell"],["Foul Play"]]}]},
+"moves":[["Toxic"],["Wish"],["Heal Bell"],["Foul Play"]]}]},
 "unown":{"flags":{},"sets":[
 
 {"species":"Unown",
@@ -6464,7 +6489,7 @@
 "evs":{"hp":200,"atk":0,"def":252,"spa":0,"spd":56,"spe":0},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Calm"],
-"moves":[["Roar", "Baton Pass"],["Wish"],["Heal Bell"],["Surf"]]}]},
+"moves":[["Roar"],["Wish"],["Heal Bell"],["Surf"]]}]},
 "volcanion":{"flags":{},"sets":[
 
 {"species":"Volcanion",
@@ -6519,7 +6544,7 @@
 "ability":"Compound Eyes",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["Hypnosis"],["Dragon Dance"],["Dragon Rush"],["Iron Tail", "Earthquake"]]},
+"moves":[["Hypnosis"],["Dragon Dance"],["Dragon Rush"],["Iron Tail"]]},
 
 {"species":"Yanmega",
 "gender":"",
@@ -6547,49 +6572,6 @@
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
 "moves":[["Facade"],["Knock Off"],["Quick Attack"],["Close Combat"]]}]},
-"zeraora":{"flags":{},"sets":[
-
-{"species":"Zeraora",
-"gender":"M",
-"item":["Life Orb","Electrium Z"],
-"ability":"Tough Claws",
-"evs":{"hp":4,"atk":252,"def":0,"spa":0,"spd":0,"spe":252},
-"nature":["Jolly"],
-"moves":[["Slash","Wild Charge"],["Fire Punch","Night Slash"],["Close Combat"],["Bulk Up"]]},
-
-{"species":"Zeraora",
-"gender":"M",
-"item":["Choice Band"],
-"ability":"Tough Claws",
-"evs":{"hp":0,"atk":252,"def":0,"spa":4,"spd":0,"spe":252},
-"nature":["Hasty"],
-"moves":[["Slash","Wild Charge"],["Fire Punch","Night Slash"],["Close Combat"],["Volt Switch"]]},
-
-{"species":"Zeraora",
-"gender":"M",
-"item":["Leftovers","Big Root"],
-"ability":"Tough Claws",
-"evs":{"hp":252,"atk":4,"def":0,"spa":0,"spd":0,"spe":252},
-"nature":["Timid"],
-"moves":[["Calm Mind"],["Bulk Up"],["Drain Punch"],["Parabolic Charge"]]},
-
-{"species":"Zeraora",
-"gender":"M",
-"item":["Life Orb"],
-"ability":"Lightning Rod",
-"evs":{"hp":4,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
-"ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
-"nature":["Timid"],
-"moves":[["Parabolic Charge"],["Hidden Power Ice","Shock Wave"],["Focus Blast","Grass Knot"],["Calm Mind"]]},
-
-{"species":"Zeraora",
-"gender":"M",
-"item":["Life Orb","Electrium Z"],
-"ability":"Lightning Rod",
-"evs":{"hp":4,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
-"ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
-"nature":["Timid"],
-"moves":[["Thunderbolt"],["Hidden Power Ice","Shock Wave"],["Focus Blast","Grass Knot"],["Calm Mind"]]}]},
 "zoroark":{"flags":{},"sets":[
 
 {"species":"Zoroark",
@@ -7165,7 +7147,7 @@
 "ability":"Magic Bounce",
 "evs":{"hp":0,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
 "nature":["Timid"],
-"moves":[["Baton Pass"],["Psyshock"],["Signal Beam"],["Hidden Power Fire"]]},
+"moves":[["Teleport"],["Psyshock"],["Signal Beam"],["Hidden Power Fire"]]},
 
 {"species":"Espeon",
 "gender":"",
@@ -7173,7 +7155,7 @@
 "ability":"Magic Bounce",
 "evs":{"hp":248,"atk":0,"def":252,"spa":0,"spd":0,"spe":8},
 "nature":["Bold"],
-"moves":[["Baton Pass"],["Calm Mind"],["Stored Power"],["Hidden Power Fighting"]]},
+"moves":[["Teleport"],["Calm Mind"],["Stored Power"],["Hidden Power Fighting"]]},
 
 {"species":"Espeon",
 "gender":"",
@@ -7181,7 +7163,7 @@
 "ability":"Magic Bounce",
 "evs":{"hp":248,"atk":0,"def":0,"spa":8,"spd":0,"spe":252},
 "nature":["Timid"],
-"moves":[["Baton Pass"],["Calm Mind"],["Stored Power"],["Hidden Power Fighting"]]}]},
+"moves":[["Teleport"],["Calm Mind"],["Stored Power"],["Hidden Power Fighting"]]}]},
 "exploud":{"flags":{},"sets":[
 
 {"species":"Exploud",
@@ -7324,7 +7306,7 @@
 "ability":"Immunity",
 "evs":{"hp":248,"atk":0,"def":252,"spa":0,"spd":8,"spe":0},
 "nature":["Impish"],
-"moves":[["Roost"],["Defog"],["Toxic"],["Earthquake"]]},
+"moves":[["Roost"],["Defog"],["Toxic", "U-Turn"],["Earthquake"]]},
 
 {"species":"Gligar",
 "gender":"",
@@ -7332,15 +7314,7 @@
 "ability":"Immunity",
 "evs":{"hp":248,"atk":0,"def":20,"spa":0,"spd":240,"spe":0},
 "nature":["Careful"],
-"moves":[["Roost"],["Defog"],["Toxic"],["Earthquake"]]},
-
-{"species":"Gligar",
-"gender":"",
-"item":"Eviolite",
-"ability":"Immunity",
-"evs":{"hp":252,"atk":0,"def":252,"spa":0,"spd":4,"spe":0},
-"nature":["Impish"],
-"moves":[["Swords Dance"],["Baton Pass"],["Roost"],["Earthquake"]]}]},
+"moves":[["Roost"],["Defog"],["Toxic", "U-Turn"],["Earthquake"]]}]},
 "golbat":{"flags":{},"sets":[
 
 {"species":"Golbat",
@@ -7495,7 +7469,7 @@
 "ability":"Rivalry",
 "evs":{"hp":4,"atk":252,"def":0,"spa":0,"spd":0,"spe":252},
 "nature":["Adamant","Jolly"],
-"moves":[["Coil"],["Sucker Punch"],["Aqua Tail"],["Baton Pass"]]},
+"moves":[["Coil"],["Sucker Punch"],["Aqua Tail"],["Aqua Jet", "Bounce", "Ice Fang"]]},
 
 {"species":"Huntail",
 "gender":"",
@@ -7503,7 +7477,7 @@
 "ability":"Rivalry",
 "evs":{"hp":4,"atk":252,"def":0,"spa":0,"spd":0,"spe":252},
 "nature":["Adamant","Jolly"],
-"moves":[["Coil"],["Sucker Punch"],["Aqua Tail"],["Bounce"]]},
+"moves":[["Coil"],["Sucker Punch"],["Aqua Tail"],["Aqua Jet", "Bounce", "Ice Fang"]]},
 
 {"species":"Huntail",
 "gender":"",
@@ -7571,7 +7545,7 @@
 "ability":"Volt Absorb",
 "evs":{"hp":68,"atk":0,"def":0,"spa":252,"spd":0,"spe":188},
 "nature":["Timid"],
-"moves":[["Substitute"],["Baton Pass"],["Thunderbolt"],["Hidden Power Ice"]]},
+"moves":[["Substitute", "Synchronoise"],["Volt Switch"],["Thunderbolt"],["Hidden Power Ice"]]},
 
 {"species":"Jolteon",
 "gender":"",
@@ -8592,15 +8566,15 @@
 "ability":"Serene Grace",
 "evs":{"hp":248,"atk":0,"def":252,"spa":0,"spd":0,"spe":8},
 "nature":["Bold"],
-"moves":[["Dazzling Gleam"],["Roost"],["Nasty Plot"],["Baton Pass"]]},
+"moves":[["Dazzling Gleam"],["Roost"],["Nasty Plot", "Flamethrower"],["Thunder Wave", "Defog"]]},
 
 {"species":"Togetic",
 "gender":"",
 "item":"Eviolite",
 "ability":"Serene Grace",
-"evs":{"hp":248,"atk":0,"def":252,"spa":0,"spd":0,"spe":8},
+"evs":{"hp":248,"atk":0,"def":4,"spa":252,"spd":0,"spe":4},
 "nature":["Bold"],
-"moves":[["Dazzling Gleam"],["Roost"],["Flamethrower"],["Thunder Wave"]]}]},
+"moves":[["Dazzling Gleam"],["Roost"],["Nasty Plot"],["Thunder Wave"]]}]},
 "uxie":{"flags":{},"sets":[
 
 {"species":"Uxie",
@@ -9363,7 +9337,7 @@
 "ability":"Swift Swim",
 "evs":{"hp":0,"atk":0,"def":0,"spa":252,"spd":4,"spe":252},
 "nature":["Timid"],
-"moves":[["Hydro Pump"],["Ice Beam"],["Focus Blast"],["Baton Pass"]]}]},
+"moves":[["Hydro Pump"],["Ice Beam"],["Focus Blast"],["Substitute", "Crunch"]]}]},
 "garbodor":{"flags":{},"sets":[
 
 {"species":"Garbodor",
@@ -9475,7 +9449,23 @@
 "ability":"Thick Fat",
 "evs":{"hp":0,"atk":0,"def":0,"spa":252,"spd":4,"spe":252},
 "nature":["Modest"],
-"moves":[["Calm Mind"],["Psyshock"],["Focus Blast"],["Signal Beam"]]},
+"moves":[["Calm Mind"],["Synchronoise"],["Focus Blast"],["Power Gem", "Slack Off"]]},
+
+{"species":"Grumpig",
+"gender":"",
+"item":"Choice Specs",
+"ability":"Thick Fat",
+"evs":{"hp":0,"atk":0,"def":0,"spa":252,"spd":4,"spe":252},
+"nature":["Modest"],
+"moves":[["Trick"],["Synchronoise"],["Focus Blast"],["Power Gem"]]},
+
+{"species":"Grumpig",
+"gender":"",
+"item":"Choice Scarf",
+"ability":"Thick Fat",
+"evs":{"hp":0,"atk":0,"def":0,"spa":252,"spd":4,"spe":252},
+"nature":["Timid"],
+"moves":[["Trick"],["Synchronoise"],["Focus Blast"],["Power Gem"]]},
 
 {"species":"Grumpig",
 "gender":"",
@@ -9483,7 +9473,7 @@
 "ability":"Thick Fat",
 "evs":{"hp":252,"atk":0,"def":0,"spa":160,"spd":0,"spe":96},
 "nature":["Modest"],
-"moves":[["Psychic","Psyshock"],["Focus Blast"],["Taunt"],["Thunder Wave","Thunder Wave"]]},
+"moves":[["Synchronoise"],["Focus Blast"],["Taunt"],["Thunder Wave"]]},
 
 {"species":"Grumpig",
 "gender":"",
@@ -9491,7 +9481,7 @@
 "ability":"Thick Fat",
 "evs":{"hp":252,"atk":0,"def":4,"spa":0,"spd":252,"spe":0},
 "nature":["Calm"],
-"moves":[["Psychic"],["Heal Bell"],["Thunder Wave"],["Whirlwind"]]}]},
+"moves":[["Synchronoise"],["Heal Bell"],["Thunder Wave", "Slack Off"],["Whirlwind"]]}]},
 "hariyama":{"flags":{},"sets":[
 
 {"species":"Hariyama",
@@ -9672,7 +9662,7 @@
 "evs":{"hp":0,"atk":0,"def":0,"spa":252,"spd":72,"spe":184},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Modest"],
-"moves":[["Hydro Pump","Surf"],["Volt Switch"],["Ice Beam","Signal Beam"],["Hidden Power Grass", "Hidden Power Fire", "Volt Switch"]]},
+"moves":[["Hydro Pump","Scald"],["Volt Switch"],["Ice Beam"],["Hidden Power Grass", "Hidden Power Fire"]]},
 
 {"species":"Lanturn",
 "gender":"",
@@ -9681,7 +9671,7 @@
 "evs":{"hp":40,"atk":0,"def":152,"spa":0,"spd":208,"spe":108},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Calm"],
-"moves":[["Surf"],["Volt Switch"],["Heal Bell"],["Thunder Wave","Thunder Wave","Protect"]]},
+"moves":[["Scald"],["Volt Switch"],["Heal Bell"],["Thunder Wave"]]},
 
 {"species":"Lanturn",
 "gender":"",
@@ -9690,7 +9680,7 @@
 "evs":{"hp":0,"atk":0,"def":0,"spa":252,"spd":144,"spe":112},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Modest"],
-"moves":[["Surf"],["Volt Switch"],["Ice Beam"],["Hidden Power Fire"]]}]},
+"moves":[["Scald"],["Volt Switch"],["Ice Beam"],["Hidden Power Fire"]]}]},
 "liepard":{"flags":{},"sets":[
 
 {"species":"Liepard",
@@ -9816,7 +9806,7 @@
 "ability":"Intimidate",
 "evs":{"hp":248,"atk":0,"def":252,"spa":0,"spd":8,"spe":0},
 "nature":["Impish"],
-"moves":[["Play Rough"],["Iron Head", "Taunt"],["Swords Dance"],["Baton Pass"]]},
+"moves":[["Play Rough"],["Iron Head", "Taunt"],["Swords Dance"],["Substitute", "Sucker Punch"]]},
 
 {"species":"Mawile",
 "gender":"",
@@ -9904,7 +9894,7 @@
 "evs":{"hp":240,"atk":0,"def":252,"spa":0,"spd":16,"spe":0},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Bold"],
-"moves":[["Calm Mind"],["Psyshock","Psychic"],["Baton Pass"],["Moonlight"]]},
+"moves":[["Calm Mind"],["Psyshock","Psychic"],["Moonblast"],["Moonlight"]]},
 
 {"species":"Musharna",
 "gender":"",
@@ -9931,7 +9921,7 @@
 "evs":{"hp":240,"atk":0,"def":252,"spa":0,"spd":16,"spe":0},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Bold"],
-"moves":[["Baton Pass"],["Moonlight"],["Thunder Wave","Signal Beam"],["Psychic"]]}]},
+"moves":[["Teleport"],["Moonlight"],["Thunder Wave","Signal Beam"],["Psychic"]]}]},
 "omastar":{"flags":{},"sets":[
 
 {"species":"Omastar",
@@ -10182,7 +10172,7 @@
 "evs":{"hp":252,"atk":0,"def":252,"spa":0,"spd":4,"spe":0},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Bold"],
-"moves":[["Defog"],["Surf"],["Roost"],["Ice Beam", "Haze"]]}]},
+"moves":[["Defog"],["Surf"],["Roost"],["Ice Beam", "Roar"]]}]},
 "pyroar":{"flags":{},"sets":[
 
 {"species":"Pyroar",
@@ -10439,7 +10429,7 @@
 "evs":{ "hp":0,"atk":0,"def":0,"spa":252,"spd":4,"spe":252},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Timid"],
-"moves":[["Boomburst"],["Dark Pulse"],["Baton Pass"],["Synchronoise"]]},
+"moves":[["Boomburst"],["Dark Pulse"],["U-Turn"],["Synchronoise", "Copycat"]]},
 
 {"species":"Spinda",
 "gender":"",
@@ -10882,21 +10872,14 @@
 "moves":[["Thunderbolt"],["Volt Switch"],["Signal Beam"],["Hidden Power Ice"]]}]},
 "floatzel":{"flags":{},"sets":[
 
-{"species":"Floatzel",
-"gender":"",
-"item":"Choice Specs",
-"ability":"Water Veil",
-"evs":{"hp":0,"atk":4,"def":0,"spa":252,"spd":0,"spe":252},
-"nature":["Timid"],
-"moves":[["Hydro Pump"],["Ice Beam"],["Hidden Power Electric"],["Surf","Switcheroo"]]},
 
 {"species":"Floatzel",
 "gender":"",
-"item":"Choice Specs",
+"item":["Choice Scarf", "Choice Specs"],
 "ability":"Water Veil",
-"evs":{"hp":0,"atk":4,"def":0,"spa":252,"spd":0,"spe":252},
+"evs":{"hp":4,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
 "nature":["Timid"],
-"moves":[["Hydro Pump"],["Ice Beam"],["Hidden Power Electric"],["Baton Pass"]]},
+"moves":[["Hydro Pump"],["Ice Beam", "Razor Wind"],["Hidden Power Electric", "Focus Blast"],["Surf","Switcheroo"]]},
 
 {"species":"Floatzel",
 "gender":"",
@@ -10912,23 +10895,7 @@
 "ability":"Water Veil",
 "evs":{"hp":0,"atk":4,"def":0,"spa":252,"spd":0,"spe":252},
 "nature":["Naive"],
-"moves":[["Hydro Pump"],["Ice Beam"],["Ice Punch"],["Hidden Power Electric"]]},
-
-{"species":"Floatzel",
-"gender":"",
-"item":"Choice Scarf",
-"ability":"Water Veil",
-"evs":{"hp":0,"atk":4,"def":0,"spa":252,"spd":0,"spe":252},
-"nature":["Modest"],
-"moves":[["Hydro Pump"],["Ice Beam"],["Hidden Power Electric"],["Surf","Switcheroo"]]},
-
-{"species":"Floatzel",
-"gender":"",
-"item":"Choice Scarf",
-"ability":"Water Veil",
-"evs":{"hp":0,"atk":4,"def":0,"spa":252,"spd":0,"spe":252},
-"nature":["Modest"],
-"moves":[["Hydro Pump"],["Ice Beam"],["Hidden Power Electric"],["Baton Pass"]]}]},
+"moves":[["Hydro Pump"],["Ice Beam", "Razor Wind"],["Crunch"],["Hidden Power Electric", "Focus Blast", "Substitute"]]}]},
 "fraxure":{"flags":{},"sets":[
 
 {"species":"Fraxure",
@@ -11146,20 +11113,20 @@
 "ability":"Natural Cure",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Adamant", "Jolly"],
-"moves":[["Leaf Blade"],["Bullet Seed"],["Knock Off"],["X-Scissor","Double-Edge", "Baton Pass"]]},
+"moves":[["Leaf Blade"],["Quick Attack"],["Knock Off"],["Zen Headbutt"]]},
 
 {"species":"Leafeon",
 "gender":"",
 "item":["Yache Berry","Occa Berry"],
-"ability":"Chlorophyll",
+"ability":"Natural Cure",
 "evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
 "nature":["Jolly"],
-"moves":[["Swords Dance"],["Leaf Blade"],["Knock Off"],["Synthesis", "Baton Pass"]]},
+"moves":[["Swords Dance"],["Leaf Blade"],["Knock Off"],["Synthesis"]]},
 
 {"species":"Leafeon",
 "gender":"",
 "item":"Leftovers",
-"ability":"Chlorophyll",
+"ability":"Natural Cure",
 "evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
 "nature":["Jolly"],
 "moves":[["Substitute"],["Swords Dance"],["Leaf Blade"],["Knock Off"]]},
@@ -11167,7 +11134,7 @@
 {"species":"Leafeon",
 "gender":"",
 "item":"Charti Berry",
-"ability":"Chlorophyll",
+"ability":"Natural Cure",
 "evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
 "nature":["Jolly"],
 "moves":[["Swords Dance"],["Leaf Blade"],["Knock Off"],["Natural Gift"]]},
@@ -11175,10 +11142,10 @@
 {"species":"Leafeon",
 "gender":"",
 "item":"Life Orb",
-"ability":"Chlorophyll",
+"ability":"Natural Cure",
 "evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
 "nature":["Jolly"],
-"moves":[["Swords Dance"],["Leaf Blade"],["Knock Off"],["Baton Pass"]]}]},
+"moves":[["Swords Dance"],["Leaf Blade"],["Knock Off"],["Zen Headbutt", "Quick Attack"]]}]},
 "lickilicky":{"flags":{},"sets":[
 
 {"species":"Lickilicky",
@@ -11343,7 +11310,7 @@
 "ability":"Sturdy",
 "evs":{"hp":252,"atk":0,"def":4,"spa":0,"spd":252,"spe":0},
 "nature":["Modest"],
-"moves":[["Stealth Rock"],["Flash Cannon"],["Volt Switch"],["Earth Power","Thunder Wave","Thunder Wave"]]}]},
+"moves":[["Stealth Rock"],["Flash Cannon"],["Volt Switch"],["Earth Power","Thunder Wave"]]}]},
 "quilladin":{"flags":{},"sets":[
 
 {"species":"Quilladin",
@@ -11511,7 +11478,7 @@
 "ability":"Sap Sipper",
 "evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
 "nature":["Jolly"],
-"moves":[["Double-Edge"],["Horn Leech"],["Jump Kick"],["Baton Pass"]]},
+"moves":[["Double-Edge"],["Horn Leech"],["Jump Kick"],["Sleep Talk"]]},
 
 {"species":"Sawsbuck",
 "gender":"",
@@ -11851,19 +11818,11 @@
 
 {"species":"Floatzel",
 "gender":"",
-"item":"Choice Specs",
+"item":["Choice Scarf", "Choice Specs"],
 "ability":"Water Veil",
-"evs":{"hp":0,"atk":4,"def":0,"spa":252,"spd":0,"spe":252},
+"evs":{"hp":4,"atk":0,"def":0,"spa":252,"spd":0,"spe":252},
 "nature":["Timid"],
-"moves":[["Hydro Pump"],["Ice Beam"],["Hidden Power Electric"],["Surf","Switcheroo"]]},
-
-{"species":"Floatzel",
-"gender":"",
-"item":"Choice Specs",
-"ability":"Water Veil",
-"evs":{"hp":0,"atk":4,"def":0,"spa":252,"spd":0,"spe":252},
-"nature":["Timid"],
-"moves":[["Hydro Pump"],["Ice Beam"],["Hidden Power Electric"],["Baton Pass"]]},
+"moves":[["Hydro Pump"],["Ice Beam", "Razor Wind"],["Hidden Power Electric", "Focus Blast"],["Surf","Switcheroo"]]},
 
 {"species":"Floatzel",
 "gender":"",
@@ -11879,23 +11838,7 @@
 "ability":"Water Veil",
 "evs":{"hp":0,"atk":4,"def":0,"spa":252,"spd":0,"spe":252},
 "nature":["Naive"],
-"moves":[["Hydro Pump"],["Ice Beam"],["Ice Punch"],["Hidden Power Electric"]]},
-
-{"species":"Floatzel",
-"gender":"",
-"item":"Choice Scarf",
-"ability":"Water Veil",
-"evs":{"hp":0,"atk":4,"def":0,"spa":252,"spd":0,"spe":252},
-"nature":["Modest"],
-"moves":[["Hydro Pump"],["Ice Beam"],["Hidden Power Electric"],["Surf","Switcheroo"]]},
-
-{"species":"Floatzel",
-"gender":"",
-"item":"Choice Scarf",
-"ability":"Water Veil",
-"evs":{"hp":0,"atk":4,"def":0,"spa":252,"spd":0,"spe":252},
-"nature":["Modest"],
-"moves":[["Hydro Pump"],["Ice Beam"],["Hidden Power Electric"],["Baton Pass"]]}]},
+"moves":[["Hydro Pump"],["Ice Beam", "Razor Wind"],["Crunch"],["Hidden Power Electric", "Focus Blast", "Substitute"]]}]},
 "fraxure":{"flags":{},"sets":[
 
 {"species":"Fraxure",
@@ -11908,7 +11851,7 @@
 "furret":{"flags":{},"sets":[
 {"species":"Furret",
 "gender":"F",
-"item":["Sitrus Berry","Lum Berry", "Darkium Z"],
+"item":["Sitrus Berry","Lum Berry", "Darkinium Z"],
 "ability":"Simple",
 "evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
 "nature":["Jolly"],
@@ -12050,45 +11993,45 @@
 "moves":[["Psychic"],["Hidden Power Fighting"],["Shadow Ball"],["Substitute","Encore"]]}]},
 "leafeon":{"flags":{},"sets":[
 
-{"species":"Leafeon",
-"gender":"",
-"item":"Choice Band",
-"ability":"Natural Cure",
-"evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
-"nature":["Adamant", "Jolly"],
-"moves":[["Leaf Blade"],["Bullet Seed"],["Knock Off"],["X-Scissor","Double-Edge", "Baton Pass"]]},
-
-{"species":"Leafeon",
-"gender":"",
-"item":["Yache Berry","Occa Berry"],
-"ability":"Chlorophyll",
-"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
-"nature":["Jolly"],
-"moves":[["Swords Dance"],["Leaf Blade"],["Knock Off"],["Synthesis", "Baton Pass"]]},
-
-{"species":"Leafeon",
-"gender":"",
-"item":"Leftovers",
-"ability":"Chlorophyll",
-"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
-"nature":["Jolly"],
-"moves":[["Substitute"],["Swords Dance"],["Leaf Blade"],["Knock Off"]]},
-
-{"species":"Leafeon",
-"gender":"",
-"item":"Charti Berry",
-"ability":"Chlorophyll",
-"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
-"nature":["Jolly"],
-"moves":[["Swords Dance"],["Leaf Blade"],["Knock Off"],["Natural Gift"]]},
-
-{"species":"Leafeon",
-"gender":"",
-"item":"Life Orb",
-"ability":"Chlorophyll",
-"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
-"nature":["Jolly"],
-"moves":[["Swords Dance"],["Leaf Blade"],["Knock Off"],["Baton Pass"]]}]},
+	{"species":"Leafeon",
+	"gender":"",
+	"item":"Choice Band",
+	"ability":"Natural Cure",
+	"evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
+	"nature":["Adamant", "Jolly"],
+	"moves":[["Leaf Blade"],["Quick Attack"],["Knock Off"],["Zen Headbutt"]]},
+	
+	{"species":"Leafeon",
+	"gender":"",
+	"item":["Yache Berry","Occa Berry"],
+	"ability":"Natural Cure",
+	"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
+	"nature":["Jolly"],
+	"moves":[["Swords Dance"],["Leaf Blade"],["Knock Off"],["Synthesis"]]},
+	
+	{"species":"Leafeon",
+	"gender":"",
+	"item":"Leftovers",
+	"ability":"Natural Cure",
+	"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
+	"nature":["Jolly"],
+	"moves":[["Substitute"],["Swords Dance"],["Leaf Blade"],["Knock Off"]]},
+	
+	{"species":"Leafeon",
+	"gender":"",
+	"item":"Charti Berry",
+	"ability":"Natural Cure",
+	"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
+	"nature":["Jolly"],
+	"moves":[["Swords Dance"],["Leaf Blade"],["Knock Off"],["Natural Gift"]]},
+	
+	{"species":"Leafeon",
+	"gender":"",
+	"item":"Life Orb",
+	"ability":"Natural Cure",
+	"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
+	"nature":["Jolly"],
+"moves":[["Swords Dance"],["Leaf Blade"],["Knock Off"],["Zen Headbutt", "Quick Attack"]]}]},
 "ledian":{"flags":{},"sets":[
 {"species":"Ledian",
 "gender":"",
@@ -12301,7 +12244,7 @@
 "ability":"Sturdy",
 "evs":{"hp":252,"atk":0,"def":4,"spa":0,"spd":252,"spe":0},
 "nature":["Modest"],
-"moves":[["Stealth Rock"],["Flash Cannon"],["Volt Switch"],["Earth Power","Thunder Wave","Thunder Wave"]]}]},
+"moves":[["Stealth Rock"],["Flash Cannon"],["Volt Switch"],["Earth Power","Thunder Wave"]]}]},
 "quilladin":{"flags":{},"sets":[
 
 {"species":"Quilladin",
@@ -12404,28 +12347,28 @@
 "moves":[["Slash"],["Knock Off"],["Stealth Rock"],["Rapid Spin"]]}]},
 "sawsbuck":{"flags":{},"sets":[
 
-{"species":"Sawsbuck",
-"gender":"",
-"item":"Choice Scarf",
-"ability":"Sap Sipper",
-"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
-"nature":["Jolly"],
-"moves":[["Double-Edge"],["Horn Leech"],["Jump Kick"],["Megahorn"]]},
-
-{"species":"Sawsbuck",
-"gender":"",
-"item":"Choice Scarf",
-"ability":"Sap Sipper",
-"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
-"nature":["Jolly"],
-"moves":[["Double-Edge"],["Horn Leech"],["Jump Kick"],["Baton Pass"]]},
-
-{"species":"Sawsbuck",
-"gender":"",
-"item":"Salac Berry",
-"ability":"Sap Sipper",
-"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
-"nature":["Jolly"],
+	{"species":"Sawsbuck",
+	"gender":"",
+	"item":"Choice Scarf",
+	"ability":"Sap Sipper",
+	"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
+	"nature":["Jolly"],
+	"moves":[["Double-Edge"],["Horn Leech"],["Jump Kick"],["Megahorn"]]},
+	
+	{"species":"Sawsbuck",
+	"gender":"",
+	"item":"Choice Scarf",
+	"ability":"Sap Sipper",
+	"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
+	"nature":["Jolly"],
+	"moves":[["Double-Edge"],["Horn Leech"],["Jump Kick"],["Sleep Talk"]]},
+	
+	{"species":"Sawsbuck",
+	"gender":"",
+	"item":"Salac Berry",
+	"ability":"Sap Sipper",
+	"evs":{"hp":0,"atk":252,"def":0,"spa":0,"spd":4,"spe":252},
+	"nature":["Jolly"],
 "moves":[["Return"],["Horn Leech"],["Substitute"],["Swords Dance"]],"happiness":255}]},
 "seaking":{"flags":{},"sets":[
 
