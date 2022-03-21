@@ -1,6 +1,27 @@
-import {getCategoryCFM} from './cfm-helpers';
-export const Scripts: ModdedBattleScriptsData = {
+import {toID} from '../../../sim/dex';
+interface CFMBattlePokemon extends ModdedBattlePokemon {
+	runEffectiveness?: (this: Pokemon, move: ActiveMove) => number;
+}
+
+interface CFMBattleScriptsData extends ModdedBattleScriptsData {
+	pokemon?: CFMBattlePokemon;
+	getCategory?: (this: Battle, move: string | Move, source: Pokemon | null) => string;
+}
+export const Scripts: CFMBattleScriptsData = {
 	gen: 8,
+
+	getCategory(move: string | Move, source: Pokemon | null = null): string {
+		const dexMove = this.dex.moves.get(move);
+		let output = dexMove.category || 'Physical';
+		if (source && dexMove.flags['magic']) {
+			if (dexMove.overrideOffensiveStat === 'def' && source.getStat('spd') > source.getStat('def')) output = 'Special';
+			else if (dexMove.overrideOffensiveStat === 'spd' && source.getStat('def') > source.getStat('spd')) output = 'Physical';
+			else if (output === 'Physical' && source.getStat('spa') > source.getStat('atk')) output = 'Special';
+			else if (output === 'Special' && source.getStat('atk') > source.getStat('spa')) output = 'Physical';
+		}
+		return output;
+	},
+
 	natureModify(stats: StatsTable, set: PokemonSet): StatsTable {
 		// Natures are calculated with 16-bit truncation.
 		// This only affects Eternatus-Eternamax in Pure Hackmons.
@@ -69,7 +90,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				return move.damage;
 			}
 	
-			const category = getCategoryCFM(move, source);
+			const category = this.battle.getCategory(move, source);
 	
 			let basePower: number | false | null = move.basePower;
 			if (move.basePowerCallback) {
@@ -318,7 +339,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (item.itemUser && !item.itemUser.includes(pokemon.species.name)) return;
 				if (item.zMoveFrom && move.name !== item.zMoveFrom) return;
 				if (item.zMoveType && type !== item.zMoveType) return;
-				if (item.zMoveCategory && getCategoryCFM(move, pokemon) !== item.zMoveCategory) return;
+				if (item.zMoveCategory && this.battle.getCategory(move, pokemon) !== item.zMoveCategory) return;
 				return item.zMove;
 			} else if (item.zMove === true) {
 				if (type === item.zMoveType) {
