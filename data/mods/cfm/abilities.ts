@@ -4282,6 +4282,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				return null;
 			}
 		},
+		isBreakable: true,
 		name: "Steam Engine",
 		rating: 2,
 		num: 243,
@@ -4397,6 +4398,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				return target.hp - 1;
 			}
 		},
+		isBreakable: true,
 		name: "Sturdy",
 		rating: 3,
 		num: 5,
