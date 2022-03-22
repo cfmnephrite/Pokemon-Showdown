@@ -2847,7 +2847,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Crabhammer",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
 		secondary: {
 			chance: 20,
 			self: {
@@ -3954,7 +3954,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 50,
 		category: "Special",
 		name: "Draining Kiss",
-		pp: 10,
+		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, heal: 1},
 		drain: [3, 4],
@@ -3962,6 +3962,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cute",
+		cfm: true,
 	},
 	drainpunch: {
 		num: 409,
@@ -4860,16 +4861,41 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	falsesurrender: {
 		num: 793,
-		accuracy: true,
-		basePower: 80,
+		accuracy: 100,
+		basePower: 150,
 		category: "Physical",
+		shortDesc: "Fails if the user takes damage before it hits.",
 		name: "False Surrender",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		pp: 20,
+		priority: -3,
+		flags: {contact: 1, protect: 1},
+		beforeTurnCallback(pokemon) {
+			pokemon.addVolatile('focuspunch');
+		},
+		beforeMoveCallback(pokemon) {
+			if (pokemon.volatiles['focuspunch'] && pokemon.volatiles['focuspunch'].lostFocus) {
+				this.add('cant', pokemon, 'Focus Punch', 'Focus Punch');
+				return true;
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Focus Punch');
+			},
+			onHit(pokemon, source, move) {
+				if (move.category !== 'Status') {
+					pokemon.volatiles['focuspunch'].lostFocus = true;
+				}
+			},
+			onTryAddVolatile(status, pokemon) {
+				if (status.id === 'flinch') return null;
+			},
+		},
 		secondary: null,
 		target: "normal",
 		type: "Dark",
+		cfm: true,
 	},
 	falseswipe: {
 		num: 206,
@@ -4980,16 +5006,25 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
+		shortDesc: "10% chance to burn, 30% chance to lower special defense",
 		name: "Fiery Wrath",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		secondary: {
-			chance: 20,
-			volatileStatus: 'flinch',
-		},
+		secondaries: [
+			{
+				chance: 10,
+				status: 'brn',
+			}, {
+				chance: 30,
+				boosts: {
+					spd: -1,
+				},
+			},
+		],
 		target: "allAdjacentFoes",
 		type: "Dark",
+		cfm: true,
 	},
 	finalgambit: {
 		num: 515,
@@ -5989,18 +6024,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	freezingglare: {
 		num: 821,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 100,
 		category: "Special",
+		shortDesc: "10% chance to freeze, 30% chance to lower speed",
 		name: "Freezing Glare",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		secondary: {
-			chance: 10,
-			status: 'frz',
-		},
+		secondaries: [
+			{
+				chance: 10,
+				status: 'frz',
+			}, {
+				chance: 30,
+				boosts: {
+					spe: -1,
+				},
+			},
+		],
 		target: "normal",
 		type: "Psychic",
+		cfm: true,
 	},
 	frenzyplant: {
 		num: 338,
@@ -9566,10 +9610,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
+		shortDesc: "Changes the target's type to Psychic, lowers attack by 2",
 		name: "Magic Powder",
 		pp: 20,
 		priority: 0,
 		flags: {powder: 1, protect: 1, reflectable: 1, mirror: 1, allyanim: 1},
+		boosts: {
+			atk: -2,
+		},
 		onHit(target) {
 			if (target.getTypes().join() === 'Psychic' || !target.setType('Psychic')) return false;
 			this.add('-start', target, 'typechange', 'Psychic');
@@ -9577,6 +9625,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
+		cfm: true,
 	},
 	magicroom: {
 		num: 478,
@@ -10273,20 +10322,22 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "Raises the user's Attack by 1 stage.",
-		shortDesc: "Raises the user's Attack by 1.",
+		desc: "Raises the user's Attack and Special Attack by 1 stage.",
+		shortDesc: "Raises both attack stats by 1.",
 		name: "Meditate",
-		pp: 40,
+		pp: 30,
 		priority: 0,
 		flags: {snatch: 1},
 		boosts: {
 			atk: 1,
+			spa: 1,
 		},
 		secondary: null,
 		target: "self",
 		type: "Psychic",
 		zMove: {boost: {atk: 1}},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	mefirst: {
 		num: 382,
@@ -10518,19 +10569,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	meteorassault: {
 		num: 794,
-		accuracy: 100,
+		accuracy: 80,
 		basePower: 150,
 		category: "Physical",
+		shortDesc: "Has 1/2 recoil.",
 		name: "Meteor Assault",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, recharge: 1, mirror: 1},
-		self: {
-			volatileStatus: 'mustrecharge',
-		},
+		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [1, 2],
 		secondary: null,
 		target: "normal",
 		type: "Fighting",
+		cfm: true,
 	},
 	meteorbeam: {
 		num: 800,
@@ -18203,20 +18254,27 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	thunderouskick: {
 		num: 823,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 100,
 		category: "Physical",
+		shortDesc: "10% chance to paralyze, 30% chance to lower defense",
 		name: "Thunderous Kick",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		secondary: {
-			chance: 100,
-			boosts: {
-				def: -1,
+		secondaries: [
+			{
+				chance: 10,
+				status: 'par',
+			}, {
+				chance: 30,
+				boosts: {
+					def: -1,
+				},
 			},
-		},
+		],
 		target: "normal",
 		type: "Fighting",
+		cfm: true,
 	},
 	thunderpunch: {
 		num: 9,

@@ -1093,7 +1093,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	articunogalar: {
 		isNonstandard: null,
-		tier: "CRU",
+		tier: "CUU",
 		inherit: true,
 	},
 	zapdos: {
@@ -2275,7 +2275,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	absol: {
 		isNonstandard: null,
-		tier: "CNU",
+		tier: "CRU",
 		inherit: true,
 	},
 	absolmega: {
@@ -3822,11 +3822,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	keldeo: {
 		randomBattleMoves: ["airslash", "calmmind", "hydropump", "icywind", "scald", "secretsword", "substitute"],
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	keldeoresolute: {
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	meloetta: {
@@ -5312,7 +5312,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	regidrago: {
-		tier: "COU",
+		tier: "CUU",
 		inherit: true,
 	},
 	glastrier: {
