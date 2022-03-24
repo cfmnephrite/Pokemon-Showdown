@@ -6798,7 +6798,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forme: "Mega",
 		types: ["Steel", "Psychic"],
 		gender: "N",
-		baseStats: {hp: 80, atk: 150, def: 145, spa: 105, spd: 110, spe: 110},
+		baseStats: {hp: 80, atk: 145, def: 150, spa: 105, spd: 110, spe: 110},
 		abilities: {0: "Tough Claws"},
 		heightm: 2.5,
 		weightkg: 942.9,
