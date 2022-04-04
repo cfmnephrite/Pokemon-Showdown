@@ -1402,7 +1402,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	girafarig: {
 		isNonstandard: null,
-		tier: "CPU",
+		tier: "CNU",
 		inherit: true,
 	},
 	pineco: {

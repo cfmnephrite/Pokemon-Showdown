@@ -18619,7 +18619,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	},
 	tripleaxel: {
 		num: 813,
-		accuracy: 90,
+		accuracy: 95,
 		basePower: 30,
 		category: "Physical",
 		name: "Triple Axel",
@@ -18636,7 +18636,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	},
 	triplekick: {
 		num: 167,
-		accuracy: 100,
+		accuracy: 95,
 		basePower: 30,
 		category: "Physical",
 		name: "Triple Kick",
