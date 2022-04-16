@@ -825,7 +825,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (target !== source && this.effectState.target.hasAlly(target)) {
 				// @ts-ignore
 					if ((target.side.getSideCondition('reflect') && this.getCategory(move, source) === 'Physical') ||
-				// @ts-ignore
+					// @ts-ignore
 							(target.side.getSideCondition('lightscreen') && this.getCategory(move, source) === 'Special')) {
 						return;
 					}
@@ -4032,6 +4032,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Physical",
 		desc: "Has a 10% chance to lower the target's Defence by 1 stage.",
 		shortDesc: "10% chance to lower the target's Defence by 1.",
+		cfmDesc: "10% chance to lower the target's Defence by 1. Can hit airborne targets but cannot hit them for super-effective damage.",
 		name: "Drill Run",
 		pp: 10,
 		priority: 0,
