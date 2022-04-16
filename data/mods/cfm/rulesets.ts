@@ -1785,8 +1785,8 @@ export const Rulesets: {[k: string]: FormatData} = {
 				heatran:		{tier: 'OU', ability: 'magmaarmor'},
 				mew:		    {tier: 'OU', ability: 'illusion'},
 				cinderace:      {tier: 'OU', ability: 'libero'},
+				blaziken:		{tier: 'OU', ability: 'speedboost'},
 				// abilities - UU
-				blaziken:		{tier: 'UU', ability: 'speedboost'},
 				serperior:		{tier: 'UU', ability: 'contrary'},
 				diggersby:		{tier: 'UU', ability: 'hugepower'},
 				rillaboom:		{tier: 'UU', ability: 'grassysurge'},
