@@ -90,6 +90,7 @@ export const Scripts: CFMBattleScriptsData = {
 				return move.damage;
 			}
 
+			// @ts-ignore
 			const category = this.battle.getCategory(move, source);
 
 			let basePower: number | false | null = move.basePower;
@@ -339,6 +340,7 @@ export const Scripts: CFMBattleScriptsData = {
 				if (item.itemUser && !item.itemUser.includes(pokemon.species.name)) return;
 				if (item.zMoveFrom && move.name !== item.zMoveFrom) return;
 				if (item.zMoveType && type !== item.zMoveType) return;
+				// @ts-ignore
 				if (item.zMoveCategory && this.battle.getCategory(move, pokemon) !== item.zMoveCategory) return;
 				return item.zMove;
 			} else if (item.zMove === true) {
