@@ -5026,7 +5026,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	boltund: {
 		randomBattleMoves: ["crunch", "firefang", "nuzzle", "playrough", "psychicfangs", "thunderfang", "voltswitch"],
-		tier: "CPU",
+		tier: "CNU",
 		inherit: true,
 	},
 	rolycoly: {
@@ -5062,7 +5062,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	sandaconda: {
 		randomBattleMoves: ["bodypress", "coil", "earthquake", "glare", "stoneedge"],
-		tier: "CPU",
+		tier: "CNU",
 		inherit: true,
 	},
 	cramorant: {

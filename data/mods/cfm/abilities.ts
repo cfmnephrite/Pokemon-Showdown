@@ -3697,6 +3697,12 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				this.field.setWeather('sandstorm');
 			}
 		},
+		onModifyDef(pokemon) {
+			if (this.field.isWeather('sandstorm')) return this.chainModify(1.25);
+		},
+		onModifySpD(spd) {
+			if (this.field.isWeather('sandstorm')) return this.chainModify(1.25);
+		},
 		name: "Sand Spit",
 		rating: 2,
 		num: 245,

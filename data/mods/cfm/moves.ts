@@ -9423,7 +9423,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	lowsweep: {
 		num: 490,
 		accuracy: 100,
-		basePower: 65,
+		basePower: 60,
 		category: "Physical",
 		name: "Low Sweep",
 		pp: 20,
@@ -14132,7 +14132,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	},
 	rocktomb: {
 		num: 317,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
 		name: "Rock Tomb",
