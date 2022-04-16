@@ -3692,6 +3692,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		num: 146,
 	},
 	sandspit: {
+		shortDesc: "Starts a sandstorm when this pokemon is hit, and takes 25% less damage in sand.",
 		onDamagingHit(damage, target, source, move) {
 			if (this.field.getWeather().id !== 'sandstorm') {
 				this.field.setWeather('sandstorm');
@@ -3706,6 +3707,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		name: "Sand Spit",
 		rating: 2,
 		num: 245,
+		cfm: true,
 	},
 	sandstream: {
 		onStart(source) {
