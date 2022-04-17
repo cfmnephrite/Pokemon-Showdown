@@ -9280,12 +9280,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					}
 				}
 			},
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Light Screen');
 			},
-			onResidualOrder: 21,
-			onResidualSubOrder: 1,
-			onEnd(side) {
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 2,
+			onSideEnd(side) {
 				this.add('-sideend', side, 'move: Light Screen');
 			},
 		},
@@ -9459,13 +9459,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		sideCondition: 'luckychant',
 		condition: {
 			duration: 7,
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Lucky Chant'); // "The Lucky Chant shielded [side.name]'s team from critical hits!"
 			},
 			onCriticalHit: false,
-			onResidualOrder: 21,
-			onResidualSubOrder: 5,
-			onEnd(side) {
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 6,
+			onSideEnd(side) {
 				this.add('-sideend', side, 'move: Lucky Chant'); // "[side.name]'s team's Lucky Chant wore off!"
 			},
 		},
@@ -9848,7 +9848,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		condition: {
 			duration: 1,
-			onStart(target, source) {
+			onSideStart(target, source) {
 				this.add('-singleturn', source, 'Mat Block');
 			},
 			onTryHitPriority: 3,
@@ -10965,12 +10965,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					}
 				}
 			},
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'Mist');
 			},
-			onResidualOrder: 21,
-			onResidualSubOrder: 3,
-			onEnd(side) {
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 4,
+			onSideEnd(side) {
 				this.add('-sideend', side, 'Mist');
 			},
 		},
@@ -13361,7 +13361,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		},
 		condition: {
 			duration: 1,
-			onStart(target, source) {
+			onSideStart(target, source) {
 				this.add('-singleturn', source, 'Quick Guard');
 			},
 			onTryHitPriority: 4,
@@ -13675,11 +13675,12 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 					}
 				}
 			},
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'Reflect');
 			},
-			onResidualOrder: 21,
-			onEnd(side) {
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 1,
+			onSideEnd(side) {
 				this.add('-sideend', side, 'Reflect');
 			},
 		},
@@ -14461,12 +14462,12 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 					return null;
 				}
 			},
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'Safeguard');
 			},
-			onResidualOrder: 21,
-			onResidualSubOrder: 2,
-			onEnd(side) {
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 3,
+			onSideEnd(side) {
 				this.add('-sideend', side, 'Safeguard');
 			},
 		},
