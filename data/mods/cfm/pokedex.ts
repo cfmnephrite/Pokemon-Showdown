@@ -15216,7 +15216,7 @@ Water: Scald`},
 		weightkg: 80.5,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
-		cfmMoves: [],
+		cfmMoves: ["aurasphere", "calmmind", "craftyshield", "flashcannon", "focusblast", "fleurcannon", "ironhead", "lightscreen", "playrough", "reflect", "synchronoise", "voltswitch"],
 	},
 	marshadow: {
 		num: 802,

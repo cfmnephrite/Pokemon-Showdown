@@ -4659,11 +4659,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Has 1/2 recoil.",
 		pp: 5,
 		priority: 0,
-		flags: {recharge: 1, protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1},
 		recoil: [1, 2],
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
+		cfm: true,
 	},
 	expandingforce: {
 		num: 797,
