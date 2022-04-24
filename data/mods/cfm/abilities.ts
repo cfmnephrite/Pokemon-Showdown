@@ -1119,7 +1119,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		cfm: true,
 	},
 	flowergift: {
-		desc: "Cherrim transforms into Cherrim-Sunshine in the Sun. If Sunny Day is in Cherrim's first slot, Sun will automatically be summoned on switch-in Sun summoned in this way, or by Cherrim manually using Sunny Day, will last until Cherrim faints, switches out, or another Pokemon changes the weather. This ability cannot be removed, copied or transferred.",
+		desc: "Cherrim transforms into Cherrim-Sunshine in the Sun. If Sunny Day is in Cherrim's first slot, Sun will automatically be summoned on switch-in. Sun summoned in this way, or by Cherrim manually using Sunny Day, will last until Cherrim faints, switches out, or another Pokemon changes the weather. This ability cannot be removed, copied or transferred.",
 		shortDesc: "Cherrim: auto-summons Sunny Day if in slot 1; transforms into Cherrim-Sunshine.",
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Cherrim') return;

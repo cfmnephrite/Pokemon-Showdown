@@ -4865,7 +4865,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 150,
 		category: "Physical",
-		shortDesc: "Fails if the user takes damage before it hits.",
+		desc: "The user loses its focus and does nothing if it is hit by a damaging attack this turn before it can execute the move.",
+		shortDesc: "Fails if the user takes damage before it hits. (Focus Punch)",
+		cfmDesc: "Dark-type Focus Punch",
 		name: "False Surrender",
 		pp: 20,
 		priority: -3,
@@ -8209,6 +8211,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
+		onModifyMove(move, pokemon, target) {
+			if (['Hypno', 'Drowzee'].includes(pokemon.species.name))
+				move.accuracy = true;
+				break;
+			}
+		},
 		status: 'slp',
 		secondary: null,
 		target: "normal",
@@ -9190,7 +9198,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 30,
 		category: "Physical",
-		shortDesc: "30% (Lickitung family: 100%) chance to paralyse or confuse.",
+		shortDesc: "Matches user's primary type. 30% (Lickitung family: 100%) chance to paralyse or confuse.",
 		name: "Lick",
 		pp: 30,
 		priority: 0,
@@ -15429,7 +15437,8 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		basePower: 150,
 		category: "Physical",
 		desc: "The user loses its focus and does nothing if it is hit by a damaging attack this turn before it can execute the move.",
-		shortDesc: "Fails if the user takes damage before it hits.",
+		shortDesc: "Fails if the user takes damage before it hits. (Focus Punch)",
+		cfmDesc: "Flying-type Focus Punch",
 		name: "Sky Attack",
 		pp: 15,
 		priority: -3,
@@ -15458,6 +15467,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: true,
 	},
 	skydrop: {
 		num: 507,
@@ -19269,6 +19279,13 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		volatileStatus: 'partiallytrapped',
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.species.name === 'Kingdra')
+				move.accuracy = 75;
+				move.basePower = 120
+				break;
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Water",
