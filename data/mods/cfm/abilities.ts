@@ -1119,7 +1119,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		cfm: true,
 	},
 	flowergift: {
-		desc: "Cherrim transforms into Cherrim-Sunshine in the Sun. If Sunny Day is in Cherrim's first slot, Sun will automatically be summoned on switch-in Sun summoned in this way, or by Cherrim manually using Sunny Day, will last until Cherrim faints, switches out, or another Pokemon changes the weather. This ability cannot be removed, copied or transferred.",
+		desc: "Cherrim transforms into Cherrim-Sunshine in the Sun. If Sunny Day is in Cherrim's first slot, Sun will automatically be summoned on switch-in. Sun summoned in this way, or by Cherrim manually using Sunny Day, will last until Cherrim faints, switches out, or another Pokemon changes the weather. This ability cannot be removed, copied or transferred.",
 		shortDesc: "Cherrim: auto-summons Sunny Day if in slot 1; transforms into Cherrim-Sunshine.",
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Cherrim') return;
@@ -1339,6 +1339,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Full Metal Body",
 		rating: 2,
 		num: 230,
+		cfm: true,
 	},
 	furcoat: {
 		onModifyDefPriority: 6,
@@ -3195,7 +3196,7 @@ Water: Water Absorb`,
 		cfm: true,
 	},
 	prismarmor: {
-		desc: "This Pokemon receives 3/4 damage from supereffective attacks and is affected by the secondary effect of another Pokemon's attack. Moongeist Beam, Sunsteel Strike, and the Mold Breaker, Teravolt, and Turboblaze Abilities cannot ignore this Ability.",
+		desc: "This Pokemon receives 3/4 damage from supereffective attacks and is unaffected by the secondary effect of another Pokemon's attack. Moongeist Beam, Sunsteel Strike, and the Mold Breaker, Teravolt, and Turboblaze Abilities cannot ignore this Ability.",
 		shortDesc: "3/4 damage on super effective hits; immune to secondary effects.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
@@ -3842,6 +3843,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		num: 32,
 	},
 	shadowshield: {
+		shortDesc: "Lunala: gains Ghost-typing, takes 50% less attack damage at full HP.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.hp >= target.maxhp) {
 				this.debug('Shadow Shield weaken');
@@ -3851,6 +3853,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		name: "Shadow Shield",
 		rating: 3.5,
 		num: 231,
+		cfm: true,
 	},
 	shadowtag: {
 		onFoeTrapPokemon(pokemon) {

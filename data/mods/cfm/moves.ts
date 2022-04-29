@@ -31,8 +31,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 85,
 		basePower: 120,
 		category: "Special",
-		desc: "Has a 20% chance to paralyze.",
 		shortDesc: "20% chance to paralyze.",
+		cfmDesc: "Not a Z move. Has a 20% chance to paralyze.",
 		name: "10,000,000 Volt Thunderbolt",
 		pp: 15,
 		priority: 0,
@@ -823,7 +823,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onAnyModifyDamage(damage, source, target, move) {
 				if (target !== source && this.effectState.target.hasAlly(target)) {
+				// @ts-ignore
 					if ((target.side.getSideCondition('reflect') && this.getCategory(move, source) === 'Physical') ||
+					// @ts-ignore
 							(target.side.getSideCondition('lightscreen') && this.getCategory(move, source) === 'Special')) {
 						return;
 					}
@@ -1414,6 +1416,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 200,
 		category: "Special",
 		name: "Blue Flare",
+		cfmDesc: "Can be used by Reshiram via Firium Z and Fusion Flare. 20% chance to burn the target.",
 		pp: 1,
 		priority: 0,
 		flags: {},
@@ -1487,6 +1490,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 200,
 		category: "Physical",
 		name: "Bolt Strike",
+		cfmDesc: "Can be used by Zekrom via Electrium Z and Fusion Bolt. 20% chance to paralyze the target.",
 		pp: 1,
 		priority: 0,
 		flags: {},
@@ -1529,7 +1533,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 50,
 		category: "Physical",
 		name: "Bonemerang",
-		cfmDesc: "Can hit airborne targets but cannot hit them for super-effective damage",
+		cfmDesc: "Hits twice. Can hit airborne targets but cannot hit them for super-effective damage.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, antiair: 1},
@@ -1546,7 +1550,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 25,
 		category: "Physical",
 		name: "Bone Rush",
-		cfmDesc: "Can hit airborne targets but cannot hit them for super-effective damage",
+		cfmDesc: "Hits 2-5 times. Can hit airborne targets but cannot hit them for super-effective damage.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, antiair: 1},
@@ -2014,8 +2018,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 85,
 		basePower: 120,
 		category: "Physical",
-		desc: "Has a 20% chance to paralyse the target.",
 		shortDesc: "20% chance to paralyse the target.",
+		cfmDesc: "Not a Z move. Has a 20% chance to paralyse the target.",
 		name: "Catastropika",
 		pp: 5,
 		priority: 0,
@@ -2720,6 +2724,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return this.getAtSlot(this.effectState.slot);
 			},
 			onDamagingHit(damage, target, source, move) {
+				// @ts-ignore
 				if (!source.isAlly(target) && this.getCategory(move, source) === 'Physical') {
 					this.effectState.slot = source.getSlot();
 					this.effectState.damage = 2 * damage;
@@ -3639,8 +3644,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
-		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
-		shortDesc: "Hits twice in one turn; never misses.",
 		name: "Double Hit",
 		pp: 10,
 		priority: 0,
@@ -3677,8 +3680,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
-		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
-		shortDesc: "Hits twice in one turn; never misses.",
 		name: "Double Kick",
 		pp: 10,
 		priority: 0,
@@ -3697,7 +3698,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 40,
 		category: "Physical",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
-		shortDesc: "Hits twice in one turn; never misses.",
+		shortDesc: "Hits twice in one turn.",
 		name: "Double Slap",
 		pp: 10,
 		priority: 0,
@@ -4031,6 +4032,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Physical",
 		desc: "Has a 10% chance to lower the target's Defence by 1 stage.",
 		shortDesc: "10% chance to lower the target's Defence by 1.",
+		cfmDesc: "10% chance to lower the target's Defence by 1. Can hit airborne targets but cannot hit them for super-effective damage.",
 		name: "Drill Run",
 		pp: 10,
 		priority: 0,
@@ -4069,8 +4071,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
-		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
-		shortDesc: "Hits twice in one turn; never misses.",
 		name: "Dual Chop",
 		pp: 10,
 		priority: 0,
@@ -4659,11 +4659,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Has 1/2 recoil.",
 		pp: 5,
 		priority: 0,
-		flags: {recharge: 1, protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1},
 		recoil: [1, 2],
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
+		cfm: true,
 	},
 	expandingforce: {
 		num: 797,
@@ -4864,7 +4865,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 150,
 		category: "Physical",
-		shortDesc: "Fails if the user takes damage before it hits.",
+		desc: "The user loses its focus and does nothing if it is hit by a damaging attack this turn before it can execute the move.",
+		shortDesc: "Fails if the user takes damage before it hits. (Focus Punch)",
+		cfmDesc: "Dark-type Focus Punch",
 		name: "False Surrender",
 		pp: 20,
 		priority: -3,
@@ -7051,6 +7054,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Hail",
+		desc: "For 5 turns, the weather becomes Hail. The damage of Ice-type attacks is multiplied by 1.3 and the damage of Water and Fire-type attacks is multiplied by 0.5 during the effect. At the end of each turn except the last, all active Pokemon lose 1/16 of their maximum HP, rounded down, unless they are an Ice type or have the Ice Body, Magic Guard, Overcoat, or Snow Cloak Abilities. Lasts for 8 turns if the user is holding Icy Rock. Fails if the current weather is Hail.",
+		cfmDesc: "For 5 turns, the weather becomes Hail. Ice-type moves boosted by 30%; Fire and Water-type moves weakened by 50%.",
 		pp: 10,
 		priority: 0,
 		flags: {},
@@ -7060,6 +7065,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ice",
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	hammerarm: {
 		num: 359,
@@ -8205,6 +8211,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
+		onModifyMove(move, pokemon, target) {
+			if (['Hypno', 'Drowzee'].includes(pokemon.species.name))
+				move.accuracy = true;
+				break;
+			}
+		},
 		status: 'slp',
 		secondary: null,
 		target: "normal",
@@ -9186,7 +9198,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 30,
 		category: "Physical",
-		shortDesc: "30% (Lickitung family: 100%) chance to paralyse or confuse.",
+		shortDesc: "Matches user's primary type. 30% (Lickitung family: 100%) chance to paralyse or confuse.",
 		name: "Lick",
 		pp: 30,
 		priority: 0,
@@ -9267,6 +9279,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
+				// @ts-ignore
 				if (target !== source && this.effectState.target.hasAlly(target) && this.getCategory(move, source) === 'Special') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Light Screen weaken');
@@ -9275,12 +9288,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					}
 				}
 			},
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Light Screen');
 			},
-			onResidualOrder: 21,
-			onResidualSubOrder: 1,
-			onEnd(side) {
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 2,
+			onSideEnd(side) {
 				this.add('-sideend', side, 'move: Light Screen');
 			},
 		},
@@ -9438,6 +9451,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Clever",
+		cfm: true,
 	},
 	luckychant: {
 		num: 381,
@@ -9453,13 +9467,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		sideCondition: 'luckychant',
 		condition: {
 			duration: 7,
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Lucky Chant'); // "The Lucky Chant shielded [side.name]'s team from critical hits!"
 			},
 			onCriticalHit: false,
-			onResidualOrder: 21,
-			onResidualSubOrder: 5,
-			onEnd(side) {
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 6,
+			onSideEnd(side) {
 				this.add('-sideend', side, 'move: Lucky Chant'); // "[side.name]'s team's Lucky Chant wore off!"
 			},
 		},
@@ -9842,7 +9856,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		condition: {
 			duration: 1,
-			onStart(target, source) {
+			onSideStart(target, source) {
 				this.add('-singleturn', source, 'Mat Block');
 			},
 			onTryHitPriority: 3,
@@ -10415,6 +10429,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 95,
 		category: "Physical",
 		name: "Mega Kick",
+		shortDesc: "Matches the user's primary type",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, omnitype: 1, antiair: 1},
@@ -10435,8 +10450,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
-		desc: "Has a 10% chance to raise the user's Attack by 1 stage.",
-		shortDesc: "10% chance to raise the user's Attack by 1.",
+		shortDesc: "Matches the user's primary type. 10% chance to raise Attack by 1.",
 		name: "Mega Punch",
 		pp: 15,
 		priority: 0,
@@ -10873,6 +10887,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return this.getAtSlot(this.effectState.slot);
 			},
 			onDamagingHit(damage, target, source, move) {
+				// @ts-ignore
 				if (!source.isAlly(target) && this.getCategory(move, source) === 'Special') {
 					this.effectState.slot = source.getSlot();
 					this.effectState.damage = 2 * damage;
@@ -10958,12 +10973,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					}
 				}
 			},
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'Mist');
 			},
-			onResidualOrder: 21,
-			onResidualSubOrder: 3,
-			onEnd(side) {
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 4,
+			onSideEnd(side) {
 				this.add('-sideend', side, 'Mist');
 			},
 		},
@@ -12704,7 +12719,7 @@ Water:		Scald`,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-		shortDesc: "90, 120, 150 base power, or heals allies by 1/2 max HP.",
+		shortDesc: "90, 120, 150 base power. If used on an ally: heals by 1/2 max HP.",
 		name: "Present",
 		pp: 15,
 		priority: 0,
@@ -12729,6 +12744,7 @@ Water:		Scald`,
 		type: "Normal",
 		zMove: {basePower: 175},
 		contestType: "Cute",
+		cfm: true,
 	},
 	prismaticlaser: {
 		num: 711,
@@ -13353,7 +13369,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		},
 		condition: {
 			duration: 1,
-			onStart(target, source) {
+			onSideStart(target, source) {
 				this.add('-singleturn', source, 'Quick Guard');
 			},
 			onTryHitPriority: 4,
@@ -13479,6 +13495,8 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		basePower: 0,
 		category: "Status",
 		name: "Rain Dance",
+		desc: "For 5 turns, the weather becomes Rain Dance. The damage of Water-type attacks is multiplied by 1.3 and the damage of Fire-type attacks is multiplied by 0.5 during the effect. At the end of each turn except the last, all active Pokemon lose 1/16 of their maximum HP, rounded down, unless they are an Ice type or have the Ice Body, Magic Guard, Overcoat, or Snow Cloak Abilities. Lasts for 8 turns if the user is holding Damp Rock. Fails if the current weather is Rain Dance.",
+		cfmDesc: "For 5 turns, the weather becomes Rain Dance. Water-type moves boosted by 30%; Fire-type moves weakened by 50%.",
 		pp: 5,
 		priority: 0,
 		flags: {},
@@ -13488,6 +13506,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Water",
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	rapidspin: {
 		num: 229,
@@ -13655,6 +13674,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
+				// @ts-ignore
 				if (target !== source && this.effectState.target.hasAlly(target) && this.getCategory(move, source) === 'Physical') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Reflect weaken');
@@ -13663,11 +13683,12 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 					}
 				}
 			},
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'Reflect');
 			},
-			onResidualOrder: 21,
-			onEnd(side) {
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 1,
+			onSideEnd(side) {
 				this.add('-sideend', side, 'Reflect');
 			},
 		},
@@ -14148,6 +14169,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		target: "normal",
 		type: "Rock",
 		contestType: "Clever",
+		cfm: true,
 	},
 	rockwrecker: {
 		num: 439,
@@ -14448,12 +14470,12 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 					return null;
 				}
 			},
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'Safeguard');
 			},
-			onResidualOrder: 21,
-			onResidualSubOrder: 2,
-			onEnd(side) {
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 3,
+			onSideEnd(side) {
 				this.add('-sideend', side, 'Safeguard');
 			},
 		},
@@ -15415,7 +15437,8 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		basePower: 150,
 		category: "Physical",
 		desc: "The user loses its focus and does nothing if it is hit by a damaging attack this turn before it can execute the move.",
-		shortDesc: "Fails if the user takes damage before it hits.",
+		shortDesc: "Fails if the user takes damage before it hits. (Focus Punch)",
+		cfmDesc: "Flying-type Focus Punch",
 		name: "Sky Attack",
 		pp: 15,
 		priority: -3,
@@ -15444,6 +15467,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		target: "any",
 		type: "Flying",
 		contestType: "Cool",
+		cfm: true,
 	},
 	skydrop: {
 		num: 507,
@@ -15592,7 +15616,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
-		shortDesc: "Changes to the user's primary type. 1/3 recoil.",
+		shortDesc: "Matches the user's primary type. 1/3 recoil.",
 		name: "Slam",
 		pp: 10,
 		priority: 0,
@@ -15615,7 +15639,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-		shortDesc: "Type varies based on the user's primary type.",
+		shortDesc: "Matches the user's primary type.",
 		name: "Slash",
 		pp: 15,
 		priority: 0,
@@ -15866,9 +15890,8 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		basePower: 60,
 		category: "Physical",
 		name: "Snap Trap",
-		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Parting Shot, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move. The damage dealt each turn is absorbed by the user of the move, restoring their HP.",
-		shortDesc: "Traps and damages the target for 4-5 turns. Damage dealt heals the user.",
-		cfmDesc: "Changes to the user's primary type. Traps and damages the target for 4-5 turns. Damage dealt heals the user.",
+		desc: "Matches the user's primary type. Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Parting Shot, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move. The damage dealt each turn is absorbed by the user of the move, restoring their HP.",
+		shortDesc: "Matches the user's primary type. Traps & damages for 4-5 turns; damage dealt heals the user.",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, omnitype: 1},
@@ -17236,6 +17259,8 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		basePower: 0,
 		category: "Status",
 		name: "Sunny Day",
+		desc: "For 5 turns, the weather becomes Sunny Day. The damage of Fire-type attacks is multiplied by 1.3 and the damage of Water-type attacks is multiplied by 0.5 during the effect. At the end of each turn except the last, all active Pokemon lose 1/16 of their maximum HP, rounded down, unless they are an Ice type or have the Ice Body, Magic Guard, Overcoat, or Snow Cloak Abilities. Lasts for 8 turns if the user is holding Heat Rock. Fails if the current weather is Sunny Day.",
+		cfmDesc: "For 5 turns, the weather becomes Sunny Day. Fire-type moves boosted by 30%; Water-type moves weakened by 50%.",
 		pp: 5,
 		priority: 0,
 		flags: {},
@@ -17245,6 +17270,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Fire",
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
+		cfm: true,
 	},
 	sunsteelstrike: {
 		num: 713,
@@ -17706,8 +17732,8 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		accuracy: 95,
 		basePower: 90,
 		category: "Physical",
-		desc: "If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.",
-		shortDesc: "Changes to the user's primary type. Has 1/4 recoil.",
+		desc: "Matches the user's primary type. If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Matches the user's primary type. Has 1/4 recoil.",
 		name: "Take Down",
 		pp: 20,
 		priority: 0,
@@ -19253,6 +19279,13 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		volatileStatus: 'partiallytrapped',
+		onModifyMove(move, pokemon, target) {
+			if (pokemon.species.name === 'Kingdra')
+				move.accuracy = 75;
+				move.basePower = 120
+				break;
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Water",
@@ -19486,6 +19519,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Psychic",
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
+		cfm: true,
 	},
 	woodhammer: {
 		num: 452,
