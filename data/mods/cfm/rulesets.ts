@@ -1791,6 +1791,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 				diggersby:		{tier: 'UU', ability: 'hugepower'},
 				rillaboom:		{tier: 'UU', ability: 'grassysurge'},
 				arctozolt:      {tier: 'UU', ability: 'slushrush'},
+				cherrim:        {tier: 'UU', ability: 'flowergift'},
 				// items
 				latias:			{tier: 'OU', item: 'souldew'},
 				latios:			{tier: 'OU', item: 'souldew'},

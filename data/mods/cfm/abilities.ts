@@ -4325,6 +4325,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		num: 252,
 	},
 	stench: {
+		shortDesc: "Boosts special poison moves by 30%, all moves gain a 10% flinch chance.",
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
 			if (move.category !== "Status") {
@@ -4337,6 +4338,11 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 					chance: 10,
 					volatileStatus: 'flinch',
 				});
+			}
+		},
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Poison' && move.category === 'Special' && !this.field.auraBreak()) {
+				return this.chainModify(1.3);
 			}
 		},
 		name: "Stench",

@@ -641,7 +641,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	astralbarrage: {
 		num: 825,
-		accuracy: 85,
+		accuracy: 90,
 		basePower: 120,
 		category: "Special",
 		name: "Astral Barrage",
@@ -651,6 +651,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Ghost",
+		cfm: true,
 	},
 	attackorder: {
 		num: 454,
@@ -1139,7 +1140,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	belch: {
 		num: 562,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 120,
 		category: "Special",
 		name: "Belch",
@@ -1151,6 +1152,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
+		cfm: true,
 	},
 	bellydrum: {
 		num: 187,
@@ -3919,7 +3921,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	dragonrush: {
 		num: 407,
-		accuracy: 75,
+		accuracy: 80,
 		basePower: 120,
 		category: "Physical",
 		name: "Dragon Rush",
@@ -5007,7 +5009,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	fierywrath: {
 		num: 822,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 100,
 		category: "Special",
 		shortDesc: "10% chance to burn; 30% chance to lower Sp. Def.",
 		name: "Fiery Wrath",
@@ -5785,7 +5787,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
 		secondary: {
-			chance: 10,
+			chance: 20,
 			boosts: {
 				spd: -1,
 			},
@@ -6059,7 +6061,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Frenzy Plant",
 		pp: 5,
 		priority: 0,
-		flags: {recharge: 1, protect: 1, mirror: 1, nonsky: 1},
+		flags: {protect: 1, mirror: 1, nonsky: 1},
 		recoil: [1, 2],
 		secondary: null,
 		target: "normal",
@@ -6405,7 +6407,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Giga Impact",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, recharge: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1},
 		recoil: [1, 2],
 		secondary: null,
 		target: "normal",
@@ -6430,9 +6432,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	glaciallance: {
 		num: 824,
-		accuracy: 80,
+		accuracy: 85,
 		basePower: 120,
 		category: "Physical",
+		shortDesc: "10% chance to freeze. Hits adjacent foes.",
 		name: "Glacial Lance",
 		pp: 5,
 		priority: 0,
@@ -6443,6 +6446,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "allAdjacentFoes",
 		type: "Ice",
+		cfm: true,
 	},
 	glaciate: {
 		num: 549,
@@ -6997,17 +7001,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 80,
 		basePower: 120,
 		category: "Physical",
+		shortDesc: "20% chance to poison the target.",
 		name: "Gunk Shot",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
-			chance: 30,
+			chance: 20,
 			status: 'psn',
 		},
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
+		cfm: true,
 	},
 	gust: {
 		num: 16,
@@ -7324,8 +7330,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "The user restores 1/2 of its maximum HP, rounded half up.",
-		shortDesc: "Heals the user by 50% of its max HP.",
+		desc: "The user restores 1/2 of its maximum HP. If statused, heals 1/4 and cures the status.",
+		shortDesc: "Heals 50% of the user's max HP. If statused: heals 25% and cures status.",
 		name: "Heal Order",
 		pp: 10,
 		priority: 0,
@@ -8010,9 +8016,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 70,
 		basePower: 120,
 		category: "Special",
-		desc: "Has a 10% chance to confuse the target. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If the weather is Primordial Sea or Rain Dance, this move does not check accuracy. If the weather is Desolate Land or Sunny Day, this move's accuracy is 50%.",
-		shortDesc: "10% chance to confuse target. Can't miss in rain or hail; in Sun, 50% Accurate, of if user is Fire; can't miss, 10% chance to burn.",
-		cfmDesc: "10% chance to confuse the target. Cannot miss in rain or hail, 50% accurate in harsh sunlight. However, if the user is a Fire-type, this move becomes 100% accurate in harsh sunlight and the 10% chance to confuse becomes a 10% chance to burn the target.",
+		desc: "Has a 30% chance to confuse the target. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If the weather is Primordial Sea or Rain Dance, this move does not check accuracy. If the weather is Desolate Land or Sunny Day, this move's accuracy is 50%.",
+		shortDesc: "30% chance to confuse target. Can't miss in rain or hail; in Sun, 50% Accurate, of if user is Fire; can't miss, 10% chance to burn.",
+		cfmDesc: "30% chance to confuse the target. Cannot miss in rain or hail, 50% accurate in harsh sunlight. However, if the user is a Fire-type, this move becomes 100% accurate in harsh sunlight and the 10% chance to confuse becomes a 10% chance to burn the target.",
 		name: "Hurricane",
 		pp: 10,
 		priority: 0,
@@ -8049,7 +8055,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Hydro Cannon",
 		pp: 5,
 		priority: 0,
-		flags: {recharge: 1, protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1},
 		self: {
 			boosts: {
 				spa: -2,
@@ -8723,7 +8729,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Dark",
+		type: "Rock",
 	},
 	judgment: {
 		num: 449,
@@ -12022,13 +12028,14 @@ Water:		Scald`,
 		basePower: 50,
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
-				this.debug('Payback NOT boosted');
-				return move.basePower;
+				this.debug('Payback damage boost');
+				return move.basePower * 2;
 			}
 			this.debug('Payback damage boost');
 			return move.basePower * 2;
 		},
 		category: "Physical",
+		shortDesc: "Power doubles if the user moves after the target, including switches.",
 		name: "Payback",
 		pp: 10,
 		priority: 0,
@@ -12698,7 +12705,7 @@ Water:		Scald`,
 			if (attacker.hasType('Poison')) {
 				move.secondaries = [];
 				move.secondaries.push({
-					chance: 30,
+					chance: 10,
 					status: 'psn',
 				});
 			}
@@ -14189,7 +14196,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Rock Wrecker",
 		pp: 5,
 		priority: 0,
-		flags: {bullet: 1, recharge: 1, protect: 1, mirror: 1},
+		flags: {bullet: 1, protect: 1, mirror: 1},
 		self: {
 			boosts: {
 				atk: -3,
@@ -14688,7 +14695,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			if (pokemon.getStat('atk') > pokemon.getStat('spa')) move.category = 'Physical';
 		},
 		secondary: {
-			chance: 20,
+			chance: 30,
 			status: 'brn',
 		},
 		target: "normal",
@@ -14874,14 +14881,15 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	shadowbone: {
 		num: 708,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 100,
 		category: "Physical",
+		shortDesc: "50% chance to lower the target's attack by 1.",
 		name: "Shadow Bone",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
-			chance: 20,
+			chance: 50,
 			boosts: {
 				atk: -1,
 			},
@@ -18694,7 +18702,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		desc: "Has a 50% chance to lower the target's Attack by 1 stage.",
 		shortDesc: "50% chance to lower the target's Attack by 1.",
 		name: "Trop Kick",
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		secondary: {
