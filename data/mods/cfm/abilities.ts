@@ -4321,7 +4321,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		num: 252,
 	},
 	stench: {
-		shortDesc: "Boosts special poison moves by 30%, all moves gain a 10% flinch chance.",
+		shortDesc: "Boosts special Poison-type moves by 30%, all attacks gain a 10% flinch chance.",
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
 			if (move.category !== "Status") {
@@ -4344,6 +4344,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		name: "Stench",
 		rating: 0.5,
 		num: 1,
+		cfm: true,
 	},
 	stickyhold: {
 		onTakeItem(item, pokemon, source) {
