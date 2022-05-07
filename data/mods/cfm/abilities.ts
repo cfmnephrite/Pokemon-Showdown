@@ -1155,6 +1155,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 			this.field.clearWeather();
 		},
+		isPermanent: true,
 		name: "Flower Gift",
 		rating: 1,
 		num: 122,
@@ -1264,6 +1265,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 			this.field.clearWeather();
 		},
+		isPermanent: true,
 		name: "Forecast",
 		rating: 2,
 		num: 59,
@@ -1336,6 +1338,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add("-fail", target, "unboost", "[from] ability: Full Metal Body", "[of] " + target);
 			}
 		},
+		isPermanent: true,
 		name: "Full Metal Body",
 		rating: 2,
 		num: 230,
@@ -3842,6 +3845,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 				return this.chainModify(0.5);
 			}
 		},
+		isPermanent: true,
 		name: "Shadow Shield",
 		rating: 3.5,
 		num: 231,

@@ -841,7 +841,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Moon Stone",
 		eggGroups: ["Fairy"],
-		cfmMoves: ["boomburst", "calmmind", "craftyshield", "fireblast", "focusblast", "mistyexplosion", "moonblast", "playrough", "quickattack", "selfdestruct", "submission", "wish"],
+		cfmMoves: ["calmmind", "craftyshield", "fireblast", "focusblast", "hypervoice", "mistyexplosion", "moonblast", "playrough", "quickattack", "selfdestruct", "submission", "wish"],
 	},
 	zubat: {
 		num: 41,
