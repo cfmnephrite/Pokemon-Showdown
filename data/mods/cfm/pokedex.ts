@@ -1594,6 +1594,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		otherFormes: ["Rapidash-Galar"],
 		formeOrder: ["Rapidash", "Rapidash-Galar"],
 		cfmMoves: ["drillrun", "fireblast", "flareblitz", "horndrill", "morningsun", "mysticalfire", "nastyplot", "scorchingsands", "solarbeam", "solarblade", "swordsdance", "wildcharge"],
+		cfmMoveSpecialDesc: {"horndrill": "Lowers the user's Attack by 2. High crit chance. If the user is Rapidash, this move becomes Fire-type."},
 	},
 	rapidashgalar: {
 		num: 78,
@@ -1610,6 +1611,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 40,
 		eggGroups: ["Field"],
 		cfmMoves: ["calmmind", "dazzlinggleam", "healingwish", "highhorsepower", "horndrill", "mysticalfire", "playrough", "psychic", "psychocut", "psyshock", "swordsdance", "zenheadbutt"],
+		cfmMoveSpecialDesc: {"horndrill": "Lowers the user's Attack by 2. High crit chance. If the user is Rapidash-Galar, this move becomes Psychic-type."},
 	},
 	slowpoke: {
 		num: 79,
@@ -1996,7 +1998,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 26,
 		eggGroups: ["Human-Like"],
 		cfmMoves: ["bellydrum", "darkpulse", "dreameater", "expandingforce", "focusblast", "hypnosis", "knockoff", "nastyplot", "nightmare", "psyshock", "wish", "zenheadbutt"],
-		cfmMoveSpecialDesc: {"hypnosis": "If the user is Drowzee/Hypno, this move never misses"},
+		cfmMoveSpecialDesc: {"hypnosis": "If the user is Drowzee/Hypno, this move never misses."},
 	},
 	krabby: {
 		num: 98,
@@ -2351,7 +2353,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		evos: ["Tangrowth"],
 		eggGroups: ["Grass"],
-		cfmMoves: [],
+		cfmMoves: ["gigadrain", "growth", "knockoff", "leafstorm", "leechseed", "powerwhip", "sleeppowder", "sludgebomb", "solarbeam", "swordsdance", "synthesis", "toxic"],
 	},
 	kangaskhan: {
 		num: 115,
@@ -3015,8 +3017,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 122,
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
-		otherFormes: ["Mewtwo-Mega-X", "Mewtwo-Mega-Y"],
-		formeOrder: ["Mewtwo", "Mewtwo-Mega-X", "Mewtwo-Mega-Y"],
 		cfmMoves: ["aurasphere", "blizzard", "bulkup", "fireblast", "hurricane", "hyperbeam", "psychic", "psystrike", "shadowball", "teleport", "thunder", "zenheadbutt"],
 	},
 	mew: {
@@ -7358,7 +7358,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	luxray: {
 		num: 405,
 		name: "Luxray",
-		types: ["Electric", "Dark"],
+		types: ["Electric"],
 		baseStats: {hp: 80, atk: 120, def: 70, spa: 95, spd: 70, spe: 95},
 		abilities: {0: "Intimidate", 1: "Guts", H: "Galvanize"},
 		heightm: 1.4,
@@ -7878,7 +7878,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Stunky",
 		evoLevel: 34,
 		eggGroups: ["Field"],
-		cfmMoves: [],
+		cfmMoves: ["acid", "defog", "darkpulse", "fireblast", "firefang", "gunkshot", "icefang", "knockoff", "slam", "sludgewave", "stompingtantrum", "thunderfang"],
 	},
 	bronzor: {
 		num: 436,
@@ -15690,7 +15690,7 @@ Water: Scald`},
 		prevo: "Chewtle",
 		evoLevel: 22,
 		eggGroups: ["Monster", "Water 1"],
-		cfmMoves: [],
+		cfmMoves: ["crunch", "jawlock", "headsmash", "highhorsepower", "hyperfang", "icefang", "megahorn", "poisonjab", "razorshell", "rockslide", "scald", "stoneedge"],
 	},
 	yamper: {
 		num: 835,

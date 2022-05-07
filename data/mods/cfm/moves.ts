@@ -7950,7 +7950,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 140,
 		category: "Physical",
-		shortDesc: "Lowers the user's Attack by 2. High crit chance. Fire/Psychic type if used by Rapidash/Rapidash-G.",
+		shortDesc: "Lowers the user's Attack by 2. High crit chance.",
 		name: "Horn Drill",
 		pp: 5,
 		priority: 0,
@@ -8715,19 +8715,22 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	jawlock: {
 		num: 746,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 60,
 		category: "Physical",
 		name: "Jaw Lock",
+		desc: "Prevents the target from switching out.",
+		shortDesc: "Prevents the target from switching out.",
+		cfmDesc: "Prevents the target from switching out. Does NOT prevent the user from switching out.",
 		pp: 10,
 		priority: 0,
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
 		onHit(target, source, move) {
-			source.addVolatile('trapped', target, move, 'trapper');
 			target.addVolatile('trapped', source, move, 'trapper');
 		},
 		secondary: null,
 		target: "normal",
 		type: "Rock",
+		cfm: true,
 	},
 	judgment: {
 		num: 449,
