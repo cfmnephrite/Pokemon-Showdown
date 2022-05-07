@@ -8214,8 +8214,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onModifyMove(move, pokemon, target) {
 			if (['Hypno', 'Drowzee'].includes(pokemon.species.name))
 				move.accuracy = true;
-				break;
-			}
 		},
 		status: 'slp',
 		secondary: null,
@@ -8778,17 +8776,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+		shortDesc: "Heals 50% of max HP. If statused, heals 25% and cures status. Always heals 50% in Grassy Terrain.",
 		name: "Jungle Healing",
 		pp: 10,
 		priority: 0,
 		flags: {heal: 1, bypasssub: 1, allyanim: 1},
 		onHit(pokemon) {
-			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
-			return pokemon.cureStatus() || success;
+			let factor = 0.5;
+			if (pokemon.status && pokemon.status !== 'slp') {
+				factor = 0.25;
+				pokemon.cureStatus();
+			}
+			if (this.field.isTerrain('grassyterrain')) {
+				factor = 0.5;
+				pokemon.cureStatus();
+			}
+			return !!this.heal(this.modify(pokemon.maxhp, factor));
 		},
 		secondary: null,
 		target: "allies",
 		type: "Grass",
+		cfm: true,
 	},
 	karatechop: {
 		num: 2,
@@ -19280,10 +19288,9 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		flags: {protect: 1, mirror: 1},
 		volatileStatus: 'partiallytrapped',
 		onModifyMove(move, pokemon, target) {
-			if (pokemon.species.name === 'Kingdra')
+			if (pokemon.species.name === 'Kingdra') {
 				move.accuracy = 75;
-				move.basePower = 120
-				break;
+				move.basePower = 120;
 			}
 		},
 		secondary: null,

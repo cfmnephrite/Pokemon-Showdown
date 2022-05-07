@@ -3826,7 +3826,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	keldeoresolute: {
-		tier: "CUU",
+		tier: "COU",
 		inherit: true,
 	},
 	meloetta: {
@@ -5300,7 +5300,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	zarude: {
-		tier: "CUU",
+		tier: "COU",
 		inherit: true,
 	},
 	zarudedada: {
@@ -5324,7 +5324,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	calyrex: {
-		tier: "CZU",
+		tier: "CUU",
 		inherit: true,
 	},
 	calyrexice: {
