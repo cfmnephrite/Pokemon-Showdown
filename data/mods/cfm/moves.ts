@@ -641,7 +641,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	astralbarrage: {
 		num: 825,
-		accuracy: 90,
+		accuracy: 85,
 		basePower: 120,
 		category: "Special",
 		name: "Astral Barrage",
@@ -5787,7 +5787,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
 		secondary: {
-			chance: 20,
+			chance: 10,
 			boosts: {
 				spd: -1,
 			},
@@ -7001,19 +7001,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 80,
 		basePower: 120,
 		category: "Physical",
-		shortDesc: "20% chance to poison the target.",
 		name: "Gunk Shot",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
-			chance: 20,
+			chance: 30,
 			status: 'psn',
 		},
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
-		cfm: true,
 	},
 	gust: {
 		num: 16,
@@ -8016,9 +8014,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 70,
 		basePower: 120,
 		category: "Special",
-		desc: "Has a 30% chance to confuse the target. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If the weather is Primordial Sea or Rain Dance, this move does not check accuracy. If the weather is Desolate Land or Sunny Day, this move's accuracy is 50%.",
-		shortDesc: "30% chance to confuse target. Can't miss in rain or hail; in Sun, 50% Accurate, of if user is Fire; can't miss, 10% chance to burn.",
-		cfmDesc: "30% chance to confuse the target. Cannot miss in rain or hail, 50% accurate in harsh sunlight. However, if the user is a Fire-type, this move becomes 100% accurate in harsh sunlight and the 10% chance to confuse becomes a 10% chance to burn the target.",
+		desc: "Has a 10% chance to confuse the target. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If the weather is Primordial Sea or Rain Dance, this move does not check accuracy. If the weather is Desolate Land or Sunny Day, this move's accuracy is 50%.",
+		shortDesc: "10% chance to confuse target. Can't miss in rain or hail; in Sun, 50% Accurate, of if user is Fire; can't miss, 10% chance to burn.",
+		cfmDesc: "10% chance to confuse the target. Cannot miss in rain or hail, 50% accurate in harsh sunlight. However, if the user is a Fire-type, this move becomes 100% accurate in harsh sunlight and the 10% chance to confuse becomes a 10% chance to burn the target.",
 		name: "Hurricane",
 		pp: 10,
 		priority: 0,
@@ -8037,7 +8035,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 		secondary: {
-			chance: 30,
+			chance: 10,
 			volatileStatus: 'confusion',
 		},
 		target: "any",
@@ -8790,11 +8788,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHit(pokemon) {
 			let factor = 0.5;
 			if (pokemon.status && pokemon.status !== 'slp') {
-				factor = 0.25;
-				pokemon.cureStatus();
-			}
-			if (this.field.isTerrain('grassyterrain')) {
-				factor = 0.5;
+				if (!this.field.isTerrain('grassyterrain'))
+					factor = 0.25;
 				pokemon.cureStatus();
 			}
 			return !!this.heal(this.modify(pokemon.maxhp, factor));
@@ -12027,9 +12022,9 @@ Water:		Scald`,
 		accuracy: 100,
 		basePower: 50,
 		basePowerCallback(pokemon, target, move) {
-			if (target.newlySwitched || this.queue.willMove(target)) {
-				this.debug('Payback damage boost');
-				return move.basePower * 2;
+			if (this.queue.willMove(target)) {
+				this.debug('Payback damage not boosted');
+				return move.basePower;
 			}
 			this.debug('Payback damage boost');
 			return move.basePower * 2;
@@ -12705,7 +12700,7 @@ Water:		Scald`,
 			if (attacker.hasType('Poison')) {
 				move.secondaries = [];
 				move.secondaries.push({
-					chance: 10,
+					chance: 30,
 					status: 'psn',
 				});
 			}
@@ -14695,7 +14690,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			if (pokemon.getStat('atk') > pokemon.getStat('spa')) move.category = 'Physical';
 		},
 		secondary: {
-			chance: 30,
+			chance: 20,
 			status: 'brn',
 		},
 		target: "normal",
@@ -14883,7 +14878,8 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
-		shortDesc: "50% chance to lower the target's attack by 1.",
+		desc: "Has a 50% chance to lower the target's Attack by 1 stage.",
+		shortDesc: "50% chance to lower the target's Attack by 1.",
 		name: "Shadow Bone",
 		pp: 10,
 		priority: 0,
