@@ -86,6 +86,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.effectState.switchingIn = true;
 		},
 		onStart(pokemon) {
+			for (const action of this.queue) {
+				if (action.choice === 'runPrimal' && action.pokemon === pokemon && pokemon.species.id === 'rayquaza') return;
+				if (action.choice !== 'runSwitch' && action.choice !== 'runPrimal') break;
+			}
 			// Air Lock does not activate when Skill Swapped or when Neutralizing Gas leaves the field
 			if (!this.effectState.switchingIn) return;
 			this.add('-ability', pokemon, 'Air Lock');

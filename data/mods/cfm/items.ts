@@ -487,10 +487,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 41,
 		shortDesc: "If held by Kyogre or Rayquaza, this item triggers its Primal Reversion in battle.",
 		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyogre') {
-				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
-			}
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Rayquaza') {
+			if (pokemon.isActive && ['Kyogre', 'Rayquaza'].includes(pokemon.baseSpecies.name)) {
 				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
 			}
 		},
@@ -503,11 +500,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Kyogre') return false;
-			if (source.baseSpecies.baseSpecies === 'Rayquaza') return false;
-			return true;
+			return !['Kyogre', 'Rayquaza'].includes(source.baseSpecies.baseSpecies);
 		},
-		itemUser: ["Kyogre"],
+		itemUser: ["Kyogre", "Rayquaza"],
 		num: 535,
 		gen: 6,
 	},
@@ -4284,10 +4279,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 390,
 		shortDesc: "If held by Groudon or Rayquaza, this item triggers its Primal Reversion in battle.",
 		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Groudon') {
-				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
-			}
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Rayquaza') {
+			if (pokemon.isActive && ['Groudon', 'Rayquaza'].includes(pokemon.baseSpecies.name)) {
 				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
 			}
 		},
@@ -4300,11 +4292,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Groudon') return false;
-			if (source.baseSpecies.baseSpecies === 'Rayquaza') return false;
-			return true;
+			return !['Groudon', 'Rayquaza'].includes(source.baseSpecies.baseSpecies);
 		},
-		itemUser: ["Groudon"],
+		itemUser: ["Groudon", "Rayquaza"],
 		num: 534,
 		gen: 6,
 	},
