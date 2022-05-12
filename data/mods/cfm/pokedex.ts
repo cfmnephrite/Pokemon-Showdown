@@ -7012,7 +7012,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		levitates: true,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
-		requiredMove: "Dragon Ascent",
+		requiredItems: ["Red Orb", "Blue Orb"],
 		cfmMoves: [],
 	},
 	jirachi: {

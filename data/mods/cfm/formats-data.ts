@@ -2442,7 +2442,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	rayquazamega: {
 		isNonstandard: null,
-		tier: "CAG",
+		tier: "CUb",
 		inherit: true,
 	},
 	jirachi: {

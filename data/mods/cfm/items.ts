@@ -485,16 +485,26 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	blueorb: {
 		name: "Blue Orb",
 		spritenum: 41,
+		shortDesc: "If held by Kyogre or Rayquaza, this item triggers its Primal Reversion in battle.",
 		onSwitchIn(pokemon) {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyogre') {
 				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
 			}
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Rayquaza') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
 		},
 		onPrimal(pokemon) {
-			pokemon.formeChange('Kyogre-Primal', this.effect, true);
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyogre') {
+				pokemon.formeChange('Kyogre-Primal', this.effect, true);
+			}
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Rayquaza') {
+				pokemon.formeChange('Rayquaza-Mega', this.effect, true);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Kyogre') return false;
+			if (source.baseSpecies.baseSpecies === 'Rayquaza') return false;
 			return true;
 		},
 		itemUser: ["Kyogre"],
@@ -4272,16 +4282,26 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	redorb: {
 		name: "Red Orb",
 		spritenum: 390,
+		shortDesc: "If held by Groudon or Rayquaza, this item triggers its Primal Reversion in battle.",
 		onSwitchIn(pokemon) {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Groudon') {
 				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
 			}
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Rayquaza') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
 		},
 		onPrimal(pokemon) {
-			pokemon.formeChange('Groudon-Primal', this.effect, true);
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Groudon') {
+				pokemon.formeChange('Groudon-Primal', this.effect, true);
+			}
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Rayquaza') {
+				pokemon.formeChange('Rayquaza-Mega', this.effect, true);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Groudon') return false;
+			if (source.baseSpecies.baseSpecies === 'Rayquaza') return false;
 			return true;
 		},
 		itemUser: ["Groudon"],
