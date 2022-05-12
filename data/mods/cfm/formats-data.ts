@@ -1176,7 +1176,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	typhlosion: {
 		isNonstandard: null,
-		tier: "CPU",
+		tier: "CNU",
 		inherit: true,
 	},
 	typhlosionhisui: {
@@ -2913,7 +2913,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	shaymin: {
 		isNonstandard: null,
-		tier: "CUU",
+		tier: "CRU",
 		inherit: true,
 	},
 	shayminsky: {
@@ -5091,12 +5091,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	toxtricity: {
 		randomBattleMoves: ["boomburst", "drainpunch", "firepunch", "gunkshot", "overdrive", "poisonjab", "sludgebomb", "voltswitch"],
-		tier: "CUU",
+		tier: "CRU",
 		inherit: true,
 	},
 	toxtricitylowkey: {
 		randomBattleMoves: ["boomburst", "drainpunch", "firepunch", "gunkshot", "overdrive", "poisonjab", "shiftgear", "sludgebomb", "voltswitch"],
-		tier: "CUU",
+		tier: "CRU",
 		inherit: true,
 	},
 	sizzlipede: {

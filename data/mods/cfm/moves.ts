@@ -16988,7 +16988,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	},
 	strangesteam: {
 		num: 790,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 90,
 		category: "Special",
 		name: "Strange Steam",
