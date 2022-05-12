@@ -7013,7 +7013,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Undiscovered"],
 		requiredItems: ["Red Orb", "Blue Orb"],
-		cfmMoves: [],
+		cfmMoves: ["aquatail", "dragonascent", "hurricane", "hydropump", "hyperbeam", "inferno", "razorwind", "roost", "uturn", "vcreate", "whirlwind", "wildcharge"],
 	},
 	jirachi: {
 		num: 385,
@@ -16229,7 +16229,7 @@ Water: Scald`},
 		evoType: "other",
 		evoCondition: "Land 3 critical hits in 1 battle",
 		eggGroups: ["Flying", "Field"],
-		cfmMoves: ["auraspere", "bravebird", "closecombat", "crosschop", "crosspoison", "firstimpression", "hurricane", "meteorassault", "leafblade", "nightslash", "solarblade", "swordsdance"],
+		cfmMoves: ["bravebird", "closecombat", "crosschop", "crosspoison", "firstimpression", "focusblast", "hurricane", "meteorassault", "leafblade", "nightslash", "solarblade", "swordsdance"],
 	},
 	mrrime: {
 		num: 866,
