@@ -861,22 +861,6 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		},
 	},
 
-	// Grumpig's Sp. Atk is boosted by 20% if it has Power Gem
-	grumpig: {
-		name: 'Grumpig',
-		onModifySpAPriority: 5,
-		onModifySpA(spa, pokemon) {
-			let hasPowerGem = false;
-			pokemon.moveSlots.forEach(moveSlot => {
-				if (moveSlot.id === 'powergem')
-					hasPowerGem = true;
-			});
-			if (hasPowerGem) {
-				return this.chainModify(1.2);
-			}
-		},
-	},
-
 	// CFM Roar of Time && Spacial Rend
 	dialga: {
 		name: 'Dialga',

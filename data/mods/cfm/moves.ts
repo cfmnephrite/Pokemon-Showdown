@@ -1468,11 +1468,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	boltbeak: {
 		num: 754,
 		accuracy: 100,
-		basePower: 85,
+		basePower: 70,
+		desc: "Power boosted by 50% if the user moves before the target.",
+		shortDesc: "Power boosted by 50% if user moves before the target.",
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Bolt Beak damage boost');
-				return move.basePower * 2;
+				return move.basePower * 1.5;
 			}
 			this.debug('Bolt Beak NOT boosted');
 			return move.basePower;
@@ -1485,6 +1487,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Electric",
+		cfm: true,
 	},
 	boltstrike: {
 		num: 550,
@@ -1580,7 +1583,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	bounce: {
 		num: 340,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 85,
 		category: "Physical",
 		shortDesc: "Two-turn move, unless the user is Flying. 20% chance to paralyse.",
@@ -2942,8 +2945,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	crosspoison: {
 		num: 440,
-		accuracy: 95,
-		basePower: 100,
+		accuracy: 100,
+		basePower: 90,
 		category: "Physical",
 		name: "Cross Poison",
 		pp: 10,
@@ -2982,8 +2985,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	crushclaw: {
 		num: 306,
-		accuracy: 95,
-		basePower: 75,
+		accuracy: 100,
+		basePower: 80,
 		category: "Physical",
 		name: "Crush Claw",
 		pp: 10,
@@ -2998,20 +3001,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Cool",
+		cfm: true,
 	},
 	crushgrip: {
 		num: 462,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
-		desc: "Has a 30% chance to lower the target's Defence by 1 stage.",
-		shortDesc: "30% chance to lower the target's Defence by 1.",
+		desc: "Has a 50% chance to lower the target's Defence by 1 stage.",
+		shortDesc: "50% chance to lower the target's Defence by 1.",
 		name: "Crush Grip",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		secondary: {
-			chance: 30,
+			chance: 50,
 			boosts: {
 				def: -1,
 			},
@@ -3082,7 +3086,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	darkestlariat: {
 		num: 663,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 85,
 		category: "Physical",
 		name: "Darkest Lariat",
 		pp: 10,
@@ -3100,7 +3104,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	darkpulse: {
 		num: 399,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 80,
 		category: "Special",
 		name: "Dark Pulse",
 		pp: 15,
@@ -3352,7 +3356,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	diamondstorm: {
 		num: 591,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
 		name: "Diamond Storm",
@@ -3570,7 +3574,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	dizzypunch: {
 		num: 146,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 50,
 		category: "Physical",
 		desc: "Hits twice, with each hit having a 10% chance to confuse the target. If the first hit breaks the target's substitute, it will take damage for the second hit.",
@@ -3734,7 +3738,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	dracometeor: {
 		num: 434,
 		accuracy: 90,
-		basePower: 140,
+		basePower: 130,
 		category: "Special",
 		name: "Draco Meteor",
 		pp: 5,
@@ -3749,7 +3753,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Beautiful",
-		cfm: true,
 	},
 	dragonascent: {
 		num: 620,
@@ -4281,9 +4284,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "5 turns. Electric boosted by 30%; Ground-types not immune; can't use Rest.",
-		cfmDesc: "For 5 turns: all Electric moves boosted by 30%; Ground-types can be hit by Electric attacks for resisted damage; Pokémon can be put to sleep, but cannot use Rest.",
 		name: "Electric Terrain",
+		shortDesc: "For 5 turns: all Grass moves +30%; Grounded or Grassy Surge: +1/16 max HP per turn.",
+		cfmDesc: "Affects grounded monsters or monsters with the Electric Surge ability. Earthquake, Magnitde, Bulldoze are no longer weakened.",
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1},
@@ -4296,27 +4299,29 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				return 5;
 			},
-			onTryHit(pokemon, target, move) {
-				// @ts-ignore
-				if (pokemon.speciesid === 'komala' || move.id !== 'rest' || move.ignoreWeather) return;
-				this.add('-activate', target, 'move: Electric Terrain');
-				return null;
+			onSetStatus(status, target, source, effect) {
+				if (status.id === 'slp' && !target.isSemiInvulnerable()) {
+					if (effect.id === 'yawn' || (effect.effectType === 'Move' && !effect.secondaries)) {
+						this.add('-activate', target, 'move: Electric Terrain');
+					}
+					return false;
+				}
+			},
+			onTryAddVolatile(status, target) {
+				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
+				if (status.id === 'yawn') {
+					this.add('-activate', target, 'move: Electric Terrain');
+					return null;
+				}
 			},
 			onBasePowerPriority: 6,
 			onBasePower(basePower, attacker, defender, move) {
-				if (move.type === 'Electric') {
+				if (move.type === 'Electric' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
 					this.debug('electric terrain boost');
-					return this.chainModify(1.30);
+					return this.chainModify([5325, 4096]);
 				}
 			},
-			onNegateImmunity(pokemon, type) {
-				if (pokemon.hasType('Ground') && type === 'Electric')
-					return false;
-			},
-			onEffectiveness(typeMod, target, type, move) {
-				if (move && move.type === 'Electric' && type === 'Ground') return -1;
-			},
-			onFieldStart(battle, source, effect) {
+			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Electric Terrain', '[from] ability: ' + effect, '[of] ' + source);
 				} else {
@@ -4334,7 +4339,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Electric",
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
-		cfm: true,
 	},
 	electrify: {
 		num: 582,
@@ -5055,7 +5059,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	fireblast: {
 		num: 126,
 		accuracy: 85,
-		basePower: 120,
+		basePower: 110,
 		category: "Special",
 		name: "Fire Blast",
 		pp: 5,
@@ -5068,7 +5072,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: true,
 	},
 	firefang: {
 		num: 424,
@@ -5204,72 +5207,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	firespin: {
 		num: 83,
-		accuracy: 100,
-		basePower: 40,
-		basePowerCallback(pokemon, target, move) {
-			// You can't get here unless the pursuit succeeds
-			if (target.beingCalledBack || target.switchFlag) {
-				this.debug('Pursuit damage boost');
-				return move.basePower * 2;
-			}
-			return move.basePower;
-		},
+		accuracy: 85,
+		basePower: 35,
 		category: "Special",
-		desc: "If an opposing Pokemon switches out this turn, this move hits that Pokemon before it leaves the field, even if it was not the original target. If the user moves after an opponent using Parting Shot, U-turn, or Volt Switch, but not Baton Pass, it will hit that opponent before it leaves the field. Power doubles and no accuracy check is done if the user hits an opponent switching out, and the user's turn is over; if an opponent faints from this, the replacement Pokemon does not become active until the end of the turn.",
-		shortDesc: "Power doubles if the target is switching out.",
 		name: "Fire Spin",
-		pp: 20,
+		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		beforeTurnCallback(pokemon) {
-			for (const side of this.sides) {
-				if (side === pokemon.side) continue;
-				side.addSideCondition('firespin', pokemon);
-				const data = side.getSideConditionData('firespin');
-				if (!data.sources) {
-					data.sources = [];
-				}
-				data.sources.push(pokemon);
-			}
-		},
-		onModifyMove(move, source, target) {
-			if (target?.beingCalledBack || target?.switchFlag) move.accuracy = true;
-		},
-		onTryHit(target, pokemon) {
-			target.side.removeSideCondition('firespin');
-		},
-		condition: {
-			duration: 1,
-			onBeforeSwitchOut(pokemon) {
-				this.debug('Pursuit start');
-				let alreadyAdded = false;
-				pokemon.removeVolatile('destinybond');
-				for (const source of this.effectState.sources) {
-					if (!this.queue.cancelMove(source) || !source.hp) continue;
-					if (!alreadyAdded) {
-						this.add('-activate', pokemon, 'move: Pursuit');
-						alreadyAdded = true;
-					}
-					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
-					// If it is, then Mega Evolve before moving.
-					if (source.canMegaEvo || source.canUltraBurst) {
-						for (const [actionIndex, action] of this.queue.entries()) {
-							if (action.pokemon === source && action.choice === 'megaEvo') {
-								this.actions.runMegaEvo(source);
-								this.queue.list.splice(actionIndex, 1);
-								break;
-							}
-						}
-					}
-					this.actions.runMove('firespin', source, source.getLocOf(pokemon));
-				}
-			},
-		},
+		volatileStatus: 'partiallytrapped',
 		secondary: null,
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
-		cfm: true,
 	},
 	firstimpression: {
 		num: 660,
@@ -5294,11 +5243,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	fishiousrend: {
 		num: 755,
 		accuracy: 100,
-		basePower: 85,
+		basePower: 70,
+		desc: "Power boosted by 50% if the user moves before the target.",
+		shortDesc: "Power boosted by 50% if user moves before the target.",
 		basePowerCallback(pokemon, target, move) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.debug('Fishious Rend damage boost');
-				return move.basePower * 2;
+				return move.basePower * 1.5;
 			}
 			this.debug('Fishious Rend NOT boosted');
 			return move.basePower;
@@ -5311,11 +5262,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Water",
+		cfm: true,
 	},
 	fissure: {
 		num: 90,
 		accuracy: 90,
-		basePower: 140,
+		basePower: 130,
 		category: "Physical",
 		shortDesc: "Lowers the user's Attack by 2. 10% chance to trap.",
 		name: "Fissure",
@@ -5495,14 +5447,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	flashcannon: {
 		num: 430,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 80,
 		category: "Special",
 		name: "Flash Cannon",
-		pp: 15,
+		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, pulse: 1},
+		flags: {protect: 1, mirror: 1},
 		secondary: {
-			chance: 20,
+			chance: 10,
 			boosts: {
 				spd: -1,
 			},
@@ -5510,7 +5462,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Beautiful",
-		cfm: true,
 	},
 	flatter: {
 		num: 260,
@@ -5534,7 +5485,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	fleurcannon: {
 		num: 705,
 		accuracy: 90,
-		basePower: 140,
+		basePower: 130,
 		category: "Special",
 		name: "Fleur Cannon",
 		pp: 5,
@@ -5549,7 +5500,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Beautiful",
-		cfm: true,
 	},
 	fling: {
 		num: 374,
@@ -6287,8 +6237,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	geargrind: {
 		num: 544,
-		accuracy: 100,
-		basePower: 40,
+		accuracy: 95,
+		basePower: 50,
 		category: "Physical",
 		name: "Gear Grind",
 		pp: 15,
@@ -6638,9 +6588,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "5 turns. Grass boosted by 30%; grounded Pokémon recover HP; Grass-types cannot be poisoned.",
-		cfmDesc: "For 5 turns: all Grass moves boosted by 30%; all grounded Pokémon recover 1/16 HP per turn; grounded Grass-types and Pokémon with Grassy Surge recover an additional 1/16 and cannot be poisoned.",
 		name: "Grassy Terrain",
+		shortDesc: "For 5 turns: all Grass moves +30%; Grounded or Grassy Surge: +1/16 max HP per turn.",
+		cfmDesc: "All Grass moves boosted; heals grounded monsters or monsters with the Grassy Surge ability by 1/16 max HP per turn. Earthquake, Magnitde, Bulldoze are no longer weakened.",
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1},
@@ -6655,17 +6605,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onBasePowerPriority: 6,
 			onBasePower(basePower, attacker, defender, move) {
+				const weakenedMoves = ['earthquake', 'bulldoze', 'magnitude'];
+				if (weakenedMoves.includes(move.id) && defender.isGrounded() && !defender.isSemiInvulnerable()) {
+					this.debug('move weakened by grassy terrain');
+					return this.chainModify(0.5);
+				}
 				if (move.type === 'Grass') {
 					this.debug('grassy terrain boost');
-					return this.chainModify(1.30);
+					return this.chainModify([5325, 4096]);
 				}
-			},
-			onSetStatus(status, target, source, effect) {
-				if (status.id !== 'psn' && status.id !== 'tox' && !target.hasType('Grass')) return;
-				if ((!target.isGrounded() && !target.hasAbility('grassysurge')) || target.isSemiInvulnerable()) return;
-				if ((effect as Move)?.status)
-					this.add('-message', target.name + " was protected by Grassy Terrain!");
-				return false;
 			},
 			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
@@ -6678,9 +6626,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onResidualSubOrder: 2,
 			onResidual(pokemon) {
 				if ((pokemon.isGrounded() || pokemon.hasAbility('grassysurge')) && !pokemon.isSemiInvulnerable()) {
-					const healfrac = pokemon.hasType('Grass') ? 8 : 16;
-					this.debug('Pokemon is grounded, healing through Grassy Terrain.');
-					this.heal(pokemon.maxhp / healfrac, pokemon, pokemon);
+					this.heal(pokemon.baseMaxhp / 16, pokemon, pokemon);
+				} else {
+					this.debug(`Pokemon semi-invuln or not grounded; Grassy Terrain skipped`);
 				}
 			},
 			onFieldResidualOrder: 27,
@@ -6694,7 +6642,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		zMove: {boost: {def: 1}},
 		contestType: "Beautiful",
-		cfm: true,
 	},
 	gravapple: {
 		num: 788,
@@ -7960,14 +7907,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				atk: -2,
 			},
 		},
-		onModifyType(move, pokemon) {
-			if (pokemon.species.name === 'Rapidash') {
-				move.type = 'Fire';
-			}
-			if (pokemon.species.name === 'Rapidash-Galar') {
-				move.type = 'Psychic';
-			}
-		},
 		critRatio: 2,
 		secondary: null,
 		target: "normal",
@@ -8012,11 +7951,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	hurricane: {
 		num: 542,
 		accuracy: 70,
-		basePower: 120,
+		basePower: 110,
 		category: "Special",
 		desc: "Has a 10% chance to confuse the target. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If the weather is Primordial Sea or Rain Dance, this move does not check accuracy. If the weather is Desolate Land or Sunny Day, this move's accuracy is 50%.",
-		shortDesc: "10% chance to confuse target. Can't miss in rain or hail; in Sun, 50% Accurate, of if user is Fire; can't miss, 10% chance to burn.",
-		cfmDesc: "10% chance to confuse the target. Cannot miss in rain or hail, 50% accurate in harsh sunlight. However, if the user is a Fire-type, this move becomes 100% accurate in harsh sunlight and the 10% chance to confuse becomes a 10% chance to burn the target.",
+		shortDesc: "10% chance to confuse target. Cannot miss in rain or hail; 50% accurate in sun.",
 		name: "Hurricane",
 		pp: 10,
 		priority: 0,
@@ -8030,7 +7968,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				break;
 			case 'sunnyday':
 			case 'desolateland':
-				move.accuracy = pokemon.hasType('Fire') ? true : 50;
+				move.accuracy = 50;
 				break;
 			}
 		},
@@ -8046,7 +7984,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	hydrocannon: {
 		num: 308,
 		accuracy: 90,
-		basePower: 140,
+		basePower: 130,
 		category: "Special",
 		desc: "Lowers the user's special attack by 2 stages",
 		shortDesc: "Lowers special attack by 2.",
@@ -8068,7 +8006,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	hydropump: {
 		num: 56,
 		accuracy: 85,
-		basePower: 120,
+		basePower: 110,
 		category: "Special",
 		name: "Hydro Pump",
 		pp: 5,
@@ -8215,10 +8153,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
-		onModifyMove(move, pokemon, target) {
-			if (['Hypno', 'Drowzee'].includes(pokemon.species.name))
-				move.accuracy = true;
-		},
 		status: 'slp',
 		secondary: null,
 		target: "normal",
@@ -8673,7 +8607,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	ironhead: {
 		num: 442,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 80,
 		category: "Physical",
 		desc: "Has a 20% chance to flinch the target.",
 		shortDesc: "20% chance to flinch the target.",
@@ -9065,8 +8999,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	leafblade: {
 		num: 348,
-		accuracy: 95,
-		basePower: 100,
+		accuracy: 100,
+		basePower: 90,
 		category: "Physical",
 		name: "Leaf Blade",
 		pp: 15,
@@ -9082,7 +9016,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	leafstorm: {
 		num: 437,
 		accuracy: 90,
-		basePower: 140,
+		basePower: 130,
 		category: "Special",
 		name: "Leaf Storm",
 		pp: 5,
@@ -9098,7 +9032,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		zMove: {basePower: 200},
 		contestType: "Beautiful",
-		cfm: true,
 	},
 	leaftornado: {
 		num: 536,
@@ -11602,8 +11535,8 @@ Water:		Scald`,
 	},
 	nightslash: {
 		num: 400,
-		accuracy: 95,
-		basePower: 100,
+		accuracy: 100,
+		basePower: 90,
 		category: "Physical",
 		name: "Night Slash",
 		pp: 15,
@@ -11937,7 +11870,7 @@ Water:		Scald`,
 	overheat: {
 		num: 315,
 		accuracy: 90,
-		basePower: 140,
+		basePower: 130,
 		category: "Special",
 		shortDesc: "Lowers the user's Sp. Atk by 2. 10% chance to burn the target.",
 		name: "Overheat",
@@ -12306,26 +12239,18 @@ Water:		Scald`,
 	poisonfang: {
 		num: 305,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 60,
 		category: "Physical",
-		desc: "Has a 10% chance to badly poison the target and a 10% chance to flinch it.",
-		shortDesc: "10% chance to badly poison and/or flinch.",
 		name: "Poison Fang",
 		pp: 15,
 		priority: 0,
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
-		secondaries: [
-			{
-				chance: 10,
-				status: 'tox',
-			}, {
-				chance: 10,
-				volatileStatus: 'flinch',
-			},
-		],
+		secondary: {
+			chance: 50,
+			status: 'tox',
+		},
 		target: "normal",
 		type: "Poison",
-		zMove: {basePower: 140},
 		contestType: "Clever",
 		cfm: true,
 	},
@@ -12397,8 +12322,8 @@ Water:		Scald`,
 	},
 	poisontail: {
 		num: 342,
-		accuracy: 95,
-		basePower: 100,
+		accuracy: 100,
+		basePower: 95,
 		category: "Physical",
 		desc: "Has a 30% chance to badly poison the target.",
 		shortDesc: "30% chance to badly poison.",
@@ -12694,25 +12619,14 @@ Water:		Scald`,
 		accuracy: 85,
 		basePower: 120,
 		category: "Physical",
-		shortDesc: "If Poison-type: 30% chance to poison.",
 		name: "Power Whip",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onModifyMove(move, attacker, target) {
-			if (attacker.hasType('Poison')) {
-				move.secondaries = [];
-				move.secondaries.push({
-					chance: 30,
-					status: 'psn',
-				});
-			}
-		},
-		secondary: {},
+		secondary: null,
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
-		cfm: true,
 	},
 	precipiceblades: {
 		num: 619,
@@ -12886,14 +12800,12 @@ Water:		Scald`,
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
-		desc: "Has a 20% chance to lower the target's Special Defense by 1 stage.",
-		shortDesc: "20% chance to lower the target's Sp. Def by 1.",
 		name: "Psychic",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
-			chance: 20,
+			chance: 10,
 			boosts: {
 				spd: -1,
 			},
@@ -12901,7 +12813,6 @@ Water:		Scald`,
 		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
-		cfm: true,
 	},
 	psychicfangs: {
 		num: 706,
@@ -13084,8 +12995,8 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	},
 	psychocut: {
 		num: 427,
-		accuracy: 95,
-		basePower: 100,
+		accuracy: 100,
+		basePower: 90,
 		category: "Physical",
 		name: "Psycho Cut",
 		pp: 10,
@@ -13128,22 +13039,14 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		basePower: 80,
 		category: "Special",
 		overrideDefensiveStat: 'def',
-		desc: "Deals damage to the target based on its Defence instead of Special Defence. Has a 10% chance to lower the target's Defence by 1 stage.",
-		shortDesc: "Targets Defence, not Sp. Def. 10% Def drop chance.",
 		name: "Psyshock",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		secondary: {
-			chance: 10,
-			boosts: {
-				def: -1,
-			},
-		},
+		secondary: null,
 		target: "normal",
 		type: "Psychic",
 		contestType: "Beautiful",
-		cfm: true,
 	},
 	psystrike: {
 		num: 540,
@@ -13151,22 +13054,14 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		basePower: 100,
 		category: "Special",
 		overrideDefensiveStat: 'def',
-		desc: "Deals damage to the target based on its Defence instead of Special Defence. Has a 10% chance to lower the target's Defence by 1 stage.",
-		shortDesc: "Targets Defence, not Sp. Def. 10% Def drop chance.",
 		name: "Psystrike",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		secondary: {
-			chance: 10,
-			boosts: {
-				def: -1,
-			},
-		},
+		secondary: null,
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
-		cfm: true,
 	},
 	psywave: {
 		num: 149,
@@ -13612,18 +13507,13 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		basePower: 80,
 		category: "Special",
 		overrideDefensiveStat: 'def',
-		desc: "Deals damage to the target based on its Defence instead of Special Defence. 10% chance to lower Defence.",
-		shortDesc: "Targets Defence, not Sp. Def. 10% Def drop chance.",
+		desc: "Deals damage to the target based on its Defense instead of Special Defense.",
+		shortDesc: "Damages target based on Defense, not Sp. Def.",
 		name: "Razor Wind",
 		pp: 10,
 		priority: 0,
 		flags: {charge: 1, protect: 1, mirror: 1},
-		secondary: {
-			chance: 10,
-			boosts: {
-				def: -1,
-			},
-		},
+		secondary: null,
 		target: "normal",
 		type: "Flying",
 		zMove: {basePower: 160},
@@ -14567,9 +14457,9 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		desc: "Has a 30% chance to burn the target. The target thaws out if it is frozen. This move does not have reduced in power in harsh sunlight.",
-		shortDesc: "30% chance to burn the target. Not weakened by harsh sunlight.",
-		cfmDesc: "A much rarer move! Power is not reduced in Sunny Day.",
+		desc: "Has a 30% chance to burn the target. The target thaws out if it is frozen. Power is not reduced in harsh sunlight, but still ineffective in Desolate Land.",
+		shortDesc: "30% chance to burn the target. Power is not weakened in Sunny Day.",
+		cfmDesc: "A much rarer move! 30% chance to burn the target. Power is not reduced in Sunny Day.",
 		name: "Scald",
 		pp: 15,
 		priority: 0,
@@ -15013,7 +14903,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	sheercold: {
 		num: 329,
 		accuracy: 90,
-		basePower: 140,
+		basePower: 130,
 		category: "Special",
 		shortDesc: "Lowers the user's Sp. Atk by 2. 10% chance to freeze the target.",
 		name: "Sheer Cold",
@@ -16670,12 +16560,11 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	},
 	steameruption: {
 		num: 592,
-		accuracy: 90,
-		basePower: 120,
+		accuracy: 95,
+		basePower: 110,
 		category: "Special",
 		desc: "Has a 30% chance to burn the target. The target thaws out if it is frozen. Power is not reduced in harsh sunlight, but still ineffective in Desolate Land.",
-		shortDesc: "30% chance to burn the target. Thaws target.",
-		cfmDesc: "Power is not weakened in Sunny Day.",
+		shortDesc: "30% chance to burn the target. Power is not weakened in Sunny Day.",
 		name: "Steam Eruption",
 		pp: 5,
 		priority: 0,
@@ -16782,28 +16671,18 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "Sets up a hazard on the opposing side of the field, lowering the Speed by 1 stage of each opposing Pokemon that switches in, unless it is a Flying-type Pokemon or has the Levitate Ability. Fails if the effect is already active on the opposing side or the user is not a Bug type. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
-		shortDesc: "Lowers Speed of grounded foes by 1 on switch-in. Fails if the user isn't Bug-type or Masquerain.",
-		cfmDesc: "Can only be used by Bug-types and Masquerain. Fails otherwise.",
 		name: "Sticky Web",
 		pp: 20,
 		priority: 0,
 		flags: {reflectable: 1},
 		sideCondition: 'stickyweb',
-		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Bug') || pokemon.baseSpecies.name === 'Masquerain' || move.hasBounced) {
-				return;
-			}
-			this.add('-fail', pokemon, 'move: Sticky Web');
-			this.hint("Only a Bug type pokemon can use this move");
-			return null;
-		},
 		condition: {
 			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
 			onSwitchIn(pokemon) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasItem('heavydutyboots')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
 			},
@@ -16814,7 +16693,6 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Bug",
 		zMove: {boost: {spe: 1}},
 		contestType: "Tough",
-		cfm: true,
 	},
 	stockpile: {
 		num: 254,
@@ -17134,7 +17012,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	},
 	submission: {
 		num: 66,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
 		name: "Submission",
@@ -17744,7 +17622,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	},
 	takedown: {
 		num: 36,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
 		desc: "Matches the user's primary type. If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.",
@@ -18753,7 +18631,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	},
 	twineedle: {
 		num: 41,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 50,
 		category: "Physical",
 		desc: "Hits twice, with each hit having a 10% chance to poison the target. If the first hit breaks the target's substitute, it will take damage for the second hit.",
@@ -19294,12 +19172,6 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		volatileStatus: 'partiallytrapped',
-		onModifyMove(move, pokemon, target) {
-			if (pokemon.species.name === 'Kingdra') {
-				move.accuracy = 75;
-				move.basePower = 120;
-			}
-		},
 		secondary: null,
 		target: "normal",
 		type: "Water",
@@ -19718,7 +19590,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	zenheadbutt: {
 		num: 428,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 80,
 		category: "Physical",
 		name: "Zen Headbutt",
 		pp: 15,
@@ -19737,7 +19609,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	zingzap: {
 		num: 716,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 80,
 		category: "Physical",
 		desc: "Has a 20% chance to flinch the target.",
 		shortDesc: "20% chance to flinch the target.",
