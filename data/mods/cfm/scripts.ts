@@ -25,7 +25,6 @@ export const Scripts: CFMBattleScriptsData = {
 	natureModify(stats: StatsTable, set: PokemonSet): StatsTable {
 		// Natures are calculated with 16-bit truncation.
 		// This only affects Eternatus-Eternamax in Pure Hackmons.
-		const tr = this.trunc;
 		const nature = this.dex.natures.get(set.nature);
 		let s: StatIDExceptHP;
 		if (nature.plus) {

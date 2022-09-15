@@ -6544,7 +6544,7 @@
 "ability":"Compound Eyes",
 "evs":{"hp":0,"atk":252,"def":4,"spa":0,"spd":0,"spe":252},
 "nature":["Jolly"],
-"moves":[["Hypnosis"],["Dragon Dance"],["Dragon Rush"],["Iron Tail"]]},
+"moves":[["Hypnosis"],["Dragon Dance"],["Dual Wingbeat"],["Iron Tail"]]},
 
 {"species":"Yanmega",
 "gender":"",
@@ -6553,7 +6553,7 @@
 "evs":{"hp":0,"atk":0,"def":4,"spa":252,"spd":0,"spe":252},
 "ivs":{"hp":31,"atk":0,"def":31,"spa":31,"spd":31,"spe":31},
 "nature":["Timid"],
-"moves":[["Sleep Talk"],["Bug Buzz"],["Draco Meteor"],["Giga Drain"]]},
+"moves":[["Sleep Talk"],["Bug Buzz"],["Air Slash"],["Giga Drain"]]},
 
 {"species":"Yanmega",
 "gender":"",
@@ -7499,7 +7499,7 @@
 {"species":"Klinklang",
 "gender":"",
 "item":"Leftovers",
-"ability":"Technician",
+"ability":"Clear Body",
 "evs":{"hp":92,"atk":252,"def":0,"spa":0,"spd":0,"spe":164},
 "nature":["Adamant"],
 "moves":[["Shift Gear"],["Gear Grind"],["Return", "Rock Smash"],["Substitute"]],

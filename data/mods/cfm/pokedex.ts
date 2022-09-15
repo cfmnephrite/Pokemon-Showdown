@@ -8417,7 +8417,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelMove",
 		evoMove: "Ancient Power",
 		eggGroups: ["Bug"],
-		cfmMoves: ["airslash", "bugbuzz,", "dragondance", "dragonpulse", "dualwingbeat", "gust", "heatwave", "hypnosis", "irontail", "leechlife", "outrage", "quiverdance"],
+		cfmMoves: ["airslash", "bugbuzz", "dragondance", "dragonpulse", "dualwingbeat", "gust", "heatwave", "hypnosis", "irontail", "leechlife", "outrage", "quiverdance"],
 		cfmMoveSpecialDesc: {"quiverdance": "Not compatible with Tinted Lens."},
 	},
 	leafeon: {
