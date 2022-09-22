@@ -2306,6 +2306,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 63,
 	},
 	megalauncher: {
+		desc: "This Pokemon's special pulse (inc. Aura Sphere) and cannon moves have their power multiplied by 1.5. Heal Pulse restores 3/4 of a target's maximum HP, rounded half down.",
+		shortDesc: "Boosts special pulse (inc. Aura Sphere) and cannon moves by 50%. Heal Pulse heals by 75%.",
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['pulse'] && !this.field.auraBreak()) {
@@ -2315,6 +2317,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Mega Launcher",
 		rating: 3,
 		num: 178,
+		cfm: true,
 	},
 	merciless: {
 		shortDesc: "This Pokémon's attacks are critical hits if the target has any status condition.",

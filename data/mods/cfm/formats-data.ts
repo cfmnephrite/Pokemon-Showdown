@@ -55,7 +55,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	blastoisemega: {
 		isNonstandard: null,
-		tier: "CUU",
+		tier: "CUb",
 		inherit: true,
 	},
 	caterpie: {

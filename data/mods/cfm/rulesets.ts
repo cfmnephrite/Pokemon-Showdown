@@ -1784,11 +1784,11 @@ export const Rulesets: {[k: string]: FormatData} = {
 				cherrim:		{tier: 'UU', ability: 'flowergift'},
 				// items
 				cloyster:		{tier: 'OU', items: ['kingsrock', 'razorfang']},
+				cincinno:		{tier: 'OU', items: ['kingsrock', 'razorfang']},
 				// moves
 				arceus:			{tier: 'Ub', move: 'hyperbeam'},
 				porygonz:		{tier: 'OU', move: 'hyperbeam'},
 				crawdaunt:		{tier: 'OU', move: 'guillotine'},
-				blastoisemega:	{tier: 'OU', move: 'shellsmash'},
 			};
 			if (!!complexBans[speciesRef] && allTiers[currTier] <= allTiers[complexBans[speciesRef].tier]) {
 				if (complexBans[speciesRef].ability === this.toID(set.ability)) {

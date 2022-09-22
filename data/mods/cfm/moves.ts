@@ -5449,7 +5449,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Flash Cannon",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, pulse: true},
 		secondary: {
 			chance: 10,
 			boosts: {
@@ -5487,7 +5487,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Fleur Cannon",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, pulse: 1},
 		self: {
 			boosts: {
 				spa: -2,
@@ -6234,7 +6234,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	geargrind: {
 		num: 544,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 50,
 		category: "Physical",
 		name: "Gear Grind",
@@ -7976,7 +7976,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Hydro Cannon",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, pulse: 1},
 		self: {
 			boosts: {
 				spa: -2,
@@ -19562,7 +19562,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Zap Cannon",
 		pp: 5,
 		priority: 0,
-		flags: {bullet: 1, protect: 1, mirror: 1},
+		flags: {bullet: 1, protect: 1, mirror: 1, pulse: 1},
 		secondary: {
 			chance: 100,
 			status: 'par',
