@@ -861,7 +861,7 @@ export const Formats: FormatList = [
 		mod: 'cfm',
 		// cfacTier: 'OU',
 		ruleset: ['CFM Complex Bans', 'Baton Pass Clause', 'Standard'],
-		banlist: ['CUb', 'CAG', 'Power Construct', 'Arena Trap', 'Shadow Tag', 'Baton Pass'],
+		banlist: ['CUb', 'CAG', 'Power Construct', 'Arena Trap', 'Shadow Tag', 'Baton Pass', 'Soul Dew'],
 	},
 	{
 		name: "[Gen 8] CFM UU",

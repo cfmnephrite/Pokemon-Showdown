@@ -1778,30 +1778,17 @@ export const Rulesets: {[k: string]: FormatData} = {
 					return currSpecies?.baseSpecies;
 			})());
 			const complexBans: {[mon: string]: {tier: string, [condition: string]: string | string[]}} = {
-				// abilities - OU
-				zapdos:			{tier: 'OU', ability: 'drizzle'},
-				moltres:		{tier: 'OU', ability: 'drought'},
+				// abilities -
 				volcarona:		{tier: 'OU', ability: 'drought'},
-				heatran:		{tier: 'OU', ability: 'magmaarmor'},
-				mew:		    {tier: 'OU', ability: 'illusion'},
-				cinderace:      {tier: 'OU', ability: 'libero'},
-				blaziken:		{tier: 'OU', ability: 'speedboost'},
-				// abilities - UU
-				serperior:		{tier: 'UU', ability: 'contrary'},
-				diggersby:		{tier: 'UU', ability: 'hugepower'},
-				rillaboom:		{tier: 'UU', ability: 'grassysurge'},
-				arctozolt:      {tier: 'UU', ability: 'slushrush'},
-				cherrim:        {tier: 'UU', ability: 'flowergift'},
+				mew:			{tier: 'OU', ability: 'illusion'},
+				cherrim:		{tier: 'UU', ability: 'flowergift'},
 				// items
-				latias:			{tier: 'OU', item: 'souldew'},
-				latios:			{tier: 'OU', item: 'souldew'},
 				cloyster:		{tier: 'OU', items: ['kingsrock', 'razorfang']},
 				// moves
 				arceus:			{tier: 'Ub', move: 'hyperbeam'},
 				porygonz:		{tier: 'OU', move: 'hyperbeam'},
+				crawdaunt:		{tier: 'OU', move: 'guillotine'},
 				blastoisemega:	{tier: 'OU', move: 'shellsmash'},
-				alakazammega:   {tier: 'OU', move: 'nastyplot'},
-				snorlax:		{tier: 'UU', move: 'hyperbeam'},
 			};
 			if (!!complexBans[speciesRef] && allTiers[currTier] <= allTiers[complexBans[speciesRef].tier]) {
 				if (complexBans[speciesRef].ability === this.toID(set.ability)) {
