@@ -1340,14 +1340,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	blazekick: {
 		num: 299,
 		accuracy: 100,
-		basePower: 95,
+		basePower: 90,
 		category: "Physical",
-		desc: "Has a 10% chance to burn the target.",
-		shortDesc: "10% chance to burn.",
 		name: "Blaze Kick",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		critRatio: 2,
 		secondary: {
 			chance: 10,
 			status: 'brn',
@@ -1361,7 +1360,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	blizzard: {
 		num: 59,
 		accuracy: 70,
-		basePower: 120,
+		basePower: 110,
 		category: "Special",
 		name: "Blizzard",
 		pp: 5,
@@ -1586,13 +1585,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 85,
 		category: "Physical",
-		shortDesc: "Two-turn move, unless the user is Flying. 20% chance to paralyse.",
 		name: "Bounce",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, gravity: 1, distance: 1},
 		onTryMove(attacker, defender, move) {
-			if (attacker.hasType('Flying')) return;
 			if (attacker.removeVolatile(move.id)) {
 				return;
 			}
@@ -1618,7 +1615,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		secondary: {
-			chance: 20,
+			chance: 30,
 			status: 'par',
 		},
 		target: "any",
@@ -4285,8 +4282,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Electric Terrain",
-		shortDesc: "For 5 turns: all Grass moves +30%; Grounded or Grassy Surge: +1/16 max HP per turn.",
-		cfmDesc: "Affects grounded monsters or monsters with the Electric Surge ability. Earthquake, Magnitde, Bulldoze are no longer weakened.",
+		shortDesc: "For 5 turns: all Electric moves +30%; grounded/Electric Surge: cannot sleep",
+		cfmDesc: "For 5 turns: all Electric moves boosted by 30%; grounded monsters or monsters with the Electric Surge ability cannot sleep.",
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1},
@@ -5452,7 +5449,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Flash Cannon",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, pulse: true},
 		secondary: {
 			chance: 10,
 			boosts: {
@@ -5490,7 +5487,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Fleur Cannon",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, pulse: 1},
 		self: {
 			boosts: {
 				spa: -2,
@@ -6237,7 +6234,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	geargrind: {
 		num: 544,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 50,
 		category: "Physical",
 		name: "Gear Grind",
@@ -6589,8 +6586,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Grassy Terrain",
-		shortDesc: "For 5 turns: all Grass moves +30%; Grounded or Grassy Surge: +1/16 max HP per turn.",
-		cfmDesc: "All Grass moves boosted; heals grounded monsters or monsters with the Grassy Surge ability by 1/16 max HP per turn. Earthquake, Magnitde, Bulldoze are no longer weakened.",
+		shortDesc: "For 5 turns: all Grass moves +30%; grounded/Grassy Surge: +1/16 max HP per turn.",
+		cfmDesc: "For 5 turns: all Grass moves boosted by 30%; heals grounded monsters or monsters with the Grassy Surge ability by 1/16 max HP per turn. Earthquake, Magnitde, Bulldoze are no longer weakened.",
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1},
@@ -6602,18 +6599,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return 8;
 				}
 				return 5;
-			},
-			onBasePowerPriority: 6,
-			onBasePower(basePower, attacker, defender, move) {
-				const weakenedMoves = ['earthquake', 'bulldoze', 'magnitude'];
-				if (weakenedMoves.includes(move.id) && defender.isGrounded() && !defender.isSemiInvulnerable()) {
-					this.debug('move weakened by grassy terrain');
-					return this.chainModify(0.5);
-				}
-				if (move.type === 'Grass') {
-					this.debug('grassy terrain boost');
-					return this.chainModify([5325, 4096]);
-				}
 			},
 			onFieldStart(field, source, effect) {
 				if (effect?.effectType === 'Ability') {
@@ -6919,7 +6904,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	guillotine: {
 		num: 12,
 		accuracy: 90,
-		basePower: 140,
+		basePower: 130,
 		category: "Physical",
 		shortDesc: "Lowers user's Atk by two stages. 10% chance to harshly lower the target's Def.",
 		name: "Guillotine",
@@ -7895,7 +7880,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	horndrill: {
 		num: 32,
 		accuracy: 90,
-		basePower: 140,
+		basePower: 130,
 		category: "Physical",
 		shortDesc: "Lowers the user's Attack by 2. High crit chance.",
 		name: "Horn Drill",
@@ -7991,7 +7976,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Hydro Cannon",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, pulse: 1},
 		self: {
 			boosts: {
 				spa: -2,
@@ -10981,8 +10966,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "5 turns. +Fairy power; grounded Pokémon cannot be statused.",
-		cfmDesc: "For 5 turns: all Fairy moves boosted by 30%; all grounded Pokémon or Pokémon with Misty Surge are protected from status effects.",
+		shortDesc: "5 turns. all Fairy moves +30%; grounded/Misty Surge: cannot be statused.",
+		cfmDesc: "For 5 turns: all Fairy moves boosted by 30%; all grounded monsters or monsters with Misty Surge are protected from status effects.",
 		name: "Misty Terrain",
 		pp: 10,
 		priority: 0,
@@ -12839,8 +12824,8 @@ Water:		Scald`,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "5 turns: Psychic power boosted by 30%; Grounded/Psychic Surge Pokémon: priority-safe.",
-		cfmDesc: "For 5 turns: all Psychic moves boosted by 30%; all grounded Pokémon or Pokémon with Psychic Surge are protected from priority attacks.",
+		shortDesc: "5 turns: all Psychic moves +30%; grounded/Psychic Surge: priority-safe.",
+		cfmDesc: "For 5 turns: all Psychic moves boosted by 30%; all grounded monsters or monsters with the Psychic Surge ability are protected from priority attacks.",
 		name: "Psychic Terrain",
 		pp: 10,
 		priority: 0,
@@ -14077,17 +14062,17 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	rockwrecker: {
 		num: 439,
 		accuracy: 90,
-		basePower: 150,
+		basePower: 130,
 		category: "Physical",
-		desc: "Lowers the user's Attack by 3 stages.",
-		shortDesc: "Lowers the user's Attack by 3.",
+		desc: "Lowers the user's Attack by 2 stages.",
+		shortDesc: "Lowers the user's Attack by 2.",
 		name: "Rock Wrecker",
 		pp: 5,
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
 		self: {
 			boosts: {
-				atk: -3,
+				atk: -2,
 			},
 		},
 		secondary: null,
@@ -18085,7 +18070,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	thunder: {
 		num: 87,
 		accuracy: 70,
-		basePower: 120,
+		basePower: 110,
 		category: "Special",
 		desc: "Has a 30% chance to paralyze the target. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If the weather is Primordial Sea, Rain Dance, or Hail, this move does not check accuracy. If the weather is Desolate Land or Sunny Day, this move's accuracy is 50%.",
 		shortDesc: "30% chance to paralyze. Can't miss in rain or hail.",
@@ -19578,7 +19563,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Zap Cannon",
 		pp: 5,
 		priority: 0,
-		flags: {bullet: 1, protect: 1, mirror: 1},
+		flags: {bullet: 1, protect: 1, mirror: 1, pulse: 1},
 		secondary: {
 			chance: 100,
 			status: 'par',

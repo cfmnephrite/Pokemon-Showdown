@@ -340,7 +340,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 210,
 	},
 	beastboost: {
-		shortDesc: "Raises highest stat upon knocking out a target that was at over 25% max HP.",
+		shortDesc: "Raises highest stat upon knocking out a target that had over 25% max HP.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move' && effect.totalDamage) {
 				if (effect.totalDamage <= 0.25 * target.maxhp) return;
@@ -2306,6 +2306,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 63,
 	},
 	megalauncher: {
+		desc: "This Pokemon's special pulse (inc. Aura Sphere) and cannon moves have their power multiplied by 1.5. Heal Pulse restores 3/4 of a target's maximum HP, rounded half down.",
+		shortDesc: "Boosts special pulse (inc. Aura Sphere) and cannon moves by 50%. Heal Pulse heals by 75%.",
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['pulse'] && !this.field.auraBreak()) {
@@ -2315,6 +2317,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Mega Launcher",
 		rating: 3,
 		num: 178,
+		cfm: true,
 	},
 	merciless: {
 		shortDesc: "This Pokémon's attacks are critical hits if the target has any status condition.",
@@ -2499,15 +2502,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		cfm: true,
 	},
 	moxie: {
-		desc: "If this Pokemon attacks and knocks out a target: if the target had more than 75% HP, raises the higher of Attack and Sp. Attack by two stages; if the target had 25% - 75% HP, raises the higher of Attack and Sp. Attack by one stage, if the target had 25% or less HP gives no boosts at all.",
-		shortDesc: "May raise Atk/SpA by up to 2 upon attacking and knocking out a target.",
+		desc: "If this Pokemon attacks and knocks out a target that had 25% max HP or more remaining, raises the higher of Attack and Sp. Attack by one stage, else gives no boosts at all.",
+		shortDesc: "Raise Atk/SpA upon attacking and knocking out a target that had over 25% max HP.",
 		onSourceFaint(target, source, effect) {
 			if (effect && effect.effectType === 'Move' && effect.totalDamage) {
 				if (effect.totalDamage <= 0.25 * target.maxhp) return;
-				let boost = 1;
-				if (effect.totalDamage > 0.75 * target.maxhp)
-					boost = 2;
-				this.boost({[source.storedStats.spa > source.storedStats.atk ? 'spa' : 'atk']: boost}, source);
+				this.boost({[source.storedStats.spa > source.storedStats.atk ? 'spa' : 'atk']: 1}, source);
 			}
 		},
 		name: "Moxie",

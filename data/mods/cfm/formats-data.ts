@@ -55,7 +55,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	blastoisemega: {
 		isNonstandard: null,
-		tier: "CUU",
+		tier: "CUb",
 		inherit: true,
 	},
 	caterpie: {
@@ -3028,7 +3028,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	serperior: {
 		isNonstandard: null,
-		tier: "CZU",
+		tier: "CUU",
 		inherit: true,
 	},
 	tepig: {
@@ -3919,7 +3919,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	diggersby: {
 		randomBattleMoves: ["bodyslam", "earthquake", "swordsdance", "uturn", "wildcharge"],
-		tier: "CZU",
+		tier: "CUU",
 		inherit: true,
 	},
 	fletchling: {
@@ -4920,7 +4920,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	rillaboom: {
 		randomBattleMoves: ["drumbeating", "highhorsepower", "knockoff", "superpower", "swordsdance", "uturn", "woodhammer"],
-		tier: "CRU",
+		tier: "COU",
 		inherit: true,
 	},
 	scorbunny: {
@@ -4933,7 +4933,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	cinderace: {
 		randomBattleMoves: ["courtchange", "gunkshot", "highjumpkick", "ironhead", "pyroball", "uturn", "zenheadbutt"],
-		tier: "CRU",
+		tier: "CUb",
 		inherit: true,
 	},
 	sobble: {
@@ -5227,7 +5227,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	arctozolt: {
 		randomBattleMoves: ["boltbeak", "bulldoze", "iciclecrash", "freezedry"],
-		tier: "CNU",
+		tier: "COU",
 		inherit: true,
 	},
 	dracovish: {
