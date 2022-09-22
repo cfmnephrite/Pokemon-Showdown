@@ -3429,6 +3429,7 @@ Water: Water Absorb`,
 		num: 144,
 	},
 	ripen: {
+		shortDesc: "Doubles the effect of any berry, as well as Leftovers.",
 		onTryHeal(damage, target, source, effect) {
 			if (!effect) return;
 			if (effect.id === 'berryjuice' || effect.id === 'leftovers') {

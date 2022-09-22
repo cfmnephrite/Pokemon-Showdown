@@ -16979,6 +16979,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		basePower: 0,
 		category: "Status",
 		name: "Stuff Cheeks",
+		shortDesc: "Restores 25% HP after consuming a berry.",
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
