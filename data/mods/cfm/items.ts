@@ -6,8 +6,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Abomasnow",
 		itemUser: ["Abomasnow"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Abomasnow') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 674,
 		gen: 6,
@@ -19,8 +18,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Absol",
 		itemUser: ["Absol"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Absol') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 677,
 		gen: 6,
@@ -82,8 +80,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Aerodactyl",
 		itemUser: ["Aerodactyl"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Aerodactyl') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 672,
 		gen: 6,
@@ -95,8 +92,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Aggron",
 		itemUser: ["Aggron"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Aggron') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 667,
 		gen: 6,
@@ -163,8 +159,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Alakazam",
 		itemUser: ["Alakazam"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Alakazam') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 679,
 		gen: 6,
@@ -187,8 +182,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Altaria",
 		itemUser: ["Altaria"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Altaria') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 755,
 		gen: 6,
@@ -200,8 +194,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Ampharos",
 		itemUser: ["Ampharos"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Ampharos') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 658,
 		gen: 6,
@@ -282,8 +275,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Audino",
 		itemUser: ["Audino"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Audino') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 757,
 		gen: 6,
@@ -319,8 +311,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Banette",
 		itemUser: ["Banette"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Banette') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 668,
 		gen: 6,
@@ -339,8 +330,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Beedrill",
 		itemUser: ["Beedrill"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Beedrill') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 770,
 		gen: 6,
@@ -463,8 +453,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Blastoise",
 		itemUser: ["Blastoise"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Blastoise') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 661,
 		gen: 6,
@@ -476,8 +465,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Blaziken",
 		itemUser: ["Blaziken"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Blaziken') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 664,
 		gen: 6,
@@ -613,8 +601,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Camerupt",
 		itemUser: ["Camerupt"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Camerupt') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 767,
 		gen: 6,
@@ -658,8 +645,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Charizard",
 		itemUser: ["Charizard"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Charizard') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 660,
 		gen: 6,
@@ -671,8 +657,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Charizard",
 		itemUser: ["Charizard"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Charizard') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 678,
 		gen: 6,
@@ -1141,8 +1126,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Diancie",
 		itemUser: ["Diancie"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Diancie') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 764,
 		gen: 6,
@@ -1933,8 +1917,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Gallade",
 		itemUser: ["Gallade"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Gallade') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 756,
 		gen: 6,
@@ -1965,8 +1948,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Garchomp",
 		itemUser: ["Garchomp"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Garchomp') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 683,
 		gen: 6,
@@ -1978,8 +1960,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Gardevoir",
 		itemUser: ["Gardevoir"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Gardevoir') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 657,
 		gen: 6,
@@ -1991,8 +1972,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Gengar",
 		itemUser: ["Gengar"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Gengar') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 656,
 		gen: 6,
@@ -2043,8 +2023,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Glalie",
 		itemUser: ["Glalie"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Glalie') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 763,
 		gen: 6,
@@ -2220,8 +2199,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Gyarados",
 		itemUser: ["Gyarados"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Gyarados') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 676,
 		gen: 6,
@@ -2315,8 +2293,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Heracross",
 		itemUser: ["Heracross"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Heracross') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 680,
 		gen: 6,
@@ -2340,8 +2317,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Houndoom",
 		itemUser: ["Houndoom"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Houndoom') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 666,
 		gen: 6,
@@ -2631,8 +2607,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Kangaskhan",
 		itemUser: ["Kangaskhan"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Kangaskhan') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 675,
 		gen: 6,
@@ -2646,7 +2621,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
-			if (move.category !== "Status") {
+			if (move.category !== "Status" && !move.multihit) {
 				if (!move.secondaries) move.secondaries = [];
 				for (const secondary of move.secondaries) {
 					if (secondary.volatileStatus === 'flinch') return;
@@ -2861,8 +2836,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Lopunny",
 		itemUser: ["Lopunny"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Lopunny') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 768,
 		gen: 6,
@@ -2890,8 +2864,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Lucario",
 		itemUser: ["Lucario"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Lucario') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 673,
 		gen: 6,
@@ -3093,8 +3066,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Manectric",
 		itemUser: ["Manectric"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Manectric') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 682,
 		gen: 6,
@@ -3142,8 +3114,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Mawile",
 		itemUser: ["Mawile"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Mawile') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 681,
 		gen: 6,
@@ -3175,8 +3146,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Medicham",
 		itemUser: ["Medicham"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Medicham') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 665,
 		gen: 6,
@@ -3226,8 +3196,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Metagross",
 		itemUser: ["Metagross"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Metagross') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 758,
 		gen: 6,
@@ -3748,8 +3717,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Pidgeot",
 		itemUser: ["Pidgeot"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Pidgeot') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 762,
 		gen: 6,
@@ -3793,8 +3761,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Pinsir",
 		itemUser: ["Pinsir"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Pinsir') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 671,
 		gen: 6,
@@ -4217,7 +4184,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
-			if (move.category !== "Status") {
+			if (move.category !== "Status" && !move.multihit) {
 				if (!move.secondaries) move.secondaries = [];
 				for (const secondary of move.secondaries) {
 					if (secondary.volatileStatus === 'flinch') return;
@@ -4536,8 +4503,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Sableye",
 		itemUser: ["Sableye"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Sableye') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 754,
 		gen: 6,
@@ -4611,8 +4577,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Salamence",
 		itemUser: ["Salamence"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Salamence') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 769,
 		gen: 6,
@@ -4624,8 +4589,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Sceptile",
 		itemUser: ["Sceptile"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Sceptile') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 753,
 		gen: 6,
@@ -4637,8 +4601,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Scizor",
 		itemUser: ["Scizor"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Scizor') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 670,
 		gen: 6,
@@ -4692,8 +4655,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Sharpedo",
 		itemUser: ["Sharpedo"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Sharpedo') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 759,
 		gen: 6,
@@ -4862,8 +4824,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Slowbro",
 		itemUser: ["Slowbro"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Slowbro') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 760,
 		gen: 6,
@@ -5070,8 +5031,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Steelix",
 		itemUser: ["Steelix"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Steelix') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 761,
 		gen: 6,
@@ -5197,8 +5157,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Swampert",
 		itemUser: ["Swampert"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Swampert') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 752,
 		gen: 6,
@@ -6282,8 +6241,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Tyranitar",
 		itemUser: ["Tyranitar"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Tyranitar') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 669,
 		gen: 6,
@@ -6332,8 +6290,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Venusaur",
 		itemUser: ["Venusaur"],
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Venusaur') return false;
-			return true;
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
 		},
 		num: 659,
 		gen: 6,
