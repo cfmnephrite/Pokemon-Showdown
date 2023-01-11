@@ -3028,7 +3028,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	serperior: {
 		isNonstandard: null,
-		tier: "CUU",
+		tier: "COU",
 		inherit: true,
 	},
 	tepig: {
