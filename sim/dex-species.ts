@@ -21,7 +21,14 @@ export interface SpeciesData extends Partial<Species> {
 	weightkg: number;
 }
 
-export type ModdedSpeciesData = SpeciesData | Partial<Omit<SpeciesData, 'name'>> & {inherit: true};
+export type ModdedSpeciesData = SpeciesData | Partial<Omit<SpeciesData, 'name'>> & {
+	inherit: true,
+	levitates?: boolean,
+	cfmMoves?: string[],
+	cfmMoveSpecialDesc?: {[k: string]: string},
+	cfmAbilitySpecialDesc?: {[k: string]: string},
+	cfmMoveSpecialZDesc?: string,
+};
 
 export interface SpeciesFormatsData {
 	comboMoves?: readonly string[];
@@ -36,7 +43,7 @@ export interface SpeciesFormatsData {
 	randomDoubleBattleMoves?: readonly string[];
 	randomDoubleBattleLevel?: number;
 	randomBattleNoDynamaxMoves?: readonly string[];
-	tier?: TierTypes.Singles | TierTypes.Other;
+	tier?: TierTypes.Singles | TierTypes.Other | TierTypes.CFM;
 }
 
 export type ModdedSpeciesFormatsData = SpeciesFormatsData & {inherit?: true};
@@ -217,7 +224,7 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 	/**
 	 * Singles Tier. The Pokemon's location in the Smogon tier system.
 	 */
-	readonly tier: TierTypes.Singles | TierTypes.Other;
+	readonly tier: TierTypes.Singles | TierTypes.Other | TierTypes.CFM;
 	/**
 	 * Doubles Tier. The Pokemon's location in the Smogon doubles tier system.
 	 */
@@ -234,6 +241,10 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 	declare readonly exclusiveMoves?: readonly ID[];
 	declare readonly comboMoves?: readonly ID[];
 	declare readonly essentialMove?: ID;
+	/**
+		CFM: passive levitation
+	*/
+	declare readonly levitates?: boolean;
 
 	constructor(data: AnyObject) {
 		super(data);

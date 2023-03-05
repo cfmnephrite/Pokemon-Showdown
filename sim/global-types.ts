@@ -65,6 +65,7 @@ namespace TierTypes {
 	"(NU)" | "PUBL" | "PU" | "(PU)" | "NFE" | "LC";
 	export type Doubles = "DUber" | "(DUber)" | "DOU" | "(DOU)" | "DBL" | "DUU" | "(DUU)" | "NFE" | "LC";
 	export type Other = "Unreleased" | "Illegal" | "CAP" | "CAP NFE" | "CAP LC";
+	export type CFM = "CAG" | "CUb" | "COU" | "CUU" | "CRU" | "CNU" | "CPU" | "CZU" | "CLC" | "X";
 }
 
 interface EventInfo {

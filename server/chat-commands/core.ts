@@ -1291,6 +1291,29 @@ export const commands: Chat.ChatCommands = {
 		`/forcewin [user] - Forces the current match to end in a win for a user. Requires: &`,
 	],
 
+	// CFM tutorial mode command
+	tm(target, room, user) {
+		target = toID(target);
+		if (!room || !room.battle || !room.battle.cfmTutorial || room.battle.format.substr(0, 7) !== 'gen8cfm') {
+			return this.errorReply(`You can only set CFM tutorial mode inside a CFM battle room.`);
+		}
+		if (!room.battle.playerTable[user.id]) {
+			return this.errorReply("You must be a player set CFM tutorial mode.");
+		}
+		const cfmTutorial = room.battle.cfmTutorial;
+		if (target && this.meansNo(target)) {
+			if (!cfmTutorial.requesters.includes(user)) {
+				return this.errorReply(`CFM Tutorial Mode is already OFF.`);
+			}
+			cfmTutorial.stop(user);
+		} else if (!target || this.meansYes(target)) {
+			if (cfmTutorial.requesters.includes(user)) {
+				return this.errorReply(`CFM Tutorial Mode is already ON.`);
+			}
+			cfmTutorial.start(user);
+		}
+	},
+
 	/*********************************************************
 	 * Challenging and searching commands
 	 *********************************************************/

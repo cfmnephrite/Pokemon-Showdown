@@ -192,6 +192,7 @@ export class BattleActions {
 		pokemon.isStarted = true;
 		if (!pokemon.fainted) {
 			this.battle.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
+			this.battle.send('tutorialPkmn', `${pokemon.species}\n${pokemon.side.id}\n${JSON.stringify(pokemon.moveSlots.map(moveSlot => moveSlot.id))}`);
 			this.battle.singleEvent('Start', pokemon.getItem(), pokemon.itemState, pokemon);
 		}
 		if (this.battle.gen === 4) {

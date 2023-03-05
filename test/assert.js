@@ -251,6 +251,16 @@ assert.false = function (value, message) {
 		stackStartFunction: assert.false,
 	});
 };
+assert.true = function (value, message) {
+	if (value) return;
+	throw new AssertionError({
+		actual: `!!{value}`,
+		expected: true,
+		operator: '===',
+		message: message,
+		stackStartFunction: assert.true,
+	});
+};
 for (const methodName of assertMethods) {
 	const lastArgIndex = assert[methodName].length - 1;
 	assert.false[methodName] = function (...args) {

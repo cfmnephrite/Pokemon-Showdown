@@ -126,6 +126,44 @@ export const Tags: {[id: string]: TagData} = {
 		moveFilter: move => typeof move.isMax === 'string',
 	},
 
+	// CFM Tiers
+	cag: {
+		name: "CAG",
+		speciesFilter: species => species.tier === 'CAG',
+	},
+	cub: {
+		name: "CUb",
+		speciesFilter: species => species.tier === 'CUb',
+	},
+	cou: {
+		name: "COU",
+		speciesFilter: species => species.tier === 'COU',
+	},
+	cuu: {
+		name: "CUU",
+		speciesFilter: species => species.tier === 'CUU',
+	},
+	cru: {
+		name: "CRU",
+		speciesFilter: species => species.tier === 'CRU',
+	},
+	cnu: {
+		name: "CNU",
+		speciesFilter: species => species.tier === 'CNU',
+	},
+	cpu: {
+		name: "CPU",
+		speciesFilter: species => species.tier === 'CPU',
+	},
+	czu: {
+		name: "CZU",
+		speciesFilter: species => species.tier === 'CZU',
+	},
+	clc: {
+		name: "CLC",
+		speciesFilter: species => species.tier === 'CLC',
+	},
+
 	// Tiers
 	// -----
 	uber: {

@@ -15,6 +15,10 @@ export interface ItemData extends Partial<Item>, PokemonEventMethods {
 export type ModdedItemData = ItemData | Partial<Omit<ItemData, 'name'>> & {
 	inherit: true,
 	onCustap?: (this: Battle, pokemon: Pokemon) => void,
+
+	// CFM - Pulverising Pancake can only be used by Snorlax off of a physical Normal-type move
+	zMoveCategory?: string,
+	zMoveSpecialMoves?: {[k: string]: string},
 };
 
 export class Item extends BasicEffect implements Readonly<BasicEffect> {
@@ -71,6 +75,12 @@ export class Item extends BasicEffect implements Readonly<BasicEffect> {
 	 * undefined, if not a species-specific Z crystal
 	 */
 	readonly zMoveFrom?: string;
+
+	/**
+	 * CFM Special
+	 */
+	readonly zMoveCategory?: string;
+	readonly zMoveSpecialMoves?: {[k: string]: string};
 	/**
 	 * If this is a species-specific Z crystal: An array of the
 	 * species of Pokemon that can use this crystal's Z move.

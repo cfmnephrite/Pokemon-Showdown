@@ -174,6 +174,35 @@ export class RoomBattlePlayer extends RoomGames.RoomGamePlayer<RoomBattle> {
 	}
 }
 
+export class CFMTutorial {
+	readonly battle: RoomBattle;
+	requesters: User[];
+	seenMoves: {[userId: string]: string[]};
+	seenMons: {[userId: string]: string[]};
+	constructor(battle: RoomBattle) {
+		this.battle = battle;
+		this.requesters = [];
+		this.seenMoves = {};
+		this.seenMons = {};
+	}
+	start(requester: User) {
+		if (this.requesters.includes(requester)) return false;
+		this.requesters.push(requester);
+		this.seenMoves[requester.id.toString()] = [];
+		this.seenMons[requester.id.toString()] = [];
+		this.battle.playerTable[requester.id].sendRoom(
+			`|raw|<b>CFM Tutorial mode ON!</b>`
+		);
+	}
+	stop(requester: User) {
+		if (!this.requesters.includes(requester)) return false;
+		this.requesters.splice(this.requesters.indexOf(requester, 1));
+		this.battle.playerTable[requester.id].sendRoom(
+			`|raw|<b>CFM Tutorial mode OFF!</b>`
+		);
+	}
+}
+
 export class RoomBattleTimer {
 	readonly battle: RoomBattle;
 	readonly timerRequesters: Set<ID>;
@@ -519,6 +548,7 @@ export class RoomBattle extends RoomGames.RoomGame<RoomBattlePlayer> {
 	readonly allowExtraction: {[k: string]: Set<ID>};
 	readonly stream: Streams.ObjectReadWriteStream<string>;
 	readonly timer: RoomBattleTimer;
+	readonly cfmTutorial: CFMTutorial;
 	missingBattleStartMessage: boolean | 'multi';
 	started: boolean;
 	ended: boolean;
@@ -622,6 +652,7 @@ export class RoomBattle extends RoomGames.RoomGame<RoomBattlePlayer> {
 			this.addPlayer(options.p4?.user || null, options.p4);
 		}
 		this.timer = new RoomBattleTimer(this);
+		this.cfmTutorial = new CFMTutorial(this);
 		if (Config.forcetimer || this.format.includes('blitz')) this.timer.start();
 		this.start();
 	}
@@ -853,6 +884,49 @@ export class RoomBattle extends RoomGames.RoomGame<RoomBattlePlayer> {
 			}
 			break;
 		}
+		case 'tutorialPkmn':
+			for (const user of this.cfmTutorial.requesters) {
+				const monId = lines[1];
+				// Check whether or not we've already shown a message for this mon
+				// If not, add it to the 'seen' array - if we have, skip message
+				if (!this.cfmTutorial.seenMons[user.id].includes(monId))
+					this.cfmTutorial.seenMons[user.id].push(monId);
+				else
+					break;
+
+				const player = this.playerTable[user.id];
+				if (this.checkPlayerSide(player, lines[2])) {
+					player.sendRoom(`|raw|<b>Your Pokémon:</b>`);
+					Chat.parse(`/dt ${monId}`, this.room, user, user.connections[0]);
+
+					player.sendRoom(`|raw|<b>Your Pokémon's moves:</b>`);
+					for (const move of JSON.parse(lines[3])) {
+						if (!this.cfmTutorial.seenMoves[user.id].includes(move))
+							this.cfmTutorial.seenMoves[user.id].push(move);
+						Chat.parse(`/dt ${move}`, this.room, user, user.connections[0]);
+					}
+				} else {
+					player.sendRoom(`|raw|<b>Your opponent's Pokémon:</b>`);
+					Chat.parse(`/dt ${monId}`, this.room, user, user.connections[0]);
+				}
+			}
+			break;
+
+		case 'tutorialMove':
+			for (const user of this.cfmTutorial.requesters) {
+				const move = lines[2];
+				const player = this.playerTable[user.id];
+				if (!this.cfmTutorial.seenMoves[user.id].includes(move)) {
+					this.cfmTutorial.seenMoves[user.id].push(move);
+					if (this.checkPlayerSide(player, lines[1]))
+						player.sendRoom(`|raw|<b>Your chosen move:</b>`);
+					else
+						player.sendRoom(`|raw|<b>Your opponent's move:</b>`);
+
+					Chat.parse(`/dt ${move}`, this.room, user, user.connections[0]);
+				}
+			}
+			break;
 
 		case 'end':
 			this.logData = JSON.parse(lines[1]);
@@ -1277,6 +1351,13 @@ export class RoomBattle extends RoomGames.RoomGame<RoomBattlePlayer> {
 		for (const player of this.players) {
 			player.unlinkUser();
 		}
+	}
+
+	checkPlayerSide(player: RoomBattlePlayer, slot: SideID | string) {
+		const playerSide = parseInt(player.slot[1]) % 2;
+		const monSide = parseInt(slot[1]) % 2;
+
+		return playerSide === monSide;
 	}
 
 	destroy() {

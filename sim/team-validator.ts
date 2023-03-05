@@ -1353,13 +1353,27 @@ export class TeamValidator {
 			set.species = 'Keldeo-Resolute';
 		}
 
-		const crowned: {[k: string]: string} = {
-			'Zacian-Crowned': 'behemothblade', 'Zamazenta-Crowned': 'behemothbash',
-		};
-		if (species.name in crowned) {
-			const behemothMove = set.moves.map(toID).indexOf(crowned[species.name] as ID);
-			if (behemothMove >= 0) {
-				set.moves[behemothMove] = 'ironhead';
+		if (dex.mod('cfm')) {
+			const crowned: {[k: string]: string} = {
+				'Zacian': 'behemothblade', 'Zamazenta': 'behemothbash',
+			},
+				baseName = species.baseSpecies || species.name
+			if (baseName in crowned) {
+				const behemothMove = set.moves.map(toID).indexOf(crowned[baseName] as ID);
+				if (behemothMove >= 0)
+					set.species = baseName + '-Crowned'
+				else
+					set.species = baseName
+			}
+		} else {
+			const crowned: {[k: string]: string} = {
+				'Zacian-Crowned': 'behemothblade', 'Zamazenta-Crowned': 'behemothbash',
+			};
+			if (species.name in crowned) {
+				const behemothMove = set.moves.map(toID).indexOf(crowned[species.name] as ID);
+				if (behemothMove >= 0) {
+					set.moves[behemothMove] = 'ironhead';
+				}
 			}
 		}
 		return problems;
@@ -2094,6 +2108,16 @@ export class TeamValidator {
 					//   means we can learn it only if obtained at or before learnedGen
 					//   (i.e. get the pokemon however you want, transfer to that gen,
 					//   teach it, and transfer it to the current gen.)
+
+					// CFM - some moves can only be learned by prevolutions, not by their evolutions
+					// All deleted moves are marked by 'X'
+					if (learned.startsWith('X')) {
+						if (checkingPrevo) {
+							babyOnly = '';
+							continue;
+						} else
+							return ` can't learn ${move.name}.`;
+					}
 
 					const learnedGen = parseInt(learned.charAt(0));
 					if (learnedGen < this.minSourceGen) {

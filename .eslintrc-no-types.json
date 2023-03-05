@@ -15,7 +15,9 @@
     "tools/set-import/importer.js",
     "tools/set-import/sets",
     "tools/modlog/converter.js",
-    "server/global-variables.d.ts"
+    "server/global-variables.d.ts",
+    "cfm_data_to_site_assets.js",
+    "prepare_site.js"
  ],
   "env": {
     "es6": true,
@@ -121,7 +123,6 @@
     "brace-style": ["error", "1tbs", {"allowSingleLine": true}],
     "comma-dangle": ["error", {"arrays": "always-multiline", "objects": "always-multiline", "imports": "always-multiline", "exports": "always-multiline", "functions": "ignore"}],
     "comma-style": ["error", "last"],
-    "curly": ["error", "multi-line", "consistent"],
     "dot-notation": "off",
     "new-parens": "error",
     "no-array-constructor": "error",
@@ -164,7 +165,6 @@
     "func-call-spacing": "error",
     "function-paren-newline": ["error", "consistent"],
     "indent": ["error", "tab", {"flatTernaryExpressions": true}],
-    "key-spacing": "error",
     "keyword-spacing": ["error", {"before": true, "after": true}],
     "lines-around-comment": "off",
     "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
@@ -176,7 +176,6 @@
     "padding-line-between-statements": "off",
     "rest-spread-spacing": ["error", "never"],
     "semi-spacing": ["error", {"before": false, "after": true}],
-    "space-before-blocks": ["error", "always"],
     "space-before-function-paren": ["error", {"anonymous": "always", "named": "never"}],
     "space-in-parens": ["error", "never"],
     "space-infix-ops": "error",

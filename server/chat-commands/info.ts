@@ -550,10 +550,12 @@ export const commands: Chat.ChatCommands = {
 	stats: 'data',
 	dex: 'data',
 	pokedex: 'data',
+	cfm: 'data',
 	data(target, room, user, connection, cmd) {
 		if (!this.runBroadcast()) return;
 		const gen = parseInt(cmd.substr(-1));
 		if (gen) target += `, gen${gen}`;
+		if (cmd === 'cfm') target += `, cfm`;
 
 		const {dex, format, targets} = this.splitFormat(target, true);
 
@@ -571,7 +573,7 @@ export const commands: Chat.ChatCommands = {
 			}
 		}
 		const newTargets = dex.dataSearch(target);
-		const showDetails = (cmd.startsWith('dt') || cmd === 'details');
+		const showDetails = (cmd.startsWith('dt') || cmd === 'details' || cmd === 'cfm');
 		if (!newTargets || !newTargets.length) {
 			return this.errorReply(`No Pok\u00e9mon, item, move, ability or nature named '${target}' was found${Dex.gen > dex.gen ? ` in Gen ${dex.gen}` : ""}. (Check your spelling?)`);
 		}
@@ -609,7 +611,7 @@ export const commands: Chat.ChatCommands = {
 					tierDisplay === 'doubles tiers' ? pokemon.doublesTier :
 					tierDisplay === 'National Dex tiers' ? pokemon.natDexTier :
 					pokemon.num >= 0 ? String(pokemon.num) : pokemon.tier;
-				buffer += `|raw|${Chat.getDataPokemonHTML(pokemon, dex.gen, displayedTier)}\n`;
+				buffer += `|raw|<div class="infobox">${Chat.getDataPokemonHTML(pokemon, dex.gen, displayedTier)}`;
 				if (showDetails) {
 					let weighthit = 20;
 					if (pokemon.weighthg >= 2000) {
@@ -628,6 +630,7 @@ export const commands: Chat.ChatCommands = {
 						Gen: String(pokemon.gen) || 'CAP',
 						Height: `${pokemon.heightm} m`,
 					};
+					if (pokemon.levitates) details["Airborne"] = "&#10003;";
 					details["Weight"] = `${pokemon.weighthg / 10} kg <em>(${weighthit} BP)</em>`;
 					const gmaxMove = pokemon.canGigantamax || dex.species.get(pokemon.changesFrom).canGigantamax;
 					if (gmaxMove && dex.gen >= 8) details["G-Max Move"] = gmaxMove;
@@ -674,7 +677,7 @@ export const commands: Chat.ChatCommands = {
 				break;
 			case 'item':
 				const item = dex.items.get(newTarget.name);
-				buffer += `|raw|${Chat.getDataItemHTML(item)}\n`;
+				buffer += `|raw|<div class="infobox">${Chat.getDataItemHTML(item)}`;
 				if (showDetails) {
 					details = {
 						Gen: String(item.gen),
@@ -706,7 +709,7 @@ export const commands: Chat.ChatCommands = {
 				break;
 			case 'move':
 				const move = dex.moves.get(newTarget.name);
-				buffer += `|raw|${Chat.getDataMoveHTML(move)}\n`;
+				buffer += `|raw|<div class="infobox">${Chat.getDataMoveHTML(move)}`;
 				if (showDetails) {
 					details = {
 						Priority: String(move.priority),
@@ -723,7 +726,7 @@ export const commands: Chat.ChatCommands = {
 					if (move.flags['bypasssub']) details["&#10003; Bypasses Substitutes"] = "";
 					if (move.flags['defrost']) details["&#10003; Thaws user"] = "";
 					if (move.flags['bite'] && dex.gen >= 6) details["&#10003; Bite"] = "";
-					if (move.flags['punch'] && dex.gen >= 4) details["&#10003; Punch"] = "";
+					if (move.flags['punch'] && dex.gen >= 4) details["&#10003; Boosted by Iron Fist"] = "";
 					if (move.flags['powder'] && dex.gen >= 6) details["&#10003; Powder"] = "";
 					if (move.flags['reflectable'] && dex.gen >= 3) details["&#10003; Bounceable"] = "";
 					if (move.flags['charge']) details["&#10003; Two-turn move"] = "";
@@ -732,6 +735,12 @@ export const commands: Chat.ChatCommands = {
 					if (move.flags['dance'] && dex.gen >= 7) details["&#10003; Dance move"] = "";
 					if (move.flags['slicing'] && dex.gen >= 9) details["&#10003; Slicing move"] = "";
 					if (move.flags['wind'] && dex.gen >= 9) details["&#10003; Wind move"] = "";
+					// CFM flags
+					if (move.flags['magic']) details["&#10003; Physical or special"] = "";
+					if (move.flags['omnitype']) details["&#10003; Matches the user's primary type"] = "";
+					if (move.flags['magician']) details["&#10003; Move is blocked by Magician"] = "";
+					if (move.flags['antiair']) details["&#10003; Can hit airborne Pokémon"] = "";
+					else if (move.type === 'Ground') details["&#10007; CANNOT hit airborne Pokémon"] = "";
 
 					if (dex.gen >= 7) {
 						if (move.gen >= 8 && move.isMax) {
@@ -764,14 +773,28 @@ export const commands: Chat.ChatCommands = {
 							details["Z-Crystal"] = zCrystal.name;
 							if (zCrystal.itemUser) {
 								details["User"] = zCrystal.itemUser.join(", ");
-								details["Required Move"] = dex.items.get(move.isZ).zMoveFrom!;
+								let requiredMove = dex.items.get(move.isZ).zMoveFrom;
+								if (!requiredMove && dex.currentMod === 'cfm') {
+									requiredMove = `Any ${(zCrystal.zMoveCategory) ? `${zCrystal.zMoveCategory} ` : ''}${zCrystal.zMoveType!} move`;
+									details["Required Move"] = requiredMove;
+								} else {
+									details["Required Move"] = dex.items.get(move.isZ).zMoveFrom!;
+								}
+							}
+							if (dex.currentMod === 'cfm' && move.zMoveSpecialUser) {
+								details["User"] = move.zMoveSpecialUser;
+								if (move.zMoveSpecialMoveFrom) {
+									details["Required Move"] = move.zMoveSpecialMoveFrom.join(" or ");
+								} else if (move.zMoveSpecialType) {
+									details["Required Move"] = `Any ${move.zMoveSpecialType} move`;
+								}
 							}
 						} else {
 							details["Z-Effect"] = "None";
 						}
 					}
 
-					if (dex.gen >= 8) {
+					if (dex.currentMod !== 'cfm' && dex.gen >= 8) {
 						if (move.isMax) {
 							details["&#10003; Max Move"] = "";
 							if (typeof move.isMax === "string") details["User"] = `${move.isMax}`;
@@ -812,7 +835,7 @@ export const commands: Chat.ChatCommands = {
 				break;
 			case 'ability':
 				const ability = dex.abilities.get(newTarget.name);
-				buffer += `|raw|${Chat.getDataAbilityHTML(ability)}\n`;
+				buffer += `|raw|<div class="infobox">${Chat.getDataAbilityHTML(ability)}`;
 				if (showDetails) {
 					details = {
 						Gen: String(ability.gen) || 'CAP',
@@ -826,7 +849,7 @@ export const commands: Chat.ChatCommands = {
 			}
 
 			if (showDetails) {
-				buffer += `|raw|<font size="1">${Object.entries(details).map(([detail, value]) => (
+				buffer += `<font size="1">${Object.entries(details).map(([detail, value]) => (
 					value === '' ? detail : `<font color="#686868">${detail}:</font> ${value}`
 				)).join("&nbsp;|&ThickSpace;")}</font>\n`;
 			}

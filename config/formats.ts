@@ -17,6 +17,7 @@ New sections will be added to the bottom of the specified column.
 The column value will be ignored for repeat sections.
 */
 
+import {Dex} from '../sim';
 export const Formats: FormatList = [
 
 	// S/V Singles
@@ -760,6 +761,106 @@ export const Formats: FormatList = [
 				return [this.battle.gen >= 5 ? 'Normal' : '???'];
 			},
 		},
+	},
+	{
+		section: "CFM Tiers",
+		column: 2,
+	},
+	{
+		name: "[Gen 8] CFM Battle Factory",
+		desc: `Randomized CFM teams for CFM tiers.`,
+
+		mod: 'cfm',
+		team: 'randomCFMFactory',
+		ruleset: ['Standard', 'Mega Rayquaza Clause'],
+	},
+	{
+		name: "[Gen 8] CFM Ubers",
+
+		mod: 'cfm',
+		// cfacTier: 'Uber',
+		ruleset: ['CFM Complex Bans', 'Baton Pass Clause', 'Mega Rayquaza Clause', 'Standard'],
+		banlist: ['CAG', 'Baton Pass'],
+	},
+	{
+		name: "[Gen 8] CFM OU",
+
+		mod: 'cfm',
+		// cfacTier: 'OU',
+		ruleset: ['CFM Complex Bans', 'Baton Pass Clause', 'Standard'],
+		banlist: ['CUb', 'CAG', 'Power Construct', 'Arena Trap', 'Shadow Tag', 'Baton Pass', 'Soul Dew'],
+	},
+	{
+		name: "[Gen 8] CFM UU",
+
+		mod: 'cfm',
+		// cfacTier: 'UU',
+		ruleset: ['[Gen 8] CFM OU'],
+		banlist: ['COU', 'Drought', 'Drizzle'],
+	},
+	{
+		name: "[Gen 8] CFM RU",
+
+		mod: 'cfm',
+		// cfacTier: 'RU',
+		ruleset: ['[Gen 8] CFM UU'],
+		banlist: ['CUU', 'Sand Stream', 'Snow Warning'],
+	},
+	{
+		name: "[Gen 8] CFM NU",
+
+		mod: 'cfm',
+		// cfacTier: 'NU',
+		ruleset: ['[Gen 8] CFM RU'],
+		banlist: ['CRU'],
+	},
+	{
+		name: "[Gen 8] CFM PU",
+
+		mod: 'cfm',
+		// cfacTier: 'PU',
+		ruleset: ['[Gen 8] CFM NU'],
+		banlist: ['CNU'],
+	},
+	{
+		name: "[Gen 8] CFM ZU",
+
+		mod: 'cfm',
+		// cfacTier: 'ZU',
+		ruleset: ['[Gen 8] CFM PU'],
+		banlist: ['CPU'],
+	},
+	{
+		name: "[Gen 8] CFM LC",
+
+		mod: 'cfm',
+		// cfacTier: 'LC',
+		ruleset: ['Little Cup', 'Standard'],
+		banlist: [
+			'Corsola-Galar', 'Cutiefly', 'Drifloon', 'Gastly', 'Rufflet', 'Scyther', 'Sneasel', 'Swirlix', 'Tangela',
+			'Vulpix-Alola', 'Vulpix', 'Clamperl', 'Murkrow', 'Misdreavus', "Farfetch'd-Galar", 'Wooper', 'Dewpider',
+			'Chlorophyll', 'Moody', 'Shadow Tag', 'Arena Trap',
+			'Baton Pass',
+		],
+	},
+	{
+		name: "[CFM] Custom Game",
+
+		mod: 'cfm',
+		searchShow: false,
+		battle: {trunc: Math.trunc},
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod'],
+	},
+	{
+		name: "[CFM] Doubles Custom Game",
+
+		mod: 'cfm',
+		searchShow: false,
+		gameType: 'doubles',
+		battle: {trunc: Math.trunc},
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod'],
 	},
 
 	// Other Metagames

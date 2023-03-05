@@ -91,6 +91,7 @@ export const commands: Chat.ChatCommands = {
 	ds8: 'dexsearch',
 	dsearch: 'dexsearch',
 	nds: 'dexsearch',
+	cds: 'dexsearch',
 	async dexsearch(target, room, user, connection, cmd, message) {
 		this.checkBroadcast();
 		if (!target) return this.parse('/help dexsearch');
@@ -106,6 +107,7 @@ export const commands: Chat.ChatCommands = {
 				target = split.join(',');
 			}
 		}
+		if (cmd === 'cds') target += ', mod=cfm';
 		if (!target.includes('mod=')) {
 			const dex = this.extractFormat(room?.settings.defaultFormat || room?.battle?.format).dex;
 			if (dex) target += `, mod=${dex.currentMod}`;
@@ -258,6 +260,7 @@ export const commands: Chat.ChatCommands = {
 	ms8: 'movesearch',
 	msearch: 'movesearch',
 	nms: 'movesearch',
+	cms: 'movesearch',
 	async movesearch(target, room, user, connection, cmd, message) {
 		this.checkBroadcast();
 		if (!target) return this.parse('/help movesearch');
@@ -273,6 +276,7 @@ export const commands: Chat.ChatCommands = {
 				target = split.join(',');
 			}
 		}
+		if (cmd === 'cms') target += ', mod=cfm';
 		if (!target.includes('mod=')) {
 			const dex = this.extractFormat(room?.settings.defaultFormat || room?.battle?.format).dex;
 			if (dex) target += `, mod=${dex.currentMod}`;
@@ -416,6 +420,9 @@ export const commands: Chat.ChatCommands = {
 	bw2learn: 'learn',
 	oraslearn: 'learn',
 	usumlearn: 'learn',
+	cfmlearn: 'learn',
+	clearn: 'learn',
+	cl: 'learn',
 	async learn(target, room, user, connection, cmd, message) {
 		if (!target) return this.parse('/help learn');
 		if (target.length > 300) throw new Chat.ErrorMessage(`Query too long.`);
@@ -434,7 +441,7 @@ export const commands: Chat.ChatCommands = {
 			target: targets.join(','),
 			cmd: 'learn',
 			canAll: !this.broadcastMessage || checkCanAll(room),
-			message: formatid,
+			message: ['clearn', 'cl'].includes(cmd) ? 'cfm' : formatid,
 		});
 		if (!response.error && !this.runBroadcast()) return;
 		if (response.error) {
@@ -475,7 +482,9 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 		return {error: `You can't run searches for multiple mods.`};
 	}
 
+	// CFM search mode
 	const mod = Dex.mod(usedMod || 'base');
+	const cfmSearch = (usedMod === 'cfm');
 	const allTiers: {[k: string]: TierTypes.Singles | TierTypes.Other} = Object.assign(Object.create(null), {
 		anythinggoes: 'AG', ag: 'AG',
 		uber: 'Uber', ubers: 'Uber', ou: 'OU',
@@ -486,6 +495,13 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 		nfe: 'NFE',
 		lc: 'LC',
 		cap: 'CAP', caplc: 'CAP LC', capnfe: 'CAP NFE',
+
+		// CFM Singles
+		cag: 'CAG', cub: 'CUb',
+		cou: 'COU', cuu: 'CUU',
+		cru: 'CRU', cnu: 'CNU',
+		cpu: 'CPU', czu: 'CZU',
+		clc: 'CLC',
 	});
 	const allDoublesTiers: {[k: string]: TierTypes.Singles | TierTypes.Other} = Object.assign(Object.create(null), {
 		doublesubers: 'DUber', doublesuber: 'DUber', duber: 'DUber', dubers: 'DUber',
@@ -493,6 +509,14 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 		doublesbl: 'DBL', dbl: 'DBL',
 		doublesuu: 'DUU', duu: 'DUU',
 		doublesnu: '(DUU)', dnu: '(DUU)',
+	});
+	const allCFMTiers: {[k: string]: string} = Object.assign(Object.create(null), {
+		// CFM Singles
+		cag: 'CAG', cub: 'CUb', cuber: 'CUb', cubers: 'CUb',
+		cou: 'COU', cuu: 'CUU',
+		cru: 'CRU', cnu: 'CNU',
+		cpu: 'CPU', czu: 'CZU',
+		clc: 'CLC',
 	});
 	const allTypes = Object.create(null);
 	for (const type of mod.types.all()) {
@@ -533,6 +557,7 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 	let fullyEvolvedSearch = null;
 	let singleTypeSearch = null;
 	let randomOutput = 0;
+
 	const validParameter = (cat: string, param: string, isNotSearch: boolean, input: string) => {
 		const uniqueTraits = ['colors', 'gens'];
 		for (const group of searches) {
@@ -580,7 +605,9 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 
 			if (toID(target) in allTiers) {
 				target = allTiers[toID(target)];
-				if (target.startsWith("CAP")) {
+				if (cfmSearch)
+					target = allCFMTiers[toID(target)] || allCFMTiers[toID("c" + target)];
+				else if (target.startsWith("CAP")) {
 					if (capSearch === isNotSearch) return {error: "A search cannot both include and exclude CAP tiers."};
 					capSearch = !isNotSearch;
 				}
@@ -1232,6 +1259,9 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 		'bypasssub', 'bite', 'bullet', 'charge', 'contact', 'dance', 'defrost', 'gravity', 'highcrit', 'mirror',
 		'multihit', 'ohko', 'powder', 'protect', 'pulse', 'punch', 'recharge', 'reflectable', 'secondary',
 		'snatch', 'sound', 'zmove', 'maxmove', 'gmaxmove', 'protection', 'slicing', 'wind',
+
+		// CFM flags
+		'magic', 'omnitype', 'antiair', 'specialTypeMod', 'magician',
 	];
 	const allStatus = ['psn', 'tox', 'brn', 'par', 'frz', 'slp'];
 	const allVolatileStatus = ['flinch', 'confusion', 'partiallytrapped'];
@@ -1261,6 +1291,7 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 	let sort: string | null = null;
 	const targetMons: {name: string, shouldBeExcluded: boolean}[] = [];
 	let nationalSearch = null;
+	const cfmSearch: boolean | null = null;
 	let randomOutput = 0;
 	for (const arg of splitTarget) {
 		const orGroup: MoveOrGroup = {
@@ -1629,9 +1660,9 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 	const getFullLearnsetOfPokemon = (species: Species, natDex: boolean) => {
 		let usedSpecies: Species = Utils.deepClone(species);
 		let usedSpeciesLearnset: LearnsetData = Utils.deepClone(mod.species.getLearnset(usedSpecies.id));
-		if (!usedSpeciesLearnset) {
+		if (!usedSpeciesLearnset || cfmSearch) {
 			usedSpecies = Utils.deepClone(mod.species.get(usedSpecies.baseSpecies));
-			usedSpeciesLearnset = Utils.deepClone(mod.species.getLearnset(usedSpecies.id) || {});
+			usedSpeciesLearnset = Utils.deepClone(mod.species.getLearnset(usedSpecies.id)?.learnset || {});
 		}
 		const lsetData = new Set<string>();
 		for (const move in usedSpeciesLearnset) {
@@ -1966,6 +1997,18 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 	if (isTest) return {results, reply: resultsStr};
 	return {reply: resultsStr};
 }
+
+// function getLearnsetDataCfmXFilter(learnsetData: LearnsetData,
+// 	illegalMoves: string[] = []): string[] {
+// 	const allowedMoves = [];
+// 	for (const [move, methods] of Object.entries(learnsetData)) {
+// 		if (methods.length === 1 && methods[0] === 'X')
+// 			illegalMoves.push(move);
+// 		else
+// 			allowedMoves.push(move);
+// 	}
+// 	return allowedMoves;
+// }
 
 function runItemsearch(target: string, cmd: string, canAll: boolean, message: string) {
 	let showAll = false;
@@ -2419,6 +2462,7 @@ function runLearn(target: string, cmd: string, canAll: boolean, formatid: string
 	} else {
 		gen = Dex.forFormat(format).gen;
 	}
+	if (format.mod === 'cfm') formatName = 'CFM';
 	const validator = TeamValidator.get(format);
 
 	const species = validator.dex.species.get(targets.shift());

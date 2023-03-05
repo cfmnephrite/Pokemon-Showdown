@@ -2453,7 +2453,7 @@ export const Chat = new class {
 		return `<div class="message"><ul class="utilichart">${buf}<li style="clear:both"></li></ul></div>`;
 	}
 	getDataMoveHTML(move: Move) {
-		let buf = `<ul class="utilichart"><li class="result">`;
+		let buf = `<div class="utilichart"><li class="result">`;
 		buf += `<span class="col movenamecol"><a href="https://${Config.routes.dex}/moves/${move.id}">${move.name}</a></span> `;
 		// encoding is important for the ??? type icon
 		const encodedMoveType = encodeURIComponent(move.type);
@@ -2466,22 +2466,22 @@ export const Chat = new class {
 		const basePP = move.pp || 1;
 		const pp = Math.floor(move.noPPBoosts ? basePP : basePP * 8 / 5);
 		buf += `<span class="col pplabelcol"><em>PP</em><br>${pp}</span> `;
-		buf += `<span class="col movedesccol">${move.shortDesc || move.desc}</span> `;
-		buf += `</li><li style="clear:both"></li></ul>`;
+		buf += `</li><li style="font-size: 8pt; padding-top: 8px; padding-bottom: 8px">${move.shortDesc || move.desc}`;
+		buf += `</li><li style="clear:both"></li></div>`;
 		return buf;
 	}
 	getDataAbilityHTML(ability: Ability) {
-		let buf = `<ul class="utilichart"><li class="result">`;
+		let buf = `<div class="utilichart"><li class="result">`;
 		buf += `<span class="col namecol"><a href="https://${Config.routes.dex}/abilities/${ability.id}">${ability.name}</a></span> `;
 		buf += `<span class="col abilitydesccol">${ability.shortDesc || ability.desc}</span> `;
-		buf += `</li><li style="clear:both"></li></ul>`;
+		buf += `</li><li style="clear:both"></li></div>`;
 		return buf;
 	}
 	getDataItemHTML(item: Item) {
-		let buf = `<ul class="utilichart"><li class="result">`;
+		let buf = `<div class="utilichart"><li class="result">`;
 		buf += `<span class="col itemiconcol"><psicon item="${item.id}"></span> <span class="col namecol"><a href="https://${Config.routes.dex}/items/${item.id}">${item.name}</a></span> `;
 		buf += `<span class="col itemdesccol">${item.shortDesc || item.desc}</span> `;
-		buf += `</li><li style="clear:both"></li></ul>`;
+		buf += `</li><li style="clear:both"></li></div>`;
 		return buf;
 	}
 

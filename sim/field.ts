@@ -114,6 +114,17 @@ export class Field {
 		return false;
 	}
 
+	auraBreak() {
+		for (const side of this.battle.sides) {
+			for (const pokemon of side.active) {
+				if (pokemon && pokemon.getAbility().id === 'aurabreak') {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	isWeather(weather: string | string[]) {
 		const ourWeather = this.effectiveWeather();
 		if (!Array.isArray(weather)) {

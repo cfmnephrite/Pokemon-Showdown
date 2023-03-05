@@ -48,6 +48,12 @@ interface MoveFlags {
 	snatch?: 1; // Can be stolen from the original user and instead used by another Pokemon using Snatch.
 	sound?: 1; // Has no effect on Pokemon with the Ability Soundproof.
 	wind?: 1; // Activates the Wind Power and Wind Rider Abilities.
+
+	// CFM flags
+	magic?: 1;
+	omnitype?: 1;
+	magician?: 1;
+	antiair?: 1;
 }
 
 export interface HitEffect {
@@ -263,15 +269,35 @@ export interface MoveData extends EffectData, MoveEventMethods, HitEffect {
 	noSketch?: boolean;
 	stallingMove?: boolean;
 	baseMove?: string;
+
+	// CFM - have to be here because of dumbness
+	// Power of Alchemy boost
+	poaBoosted?: boolean;
+	// RKS boost (Type: Null)
+	rksBoosted?: boolean;
+	// Rock head - modified crit rate
+	rockHead?: boolean;
+	// Solar Power - boosts moves using higher offensive stat in sunlight
+	solarPowerBoosted?: boolean;
+	// Mold Breaker et al make moves also ignore weather
+	ignoreWeather?: boolean;
+
+	// Special Z Moves
+	zMoveSpecialUser?: string;
+	zMoveSpecialType?: string;
+	zMoveSpecialMoveFrom?: string[];
 }
 
-export type ModdedMoveData = MoveData | Partial<Omit<MoveData, 'name'>> & {
+export type ModdedMoveData = MoveData | Partial<MoveData> & {
 	inherit: true,
 	igniteBoosted?: boolean,
 	settleBoosted?: boolean,
 	bodyofwaterBoosted?: boolean,
 	longWhipBoost?: boolean,
 	gen?: number,
+
+	cfmDesc?: string, // CFM modified
+	cfm?: boolean, // CFM modified
 };
 
 export interface Move extends Readonly<BasicEffect & MoveData> {
