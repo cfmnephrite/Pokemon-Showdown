@@ -767,7 +767,7 @@ export const Formats: FormatList = [
 		column: 2,
 	},
 	{
-		name: "[Gen 8] CFM Battle Factory",
+		name: "[Gen 9] CFM Battle Factory",
 		desc: `Randomized CFM teams for CFM tiers.`,
 
 		mod: 'cfm',
@@ -775,7 +775,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Mega Rayquaza Clause'],
 	},
 	{
-		name: "[Gen 8] CFM Ubers",
+		name: "[Gen 9] CFM Ubers",
 
 		mod: 'cfm',
 		// cfacTier: 'Uber',
@@ -783,7 +783,7 @@ export const Formats: FormatList = [
 		banlist: ['CAG', 'Baton Pass'],
 	},
 	{
-		name: "[Gen 8] CFM OU",
+		name: "[Gen 9] CFM OU",
 
 		mod: 'cfm',
 		// cfacTier: 'OU',
@@ -791,47 +791,47 @@ export const Formats: FormatList = [
 		banlist: ['CUb', 'CAG', 'Power Construct', 'Arena Trap', 'Shadow Tag', 'Baton Pass', 'Soul Dew'],
 	},
 	{
-		name: "[Gen 8] CFM UU",
+		name: "[Gen 9] CFM UU",
 
 		mod: 'cfm',
 		// cfacTier: 'UU',
-		ruleset: ['[Gen 8] CFM OU'],
+		ruleset: ['[Gen 9] CFM OU'],
 		banlist: ['COU', 'Drought', 'Drizzle'],
 	},
 	{
-		name: "[Gen 8] CFM RU",
+		name: "[Gen 9] CFM RU",
 
 		mod: 'cfm',
 		// cfacTier: 'RU',
-		ruleset: ['[Gen 8] CFM UU'],
+		ruleset: ['[Gen 9] CFM UU'],
 		banlist: ['CUU', 'Sand Stream', 'Snow Warning'],
 	},
 	{
-		name: "[Gen 8] CFM NU",
+		name: "[Gen 9] CFM NU",
 
 		mod: 'cfm',
 		// cfacTier: 'NU',
-		ruleset: ['[Gen 8] CFM RU'],
+		ruleset: ['[Gen 9] CFM RU'],
 		banlist: ['CRU'],
 	},
 	{
-		name: "[Gen 8] CFM PU",
+		name: "[Gen 9] CFM PU",
 
 		mod: 'cfm',
 		// cfacTier: 'PU',
-		ruleset: ['[Gen 8] CFM NU'],
+		ruleset: ['[Gen 9] CFM NU'],
 		banlist: ['CNU'],
 	},
 	{
-		name: "[Gen 8] CFM ZU",
+		name: "[Gen 9] CFM ZU",
 
 		mod: 'cfm',
 		// cfacTier: 'ZU',
-		ruleset: ['[Gen 8] CFM PU'],
+		ruleset: ['[Gen 9] CFM PU'],
 		banlist: ['CPU'],
 	},
 	{
-		name: "[Gen 8] CFM LC",
+		name: "[Gen 9] CFM LC",
 
 		mod: 'cfm',
 		// cfacTier: 'LC',

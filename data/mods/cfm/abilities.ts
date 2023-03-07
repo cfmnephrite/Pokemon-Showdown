@@ -57,12 +57,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			];
 			if ((move.type === 'Normal' || move.type === 'Flying') && !noBoost.includes(move.id) && !move.isZ) {
 				move.type = 'Flying';
-				move.aerilateBoosted = true;
+				move.typeChangerBoosted = this.effect;
 			}
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.aerilateBoosted) return this.chainModify([4915, 4096]);
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
 		},
 		name: "Aerilate",
 		ate: "Flying",
@@ -380,7 +380,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	bigpecks: {
 		shortDesc: "Prevents Defence drops; boosts the power of Flying-type moves by 50%.",
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			if (boost.def && boost.def < 0) {
 				delete boost.def;
@@ -456,7 +456,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 34,
 	},
 	clearbody: {
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			let showMsg = false;
 			let i: BoostID;
@@ -553,7 +553,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 14,
 	},
 	contrary: {
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (effect && effect.id === 'zpower') return;
 			let i: BoostID;
 			for (i in boost) {
@@ -1167,7 +1167,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	flowerveil: {
 		shortDesc: "Grass-type allies are immune to status and stat drops under Grassy Terrain.",
-		onAllyBoost(boost, target, source, effect) {
+		onAllyTryBoost(boost, target, source, effect) {
 			if ((source && target === source) || !target.hasType('Grass') || !this.field.isTerrain('grassyterrain')) return;
 			let showMsg = false;
 			let i: BoostID;
@@ -1329,7 +1329,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	fullmetalbody: {
 		shortDesc: "Solgaleo: gains Steel-typing, immune to all stat drops.",
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			let showMsg = false;
 			let i: BoostID;
 			for (i in boost) {
@@ -1378,12 +1378,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			];
 			if ((move.type === 'Normal' || move.type === 'Electric') && !noBoost.includes(move.id) && !move.isZ) {
 				move.type = 'Electric';
-				move.galvanizeBoosted = true;
+				move.typeChangerBoosted = this.effect;
 			}
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.galvanizeBoosted) return this.chainModify([4915, 4096]);
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
 		},
 		name: "Galvanize",
 		ate: "Electric",
@@ -1672,7 +1672,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	hypercutter: {
 		desc: "This Pokemon's Attack cannot be lowered by either itself, an opponent, or an ally. This Pokemon's contact moves gain a 20% chance to raise the user's Attack by one stage.",
 		shortDesc: "No Attack drops; contact moves: 20% chance to boost Attack.",
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			if (boost.atk && boost.atk < 0) {
 				delete boost.atk;
@@ -1761,10 +1761,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.formeChange('Eiscue-Noice', this.effect, true);
 			}
 		},
-		onAnyWeatherStart() {
-			const pokemon = this.effectState.target;
+		onWeatherChange(pokemon, source, sourceEffect) {
+			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
+			if ((sourceEffect as Ability)?.suppressWeather) return;
 			if (!pokemon.hp) return;
-			if (this.field.isWeather('hail') && pokemon.species.id === 'eiscuenoice' && !pokemon.transformed) {
+			if (this.field.isWeather(['hail', 'snow']) &&
+				pokemon.species.id === 'eiscuenoice' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
 				this.effectState.busted = false;
 				pokemon.formeChange('Eiscue', this.effect, true);
@@ -1907,7 +1909,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onTryAddVolatile(status, pokemon) {
 			if (status.id === 'flinch') return null;
 		},
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (effect.id === 'intimidate') {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', '[of] ' + target);
@@ -2019,7 +2021,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.debug('Keen Eye - enhancing accuracy');
 			return accuracy * 1.2;
 		},
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (source && target === source) return;
 			if (boost.accuracy && boost.accuracy < 0) {
 				delete boost.accuracy;
@@ -2126,7 +2128,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	limber: {
 		shortDesc: "This Pokémon's speed cannot be reduced and it cannot be paralysed'.",
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (boost.spe && boost.spe < 0) {
 				delete boost.spe;
 				if (source && target === source) return;
@@ -2332,55 +2334,38 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	mimicry: {
 		onStart(pokemon) {
-			if (this.field.terrain) {
-				pokemon.addVolatile('mimicry');
-			} else {
-				const types = pokemon.baseSpecies.types;
-				if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+		},
+		onTerrainChange(pokemon) {
+			let types;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				types = ['Electric'];
+				break;
+			case 'grassyterrain':
+				types = ['Grass'];
+				break;
+			case 'mistyterrain':
+				types = ['Fairy'];
+				break;
+			case 'psychicterrain':
+				types = ['Psychic'];
+				break;
+			default:
+				types = pokemon.baseSpecies.types;
+			}
+			const oldTypes = pokemon.getTypes();
+			if (oldTypes.join() === types.join() || !pokemon.setType(types)) return;
+			if (this.field.terrain || pokemon.transformed) {
 				this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
-				this.hint("Transform Mimicry changes you to your original un-transformed types.");
+				if (!this.field.terrain) this.hint("Transform Mimicry changes you to your original un-transformed types.");
+			} else {
+				this.add('-activate', pokemon, 'ability: Mimicry');
+				this.add('-end', pokemon, 'typechange', '[silent]');
 			}
 		},
-		onAnyTerrainStart() {
-			const pokemon = this.effectState.target;
-			delete pokemon.volatiles['mimicry'];
-			pokemon.addVolatile('mimicry');
-		},
-		onEnd(pokemon) {
-			delete pokemon.volatiles['mimicry'];
-		},
-		condition: {
-			onStart(pokemon) {
-				let newType;
-				switch (this.field.terrain) {
-				case 'electricterrain':
-					newType = 'Electric';
-					break;
-				case 'grassyterrain':
-					newType = 'Grass';
-					break;
-				case 'mistyterrain':
-					newType = 'Fairy';
-					break;
-				case 'psychicterrain':
-					newType = 'Psychic';
-					break;
-				}
-				if (!newType || pokemon.getTypes().join() === newType || !pokemon.setType(newType)) return;
-				this.add('-start', pokemon, 'typechange', newType, '[from] ability: Mimicry');
-			},
-			onUpdate(pokemon) {
-				if (!this.field.terrain) {
-					const types = pokemon.species.types;
-					if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
-					this.add('-activate', pokemon, 'ability: Mimicry');
-					this.add('-end', pokemon, 'typechange', '[silent]');
-					pokemon.removeVolatile('mimicry');
-				}
-			},
-		},
 		name: "Mimicry",
-		rating: 0.5,
+		rating: 0,
 		num: 250,
 	},
 	minus: {
@@ -2405,7 +2390,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		cfm: true,
 	},
 	mirrorarmor: {
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			// Don't bounce self stat changes, or boosts that have already bounced
 			if (target === source || !boost || effect.id === 'mirrorarmor') return;
 			let b: BoostID;
@@ -2754,12 +2739,12 @@ Water: Water Absorb`,
 			];
 			if (!(move.isZ && move.category !== 'Status') && !noModifyType.includes(move.id)) {
 				move.type = 'Normal';
-				move.normalizeBoosted = true;
+				move.typeChangerBoosted = this.effect;
 			}
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.normalizeBoosted) return this.chainModify(1.5);
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.5);
 		},
 		name: "Normalize",
 		rating: 0,
@@ -2788,7 +2773,7 @@ Water: Water Absorb`,
 				return null;
 			}
 		},
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (effect.id === 'intimidate') {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Oblivious', '[of] ' + target);
@@ -2851,7 +2836,7 @@ Water: Water Absorb`,
 				return this.chainModify(1.3);
 			}
 		},
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (effect.id === 'intimidate') {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Tempo', '[of] ' + target);
@@ -2998,12 +2983,12 @@ Water: Water Absorb`,
 			];
 			if ((move.type === 'Normal' || move.type === 'Fairy') && !noBoost.includes(move.id) && !move.isZ) {
 				move.type = 'Fairy';
-				move.pixilateBoosted = true;
+				move.typeChangerBoosted = this.effect;
 			}
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.pixilateBoosted) return this.chainModify([4915, 4096]);
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
 		},
 		name: "Pixilate",
 		ate: "Fairy",
@@ -3118,12 +3103,12 @@ Water: Water Absorb`,
 			const noBoost = ['hiddenpower', 'judgment', 'naturalgift', 'technoblast', 'weatherball'];
 			if (move.id === this.dex.moves.get(pokemon.moveSlots[0].move).id && !noBoost.includes(move.id) && !move.isZ) {
 				move.type = pokemon.getTypes()[0];
-				move.poaBoosted = true;
+				move.typeChangerBoosted = this.effect;
 			}
 		},
 		onBasePowerPriority: 8,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.poaBoosted) return this.chainModify([0x1333, 0x1000]);
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([0x1333, 0x1000]);
 		},
 		name: "Power of Alchemy",
 		rating: 0,
@@ -3407,12 +3392,12 @@ Water: Water Absorb`,
 			];
 			if ((move.type === 'Normal' || move.type === 'Ice') && !noBoost.includes(move.id) && !move.isZ) {
 				move.type = 'Ice';
-				move.refrigerateBoosted = true;
+				move.typeChangerBoosted = this.effect;
 			}
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.refrigerateBoosted) return this.chainModify([4915, 4096]);
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
 		},
 		name: "Refrigerate",
 		ate: "Ice",
@@ -3436,7 +3421,7 @@ Water: Water Absorb`,
 			}
 			if ((effect as Item).isBerry) return this.chainModify(2);
 		},
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (effect && (effect as Item).isBerry) {
 				let b: BoostID;
 				for (b in boost) {
@@ -3795,7 +3780,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 			if (type === 'Ghost' || type === 'Normal' || type === 'Fighting')
 				return false;
 		},
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (effect.id === 'intimidate') {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Scrappy', '[of] ' + target);
@@ -3967,7 +3952,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 		num: 197,
 	},
 	simple: {
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (effect && effect.id === 'zpower') return;
 			let i: BoostID;
 			for (i in boost) {
@@ -5076,7 +5061,7 @@ Water: -1 Atk / +1 Def / +1 SpA / -1 Spe`,
 	},
 	whitesmoke: {
 		shortDesc: "Prevents any and all stat drops.",
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			let showMsg = false;
 			let i: BoostID;
 			for (i in boost) {

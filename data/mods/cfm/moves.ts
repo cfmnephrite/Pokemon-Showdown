@@ -5449,7 +5449,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Flash Cannon",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, pulse: true},
+		flags: {protect: 1, mirror: 1, pulse: 1},
 		secondary: {
 			chance: 10,
 			boosts: {
@@ -10887,7 +10887,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		sideCondition: 'mist',
 		condition: {
 			duration: 5,
-			onBoost(boost, target, source, effect) {
+			onTryBoost(boost, target, source, effect) {
 				if (effect.effectType === 'Move' && effect.infiltrates && !target.isAlly(source)) return;
 				if (source && target !== source) {
 					let showMsg = false;
@@ -15373,7 +15373,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		onModifyMove(move, source) {
 			if (!source.volatiles['skydrop']) {
 				move.accuracy = true;
-				move.flags.contact = 0;
+				delete move.flags['contact'];
 			}
 		},
 		onMoveFail(target, source) {

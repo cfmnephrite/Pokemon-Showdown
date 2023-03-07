@@ -1,8 +1,8 @@
 'use strict';
 
 const assert = require('../../assert').strict,
-	cfmDex = require('../../../.data-dist/mods/cfm/pokedex').Pokedex,
-	movesList = require('../../../.data-dist/mods/cfm/moves').Moves;
+	cfmDex = require('../../../dist/data/mods/cfm/pokedex').Pokedex,
+	movesList = require('../../../dist/data/mods/cfm/moves').Moves;
 
 describe('CFM - notable moves list for mons', function () {
 	this.timeout(3000);

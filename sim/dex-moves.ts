@@ -54,6 +54,7 @@ interface MoveFlags {
 	omnitype?: 1;
 	magician?: 1;
 	antiair?: 1;
+	specialTypeMod?: string;
 }
 
 export interface HitEffect {
@@ -271,8 +272,6 @@ export interface MoveData extends EffectData, MoveEventMethods, HitEffect {
 	baseMove?: string;
 
 	// CFM - have to be here because of dumbness
-	// Power of Alchemy boost
-	poaBoosted?: boolean;
 	// RKS boost (Type: Null)
 	rksBoosted?: boolean;
 	// Rock head - modified crit rate

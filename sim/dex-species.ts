@@ -37,7 +37,7 @@ export interface SpeciesFormatsData {
 	exclusiveMoves?: readonly string[];
 	gmaxUnreleased?: boolean;
 	isNonstandard?: Nonstandard | null;
-	natDexTier?: TierTypes.Singles | TierTypes.Other;
+	natDexTier?: TierTypes.Singles | TierTypes.Other | TierTypes.CFM;
 	randomBattleMoves?: readonly string[];
 	randomBattleLevel?: number;
 	randomDoubleBattleMoves?: readonly string[];
@@ -232,7 +232,7 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 	/**
 	 * National Dex Tier. The Pokemon's location in the Smogon National Dex tier system.
 	 */
-	readonly natDexTier: TierTypes.Singles | TierTypes.Other;
+	readonly natDexTier: TierTypes.Singles | TierTypes.Other | TierTypes.CFM;
 	declare readonly randomBattleMoves?: readonly ID[];
 	declare readonly randomBattleLevel?: number;
 	declare readonly randomDoubleBattleMoves?: readonly ID[];

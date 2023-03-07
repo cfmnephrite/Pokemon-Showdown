@@ -1355,15 +1355,15 @@ export class TeamValidator {
 
 		if (dex.mod('cfm')) {
 			const crowned: {[k: string]: string} = {
-				'Zacian': 'behemothblade', 'Zamazenta': 'behemothbash',
-			},
-				baseName = species.baseSpecies || species.name
+					'Zacian': 'behemothblade', 'Zamazenta': 'behemothbash',
+				},
+				baseName = species.baseSpecies || species.name;
 			if (baseName in crowned) {
 				const behemothMove = set.moves.map(toID).indexOf(crowned[baseName] as ID);
 				if (behemothMove >= 0)
-					set.species = baseName + '-Crowned'
+					set.species = baseName + '-Crowned';
 				else
-					set.species = baseName
+					set.species = baseName;
 			}
 		} else {
 			const crowned: {[k: string]: string} = {

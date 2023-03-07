@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('../../assert').strict;
-const TeamValidator = require('../../../.sim-dist/team-validator').TeamValidator;
+const TeamValidator = require('../../../dist/sim/team-validator').TeamValidator;
 
 describe('CFM - Team Validator', function () {
 	it('CFM should be a valid format', function () {
