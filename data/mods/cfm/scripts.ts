@@ -376,35 +376,37 @@ export const Scripts: CFMBattleScriptsData = {
 		},
 
 		canZMove(pokemon) {
-			if (pokemon.side.zMoveUsed ||
-				(pokemon.transformed &&
-					(pokemon.species.isMega || pokemon.species.isPrimal || pokemon.species.forme === "Ultra"))
-			) return;
-			const item = pokemon.getItem();
-			if (!item.zMove) return;
-			let atLeastOne = false;
-			let mustStruggle = true;
-			const zMoves: ZMoveOptions = [];
-			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.pp <= 0) {
-					zMoves.push(null);
-					continue;
-				}
-				if (!moveSlot.disabled) {
-					mustStruggle = false;
-				}
-				const move = this.dex.moves.get(moveSlot.move);
-				let zMoveName = this.getZMove(move, pokemon, true) || '';
-				if (zMoveName) {
-					const zMove = this.dex.moves.get(zMoveName);
-					if (!zMove.isZ && zMove.category === 'Status') zMoveName = "Z-" + zMoveName;
-					zMoves.push({move: zMoveName, target: zMove.target});
-				} else {
-					zMoves.push(null);
-				}
-				if (zMoveName) atLeastOne = true;
-			}
-			if (atLeastOne && !mustStruggle) return zMoves;
+			// Disabled in Gen 9
+			return;
+			// if (pokemon.side.zMoveUsed ||
+			// 	(pokemon.transformed &&
+			// 		(pokemon.species.isMega || pokemon.species.isPrimal || pokemon.species.forme === "Ultra"))
+			// ) return;
+			// const item = pokemon.getItem();
+			// if (!item.zMove) return;
+			// let atLeastOne = false;
+			// let mustStruggle = true;
+			// const zMoves: ZMoveOptions = [];
+			// for (const moveSlot of pokemon.moveSlots) {
+			// 	if (moveSlot.pp <= 0) {
+			// 		zMoves.push(null);
+			// 		continue;
+			// 	}
+			// 	if (!moveSlot.disabled) {
+			// 		mustStruggle = false;
+			// 	}
+			// 	const move = this.dex.moves.get(moveSlot.move);
+			// 	let zMoveName = this.getZMove(move, pokemon, true) || '';
+			// 	if (zMoveName) {
+			// 		const zMove = this.dex.moves.get(zMoveName);
+			// 		if (!zMove.isZ && zMove.category === 'Status') zMoveName = "Z-" + zMoveName;
+			// 		zMoves.push({move: zMoveName, target: zMove.target});
+			// 	} else {
+			// 		zMoves.push(null);
+			// 	}
+			// 	if (zMoveName) atLeastOne = true;
+			// }
+			// if (atLeastOne && !mustStruggle) return zMoves;
 		},
 
 		runZPower(move, pokemon) {
