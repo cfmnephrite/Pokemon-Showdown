@@ -1067,6 +1067,28 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Tough",
 		cfm: true,
 	},
+	barbbarrage: {
+		num: 839,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Barb Barrage",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (target.status === 'psn' || target.status === 'tox') {
+				return this.chainModify(2);
+			}
+		},
+		secondary: {
+			chance: 50,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Poison",
+	},
 	barrage: {
 		num: 140,
 		accuracy: 90,
@@ -2178,6 +2200,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {basePower: 200},
 		contestType: "Cool",
 		cfm: true,
+	},
+	ceaselessedge: {
+		num: 845,
+		accuracy: 90,
+		basePower: 65,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Ceaseless Edge",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		self: {
+			onHit(source) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('spikes');
+				}
+			},
+		},
+		secondary: {}, // allows sheer force to trigger
+		target: "normal",
+		type: "Dark",
 	},
 	celebrate: {
 		num: 606,
@@ -3795,6 +3838,32 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Electric",
 		contestType: "Beautiful",
 	},
+	direclaw: {
+		num: 827,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Dire Claw",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 50,
+			onHit(target, source) {
+				const result = this.random(3);
+				if (result === 0) {
+					target.trySetStatus('psn', source);
+				} else if (result === 1) {
+					target.trySetStatus('par', source);
+				} else {
+					target.trySetStatus('slp', source);
+				}
+			},
+		},
+		target: "normal",
+		type: "Poison",
+	},
 	dive: {
 		num: 291,
 		accuracy: 100,
@@ -5003,6 +5072,28 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Fire",
 		contestType: "Beautiful",
+	},
+	esperwing: {
+		num: 840,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		isNonstandard: "Unobtainable",
+		name: "Esper Wing",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		critRatio: 2,
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Psychic",
 	},
 	eternabeam: {
 		num: 795,
@@ -7570,6 +7661,25 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Tough",
 	},
+	headlongrush: {
+		num: 838,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Headlong Rush",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		self: {
+			boosts: {
+				def: -1,
+				spd: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+	},
 	headsmash: {
 		num: 457,
 		accuracy: 80,
@@ -8922,6 +9032,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fire",
 		zMove: {basePower: 100},
 		contestType: "Tough",
+	},
+	infernalparade: {
+		num: 844,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Special",
+		isNonstandard: "Unobtainable",
+		name: "Infernal Parade",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Ghost",
 	},
 	inferno: {
 		num: 517,
@@ -11992,6 +12123,27 @@ Water:		Scald`,
 		contestType: "Beautiful",
 		cfm: true,
 	},
+	mysticalpower: {
+		num: 832,
+		accuracy: 90,
+		basePower: 70,
+		category: "Special",
+		isNonstandard: "Unobtainable",
+		name: "Mystical Power",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Psychic",
+	},
 	nastyplot: {
 		num: 417,
 		accuracy: true,
@@ -13223,6 +13375,46 @@ Water:		Scald`,
 		contestType: "Beautiful",
 		cfm: true,
 	},
+	powershift: {
+		num: 829,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: "Unobtainable",
+		name: "Power Shift",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1},
+		volatileStatus: 'powershift',
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Power Shift');
+				[pokemon.storedStats.atk, pokemon.storedStats.spa,
+					pokemon.storedStats.def, pokemon.storedStats.spd] =
+				[pokemon.storedStats.def, pokemon.storedStats.spd,
+					pokemon.storedStats.atk, pokemon.storedStats.spa];
+			},
+			onCopy(pokemon) {
+				[pokemon.storedStats.atk, pokemon.storedStats.spa,
+					pokemon.storedStats.def, pokemon.storedStats.spd] =
+				[pokemon.storedStats.def, pokemon.storedStats.spd,
+					pokemon.storedStats.atk, pokemon.storedStats.spa];
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Power Shift');
+				[pokemon.storedStats.atk, pokemon.storedStats.spa,
+					pokemon.storedStats.def, pokemon.storedStats.spd] =
+				[pokemon.storedStats.def, pokemon.storedStats.spd,
+					pokemon.storedStats.atk, pokemon.storedStats.spa];
+			},
+			onRestart(pokemon) {
+				pokemon.removeVolatile('Power Shift');
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+	},
 	powersplit: {
 		num: 471,
 		accuracy: true,
@@ -13794,6 +13986,27 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Psychic",
 		zMove: {boost: {spa: 2}},
 		contestType: "Clever",
+	},
+	psyshieldbash: {
+		num: 828,
+		accuracy: 90,
+		basePower: 70,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Psyshield Bash",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					def: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Psychic",
 	},
 	psyshock: {
 		num: 473,
@@ -15312,6 +15525,23 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		zMove: {boost: {evasion: 1}},
 		contestType: "Cute",
 	},
+	sandsearstorm: {
+		num: 848,
+		accuracy: 80,
+		basePower: 100,
+		category: "Special",
+		isNonstandard: "Unobtainable",
+		name: "Sandsear Storm",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, wind: 1},
+		secondary: {
+			chance: 20,
+			status: 'brn',
+		},
+		target: "allAdjacentFoes",
+		type: "Ground",
+	},
 	sandstorm: {
 		num: 201,
 		accuracy: true,
@@ -15983,6 +16213,23 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Fire",
 		contestType: "Tough",
 		cfm: true,
+	},
+	shelter: {
+		num: 842,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: "Unobtainable",
+		name: "Shelter",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1},
+		boosts: {
+			def: 2,
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
 	},
 	shiftgear: {
 		num: 508,
@@ -17577,6 +17824,25 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		zMove: {boost: {spd: 1}},
 		contestType: "Cute",
 	},
+	springtidestorm: {
+		num: 831,
+		accuracy: 80,
+		basePower: 100,
+		category: "Special",
+		isNonstandard: "Unobtainable",
+		name: "Springtide Storm",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, wind: 1},
+		secondary: {
+			chance: 30,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Fairy",
+	},
 	stealthrock: {
 		num: 446,
 		accuracy: true,
@@ -17854,6 +18120,27 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Ground",
 		contestType: "Tough",
 		cfm: true,
+	},
+	stoneaxe: {
+		num: 830,
+		accuracy: 90,
+		basePower: 65,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Stone Axe",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		self: {
+			onHit(source) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('stealthrock');
+				}
+			},
+		},
+		secondary: {}, // allows sheer force to trigger
+		target: "normal",
+		type: "Rock",
 	},
 	stoneedge: {
 		num: 444,
@@ -18690,6 +18977,24 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		zMove: {basePower: 175},
 		contestType: "Tough",
 		cfm: true,
+	},
+	takeheart: {
+		num: 850,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: "Past",
+		name: "Take Heart",
+		pp: 15,
+		priority: 0,
+		flags: {snatch: 1},
+		onHit(pokemon) {
+			const success = !!this.boost({spa: 1, spd: 1});
+			return pokemon.cureStatus() || success;
+		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
 	},
 	tarshot: {
 		num: 749,
@@ -19679,6 +19984,31 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Clever",
 	},
+	triplearrows: {
+		num: 843,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Triple Arrows",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		critRatio: 2,
+		secondaries: [
+			{
+				chance: 50,
+				boosts: {
+					def: -1,
+				},
+			}, {
+				chance: 30,
+				volatileStatus: 'flinch',
+			},
+		],
+		target: "normal",
+		type: "Fighting",
+	},
 	tripleaxel: {
 		num: 813,
 		accuracy: 95,
@@ -19976,6 +20306,25 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Poison",
 		zMove: {basePower: 120},
 		contestType: "Beautiful",
+	},
+	victorydance: {
+		num: 837,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: "Unobtainable",
+		name: "Victory Dance",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, dance: 1},
+		boosts: {
+			atk: 1,
+			def: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
 	},
 	vinewhip: {
 		num: 22,
@@ -20283,6 +20632,20 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		zMove: {basePower: 200},
 		contestType: "Beautiful",
 	},
+	wavecrash: {
+		num: 834,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Wave Crash",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [33, 100],
+		secondary: null,
+		target: "normal",
+		type: "Water",
+	},
 	weatherball: {
 		num: 311,
 		accuracy: 100,
@@ -20445,6 +20808,23 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Rock",
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
+	},
+	wildboltstorm: {
+		num: 847,
+		accuracy: 80,
+		basePower: 100,
+		category: "Special",
+		isNonstandard: "Unobtainable",
+		name: "Wildbolt Storm",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, wind: 1},
+		secondary: {
+			chance: 20,
+			status: 'par',
+		},
+		target: "allAdjacentFoes",
+		type: "Electric",
 	},
 	wildcharge: {
 		num: 528,
