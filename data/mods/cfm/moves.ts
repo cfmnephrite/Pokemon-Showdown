@@ -216,7 +216,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Aerial Ace",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, distance: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, distance: 1, slicing: 1},
 		secondary: null,
 		target: "any",
 		type: "Flying",
@@ -295,7 +295,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Air Cutter",
 		pp: 25,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, slicing: 1, wind: 1},
 		critRatio: 2,
 		secondary: null,
 		target: "allAdjacentFoes",
@@ -312,7 +312,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Air Slash",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, distance: 1},
+		flags: {protect: 1, mirror: 1, distance: 1, slicing: 1},
 		secondary: {
 			chance: 20,
 			volatileStatus: 'flinch',
@@ -449,7 +449,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Aqua Cutter",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, slicing: 1},
+		flags: {protect: 1, mirror: 1, slicing: 1, slicing: 1},
 		critRatio: 2,
 		secondary: null,
 		target: "normal",
@@ -867,7 +867,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {snatch: 1},
 		sideCondition: 'auroraveil',
 		onTry() {
-			return this.field.isWeather('hail');
+			return this.field.isWeather(['hail', 'snow']);
 		},
 		condition: {
 			duration: 5,
@@ -1229,7 +1229,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Behemoth Blade",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, magic: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, magic: 1, slicing: 1},
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
@@ -1530,9 +1530,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Blizzard",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, wind: 1},
 		onModifyMove(move) {
-			if (this.field.isWeather('hail')) move.accuracy = true;
+			if (this.field.isWeather(['hail', 'snow'])) move.accuracy = true;
 		},
 		secondary: {
 			chance: 10,
@@ -3263,7 +3263,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Cross Poison",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		secondary: {
 			chance: 10,
 			status: 'psn',
@@ -3389,7 +3389,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Cut",
 		pp: 30,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -5259,7 +5259,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Fairy Wind",
 		pp: 30,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, wind: 1},
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
@@ -6573,7 +6573,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Fury Cutter",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		condition: {
 			duration: 2,
 			onStart() {
@@ -7498,7 +7498,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Gust",
 		pp: 35,
 		priority: 1,
-		flags: {protect: 1, mirror: 1, distance: 1},
+		flags: {protect: 1, mirror: 1, distance: 1, wind: 1},
 		secondary: null,
 		target: "any",
 		type: "Flying",
@@ -7971,7 +7971,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Heat Wave",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, wind: 1},
 		secondary: {
 			chance: 10,
 			status: 'brn',
@@ -8505,12 +8505,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Hurricane",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, distance: 1},
+		flags: {protect: 1, mirror: 1, distance: 1, wind: 1},
 		onModifyMove(move, pokemon, target) {
 			switch (target?.effectiveWeather()) {
 			case 'raindance':
 			case 'primordialsea':
 			case 'hail':
+			case 'snow':
 				move.accuracy = true;
 				break;
 			case 'sunnyday':
@@ -8965,7 +8966,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Icy Wind",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, wind: 1},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -9665,7 +9666,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Leaf Blade",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		critRatio: 2,
 		secondary: null,
 		target: "normal",
@@ -11826,6 +11827,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			case 'primordialsea':
 			case 'sandstorm':
 			case 'hail':
+			case 'snow':
 				factor = 0.25;
 				break;
 			}
@@ -11862,6 +11864,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			case 'primordialsea':
 			case 'sandstorm':
 			case 'hail':
+			case 'snow':
 				factor = 0.25;
 				break;
 			}
@@ -12355,7 +12358,7 @@ Water:		Scald`,
 		name: "Night Slash",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		critRatio: 2,
 		secondary: null,
 		target: "normal",
@@ -12929,7 +12932,7 @@ Water:		Scald`,
 		name: "Petal Blizzard",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, wind: 1},
 		secondary: null,
 		target: "allAdjacent",
 		type: "Grass",
@@ -13955,7 +13958,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Psycho Cut",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, slicing: 1},
 		critRatio: 2,
 		secondary: null,
 		target: "normal",
@@ -14518,7 +14521,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Razor Leaf",
 		pp: 25,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, slicing: 1},
 		critRatio: 2,
 		secondary: null,
 		target: "allAdjacentFoes",
@@ -14533,7 +14536,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Razor Shell",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		secondary: {
 			chance: 50,
 			boosts: {
@@ -15416,7 +15419,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Sacred Sword",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		ignoreEvasion: true,
 		ignoreDefensive: true,
 		secondary: null,
@@ -15550,7 +15553,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Sandstorm",
 		pp: 10,
 		priority: 0,
-		flags: {},
+		flags: {wind: 1},
 		weather: 'Sandstorm',
 		secondary: null,
 		target: "all",
@@ -16793,7 +16796,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Slash",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, omnitype: 1, antiair: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, omnitype: 1, antiair: 1, slicing: 1},
 		onModifyMove(move, pokemon) {
 			let type = pokemon.types[0];
 			if (type === "Bird") type = "???";
@@ -17270,7 +17273,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Solar Blade",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, charge: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, slicing: 1},
 		onBasePower(basePower, pokemon, target) {
 			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
 				this.debug('strengthened by weather');
@@ -18829,6 +18832,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			case 'primordialsea':
 			case 'sandstorm':
 			case 'hail':
+			case 'snow':
 				factor = 0.25;
 				break;
 			}
@@ -18925,7 +18929,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Tailwind",
 		pp: 15,
 		priority: 0,
-		flags: {snatch: 1},
+		flags: {snatch: 1, wind: 1},
 		sideCondition: 'tailwind',
 		condition: {
 			duration: 4,
@@ -20176,7 +20180,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Twister",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, wind: 1},
 		secondary: {
 			chance: 20,
 			volatileStatus: 'flinch',
@@ -20669,6 +20673,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 				move.type = 'Rock';
 				break;
 			case 'hail':
+			case 'snow':
 				move.type = 'Ice';
 				break;
 			}
@@ -20677,16 +20682,11 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			switch (pokemon.effectiveWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
-				move.basePower *= 2;
-				break;
 			case 'raindance':
 			case 'primordialsea':
-				move.basePower *= 2;
-				break;
 			case 'sandstorm':
-				move.basePower *= 2;
-				break;
 			case 'hail':
+			case 'snow':
 				move.basePower *= 2;
 				break;
 			}
@@ -20721,7 +20721,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Whirlwind",
 		pp: 20,
 		priority: -6,
-		flags: {reflectable: 1, mirror: 1, bypasssub: 1, allyanim: 1},
+		flags: {reflectable: 1, mirror: 1, bypasssub: 1, allyanim: 1, wind: 1},
 		forceSwitch: true,
 		secondary: null,
 		target: "normal",
@@ -21095,7 +21095,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "X-Scissor",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		ignoreEvasion: true,
 		ignoreDefensive: true,
 		secondary: null,
