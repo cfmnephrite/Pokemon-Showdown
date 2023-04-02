@@ -449,7 +449,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Aqua Cutter",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, slicing: 1, slicing: 1},
+		flags: {protect: 1, mirror: 1, slicing: 1},
 		critRatio: 2,
 		secondary: null,
 		target: "normal",

@@ -2305,7 +2305,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMove: true,
 		zMoveType: "Ground",
 		forcedForme: "Arceus-Ground",
-		zMoveSpecialMoves: {"Zygarde": "Land's Wrath"},	
+		zMoveSpecialMoves: {"Zygarde": "Land's Wrath"},
 		num: 784,
 		gen: 7,
 	},
@@ -2919,7 +2919,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Light Ball",
 		spritenum: 251,
 		shortDesc: "If held by a Pikachu or Spiky-eared Pichu, its Attack and Sp. Atk are doubled.",
-		fling: {	
+		fling: {
 			basePower: 30,
 			status: 'par',
 		},
