@@ -1,4 +1,21 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
+	abilityshield: {
+		name: "Ability Shield",
+		spritenum: 0, // TODO
+		ignoreKlutz: true,
+		// Neutralizing Gas protection implemented in Pokemon.ignoringAbility() within sim/pokemon.ts
+		// and in Neutralizing Gas itself within data/abilities.ts
+		onSetAbility(ability, target, source, effect) {
+			if (effect && effect.effectType === 'Ability' && effect.name !== 'Trace') {
+				this.add('-ability', source, effect);
+			}
+			this.add('-block', target, 'item: Ability Shield');
+			return null;
+		},
+		// Mold Breaker protection implemented in Battle.suppressingAbility() within sim/battle.ts
+		num: 1881,
+		gen: 9,
+	},
 	abomasite: {
 		name: "Abomasite",
 		spritenum: 575,
@@ -40,6 +57,27 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 545,
 		gen: 5,
 	},
+	adamantcrystal: {
+		name: "Adamant Crystal",
+		spritenum: 4, // TODO
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.num === 483 && (move.type === 'Steel' || move.type === 'Dragon')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if (source?.baseSpecies.num === 483 || pokemon.baseSpecies.num === 483) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Dialga-Origin",
+		itemUser: ["Dialga-Origin"],
+		num: 1777,
+		gen: 8,
+		isNonstandard: "Unobtainable",
+	},
 	adamantorb: {
 		name: "Adamant Orb",
 		spritenum: 4,
@@ -48,7 +86,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (move && user.baseSpecies.name === 'Dialga' && (move.type === 'Steel' || move.type === 'Dragon')) {
+			if (user.baseSpecies.num === 483 && (move.type === 'Steel' || move.type === 'Dragon')) {
 				return this.chainModify([4915, 4096]);
 			}
 		},
@@ -63,7 +101,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 30,
 		},
 		onAfterBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate') {
+			// Adrenaline Orb activates if Intimidate is blocked by an ability like Hyper Cutter,
+			// which deletes boost.atk,
+			// but not if the holder's attack is already at -6 (or +6 if it has Contrary),
+			// which sets boost.atk to 0
+			if (target.boosts['spe'] === 6 || boost.atk === 0) {
+				return;
+			}
+			if (effect.name === 'Intimidate') {
 				target.useItem();
 			}
 		},
@@ -106,7 +151,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Dragon",
 		},
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -114,7 +160,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (!this.runEvent('TryHeal', pokemon)) return false;
 		},
 		onEat(pokemon) {
-			this.heal(pokemon.baseMaxhp * 0.33);
+			this.heal(pokemon.baseMaxhp / 3);
 			if (pokemon.getNature().minus === 'spd') {
 				pokemon.addVolatile('confusion');
 			}
@@ -208,7 +254,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Ground",
 		},
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -279,6 +326,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 757,
 		gen: 6,
+	},
+	auspiciousarmor: {
+		name: "Auspicious Armor",
+		spritenum: 0, // TODO
+		num: 2344,
+		gen: 9,
 	},
 	babiriberry: {
 		name: "Babiri Berry",
@@ -413,24 +466,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 241,
 		gen: 2,
 	},
-	blacksludge: {
-		name: "Black Sludge",
-		spritenum: 34,
-		fling: {
-			basePower: 30,
-		},
-		onResidualOrder: 5,
-		onResidualSubOrder: 5,
-		onResidual(pokemon) {
-			if (pokemon.hasType('Poison')) {
-				this.heal(pokemon.baseMaxhp / 16);
-			} else {
-				this.damage(pokemon.baseMaxhp / 8);
-			}
-		},
-		num: 281,
-		gen: 4,
-	},
 	blackglasses: {
 		name: "Black Glasses",
 		spritenum: 35,
@@ -445,6 +480,24 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 240,
 		gen: 2,
+	},
+	blacksludge: {
+		name: "Black Sludge",
+		spritenum: 34,
+		fling: {
+			basePower: 30,
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.hasType('Poison')) {
+				this.heal(pokemon.baseMaxhp / 16);
+			} else {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+		},
+		num: 281,
+		gen: 4,
 	},
 	blastoisinite: {
 		name: "Blastoisinite",
@@ -515,6 +568,27 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		// Item activation located in scripts.js
 		num: 1121,
 		gen: 8,
+	},
+	boosterenergy: {
+		name: "Booster Energy",
+		spritenum: 0, // TODO
+		onUpdate(pokemon) {
+			if (pokemon.transformed) return;
+			if (this.queue.peek(true)?.choice === 'runSwitch') return;
+
+			if (pokemon.hasAbility('protosynthesis') && !this.field.isWeather('sunnyday') && pokemon.useItem()) {
+				pokemon.addVolatile('protosynthesis');
+			}
+			if (pokemon.hasAbility('quarkdrive') && !this.field.isTerrain('electricterrain') && pokemon.useItem()) {
+				pokemon.addVolatile('quarkdrive');
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.tags.includes("Paradox")) return false;
+			return true;
+		},
+		num: 1880,
+		gen: 9,
 	},
 	bottlecap: {
 		name: "Bottle Cap",
@@ -887,6 +961,26 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 100,
 		gen: 3,
 	},
+	clearamulet: {
+		name: "Clear Amulet",
+		spritenum: 0, // TODO
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add('-fail', target, 'unboost', '[from] item: Clear Amulet', '[of] ' + target);
+			}
+		},
+		num: 1882,
+		gen: 9,
+	},
 	cloversweet: {
 		name: "Clover Sweet",
 		spritenum: 707,
@@ -965,6 +1059,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 572,
 		gen: 5,
 	},
+	covertcloak: {
+		name: "Covert Cloak",
+		fling: {
+			basePower: 10,
+		},
+		spritenum: 0, // TODO
+		onModifySecondaries(secondaries) {
+			this.debug('Covert Cloak prevent secondary');
+			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+		},
+		num: 1885,
+		gen: 9,
+	},
 	crackedpot: {
 		name: "Cracked Pot",
 		spritenum: 719,
@@ -986,7 +1093,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onFractionalPriority(priority, pokemon) {
 			if (
 				priority <= 0 &&
-				(pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony')))
+				(pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony))
 			) {
 				if (pokemon.eatItem()) {
 					this.add('-activate', pokemon, 'item: Custap Berry', '[consumed]');
@@ -1349,6 +1457,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onAfterMoveSecondary(target, source, move) {
 			if (source && source !== target && target.hp && move && move.category !== 'Status' && !move.isFutureMove) {
 				if (!this.canSwitch(target.side) || target.forceSwitchFlag || target.beingCalledBack || target.isSkyDropped()) return;
+				if (target.volatiles['commanding'] || target.volatiles['commanded']) return;
 				for (const pokemon of this.getAllActive()) {
 					if (pokemon.switchFlag === true) return;
 				}
@@ -1381,6 +1490,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (eject) {
 				if (target.hp) {
 					if (!this.canSwitch(target.side)) return;
+					if (target.volatiles['commanding'] || target.volatiles['commanded']) return;
 					for (const pokemon of this.getAllActive()) {
 						if (pokemon.switchFlag === true) return;
 					}
@@ -1462,15 +1572,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMoveSpecialMoves: {"Zeraora": "Plasma Fists", "Zekrom": "Bolt Strike"},
 		num: 779,
 		gen: 7,
-	},
-	energypowder: {
-		name: "Energy Powder",
-		spritenum: 123,
-		fling: {
-			basePower: 30,
-		},
-		num: 34,
-		gen: 2,
 	},
 	enigmaberry: {
 		name: "Enigma Berry",
@@ -1623,7 +1724,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Bug",
 		},
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -1631,7 +1733,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (!this.runEvent('TryHeal', pokemon)) return false;
 		},
 		onEat(pokemon) {
-			this.heal(pokemon.baseMaxhp * 0.33);
+			this.heal(pokemon.baseMaxhp / 3);
 			if (pokemon.getNature().minus === 'atk') {
 				pokemon.addVolatile('confusion');
 			}
@@ -1716,8 +1818,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 30,
 			status: 'brn',
 		},
-		onResidualOrder: 26,
-		onResidualSubOrder: 2,
+		onResidualOrder: 28,
+		onResidualSubOrder: 3,
 		onResidual(pokemon) {
 			pokemon.trySetStatus('brn', pokemon);
 		},
@@ -1747,6 +1849,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	floatstone: {
 		name: "Float Stone",
 		spritenum: 147,
+		shortDesc: "Halves weight; prevents an airborne holder from becoming grounded by status.",
 		fling: {
 			basePower: 30,
 		},
@@ -1755,7 +1858,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 539,
 		gen: 5,
-		shortDesc: "Halves weight; prevents an airborne holder from becoming grounded by status.",
 	},
 	flowersweet: {
 		name: "Flower Sweet",
@@ -1899,6 +2001,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 1582,
 		gen: 8,
+		isNonstandard: "Unobtainable",
 	},
 	galaricawreath: {
 		name: "Galarica Wreath",
@@ -1908,6 +2011,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 1592,
 		gen: 8,
+		isNonstandard: "Unobtainable",
 	},
 	galladite: {
 		name: "Galladite",
@@ -1930,7 +2034,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Ice",
 		},
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -2127,6 +2232,27 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 286,
 		gen: 4,
 	},
+	griseouscore: {
+		name: "Griseous Core",
+		spritenum: 180, // TODO
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.num === 487 && (move.type === 'Ghost' || move.type === 'Dragon')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if (source?.baseSpecies.num === 487 || pokemon.baseSpecies.num === 487) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Giratina-Origin",
+		itemUser: ["Giratina-Origin"],
+		num: 1779,
+		gen: 8,
+		isNonstandard: "Unobtainable",
+	},
 	griseousorb: {
 		name: "Griseous Orb",
 		spritenum: 180,
@@ -2139,14 +2265,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([4915, 4096]);
 			}
 		},
-		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 487) || pokemon.baseSpecies.num === 487) {
-				return false;
-			}
-			return true;
-		},
-		forcedForme: "Giratina-Origin",
-		itemUser: ["Giratina-Origin"],
+		itemUser: ["Giratina"],
 		num: 112,
 		gen: 4,
 	},
@@ -2186,7 +2305,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMove: true,
 		zMoveType: "Ground",
 		forcedForme: "Arceus-Ground",
-		zMoveSpecialMoves: {"Zygarde": "Land's Wrath"},
+		zMoveSpecialMoves: {"Zygarde": "Land's Wrath"},	
 		num: 784,
 		gen: 7,
 	},
@@ -2273,7 +2392,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 1120,
 		gen: 8,
-		// Hazard Immunity implemented in moves.js
+		// Hazard Immunity implemented in moves.ts
 	},
 	helixfossil: {
 		name: "Helix Fossil",
@@ -2329,7 +2448,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Dark",
 		},
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -2337,7 +2457,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (!this.runEvent('TryHeal', pokemon)) return false;
 		},
 		onEat(pokemon) {
-			this.heal(pokemon.baseMaxhp * 0.33);
+			this.heal(pokemon.baseMaxhp / 3);
 			if (pokemon.getNature().minus === 'def') {
 				pokemon.addVolatile('confusion');
 			}
@@ -2662,7 +2782,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Flying",
 		},
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -2718,7 +2839,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 10,
 		},
 		onResidualOrder: 5,
-		onResidualSubOrder: 5,
+		onResidualSubOrder: 4,
 		onResidual(pokemon) {
 			this.heal(pokemon.baseMaxhp / 16);
 		},
@@ -2766,7 +2887,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Grass",
 		},
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -2786,7 +2908,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return this.chainModify([5324, 4096]);
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
-			if (source && source !== target && move && move.category !== 'Status') {
+			if (source && source !== target && move && move.category !== 'Status' && !source.forceSwitchFlag) {
 				this.damage(source.baseMaxhp / 10, source, source, this.dex.items.get('lifeorb'));
 			}
 		},
@@ -2796,7 +2918,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	lightball: {
 		name: "Light Ball",
 		spritenum: 251,
-		fling: {
+		shortDesc: "If held by a Pikachu or Spiky-eared Pichu, its Attack and Sp. Atk are doubled.",
+		fling: {	
 			basePower: 30,
 			status: 'par',
 		},
@@ -2815,7 +2938,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Pikachu", "Pichu-Spiky-eared"],
 		num: 236,
 		gen: 2,
-		shortDesc: "If held by a Pikachu or Spiky-eared Pichu, its Attack and Sp. Atk are doubled.",
 	},
 	lightclay: {
 		name: "Light Clay",
@@ -2826,6 +2948,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		// implemented in the corresponding thing
 		num: 269,
 		gen: 4,
+	},
+	loadeddice: {
+		name: "Loaded Dice",
+		spritenum: 0, // TODO
+		// partially implemented in sim/battle-actions.ts:BattleActions#hitStepMoveHitLoop
+		onModifyMove(move) {
+			if (move.multiaccuracy) {
+				delete move.multiaccuracy;
+			}
+		},
+		num: 1886,
+		gen: 9,
 	},
 	lopunnite: {
 		name: "Lopunnite",
@@ -2940,6 +3074,27 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 2,
 		isPokeball: true,
 	},
+	lustrousglobe: {
+		name: "Lustrous Globe",
+		spritenum: 265, // TODO
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.num === 484 && (move.type === 'Water' || move.type === 'Dragon')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if (source?.baseSpecies.num === 484 || pokemon.baseSpecies.num === 484) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Palkia-Origin",
+		itemUser: ["Palkia-Origin"],
+		num: 1778,
+		gen: 8,
+		isNonstandard: "Unobtainable",
+	},
 	lustrousorb: {
 		name: "Lustrous Orb",
 		spritenum: 265,
@@ -2948,7 +3103,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (move && user.baseSpecies.name === 'Palkia' && (move.type === 'Water' || move.type === 'Dragon')) {
+			if (user.baseSpecies.num === 484 && (move.type === 'Psychic' || move.type === 'Dragon')) {
 				return this.chainModify([4915, 4096]);
 			}
 		},
@@ -3019,7 +3174,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Ghost",
 		},
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -3027,7 +3183,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (!this.runEvent('TryHeal', pokemon)) return false;
 		},
 		onEat(pokemon) {
-			this.heal(pokemon.baseMaxhp * 0.33);
+			this.heal(pokemon.baseMaxhp / 3);
 			if (pokemon.getNature().minus === 'spe') {
 				pokemon.addVolatile('confusion');
 			}
@@ -3056,6 +3212,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 137,
 		gen: 2,
+	},
+	maliciousarmor: {
+		name: "Malicious Armor",
+		spritenum: 0, // TODO
+		num: 1861,
+		gen: 9,
 	},
 	manectite: {
 		name: "Manectite",
@@ -3266,6 +3428,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			onModifyDamage(damage, source, target, move) {
 				const dmgMod = [4096, 4915, 5734, 6553, 7372, 8192];
 				const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
+				this.debug(`Current Metronome boost: ${dmgMod[numConsecutive]}/4096`);
 				return this.chainModify([dmgMod[numConsecutive], 4096]);
 			},
 		},
@@ -3291,7 +3454,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Rock",
 		},
 		onResidual(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -3357,6 +3521,31 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 239,
 		gen: 2,
+	},
+	mirrorherb: {
+		name: "Mirror Herb",
+		fling: {
+			basePower: 10,
+		},
+		spritenum: 0, // TODO
+		onFoeAfterBoost(boost, target, source, effect) {
+			if (effect?.name === 'Opportunist' || effect?.name === 'Mirror Herb') return;
+			const boostPlus: SparseBoostsTable = {};
+			let statsRaised = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! > 0) {
+					boostPlus[i] = boost[i];
+					statsRaised = true;
+				}
+			}
+			if (!statsRaised) return;
+			const pokemon: Pokemon = this.effectState.target;
+			pokemon.useItem();
+			this.boost(boostPlus, pokemon);
+		},
+		num: 1883,
+		gen: 9,
 	},
 	mistyseed: {
 		name: "Misty Seed",
@@ -3697,7 +3886,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Poison",
 		},
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -4067,6 +4257,23 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 786,
 		gen: 7,
 	},
+	punchingglove: {
+		name: "Punching Glove",
+		spritenum: 0, // TODO
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['punch']) {
+				this.debug('Punching Glove boost');
+				return this.chainModify([4506, 4096]);
+			}
+		},
+		onModifyMovePriority: 1,
+		onModifyMove(move) {
+			if (move.flags['punch']) delete move.flags['contact'];
+		},
+		num: 1884,
+		gen: 9,
+	},
 	qualotberry: {
 		name: "Qualot Berry",
 		spritenum: 371,
@@ -4386,9 +4593,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 100,
 		},
-		onUpdate(pokemon) {
-			if (this.field.getPseudoWeather('trickroom')) {
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.getPseudoWeather('trickroom')) {
 				pokemon.useItem();
+			}
+		},
+		onAnyPseudoWeatherChange() {
+			const pokemon = this.effectState.target;
+			if (this.field.getPseudoWeather('trickroom')) {
+				pokemon.useItem(pokemon);
 			}
 		},
 		boosts: {
@@ -4556,7 +4769,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Fighting",
 		},
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -4677,7 +4891,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (move.totalDamage) {
+			if (move.totalDamage && !pokemon.forceSwitchFlag) {
 				this.heal(move.totalDamage / 8, pokemon);
 			}
 		},
@@ -4989,7 +5203,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Psychic",
 		},
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -5092,8 +5307,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 80,
 		},
-		onResidualOrder: 26,
-		onResidualSubOrder: 2,
+		onResidualOrder: 28,
+		onResidualSubOrder: 3,
 		onResidual(pokemon) {
 			this.damage(pokemon.baseMaxhp / 8);
 		},
@@ -5127,6 +5342,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Arceus-Rock",
 		num: 309,
 		gen: 4,
+	},
+	strangeball: {
+		name: "Strange Ball",
+		spritenum: 303, // TODO
+		num: 1785,
+		gen: 8,
+		isPokeball: true,
 	},
 	strawberrysweet: {
 		name: "Strawberry Sweet",
@@ -5287,8 +5509,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 30,
 			status: 'tox',
 		},
-		onResidualOrder: 26,
-		onResidualSubOrder: 2,
+		onResidualOrder: 28,
+		onResidualSubOrder: 3,
 		onResidual(pokemon) {
 			pokemon.trySetStatus('tox', pokemon);
 		},
@@ -6275,7 +6497,26 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 60,
 		},
-		// Implemented in statuses.js, moves.js, and abilities.js
+		// Partially implemented in Pokemon.effectiveWeather() in sim/pokemon.ts
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) return;
+			if (['sunnyday', 'raindance', 'desolateland', 'primordialsea'].includes(this.field.effectiveWeather())) {
+				this.runEvent('WeatherChange', pokemon, pokemon, this.effect);
+			}
+		},
+		onUpdate(pokemon) {
+			if (!this.effectState.inactive) return;
+			this.effectState.inactive = false;
+			if (['sunnyday', 'raindance', 'desolateland', 'primordialsea'].includes(this.field.effectiveWeather())) {
+				this.runEvent('WeatherChange', pokemon, pokemon, this.effect);
+			}
+		},
+		onEnd(pokemon) {
+			if (['sunnyday', 'raindance', 'desolateland', 'primordialsea'].includes(this.field.effectiveWeather())) {
+				this.runEvent('WeatherChange', pokemon, pokemon, this.effect);
+			}
+			this.effectState.inactive = true;
+		},
 		num: 1123,
 		gen: 8,
 	},
@@ -6492,7 +6733,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			type: "Rock",
 		},
 		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
+					pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.eatItem();
 			}
 		},
@@ -6500,7 +6742,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (!this.runEvent('TryHeal', pokemon)) return false;
 		},
 		onEat(pokemon) {
-			this.heal(pokemon.baseMaxhp * 0.33);
+			this.heal(pokemon.baseMaxhp / 3);
 			if (pokemon.getNature().minus === 'spa') {
 				pokemon.addVolatile('confusion');
 			}
@@ -6582,5 +6824,312 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 276,
 		gen: 4,
+	},
+
+	// Gen 2 items
+
+	berserkgene: {
+		name: "Berserk Gene",
+		spritenum: 388,
+		onUpdate(pokemon) {
+			if (pokemon.useItem()) {
+				pokemon.addVolatile('confusion');
+			}
+		},
+		boosts: {
+			atk: 2,
+		},
+		num: 0,
+		gen: 2,
+	},
+	berry: {
+		name: "Berry",
+		spritenum: 319,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Poison",
+		},
+		onResidualOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(10);
+		},
+		num: 155,
+		gen: 2,
+	},
+	bitterberry: {
+		name: "Bitter Berry",
+		spritenum: 334,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Ground",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['confusion']) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			pokemon.removeVolatile('confusion');
+		},
+		num: 156,
+		gen: 2,
+	},
+	burntberry: {
+		name: "Burnt Berry",
+		spritenum: 13,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Ice",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'frz') {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			if (pokemon.status === 'frz') {
+				pokemon.cureStatus();
+			}
+		},
+		num: 153,
+		gen: 2,
+	},
+	goldberry: {
+		name: "Gold Berry",
+		spritenum: 448,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Psychic",
+		},
+		onResidualOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				pokemon.eatItem();
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			if (!this.runEvent('TryHeal', pokemon)) return false;
+		},
+		onEat(pokemon) {
+			this.heal(30);
+		},
+		num: 158,
+		gen: 2,
+	},
+	iceberry: {
+		name: "Ice Berry",
+		spritenum: 381,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Grass",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			if (pokemon.status === 'brn') {
+				pokemon.cureStatus();
+			}
+		},
+		num: 152,
+		gen: 2,
+	},
+	mintberry: {
+		name: "Mint Berry",
+		spritenum: 65,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Water",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'slp') {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			if (pokemon.status === 'slp') {
+				pokemon.cureStatus();
+			}
+		},
+		num: 150,
+		gen: 2,
+	},
+	miracleberry: {
+		name: "Miracle Berry",
+		spritenum: 262,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Flying",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status || pokemon.volatiles['confusion']) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			pokemon.cureStatus();
+			pokemon.removeVolatile('confusion');
+		},
+		num: 157,
+		gen: 2,
+	},
+	mysteryberry: {
+		name: "Mystery Berry",
+		spritenum: 244,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Fighting",
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.hp) return;
+			const moveSlot = pokemon.lastMove && pokemon.getMoveData(pokemon.lastMove.id);
+			if (moveSlot && moveSlot.pp === 0) {
+				pokemon.addVolatile('leppaberry');
+				pokemon.volatiles['leppaberry'].moveSlot = moveSlot;
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			let moveSlot;
+			if (pokemon.volatiles['leppaberry']) {
+				moveSlot = pokemon.volatiles['leppaberry'].moveSlot;
+				pokemon.removeVolatile('leppaberry');
+			} else {
+				let pp = 99;
+				for (const possibleMoveSlot of pokemon.moveSlots) {
+					if (possibleMoveSlot.pp < pp) {
+						moveSlot = possibleMoveSlot;
+						pp = moveSlot.pp;
+					}
+				}
+			}
+			moveSlot.pp += 5;
+			if (moveSlot.pp > moveSlot.maxpp) moveSlot.pp = moveSlot.maxpp;
+			this.add('-activate', pokemon, 'item: Mystery Berry', moveSlot.move);
+		},
+		num: 154,
+		gen: 2,
+	},
+	pinkbow: {
+		name: "Pink Bow",
+		spritenum: 444,
+		onBasePower(basePower, user, target, move) {
+			if (move.type === 'Normal') {
+				return basePower * 1.1;
+			}
+		},
+		num: 251,
+		gen: 2,
+	},
+	polkadotbow: {
+		name: "Polkadot Bow",
+		spritenum: 444,
+		onBasePower(basePower, user, target, move) {
+			if (move.type === 'Normal') {
+				return basePower * 1.1;
+			}
+		},
+		num: 251,
+		gen: 2,
+	},
+	przcureberry: {
+		name: "PRZ Cure Berry",
+		spritenum: 63,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Fire",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'par') {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			if (pokemon.status === 'par') {
+				pokemon.cureStatus();
+			}
+		},
+		num: 149,
+		gen: 2,
+	},
+	psncureberry: {
+		name: "PSN Cure Berry",
+		spritenum: 333,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Electric",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+				pokemon.cureStatus();
+			}
+		},
+		num: 151,
+		gen: 2,
+	},
+
+	// CAP items
+
+	crucibellite: {
+		name: "Crucibellite",
+		spritenum: 577,
+		megaStone: "Crucibelle-Mega",
+		megaEvolves: "Crucibelle",
+		itemUser: ["Crucibelle"],
+		onTakeItem(item, source) {
+			return item.megaEvolves !== source.baseSpecies.baseSpecies;
+		},
+		num: -1,
+		gen: 6,
+		isNonstandard: "CAP",
+	},
+	vilevial: {
+		name: "Vile Vial",
+		spritenum: 752,
+		fling: {
+			basePower: 60,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.num === -66 && ['Poison', 'Flying'].includes(move.type)) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if (source?.baseSpecies.num === -66 || pokemon.baseSpecies.num === -66) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Venomicon-Epilogue",
+		itemUser: ["Venomicon-Epilogue"],
+		num: -2,
+		gen: 8,
+		isNonstandard: "CAP",
 	},
 };
