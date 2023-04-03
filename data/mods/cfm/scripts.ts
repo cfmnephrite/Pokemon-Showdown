@@ -8,7 +8,7 @@ interface CFMBattleScriptsData extends ModdedBattleScriptsData {
 	getCategory?: (this: Battle, move: string | Move, source: Pokemon | null) => string;
 }
 export const Scripts: CFMBattleScriptsData = {
-	gen: 8,
+	gen: 9,
 
 	getCategory(move: string | Move, source: Pokemon | null = null): string {
 		const dexMove = this.dex.moves.get(move);
