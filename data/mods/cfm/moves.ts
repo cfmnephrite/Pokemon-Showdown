@@ -1375,8 +1375,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "allAdjacentFoes",
 		type: "Ice",
-		contestType: "Beautiful",
-		cfm: true,
+		contestType: "Beautiful"
 	},
 	block: {
 		num: 335,
@@ -6953,7 +6952,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Usually goes first.",
 		cfmDesc: "Priority: +1",
 		name: "Gust",
-		pp: 35,
+		pp: 20,
 		priority: 1,
 		flags: {protect: 1, mirror: 1, distance: 1},
 		secondary: null,
@@ -8315,14 +8314,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-		desc: "Has a 20% chance to flinch the target.",
-		shortDesc: "20% chance to flinch the target.",
+		desc: "Has a 10% chance to flinch the target.",
+		shortDesc: "10% chance to flinch the target.",
 		name: "Icicle Crash",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
-			chance: 20,
+			chance: 10,
 			volatileStatus: 'flinch',
 		},
 		target: "normal",
@@ -11455,14 +11454,14 @@ Water:		Scald`,
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
-		desc: "Has a 30% chance to lower the target's accuracy by 1 stage.",
-		shortDesc: "30% chance to lower the target's accuracy by 1.",
+		desc: "Has a 10% chance to lower the target's accuracy by 1 stage.",
+		shortDesc: "10% chance to lower the target's accuracy by 1.",
 		name: "Night Daze",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
-			chance: 30,
+			chance: 10,
 			boosts: {
 				accuracy: -1,
 			},
@@ -14734,7 +14733,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 	shadowball: {
 		num: 247,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 85,
 		category: "Special",
 		name: "Shadow Ball",
 		pp: 10,
@@ -16533,7 +16532,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			},
 			onSwitchIn(pokemon) {
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 12 * (1 + +(pokemon.hasItem('heavydutyboots'))));
+				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 16 * (1 + +(pokemon.hasItem('heavydutyboots'))));
 			},
 		},
 		secondary: null,
