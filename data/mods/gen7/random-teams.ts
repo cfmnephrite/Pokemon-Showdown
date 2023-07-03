@@ -1,4 +1,4 @@
-import {MoveCounter, RandomGen8Teams, TeamData} from '../gen8/random-teams';
+import {MoveCounter, RandomGen8Teams, TeamData, OldRandomBattleSpecies} from '../gen8/random-teams';
 import {PRNG, PRNGSeed} from '../../../sim/prng';
 import {Utils} from '../../../lib';
 import {toID} from '../../../sim/dex';
@@ -30,14 +30,18 @@ const ZeroAttackHPIVs: {[k: string]: SparseStatsTable} = {
 };
 
 export class RandomGen7Teams extends RandomGen8Teams {
+	randomData: {[species: string]: OldRandomBattleSpecies} = require('./random-data.json');
+
 	constructor(format: Format | string, prng: PRNG | PRNGSeed | null) {
 		super(format, prng);
 
 		this.noStab = [...this.noStab, 'voltswitch'];
 
 		this.moveEnforcementCheckers = {
-			Bug: (movePool, moves, abilities, types, counter) => (['megahorn', 'pinmissile'].some(m => movePool.includes(m)) ||
-				!counter.get('Bug') && abilities.has('Tinted Lens')),
+			Bug: (movePool, moves, abilities, types, counter) => (
+				['megahorn', 'pinmissile'].some(m => movePool.includes(m)) ||
+				!counter.get('Bug') && (abilities.has('Tinted Lens') || abilities.has('Adaptability'))
+			),
 			Dark: (movePool, moves, abilities, types, counter, species) => (
 				(!counter.get('Dark') && !abilities.has('Protean')) ||
 				(moves.has('pursuit') && species.types.length > 1 && counter.get('Dark') === 1)
@@ -45,7 +49,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			Dragon: (movePool, moves, abilities, types, counter) => (
 				!counter.get('Dragon') &&
 				!abilities.has('Aerilate') && !abilities.has('Pixilate') &&
-				!moves.has('fly') && !moves.has('rest') && !moves.has('sleeptalk')
+				!moves.has('dragonascent') && !moves.has('fly') && !moves.has('rest') && !moves.has('sleeptalk')
 			),
 			Electric: (movePool, moves, abilities, types, counter) => !counter.get('Electric') || movePool.includes('thunder'),
 			Fairy: (movePool, moves, abilities, types, counter) => (
@@ -268,7 +272,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			);
 			const singlesCondition = (
 				(counter.setupType && !moves.has('wish')) ||
-				(!['Guts', 'Harvest', 'Poison Heal', 'Quick Feet', 'Speed Boost'].some(abil => abilities.has(abil)) &&
+				(!['Guts', 'Harvest', 'Quick Feet', 'Speed Boost'].some(abil => abilities.has(abil)) &&
 				!['leechseed', 'perishsong', 'toxic', 'wish'].some(m => moves.has(m)) &&
 				species.id !== 'sharpedomega')
 			);
@@ -321,6 +325,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			return {cull: (
 				!!counter.setupType ||
 				!!counter.get('speedsetup') ||
+				movePool.includes('boltstrike') ||
 				['electricterrain', 'raindance', 'uturn'].some(m => moves.has(m))
 			)};
 		case 'wish':
@@ -431,8 +436,6 @@ export class RandomGen7Teams extends RandomGen8Teams {
 				(isDoubles && moves.has('energyball')) ||
 				(counter.get('Grass') > 1 && !!counter.setupType)
 			)};
-		case 'seedbomb':
-			return {cull: moves.has('leafstorm') || isDoubles && moves.has('gigadrain')};
 		case 'solarbeam':
 			return {cull: (
 				(!abilities.has('Drought') && !moves.has('sunnyday')) ||
@@ -572,11 +575,12 @@ export class RandomGen7Teams extends RandomGen8Teams {
 				(moves.has('wish') && (moves.has('protect') || movePool.includes('protect')))
 			)};
 		case 'substitute':
+			const moveBasedCull = ['copycat', 'dragondance', 'shiftgear'].some(m => movePool.includes(m));
 			return {cull: (
 				moves.has('dracometeor') ||
 				(moves.has('leafstorm') && !abilities.has('Contrary')) ||
 				['encore', 'pursuit', 'rest', 'taunt', 'uturn', 'voltswitch', 'whirlwind'].some(m => moves.has(m)) ||
-				movePool.includes('copycat') || movePool.includes('dragondance')
+				moveBasedCull
 			)};
 		case 'powersplit':
 			return {cull: moves.has('guardsplit')};
@@ -602,7 +606,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 	): boolean {
 		switch (ability) {
 		case 'Battle Bond': case 'Dazzling': case 'Flare Boost': case 'Hyper Cutter':
-		case 'Ice Body': case 'Innards Out': case 'Moody': case 'Steadfast':
+		case 'Ice Body': case 'Innards Out': case 'Moody': case 'Steadfast': case 'Magician':
 			return true;
 		case 'Aerilate': case 'Galvanize': case 'Pixilate': case 'Refrigerate':
 			return !counter.get('Normal');
@@ -654,8 +658,6 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			return !counter.get('sound');
 		case 'Magic Guard': case 'Speed Boost':
 			return (abilities.has('Tinted Lens') && (!counter.get('Status') || moves.has('uturn')));
-		case 'Magician':
-			return moves.has('switcheroo');
 		case 'Magnet Pull':
 			return (!!counter.get('Normal') || !types.has('Electric') && !moves.has('earthpower'));
 		case 'Mold Breaker':
@@ -780,12 +782,10 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		if ((ability === 'Guts' || moves.has('facade')) && !moves.has('sleeptalk')) {
 			return (types.has('Fire') || ability === 'Quick Feet' || ability === 'Toxic Boost') ? 'Toxic Orb' : 'Flame Orb';
 		}
-		if (
-			(ability === 'Magic Guard' && counter.damagingMoves.size > 1) ||
-			(ability === 'Sheer Force' && counter.get('sheerforce'))
-		) {
-			return 'Life Orb';
+		if (ability === 'Magic Guard' && counter.damagingMoves.size > 1) {
+			return moves.has('counter') ? 'Focus Sash' : 'Life Orb';
 		}
+		if (ability === 'Sheer Force' && counter.get('sheerforce')) return 'Life Orb';
 		if (ability === 'Unburden') return moves.has('fakeout') ? 'Normal Gem' : 'Sitrus Berry';
 		if (moves.has('acrobatics')) return '';
 		if (moves.has('electricterrain') || ability === 'Electric Surge' && moves.has('thunderbolt')) return 'Electrium Z';
@@ -939,7 +939,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		if (
 			!isDoubles &&
 			counter.get('Physical') >= 3 &&
-			moves.has('defog') &&
+			(moves.has('defog') || moves.has('healingwish')) &&
 			!moves.has('foulplay') &&
 			species.baseStats.spe >= 60 && species.baseStats.spe <= 108 &&
 			!counter.get('priority')
@@ -1054,9 +1054,11 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			forme = this.sample([species.name].concat(species.cosmeticFormes));
 		}
 
+		const data = this.randomData[species.id];
+
 		const randMoves = isDoubles ?
-			(species.randomDoubleBattleMoves || species.randomBattleMoves) :
-			species.randomBattleMoves;
+			(data.doublesMoves || data.moves) :
+			data.moves;
 		const movePool = (randMoves || Object.keys(Dex.species.getLearnset(species.id)!)).slice();
 		if (this.format.gameType === 'multi') {
 			// Random Multi Battle uses doubles move pools, but Ally Switch fails in multi battles
@@ -1347,11 +1349,6 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		}
 
 		if (species.name === 'Genesect' && moves.has('technoblast')) forme = 'Genesect-Douse';
-		if (!isDoubles && species.id === 'pikachu') {
-			const pikachuForme = this.sample(['', '-Original', '-Hoenn', '-Sinnoh', '-Unova', '-Kalos', '-Alola', '-Partner']);
-			forme = `Pikachu${pikachuForme}`;
-			if (forme !== 'Pikachu') ability = 'Static';
-		}
 
 		if (
 			!moves.has('photongeyser') &&
@@ -1384,16 +1381,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		if (this.adjustLevel) {
 			level = this.adjustLevel;
 		} else if (!isDoubles) {
-			const levelScale: {[k: string]: number} = {uber: 76, ou: 80, uu: 82, ru: 84, nu: 86, pu: 88};
-			const customScale: {[k: string]: number} = {
-				// Banned Ability
-				Dugtrio: 82, Gothitelle: 82, Pelipper: 84, Politoed: 84, Torkoal: 84, Wobbuffet: 82,
-				// Holistic judgement
-				'Castform-Rainy': 100, 'Castform-Snowy': 100, 'Castform-Sunny': 100, Delibird: 100, Luvdisc: 100, Spinda: 100, Unown: 100,
-			};
-			const tier = toID(species.tier).replace('bl', '');
-			level = levelScale[tier] || (species.nfe ? 90 : 80);
-			if (customScale[species.name]) level = customScale[species.name];
+			level = data.level || (species.nfe ? 90 : 80);
 		} else {
 			// We choose level based on BST. Min level is 70, max level is 99. 600+ BST is 70, less than 300 is 99. Calculate with those values.
 			// Every 10.34 BST adds a level from 70 up to 99. Results are floored. Uses the Mega's stats if holding a Mega Stone
@@ -1464,11 +1452,6 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			ivs.spa = 0;
 		}
 
-		if (['gyroball', 'metalburst', 'trickroom'].some(m => moves.has(m))) {
-			evs.spe = 0;
-			ivs.spe = 0;
-		}
-
 		// Fix IVs for non-Bottle Cap-able sets
 		if (hasHiddenPower && level < 100) {
 			let hpType;
@@ -1481,6 +1464,11 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			for (iv in HPivs) {
 				ivs[iv] = HPivs[iv]!;
 			}
+		}
+
+		if (['gyroball', 'metalburst', 'trickroom'].some(m => moves.has(m))) {
+			evs.spe = 0;
+			ivs.spe = (hasHiddenPower && level < 100) ? ivs.spe - 30 : 0;
 		}
 
 		return {
@@ -1528,9 +1516,9 @@ export class RandomGen7Teams extends RandomGen8Teams {
 
 				// Check if the forme has moves for random battle
 				if (this.format.gameType === 'singles') {
-					if (!species.randomBattleMoves) continue;
+					if (!this.randomData[species.id]?.moves) continue;
 				} else {
-					if (!species.randomDoubleBattleMoves) continue;
+					if (!this.randomData[species.id]?.doublesMoves) continue;
 				}
 				if (!species.exists) continue;
 
@@ -1554,7 +1542,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 				case 'Aegislash': case 'Basculin': case 'Gourgeist': case 'Groudon': case 'Kyogre': case 'Meloetta':
 					if (this.randomChance(1, 2)) continue;
 					break;
-				case 'Cherrim': case 'Greninja':
+				case 'Greninja':
 					if (this.gen >= 7 && this.randomChance(1, 2)) continue;
 					break;
 				}
@@ -1666,7 +1654,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 				}
 
 				// Track what the team has
-				if (item.megaStone) hasMega = true;
+				if (item.megaStone || species.name === 'Rayquaza-Mega') hasMega = true;
 				if (item.zMove) teamDetails.zMove = 1;
 				if (set.ability === 'Snow Warning' || set.moves.includes('hail')) teamDetails.hail = 1;
 				if (set.moves.includes('raindance') || set.ability === 'Drizzle' && !item.onPrimal) teamDetails.rain = 1;

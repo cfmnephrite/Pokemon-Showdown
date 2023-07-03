@@ -2,7 +2,7 @@ import RandomGen5Teams from '../gen5/random-teams';
 import {Utils} from '../../../lib';
 import {toID} from '../../../sim/dex';
 import {PRNG} from '../../../sim';
-import type {MoveCounter} from '../gen8/random-teams';
+import type {MoveCounter, OldRandomBattleSpecies} from '../gen8/random-teams';
 
 
 // These moves can be used even if we aren't setting up to use them:
@@ -15,6 +15,8 @@ const recoveryMoves = [
 ];
 const defensiveStatusMoves = ['aromatherapy', 'haze', 'healbell', 'roar', 'whirlwind', 'willowisp', 'yawn'];
 export class RandomGen4Teams extends RandomGen5Teams {
+	randomData: {[species: string]: OldRandomBattleSpecies} = require('./random-data.json');
+
 	constructor(format: string | Format, prng: PRNG | PRNGSeed | null) {
 		super(format, prng);
 		this.moveEnforcementCheckers = {
@@ -245,7 +247,7 @@ export class RandomGen4Teams extends RandomGen5Teams {
 		case 'chargebeam':
 			return {cull: moves.has('thunderbolt') && counter.get('Special') < 3};
 		case 'discharge':
-			return {cull: moves.has('thunderbolt') || moves.has('shadowball')};
+			return {cull: moves.has('thunderbolt')};
 		case 'energyball':
 			return {cull: (
 				moves.has('woodhammer') ||
@@ -412,6 +414,7 @@ export class RandomGen4Teams extends RandomGen5Teams {
 		if (species.requiredItems) return this.sample(species.requiredItems);
 		if (species.name === 'Ditto') return this.sample(['Salac Berry', 'Sitrus Berry']);
 		if (species.name === 'Farfetch\u2019d' && counter.get('Physical') < 4) return 'Stick';
+		if (species.name === 'Latias' || species.name === 'Latios') return 'Soul Dew';
 		if (species.name === 'Marowak') return 'Thick Club';
 		if (species.name === 'Pikachu') return 'Light Ball';
 		if (species.name === 'Shedinja' || species.name === 'Smeargle') return 'Focus Sash';
@@ -547,7 +550,8 @@ export class RandomGen4Teams extends RandomGen5Teams {
 			forme = this.sample([species.name].concat(species.cosmeticFormes));
 		}
 
-		const movePool = (species.randomBattleMoves || Object.keys(this.dex.species.getLearnset(species.id)!)).slice();
+		const data = this.randomData[species.id];
+		const movePool = (data.moves || Object.keys(this.dex.species.getLearnset(species.id)!)).slice();
 		const rejectedPool: string[] = [];
 		const moves = new Set<string>();
 		let ability = '';
@@ -814,20 +818,7 @@ export class RandomGen4Teams extends RandomGen5Teams {
 			item = 'Black Sludge';
 		}
 
-		const levelScale: {[k: string]: number} = {
-			AG: 74,
-			Uber: 76,
-			OU: 80,
-			'(OU)': 82,
-			UUBL: 82,
-			UU: 84,
-			NUBL: 86,
-			NU: 88,
-		};
-		const customScale: {[k: string]: number} = {
-			Delibird: 100, Ditto: 100, 'Farfetch\u2019d': 100, Unown: 100, Castform: 100,
-		};
-		const level = this.adjustLevel || customScale[species.name] || levelScale[species.tier] || (species.nfe ? 90 : 80);
+		const level = this.adjustLevel || data.level || (species.nfe ? 90 : 80);
 
 		// Prepare optimal HP
 		let hp = Math.floor(
