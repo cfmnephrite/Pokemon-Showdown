@@ -1,13 +1,16 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bulbasaur: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	ivysaur: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	venusaur: {
+		isNonstandard: null,
 		randomBattleMoves: ["gigadrain", "leechseed", "sleeppowder", "sludgebomb", "substitute"],
 		tier: "CNU",
 		inherit: true,
@@ -18,14 +21,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	charmander: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	charmeleon: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	charizard: {
+		isNonstandard: null,
 		randomBattleMoves: ["acrobatics", "dragondance", "earthquake", "flareblitz"],
 		tier: "CNU",
 		inherit: true,
@@ -41,14 +47,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	squirtle: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	wartortle: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	blastoise: {
+		isNonstandard: null,
 		randomBattleMoves: ["aurasphere", "hydropump", "icebeam", "rapidspin", "scald", "shellsmash"],
 		tier: "CRU",
 		inherit: true,
@@ -59,14 +68,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	caterpie: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	metapod: {
+		isNonstandard: null,
 		tier: "CZU",
 		inherit: true,
 	},
 	butterfree: {
+		isNonstandard: null,
 		randomBattleMoves: ["airslash", "bugbuzz", "energyball", "hurricane", "quiverdance", "sleeppowder"],
 		tier: "CNU",
 		inherit: true,
@@ -156,6 +168,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	pichu: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
@@ -165,16 +178,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	pikachu: {
+		isNonstandard: null,
 		randomBattleMoves: ["grassknot", "surf", "thunderbolt", "voltswitch", "volttackle"],
 		tier: "CZU",
 		inherit: true,
 	},
 	raichu: {
+		isNonstandard: null,
 		randomBattleMoves: ["encore", "focusblast", "grassknot", "nastyplot", "thunderbolt", "voltswitch"],
 		tier: "CZU",
 		inherit: true,
 	},
 	raichualola: {
+		isNonstandard: null,
 		randomBattleMoves: ["focusblast", "nastyplot", "psychic", "surf", "thunderbolt", "voltswitch"],
 		tier: "CNU",
 		inherit: true,
@@ -230,32 +246,39 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	cleffa: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	clefairy: {
+		isNonstandard: null,
 		tier: "CZU",
 		inherit: true,
 	},
 	clefable: {
+		isNonstandard: null,
 		randomBattleMoves: ["calmmind", "fireblast", "moonblast", "moonlight", "stealthrock", "thunderwave"],
 		tier: "COU",
 		inherit: true,
 	},
 	vulpix: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	vulpixalola: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	ninetales: {
+		isNonstandard: null,
 		randomBattleMoves: ["fireblast", "nastyplot", "solarbeam", "substitute", "willowisp"],
 		tier: "CNU",
 		inherit: true,
 	},
 	ninetalesalola: {
+		isNonstandard: null,
 		randomBattleMoves: ["auroraveil", "blizzard", "freezedry", "moonblast", "nastyplot", "substitute"],
 		tier: "CNU",
 		inherit: true,
@@ -291,19 +314,23 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	oddish: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	gloom: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	vileplume: {
+		isNonstandard: null,
 		randomBattleMoves: ["aromatherapy", "gigadrain", "leechseed", "sleeppowder", "sludgebomb", "strengthsap"],
 		tier: "CRU",
 		inherit: true,
 	},
 	bellossom: {
+		isNonstandard: null,
 		randomBattleMoves: ["gigadrain", "moonblast", "quiverdance", "sleeppowder", "strengthsap"],
 		tier: "CRU",
 		inherit: true,
@@ -329,46 +356,56 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	diglett: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	diglettalola: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	dugtrio: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "memento", "reversal", "stealthrock", "stoneedge", "substitute"],
 		tier: "CPU",
 		inherit: true,
 	},
 	dugtrioalola: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "ironhead", "stoneedge", "substitute", "suckerpunch"],
 		tier: "CNU",
 		inherit: true,
 	},
 	meowth: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	meowthalola: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	meowthgalar: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	persian: {
+		isNonstandard: null,
 		randomBattleMoves: ["hypervoice", "icywind", "nastyplot", "taunt", "thunderbolt"],
 		tier: "CZU",
 		inherit: true,
 	},
 	persianalola: {
+		isNonstandard: null,
 		randomBattleMoves: ["darkpulse", "hypnosis", "nastyplot", "powergem", "thunderbolt"],
 		tier: "CZU",
 		inherit: true,
 	},
 	perrserker: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "crunch", "gunkshot", "ironhead", "playrough", "swordsdance", "uturn"],
 		tier: "CPU",
 		inherit: true,
@@ -394,20 +431,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	growlithe: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	growlithehisui: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	arcanine: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "crunch", "extremespeed", "flareblitz", "morningsun", "roar", "wildcharge", "willowisp"],
 		tier: "CRU",
 		inherit: true,
 	},
 	arcaninehisui: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	poliwag: {
@@ -451,14 +490,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	machop: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	machoke: {
+		isNonstandard: null,
 		tier: "CPU",
 		inherit: true,
 	},
 	machamp: {
+		isNonstandard: null,
 		randomBattleMoves: ["bulletpunch", "dynamicpunch", "knockoff", "stoneedge", "substitute"],
 		tier: "CRU",
 		inherit: true,
@@ -519,19 +561,23 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	ponyta: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	ponytagalar: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	rapidash: {
+		isNonstandard: null,
 		randomBattleMoves: ["flareblitz", "highhorsepower", "morningsun", "swordsdance", "wildcharge", "willowisp"],
 		tier: "CPU",
 		inherit: true,
 	},
 	rapidashgalar: {
+		isNonstandard: null,
 		randomBattleMoves: ["highhorsepower", "morningsun", "playrough", "swordsdance", "zenheadbutt"],
 		tier: "CPU",
 		inherit: true,
@@ -582,15 +628,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	farfetchd: {
+		isNonstandard: null,
 		randomBattleMoves: ["bodyslam", "bravebird", "closecombat", "knockoff", "leafblade", "roost", "swordsdance"],
 		tier: "CNU",
 		inherit: true,
 	},
 	farfetchdgalar: {
+		isNonstandard: null,
 		tier: "CPU",
 		inherit: true,
 	},
 	sirfetchd: {
+		isNonstandard: null,
 		randomBattleMoves: ["bravebird", "closecombat", "firstimpression", "knockoff", "swordsdance"],
 		tier: "CUU",
 		inherit: true,
@@ -636,23 +685,28 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	shellder: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	cloyster: {
+		isNonstandard: null,
 		randomBattleMoves: ["hydropump", "iciclespear", "pinmissile", "rockblast", "shellsmash"],
 		tier: "CRU",
 		inherit: true,
 	},
 	gastly: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	haunter: {
+		isNonstandard: null,
 		tier: "CPU",
 		inherit: true,
 	},
 	gengar: {
+		isNonstandard: null,
 		randomBattleMoves: ["focusblast", "nastyplot", "shadowball", "sludgewave", "substitute", "willowisp"],
 		tier: "COU",
 		inherit: true,
@@ -663,10 +717,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	onix: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	steelix: {
+		isNonstandard: null,
 		randomBattleMoves: ["curse", "earthquake", "ironhead", "rockslide", "stealthrock"],
 		tier: "CNU",
 		inherit: true,
@@ -687,10 +743,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	krabby: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	kingler: {
+		isNonstandard: null,
 		randomBattleMoves: ["liquidation", "xscissor", "rockslide", "swordsdance", "agility", "superpower", "knockoff"],
 		tier: "CNU",
 		inherit: true,
@@ -701,7 +759,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	voltorbhisui: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	electrode: {
@@ -710,7 +768,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	electrodehisui: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	exeggcute: {
@@ -748,20 +806,24 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	tyrogue: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	hitmonlee: {
+		isNonstandard: null,
 		randomBattleMoves: ["fakeout", "highjumpkick", "machpunch", "poisonjab", "rapidspin", "stoneedge", "throatchop"],
 		tier: "CNU",
 		inherit: true,
 	},
 	hitmonchan: {
+		isNonstandard: null,
 		randomBattleMoves: ["bulkup", "drainpunch", "firepunch", "icepunch", "machpunch", "rapidspin"],
 		tier: "CNU",
 		inherit: true,
 	},
 	hitmontop: {
+		isNonstandard: null,
 		randomBattleMoves: ["bulletpunch", "closecombat", "machpunch", "rapidspin", "stoneedge", "suckerpunch"],
 		tier: "CNU",
 		inherit: true,
@@ -777,28 +839,34 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	koffing: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	weezing: {
+		isNonstandard: null,
 		randomBattleMoves: ["defog", "fireblast", "painsplit", "sludgebomb", "willowisp"],
 		tier: "CNU",
 		inherit: true,
 	},
 	weezinggalar: {
+		isNonstandard: null,
 		randomBattleMoves: ["defog", "fireblast", "painsplit", "sludgebomb", "strangesteam", "willowisp"],
 		tier: "CUU",
 		inherit: true,
 	},
 	rhyhorn: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	rhydon: {
+		isNonstandard: null,
 		tier: "CNU",
 		inherit: true,
 	},
 	rhyperior: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "firepunch", "megahorn", "rockblast", "rockpolish", "stealthrock", "stoneedge"],
 		tier: "CRU",
 		inherit: true,
@@ -854,10 +922,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	goldeen: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	seaking: {
+		isNonstandard: null,
 		randomBattleMoves: ["drillrun", "megahorn", "swordsdance", "throatchop", "waterfall"],
 		tier: "CZU",
 		inherit: true,
@@ -873,19 +943,23 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	mimejr: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	mrmime: {
+		isNonstandard: null,
 		randomBattleMoves: ["dazzlinggleam", "encore", "focusblast", "healingwish", "nastyplot", "psychic", "shadowball"],
 		tier: "CZU",
 		inherit: true,
 	},
 	mrmimegalar: {
+		isNonstandard: null,
 		tier: "CZU",
 		inherit: true,
 	},
 	mrrime: {
+		isNonstandard: null,
 		randomBattleMoves: ["focusblast", "icebeam", "nastyplot", "psychic", "rapidspin", "shadowball", "slackoff", "thunderbolt"],
 		tier: "CNU",
 		inherit: true,
@@ -961,10 +1035,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	magikarp: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	gyarados: {
+		isNonstandard: null,
 		randomBattleMoves: ["dragondance", "earthquake", "powerwhip", "stoneedge", "substitute", "waterfall"],
 		tier: "COU",
 		inherit: true,
@@ -975,60 +1051,71 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	lapras: {
+		isNonstandard: null,
 		randomBattleMoves: ["freezedry", "icebeam", "sparklingaria", "substitute", "thunderbolt"],
 		tier: "CNU",
 		inherit: true,
 	},
 	ditto: {
+		isNonstandard: null,
 		randomBattleMoves: ["transform"],
 		tier: "CZU",
 		inherit: true,
 	},
 	eevee: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	eeveestarter: {
-		isNonstandard: "LGPE",
+		isNonstandard: null,
 		tier: "Illegal",
 		inherit: true,
 	},
 	vaporeon: {
+		isNonstandard: null,
 		randomBattleMoves: ["haze", "icebeam", "protect", "scald", "wish", "yawn"],
 		tier: "CPU",
 		inherit: true,
 	},
 	jolteon: {
+		isNonstandard: null,
 		randomBattleMoves: ["raindance", "shadowball", "thunder", "voltswitch", "weatherball"],
 		tier: "CNU",
 		inherit: true,
 	},
 	flareon: {
+		isNonstandard: null,
 		randomBattleMoves: ["facade", "flareblitz", "quickattack", "superpower"],
 		tier: "CZU",
 		inherit: true,
 	},
 	espeon: {
+		isNonstandard: null,
 		randomBattleMoves: ["calmmind", "dazzlinggleam", "morningsun", "psychic", "shadowball"],
 		tier: "CRU",
 		inherit: true,
 	},
 	umbreon: {
+		isNonstandard: null,
 		randomBattleMoves: ["foulplay", "protect", "taunt", "wish"],
 		tier: "CRU",
 		inherit: true,
 	},
 	leafeon: {
+		isNonstandard: null,
 		randomBattleMoves: ["doubleedge", "leafblade", "swordsdance", "synthesis", "xscissor"],
 		tier: "CZU",
 		inherit: true,
 	},
 	glaceon: {
+		isNonstandard: null,
 		randomBattleMoves: ["freezedry", "icebeam", "protect", "shadowball", "wish"],
 		tier: "CPU",
 		inherit: true,
 	},
 	sylveon: {
+		isNonstandard: null,
 		randomBattleMoves: ["hypervoice", "mysticalfire", "protect", "psyshock", "shadowball", "wish"],
 		tier: "CRU",
 		inherit: true,
@@ -1078,10 +1165,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	munchlax: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	snorlax: {
+		isNonstandard: null,
 		randomBattleMoves: ["bodyslam", "curse", "darkestlariat", "earthquake", "firepunch", "rest", "sleeptalk"],
 		tier: "CRU",
 		inherit: true,
@@ -1132,6 +1221,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	mewtwo: {
+		isNonstandard: null,
 		randomBattleMoves: ["aurasphere", "icebeam", "nastyplot", "psystrike", "recover"],
 		tier: "CUb",
 		inherit: true,
@@ -1145,6 +1235,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	mew: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "megahorn", "powerwhip", "psychicfangs", "swordsdance", "uturn"],
 		tier: "COU",
 		inherit: true,
@@ -1180,7 +1271,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	typhlosionhisui: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	totodile: {
@@ -1209,10 +1300,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	hoothoot: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	noctowl: {
+		isNonstandard: null,
 		randomBattleMoves: ["defog", "heatwave", "hurricane", "nastyplot", "roost", "whirlwind"],
 		tier: "CRU",
 		inherit: true,
@@ -1238,32 +1331,39 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	chinchou: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	lanturn: {
+		isNonstandard: null,
 		randomBattleMoves: ["hydropump", "icebeam", "scald", "thunderbolt", "thunderwave", "voltswitch"],
 		tier: "CNU",
 		inherit: true,
 	},
 	togepi: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	togetic: {
+		isNonstandard: null,
 		tier: "CZU",
 		inherit: true,
 	},
 	togekiss: {
+		isNonstandard: null,
 		randomBattleMoves: ["airslash", "aurasphere", "morningsun", "nastyplot", "thunderwave"],
 		tier: "CUU",
 		inherit: true,
 	},
 	natu: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	xatu: {
+		isNonstandard: null,
 		randomBattleMoves: ["heatwave", "lightscreen", "psychic", "reflect", "roost", "thunderwave", "uturn"],
 		tier: "CUU",
 		inherit: true,
@@ -1304,10 +1404,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	bonsly: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	sudowoodo: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "headsmash", "stealthrock", "suckerpunch", "woodhammer"],
 		tier: "CZU",
 		inherit: true,
@@ -1358,10 +1460,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	wooper: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	quagsire: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "encore", "icebeam", "recover", "scald", "toxic"],
 		tier: "CNU",
 		inherit: true,
@@ -1392,10 +1496,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	wynaut: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	wobbuffet: {
+		isNonstandard: null,
 		randomBattleMoves: ["counter", "destinybond", "encore", "mirrorcoat"],
 		tier: "CNU",
 		inherit: true,
@@ -1441,15 +1547,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	qwilfish: {
+		isNonstandard: null,
 		randomBattleMoves: ["destinybond", "liquidation", "spikes", "taunt", "thunderwave", "toxic", "toxicspikes"],
 		tier: "CPU",
 		inherit: true,
 	},
 	qwilfishhisui: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	shuckle: {
+		isNonstandard: null,
 		randomBattleMoves: ["encore", "infestation", "knockoff", "stealthrock", "stickyweb", "toxic"],
 		tier: "CNU",
 		inherit: true,
@@ -1465,14 +1573,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	sneasel: {
+		isNonstandard: null,
 		tier: "CRU",
 		inherit: true,
 	},
 	sneaselhisui: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	weavile: {
+		isNonstandard: null,
 		randomBattleMoves: ["iceshard", "iciclecrash", "lowkick", "swordsdance", "throatchop"],
 		tier: "COU",
 		inherit: true,
@@ -1498,50 +1608,61 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	swinub: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	piloswine: {
+		isNonstandard: null,
 		tier: "CPU",
 		inherit: true,
 	},
 	mamoswine: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "iceshard", "iciclecrash", "stealthrock", "superpower"],
 		tier: "CUU",
 		inherit: true,
 	},
 	corsola: {
+		isNonstandard: null,
 		randomBattleMoves: ["lightscreen", "reflect", "recover", "scald", "stealthrock"],
 		tier: "CNU",
 		inherit: true,
 	},
 	corsolagalar: {
+		isNonstandard: null,
 		tier: "CNU",
 		inherit: true,
 	},
 	cursola: {
+		isNonstandard: null,
 		tier: "CNU",
 		inherit: true,
 	},
 	remoraid: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	octillery: {
+		isNonstandard: null,
 		randomBattleMoves: ["energyball", "fireblast", "gunkshot", "hydropump", "icebeam", "rockblast"],
 		tier: "CPU",
 		inherit: true,
 	},
 	delibird: {
+		isNonstandard: null,
 		randomBattleMoves: ["freezedry", "memento", "rapidspin", "spikes"],
 		tier: "CUU",
 		inherit: true,
 	},
 	mantyke: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	mantine: {
+		isNonstandard: null,
 		randomBattleMoves: ["airslash", "haze", "mirrorcoat", "roost", "scald", "tailwind"],
 		tier: "CNU",
 		inherit: true,
@@ -1607,14 +1728,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	larvitar: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	pupitar: {
+		isNonstandard: null,
 		tier: "CZU",
 		inherit: true,
 	},
 	tyranitar: {
+		isNonstandard: null,
 		randomBattleMoves: ["crunch", "dragondance", "earthquake", "firepunch", "stealthrock", "stoneedge"],
 		tier: "COU",
 		inherit: true,
@@ -1635,6 +1759,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	celebi: {
+		isNonstandard: null,
 		randomBattleMoves: ["aurasphere", "gigadrain", "leafstorm", "nastyplot", "psychic", "recover", "stealthrock"],
 		tier: "CUU",
 		inherit: true,
@@ -1710,23 +1835,28 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	zigzagoon: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	zigzagoongalar: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	linoone: {
+		isNonstandard: null,
 		randomBattleMoves: ["bellydrum", "extremespeed", "stompingtantrum", "throatchop"],
 		tier: "CRU",
 		inherit: true,
 	},
 	linoonegalar: {
+		isNonstandard: null,
 		tier: "CPU",
 		inherit: true,
 	},
 	obstagoon: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "doubleedge", "facade", "firepunch", "gunkshot", "knockoff", "obstruct", "partingshot"],
 		tier: "CUU",
 		inherit: true,
@@ -1757,27 +1887,33 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	lotad: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	lombre: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	ludicolo: {
+		isNonstandard: null,
 		randomBattleMoves: ["focusblast", "gigadrain", "hydropump", "icebeam", "raindance", "scald"],
 		tier: "CPU",
 		inherit: true,
 	},
 	seedot: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	nuzleaf: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	shiftry: {
+		isNonstandard: null,
 		randomBattleMoves: ["defog", "leafblade", "leafstorm", "suckerpunch", "swordsdance", "throatchop"],
 		tier: "CPU",
 		inherit: true,
@@ -1793,23 +1929,28 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	wingull: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	pelipper: {
+		isNonstandard: null,
 		randomBattleMoves: ["hurricane", "hydropump", "knockoff", "roost", "scald", "uturn"],
 		tier: "CPU",
 		inherit: true,
 	},
 	ralts: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	kirlia: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	gardevoir: {
+		isNonstandard: null,
 		randomBattleMoves: ["calmmind", "focusblast", "moonblast", "psychic", "substitute", "trick", "willowisp"],
 		tier: "CRU",
 		inherit: true,
@@ -1820,6 +1961,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	gallade: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "knockoff", "shadowsneak", "swordsdance", "trick", "zenheadbutt"],
 		tier: "CRU",
 		inherit: true,
@@ -1865,15 +2007,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	nincada: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	ninjask: {
+		isNonstandard: null,
 		randomBattleMoves: ["acrobatics", "leechlife", "nightslash", "swordsdance"],
 		tier: "CRU",
 		inherit: true,
 	},
 	shedinja: {
+		isNonstandard: null,
 		randomBattleMoves: ["shadowclaw", "shadowsneak", "swordsdance", "willowisp", "xscissor"],
 		tier: "COU",
 		inherit: true,
@@ -1924,6 +2069,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	sableye: {
+		isNonstandard: null,
 		randomBattleMoves: ["encore", "foulplay", "knockoff", "recover", "taunt", "willowisp"],
 		tier: "CNU",
 		inherit: true,
@@ -1934,6 +2080,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	mawile: {
+		isNonstandard: null,
 		randomBattleMoves: ["ironhead", "playrough", "suckerpunch", "stealthrock", "swordsdance"],
 		tier: "CNU",
 		inherit: true,
@@ -1979,10 +2126,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	electrike: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	manectric: {
+		isNonstandard: null,
 		randomBattleMoves: ["flamethrower", "overheat", "switcheroo", "thunderbolt", "voltswitch"],
 		tier: "CPU",
 		inherit: true,
@@ -2013,14 +2162,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	budew: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	roselia: {
+		isNonstandard: null,
 		tier: "CZU",
 		inherit: true,
 	},
 	roserade: {
+		isNonstandard: null,
 		randomBattleMoves: ["gigadrain", "leafstorm", "sleeppowder", "sludgebomb", "spikes", "synthesis", "toxicspikes"],
 		tier: "CUU",
 		inherit: true,
@@ -2051,10 +2203,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	wailmer: {
+		isNonstandard: null,
 		tier: "CZU",
 		inherit: true,
 	},
 	wailord: {
+		isNonstandard: null,
 		randomBattleMoves: ["hydropump", "hypervoice", "icebeam", "waterspout"],
 		tier: "CRU",
 		inherit: true,
@@ -2075,6 +2229,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	torkoal: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "lavaplume", "rapidspin", "solarbeam", "stealthrock"],
 		tier: "CZU",
 		inherit: true,
@@ -2095,14 +2250,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	trapinch: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	vibrava: {
+		isNonstandard: null,
 		tier: "CZU",
 		inherit: true,
 	},
 	flygon: {
+		isNonstandard: null,
 		randomBattleMoves: ["dragondance", "earthquake", "firepunch", "outrage", "uturn"],
 		tier: "CUU",
 		inherit: true,
@@ -2143,38 +2301,46 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	lunatone: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthpower", "icebeam", "nastyplot", "powergem", "psychic", "rockpolish", "stealthrock"],
 		tier: "CRU",
 		inherit: true,
 	},
 	solrock: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "explosion", "morningsun", "rockslide", "stealthrock", "swordsdance", "willowisp", "zenheadbutt"],
 		tier: "CNU",
 		inherit: true,
 	},
 	barboach: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	whiscash: {
+		isNonstandard: null,
 		randomBattleMoves: ["dragondance", "earthquake", "liquidation", "stoneedge", "zenheadbutt"],
 		tier: "CZU",
 		inherit: true,
 	},
 	corphish: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	crawdaunt: {
+		isNonstandard: null,
 		randomBattleMoves: ["aquajet", "closecombat", "crabhammer", "dragondance", "knockoff", "swordsdance"],
 		tier: "CUU",
 		inherit: true,
 	},
 	baltoy: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	claydol: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "icebeam", "psychic", "rapidspin", "stealthrock"],
 		tier: "CNU",
 		inherit: true,
@@ -2200,10 +2366,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	feebas: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	milotic: {
+		isNonstandard: null,
 		randomBattleMoves: ["dragontail", "icebeam", "recover", "rest", "scald", "sleeptalk"],
 		tier: "CRU",
 		inherit: true,
@@ -2214,14 +2382,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	castformsunny: {
+		isNonstandard: null,
 		tier: "CUU",
 		inherit: true,
 	},
 	castformrainy: {
+		isNonstandard: null,
 		tier: "CUU",
 		inherit: true,
 	},
 	castformsnowy: {
+		isNonstandard: null,
 		tier: "CUU",
 		inherit: true,
 	},
@@ -2246,14 +2417,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	duskull: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	dusclops: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	dusknoir: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "icepunch", "painsplit", "shadowsneak", "substitute", "willowisp"],
 		tier: "CRU",
 		inherit: true,
@@ -2284,10 +2458,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	snorunt: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	glalie: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "freezedry", "iceshard", "spikes", "taunt"],
 		tier: "CNU",
 		inherit: true,
@@ -2298,6 +2474,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	froslass: {
+		isNonstandard: null,
 		randomBattleMoves: ["destinybond", "icebeam", "shadowball", "spikes", "taunt", "thunderwave"],
 		tier: "CNU",
 		inherit: true,
@@ -2446,6 +2623,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	jirachi: {
+		isNonstandard: null,
 		randomBattleMoves: ["bodyslam", "firepunch", "ironhead", "stealthrock", "uturn", "wish"],
 		tier: "COU",
 		inherit: true,
@@ -2611,10 +2789,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	combee: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	vespiquen: {
+		isNonstandard: null,
 		randomBattleMoves: ["airslash", "bugbuzz", "powergem", "sludgebomb", "uturn"],
 		tier: "CNU",
 		inherit: true,
@@ -2635,32 +2815,39 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	cherubi: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	cherrim: {
+		isNonstandard: null,
 		randomBattleMoves: ["dazzlinggleam", "energyball", "healingwish", "leechseed", "substitute"],
 		tier: "CPU",
 		inherit: true,
 	},
 	cherrimsunshine: {
+		isNonstandard: null,
 		randomBattleMoves: ["dazzlinggleam", "morningsun", "solarbeam", "sunnyday", "weatherball"],
 		tier: "COU",
 		inherit: true,
 	},
 	shellos: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	gastrodon: {
+		isNonstandard: null,
 		randomBattleMoves: ["clearsmog", "earthquake", "icebeam", "recover", "scald"],
 		tier: "CNU",
 		inherit: true,
 	},
 	drifloon: {
+		isNonstandard: null,
 		inherit: true,
 	},
 	drifblim: {
+		isNonstandard: null,
 		randomBattleMoves: ["acrobatics", "destinybond", "shadowball", "strengthsap", "substitute"],
 		tier: "CPU",
 		inherit: true,
@@ -2691,19 +2878,23 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	stunky: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	skuntank: {
+		isNonstandard: null,
 		randomBattleMoves: ["crunch", "fireblast", "poisonjab", "suckerpunch", "taunt", "toxic"],
 		tier: "CPU",
 		inherit: true,
 	},
 	bronzor: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	bronzong: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "gyroball", "lightscreen", "psychic", "reflect", "stealthrock"],
 		tier: "CRU",
 		inherit: true,
@@ -2739,10 +2930,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	riolu: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	lucario: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "extremespeed", "icepunch", "meteormash", "swordsdance"],
 		tier: "CUU",
 		inherit: true,
@@ -2753,28 +2946,34 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	hippopotas: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	hippowdon: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "slackoff", "stealthrock", "stoneedge", "whirlwind", "yawn"],
 		tier: "CUU",
 		inherit: true,
 	},
 	skorupi: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	drapion: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "knockoff", "poisonjab", "swordsdance", "taunt", "toxicspikes"],
 		tier: "CNU",
 		inherit: true,
 	},
 	croagunk: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	toxicroak: {
+		isNonstandard: null,
 		randomBattleMoves: ["drainpunch", "gunkshot", "icepunch", "substitute", "suckerpunch", "swordsdance"],
 		tier: "CNU",
 		inherit: true,
@@ -2795,10 +2994,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	snover: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	abomasnow: {
+		isNonstandard: null,
 		randomBattleMoves: ["auroraveil", "blizzard", "earthquake", "iceshard", "woodhammer"],
 		tier: "CZU",
 		inherit: true,
@@ -2809,31 +3010,37 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	rotom: {
+		isNonstandard: null,
 		randomBattleMoves: ["nastyplot", "shadowball", "storedpower", "thunderbolt"],
 		tier: "CRU",
 		inherit: true,
 	},
 	rotomheat: {
+		isNonstandard: null,
 		randomBattleMoves: ["overheat", "thunderbolt", "trick", "voltswitch", "willowisp"],
 		tier: "CUU",
 		inherit: true,
 	},
 	rotomwash: {
+		isNonstandard: null,
 		randomBattleMoves: ["hydropump", "thunderbolt", "trick", "voltswitch", "willowisp"],
 		tier: "CUU",
 		inherit: true,
 	},
 	rotomfrost: {
+		isNonstandard: null,
 		randomBattleMoves: ["blizzard", "thunderbolt", "trick", "voltswitch", "willowisp"],
 		tier: "CNU",
 		inherit: true,
 	},
 	rotomfan: {
+		isNonstandard: null,
 		randomBattleMoves: ["airslash", "thunderbolt", "trick", "voltswitch", "willowisp"],
 		tier: "CNU",
 		inherit: true,
 	},
 	rotommow: {
+		isNonstandard: null,
 		randomBattleMoves: ["leafstorm", "thunderbolt", "trick", "voltswitch", "willowisp"],
 		tier: "CRU",
 		inherit: true,
@@ -2859,7 +3066,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	dialgaorigin: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	palkia: {
@@ -2868,7 +3075,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	palkiaorigin: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	heatran: {
@@ -3062,7 +3269,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	samurotthisui: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	patrat: {
@@ -3091,10 +3298,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	purrloin: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	liepard: {
+		isNonstandard: null,
 		randomBattleMoves: ["copycat", "darkpulse", "encore", "nastyplot", "playrough", "substitute", "thunderwave", "uturn"],
 		tier: "CPU",
 		inherit: true,
@@ -3130,23 +3339,28 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	munna: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	musharna: {
+		isNonstandard: null,
 		randomBattleMoves: ["calmmind", "moonblast", "moonlight", "psychic", "shadowball", "thunderwave"],
 		tier: "CPU",
 		inherit: true,
 	},
 	pidove: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	tranquill: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	unfezant: {
+		isNonstandard: null,
 		randomBattleMoves: ["bravebird", "defog", "nightslash", "roost", "uturn"],
 		tier: "CNU",
 		inherit: true,
@@ -3162,32 +3376,39 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	roggenrola: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	boldore: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	gigalith: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "explosion", "rockblast", "stealthrock", "stoneedge", "superpower"],
 		tier: "CPU",
 		inherit: true,
 	},
 	woobat: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	swoobat: {
+		isNonstandard: null,
 		randomBattleMoves: ["airslash", "heatwave", "nastyplot", "roost", "storedpower"],
 		tier: "CPU",
 		inherit: true,
 	},
 	drilbur: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	excadrill: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "ironhead", "rapidspin", "rockslide", "swordsdance"],
 		tier: "COU",
 		inherit: true,
@@ -3203,37 +3424,45 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	timburr: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	gurdurr: {
+		isNonstandard: null,
 		tier: "CZU",
 		inherit: true,
 	},
 	conkeldurr: {
+		isNonstandard: null,
 		randomBattleMoves: ["bulkup", "drainpunch", "facade", "machpunch", "stoneedge"],
 		tier: "CRU",
 		inherit: true,
 	},
 	tympole: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	palpitoad: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	seismitoad: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "liquidation", "raindance", "rockslide", "stealthrock"],
 		tier: "CNU",
 		inherit: true,
 	},
 	throh: {
+		isNonstandard: null,
 		randomBattleMoves: ["bulkup", "circlethrow", "icepunch", "payback", "rest", "sleeptalk", "stormthrow"],
 		tier: "CZU",
 		inherit: true,
 	},
 	sawk: {
+		isNonstandard: null,
 		randomBattleMoves: ["bulkup", "closecombat", "poisonjab", "stoneedge", "throatchop"],
 		tier: "CNU",
 		inherit: true,
@@ -3269,10 +3498,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	cottonee: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	whimsicott: {
+		isNonstandard: null,
 		randomBattleMoves: ["encore", "energyball", "leechseed", "moonblast", "stunspore", "uturn"],
 		tier: "CPU",
 		inherit: true,
@@ -3288,21 +3519,23 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	lilliganthisui: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	basculin: {
+		isNonstandard: null,
 		randomBattleMoves: ["aquajet", "crunch", "headsmash", "liquidation", "psychicfangs"],
 		tier: "CPU",
 		inherit: true,
 	},
 	basculinbluestriped: {
+		isNonstandard: null,
 		randomBattleMoves: ["aquajet", "crunch", "headsmash", "liquidation", "psychicfangs"],
 		tier: "CPU",
 		inherit: true,
 	},
 	basculinwhitestriped: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	sandile: {
@@ -3321,72 +3554,88 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	darumaka: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	darumakagalar: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	darmanitan: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "flareblitz", "rockslide", "superpower", "uturn"],
 		tier: "CUU",
 		inherit: true,
 	},
 	darmanitanzen: {
+		isNonstandard: null,
 		tier: "CUU",
 		inherit: true,
 	},
 	darmanitangalar: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "flareblitz", "iciclecrash", "superpower", "uturn"],
 		tier: "CUb",
 		inherit: true,
 	},
 	darmanitanzengalar: {
+		isNonstandard: null,
 		inherit: true,
 	},
 	maractus: {
+		isNonstandard: null,
 		randomBattleMoves: ["solarbeam", "sunnyday", "synthesis", "weatherball"],
 		tier: "CZU",
 		inherit: true,
 	},
 	dwebble: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	crustle: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "shellsmash", "spikes", "stealthrock", "stoneedge", "xscissor"],
 		tier: "CZU",
 		inherit: true,
 	},
 	scraggy: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	scrafty: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "dragondance", "icepunch", "poisonjab", "throatchop"],
 		tier: "CNU",
 		inherit: true,
 	},
 	sigilyph: {
+		isNonstandard: null,
 		randomBattleMoves: ["cosmicpower", "psychoshift", "roost", "storedpower"],
 		tier: "CNU",
 		inherit: true,
 	},
 	yamask: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	yamaskgalar: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	cofagrigus: {
+		isNonstandard: null,
 		randomBattleMoves: ["memento", "shadowball", "willowisp"],
 		tier: "CNU",
 		inherit: true,
 	},
 	runerigus: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "haze", "nightshade", "stealthrock", "willowisp"],
 		tier: "CNU",
 		inherit: true,
@@ -3412,10 +3661,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	trubbish: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	garbodor: {
+		isNonstandard: null,
 		randomBattleMoves: ["drainpunch", "gunkshot", "painsplit", "spikes", "toxicspikes"],
 		tier: "CZU",
 		inherit: true,
@@ -3426,7 +3677,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	zoruahisui: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	zoroark: {
@@ -3435,39 +3686,47 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	zoroarkhisui: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	minccino: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	cinccino: {
+		isNonstandard: null,
 		randomBattleMoves: ["bulletseed", "knockoff", "rockblast", "tailslap", "uturn"],
 		tier: "CNU",
 		inherit: true,
 	},
 	gothita: {
+		isNonstandard: null,
 		inherit: true,
 	},
 	gothorita: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	gothitelle: {
+		isNonstandard: null,
 		randomBattleMoves: ["calmmind", "charm", "psychic", "rest"],
 		tier: "CZU",
 		inherit: true,
 	},
 	solosis: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	duosion: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	reuniclus: {
+		isNonstandard: null,
 		randomBattleMoves: ["calmmind", "focusblast", "psychic", "recover", "shadowball", "trickroom"],
 		tier: "CUU",
 		inherit: true,
@@ -3483,14 +3742,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	vanillite: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	vanillish: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	vanilluxe: {
+		isNonstandard: null,
 		randomBattleMoves: ["auroraveil", "autotomize", "blizzard", "explosion", "flashcannon", "freezedry"],
 		tier: "CZU",
 		inherit: true,
@@ -3511,10 +3773,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	karrablast: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	escavalier: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "drillrun", "ironhead", "knockoff", "megahorn", "swordsdance"],
 		tier: "CRU",
 		inherit: true,
@@ -3530,10 +3794,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	frillish: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	jellicent: {
+		isNonstandard: null,
 		randomBattleMoves: ["icebeam", "recover", "scald", "shadowball", "willowisp"],
 		tier: "CNU",
 		inherit: true,
@@ -3544,32 +3810,39 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	joltik: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	galvantula: {
+		isNonstandard: null,
 		randomBattleMoves: ["bugbuzz", "gigadrain", "stickyweb", "thunder", "voltswitch"],
 		tier: "CNU",
 		inherit: true,
 	},
 	ferroseed: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	ferrothorn: {
+		isNonstandard: null,
 		randomBattleMoves: ["leechseed", "gyroball", "powerwhip", "protect", "spikes", "stealthrock"],
 		tier: "COU",
 		inherit: true,
 	},
 	klink: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	klang: {
+		isNonstandard: null,
 		tier: "CPU",
 		inherit: true,
 	},
 	klinklang: {
+		isNonstandard: null,
 		randomBattleMoves: ["geargrind", "shiftgear", "substitute", "wildcharge"],
 		tier: "CRU",
 		inherit: true,
@@ -3590,45 +3863,55 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	elgyem: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	beheeyem: {
+		isNonstandard: null,
 		randomBattleMoves: ["nastyplot", "psychic", "shadowball", "thunderbolt", "trick", "trickroom"],
 		tier: "CZU",
 		inherit: true,
 	},
 	litwick: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	lampent: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	chandelure: {
+		isNonstandard: null,
 		randomBattleMoves: ["calmmind", "energyball", "fireblast", "shadowball", "substitute", "trick"],
 		tier: "CUU",
 		inherit: true,
 	},
 	axew: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	fraxure: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	haxorus: {
+		isNonstandard: null,
 		randomBattleMoves: ["dragondance", "earthquake", "outrage", "poisonjab", "swordsdance", "taunt"],
 		tier: "CUU",
 		inherit: true,
 	},
 	cubchoo: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	beartic: {
+		isNonstandard: null,
 		randomBattleMoves: ["iciclecrash", "liquidation", "raindance", "superpower", "throatchop"],
 		tier: "CNU",
 		inherit: true,
@@ -3639,20 +3922,24 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	shelmet: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	accelgor: {
+		isNonstandard: null,
 		randomBattleMoves: ["bugbuzz", "encore", "energyball", "focusblast", "spikes", "toxic"],
 		tier: "CNU",
 		inherit: true,
 	},
 	stunfisk: {
+		isNonstandard: null,
 		randomBattleMoves: ["discharge", "earthpower", "foulplay", "scald", "stealthrock"],
 		tier: "CPU",
 		inherit: true,
 	},
 	stunfiskgalar: {
+		isNonstandard: null,
 		randomBattleMoves: ["curse", "earthquake", "painsplit", "rockslide", "stealthrock"],
 		tier: "CRU",
 		inherit: true,
@@ -3673,19 +3960,23 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	golett: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	golurk: {
+		isNonstandard: null,
 		randomBattleMoves: ["drainpunch", "earthquake", "icepunch", "shadowpunch", "substitute"],
 		tier: "CRU",
 		inherit: true,
 	},
 	pawniard: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	bisharp: {
+		isNonstandard: null,
 		randomBattleMoves: ["ironhead", "substitute", "suckerpunch", "swordsdance", "throatchop"],
 		tier: "CUU",
 		inherit: true,
@@ -3696,46 +3987,55 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	rufflet: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	braviary: {
+		isNonstandard: null,
 		randomBattleMoves: ["bravebird", "bulkup", "closecombat", "crushclaw", "defog", "rockslide"],
 		tier: "CRU",
 		inherit: true,
 	},
 	braviaryhisui: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	vullaby: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	mandibuzz: {
+		isNonstandard: null,
 		randomBattleMoves: ["defog", "foulplay", "roost", "taunt", "toxic", "uturn"],
 		tier: "CUU",
 		inherit: true,
 	},
 	heatmor: {
+		isNonstandard: null,
 		randomBattleMoves: ["fireblast", "firelash", "gigadrain", "suckerpunch", "superpower"],
 		tier: "CNU",
 		inherit: true,
 	},
 	durant: {
+		isNonstandard: null,
 		randomBattleMoves: ["firstimpression", "ironhead", "rockslide", "superpower"],
 		tier: "CUU",
 		inherit: true,
 	},
 	deino: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	zweilous: {
+		isNonstandard: null,
 		tier: "CZU",
 		inherit: true,
 	},
 	hydreigon: {
+		isNonstandard: null,
 		randomBattleMoves: ["darkpulse", "dracometeor", "fireblast", "flashcannon", "nastyplot", "uturn"],
 		tier: "COU",
 		inherit: true,
@@ -3751,16 +4051,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	cobalion: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "ironhead", "stealthrock", "stoneedge", "swordsdance", "voltswitch"],
 		tier: "CUU",
 		inherit: true,
 	},
 	terrakion: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "earthquake", "quickattack", "stoneedge", "swordsdance"],
 		tier: "COU",
 		inherit: true,
 	},
 	virizion: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "leafblade", "stoneedge", "substitute", "swordsdance"],
 		tier: "CRU",
 		inherit: true,
@@ -3786,11 +4089,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	reshiram: {
+		isNonstandard: null,
 		randomBattleMoves: ["blueflare", "dracometeor", "earthpower", "stoneedge", "willowisp"],
 		tier: "CUb",
 		inherit: true,
 	},
 	zekrom: {
+		isNonstandard: null,
 		randomBattleMoves: ["boltstrike", "dragondance", "outrage", "substitute"],
 		tier: "CUb",
 		inherit: true,
@@ -3806,26 +4111,31 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	kyurem: {
+		isNonstandard: null,
 		randomBattleMoves: ["dracometeor", "earthpower", "focusblast", "freezedry", "icebeam", "outrage"],
 		tier: "COU",
 		inherit: true,
 	},
 	kyuremblack: {
+		isNonstandard: null,
 		randomBattleMoves: ["dragondance", "fusionbolt", "iciclespear", "outrage"],
 		tier: "CUb",
 		inherit: true,
 	},
 	kyuremwhite: {
+		isNonstandard: null,
 		randomBattleMoves: ["dracometeor", "earthpower", "freezedry", "fusionflare", "icebeam"],
 		tier: "CUb",
 		inherit: true,
 	},
 	keldeo: {
+		isNonstandard: null,
 		randomBattleMoves: ["airslash", "calmmind", "hydropump", "icywind", "scald", "secretsword", "substitute"],
 		tier: "CUU",
 		inherit: true,
 	},
 	keldeoresolute: {
+		isNonstandard: null,
 		tier: "COU",
 		inherit: true,
 	},
@@ -3835,6 +4145,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	meloettapirouette: {
+		isNonstandard: null,
 		tier: "CUU",
 		inherit: true,
 	},
@@ -3914,10 +4225,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	bunnelby: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	diggersby: {
+		isNonstandard: null,
 		randomBattleMoves: ["bodyslam", "earthquake", "swordsdance", "uturn", "wildcharge"],
 		tier: "CUU",
 		inherit: true,
@@ -4003,10 +4316,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	pancham: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	pangoro: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "darkestlariat", "drainpunch", "gunkshot", "icepunch", "partingshot"],
 		tier: "CRU",
 		inherit: true,
@@ -4017,69 +4332,84 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	espurr: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	meowstic: {
+		isNonstandard: null,
 		randomBattleMoves: ["lightscreen", "psychic", "reflect", "thunderwave", "yawn"],
 		tier: "CUU",
 		inherit: true,
 	},
 	meowsticf: {
+		isNonstandard: null,
 		randomBattleMoves: ["energyball", "nastyplot", "psychic", "shadowball", "thunderbolt"],
 		tier: "CUU",
 		inherit: true,
 	},
 	honedge: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	doublade: {
+		isNonstandard: null,
 		randomBattleMoves: ["ironhead", "sacredsword", "shadowclaw", "shadowsneak", "swordsdance"],
 		tier: "CUU",
 		inherit: true,
 	},
 	aegislash: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "ironhead", "kingsshield", "shadowball", "shadowsneak", "swordsdance"],
 		tier: "CUb",
 		inherit: true,
 	},
 	aegislashblade: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	spritzee: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	aromatisse: {
+		isNonstandard: null,
 		randomBattleMoves: ["aromatherapy", "lightscreen", "moonblast", "nastyplot", "reflect", "thunderbolt", "trickroom"],
 		tier: "CRU",
 		inherit: true,
 	},
 	swirlix: {
+		isNonstandard: null,
 		tier: "CZU",
 		inherit: true,
 	},
 	slurpuff: {
+		isNonstandard: null,
 		randomBattleMoves: ["calmmind", "dazzlinggleam", "energyball", "flamethrower"],
 		tier: "CRU",
 		inherit: true,
 	},
 	inkay: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	malamar: {
+		isNonstandard: null,
 		randomBattleMoves: ["rest", "sleeptalk", "superpower", "throatchop"],
 		tier: "CNU",
 		inherit: true,
 	},
 	binacle: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	barbaracle: {
+		isNonstandard: null,
 		randomBattleMoves: ["crosschop", "earthquake", "liquidation", "shellsmash", "stoneedge"],
 		tier: "CRU",
 		inherit: true,
@@ -4105,10 +4435,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	helioptile: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	heliolisk: {
+		isNonstandard: null,
 		randomBattleMoves: ["hypervoice", "grassknot", "raindance", "surf", "thunderbolt", "voltswitch"],
 		tier: "CNU",
 		inherit: true,
@@ -4134,6 +4466,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	hawlucha: {
+		isNonstandard: null,
 		randomBattleMoves: ["acrobatics", "closecombat", "stoneedge", "substitute", "swordsdance"],
 		tier: "COU",
 		inherit: true,
@@ -4149,24 +4482,27 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	goomy: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	sliggoo: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	sliggoohisui: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	goodra: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "fireblast", "irontail", "outrage", "powerwhip"],
 		tier: "CRU",
 		inherit: true,
 	},
 	goodrahisui: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	klefki: {
@@ -4175,68 +4511,82 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	phantump: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	trevenant: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "hornleech", "rockslide", "shadowclaw", "trickroom", "woodhammer"],
 		tier: "CPU",
 		inherit: true,
 	},
 	pumpkaboo: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	pumpkaboosmall: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	pumpkaboolarge: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	pumpkaboosuper: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	gourgeist: {
+		isNonstandard: null,
 		randomBattleMoves: ["leechseed", "powerwhip", "shadowsneak", "substitute", "willowisp"],
 		tier: "CPU",
 		inherit: true,
 	},
 	gourgeistsmall: {
+		isNonstandard: null,
 		randomBattleMoves: ["leechseed", "powerwhip", "shadowsneak", "substitute", "willowisp"],
 		tier: "CPU",
 		inherit: true,
 	},
 	gourgeistlarge: {
+		isNonstandard: null,
 		randomBattleMoves: ["leechseed", "powerwhip", "shadowsneak", "substitute", "willowisp"],
 		tier: "CPU",
 		inherit: true,
 	},
 	gourgeistsuper: {
+		isNonstandard: null,
 		randomBattleMoves: ["explosion", "foulplay", "powerwhip", "rockslide", "shadowsneak", "trick"],
 		tier: "CPU",
 		inherit: true,
 	},
 	bergmite: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	avalugg: {
+		isNonstandard: null,
 		randomBattleMoves: ["avalanche", "earthquake", "rapidspin", "recover"],
 		tier: "CNU",
 		inherit: true,
 	},
 	avalugghisui: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	noibat: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	noivern: {
+		isNonstandard: null,
 		randomBattleMoves: ["boomburst", "dracometeor", "flamethrower", "hurricane", "roost", "uturn"],
 		tier: "CRU",
 		inherit: true,
@@ -4247,7 +4597,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	xerneasneutral: {
-		isNonstandard: "Custom", // can't be used in battle
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	yveltal: {
@@ -4296,44 +4646,53 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	rowlet: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	dartrix: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	decidueye: {
+		isNonstandard: null,
 		randomBattleMoves: ["leafblade", "shadowsneak", "spiritshackle", "swordsdance", "uturn"],
 		tier: "CRU",
 		inherit: true,
 	},
 	decidueyehisui: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	litten: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	torracat: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	incineroar: {
+		isNonstandard: null,
 		randomBattleMoves: ["darkestlariat", "earthquake", "fakeout", "flareblitz", "partingshot", "uturn"],
 		tier: "CUU",
 		inherit: true,
 	},
 	popplio: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	brionne: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	primarina: {
+		isNonstandard: null,
 		randomBattleMoves: ["hydropump", "moonblast", "psychic", "sparklingaria", "energyball"],
 		tier: "CUU",
 		inherit: true,
@@ -4368,14 +4727,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	grubbin: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	charjabug: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	vikavolt: {
+		isNonstandard: null,
 		randomBattleMoves: ["agility", "bugbuzz", "energyball", "stickyweb", "thunderbolt", "voltswitch"],
 		tier: "CRU",
 		inherit: true,
@@ -4416,9 +4778,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	cutiefly: {
+		isNonstandard: null,
 		inherit: true,
 	},
 	ribombee: {
+		isNonstandard: null,
 		randomBattleMoves: ["aromatherapy", "moonblast", "stickyweb", "stunspore", "uturn"],
 		tier: "CRU",
 		inherit: true,
@@ -4454,37 +4818,45 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	wishiwashi: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "hydropump", "icebeam", "scald", "uturn"],
 		tier: "CUU",
 		inherit: true,
 	},
 	wishiwashischool: {
+		isNonstandard: null,
 		tier: "CUU",
 		inherit: true,
 	},
 	mareanie: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	toxapex: {
+		isNonstandard: null,
 		randomBattleMoves: ["banefulbunker", "haze", "recover", "scald", "toxic", "toxicspikes"],
 		tier: "CUU",
 		inherit: true,
 	},
 	mudbray: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	mudsdale: {
+		isNonstandard: null,
 		randomBattleMoves: ["bodypress", "earthquake", "heavyslam", "rockslide", "stealthrock"],
 		tier: "CRU",
 		inherit: true,
 	},
 	dewpider: {
+		isNonstandard: null,
 		tier: "CPU",
 		inherit: true,
 	},
 	araquanid: {
+		isNonstandard: null,
 		randomBattleMoves: ["liquidation", "leechlife", "mirrorcoat", "reflect", "stickyweb"],
 		tier: "CRU",
 		inherit: true,
@@ -4509,19 +4881,23 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	morelull: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	shiinotic: {
+		isNonstandard: null,
 		randomBattleMoves: ["gigadrain", "leechseed", "moonblast", "spore", "strengthsap", "substitute"],
 		tier: "CRU",
 		inherit: true,
 	},
 	salandit: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	salazzle: {
+		isNonstandard: null,
 		randomBattleMoves: ["flamethrower", "protect", "substitute", "toxic"],
 		tier: "CUU",
 		inherit: true,
@@ -4532,23 +4908,28 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	stufful: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	bewear: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "darkestlariat", "doubleedge", "icepunch", "swordsdance"],
 		tier: "CRU",
 		inherit: true,
 	},
 	bounsweet: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	steenee: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	tsareena: {
+		isNonstandard: null,
 		randomBattleMoves: ["highjumpkick", "playrough", "powerwhip", "rapidspin", "synthesis", "uturn", "zenheadbutt"],
 		tier: "CRU",
 		inherit: true,
@@ -4559,20 +4940,24 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	oranguru: {
+		isNonstandard: null,
 		randomBattleMoves: ["nastyplot", "focusblast", "psychic", "thunderbolt", "trickroom"],
 		tier: "CZU",
 		inherit: true,
 	},
 	passimian: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "earthquake", "gunkshot", "knockoff", "rockslide", "uturn"],
 		tier: "CRU",
 		inherit: true,
 	},
 	wimpod: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	golisopod: {
+		isNonstandard: null,
 		randomBattleMoves: ["aquajet", "closecombat", "firstimpression", "liquidation", "spikes"],
 		tier: "CRU",
 		inherit: true,
@@ -4588,101 +4973,121 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	pyukumuku: {
+		isNonstandard: null,
 		randomBattleMoves: ["counter", "mirrorcoat", "recover", "toxic"],
 		tier: "CRU",
 		inherit: true,
 	},
 	typenull: {
+		isNonstandard: null,
 		randomBattleMoves: ["crushclaw", "rest", "sleeptalk", "swordsdance", "uturn"],
 		tier: "CRU",
 		inherit: true,
 	},
 	silvally: {
+		isNonstandard: null,
 		randomBattleMoves: ["crunch", "explosion", "flamethrower", "multiattack", "swordsdance", "uturn"],
 		tier: "COU",
 		inherit: true,
 	},
 	silvallybug: {
+		isNonstandard: null,
 		randomBattleMoves: ["flamethrower", "multiattack", "psychicfangs", "rockslide", "swordsdance", "thunderbolt", "uturn"],
 		tier: "COU",
 		inherit: true,
 	},
 	silvallydark: {
+		isNonstandard: null,
 		randomBattleMoves: ["ironhead", "multiattack", "psychicfangs", "swordsdance", "uturn"],
 		tier: "COU",
 		inherit: true,
 	},
 	silvallydragon: {
+		isNonstandard: null,
 		randomBattleMoves: ["firefang", "ironhead", "multiattack", "partingshot", "swordsdance"],
 		tier: "COU",
 		inherit: true,
 	},
 	silvallyelectric: {
+		isNonstandard: null,
 		randomBattleMoves: ["flamethrower", "icebeam", "multiattack", "uturn"],
 		tier: "COU",
 		inherit: true,
 	},
 	silvallyfairy: {
+		isNonstandard: null,
 		randomBattleMoves: ["flamethrower", "multiattack", "partingshot", "psychicfangs", "thunderwave"],
 		tier: "COU",
 		inherit: true,
 	},
 	silvallyfighting: {
+		isNonstandard: null,
 		randomBattleMoves: ["crunch", "ironhead", "multiattack", "rockslide", "swordsdance", "uturn"],
 		tier: "COU",
 		inherit: true,
 	},
 	silvallyfire: {
+		isNonstandard: null,
 		randomBattleMoves: ["icebeam", "multiattack", "partingshot", "surf", "thunderbolt"],
 		tier: "COU",
 		inherit: true,
 	},
 	silvallyflying: {
+		isNonstandard: null,
 		randomBattleMoves: ["flamethrower", "ironhead", "multiattack", "partingshot", "rockslide", "swordsdance"],
 		tier: "COU",
 		inherit: true,
 	},
 	silvallyghost: {
+		isNonstandard: null,
 		randomBattleMoves: ["multiattack", "swordsdance", "thunderwave", "xscissor"],
 		tier: "COU",
 		inherit: true,
 	},
 	silvallygrass: {
+		isNonstandard: null,
 		randomBattleMoves: ["flamethrower", "icebeam", "multiattack", "surf", "uturn"],
 		tier: "COU",
 		inherit: true,
 	},
 	silvallyground: {
+		isNonstandard: null,
 		randomBattleMoves: ["multiattack", "partingshot", "rockslide", "swordsdance", "xscissor"],
 		tier: "COU",
 		inherit: true,
 	},
 	silvallyice: {
+		isNonstandard: null,
 		randomBattleMoves: ["flamethrower", "multiattack", "thunderbolt", "uturn"],
 		tier: "COU",
 		inherit: true,
 	},
 	silvallypoison: {
+		isNonstandard: null,
 		randomBattleMoves: ["flamethrower", "multiattack", "partingshot", "psychicfangs", "surf", "thunderwave"],
 		tier: "COU",
 		inherit: true,
 	},
 	silvallypsychic: {
+		isNonstandard: null,
 		randomBattleMoves: ["crunch", "flamethrower", "multiattack", "swordsdance", "uturn", "xscissor"],
 		tier: "COU",
 		inherit: true,
 	},
 	silvallyrock: {
+		isNonstandard: null,
 		randomBattleMoves: ["flamethrower", "multiattack", "partingshot", "psychicfangs", "surf", "thunderwave"],
 		tier: "COU",
 		inherit: true,
 	},
 	silvallysteel: {
+		isNonstandard: null,
 		randomBattleMoves: ["flamethrower", "multiattack", "partingshot", "thunderbolt", "thunderwave"],
 		tier: "COU",
 		inherit: true,
 	},
 	silvallywater: {
+		isNonstandard: null,
 		randomBattleMoves: ["icebeam", "multiattack", "partingshot", "thunderbolt", "thunderwave"],
 		tier: "COU",
 		inherit: true,
@@ -4693,6 +5098,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	miniormeteor: {
+		isNonstandard: null,
 		tier: "CRU",
 		inherit: true,
 	},
@@ -4702,11 +5108,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	turtonator: {
+		isNonstandard: null,
 		randomBattleMoves: ["dracometeor", "dragonpulse", "earthquake", "fireblast", "rapidspin", "shellsmash"],
 		tier: "CPU",
 		inherit: true,
 	},
 	togedemaru: {
+		isNonstandard: null,
 		randomBattleMoves: ["ironhead", "nuzzle", "spikyshield", "uturn", "wish", "zingzap"],
 		tier: "CPU",
 		inherit: true,
@@ -4717,11 +5125,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	mimikyu: {
+		isNonstandard: null,
 		randomBattleMoves: ["playrough", "shadowclaw", "shadowsneak", "swordsdance", "taunt"],
 		tier: "CUU",
 		inherit: true,
 	},
 	mimikyubusted: {
+		isNonstandard: null,
 		tier: "CUU",
 		inherit: true,
 	},
@@ -4741,24 +5151,29 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	drampa: {
+		isNonstandard: null,
 		randomBattleMoves: ["dracometeor", "fireblast", "focusblast", "glare", "hypervoice", "thunderbolt"],
 		tier: "CNU",
 		inherit: true,
 	},
 	dhelmise: {
+		isNonstandard: null,
 		randomBattleMoves: ["anchorshot", "earthquake", "powerwhip", "rapidspin", "shadowclaw", "swordsdance"],
 		tier: "CNU",
 		inherit: true,
 	},
 	jangmoo: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	hakamoo: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	kommoo: {
+		isNonstandard: null,
 		randomBattleMoves: ["clangoroussoul", "clangingscales", "closecombat", "dragondance", "drainpunch", "outrage", "poisonjab"],
 		tier: "COU",
 		inherit: true,
@@ -4789,19 +5204,23 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	cosmog: {
+		isNonstandard: null,
 		tier: "CLC",
 		inherit: true,
 	},
 	cosmoem: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	solgaleo: {
+		isNonstandard: null,
 		randomBattleMoves: ["flareblitz", "morningsun", "psychicfangs", "stoneedge", "sunsteelstrike"],
 		tier: "CUb",
 		inherit: true,
 	},
 	lunala: {
+		isNonstandard: null,
 		randomBattleMoves: ["calmmind", "focusblast", "moongeistbeam", "moonlight", "psychic"],
 		tier: "CUb",
 		inherit: true,
@@ -4842,16 +5261,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	necrozma: {
+		isNonstandard: null,
 		randomBattleMoves: ["calmmind", "heatwave", "moonlight", "photongeyser", "stealthrock"],
 		tier: "CUU",
 		inherit: true,
 	},
 	necrozmaduskmane: {
+		isNonstandard: null,
 		randomBattleMoves: ["dragondance", "earthquake", "photongeyser", "stealthrock", "sunsteelstrike"],
 		tier: "CUb",
 		inherit: true,
 	},
 	necrozmadawnwings: {
+		isNonstandard: null,
 		randomBattleMoves: ["calmmind", "heatwave", "moongeistbeam", "photongeyser", "trickroom"],
 		tier: "CUb",
 		inherit: true,
@@ -4872,6 +5294,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	marshadow: {
+		isNonstandard: null,
 		randomBattleMoves: ["bulkup", "closecombat", "icepunch", "rocktomb", "shadowsneak", "spectralthief"],
 		tier: "CUb",
 		inherit: true,
@@ -4897,373 +5320,456 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	zeraora: {
+		isNonstandard: null,
 		randomBattleMoves: ["bulkup", "closecombat", "grassknot", "plasmafists", "playrough", "voltswitch"],
 		tier: "COU",
 		inherit: true,
 	},
 	meltan: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	melmetal: {
+		isNonstandard: null,
 		randomBattleMoves: ["doubleironbash", "highhorsepower", "icepunch", "thunderpunch", "thunderwave"],
 		tier: "COU",
 		inherit: true,
 	},
 	grookey: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	thwackey: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	rillaboom: {
+		isNonstandard: null,
 		randomBattleMoves: ["drumbeating", "highhorsepower", "knockoff", "superpower", "swordsdance", "uturn", "woodhammer"],
 		tier: "COU",
 		inherit: true,
 	},
 	scorbunny: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	raboot: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	cinderace: {
+		isNonstandard: null,
 		randomBattleMoves: ["courtchange", "gunkshot", "highjumpkick", "ironhead", "pyroball", "uturn", "zenheadbutt"],
 		tier: "CUb",
 		inherit: true,
 	},
 	sobble: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	drizzile: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	inteleon: {
+		isNonstandard: null,
 		randomBattleMoves: ["airslash", "darkpulse", "hydropump", "icebeam", "scald", "snipeshot", "uturn"],
 		tier: "CUU",
 		inherit: true,
 	},
 	skwovet: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	greedent: {
+		isNonstandard: null,
 		randomBattleMoves: ["bodyslam", "crunch", "earthquake", "seedbomb", "superpower", "swordsdance", "wildcharge"],
 		tier: "CZU",
 		inherit: true,
 	},
 	rookidee: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	corvisquire: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	corviknight: {
+		isNonstandard: null,
 		randomBattleMoves: ["bodypress", "bravebird", "bulkup", "defog", "ironhead", "roost", "uturn"],
 		tier: "COU",
 		inherit: true,
 	},
 	blipbug: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	dottler: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	orbeetle: {
+		isNonstandard: null,
 		randomBattleMoves: ["bugbuzz", "calmmind", "psychic", "recover", "stickyweb", "uturn"],
 		tier: "CPU",
 		inherit: true,
 	},
 	nickit: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	thievul: {
+		isNonstandard: null,
 		randomBattleMoves: ["darkpulse", "knockoff", "nastyplot", "psychic", "taunt", "uturn"],
 		tier: "CPU",
 		inherit: true,
 	},
 	gossifleur: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	eldegoss: {
+		isNonstandard: null,
 		randomBattleMoves: ["charm", "gigadrain", "pollenpuff", "rapidspin", "sleeppowder", "synthesis"],
 		tier: "CPU",
 		inherit: true,
 	},
 	wooloo: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	dubwool: {
+		isNonstandard: null,
 		randomBattleMoves: ["bodypress", "bodyslam", "doubleedge", "swordsdance", "zenheadbutt"],
 		tier: "CPU",
 		inherit: true,
 	},
 	chewtle: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	drednaw: {
+		isNonstandard: null,
 		randomBattleMoves: ["crunch", "earthquake", "jawlock", "liquidation", "stealthrock", "stoneedge"],
 		tier: "CPU",
 		inherit: true,
 	},
 	yamper: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	boltund: {
+		isNonstandard: null,
 		randomBattleMoves: ["crunch", "firefang", "nuzzle", "playrough", "psychicfangs", "thunderfang", "voltswitch"],
 		tier: "CNU",
 		inherit: true,
 	},
 	rolycoly: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	carkol: {
+		isNonstandard: null,
 		tier: "CPU",
 		inherit: true,
 	},
 	coalossal: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "fireblast", "rapidspin", "spikes", "stealthrock", "stoneedge"],
 		tier: "CRU",
 		inherit: true,
 	},
 	applin: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	flapple: {
+		isNonstandard: null,
 		randomBattleMoves: ["acrobatics", "dragondance", "gravapple", "outrage", "suckerpunch"],
 		tier: "CNU",
 		inherit: true,
 	},
 	appletun: {
+		isNonstandard: null,
 		randomBattleMoves: ["appleacid", "dragonpulse", "earthquake", "leechseed", "recover"],
 		tier: "CPU",
 		inherit: true,
 	},
 	silicobra: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	sandaconda: {
+		isNonstandard: null,
 		randomBattleMoves: ["bodypress", "coil", "earthquake", "glare", "stoneedge"],
 		tier: "CNU",
 		inherit: true,
 	},
 	cramorant: {
+		isNonstandard: null,
 		randomBattleMoves: ["defog", "hurricane", "icebeam", "roost", "scald", "surf"],
 		tier: "CZU",
 		inherit: true,
 	},
 	cramorantgulping: {
+		isNonstandard: null,
 		inherit: true,
 	},
 	cramorantgorging: {
+		isNonstandard: null,
 		inherit: true,
 	},
 	arrokuda: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	barraskewda: {
+		isNonstandard: null,
 		randomBattleMoves: ["aquajet", "closecombat", "crunch", "liquidation", "poisonjab"],
 		tier: "CRU",
 		inherit: true,
 	},
 	toxel: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	toxtricity: {
+		isNonstandard: null,
 		randomBattleMoves: ["boomburst", "drainpunch", "firepunch", "gunkshot", "overdrive", "poisonjab", "sludgebomb", "voltswitch"],
 		tier: "CRU",
 		inherit: true,
 	},
 	toxtricitylowkey: {
+		isNonstandard: null,
 		randomBattleMoves: ["boomburst", "drainpunch", "firepunch", "gunkshot", "overdrive", "poisonjab", "shiftgear", "sludgebomb", "voltswitch"],
 		tier: "CRU",
 		inherit: true,
 	},
 	sizzlipede: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	centiskorch: {
+		isNonstandard: null,
 		randomBattleMoves: ["coil", "firelash", "knockoff", "leechlife", "powerwhip"],
 		tier: "CNU",
 		inherit: true,
 	},
 	clobbopus: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	grapploct: {
+		isNonstandard: null,
 		randomBattleMoves: ["brutalswing", "closecombat", "icepunch", "octolock", "suckerpunch"],
 		tier: "CNU",
 		inherit: true,
 	},
 	sinistea: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	polteageist: {
+		isNonstandard: null,
 		randomBattleMoves: ["gigadrain", "shadowball", "shellsmash", "storedpower", "strengthsap"],
 		tier: "CUU",
 		inherit: true,
 	},
 	hatenna: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	hattrem: {
+		isNonstandard: null,
 		tier: "CZU",
 		inherit: true,
 	},
 	hatterene: {
+		isNonstandard: null,
 		randomBattleMoves: ["calmmind", "dazzlinggleam", "mysticalfire", "psychic", "shadowball", "trickroom"],
 		tier: "CUU",
 		inherit: true,
 	},
 	impidimp: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	morgrem: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	grimmsnarl: {
+		isNonstandard: null,
 		randomBattleMoves: ["bulkup", "drainpunch", "falsesurrender", "playrough", "spiritbreak", "suckerpunch", "superpower", "thunderwave", "taunt"],
 		tier: "CUU",
 		inherit: true,
 	},
 	milcery: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	alcremie: {
+		isNonstandard: null,
 		randomBattleMoves: ["aromatherapy", "calmmind", "dazzlinggleam", "mysticalfire", "psychic", "recover"],
 		tier: "CPU",
 		inherit: true,
 	},
 	falinks: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "megahorn", "noretreat", "poisonjab", "rockslide", "throatchop"],
 		tier: "CUU",
 		inherit: true,
 	},
 	pincurchin: {
+		isNonstandard: null,
 		randomBattleMoves: ["recover", "scald", "spikes", "suckerpunch", "zingzap"],
 		tier: "CPU",
 		inherit: true,
 	},
 	snom: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	frosmoth: {
+		isNonstandard: null,
 		randomBattleMoves: ["bugbuzz", "dazzlinggleam", "gigadrain", "icebeam", "quiverdance"],
 		tier: "CNU",
 		inherit: true,
 	},
 	stonjourner: {
+		isNonstandard: null,
 		randomBattleMoves: ["earthquake", "heatcrash", "rockpolish", "stoneedge"],
 		tier: "CPU",
 		inherit: true,
 	},
 	eiscue: {
+		isNonstandard: null,
 		randomBattleMoves: ["bellydrum", "iciclecrash", "liquidation", "zenheadbutt"],
 		tier: "CZU",
 		inherit: true,
 	},
 	eiscuenoice: {
+		isNonstandard: null,
 		inherit: true,
 	},
 	indeedee: {
+		isNonstandard: null,
 		randomBattleMoves: ["calmmind", "hypervoice", "mysticalfire", "psychic", "trick"],
 		tier: "CRU",
 		inherit: true,
 	},
 	indeedeef: {
+		isNonstandard: null,
 		randomBattleMoves: ["aromatherapy", "calmmind", "hypervoice", "mysticalfire", "psychic"],
 		tier: "CNU",
 		inherit: true,
 	},
 	morpeko: {
+		isNonstandard: null,
 		randomBattleMoves: ["aurawheel", "crunch", "partingshot", "psychicfangs", "rapidspin", "superfang", "wildcharge"],
 		tier: "CPU",
 		inherit: true,
 	},
 	morpekohangry: {
+		isNonstandard: null,
 		inherit: true,
 	},
 	cufant: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	copperajah: {
+		isNonstandard: null,
 		randomBattleMoves: ["curse", "earthquake", "heavyslam", "ironhead", "powerwhip", "playrough", "rockslide", "stealthrock"],
 		tier: "CNU",
 		inherit: true,
 	},
 	dracozolt: {
+		isNonstandard: null,
 		randomBattleMoves: ["boltbeak", "dragontail", "earthquake", "fireblast", "outrage"],
 		tier: "COU",
 		inherit: true,
 	},
 	arctozolt: {
+		isNonstandard: null,
 		randomBattleMoves: ["boltbeak", "bulldoze", "iciclecrash", "freezedry"],
 		tier: "COU",
 		inherit: true,
 	},
 	dracovish: {
+		isNonstandard: null,
 		randomBattleMoves: ["crunch", "earthquake", "fishiousrend", "iciclecrash", "ironhead", "psychicfangs"],
 		tier: "CUb",
 		inherit: true,
 	},
 	arctovish: {
+		isNonstandard: null,
 		randomBattleMoves: ["crunch", "fishiousrend", "freezedry", "iciclecrash", "ironhead", "psychicfangs"],
 		tier: "CNU",
 		inherit: true,
 	},
 	duraludon: {
+		isNonstandard: null,
 		randomBattleMoves: ["dracometeor", "dragontail", "flashcannon", "stealthrock", "thunderbolt"],
 		tier: "CRU",
 		inherit: true,
 	},
 	dreepy: {
+		isNonstandard: null,
 		tier: "LC",
 		inherit: true,
 	},
 	drakloak: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	dragapult: {
+		isNonstandard: null,
 		randomBattleMoves: ["dragondance", "dragondarts", "fireblast", "phantomforce", "psychicfangs", "shadowball", "uturn"],
 		tier: "CUb",
 		inherit: true,
 	},
 	zacian: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "crunch", "ironhead", "playrough", "psychicfangs", "swordsdance"],
 		tier: "CUb",
 		inherit: true,
 	},
 	zaciancrowned: {
+		isNonstandard: null,
 		randomBattleMoves: ["behemothblade", "closecombat", "crunch", "playrough", "psychicfangs", "swordsdance"],
 		randomBattleLevel: 63,
 		randomDoubleBattleMoves: ["behemothblade", "closecombat", "playrough", "protect", "psychicfangs", "swordsdance"],
@@ -5271,11 +5777,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	zamazenta: {
+		isNonstandard: null,
 		randomBattleMoves: ["closecombat", "crunch", "ironhead", "psychicfangs"],
 		tier: "CUb",
 		inherit: true,
 	},
 	zamazentacrowned: {
+		isNonstandard: null,
 		randomBattleMoves: ["behemothbash", "closecombat", "crunch", "psychicfangs"],
 		randomBattleLevel: 74,
 		randomDoubleBattleMoves: ["behemothbash", "closecombat", "crunch", "playrough", "protect", "psychicfangs"],
@@ -5283,96 +5791,108 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 	},
 	eternatus: {
+		isNonstandard: null,
 		randomBattleMoves: ["dynamaxcannon", "flamethrower", "recover", "sludgewave"],
 		tier: "CUb",
 		inherit: true,
 	},
 	kubfu: {
+		isNonstandard: null,
 		tier: "NFE",
 		inherit: true,
 	},
 	urshifu: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	urshifurapidstrike: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	zarude: {
+		isNonstandard: null,
 		tier: "COU",
 		inherit: true,
 	},
 	zarudedada: {
-		isNonstandard: "Unobtainable",
+		isNonstandard: null,
 		inherit: true,
 	},
 	regieleki: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	regidrago: {
+		isNonstandard: null,
 		tier: "CUU",
 		inherit: true,
 	},
 	glastrier: {
+		isNonstandard: null,
 		tier: "CRU",
 		inherit: true,
 	},
 	spectrier: {
+		isNonstandard: null,
 		tier: "COU",
 		inherit: true,
 	},
 	calyrex: {
+		isNonstandard: null,
 		tier: "CUU",
 		inherit: true,
 	},
 	calyrexice: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	calyrexshadow: {
+		isNonstandard: null,
 		tier: "CUb",
 		inherit: true,
 	},
 	wyrdeer: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	kleavor: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	ursaluna: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	basculegion: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	basculegionf: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	sneasler: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	overqwil: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	enamorus: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	enamorustherian: {
-		isNonstandard: "Future",
+		isNonstandard: null,
 		tier: "Illegal",
 	},
 	missingno: {
-		isNonstandard: "Custom",
+		isNonstandard: null,
 		tier: "X",
 		inherit: true,
 	},

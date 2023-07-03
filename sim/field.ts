@@ -84,7 +84,7 @@ export class Field {
 			this.weatherState = prevWeatherState;
 			return false;
 		}
-		this.battle.runEvent('WeatherStart', source, source, status);
+		this.battle.eachEvent('WeatherChange', sourceEffect);
 		return true;
 	}
 
@@ -94,6 +94,7 @@ export class Field {
 		this.battle.singleEvent('FieldEnd', prevWeather, this.weatherState, this);
 		this.weather = '';
 		this.weatherState = {id: ''};
+		this.battle.eachEvent('WeatherChange');
 		return true;
 	}
 
@@ -161,7 +162,7 @@ export class Field {
 			this.terrainState = prevTerrainState;
 			return false;
 		}
-		this.battle.runEvent('TerrainStart', source, source, status);
+		this.battle.eachEvent('TerrainChange', sourceEffect);
 		return true;
 	}
 
@@ -171,6 +172,7 @@ export class Field {
 		this.battle.singleEvent('FieldEnd', prevTerrain, this.terrainState, this);
 		this.terrain = '';
 		this.terrainState = {id: ''};
+		this.battle.eachEvent('TerrainChange');
 		return true;
 	}
 
@@ -219,6 +221,7 @@ export class Field {
 			delete this.pseudoWeather[status.id];
 			return false;
 		}
+		this.battle.runEvent('PseudoWeatherChange', source, source, status);
 		return true;
 	}
 

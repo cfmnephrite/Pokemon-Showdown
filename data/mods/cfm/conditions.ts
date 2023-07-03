@@ -176,7 +176,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			} else {
 				this.add('-start', target, 'confusion');
 			}
-			this.effectState.time = this.random(2, 6);
+			this.effectState.time = this.random(sourceEffect?.id === 'axekick' ? 3 : 2, 6);
 		},
 		onEnd(target) {
 			this.add('-end', target, 'confusion');
@@ -292,20 +292,28 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		// Skull Bash, SolarBeam, Sky Drop...
 		name: 'twoturnmove',
 		duration: 2,
-		onStart(target, source, effect) {
+		onStart(attacker, defender, effect) {
+			// ("attacker" is the Pokemon using the two turn move and the Pokemon this condition is being applied to)
 			this.effectState.move = effect.id;
-			target.addVolatile(effect.id);
-			let moveTarget: Pokemon | null = source;
-			if (effect.sourceEffect && this.dex.moves.get(effect.id).target === 'normal') {
-				// this move was called by another move such as metronome and needs a random target to be determined now
-				// won't randomly choose an empty slot if there's at least one valid target
-				moveTarget = this.getRandomTarget(target, effect.id);
+			attacker.addVolatile(effect.id);
+			// lastMoveTargetLoc is the location of the originally targeted slot before any redirection
+			// note that this is not updated for moves called by other moves
+			// i.e. if Dig is called by Metronome, lastMoveTargetLoc will still be the user's location
+			let moveTargetLoc: number = attacker.lastMoveTargetLoc!;
+			if (effect.sourceEffect && this.dex.moves.get(effect.id).target !== 'self') {
+				// this move was called by another move such as Metronome
+				// and needs a random target to be determined this turn
+				// it will already have one by now if there is any valid target
+				// but if there isn't one we need to choose a random slot now
+				if (defender.fainted) {
+					defender = this.sample(attacker.foes(true));
+				}
+				moveTargetLoc = attacker.getLocOf(defender);
 			}
-			// if there are no valid targets, randomly choose one later
-			target.volatiles[effect.id].targetLoc = target.getLocOf(moveTarget || target);
+			attacker.volatiles[effect.id].targetLoc = moveTargetLoc;
 			this.attrLastMove('[still]');
 			// Run side-effects normally associated with hitting (e.g., Protean, Libero)
-			this.runEvent('PrepareHit', target, source, effect);
+			this.runEvent('PrepareHit', attacker, defender, effect);
 		},
 		onEnd(target) {
 			target.removeVolatile(this.effectState.move);
@@ -373,82 +381,13 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onLockMove: 'recharge',
 	},
 	futuremove: {
-		// this is a slot condition
-		name: 'futuremove',
-		duration: 3,
-		onResidualOrder: 3,
-		onEnd(target) {
-			const data = this.effectState;
-			// time's up; time to hit! :D
-			const move = this.dex.moves.get(data.move);
-			if (target.fainted || target === data.source) {
-				this.hint(`${move.name} did not hit because the target is ${(target.fainted ? 'fainted' : 'the user')}.`);
-				return;
-			}
-
-			this.add('-end', target, 'move: ' + move.name);
-			target.removeVolatile('Protect');
-			target.removeVolatile('Endure');
-
-			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
-				data.moveData.infiltrates = true;
-			}
-			if (data.source.hasAbility('normalize') && this.gen >= 6) {
-				data.moveData.type = 'Normal';
-			}
-			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
-				data.moveData.stab = 2;
-			}
-			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
-
-			this.actions.trySpreadMoveHit([target], data.source, hitMove, true);
-			if (data.source.isActive && data.source.hasItem('lifeorb') && this.gen >= 5) {
-				this.singleEvent('AfterMoveSecondarySelf', data.source.getItem(), data.source.itemState, data.source, target, data.source.getItem());
-			}
-			this.activeMove = null;
-
-			this.checkWin();
-		},
+		inherit: true,
 	},
 	healreplacement: {
-		// this is a slot condition
-		name: 'healreplacement',
-		onStart(side, source, sourceEffect) {
-			this.effectState.sourceEffect = sourceEffect;
-			this.add('-activate', source, 'healreplacement');
-		},
-		onSwitchInPriority: 1,
-		onSwitchIn(target) {
-			if (!target.fainted) {
-				target.heal(target.maxhp);
-				this.add('-heal', target, target.getHealth, '[from] move: ' + this.effectState.sourceEffect, '[zeffect]');
-				target.side.removeSlotCondition(target, 'healreplacement');
-			}
-		},
+		inherit: true,
 	},
 	stall: {
-		// Protect, Detect, Endure counter
-		name: 'stall',
-		duration: 2,
-		counterMax: 729,
-		onStart() {
-			this.effectState.counter = 3;
-		},
-		onStallMove(pokemon) {
-			// this.effectState.counter should never be undefined here.
-			// However, just in case, use 1 if it is undefined.
-			const counter = this.effectState.counter || 1;
-			this.debug("Success chance: " + Math.round(100 / counter) + "%");
-			const success = this.randomChance(1, counter);
-			if (!success) delete pokemon.volatiles['stall'];
-			return success;
-		},
-		onRestart() {
-			if (this.effectState.counter < (this.effect as Condition).counterMax!) {
-				this.effectState.counter *= 3;
-			}
-			this.effectState.duration = 2;
-		},
+		inherit: true,
 	},
 	gem: {
 		name: 'gem',
@@ -712,6 +651,39 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			this.add('-weather', 'none');
 		},
 	},
+	snow: {
+		name: 'Snow',
+		effectType: 'Weather',
+		duration: 5,
+		durationCallback(source, effect) {
+			if (source?.hasItem('icyrock')) {
+				return 8;
+			}
+			return 5;
+		},
+		onModifyDefPriority: 10,
+		onModifyDef(def, pokemon) {
+			if (pokemon.hasType('Ice') && this.field.isWeather('snow')) {
+				return this.modify(def, 1.5);
+			}
+		},
+		onFieldStart(field, source, effect) {
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5 || effect.id === 'forecast') this.effectState.duration = 0;
+				this.add('-weather', 'Snow', '[from] ability: ' + effect.name, '[of] ' + source);
+			} else {
+				this.add('-weather', 'Snow');
+			}
+		},
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
+			this.add('-weather', 'Snow', '[upkeep]');
+			if (this.field.isWeather('snow')) this.eachEvent('Weather');
+		},
+		onFieldEnd() {
+			this.add('-weather', 'none');
+		},
+	},
 	deltastream: {
 		name: 'DeltaStream',
 		effectType: 'Weather',
@@ -734,6 +706,50 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		},
 		onFieldEnd() {
 			this.add('-weather', 'none');
+		},
+	},
+
+	// Commander needs two conditions so they are implemented here
+	// Dondozo
+	commanded: {
+		name: "Commanded",
+		noCopy: true,
+		onStart(pokemon) {
+			this.boost({atk: 2, spa: 2, spe: 2, def: 2, spd: 2}, pokemon);
+		},
+		onDragOutPriority: 2,
+		onDragOut() {
+			return false;
+		},
+		// Prevents Shed Shell allowing a swap
+		onTrapPokemonPriority: -11,
+		onTrapPokemon(pokemon) {
+			pokemon.trapped = true;
+		},
+	},
+	// Tatsugiri
+	commanding: {
+		name: "Commanding",
+		noCopy: true,
+		onStart(pokemon) {
+			this.add('-activate', pokemon, 'ability: Commander');
+		},
+		onDragOutPriority: 2,
+		onDragOut() {
+			return false;
+		},
+		// Prevents Shed Shell allowing a swap
+		onTrapPokemonPriority: -11,
+		onTrapPokemon(pokemon) {
+			pokemon.trapped = true;
+		},
+		// Override No Guard
+		onInvulnerabilityPriority: 2,
+		onInvulnerability(target, source, move) {
+			return false;
+		},
+		onBeforeTurn(pokemon) {
+			this.queue.cancelAction(pokemon);
 		},
 	},
 

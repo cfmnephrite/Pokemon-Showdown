@@ -216,7 +216,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Aerial Ace",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, distance: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, distance: 1, slicing: 1},
 		secondary: null,
 		target: "any",
 		type: "Flying",
@@ -295,7 +295,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Air Cutter",
 		pp: 25,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, slicing: 1, wind: 1},
 		critRatio: 2,
 		secondary: null,
 		target: "allAdjacentFoes",
@@ -312,7 +312,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Air Slash",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, distance: 1},
+		flags: {protect: 1, mirror: 1, distance: 1, slicing: 1},
 		secondary: {
 			chance: 20,
 			volatileStatus: 'flinch',
@@ -441,6 +441,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Grass",
 	},
+	aquacutter: {
+		num: 895,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Aqua Cutter",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, slicing: 1},
+		critRatio: 2,
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Cool",
+	},
 	aquajet: {
 		num: 453,
 		accuracy: 100,
@@ -480,6 +495,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Beautiful",
 	},
+	aquastep: {
+		num: 872,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Aqua Step",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, dance: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Water",
+		contestType: "Cool",
+	},
 	aquatail: {
 		num: 401,
 		accuracy: 85,
@@ -498,6 +534,25 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {basePower: 180},
 		contestType: "Beautiful",
 		cfm: true,
+	},
+	armorcannon: {
+		num: 890,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Armor Cannon",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				def: -1,
+				spd: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
 	},
 	armthrust: {
 		num: 292,
@@ -812,7 +867,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {snatch: 1},
 		sideCondition: 'auroraveil',
 		onTry() {
-			return this.field.isWeather('hail');
+			return this.field.isWeather(['hail', 'snow']);
 		},
 		condition: {
 			duration: 5,
@@ -910,6 +965,26 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 		cfm: true,
 	},
+	axekick: {
+		num: 853,
+		accuracy: 90,
+		basePower: 120,
+		category: "Physical",
+		name: "Axe Kick",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		hasCrashDamage: true,
+		onMoveFail(target, source, move) {
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.conditions.get('High Jump Kick'));
+		},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'confusion',
+		},
+		target: "normal",
+		type: "Fighting",
+	},
 	babydolleyes: {
 		num: 608,
 		accuracy: 100,
@@ -991,6 +1066,28 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
 		cfm: true,
+	},
+	barbbarrage: {
+		num: 839,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Barb Barrage",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (target.status === 'psn' || target.status === 'tox') {
+				return this.chainModify(2);
+			}
+		},
+		secondary: {
+			chance: 50,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Poison",
 	},
 	barrage: {
 		num: 140,
@@ -1132,7 +1229,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Behemoth Blade",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, magic: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, magic: 1, slicing: 1},
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
@@ -1301,6 +1398,38 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dark",
 		contestType: "Tough",
 	},
+	bitterblade: {
+		num: 891,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Bitter Blade",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+	},
+	bittermalice: {
+		num: 841,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Bitter Malice",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Ghost",
+	},
 	blackholeeclipse: {
 		num: 654,
 		accuracy: true,
@@ -1357,6 +1486,42 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cool",
 		cfm: true,
 	},
+	blazingtorque: {
+		num: 896,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Blazing Torque",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1},
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+	},
+	bleakwindstorm: {
+		num: 846,
+		accuracy: 80,
+		basePower: 100,
+		category: "Special",
+		isNonstandard: "Unobtainable",
+		name: "Bleakwind Storm",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, wind: 1},
+		secondary: {
+			chance: 30,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Flying",
+	},
 	blizzard: {
 		num: 59,
 		accuracy: 70,
@@ -1365,9 +1530,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Blizzard",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, wind: 1},
 		onModifyMove(move) {
-			if (this.field.isWeather('hail')) move.accuracy = true;
+			if (this.field.isWeather(['hail', 'snow'])) move.accuracy = true;
 		},
 		secondary: {
 			chance: 10,
@@ -2035,6 +2200,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cool",
 		cfm: true,
 	},
+	ceaselessedge: {
+		num: 845,
+		accuracy: 90,
+		basePower: 65,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Ceaseless Edge",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		self: {
+			onHit(source) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('spikes');
+				}
+			},
+		},
+		secondary: {}, // allows sheer force to trigger
+		target: "normal",
+		type: "Dark",
+	},
 	celebrate: {
 		num: 606,
 		accuracy: true,
@@ -2152,6 +2338,42 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cute",
 		cfm: true,
 	},
+	chillingwater: {
+		num: 886,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Chilling Water",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Water",
+		contestType: "Beautiful",
+	},
+	chillyreception: {
+		num: 881,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Chilly Reception",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		// TODO show prepare message before the "POKEMON used MOVE!" message
+		// This happens even before sleep shows its "POKEMON is fast asleep." message
+		weather: 'snow',
+		selfSwitch: true,
+		secondary: null,
+		target: "all",
+		type: "Ice",
+	},
 	chipaway: {
 		num: 498,
 		accuracy: 100,
@@ -2169,6 +2391,30 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+	},
+	chloroblast: {
+		num: 835,
+		accuracy: 95,
+		basePower: 150,
+		category: "Special",
+		isNonstandard: "Unobtainable",
+		name: "Chloroblast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		mindBlownRecoil: true,
+		onAfterMove(pokemon, target, move) {
+			if (move.mindBlownRecoil && !move.multihit) {
+				const hpBeforeRecoil = pokemon.hp;
+				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Chloroblast'), true);
+				if (pokemon.hp <= pokemon.maxhp / 2 && hpBeforeRecoil > pokemon.maxhp / 2) {
+					this.runEvent('EmergencyExit', pokemon, pokemon);
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
 	},
 	circlethrow: {
 		num: 509,
@@ -2356,6 +2602,44 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Tough",
 	},
+	collisioncourse: {
+		num: 878,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Collision Course",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onBasePower(basePower, source, target, move) {
+			if (target.runEffectiveness(move) > 0) {
+				// Placeholder
+				this.debug(`collision course super effective buff`);
+				return this.chainModify([5461, 4096]);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
+	combattorque: {
+		num: 899,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Combat Torque",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Fighting",
+	},
 	cometpunch: {
 		num: 4,
 		accuracy: 100,
@@ -2395,6 +2679,37 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Tough",
 		cfm: true,
+	},
+	comeuppance: {
+		num: 894,
+		accuracy: 100,
+		basePower: 0,
+		damageCallback(pokemon) {
+			const lastDamagedBy = pokemon.getLastDamagedBy(true);
+			if (lastDamagedBy !== undefined) {
+				return (lastDamagedBy.damage * 1.5) || 1;
+			}
+			return 0;
+		},
+		category: "Physical",
+		name: "Comeuppance",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTry(source) {
+			const lastDamagedBy = source.getLastDamagedBy(true);
+			if (lastDamagedBy === undefined || !lastDamagedBy.thisTurn) return false;
+		},
+		onModifyTarget(targetRelayVar, source, target, move) {
+			const lastDamagedBy = source.getLastDamagedBy(true);
+			if (lastDamagedBy) {
+				targetRelayVar.target = this.getAtSlot(lastDamagedBy.slot);
+			}
+		},
+		secondary: null,
+		target: "scripted",
+		type: "Dark",
+		contestType: "Cool",
 	},
 	confide: {
 		num: 590,
@@ -2947,7 +3262,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Cross Poison",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		secondary: {
 			chance: 10,
 			status: 'psn',
@@ -3073,7 +3388,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Cut",
 		pp: 30,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -3522,6 +3837,32 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Electric",
 		contestType: "Beautiful",
 	},
+	direclaw: {
+		num: 827,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Dire Claw",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 50,
+			onHit(target, source) {
+				const result = this.random(3);
+				if (result === 0) {
+					target.trySetStatus('psn', source);
+				} else if (result === 1) {
+					target.trySetStatus('par', source);
+				} else {
+					target.trySetStatus('slp', source);
+				}
+			},
+		},
+		target: "normal",
+		type: "Poison",
+	},
 	dive: {
 		num: 291,
 		accuracy: 100,
@@ -3589,6 +3930,39 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {basePower: 180},
 		contestType: "Cute",
 		cfm: true,
+	},
+	doodle: {
+		num: 867,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Doodle",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		onHit(target, source, move) {
+			let success: boolean | null = false;
+			for (const pokemon of source.alliesAndSelf()) {
+				if (pokemon.ability === target.ability) continue;
+				const oldAbility = pokemon.setAbility(target.ability);
+				if (oldAbility) {
+					this.add('-ability', pokemon, target.getAbility().name, '[from] move: Doodle');
+					success = true;
+				} else if (!success && oldAbility === null) {
+					success = null;
+				}
+			}
+			if (!success) {
+				if (success === false) {
+					this.add('-fail', source);
+				}
+				this.attrLastMove('[still]');
+				return this.NOT_FAIL;
+			}
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Normal",
 	},
 	doomdesire: {
 		num: 353,
@@ -3693,6 +4067,32 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {basePower: 160},
 		contestType: "Cool",
 		cfm: true,
+	},
+	doubleshock: {
+		num: 892,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Double Shock",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Electric')) return;
+			this.add('-fail', pokemon, 'move: Double Shock');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		self: {
+			onHit(pokemon) {
+				pokemon.setType(pokemon.getTypes(true).map(type => type === "Electric" ? "???" : type));
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Double Shock');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Clever",
 	},
 	doubleslap: {
 		num: 3,
@@ -4390,6 +4790,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {basePower: 160},
 		contestType: "Cool",
 	},
+	electrodrift: {
+		num: 879,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Electro Drift",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onBasePower(basePower, source, target, move) {
+			if (target.runEffectiveness(move) > 0) {
+				// Placeholder
+				this.debug(`electro drift super effective buff`);
+				return this.chainModify([5461, 4096]);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
 	electroweb: {
 		num: 527,
 		accuracy: 100,
@@ -4651,6 +5072,28 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fire",
 		contestType: "Beautiful",
 	},
+	esperwing: {
+		num: 840,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		isNonstandard: "Unobtainable",
+		name: "Esper Wing",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		critRatio: 2,
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Psychic",
+	},
 	eternabeam: {
 		num: 795,
 		accuracy: 90,
@@ -4815,7 +5258,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Fairy Wind",
 		pp: 30,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, wind: 1},
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
@@ -5030,6 +5473,34 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Dark",
 		cfm: true,
+	},
+	filletaway: {
+		num: 868,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Fillet Away",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1},
+		onTry(source) {
+			if (source.hp <= source.maxhp / 2 || source.maxhp === 1) return false;
+		},
+		onTryHit(pokemon, target, move) {
+			if (!this.boost(move.boosts as SparseBoostsTable)) return null;
+			delete move.boosts;
+		},
+		onHit(pokemon) {
+			this.directDamage(pokemon.maxhp / 2);
+		},
+		boosts: {
+			atk: 2,
+			spa: 2,
+			spe: 2,
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
 	},
 	finalgambit: {
 		num: 515,
@@ -5448,7 +5919,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Flash Cannon",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, pulse: true},
+		flags: {protect: 1, mirror: 1, pulse: 1},
 		secondary: {
 			chance: 10,
 			boosts: {
@@ -5665,6 +6136,20 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Beautiful",
 		cfm: true,
+	},
+	flowertrick: {
+		num: 870,
+		accuracy: true,
+		basePower: 70,
+		category: "Physical",
+		name: "Flower Trick",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		willCrit: true,
+		secondary: null,
+		target: "normal",
+		type: "Grass",
 	},
 	fly: {
 		num: 19,
@@ -6087,7 +6572,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Fury Cutter",
 		pp: 20,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		condition: {
 			duration: 2,
 			onStart() {
@@ -6361,6 +6846,31 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Tough",
 		cfm: true,
 	},
+	gigatonhammer: {
+		num: 893,
+		accuracy: 100,
+		basePower: 160,
+		category: "Physical",
+		name: "Gigaton Hammer",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onDisableMove(pokemon) {
+			if (pokemon.lastMove?.id === 'gigatonhammer') pokemon.disableMove('gigatonhammer');
+		},
+		beforeMoveCallback(pokemon) {
+			if (pokemon.lastMove?.id === 'gigatonhammer') pokemon.addVolatile('gigatonhammer');
+		},
+		onAfterMove(pokemon) {
+			if (pokemon.removeVolatile('gigatonhammer')) {
+				this.add('-hint', "Some effects can force a Pokemon to use Gigaton Hammer again in a row.");
+			}
+		},
+		condition: {},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
 	gigavolthavoc: {
 		num: 646,
 		accuracy: true,
@@ -6416,6 +6926,39 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {basePower: 180},
 		contestType: "Beautiful",
 		cfm: true,
+	},
+	glaiverush: {
+		num: 862,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Glaive Rush",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		self: {
+			volatileStatus: 'glaiverush',
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				this.add('-singlemove', pokemon, 'Glaive Rush', '[silent]');
+			},
+			onAccuracy() {
+				return true;
+			},
+			onSourceModifyDamage() {
+				return this.chainModify(2);
+			},
+			onBeforeMovePriority: 100,
+			onBeforeMove(pokemon) {
+				this.debug('removing Glaive Rush drawback before attack');
+				pokemon.removeVolatile('glaiverush');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
 	},
 	glare: {
 		num: 137,
@@ -6954,7 +7497,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Gust",
 		pp: 20,
 		priority: 1,
-		flags: {protect: 1, mirror: 1, distance: 1},
+		flags: {protect: 1, mirror: 1, distance: 1, wind: 1},
 		secondary: null,
 		target: "any",
 		type: "Flying",
@@ -7116,6 +7659,25 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
+	},
+	headlongrush: {
+		num: 838,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Headlong Rush",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		self: {
+			boosts: {
+				def: -1,
+				spd: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
 	},
 	headsmash: {
 		num: 457,
@@ -7408,7 +7970,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Heat Wave",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, wind: 1},
 		secondary: {
 			chance: 10,
 			status: 'brn',
@@ -7942,12 +8504,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Hurricane",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, distance: 1},
+		flags: {protect: 1, mirror: 1, distance: 1, wind: 1},
 		onModifyMove(move, pokemon, target) {
 			switch (target?.effectiveWeather()) {
 			case 'raindance':
 			case 'primordialsea':
 			case 'hail':
+			case 'snow':
 				move.accuracy = true;
 				break;
 			case 'sunnyday':
@@ -8002,6 +8565,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 		cfm: true,
 	},
+	hydrosteam: {
+		num: 876,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Hydro Steam",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, defrost: 1},
+		// Damage boost in Sun applied in conditions.ts
+		thawsTarget: true,
+		secondary: null,
+		target: "normal",
+		type: "Water",
+	},
 	hydrovortex: {
 		num: 642,
 		accuracy: true,
@@ -8035,6 +8613,20 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Cool",
 		cfm: true,
+	},
+	hyperdrill: {
+		num: 887,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Hyper Drill",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
 	},
 	hyperfang: {
 		num: 158,
@@ -8309,6 +8901,25 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
+	icespinner: {
+		num: 861,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Ice Spinner",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onHit() {
+			this.field.clearTerrain();
+		},
+		onAfterSubDamage() {
+			this.field.clearTerrain();
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+	},
 	iciclecrash: {
 		num: 556,
 		accuracy: 100,
@@ -8354,7 +8965,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Icy Wind",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, wind: 1},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -8421,6 +9032,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fire",
 		zMove: {basePower: 100},
 		contestType: "Tough",
+	},
+	infernalparade: {
+		num: 844,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Special",
+		isNonstandard: "Unobtainable",
+		name: "Infernal Parade",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Ghost",
 	},
 	inferno: {
 		num: 517,
@@ -8650,6 +9282,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Rock",
 		cfm: true,
 	},
+	jetpunch: {
+		num: 857,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Jet Punch",
+		pp: 15,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		secondary: null,
+		hasSheerForce: true,
+		target: "normal",
+		type: "Water",
+		contestType: "Cool",
+	},
 	judgment: {
 		num: 449,
 		accuracy: 100,
@@ -8842,6 +9489,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dark",
 		contestType: "Clever",
 	},
+	kowtowcleave: {
+		num: 869,
+		accuracy: true,
+		basePower: 85,
+		category: "Physical",
+		name: "Kowtow Cleave",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+	},
 	landswrath: {
 		num: 616,
 		accuracy: true,
@@ -8947,6 +9607,22 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Cute",
 	},
+	lastrespects: {
+		num: 854,
+		accuracy: 100,
+		basePower: 50,
+		basePowerCallback(pokemon, target, move) {
+			return 50 + 50 * pokemon.side.totalFainted;
+		},
+		category: "Physical",
+		name: "Last Respects",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+	},
 	lavaplume: {
 		num: 436,
 		accuracy: 100,
@@ -8989,7 +9665,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Leaf Blade",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		critRatio: 2,
 		secondary: null,
 		target: "normal",
@@ -9412,6 +10088,42 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {boost: {evasion: 1}},
 		contestType: "Cute",
 	},
+	luminacrash: {
+		num: 855,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Lumina Crash",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -2,
+			},
+		},
+		target: "normal",
+		type: "Psychic",
+	},
+	lunarblessing: {
+		num: 849,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: "Unobtainable",
+		name: "Lunar Blessing",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		onHit(pokemon) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
+			return pokemon.cureStatus() || success;
+		},
+		secondary: null,
+		target: "allies",
+		type: "Psychic",
+	},
 	lunardance: {
 		num: 461,
 		accuracy: 100,
@@ -9501,6 +10213,23 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Beautiful",
+	},
+	magicaltorque: {
+		num: 900,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Magical Torque",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'confusion',
+		},
+		target: "normal",
+		type: "Fairy",
 	},
 	magiccoat: {
 		num: 277,
@@ -9747,6 +10476,25 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ground",
 		zMove: {basePower: 140},
 		contestType: "Tough",
+	},
+	makeitrain: {
+		num: 874,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Make It Rain",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				spa: -1,
+			},
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Steel",
+		contestType: "Beautiful",
 	},
 	maliciousmoonsault: {
 		num: 696,
@@ -10886,7 +11634,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		sideCondition: 'mist',
 		condition: {
 			duration: 5,
-			onBoost(boost, target, source, effect) {
+			onTryBoost(boost, target, source, effect) {
 				if (effect.effectType === 'Move' && effect.infiltrates && !target.isAlly(source)) return;
 				if (source && target !== source) {
 					let showMsg = false;
@@ -11078,6 +11826,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			case 'primordialsea':
 			case 'sandstorm':
 			case 'hail':
+			case 'snow':
 				factor = 0.25;
 				break;
 			}
@@ -11114,6 +11863,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			case 'primordialsea':
 			case 'sandstorm':
 			case 'hail':
+			case 'snow':
 				factor = 0.25;
 				break;
 			}
@@ -11129,6 +11879,67 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
+	},
+	mortalspin: {
+		num: 866,
+		accuracy: 100,
+		basePower: 30,
+		category: "Physical",
+		name: "Mortal Spin",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onAfterHit(target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Mortal Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Mortal Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Mortal Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Mortal Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		secondary: {
+			chance: 100,
+			status: 'psn',
+		},
+		target: "allAdjacentFoes",
+		type: "Poison",
+	},
+	mountaingale: {
+		num: 836,
+		accuracy: 85,
+		basePower: 100,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Mountain Gale",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Ice",
 	},
 	mudbomb: {
 		num: 426,
@@ -11313,6 +12124,27 @@ Water:		Scald`,
 		type: "Fire",
 		contestType: "Beautiful",
 		cfm: true,
+	},
+	mysticalpower: {
+		num: 832,
+		accuracy: 90,
+		basePower: 70,
+		category: "Special",
+		isNonstandard: "Unobtainable",
+		name: "Mystical Power",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Psychic",
 	},
 	nastyplot: {
 		num: 417,
@@ -11525,7 +12357,7 @@ Water:		Scald`,
 		name: "Night Slash",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		critRatio: 2,
 		secondary: null,
 		target: "normal",
@@ -11587,6 +12419,23 @@ Water:		Scald`,
 		secondary: null,
 		target: "self",
 		type: "Fighting",
+	},
+	noxioustorque: {
+		num: 898,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Noxious Torque",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1},
+		secondary: {
+			chance: 30,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Poison",
 	},
 	nuzzle: {
 		num: 609,
@@ -11796,6 +12645,36 @@ Water:		Scald`,
 		target: "normal",
 		type: "Ghost",
 		contestType: "Beautiful",
+	},
+	orderup: {
+		num: 856,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Order Up",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!pokemon.volatiles['commanded']) return;
+			const tatsugiri = pokemon.volatiles['commanded'].source;
+			if (tatsugiri.baseSpecies.baseSpecies !== 'Tatsugiri') return; // Should never happen
+			switch (tatsugiri.baseSpecies.forme) {
+			case 'Droopy':
+				this.boost({def: 1}, pokemon, pokemon);
+				break;
+			case 'Stretchy':
+				this.boost({spe: 1}, pokemon, pokemon);
+				break;
+			default:
+				this.boost({atk: 1}, pokemon, pokemon);
+				break;
+			}
+		},
+		secondary: null,
+		hasSheerForce: true,
+		target: "normal",
+		type: "Dragon",
 	},
 	originpulse: {
 		num: 618,
@@ -12052,7 +12931,7 @@ Water:		Scald`,
 		name: "Petal Blizzard",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, wind: 1},
 		secondary: null,
 		target: "allAdjacent",
 		type: "Grass",
@@ -12377,6 +13256,40 @@ Water:		Scald`,
 		target: "normal",
 		type: "Ghost",
 	},
+	populationbomb: {
+		num: 860,
+		accuracy: 90,
+		basePower: 20,
+		category: "Physical",
+		name: "Population Bomb",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		multihit: 10,
+		multiaccuracy: true,
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	pounce: {
+		num: 884,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Pounce",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Cute",
+	},
 	pound: {
 		num: 1,
 		accuracy: 100,
@@ -12463,6 +13376,46 @@ Water:		Scald`,
 		zMove: {basePower: 175},
 		contestType: "Beautiful",
 		cfm: true,
+	},
+	powershift: {
+		num: 829,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: "Unobtainable",
+		name: "Power Shift",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1},
+		volatileStatus: 'powershift',
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Power Shift');
+				[pokemon.storedStats.atk, pokemon.storedStats.spa,
+					pokemon.storedStats.def, pokemon.storedStats.spd] =
+				[pokemon.storedStats.def, pokemon.storedStats.spd,
+					pokemon.storedStats.atk, pokemon.storedStats.spa];
+			},
+			onCopy(pokemon) {
+				[pokemon.storedStats.atk, pokemon.storedStats.spa,
+					pokemon.storedStats.def, pokemon.storedStats.spd] =
+				[pokemon.storedStats.def, pokemon.storedStats.spd,
+					pokemon.storedStats.atk, pokemon.storedStats.spa];
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Power Shift');
+				[pokemon.storedStats.atk, pokemon.storedStats.spa,
+					pokemon.storedStats.def, pokemon.storedStats.spd] =
+				[pokemon.storedStats.def, pokemon.storedStats.spd,
+					pokemon.storedStats.atk, pokemon.storedStats.spa];
+			},
+			onRestart(pokemon) {
+				pokemon.removeVolatile('Power Shift');
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
 	},
 	powersplit: {
 		num: 471,
@@ -12748,6 +13701,25 @@ Water:		Scald`,
 		type: "Psychic",
 		contestType: "Beautiful",
 	},
+	psyblade: {
+		num: 875,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Psyblade",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		secondary: null,
+		onBasePower(basePower, source) {
+			if (this.field.isTerrain('electricterrain')) {
+				this.debug('psyblade electric terrain boost');
+				return this.chainModify(1.5);
+			}
+		},
+		target: "normal",
+		type: "Psychic",
+	},
 	psychup: {
 		num: 244,
 		accuracy: true,
@@ -12985,7 +13957,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Psycho Cut",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, slicing: 1},
 		critRatio: 2,
 		secondary: null,
 		target: "normal",
@@ -13016,6 +13988,27 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Psychic",
 		zMove: {boost: {spa: 2}},
 		contestType: "Clever",
+	},
+	psyshieldbash: {
+		num: 828,
+		accuracy: 90,
+		basePower: 70,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Psyshield Bash",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					def: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Psychic",
 	},
 	psyshock: {
 		num: 473,
@@ -13345,6 +14338,22 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Normal",
 		contestType: "Tough",
 	},
+	ragefist: {
+		num: 889,
+		accuracy: 100,
+		basePower: 50,
+		basePowerCallback(pokemon) {
+			return Math.min(350, 50 + 50 * pokemon.timesAttacked);
+		},
+		category: "Physical",
+		name: "Rage Fist",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+	},
 	ragepowder: {
 		num: 476,
 		accuracy: true,
@@ -13380,6 +14389,60 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Bug",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
+	},
+	ragingbull: {
+		num: 873,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Raging Bull",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Tauros-Paldea-Combat':
+				move.type = 'Fighting';
+				break;
+			case 'Tauros-Paldea-Blaze':
+				move.type = 'Fire';
+				break;
+			case 'Tauros-Paldea-Aqua':
+				move.type = 'Water';
+				break;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	ragingfury: {
+		num: 833,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Raging Fury",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			volatileStatus: 'lockedmove',
+		},
+		onAfterMove(pokemon) {
+			if (pokemon.volatiles['lockedmove']?.duration === 1) {
+				pokemon.removeVolatile('lockedmove');
+			}
+		},
+		secondary: null,
+		target: "randomNormal",
+		type: "Fire",
 	},
 	raindance: {
 		num: 240,
@@ -13457,7 +14520,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Razor Leaf",
 		pp: 25,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, slicing: 1},
 		critRatio: 2,
 		secondary: null,
 		target: "allAdjacentFoes",
@@ -13472,7 +14535,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Razor Shell",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		secondary: {
 			chance: 50,
 			boosts: {
@@ -13832,6 +14895,34 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Fighting",
 		zMove: {basePower: 160},
 		contestType: "Cool",
+	},
+	revivalblessing: {
+		num: 863,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Revival Blessing",
+		pp: 1,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {},
+		onTryHit(source) {
+			if (!source.side.pokemon.filter(ally => ally.fainted).length) {
+				return false;
+			}
+		},
+		slotCondition: 'revivalblessing',
+		// No this not a real switchout move
+		// This is needed to trigger a switch protocol to choose a fainted party member
+		// Feel free to refactor
+		selfSwitch: true,
+		condition: {
+			duration: 1,
+			// reviving implemented in side.ts, kind of
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
 	},
 	risingvoltage: {
 		num: 804,
@@ -14281,6 +15372,23 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Normal",
 		contestType: "Beautiful",
 	},
+	ruination: {
+		num: 877,
+		accuracy: 90,
+		basePower: 0,
+		damageCallback(pokemon, target) {
+			return this.clampIntRange(Math.floor(target.getUndynamaxedHP() / 2), 1);
+		},
+		category: "Special",
+		name: "Ruination",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
+	},
 	sacredfire: {
 		num: 221,
 		accuracy: 100,
@@ -14310,7 +15418,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Sacred Sword",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		ignoreEvasion: true,
 		ignoreDefensive: true,
 		secondary: null,
@@ -14372,6 +15480,35 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
 	},
+	saltcure: {
+		num: 864,
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		name: "Salt Cure",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Salt Cure');
+			},
+			onResidualOrder: 13,
+			onResidual(pokemon) {
+				this.damage(pokemon.baseMaxhp / (pokemon.hasType(['Water', 'Steel']) ? 4 : 8));
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Salt Cure');
+			},
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'saltcure',
+		},
+		target: "normal",
+		type: "Rock",
+	},
 	sandattack: {
 		num: 28,
 		accuracy: 100,
@@ -14390,6 +15527,23 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		zMove: {boost: {evasion: 1}},
 		contestType: "Cute",
 	},
+	sandsearstorm: {
+		num: 848,
+		accuracy: 80,
+		basePower: 100,
+		category: "Special",
+		isNonstandard: "Unobtainable",
+		name: "Sandsear Storm",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, wind: 1},
+		secondary: {
+			chance: 20,
+			status: 'brn',
+		},
+		target: "allAdjacentFoes",
+		type: "Ground",
+	},
 	sandstorm: {
 		num: 201,
 		accuracy: true,
@@ -14398,7 +15552,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Sandstorm",
 		pp: 10,
 		priority: 0,
-		flags: {},
+		flags: {wind: 1},
 		weather: 'Sandstorm',
 		secondary: null,
 		target: "all",
@@ -14884,6 +16038,44 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Psychic",
 		contestType: "Cool",
 	},
+	shedtail: {
+		num: 880,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Shed Tail",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		volatileStatus: 'substitute',
+		onTryHit(source) {
+			if (!this.canSwitch(source.side)) {
+				this.add('-fail', source);
+				return this.NOT_FAIL;
+			}
+			if (source.volatiles['substitute']) {
+				this.add('-fail', source, 'move: Shed Tail');
+				return this.NOT_FAIL;
+			}
+			if (source.hp <= Math.ceil(source.maxhp / 2)) {
+				this.add('-fail', source, 'move: Shed Tail', '[weak]');
+				return this.NOT_FAIL;
+			}
+		},
+		onHit(target) {
+			this.directDamage(Math.ceil(target.maxhp / 2));
+		},
+		self: {
+			onHit(source) {
+				source.skipBeforeSwitchOutEventFlag = true;
+			},
+		},
+		selfSwitch: 'shedtail',
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+	},
 	sheercold: {
 		num: 329,
 		accuracy: 90,
@@ -15024,6 +16216,23 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		contestType: "Tough",
 		cfm: true,
 	},
+	shelter: {
+		num: 842,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: "Unobtainable",
+		name: "Shelter",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1},
+		boosts: {
+			def: 2,
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+	},
 	shiftgear: {
 		num: 508,
 		accuracy: true,
@@ -15106,6 +16315,60 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		target: "normal",
 		type: "Bug",
 		contestType: "Beautiful",
+	},
+	silktrap: {
+		num: 852,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Silk Trap",
+		pp: 10,
+		priority: 4,
+		flags: {},
+		stallingMove: true,
+		volatileStatus: 'silktrap',
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect'] || move.category === 'Status') {
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					this.boost({spe: -1}, source, target, this.dex.getActiveMove("Silk Trap"));
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					this.boost({spe: -1}, source, target, this.dex.getActiveMove("Silk Trap"));
+				}
+			},
+		},
+		target: "self",
+		type: "Bug",
 	},
 	silverwind: {
 		num: 318,
@@ -15372,7 +16635,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		onModifyMove(move, source) {
 			if (!source.volatiles['skydrop']) {
 				move.accuracy = true;
-				move.flags.contact = 0;
+				delete move.flags['contact'];
 			}
 		},
 		onMoveFail(target, source) {
@@ -15532,7 +16795,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Slash",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, omnitype: 1, antiair: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, omnitype: 1, antiair: 1, slicing: 1},
 		onModifyMove(move, pokemon) {
 			let type = pokemon.types[0];
 			if (type === "Bird") type = "???";
@@ -15924,6 +17187,20 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Normal",
 		contestType: "Cute",
 	},
+	snowscape: {
+		num: 883,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Snowscape",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		weather: 'snow',
+		secondary: null,
+		target: "all",
+		type: "Ice",
+	},
 	soak: {
 		num: 487,
 		accuracy: 100,
@@ -15995,7 +17272,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Solar Blade",
 		pp: 10,
 		priority: 0,
-		flags: {contact: 1, charge: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, slicing: 1},
 		onBasePower(basePower, pokemon, target) {
 			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
 				this.debug('strengthened by weather');
@@ -16199,6 +17476,23 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
 	},
+	spicyextract: {
+		num: 858,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Spicy Extract",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		boosts: {
+			atk: 2,
+			def: -2,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+	},
 	spiderweb: {
 		num: 169,
 		accuracy: 100,
@@ -16336,6 +17630,24 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
 		cfm: true,
+	},
+	spinout: {
+		num: 859,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Spin Out",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				spe: -2,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
 	},
 	spiritbreak: {
 		num: 789,
@@ -16513,6 +17825,25 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Normal",
 		zMove: {boost: {spd: 1}},
 		contestType: "Cute",
+	},
+	springtidestorm: {
+		num: 831,
+		accuracy: 80,
+		basePower: 100,
+		category: "Special",
+		isNonstandard: "Unobtainable",
+		name: "Springtide Storm",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, wind: 1},
+		secondary: {
+			chance: 30,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Fairy",
 	},
 	stealthrock: {
 		num: 446,
@@ -16791,6 +18122,27 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Ground",
 		contestType: "Tough",
 		cfm: true,
+	},
+	stoneaxe: {
+		num: 830,
+		accuracy: 90,
+		basePower: 65,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Stone Axe",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		self: {
+			onHit(source) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('stealthrock');
+				}
+			},
+		},
+		secondary: {}, // allows sheer force to trigger
+		target: "normal",
+		type: "Rock",
 	},
 	stoneedge: {
 		num: 444,
@@ -17479,6 +18831,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			case 'primordialsea':
 			case 'sandstorm':
 			case 'hail':
+			case 'snow':
 				factor = 0.25;
 				break;
 			}
@@ -17575,7 +18928,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Tailwind",
 		pp: 15,
 		priority: 0,
-		flags: {snatch: 1},
+		flags: {snatch: 1, wind: 1},
 		sideCondition: 'tailwind',
 		condition: {
 			duration: 4,
@@ -17627,6 +18980,24 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		zMove: {basePower: 175},
 		contestType: "Tough",
 		cfm: true,
+	},
+	takeheart: {
+		num: 850,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: "Past",
+		name: "Take Heart",
+		pp: 15,
+		priority: 0,
+		flags: {snatch: 1},
+		onHit(pokemon) {
+			const success = !!this.boost({spa: 1, spd: 1});
+			return pokemon.cureStatus() || success;
+		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
 	},
 	tarshot: {
 		num: 749,
@@ -17890,6 +19261,29 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Psychic",
 		zMove: {effect: 'heal'},
 		contestType: "Cool",
+	},
+	terablast: {
+		num: 851,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Tera Blast",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyType(move, pokemon, target) {
+			if (pokemon.terastallized) {
+				move.type = pokemon.teraType;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.terastallized && pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+				move.category = 'Physical';
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
 	},
 	terrainpulse: {
 		num: 805,
@@ -18251,6 +19645,37 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		zMove: {boost: {def: 1}},
 		contestType: "Cute",
 	},
+	tidyup: {
+		num: 882,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Tidy Up",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		onHit(pokemon) {
+			let success = false;
+			for (const active of this.getAllActive()) {
+				if (active.removeVolatile('substitute')) success = true;
+			}
+			const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			const sides = [pokemon.side, ...pokemon.side.foeSidesWithConditions()];
+			for (const side of sides) {
+				for (const sideCondition of removeAll) {
+					if (side.removeSideCondition(sideCondition)) {
+						this.add('-sideend', side, this.dex.conditions.get(sideCondition).name);
+						success = true;
+					}
+				}
+			}
+			if (success) this.add('-activate', pokemon, 'move: Tidy Up');
+			return !!this.boost({atk: 1, spe: 1}, pokemon, pokemon, null, false, true) || success;
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+	},
 	topsyturvy: {
 		num: 576,
 		accuracy: true,
@@ -18276,6 +19701,27 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Dark",
 		zMove: {boost: {atk: 1}},
 		contestType: "Clever",
+	},
+	torchsong: {
+		num: 871,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Torch Song",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
 	},
 	torment: {
 		num: 259,
@@ -18357,6 +19803,27 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		zMove: {basePower: 160},
 		contestType: "Tough",
 		cfm: true,
+	},
+	trailblaze: {
+		num: 885,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Trailblaze",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Grass",
+		contestType: "Cool",
 	},
 	transform: {
 		num: 144,
@@ -18520,6 +19987,31 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Clever",
 	},
+	triplearrows: {
+		num: 843,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Triple Arrows",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		critRatio: 2,
+		secondaries: [
+			{
+				chance: 50,
+				boosts: {
+					def: -1,
+				},
+			}, {
+				chance: 30,
+				volatileStatus: 'flinch',
+			},
+		],
+		target: "normal",
+		type: "Fighting",
+	},
 	tripleaxel: {
 		num: 813,
 		accuracy: 95,
@@ -18536,6 +20028,20 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Ice",
 		zMove: {basePower: 175},
 		cfm: true,
+	},
+	tripledive: {
+		num: 865,
+		accuracy: 95,
+		basePower: 30,
+		category: "Physical",
+		name: "Triple Dive",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		multihit: 3,
+		secondary: null,
+		target: "normal",
+		type: "Water",
 	},
 	triplekick: {
 		num: 167,
@@ -18613,6 +20119,21 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		zMove: {basePower: 160},
 		contestType: "Cool",
 	},
+	twinbeam: {
+		num: 888,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		name: "Twin Beam",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: 2,
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Cool",
+	},
 	twineedle: {
 		num: 41,
 		accuracy: 100,
@@ -18658,7 +20179,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Twister",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, wind: 1},
 		secondary: {
 			chance: 20,
 			volatileStatus: 'flinch',
@@ -18788,6 +20309,25 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Poison",
 		zMove: {basePower: 120},
 		contestType: "Beautiful",
+	},
+	victorydance: {
+		num: 837,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: "Unobtainable",
+		name: "Victory Dance",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, dance: 1},
+		boosts: {
+			atk: 1,
+			def: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
 	},
 	vinewhip: {
 		num: 22,
@@ -19095,6 +20635,20 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		zMove: {basePower: 200},
 		contestType: "Beautiful",
 	},
+	wavecrash: {
+		num: 834,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Wave Crash",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [33, 100],
+		secondary: null,
+		target: "normal",
+		type: "Water",
+	},
 	weatherball: {
 		num: 311,
 		accuracy: 100,
@@ -19118,6 +20672,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 				move.type = 'Rock';
 				break;
 			case 'hail':
+			case 'snow':
 				move.type = 'Ice';
 				break;
 			}
@@ -19126,16 +20681,11 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 			switch (pokemon.effectiveWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
-				move.basePower *= 2;
-				break;
 			case 'raindance':
 			case 'primordialsea':
-				move.basePower *= 2;
-				break;
 			case 'sandstorm':
-				move.basePower *= 2;
-				break;
 			case 'hail':
+			case 'snow':
 				move.basePower *= 2;
 				break;
 			}
@@ -19170,7 +20720,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "Whirlwind",
 		pp: 20,
 		priority: -6,
-		flags: {reflectable: 1, mirror: 1, bypasssub: 1, allyanim: 1},
+		flags: {reflectable: 1, mirror: 1, bypasssub: 1, allyanim: 1, wind: 1},
 		forceSwitch: true,
 		secondary: null,
 		target: "normal",
@@ -19189,6 +20739,23 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		flags: {contact: 1, protect: 1, punch: 1, mirror: 1},
 		willCrit: true,
 		secondary: null,
+		target: "normal",
+		type: "Dark",
+	},
+	wickedtorque: {
+		num: 897,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		isNonstandard: "Unobtainable",
+		name: "Wicked Torque",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1},
+		secondary: {
+			chance: 10,
+			status: 'slp',
+		},
 		target: "normal",
 		type: "Dark",
 	},
@@ -19240,6 +20807,23 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		type: "Rock",
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
+	},
+	wildboltstorm: {
+		num: 847,
+		accuracy: 80,
+		basePower: 100,
+		category: "Special",
+		isNonstandard: "Unobtainable",
+		name: "Wildbolt Storm",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, wind: 1},
+		secondary: {
+			chance: 20,
+			status: 'par',
+		},
+		target: "allAdjacentFoes",
+		type: "Electric",
 	},
 	wildcharge: {
 		num: 528,
@@ -19510,7 +21094,7 @@ Speed: BP depends on the relative speeds of user and target, like Electro Ball; 
 		name: "X-Scissor",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		ignoreEvasion: true,
 		ignoreDefensive: true,
 		secondary: null,

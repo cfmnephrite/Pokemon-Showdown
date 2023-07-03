@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('../../assert').strict;
-const TeamValidator = require('../../../.sim-dist/team-validator').TeamValidator;
+const TeamValidator = require('../../../dist/sim/team-validator').TeamValidator;
 const factorySets = require('../../../data/mods/cfm/cfm-factory-sets');
 
 describe('CFM - Factory Validator', function () {

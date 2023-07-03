@@ -1,7 +1,7 @@
 import RandomGen4Teams from '../gen4/random-teams';
 import {Utils} from '../../../lib';
 import {PRNG, PRNGSeed} from '../../../sim/prng';
-import type {MoveCounter} from '../../random-teams';
+import type {MoveCounter} from '../gen8/random-teams';
 
 export class RandomGen3Teams extends RandomGen4Teams {
 	battleHasDitto: boolean;
@@ -65,7 +65,8 @@ export class RandomGen3Teams extends RandomGen4Teams {
 			return {
 				cull: (
 					counter.setupType !== 'Special' ||
-					(counter.get('Special') + counter.get('specialpool') < 2 && !moves.has('batonpass') && !restTalk)
+					(counter.get('Special') + counter.get('specialpool') < 2 && !moves.has('batonpass') &&
+					!moves.has('refresh') && !restTalk)
 				),
 				isSetup: true,
 			};
@@ -77,7 +78,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 
 		// Not very useful without their supporting moves
 		case 'amnesia': case 'sleeptalk':
-			if (moves.has('roar')) return {cull: true};
+			if (moves.has('roar') || moves.has('whirlwind')) return {cull: true};
 			if (!moves.has('rest')) return {cull: true};
 			if (movePool.length > 1) {
 				const rest = movePool.indexOf('rest');
@@ -168,7 +169,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 			return {cull: !!counter.setupType || moves.has('rest') || !!teamDetails.rapidSpin};
 		case 'reflect':
 			return {cull: !!counter.setupType || !!counter.get('speedsetup')};
-		case 'roar':
+		case 'roar': case 'whirlwind':
 			return {cull: moves.has('sleeptalk') || moves.has('rest')};
 		case 'seismictoss':
 			return {cull: !!counter.setupType || moves.has('thunderbolt')};
@@ -179,7 +180,8 @@ export class RandomGen3Teams extends RandomGen4Teams {
 			// This cull condition otherwise causes mono-solarbeam Entei
 			return {cull: restOrDD || (species.id !== 'entei' && !moves.has('batonpass') && movePool.includes('calmmind'))};
 		case 'thunderwave':
-			return {cull: !!counter.setupType || moves.has('bodyslam') || moves.has('substitute') || restTalk};
+			return {cull: !!counter.setupType || moves.has('bodyslam') ||
+				moves.has('substitute') && movePool.includes('toxic') || restTalk};
 		case 'toxic':
 			return {cull: (
 				!!counter.setupType ||
@@ -273,7 +275,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 		if ((moves.has('substitute') || moves.has('raindance')) && counter.get('Special') >= 3) return 'Petaya Berry';
 		if (counter.get('Physical') >= 4 && !moves.has('fakeout')) return 'Choice Band';
 		if (counter.get('Physical') >= 3 && !moves.has('rapidspin') && (
-			['firepunch', 'icebeam', 'overheat'].some(m => moves.has(m)) ||
+			['fireblast', 'icebeam', 'overheat'].some(m => moves.has(m)) ||
 			Array.from(moves).some(m => {
 				const moveData = this.dex.moves.get(m);
 				return moveData.category === 'Special' && types.has(moveData.type);
@@ -281,6 +283,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 		)) {
 			return 'Choice Band';
 		}
+		if (moves.has('psychoboost')) return 'White Herb';
 
 		// Default to Leftovers
 		return 'Leftovers';
@@ -357,7 +360,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 
 		do {
 			// Choose next 4 moves from learnset/viable moves and add them to moves list:
-			while (moves.size < 4 && movePool.length) {
+			while (moves.size < this.maxMoveCount && movePool.length) {
 				const moveid = this.sampleNoReplace(movePool);
 				if (moveid.startsWith('hiddenpower')) {
 					availableHP--;
@@ -367,7 +370,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 				moves.add(moveid);
 			}
 
-			while (moves.size < 4 && rejectedPool.length) {
+			while (moves.size < this.maxMoveCount && rejectedPool.length) {
 				const moveid = this.sampleNoReplace(rejectedPool);
 				if (moveid.startsWith('hiddenpower')) {
 					if (hasHiddenPower) continue;
@@ -403,7 +406,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 				const requiresStab = (
 					!counter.get('stab') &&
 					!moves.has('seismictoss') && !moves.has('nightshade') &&
-					species.id !== 'castform' &&
+					species.id !== 'castform' && species.id !== 'umbreon' &&
 					// If a Flying-type has Psychic, it doesn't need STAB
 					!(moves.has('psychic') && types.has('Flying')) &&
 					!(types.has('Ghost') && species.baseStats.spa > species.baseStats.atk) &&
@@ -433,7 +436,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 					// There may be more important moves that this Pokemon needs
 					if (
 						requiresStab ||
-						(counter.setupType && counter.get(counter.setupType) < 2) ||
+						(counter.setupType && counter.get(counter.setupType) < 2 && !moves.has('refresh')) ||
 						(moves.has('substitute') && movePool.includes('morningsun')) ||
 						['meteormash', 'spore', 'recover'].some(m => movePool.includes(m))
 					) {
@@ -482,7 +485,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 					break;
 				}
 			}
-		} while (moves.size < 4 && (movePool.length || rejectedPool.length));
+		} while (moves.size < this.maxMoveCount && (movePool.length || rejectedPool.length));
 
 		if (hasHiddenPower) {
 			let hpType;
@@ -530,14 +533,14 @@ export class RandomGen3Teams extends RandomGen4Teams {
 			UU: 84,
 			NUBL: 86,
 			NU: 88,
+			PU: 90,
 			NFE: 90,
 		};
 		const customScale: {[k: string]: number} = {
-			Ditto: 99, Unown: 99,
+			Ditto: 100, Unown: 100,
 		};
 		const tier = species.tier;
-		let level = levelScale[tier] || (species.nfe ? 90 : 80);
-		if (customScale[species.name]) level = customScale[species.name];
+		const level = this.adjustLevel || customScale[species.name] || levelScale[tier] || (species.nfe ? 90 : 80);
 
 		// Prepare optimal HP
 		let hp = Math.floor(Math.floor(2 * species.baseStats.hp + ivs.hp + Math.floor(evs.hp / 4) + 100) * level / 100 + 10);
@@ -588,6 +591,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 		const tierCount: {[k: string]: number} = {};
 		const typeCount: {[k: string]: number} = {};
 		const typeComboCount: {[k: string]: number} = {};
+		const typeWeaknesses: {[k: string]: number} = {};
 		const teamDetails: RandomTeamsTypes.TeamDetails = {};
 
 		const pokemonPool = this.getPokemonPool(type, pokemon, isMonotype);
@@ -624,6 +628,19 @@ export class RandomGen3Teams extends RandomGen4Teams {
 				}
 				if (skip) continue;
 
+				// Limit three weak to any type
+				for (const typeName of this.dex.types.names()) {
+					// it's weak to the type
+					if (this.dex.getEffectiveness(typeName, species) > 0) {
+						if (!typeWeaknesses[typeName]) typeWeaknesses[typeName] = 0;
+						if (typeWeaknesses[typeName] >= 3 * limitFactor) {
+							skip = true;
+							break;
+						}
+					}
+				}
+				if (skip) continue;
+
 				// Limit one of any type combination
 				if (!this.forceMonotype && typeComboCount[typeCombo] >= 1 * limitFactor) continue;
 			}
@@ -654,6 +671,14 @@ export class RandomGen3Teams extends RandomGen4Teams {
 				typeComboCount[typeCombo]++;
 			} else {
 				typeComboCount[typeCombo] = 1;
+			}
+
+			// Increment weakness counter
+			for (const typeName of this.dex.types.names()) {
+				// it's weak to the type
+				if (this.dex.getEffectiveness(typeName, species) > 0) {
+					typeWeaknesses[typeName]++;
+				}
 			}
 
 			// Updateeam details
