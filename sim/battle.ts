@@ -2379,7 +2379,8 @@ export class Battle {
 		if (this.gen <= 1) {
 			// in gen 1, fainting skips the rest of the turn
 			// residuals don't exist in gen 1
-			this.queue.clear();
+			if (this.gameType === 'singles')
+				this.queue.clear();
 			// Fainting clears accumulated Bide damage
 			for (const pokemon of this.getAllActive()) {
 				if (pokemon.volatiles['bide'] && pokemon.volatiles['bide'].damage) {

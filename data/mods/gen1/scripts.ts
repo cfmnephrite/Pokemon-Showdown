@@ -245,7 +245,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			const baseMove = this.battle.dex.moves.get(moveOrMoveName);
 			let move = this.battle.dex.getActiveMove(baseMove);
 			if (target === undefined) target = this.battle.getRandomTarget(pokemon, move);
-			if (move.target === 'self') {
+			if (move.target === 'self' || move.target === 'allies') {
 				target = pokemon;
 			}
 			if (sourceEffect) move.sourceEffect = sourceEffect.id;
@@ -286,15 +286,54 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			let damage: number | undefined | false | '' = false;
+			let moveResult = false;
 			if (!target || target.fainted) {
 				this.battle.attrLastMove('[notarget]');
 				this.battle.add('-notarget');
 				return true;
 			}
+
+			const {targets} = pokemon.getMoveTargets(move, target);
+			if (move.target === 'allAdjacent' || move.target === 'allAdjacentFoes') {
+				if (!targets.length) {
+					this.battle.attrLastMove('[notarget]');
+					this.battle.add('-notarget', pokemon);
+					return false;
+				}
+				if (targets.length > 1) move.spreadHit = true;
+				const hitSlots = [];
+				for (const source of targets) {
+					const hitResult = this.tryMoveHit(source, pokemon, move);
+					if (hitResult || hitResult === 0 || hitResult === undefined) {
+						moveResult = true;
+						hitSlots.push(source.getSlot());
+					}
+					if (damage) {
+						damage += hitResult || 0;
+					} else {
+						if (damage !== false || hitResult !== this.battle.NOT_FAIL) damage = hitResult;
+					}
+				}
+				if (move.spreadHit) this.battle.attrLastMove('[spread] ' + hitSlots.join(','));
+			} else {
+				target = targets[0];
+				let lacksTarget = !target || target.fainted;
+				if (!lacksTarget) {
+					if (['adjacentFoe', 'adjacentAlly', 'normal', 'randomNormal'].includes(move.target)) {
+						lacksTarget = !target.isAdjacent(pokemon);
+					}
+				}
+				if (lacksTarget && !move.flags['futuremove']) {
+					this.battle.attrLastMove('[notarget]');
+					this.battle.add('-notarget', pokemon);
+					return false;
+				}
+				damage = this.tryMoveHit(target, pokemon, move);
+				if (damage || damage === 0 || damage === undefined) moveResult = true;
+			}
+
 			// Store 0 damage for last damage if the move is not in the array.
 			if (!SKIP_LASTDAMAGE.has(move.id)) this.battle.lastDamage = 0;
-
-			damage = this.tryMoveHit(target, pokemon, move);
 
 			// Disable and Selfdestruct/Explosion boost rage, regardless of whether they miss/fail.
 			if (target.boosts.atk < 6 && (move.selfdestruct || move.id === 'disable') && target.volatiles['rage']) {
@@ -304,7 +343,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			// Go ahead with results of the used move.
-			if (damage === false) {
+			if (!moveResult) {
 				this.battle.singleEvent('MoveFail', move, null, target, pokemon, move);
 				return true;
 			}
@@ -894,6 +933,14 @@ export const Scripts: ModdedBattleScriptsData = {
 			damage = Math.floor(damage / defense);
 			damage = this.battle.clampIntRange(Math.floor(damage / 50), 0, 997);
 			damage += 2;
+
+			// Spread move damage - modified before STAB in Gen 3
+			// Spread modifiers don't affect moves that target allies and foes
+			if (move.spreadHit && move.target === 'allAdjacentFoes') {
+				const spreadModifier = move.spreadModifier || 0.5;
+				this.battle.debug('Spread modifier: ' + spreadModifier);
+				damage = this.battle.modify(damage, spreadModifier);
+			}
 
 			// STAB damage bonus, the "???" type never gets STAB
 			if (type !== '???' && source.hasType(type)) {

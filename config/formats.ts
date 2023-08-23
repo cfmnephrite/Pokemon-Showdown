@@ -896,6 +896,17 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		section: "Gen 1 VGC",
+		column: 2,
+	},
+	{
+		name: "[Gen 1] (RBY) VGC '98",
+		mod: 'gen1',
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer'],
+		banlist: ['Uber'],
+	},
+	{
 		section: "CFM Tiers",
 		column: 2,
 	},

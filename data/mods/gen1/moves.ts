@@ -12,7 +12,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				def: -1,
 			},
 		},
-		target: "normal",
 	},
 	amnesia: {
 		inherit: true,
@@ -107,7 +106,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	blizzard: {
 		inherit: true,
 		accuracy: 90,
-		target: "normal",
 	},
 	bubble: {
 		inherit: true,
@@ -117,7 +115,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				spe: -1,
 			},
 		},
-		target: "normal",
 	},
 	bubblebeam: {
 		inherit: true,
@@ -296,7 +293,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	explosion: {
 		inherit: true,
 		basePower: 170,
-		target: "normal",
 	},
 	fireblast: {
 		inherit: true,
@@ -606,12 +602,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	razorleaf: {
 		inherit: true,
 		critRatio: 2,
-		target: "normal",
 	},
 	razorwind: {
 		inherit: true,
 		critRatio: 1,
-		target: "normal",
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile('twoturnmove')) {
 				attacker.removeVolatile('invulnerability');
@@ -696,7 +690,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	rockslide: {
 		inherit: true,
 		secondary: null,
-		target: "normal",
 	},
 	rockthrow: {
 		inherit: true,
@@ -715,7 +708,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	selfdestruct: {
 		inherit: true,
 		basePower: 130,
-		target: "normal",
 	},
 	skullbash: {
 		inherit: true,
@@ -905,6 +897,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		ignoreImmunity: true,
 		basePower: 1,
+	},
+	surf: {
+		inherit: true,
+		target: "allAdjacentFoes",
 	},
 	thrash: {
 		inherit: true,
